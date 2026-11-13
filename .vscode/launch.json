@@ -17,7 +17,8 @@
       "name": "myapp (debug mode - Local only)",
       "request": "launch",
       "type": "dart",
-      "program": "lib/main.dart",
+      "program": "base_coc/lib/main.dart",
+      "cwd": "${workspaceFolder}/base_coc",
       "deviceId": "web-server",
       "args": [
         "--web-hostname=0.0.0.0",
