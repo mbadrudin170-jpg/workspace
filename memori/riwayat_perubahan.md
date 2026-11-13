@@ -4,6 +4,7 @@ Catatan kronologis perubahan proyek. Entri terbaru di atas.
 
 | Tanggal (WIB) | Perubahan |
 | ------------- | --------- |
+| Sat Nov 14 2026 06:15 | Memperbaiki `.vscode/launch.json`: `program` kembali ke `lib/main.dart` (diresolusi relatif terhadap `cwd` = `${workspaceFolder}/base_coc`), karena `base_coc/lib/main.dart` menghasilkan path ganda `base_coc/base_coc/lib/main.dart`. |
 | Sat Nov 14 2026 06:14 | Memperbaiki `.vscode/launch.json`: konfigurasi `myapp (debug mode - Local only)` kini memakai `program` = `base_coc/lib/main.dart` dan `cwd` = `${workspaceFolder}/base_coc`, karena root `workspace` bukan proyek Flutter. |
 | Sat Nov 14 2026 06:10 | Mengubah `agent.code.model` di `.kilo/kilo.jsonc` dari `openrouter/thinkingmachines/inkling-2-small:free` menjadi `kilo/particle-ai/particle-1:free`; `agent.code.variant` tetap `max`; menambah bagian `Konfigurasi Kilo (Model Agent)` di `MEMORI.md`. |
 | Sat Nov 14 2026 06:01 | Mencatat tujuan repo `base_coc` (APK penyedia base/layout Clash of Clans) di `base_coc/README.md` dan `MEMORI.md`. |
