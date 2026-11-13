@@ -51,13 +51,14 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `README.md` root — sebelumnya kosong (0 byte), kini diisi dokumentasi repositori `workspace` pada sesi 8 (2026-11-14).
 - `share_global_saya/README.md` — dibuat pada sesi 9 (2026-11-14) sebagai dokumentasi paket pustaka bersama sesuai implementasi aktual; ditautkan dari README root; perubahan di dalam submodule, belum di-commit.
 - `share_global_saya/docs/laporan_linter.md` — dibuat pada sesi 11 (2026-11-14) dari hasil `flutter analyze`: 235 temuan `info` (231 `public_member_api_docs`, 3 `discarded_futures`, 1 `avoid_print`); `base_coc` bersih. Dokumen memuat rencana penanganan per berkas dan contoh perbaikan; belum diimplementasikan dan belum di-commit.
+- `refrensi_apk.md` root — dibuat pada sesi 14 (2026-11-14) berisi analisa 10 APK kompetitor: rekomendasi fitur baru, optimasi fitur eksisting, pola UI/UX/layout, katalog, prioritas, verifikasi, dan sumber; status 10 listing di `apk_kompetitor.md` diubah menjadi `Sudah Dianalisa`.
 - `MEMORI.md` dan `memori/` dibuat pada sesi 1 (2026-11-14); sebelumnya belum ada.
 - `.kilo/commands/perbarui_readme.md` — diperluas pada sesi 12 (2026-11-14) agar memperbarui `README.md` root **dan** README setiap submodule (daftar dibaca dinamis dari `.gitmodules`); `.kilo/` ter-`.gitignore`, perubahan hanya di working tree.
 
 ## Riset Kompetitor
 
 - Berkas katalog: `apk_kompetitor.md` (root proyek), dibuat sesi 10 (2026-11-14).
-- Berkas analisa: `refrensi_apk.md` (root proyek), dibuat sesi 12 (2026-11-14) dari 10 APK berstatus `Belum Dianalisa`.
+- Berkas analisa: `refrensi_apk.md` (root proyek), dibuat sesi 14 (2026-11-14) dari 10 APK berstatus `Belum Dianalisa`.
 - Total listing: 159 baris data; 10 listing `Sudah Dianalisa`, 149 listing `Belum Dianalisa`.
 - Listing yang sudah dianalisa: CPU-Z, AIDA64, Device Info HW, DevCheck, Device Info: System & CPU Info, Test Your Android, Display Tester, Battery Guru, AccuBattery, Sensors Toolbox (seluruhnya Google Play Store).
 - Sebaran: Google Play Store 53 (10 sudah dianalisa; 43 belum), F-Droid 21, GitHub 16, Apple App Store 39, Samsung Galaxy Store 14, Mi/GetApps 9, APKPure 3, Aptoide 4.
