@@ -49,6 +49,13 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `base_coc/README.md` — default Flutter README dikosongkan pengguna, lalu diisi ulang versi minimal oleh agent (sesi_2, 2026-11-14); perubahan di dalam submodule, belum di-commit.
 - `MEMORI.md` dan `memori/` dibuat pada sesi 1 (2026-11-14); sebelumnya belum ada.
 
+## Konfigurasi Kilo (Model Agent)
+
+- Sumber kebenaran: `.kilo/kilo.jsonc` (ter-`.gitignore`, jangan dianggap bagian git tree).
+- Model global: `model`, `small_model`, `subagent_model` = `kilo/kilo-auto/free`.
+- `agent.code`: `model` = `kilo/particle-ai/particle-1:free`, `variant` = `max` (per 2026-11-14, sesi 5; sebelumnya `openrouter/thinkingmachines/inkling-2-small:free`).
+- Perubahan model agent hanya dilakukan atas permintaan eksplisit pengguna dengan konfirmasi sebelum eksekusi; bagian config lain (permission, instructions, skills.paths, agent lain) tidak diubah.
+
 ## Konvensi & Sumber Kebenaran
 
 - `AGENTS.md` = gabungan berkas aturan di `.agents/rules/` (jangan edit `AGENTS.md` manual bila sumbernya di `.agents/rules/`; regenerasi bila ada tooling).
