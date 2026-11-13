@@ -7,7 +7,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - Nama proyek: `workspace`
 - Path: `/home/muhamadbadrudin1000/workspace`
 - Remote git: `https://github.com/mbadrudin170-jpg/workspace.git` (branch utama: `main`)
-- Jenis: repositori pengumpul konfigurasi lintas-proyek milik pengguna (aturan AI agent, skill, snippet VS Code, alias/skrip bash, submodule proyek Flutter). Tujuan persis proyek tidak dijelaskan dalam README root; deskripsi ditulis berdasarkan isi aktual.
+- Jenis: repositori pengumpul konfigurasi lintas-proyek milik pengguna (aturan AI agent, skill, snippet VS Code, alias/skrip bash, submodule proyek Flutter). `README.md` root kini mendokumentasikan tujuan, struktur, komponen, dan status repositori berdasarkan isi aktual (diperbarui 2026-11-14, sesi 8).
 - Platform pengembangan: Linux (bash), editor VS Code/Code OSS, Kilo (kode agent) sebagai agent AI.
 - Proyek Flutter `berhenti_merokok` (yang dirujuk beberapa skill) **tidak ditemukan** di mesin ini per 2026-11-14.
 
@@ -28,7 +28,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 | `.vscode/` | Snippet kode (`*.code-snippets`), `settings.json`, `launch.json`, `mcp.json` |
 | `.kilo/` | Konfigurasi Kilo proyek (`kilo.jsonc`, commands, prompts) — di-ignore lewat `.gitignore` |
 | `base_coc/` | **Submodule** — proyek Flutter untuk membuat APK penyedia base/layout Clash of Clans (`https://github.com/mbadrudin170-jpg/base_coc.git`) |
-| `share_global_saya/` | **Submodule** — snapshot berbagi global (`https://github.com/mbadrudin170-jpg/share_global_saya.git`) |
+| `share_global_saya/` | **Submodule** — pustaka Flutter bersama (utils, widget, logging) (`https://github.com/mbadrudin170-jpg/share_global_saya.git`) |
 
 ## Aturan Operasional di Mesin Ini
 
@@ -47,8 +47,23 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - Commit `29a2f81` (2026-11-13 22:53 UTC, pesan "a", di luar sesi ini) memuat restrukturisasi `.agents/skills/` → subfolder `custom/` dan `bawaan/`; berkas-berkas yang sebelumnya tampak `D`/`M` kini sudah ter-commit.
 - `.dart_tool/` tidak ter-ignore (`.gitignore` hanya berisi `.kilo/`) — jangan `git add .` membabi buta.
 - `m share_global_saya` — submodule memiliki perubahan isi yang belum di-pointer-update; jangan di-commit tanpa perintah pengguna.
-- `base_coc/README.md` — default Flutter README dikosongkan pengguna, lalu diisi ulang versi minimal oleh agent (sesi_2, 2026-11-14); perubahan di dalam submodule, belum di-commit.
+- `base_coc/README.md` — diperbarui pada sesi 8 (2026-11-14) menjadi dokumentasi lengkap sesuai implementasi aktual (masih template `flutter create`, fitur penyedia base belum tersedia); perubahan di dalam submodule, belum di-commit.
+- `README.md` root — sebelumnya kosong (0 byte), kini diisi dokumentasi repositori `workspace` pada sesi 8 (2026-11-14).
+- `share_global_saya/README.md` — dibuat pada sesi 9 (2026-11-14) sebagai dokumentasi paket pustaka bersama sesuai implementasi aktual; ditautkan dari README root; perubahan di dalam submodule, belum di-commit.
+- `share_global_saya/docs/laporan_linter.md` — dibuat pada sesi 11 (2026-11-14) dari hasil `flutter analyze`: 235 temuan `info` (231 `public_member_api_docs`, 3 `discarded_futures`, 1 `avoid_print`); `base_coc` bersih. Dokumen memuat rencana penanganan per berkas dan contoh perbaikan; belum diimplementasikan dan belum di-commit.
 - `MEMORI.md` dan `memori/` dibuat pada sesi 1 (2026-11-14); sebelumnya belum ada.
+- `.kilo/commands/perbarui_readme.md` — diperluas pada sesi 12 (2026-11-14) agar memperbarui `README.md` root **dan** README setiap submodule (daftar dibaca dinamis dari `.gitmodules`); `.kilo/` ter-`.gitignore`, perubahan hanya di working tree.
+
+## Riset Kompetitor
+
+- Berkas katalog: `apk_kompetitor.md` (root proyek), dibuat sesi 10 (2026-11-14).
+- Berkas analisa: `refrensi_apk.md` (root proyek), dibuat sesi 12 (2026-11-14) dari 10 APK berstatus `Belum Dianalisa`.
+- Total listing: 159 baris data; 10 listing `Sudah Dianalisa`, 149 listing `Belum Dianalisa`.
+- Listing yang sudah dianalisa: CPU-Z, AIDA64, Device Info HW, DevCheck, Device Info: System & CPU Info, Test Your Android, Display Tester, Battery Guru, AccuBattery, Sensors Toolbox (seluruhnya Google Play Store).
+- Sebaran: Google Play Store 53 (10 sudah dianalisa; 43 belum), F-Droid 21, GitHub 16, Apple App Store 39, Samsung Galaxy Store 14, Mi/GetApps 9, APKPure 3, Aptoide 4.
+- Oppo App Market dan Uptodown belum memiliki listing terverifikasi (tidak ada URL detail publik yang stabil; Uptodown mengembalikan HTTP 410).
+- Acuan riset: `README.md` (Spektra — info spesifikasi, monitoring hardware, dan diagnostik perangkat) dan skill `riset-kompetitor` (satu store per iterasi, verifikasi independen, status per baris).
+
 
 ## Konfigurasi Kilo (Model Agent)
 
@@ -69,6 +84,12 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `MEMORI.md` — dokumen ini (root proyek).
 - `memori/sesi/sesi_N.md` — catatan per sesi (nomor tertinggi + 1; gap tidak diisi; diarsipkan permanen).
 - `memori/riwayat_perubahan.md` — riwayat perubahan proyek.
+
+## Hasil Diskusi
+
+- Lokasi: `hasil_diskusi/` di root proyek (dibuat 2026-11-14, sesi 12).
+- Daftar berkas: `diskusi_1.md` — perluasan cakupan command `perbarui_readme.md` ke README submodule (status Final, sudah diimplementasikan).
+- Nomor tertinggi: 1.
 
 ## Catatan untuk Model Selanjutnya
 
