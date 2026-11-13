@@ -27,7 +27,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 | `bash_aliases.sh` | Kumpulan alias bash (build, flutter, git, monitoring, supabase) |
 | `.vscode/` | Snippet kode (`*.code-snippets`), `settings.json`, `launch.json`, `mcp.json` |
 | `.kilo/` | Konfigurasi Kilo proyek (`kilo.jsonc`, commands, prompts) — di-ignore lewat `.gitignore` |
-| `base_coc/` | **Submodule** — proyek Flutter base (`https://github.com/mbadrudin170-jpg/base_coc.git`) |
+| `base_coc/` | **Submodule** — proyek Flutter untuk membuat APK penyedia base/layout Clash of Clans (`https://github.com/mbadrudin170-jpg/base_coc.git`) |
 | `share_global_saya/` | **Submodule** — snapshot berbagi global (`https://github.com/mbadrudin170-jpg/share_global_saya.git`) |
 
 ## Aturan Operasional di Mesin Ini
