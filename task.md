@@ -30,9 +30,10 @@
 
 #### Task 3
 
-- Status : belum
+- Status : selesai
 - Masalah : `SKILLS_INDEX.md` perlu diperbarui setelah skill audit dibuat (entri skill `cek-kesehatan-sistem-kerja` belum tercatat).
 - Solusi : Tambahkan entri skill `cek-kesehatan-sistem-kerja` ke `SKILLS_INDEX.md` di section `custom`, dengan format yang konsisten dengan entri lain (nomor, path, Trigger, Status diperbarui).
 - aturan dilanggar : —
 - file bermasalah : `SKILLS_INDEX.md` (perlu penambahan entri)
 - prompt : hanya diisi oleh saya
+- catatan implementasi : `SKILLS_INDEX.md` diperbarui — entri `5. .agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md` ditambahkan di section `custom` (Trigger dan Status `diperbarui` mengikuti frontmatter `SKILL.md`), penomoran `custom` 1–59 disinkronkan. Verifikasi: jumlah entri `custom` 59 = jumlah folder `custom` 59; section `bawaan` (33 entri) tidak berubah. Cadangan berkas tersimpan di `.backup_task/SKILLS_INDEX.md.bak`.
