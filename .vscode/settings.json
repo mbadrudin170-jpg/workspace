@@ -1,2 +1,5 @@
 {
+  "github-actions.workflows.pinned.workflows": [
+    "base_coc/.github/workflows/build-apk.yml"
+  ]
 }
