@@ -168,10 +168,7 @@
   "disabled_providers": [],
   "provider": {},
   "skills": {
-    "paths": [
-      ".agents/skills/custom",
-      ".agents/skills"
-    ]
+    "paths": [".agents/skills/custom", ".agents/skills"]
   },
   "retention": {
     "enabled": true
