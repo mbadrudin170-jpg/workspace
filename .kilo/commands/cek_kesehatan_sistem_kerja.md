@@ -1,12 +1,12 @@
 ---
-description: Mengaudit kesehatan sistem kerja proyek secara read-only (struktur folder, SKILLS_INDEX.md, frontmatter skill, command, memori sesi, repositori, dan hasil diskusi) lalu melaporkan temuan GALAT/PERINGATAN di sesi.
+description: Mengaudit kesehatan sistem kerja proyek (struktur folder, SKILLS_INDEX.md, frontmatter skill, command, memori sesi, repositori, hasil diskusi, dan kelengkapan `instructions`) lalu melaporkan temuan GALAT/PERINGATAN di sesi; read-only kecuali penambahan berkas yang belum terdaftar ke `instructions`.
 ---
 
 # Cek Kesehatan Sistem Kerja
 
 ## Tujuan
 
-Command ini mengaudit kesehatan sistem kerja proyek (aset pendukung agen AI: aturan, skill, command, memori, hasil diskusi, dan repositori) untuk memastikan kondisi konsisten dan tidak rusak. Command ini **read-only**: tidak membuat, mengubah, atau menghapus berkas apa pun. Laporan temuan disampaikan hanya di sesi.
+Command ini mengaudit kesehatan sistem kerja proyek (aset pendukung agen AI: aturan, skill, command, memori, hasil diskusi, repositori, dan kelengkapan `instructions`) untuk memastikan kondisi konsisten dan tidak rusak. Command ini **read-only dengan satu pengecualian**: bila ada berkas wajib (`.agents/rules/**/*.md`, `AGENTS.md`, `SKILLS_INDEX.md`) yang belum terdaftar di `instructions` pada `.kilo/kilo.jsonc`, berkas tersebut **ditambahkan otomatis** oleh command ini. Laporan temuan disampaikan hanya di sesi.
 
 ## Ketentuan Umum
 
@@ -20,7 +20,7 @@ Command ini mengaudit kesehatan sistem kerja proyek (aset pendukung agen AI: atu
 ## Parameter
 
 - `$ARGUMENTS` (opsional): aset atau path yang ingin diperiksa (mis. `skill`, `command`, `memori`).
-- Jika `$ARGUMENTS` kosong: periksa ketujuh aset audit.
+- Jika `$ARGUMENTS` kosong: periksa kedelapan aset audit.
 - Jika `$ARGUMENTS` tidak dikenali: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
 
 ## Cakupan Audit (Tujuh Aset)
@@ -34,10 +34,11 @@ Periksa aset berikut secara berurutan. Jika suatu aset tidak relevan atau berkas
 5. **Kesehatan memori sesi** — berkas `memori/sesi/sesi_N.md` yang berstatus `Belum Sinkron` (di luar sesi aktif bila dapat diidentifikasi), ketidakkonsistenan penomoran/penamaan, atau status sinkronisasi yang tidak jelas; periksa juga keselarasan tanggal/status pada `MEMORI.md` bila relevan.
 6. **Kesehatan repositori** — kondisi yang teramati dari `git status`/struktur (submodule, pointer submodule yang tidak sinkron, berkas ter-ignore yang seharusnya diabaikan, atau anomali `.gitignore` vs working tree) **tanpa** menjalankan operasi yang mengubah state git.
 7. **Penomoran `hasil_diskusi/`** — berkas `diskusi_N.md` mengikuti penomoran yang konsisten (nomor tertinggi, gap, duplikasi nama), dan pencatatan daftar/nomor tertinggi di `MEMORI.md` selaras dengan isi folder aktual.
+8. **Kelengkapan `instructions`** — setiap berkas `.agents/rules/**/*.md` (rekursif), `AGENTS.md` di root, dan `SKILLS_INDEX.md` wajib terdaftar di `instructions` pada `.kilo/kilo.jsonc`. Bila ada yang belum terdaftar, **tambahkan otomatis** sebagai entri baru (satu baris per berkas, path relatif root) dan catat sebagai temuan `GALAT` yang sudah diperbaiki; bila `.kilo/kilo.jsonc` tidak ada, tidak dapat dibaca, atau gagal tervalidasi setelah ditulis, laporkan sebagai `GALAT` tanpa memakai jalur lain. Lihat aturan `.agents/rules/global/instructions_lengkap.md`.
 
 ## Alur Kerja
 
-1. **Inventarisasi**: kumpulkan daftar berkas/folder yang relevan untuk ketujuh aset menggunakan `glob`/`grep`/`read` seperlunya.
+1. **Inventarisasi**: kumpulkan daftar berkas/folder yang relevan untuk kedelapan aset menggunakan `glob`/`grep`/`read` seperlunya.
 2. **Pemeriksaan per aset**: jalankan pemeriksaan 1–7 di atas; untuk setiap temuan catat: aset, tingkat (`GALAT` atau `PERINGATAN`), path/objek terdampak, bukti singkat, dan saran perbaikan.
 3. **Klasifikasi tingkat**:
    - `GALAT`: ketidaksesuaian yang melanggar aturan/konsistensi dan berpotensi menyebabkan perilaku salah atau data tidak dapat dipercaya (mis. frontmatter wajib hilang, entri indeks menunjuk berkas tidak ada, tautan/rujukan target tidak ada, status sinkron sesi tertinggal).
