@@ -104,6 +104,7 @@
   "instructions": [
     "AGENTS.md",
     ".agents/rules/global",
+    ".agents/rules/global/alur_git_commit.md",
     ".agents/rules/global/aturan_skill.md",
     ".agents/rules/global/format_PRD.md",
     ".agents/rules/global/format_hasil_diskusi.md",
