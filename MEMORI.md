@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Sat Nov 14 2026 16:27 WIB (sesi 42)
+Diperbarui: Sat Nov 14 2026 16:38 WIB (sesi 45)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -58,6 +58,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `share_global_saya/README.md` — dibuat pada sesi 9 (2026-11-14) sebagai dokumentasi paket pustaka bersama sesuai implementasi aktual; ditautkan dari README root; perubahan di dalam submodule, belum di-commit.
 - `share_global_saya/docs/laporan_linter.md` — dibuat pada sesi 11 (2026-11-14) dari hasil `flutter analyze`: 235 temuan `info` (231 `public_member_api_docs`, 3 `discarded_futures`, 1 `avoid_print`); `base_coc` bersih. Dokumen memuat rencana penanganan per berkas dan contoh perbaikan; belum diimplementasikan dan belum di-commit.
 - `refrensi_apk.md` root — pada sesi 19 (2026-11-14) ditulis ulang untuk aplikasi sasaran `base_coc` (penyedia base/layout Clash of Clans) berisi analisa 10 APK Google Play Store: 15 rekomendasi fitur baru, 2 arahan kualitas pra-implementasi, 10 pola UI/UX, katalog, prioritas gabungan, verifikasi, dan sumber. Sebelumnya berkas ini berisi analisa 10 APK Spektra (sesi 14) dan dikosongkan pengguna sebelum sesi 19.
+- PRD `prd/prd_katalog_lokal_offline.md` (item A4 katalog lokal offline) dibuat dan difinalisasi pada sesi 44; status dokumen `Final`, status implementasi `Belum Diimplementasikan` karena sesi ini hanya membuat PRD dan tidak melakukan perubahan kode atau implementasi fitur. Fondasi yang sudah ada hanya dicatat sebagai hasil pemeriksaan sumber, bukan implementasi sesi ini. Item A4 pada `refrensi_apk.md` ditandai sudah dibuatkan PRD.
 - `apk_kompetitor.md` — pada sesi 20 (2026-11-14) ditambahkan 54 listing baru berstatus `Belum Dianalisa` dari Google Play Store (18), GitHub (1), Apple App Store (32), dan APKPure (3); katalog kini memuat 64 listing (10 `Sudah Dianalisa`, 54 `Belum Dianalisa`).
 - `MEMORI.md` dan `memori/` dibuat pada sesi 1 (2026-11-14); sebelumnya belum ada.
 - `.kilo/commands/perbarui_readme.md` — diperluas pada sesi 12 (2026-11-14) agar memperbarui `README.md` root **dan** README setiap submodule (daftar dibaca dinamis dari `.gitmodules`); `.kilo/` ter-`.gitignore`, perubahan hanya di working tree.
@@ -74,6 +75,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - Listing baru sesi 38 (18): Play Store — BaseVault for Clash of Clans (`com.apphubnow.basedrop`), Cockit – Clash Base Layouts (`com.heyisoft.cockit`); GitHub — Clash Trackers (`Killersparrow1/clash-Trackers`); Apple App Store — COC Baselinks (6790808297), Cockit – Clash Base Layouts (6760241444), Clash of Helper (6636552878), Keepwatch for Clash of Clans (6828926176), Database for Clash of Clans™ (unofficial) (898757582), House of Clashers: Clash Guide (653987498); APKPure — Hall Base Layouts for Clash (`com.hall.editor`), COC Base Layouts Clash of Maps (`com.sb.newclashmaps2020`), Clash of Maps - Base, Layouts (`com.akstudio.clashofmaps`), Maps of Clash of Clans 2026 (`com.moonstudio.mapcoc`); Aptoide (section baru, verifikasi via hasil pencarian karena HTTP 403 anti-bot) — Clash Base Layout | Quick Copy, Cocbases, Clash of Maps - Base, Layouts, Pro Clash of Maps Base Layouts, Maps of Clash of Clans 2026.
 - Store nihil temuan pada sesi 38 (dicatat di `apk_kompetitor.md`): F-Droid, Samsung Galaxy Store (`galaxy.store` tidak dapat diakses), Mi/GetApps (konten dirender JS, tanpa link aplikasi spesifik), Oppo App Market, Uptodown (HTTP 410), IzzyOnDroid (index 200, tidak ada paket `clash` relevan), Amazon Appstore, SlideME (403), Huawei AppGallery (503), Tencent MyApp.
 - Listing yang sudah dianalisa: COC Base Layouts Design links, COC Base Layouts:Clash of Maps, Coc Base Layout 2026, clashOFbase, Maps For COC Base Layouts 2026, Base Drop, Map Layout Links Base for COC, ClasherPro, CoC Base Maps 2026, Notificlash.
+- Status PRD item A4: `prd/prd_katalog_lokal_offline.md` tersedia dan `refrensi_apk.md` ditandai sudah dibuatkan PRD; status implementasi adalah `Belum Diimplementasikan`.
 - Katalog lama 159 listing bertema Spektra (sesi 10/14) dikosongkan pengguna sebelum sesi 19 dan tidak dipakai ulang.
 - `apk_serupa.md` tidak ditemukan di root proyek; lingkup riset mengikuti `apk_kompetitor.md` sesuai perintah pengguna.
 - Acuan riset: `base_coc/README.md` (masih template Flutter; fitur penyedia base belum ada) dan skill `riset-kompetitor`.
@@ -105,7 +107,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 ## Hasil Diskusi
 
 - Lokasi: `hasil_diskusi/` di root proyek (dibuat 2026-11-14, sesi 12).
-- Daftar berkas: `diskusi_1.md` — perluasan cakupan command `perbarui_readme.md` ke README submodule (status Final, sudah diimplementasikan); `diskusi_2.md` — sistem kerja global: alur Git & commit (Conventional Commits + Trunk-based) (status Final, sudah diimplementasikan sebagian); `diskusi_3.md` — lanjutan: PR, review, tag, changelog, pengecualian, submodule (status Final, sebagian diimplementasikan); `diskusi_4.md` — penambahan tanggal diperbarui pada `MEMORI.md` dan instruksi di skill `memori-check` (status Final, belum diimplementasikan); `diskusi_5.md` — analisa mengapa agen AI tidak menggunakan mockito saat membuat test, plus rekomendasi R-1..R-5 (status Final, belum diimplementasikan); `diskusi_6.md` — praktik skrip shell: chmod, alias, variabel argumen (status Draft, belum diimplementasikan).
+- Daftar berkas: `diskusi_1.md` — perluasan cakupan command `perbarui_readme.md` ke README submodule (status Final, sudah diimplementasikan); `diskusi_2.md` — sistem kerja global: alur Git & commit (Conventional Commits + Trunk-based) (status Final, sudah diimplementasikan sebagian); `diskusi_3.md` — lanjutan: PR, review, tag, changelog, pengecualian, submodule (status Final, sebagian diimplementasikan); `diskusi_4.md` — penambahan tanggal diperbarui pada `MEMORI.md` dan instruksi di skill `memori-check` (status Final, belum diimplementasikan); `diskusi_5.md` — analisa mengapa agen AI tidak menggunakan mockito saat membuat test, plus rekomendasi R-1..R-5 (status Final, belum diimplementasikan); `diskusi_6.md` — praktik skrip shell: chmod, alias, variabel argumen (status Final, belum diimplementasikan).
 - Nomor tertinggi: 6.
 
 ## Catatan untuk Model Selanjutnya

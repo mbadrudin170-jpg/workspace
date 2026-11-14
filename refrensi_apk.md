@@ -69,6 +69,7 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Referensi:** [Notificlash: Tracker for CoC](https://play.google.com/store/apps/details?id=com.efertre.notificapp), [Coc Base Layout 2026](https://play.google.com/store/apps/details?id=com.cocbase.net)
 - **Saran:** mulai dengan katalog yang dibundel sebagai aset JSON dan gambar lokal; sediakan mekanisme pembaruan katalog versi berikutnya (unduh berkas atau repositori data) tanpa mengubah aplikasi.
 - **Prioritas:** Tinggi.
+- **Status PRD:** Sudah dibuatkan PRD. Lihat `prd/prd_katalog_lokal_offline.md`.
 
 ### Prioritas Sedang
 

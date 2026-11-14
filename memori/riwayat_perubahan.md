@@ -2,6 +2,9 @@
 
 Catatan kronologis perubahan proyek. Entri terbaru di atas.
 
+| Sat Nov 14 2026 16:38 | Mengoreksi status implementasi PRD `prd/prd_katalog_lokal_offline.md` menjadi `Belum Diimplementasikan` karena sesi sebelumnya hanya membuat PRD dan tidak mengubah kode Dart; memperbarui `MEMORI.md` (sesi 45). |
+| Sat Nov 14 2026 16:35 | Membuat dan memfinalisasi PRD `prd/prd_katalog_lokal_offline.md` untuk item A4 `refrensi_apk.md` (katalog lokal offline), memeriksa implementasi katalog provider/model/assets/state UI/test, menandai A4 sebagai sudah dibuatkan PRD, serta memperbarui `MEMORI.md` (sesi 44). Tidak ada kode Dart yang diubah. |
+| Sat Nov 14 2026 16:29 | Selesaikan `hasil_diskusi/diskusi_6.md` (Draft → Final): tetapkan K-1 (alias semua skrip `.sh` di `script/` tanpa alias) dan K-2 (`chmod +x` otomatis saat pembuatan skrip baru), tutup Pertanyaan Terbuka, perbarui Tindak Lanjut. Memperbarui `MEMORI.md` (tanggal → sesi 43) dan membuat `memori/sesi/sesi_43.md`. Tidak ada kode Dart yang diubah. |
 | Sat Nov 14 2026 16:27 | Membuat `hasil_diskusi/diskusi_6.md` (Draft) dan `memori/sesi/sesi_42.md` — diskusi praktik skrip shell: chmod, alias, variabel argumen. Menambahkan `diskusi_6.md` ke daftar Hasil Diskusi di `MEMORI.md` (nomor tertinggi 6). Memperbarui `MEMORI.md` dan `memori/sesi/sesi_42.md`. Tidak ada kode Dart yang diubah. |
 | Sat Nov 14 2026 16:16 | Menata ulang `docs/model_agents.md` (sesi 41): H1 menjadi `# List Model` dan daftar model dipindah ke bagian atas (isi model tidak berubah). Memperbarui `MEMORI.md` dan membuat `memori/sesi/sesi_41.md`. Tidak ada kode Dart yang diubah. |
 
