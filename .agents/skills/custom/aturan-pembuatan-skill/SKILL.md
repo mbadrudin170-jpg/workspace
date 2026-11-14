@@ -123,7 +123,7 @@ metadata:
 # Skill
 
 Contoh diambil dari perubahan yang belum di-commit.
-````
+```
 
 ```dart
 // DILARANG: nama folder pakai huruf besar/underscore, front matter tidak lengkap,
