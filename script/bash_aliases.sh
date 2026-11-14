@@ -112,7 +112,7 @@ alias port='sudo netstat -tulpn | grep -E ":(8080|8081)"'
 # NAVIGATION
 # ============================================
 alias c='clear'
-alias global="cd cd ~/workspace/share_global_saya"
+alias global="cd ~/workspace/share_global_saya"
 alias apk="cd ~/workspace/base_coc"
 alias utama="cd ~/workspace"
 
