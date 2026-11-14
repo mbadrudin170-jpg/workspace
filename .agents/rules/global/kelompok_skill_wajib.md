@@ -2,7 +2,7 @@
 
 ## Ringkasan
 
-Berkas ini merangkum kelompok skill yang wajib dirujuk untuk tiap jenis pekerjaan pada proyek milik pengguna. Setiap kelompok menyatakan bahwa semua proyek wajib menggunakan teknologi tertentu beserta daftar skill `.agents/skills/custom/<nama>/SKILL.md` yang harus dimuat bersamaan — Riverpod, SQLite, Freezed, model/state yang harus punya method dan getter (wajib Freezed), Testing, dan UI (gaya/tema). Setiap nama skill berupa tautan klikable ke berkas `SKILL.md`-nya. Sumber kebenaran daftar skill dan trigger tetap `SKILLS_INDEX.md`.
+Berkas ini merangkum kelompok skill yang wajib dirujuk untuk tiap jenis pekerjaan pada proyek milik pengguna. Setiap kelompok menyatakan bahwa semua proyek wajib menggunakan teknologi tertentu beserta daftar skill `.agents/skills/custom/<nama>/SKILL.md` yang harus dimuat bersamaan — Riverpod, SQLite, Freezed, model/state yang harus punya method dan getter (wajib Freezed), model database (konstanta nama tabel/kolom, bukan string literal manual), provider dengan fungsi CRUD (wajib Notifier), Testing, dan UI (gaya/tema). Setiap nama skill berupa tautan klikable ke berkas `SKILL.md`-nya. Sumber kebenaran daftar skill dan trigger tetap `SKILLS_INDEX.md`.
 
 - semua proyek saya wajib menggunakan riverpod maka gunakan skill:
   - [riverpod-pola](../../skills/custom/riverpod-pola/SKILL.md)
@@ -21,6 +21,9 @@ Berkas ini merangkum kelompok skill yang wajib dirujuk untuk tiap jenis pekerjaa
 - semua model dan state yang harus punya method dan getter wajib pakai freezed maka gunakan skill:
   - [model-state-freezed-abstract](../../skills/custom/model-state-freezed-abstract/SKILL.md)
   - [build-runner-codegen](../../skills/custom/build-runner-codegen/SKILL.md)
+- semua model database jangan ditulis manual (nama tabel/kolom) wajib pakai konstanta, bukan string literal, maka gunakan skill:
+  - [penamaan-konstanta-snake-case](../../skills/custom/penamaan-konstanta-snake-case/SKILL.md)
+  - [migrasi-skema-sqlite](../../skills/custom/migrasi-skema-sqlite/SKILL.md)
 - semua proyek saya wajib menggunakan testing maka gunakan skill:
   - [pola-testing](../../skills/custom/pola-testing/SKILL.md)
   - [build-runner-codegen](../../skills/custom/build-runner-codegen/SKILL.md)
