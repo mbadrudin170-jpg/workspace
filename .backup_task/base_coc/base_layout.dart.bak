@@ -1,0 +1,198 @@
+import 'dart:convert';
+
+import 'package:base_coc/fitur/galeri_base/model/katalog_exception.dart';
+
+/// Level Town Hall pada Clash of Clans.
+enum TownHallLevel {
+  th4,
+  th5,
+  th6,
+  th7,
+  th8,
+  th9,
+  th10,
+  th11,
+  th12,
+  th13,
+  th14,
+  th15,
+  th16,
+  th17,
+  th18,
+}
+
+/// Level Builder Hall pada Clash of Clans.
+enum BuilderHallLevel { bh1, bh2, bh3, bh4, bh5, bh6, bh7, bh8, bh9, bh10 }
+
+/// Tipe base berdasarkan tujuan pertahanan.
+enum TipeBase { war, farming, trophy, hybrid, cwl, ring, box, island }
+
+/// Tag strategi pertahanan lanjutan untuk base.
+enum TagStrategi { anti3Star, antiAir, antiGround, anti2Star, cwl }
+
+/// Label ramah pengguna untuk [TagStrategi].
+extension TagStrategiLabel on TagStrategi {
+  String get label => switch (this) {
+    TagStrategi.anti3Star => 'Anti 3★',
+    TagStrategi.antiAir => 'Anti Udara',
+    TagStrategi.antiGround => 'Anti Darat',
+    TagStrategi.anti2Star => 'Anti 2★',
+    TagStrategi.cwl => 'CWL',
+  };
+}
+
+/// Model data satu layout base.
+class BaseLayout {
+  const BaseLayout({
+    required this.id,
+    required this.townHall,
+    required this.tipe,
+    required this.thumbnailPath,
+    required this.baseLink,
+    this.detailImagePath,
+    this.builderHall,
+    this.tags = const <TagStrategi>[],
+  });
+
+  final String id;
+  final TownHallLevel townHall;
+  final TipeBase tipe;
+  final String thumbnailPath;
+  final String baseLink;
+  final String? detailImagePath;
+  final BuilderHallLevel? builderHall;
+  final List<TagStrategi> tags;
+
+  /// Path gambar preview untuk layar detail.
+  /// Mengembalikan [detailImagePath] jika tersedia, sinonnya [thumbnailPath].
+  String get previewImagePath => detailImagePath ?? thumbnailPath;
+
+  /// Membuat [BaseLayout] dari JSON dengan validasi yang ketat.
+  /// Melempar [KatalogGagalException] bila field wajib tidak valid atau
+  /// enum tidak dikenali; jangan pernah mengembalikan `null` atau default.
+  factory BaseLayout.fromJson(Map<String, dynamic> json) {
+    final id = json['id'];
+    if (id is! String || id.trim().isEmpty) {
+      throw KatalogGagalException(
+        'Field "id" wajib berupa string tidak kosong.',
+      );
+    }
+
+    final thRaw = json['townHall'];
+    if (thRaw is! String) {
+      throw KatalogGagalException(
+        'Field "townHall" pada id "$id" tidak valid.',
+      );
+    }
+    final townHall = TownHallLevel.values.firstWhere(
+      (e) => e.name == thRaw,
+      orElse: () => throw KatalogGagalException(
+        'Nilai townHall "$thRaw" pada id "$id" tidak dikenali.',
+      ),
+    );
+
+    final tipeRaw = json['tipe'];
+    if (tipeRaw is! String) {
+      throw KatalogGagalException('Field "tipe" pada id "$id" tidak valid.');
+    }
+    final tipe = TipeBase.values.firstWhere(
+      (e) => e.name == tipeRaw,
+      orElse: () => throw KatalogGagalException(
+        'Nilai tipe "$tipeRaw" pada id "$id" tidak dikenali.',
+      ),
+    );
+
+    final thumb = json['thumbnailPath'];
+    if (thumb is! String) {
+      throw KatalogGagalException(
+        'Field "thumbnailPath" pada id "$id" tidak valid.',
+      );
+    }
+
+    final link = json['baseLink'];
+    if (link is! String || link.trim().isEmpty) {
+      throw KatalogGagalException(
+        'Field "baseLink" pada id "$id" wajib berupa URL tidak kosong.',
+      );
+    }
+
+    String? detailImagePath;
+    final detailRaw = json['detailImagePath'];
+    if (detailRaw != null) {
+      if (detailRaw is! String) {
+        throw KatalogGagalException(
+          'Field "detailImagePath" pada id "$id" tidak valid.',
+        );
+      }
+      detailImagePath = detailRaw.isEmpty ? null : detailRaw;
+    }
+
+    BuilderHallLevel? builderHall;
+    final bhRaw = json['builderHall'];
+    if (bhRaw != null) {
+      if (bhRaw is! String) {
+        throw KatalogGagalException(
+          'Field "builderHall" pada id "$id" tidak valid.',
+        );
+      }
+      builderHall = BuilderHallLevel.values.firstWhere(
+        (e) => e.name == bhRaw,
+        orElse: () => throw KatalogGagalException(
+          'Nilai builderHall "$bhRaw" pada id "$id" tidak dikenali.',
+        ),
+      );
+    }
+
+    final tagsRaw = json['tags'];
+    final tags = <TagStrategi>[];
+    if (tagsRaw != null) {
+      if (tagsRaw is! List) {
+        throw KatalogGagalException(
+          'Field "tags" pada id "$id" harus berupa array.',
+        );
+      }
+      for (final t in tagsRaw) {
+        if (t is! String) {
+          throw KatalogGagalException('Nilai tag pada id "$id" tidak valid.');
+        }
+        tags.add(
+          TagStrategi.values.firstWhere(
+            (e) => e.name == t,
+            orElse: () => throw KatalogGagalException(
+              'Nilai tag "$t" pada id "$id" tidak dikenali.',
+            ),
+          ),
+        );
+      }
+    }
+
+    return BaseLayout(
+      id: id,
+      townHall: townHall,
+      tipe: tipe,
+      thumbnailPath: thumb,
+      baseLink: link,
+      detailImagePath: detailImagePath,
+      builderHall: builderHall,
+      tags: tags,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'townHall': townHall.name,
+      'tipe': tipe.name,
+      'thumbnailPath': thumbnailPath,
+      'baseLink': baseLink,
+      'detailImagePath': detailImagePath,
+      'builderHall': builderHall?.name,
+      'tags': tags.map((t) => t.name).toList(),
+    };
+  }
+
+  String get labelTownHall => townHall.name.toUpperCase();
+
+  @override
+  String toString() => jsonEncode(toJson());
+}

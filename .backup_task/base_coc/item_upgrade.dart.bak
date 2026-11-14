@@ -1,0 +1,97 @@
+import 'package:base_coc/fitur/upgrade_progress/model/kategori_upgrade.dart';
+import 'package:base_coc/fitur/upgrade_progress/model/nama_tabel_progres.dart';
+
+/// Satu item upgrade pada Clash of Clans beserta progres menuju level target.
+class ItemUpgrade {
+  const ItemUpgrade({
+    required this.kategori,
+    required this.nama,
+    required this.levelSaatIni,
+    required this.levelTarget,
+    this.sisaWaktu,
+    this.sisaSumberDaya,
+  });
+
+  /// Membuat [ItemUpgrade] dari baris tabel `progres` SQLite.
+  factory ItemUpgrade.fromSqflite(Map<String, Object?> row) {
+    final kategori =
+        kategoriUpgradeDariNama(row['kategori'] as String?) ??
+        KategoriUpgrade.bangunan;
+    final sisaDetik = row['sisa_detik'] as int?;
+    return ItemUpgrade(
+      kategori: kategori,
+      nama: (row['nama'] as String?)?.trim() ?? '',
+      levelSaatIni: (row['level_saat_ini'] as num?)?.toInt() ?? 0,
+      levelTarget: (row['level_target'] as num?)?.toInt() ?? 0,
+      sisaWaktu: sisaDetik != null && sisaDetik > 0
+          ? Duration(seconds: sisaDetik)
+          : null,
+      sisaSumberDaya: (row['sisa_sumber_daya'] as num?)?.toInt(),
+    );
+  }
+
+  /// Kategori upgrade (bangunan, hero, hewan peliharaan, pasukan, mantra, equipment, tembok).
+  final KategoriUpgrade kategori;
+
+  /// Nama item (mis. "Archer Tower", "Barbarian King", "Dragon").
+  final String nama;
+
+  /// Level item saat ini.
+  final int levelSaatIni;
+
+  /// Level target maksimum sesuai Town Hall/Builder Hall saat ini.
+  final int levelTarget;
+
+  /// Sisa waktu upgrade yang sedang berjalan (null bila tidak sedang upgrade).
+  final Duration? sisaWaktu;
+
+  /// Sisa sumber daya (emas/elixir/dark elixir) menuju level target (null bila tidak diketahui).
+  final int? sisaSumberDaya;
+
+  /// Progress level menuju target dalam rentang 0.0–1.0.
+  double get persentaseLevel {
+    if (levelTarget <= 0) {
+      return 0.0;
+    }
+    return (levelSaatIni / levelTarget).clamp(0.0, 1.0);
+  }
+
+  /// `true` bila item sudah mencapai atau melewati level target.
+  bool get sudahMaksimal => levelSaatIni >= levelTarget;
+
+  /// Mengubah [ItemUpgrade] menjadi map kolom SQLite (tanpa `tag_pemain`).
+  Map<String, Object?> toSqflite() {
+    return <String, Object?>{
+      'kategori': kategori.name,
+      'nama': nama,
+      'level_saat_ini': levelSaatIni,
+      'level_target': levelTarget,
+      'sisa_detik': sisaWaktu?.inSeconds,
+      'sisa_sumber_daya': sisaSumberDaya,
+    };
+  }
+
+  ItemUpgrade copyWith({
+    KategoriUpgrade? kategori,
+    String? nama,
+    int? levelSaatIni,
+    int? levelTarget,
+    Duration? sisaWaktu,
+    int? sisaSumberDaya,
+  }) {
+    return ItemUpgrade(
+      kategori: kategori ?? this.kategori,
+      nama: nama ?? this.nama,
+      levelSaatIni: levelSaatIni ?? this.levelSaatIni,
+      levelTarget: levelTarget ?? this.levelTarget,
+      sisaWaktu: sisaWaktu ?? this.sisaWaktu,
+      sisaSumberDaya: sisaSumberDaya ?? this.sisaSumberDaya,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'ItemUpgrade(kategori: $kategori, nama: $nama, '
+        'level: $levelSaatIni/$levelTarget, sisaWaktu: $sisaWaktu)';
+  }
+}

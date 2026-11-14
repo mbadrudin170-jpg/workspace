@@ -1,0 +1,78 @@
+import 'package:base_coc/fitur/upgrade_progress/model/nama_tabel_progres.dart';
+
+/// Akun desa Clash of Clans yang diimpor dari Data Export tanpa login.
+class AkunDesa {
+  const AkunDesa({
+    required this.tagPemain,
+    required this.namaDesa,
+    required this.townHall,
+    this.builderHall,
+    required this.waktuImporTerakhir,
+  });
+
+  /// Membuat [AkunDesa] dari baris tabel `akun_desa` SQLite.
+  factory AkunDesa.fromSqflite(Map<String, Object?> row) {
+    return AkunDesa(
+      tagPemain: (row[NamaKolomAkunDesa.tagPemain] as String?)?.trim() ?? '',
+      namaDesa:
+          (row[NamaKolomAkunDesa.namaDesa] as String?)?.trim() ?? 'Tanpa Nama',
+      townHall: (row[NamaKolomAkunDesa.townHall] as num?)?.toInt() ?? 1,
+      builderHall: (row[NamaKolomAkunDesa.builderHall] as num?)?.toInt(),
+      waktuImporTerakhir:
+          DateTime.tryParse(
+            row[NamaKolomAkunDesa.waktuImporTerakhir] as String? ?? '',
+          )?.toLocal() ??
+          DateTime.now(),
+    );
+  }
+
+  /// Tag pemain unik dari Data Export (mis. `#2PP0Q8YUV`), menjadi kunci utama.
+  final String tagPemain;
+
+  /// Nama desa yang tampil dari Data Export.
+  final String namaDesa;
+
+  /// Level Town Hall saat ini (1–18).
+  final int townHall;
+
+  /// Level Builder Hall saat ini (1–10, null bila belum ada).
+  final int? builderHall;
+
+  /// Waktu lokal terakhir kali Data Export diimpor.
+  final DateTime waktuImporTerakhir;
+
+  /// Mengubah [AkunDesa] menjadi map kolom tabel `akun_desa` SQLite.
+  Map<String, Object?> toSqflite() {
+    return <String, Object?>{
+      NamaKolomAkunDesa.tagPemain: tagPemain,
+      NamaKolomAkunDesa.namaDesa: namaDesa,
+      NamaKolomAkunDesa.townHall: townHall,
+      NamaKolomAkunDesa.builderHall: builderHall,
+      NamaKolomAkunDesa.waktuImporTerakhir: waktuImporTerakhir
+          .toUtc()
+          .toIso8601String(),
+    };
+  }
+
+  AkunDesa copyWith({
+    String? tagPemain,
+    String? namaDesa,
+    int? townHall,
+    int? builderHall,
+    DateTime? waktuImporTerakhir,
+  }) {
+    return AkunDesa(
+      tagPemain: tagPemain ?? this.tagPemain,
+      namaDesa: namaDesa ?? this.namaDesa,
+      townHall: townHall ?? this.townHall,
+      builderHall: builderHall ?? this.builderHall,
+      waktuImporTerakhir: waktuImporTerakhir ?? this.waktuImporTerakhir,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'AkunDesa(tag: $tagPemain, nama: $namaDesa, '
+        'TH: $townHall, BH: $builderHall)';
+  }
+}

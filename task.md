@@ -1,43 +1,3 @@
-# Kelompok 1
-
-## file terdampak
-
-- (.kilo/commands/cek_kesehatan_sistem_kerja.md)[.kilo/commands/cek_kesehatan_sistem_kerja.md]
-- (.agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md)[.agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md]
-- (SKILLS_INDEX.md)[SKILLS_INDEX.md]
-
-## Tinggi
-
-#### Task 1
-
-- Status : selesai
-- Masalah : Command audit kesehatan sistem kerja `.kilo/commands/cek_kesehatan_sistem_kerja.md` belum ada meskipun sudah direncanakan dalam K-5 hasil diskusi 8.
-- Solusi : Buat berkas command baru `.kilo/commands/cek_kesehatan_sistem_kerja.md` dengan frontmatter `description`, instruksi memuat skill terkait (`aturan-pembuatan-skill`, `pembuatan-command-kilo`, `bug-runtime`), alur kerja bertahap (audit tujuh aset: struktur folder/berkas wajib, konsistensi `SKILLS_INDEX.md`, metadata frontmatter skill, validasi command, kesehatan memori sesi, kesehatan repositori, penomoran `hasil_diskusi/`), larangan mengubah berkas (audit read-only sesuai K-3), dan format laporan temuan `GALAT`/`PERINGATAN` yang disampaikan hanya di sesi.
-- aturan dilanggar : format_hasil_diskusi.md (K-3 audit read-only), pembuatan-command-kilo SKILL.md (aturan command Kilo)
-- file bermasalah : `.kilo/commands/cek_kesehatan_sistem_kerja.md` (belum ada)
-- prompt : hanya diisi oleh saya
-- catatan implementasi : Berkas `.kilo/commands/cek_kesehatan_sistem_kerja.md` dibuat (frontmatter `description`, ketentuan umum memuat skill `aturan-pembuatan-skill`/`pembuatan-command-kilo`/`bug-runtime`, cakupan 7 aset, alur kerja, format laporan GALAT/PERINGATAN, dan larangan read-only). `.kilo/` ter-ignore git.
-
-#### Task 2
-
-- Status : selesai
-- Masalah : Skill prosedur audit kesehatan sistem kerja `.agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md` belum ada meskipun sudah direncanakan dalam K-5 hasil diskusi 8.
-- Solusi : Buat berkas SKILL.md baru `.agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md` sebagai prosedur portabel (cakupan, aturan/kriteria valid, langkah, larangan, contoh benar/salah, sumber evaluasi) agar dapat dipakai lintas proyek. Ikuti aturan-pembuatan-skill SKILL.md (front matter YAML, section wajib, trigger-only, bahasa Indonesia, nama folder kebab-case).
-- aturan dilanggar : aturan-pembuatan-skill SKILL.md (front matter, section wajib, kebab-case nama folder)
-- file bermasalah : `.agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md` (belum ada)
-- prompt : hanya diisi oleh saya
-- catatan implementasi : Berkas `.agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md` dibuat (frontmatter lengkap, segmen `Trigger:` di `description`, section wajib, prosedur audit read-only 7 aset, sumber `hasil_diskusi/diskusi_8.md`). Folder dan penamaan mengikuti aturan-pembuatan-skill.
-
-#### Task 3
-
-- Status : selesai
-- Masalah : `SKILLS_INDEX.md` perlu diperbarui setelah skill audit dibuat (entri skill `cek-kesehatan-sistem-kerja` belum tercatat).
-- Solusi : Tambahkan entri skill `cek-kesehatan-sistem-kerja` ke `SKILLS_INDEX.md` di section `custom`, dengan format yang konsisten dengan entri lain (nomor, path, Trigger, Status diperbarui).
-- aturan dilanggar : —
-- file bermasalah : `SKILLS_INDEX.md` (perlu penambahan entri)
-- prompt : hanya diisi oleh saya
-- catatan implementasi : `SKILLS_INDEX.md` diperbarui — entri `5. .agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md` ditambahkan di section `custom` (Trigger dan Status `diperbarui` mengikuti frontmatter `SKILL.md`), penomoran `custom` 1–59 disinkronkan. Verifikasi: jumlah entri `custom` 59 = jumlah folder `custom` 59; section `bawaan` (33 entri) tidak berubah. Cadangan berkas tersimpan di `.backup_task/SKILLS_INDEX.md.bak`.
-
 # Kelompok 2
 
 ## file terdampak
@@ -52,49 +12,40 @@
 
 #### Task 4
 
-- Status : belum
+- Status : selesai
 - Masalah : Model dan state pada commit base_coc `2297549`/`aa8488b` (`AkunDesa`, `ItemUpgrade`, `ProgresUpgrade`, `ProgresKategori`, `ProgresDesaState`) dan `BaseLayout` (getter baru `previewImagePath`, commit `aa8488b`) ditulis sebagai `class` biasa yang memuat getter/method/`copyWith` — tidak memakai `@freezed`, dan `base_coc/pubspec.yaml` tidak memasang `freezed`, `freezed_annotation`, maupun `build_runner`. Enum `KategoriUpgrade` diparse dari kolom database dengan string matching manual (`kategoriUpgradeDariNama` pada `nama_tabel_progres.dart`, serta `row['kategori'] as String?` langsung pada `item_upgrade.dart`), bukan `ParserUtil.safeParseEnum`; tidak ada `ParserUtil` di `base_coc` (berkas dirujuk skill berada di `share_global_saya/lib/src/utils/parser_util.dart` dan `base_coc` tidak depend pada `share_global_saya`). Field int dari database diparse dengan cast manual (`as num?)?.toInt() ?? 0`, bukan `ParserUtil.parseInt`/`parseIntOrNull`.
 - Solusi : Tambahkan `freezed_annotation` (dependencies) serta `freezed` dan `build_runner` (dev_dependencies) pada `base_coc/pubspec.yaml`; ubah setiap model/state menjadi `abstract class` beranotasi `@freezed` dengan mixin `_$Nama`, `const Nama._();` untuk getter/method, `factory Nama.fromJson`/`.fromSqflite`, dan `toSqflite()`; parse enum dengan `ParserUtil.safeParseEnum(KategoriUpgrade.values, ParserUtil.parseStringOrNull(row[...]))` dengan fallback default valid; gunakan `ParserUtil.parseInt`/`parseIntOrNull` untuk field int. Bila keputusan pengguna adalah `base_coc` tetap tanpa codegen Freezed (pola yang sudah dipakai sesi 67 untuk favorit), catat pengecualian itu eksplisit pada `.agents/rules/global/kelompok_skill_wajib.md` / skill terkait, bukan mendiamkan ketidaksesuaian. Contoh: `abstract class AkunDesa with _$AkunDesa { const AkunDesa._(); const factory AkunDesa({...}) = _AkunDesa; factory AkunDesa.fromSqflite(Map<String, Object?> row) => ...; Map<String, Object?> toSqflite() => ...; }` lalu `dart run build_runner build --delete-conflicting-outputs`.
 - aturan dilanggar : kelompok_skill_wajib (kelompok "semua model dan state yang harus punya method dan getter wajib pakai freezed" dan kelompok "semua proyek saya wajib menggunakan freezed"), model-state-freezed-abstract (aturan 1, 5, 7, 8, 10; larangan "memparse enum dari database dengan cast/string matching langsung tanpa `ParserUtil.safeParseEnum`" dan "melakukan parsing `dynamic` dari database secara langsung tanpa `ParserUtil`")
 - file bermasalah : akun_desa.dart, item_upgrade.dart, progres_upgrade.dart, progres_provider.dart (ProgresDesaState), base_layout.dart
 - prompt : hanya diisi oleh saya
-- catatan implementasi : belum dikerjakan. Konteks: `base_coc` memang sengaja memakai provider manual tanpa codegen Riverpod (favorit_provider, sesi 67) dan tidak depend pada `share_global_saya`; penambahan codegen adalah keputusan pengguna. Commit terdampak: `2297549`, `aa8488b`.
+- catatan implementasi : selesai (keputusan pengguna via `question`: "Terapkan codegen penuh"). `base_coc/pubspec.yaml` memasang `freezed_annotation` + `riverpod_annotation` (dependencies) dan `freezed` + `build_runner` + `riverpod_generator` (dev_dependencies, urut abjad). `AkunDesa`, `ItemUpgrade`, `ProgresKategori`, `ProgresUpgrade`, `ProgresDesaState`, dan `BaseLayout` kini `@freezed abstract class` dengan `const Nama._()`, `const factory`, serta getter/method di body; `fromJson`/`toJson` BaseLayout dan validasi ketat `KatalogGagalException` dipertahankan. `ParserUtil` lokal baru `base_coc/lib/core/util/parser_util.dart` (`parseDateTime`, `parseInt`, `parseIntOrNull`, `parseStringOrNull`, `safeParseEnum`); `kategoriUpgradeDariNama` mendelegasikan ke `ParserUtil.safeParseEnum`; field int/enum database memakai `ParserUtil` (nullable tetap `null`). Berkas generate (`*.freezed.dart`, `*.g.dart`) dibuat via `build_runner` dan tidak diedit manual. Verifikasi: `dart format` (0 perubahan tersisa), `dart analyze` bersih, `flutter test` 42/42 lulus.
 
 #### Task 5
 
-- Status : belum
+- Status : selesai
 - Masalah : `ItemUpgrade.fromSqflite`/`toSqflite` (commit `2297549`) menulis nama kolom sebagai string literal (`'kategori'`, `'nama'`, `'level_saat_ini'`, `'level_target'`, `'sisa_detik'`, `'sisa_sumber_daya'`) alih-alih memakai konstanta `NamaKolomProgres` yang sudah didefinisikan pada `nama_tabel_progres.dart` (konstanta itu sendiri sudah dipakai oleh `ProgresDao` dan `AkunDesa`). Nilai literal cocok dengan skema, jadi ini pelanggaran bentuk (bukan mismatch), tetapi aturan mewajibkan konstanta, bukan string manual.
 - Solusi : Ganti seluruh string literal kolom pada `ItemUpgrade` dengan konstanta `NamaKolomProgres`: `row[NamaKolomProgres.sisaDetik] as int?`, `'kategori'` → `NamaKolomProgres.kategori`, `'nama'` → `NamaKolomProgres.nama`, `'level_saat_ini'` → `NamaKolomProgres.levelSaatIni`, `'level_target'` → `NamaKolomProgres.levelTarget`, `'sisa_sumber_daya'` → `NamaKolomProgres.sisaSumberDaya`.
 - aturan dilanggar : kelompok_skill_wajib (kelompok "semua model database jangan ditulis manual (nama tabel/kolom) wajib pakai konstanta, bukan string literal"), penamaan-konstanta-snake-case (nilai konstanta wajib cocok dengan skema/migrasi SQLite)
 - file bermasalah : item_upgrade.dart
 - prompt : hanya diisi oleh saya
-- catatan implementasi : belum dikerjakan.
+- catatan implementasi : selesai. Seluruh akses kolom `ItemUpgrade.fromSqflite`/`toSqflite` memakai konstanta `NamaKolomProgres` (`kategori`, `nama`, `levelSaatIni`, `levelTarget`, `sisaDetik`, `sisaSumberDaya`); tidak ada string literal nama kolom tersisa. Nilai konstanta tetap cocok dengan skema `SqfliteOpener`. Verifikasi `dart analyze` bersih dan `flutter test` 42/42 lulus.
 
 #### Task 6
 
-- Status : belum
+- Status : selesai
 - Masalah : `ProgresNotifier` (commit `2297549`) dibuat `extends StateNotifier<AsyncValue<ProgresDesaState>>` dan provider utama memakai `StateNotifierProvider` dari `package:flutter_riverpod/legacy.dart` pada `flutter_riverpod` 3.5.0. Pola wajib menurut skill `riverpod-pola` dan `notifier-crud-database` (aturan 1) adalah notifier `@Riverpod(keepAlive: true)` (class `extends _$ProgresNotifier`, `build()` memanggil `_ambilSemua()`, CRUD memperbarui state setelah operasi DB berhasil, menangkap `Exception` lalu `rethrow`) dengan codegen `riverpod_generator`. `base_coc` tidak memasang `riverpod_generator`/`riverpod_annotation` (commit `2297549`/`b927ac3`), sehingga kode tidak mengikuti pola standar — `FavoritNotifier` (commit `b927ac3`) juga manual (`AsyncNotifier` tanpa codegen).
 - Solusi : Dua opsi — (a) pasang `riverpod_annotation` dan `riverpod_generator` pada `base_coc`, ubah `ProgresNotifier` menjadi `@Riverpod(keepAlive: true) class ProgresNotifier extends _$ProgresNotifier { @override Future<ProgresDesaState> build() => _ambilSemua(); ... }` (dan `FavoritNotifier` mengikuti), lalu `build_runner`; atau (b) atas keputusan pengguna, catat pengecualian `base_coc` (provider Riverpod manual tanpa codegen, tanpa `NotifierProvider`/`keepAlive` codegen) secara eksplisit pada aturan/skill `riverpod-pola` atau `kelompok_skill_wajib.md` agar selaras. Jangan membiarkan selisih ini tanpa keputusan. Catatan positif: `state` diperbarui setelah operasi DB berhasil, `daftarAkun`/`progres` tidak diubah sebelum DB selesai, dan callback `_muat()` menangkap `Exception` lalu menyimpan `AsyncValue.error` — hanya pola deklarasi provider/notifier yang menyimpang.
 - aturan dilanggar : kelompok_skill_wajib (kelompok "semua provider (state) wajib dibuat dengan Riverpod" dan "semua provider yang bisa punya fungsi CRUD wajib dijadikan notifier" — implementasi harus mengikuti pola Riverpod standar), riverpod-pola, notifier-crud-database (aturan 1: notifier database wajib `@Riverpod(keepAlive: true)`)
 - file bermasalah : progres_provider.dart, favorit_provider.dart
 - prompt : hanya diisi oleh saya
-- catatan implementasi : belum dikerjakan. Konteks: `base_coc` memang sengaja memakai provider manual tanpa codegen (sesi 67: `FavoritNotifier` "base_coc tanpa codegen Riverpod"); opsi (a)/(b) menunggu keputusan pengguna. Commit terdampak: `2297549`, `b927ac3`.
-
-# Kelompok 3
-
-## file terdampak
-
-- (base_coc/lib/fitur/upgrade_progress/screen/progres_desa_screen.dart)[base_coc/lib/fitur/upgrade_progress/screen/progres_desa_screen.dart]
-- (base_coc/lib/fitur/upgrade_progress/widget/ringkasan_kategori.dart)[base_coc/lib/fitur/upgrade_progress/widget/ringkasan_kategori.dart]
-
-## Tinggi
+- catatan implementasi : selesai (keputusan pengguna via `question`: "Terapkan codegen penuh"). `ProgresNotifier` kini `@Riverpod(keepAlive: true)` `extends _$ProgresNotifier` dengan `build()` memanggil `_ambilSemua()`; `ProgresDesaState` menjadi `@freezed`; provider `progresProvider` dihasilkan `riverpod_generator` (bukan `StateNotifierProvider` legacy). `FavoritNotifier` juga dikonversi menjadi `@Riverpod(keepAlive: true)` dengan `build()` memanggil `_ambilSemua()`, `toggle` memperbarui state setelah DB berhasil, menangkap `Exception` + `debugPrint` lalu `rethrow`; provider `favoritProvider` dihasilkan codegen. `_muat()` mempertahankan `AsyncValue.loading` → data/error. `progresDaoProvider`, `databaseProvider`, `dbHelperProvider`, `favoritDaoProvider` tetap `Provider`/`FutureProvider` manual (bukan CRUD) dan tetap dapat di-override test. Berkas generate `*.freezed.dart`/`*.g.dart` dibuat via `build_runner`. Verifikasi: `dart format`, `dart analyze` bersih, `flutter test` 42/42 lulus (termasuk `favorit_provider_test`).
 
 #### Task 7
 
-- Status : belum
+- Status : selesai
 - Masalah : Logika `_formatDurasi(Duration)` ditulis tiga kali dengan implementasi yang identik pada commit `2297549`: pada `_ProgresDesaScreenState` (`progres_desa_screen.dart`), pada `RingkasanKategoriCard` dan pada `DaftarItemUpgrade` (`ringkasan_kategori.dart`). Ketiganya memformat hari/jam/menit dengan aturan tampilan yang sama.
 - Solusi : Ekstraksi ke satu lokasi bersama (helper murni tanpa `BuildContext`/provider, atau ekstensi `Duration`), mis. `extension FormatDurasi on Duration { String toTeksSingkat() { ... } }` pada berkas `lib/fitur/upgrade_progress/util/durasi_format.dart`; ketiga pemanggil wajib memakainya. Contoh keluaran tetap: `hari > 0` → `'3h 5j 20m'`; `jam > 0` → `'2j 15m'`; selain itu → `'45m'`.
 - aturan dilanggar : ekstraksi-perhitungan-turunan (aturan 1–3: perhitungan yang sama di lebih dari satu layar wajib diekstrak ke satu lokasi bersama; konsumen wajib memakai hasil dari lokasi bersama)
 - file bermasalah : progres_desa_screen.dart, ringkasan_kategori.dart
 - prompt : hanya diisi oleh saya
-- catatan implementasi : belum dikerjakan. Commit terdampak: `2297549`.
+- catatan implementasi : selesai. Helper baru `base_coc/lib/fitur/upgrade_progress/util/durasi_format.dart` berisi `extension FormatDurasi on Duration { String toTeksSingkat(); }` (murni, tanpa `BuildContext`/provider). Tiga implementasi lokal `_formatDurasi` dihapus; `_ProgresDesaScreenState`, `RingkasanKategoriCard`, dan `DaftarItemUpgrade` memakai `toTeksSingkat()` dengan keluaran identik (`3h 5j 20m`, `2j 15m`, `45m`). Verifikasi `dart analyze` bersih dan `flutter test` 42/42 lulus.

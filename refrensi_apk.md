@@ -1,16 +1,17 @@
 # Referensi APK Kompetitor base_coc
 
-Laporan referensi dari 30 APK kompetitor yang terdaftar di `apk_kompetitor.md` dan berstatus `Belum Dianalisa`/`Sudah Dianalisa`. Fokus laporan: fitur yang dapat ditambahkan, arahan optimasi, serta pola UI/UX/layout yang dapat dijadikan pembanding. Seluruh rekomendasi dibatasi pada fitur yang dapat berjalan di mobile Android. Batch 1 (10 APK) dilaporkan sebelumnya; batch 2 (10 APK tambahan) ditambahkan pada pembaruan yang sama; batch 3 (10 APK terverifikasi ulang/dianalisa 2026-11-14) ditambahkan pada pembaruan ini.
+Laporan referensi dari 40 APK kompetitor yang terdaftar di `apk_kompetitor.md` dan berstatus `Belum Dianalisa`/`Sudah Dianalisa`. Fokus laporan: fitur yang dapat ditambahkan, arahan optimasi, serta pola UI/UX/layout yang dapat dijadikan pembanding. Seluruh rekomendasi dibatasi pada fitur yang dapat berjalan di mobile Android. Batch 1 (10 APK) dilaporkan sebelumnya; batch 2 (10 APK tambahan) ditambahkan pada pembaruan yang sama; batch 3 (10 APK terverifikasi ulang/dianalisa 2026-11-14) ditambahkan pada pembaruan sebelumnya; batch 4 (10 APK, sesi 103, 2026-11-15 WIB) ditambahkan pada pembaruan ini.
 
 ## Informasi Riset
 
-- Tanggal riset: 2026-11-14 (WIB); batch 2 ditambahkan pada pembaruan yang sama; batch 3 (10 APK sesi 93, 2026-11-14) diverifikasi dan dianalisa pada pembaruan ini.
+- Tanggal riset: 2026-11-14 (WIB); batch 2 ditambahkan pada pembaruan yang sama; batch 3 (10 APK sesi 93, 2026-11-14) dan batch 4 (10 APK sesi 103, 2026-11-15 WIB) diverifikasi dan dianalisa pada pembaruan masing-masing.
 - Aplikasi sasaran: `base_coc`, aplikasi penyedia base/layout Clash of Clans (submodule Flutter pada repositori `workspace`).
-- Lingkup: 30 APK dari `apk_kompetitor.md`; 10 APK batch 1 + 10 APK batch 2 + 10 APK batch 3 (hanya baris `Status Analisa = Belum Dianalisa` saat dianalisa).
-- Alasan pemilihan 10 listing batch 3 (lintas store dan fitur, mengikuti aturan skill `riset-kompetitor` #30): `COC Base Links – Clash Layouts` (katalog + army links + kalkulator), `Clash Champs: Pro Base Layouts` (base pro juara dunia + ARMY IQ), `Clash Base Pedia` (komunitas + tag anti), `Clashlayout` (komunitas rewards), `Ultimate Pro Base Layouts` (akses offline bookmark), `ClashPrime` (open source, Base Library), `Coc-Base-Layout` (open source), `Base Atlas` (gamifikasi kreator + moderasi otomatis), `Keepwatch` (impor Data Export + timeline), `Clash of Helper` (multi-akun + grid/list + smart search). Listing APKPure/Aptoide dilewati karena merupakan mirror package id listing Google Play yang sudah tercantum (`com.sb.newclashmaps2020`, `com.akstudio.clashofmaps`, `com.moonstudio.mapcoc`, `com.hall.editor`, `com.coc.cocbases`). `COC Baselinks` (Apple App Store id6790808297) tidak dipilih terpisah karena package id (`com.rpekka.cocbaselinks`) sama dengan `COC Base Links – Clash Layouts` yang sudah direpresentasikan batch 3.
+- Lingkup: 40 APK dari `apk_kompetitor.md`; 10 APK batch 1 + 10 APK batch 2 + 10 APK batch 3 + 10 APK batch 4 (hanya baris `Status Analisa = Belum Dianalisa` saat dianalisa).
+- Alasan pemilihan 10 listing batch 4 (lintas store dan fitur, mengikuti aturan skill `riset-kompetitor` #30): `Cockit` (galeri ringkas + bookmark), `Maps for Clash of Clans layout` (tag progress/defense + zoom mempelajari trap), `COC BASES` (tag anti-troop spesifik + pembaruan mingguan), `Clash of Maps 2026:CoC Layouts` (companion terlengkap: army links, kalkulator, Attack Mapper, ranking), `Cocbases` (8.000+ base, kurasi Editor's Picks, sortir, private base, direktori clan), `coc-tracker (Clash Ledger)` (open source; pemodelan potion/helper + widget ringkas), `stats_for_clash_of_clans` (open source; pola statistik/achievement), `Base Layouts: War & Farm Maps` (jumlah salin + laporan tautan rusak + saran army), `Database for Clash of Clans™` (ensiklopedia offline), `Hall Editor` (alur preview-first + favorit). Listing `Clash Trackers` (GitHub) dan `BaseVault` (Apple) tidak diikutkan karena sudah memiliki konten analisa batch 2 dan statusnya menunggu keputusan pengguna (aturan #30).
+- Catatan pemilihan batch 3: `COC Base Links – Clash Layouts`, `Clash Champs`, `Clash Base Pedia`, `Clashlayout`, `Ultimate Pro Base Layouts`, `ClashPrime`, `Coc-Base-Layout`, `Base Atlas`, `Keepwatch`, `Clash of Helper`. Listing APKPure/Aptoide dilewati karena merupakan mirror package id listing Google Play yang sudah tercantum (`com.sb.newclashmaps2020`, `com.akstudio.clashofmaps`, `com.moonstudio.mapcoc`, `com.hall.editor`, `com.coc.cocbases`). `COC Baselinks` (Apple App Store id6790808297) tidak dipilih terpisah karena package id (`com.rpekka.cocbaselinks`) sama dengan `COC Base Links – Clash Layouts` yang sudah direpresentasikan batch 3.
 - Catatan lingkup: `apk_serupa.md` tidak ditemukan di root proyek; lingkup mengikuti `apk_kompetitor.md`.
-- Metode: batch 3 diverifikasi dengan `webfetch` (halaman toko/repositori terbaca; App Store via iTunes lookup, seluruh `resultCount = 1`; GitHub terbaca penuh) dan pembacaan deskripsi resmi serta ulasan pengguna pada halaman tersebut; tidak ada `curl` dan tidak ada upload tangkapan layar pada batch 3.
-- Tingkat verifikasi: 30 dari 30 listing (batch 1–3) terverifikasi (halaman toko/repositori terbaca). Listing APKPure/Aptoide (403 anti-bot) tidak dijadikan dasar rekomendasi.
+- Metode: batch 3 diverifikasi dengan `webfetch` (halaman toko/repositori terbaca; App Store via iTunes lookup, seluruh `resultCount = 1`; GitHub terbaca penuh) dan pembacaan deskripsi resmi serta ulasan pengguna pada halaman tersebut. Batch 4 diverifikasi dengan `curl` (5 halaman Google Play Store HTTP 200; 2 repositori GitHub HTTP 200) dan iTunes lookup (`resultCount = 1` untuk id6804564319, id898757582, id6804436527), lalu deskripsi resmi dan ulasan yang tampil dibaca; tidak ada pembacaan piksel tangkapan layar pada batch 4.
+- Tingkat verifikasi: 40 dari 40 listing (batch 1–4) terverifikasi (halaman toko/repositori terbaca). Listing APKPure/Aptoide (403 anti-bot) tidak dijadikan dasar rekomendasi.
 - Sifat dokumen: riset pembanding, bukan keputusan implementasi. Pengguna menyortir sendiri item yang akan dikerjakan.
 - Kode item: `A` = rekomendasi fitur baru, `B` = optimasi/pra-implementasi fitur, `C` = UI/UX dan layout. Prioritas: `Tinggi`, `Sedang`, `Rendah`.
 
@@ -39,6 +40,10 @@ Laporan referensi dari 30 APK kompetitor yang terdaftar di `apk_kompetitor.md` d
 14. **Gamifikasi kontribusi komunitas** (Base Atlas: profil pembangun publik, follow, Trending, Top Builders, Creator Pulse, founder slots; Clashlayout: community rewards) terbukti dipakai aplikasi galeri/komunitas untuk menumbuhkan konten; seluruhnya bergantung backend.
 15. **Akses offline untuk bookmark** (Ultimate Pro Base Layouts) memperkuat prinsip offline-first: koleksi tersimpan tetap terbaca tanpa jaringan.
 16. **Moderasi otomatis unggahan** (Base Atlas: screen gambar+teks sebelum tayang + tombol lapor) menjadi prasyarat komunitas yang aman sebelum fitur kontribusi dibuka.
+17. Diferensiasi bergerak dari "menyalin base" ke **"memahami base"**: `Clash of Maps 2026:CoC Layouts` menyediakan Attack Mapper untuk menggambar rencana serangan di atas gambar base dan membagikannya sebagai gambar — fitur yang dapat berjalan lokal tanpa backend.
+18. **Sinyal kualitas katalog** dipakai untuk membantu pemilihan: jumlah salin per layout (Base Layouts), label "Editor's Picks", serta sortir berdasarkan unduhan/rating (Cocbases). Untuk proyek lokal-first, padanannya adalah penghitung salin lokal dan kurasi manual.
+19. **Katalog offline tetap bernilai, tetapi data usang tanpa penanda menurunkan kepercayaan**: `Database for Clash of Clans™` masih memuat data 2015 tanpa peringatan, sedangkan kompetitor aktif mencantumkan jadwal pembaruan.
+20. **Progres upgrade yang matang** memodelkan potion/helper/event dan menawarkan peringatan dini serta format hitung mundur (Clash Ledger) — melengkapi fitur pelacakan yang sudah berjalan di `base_coc`.
 
 ## Kondisi Fitur Aktual Proyek
 
@@ -314,6 +319,56 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Saran:** unduh/simpan gambar (thumbnail + detail) base favorit ke storage lokal saat ditandai; tampilkan indikator "tersedia offline" pada favorit; tetap hormati batas penyimpanan.
 - **Prioritas:** Sedang.
 
+### Batch 4 — temuan dari 10 APK (2026-11-15 WIB, sesi 103)
+
+#### A35. Attack Mapper: rencana serangan di atas gambar base
+
+- **Temuan:** `Clash of Maps 2026:CoC Layouts` (phuocly) menyediakan Attack Mapper untuk menggambar rencana serangan di atas gambar base asli, menambahkan stiker, lalu membagikan hasilnya sebagai gambar.
+- **Tujuan fitur:** membantu pengguna merencanakan serangan atau mempelajari pertahanan pada base tertentu tanpa berpindah aplikasi; melengkapi alur "pilih base → salin" dengan "pahami base".
+- **Referensi:** [Clash of Maps 2026:CoC Layouts](https://play.google.com/store/apps/details?id=com.phuocly.coc.layouts.link)
+- **Saran:** lapisan kanvas (garis/panah/stiker) di atas preview base pada layar detail, ekspor gambar ke penyimpanan lalu bagikan; sepenuhnya dapat berjalan lokal tanpa backend.
+- **Prioritas:** Sedang.
+
+#### A36. Indikator popularitas base lokal (jumlah disalin/dibuka)
+
+- **Temuan:** `Base Layouts: War & Farm Maps` menampilkan berapa kali sebuah layout pernah disalin sebelum pengguna memilih; `Cocbases` menonjolkan "Editor's Picks" dan sortir "paling banyak diunduh/rating tertinggi".
+- **Tujuan fitur:** membantu pengguna memilih base yang terbukti dipakai, meski katalog dikelola lokal tanpa backend.
+- **Referensi:** [Base Layouts: War & Farm Maps](https://apps.apple.com/us/app/id6804564319), [Cocbases](https://play.google.com/store/apps/details?id=com.coc.cocbases)
+- **Saran:** simpan penghitung lokal per base (jumlah aksi salin dan buka detail) di SQLite, sediakan sortir "paling sering disalin" serta label kurasi manual "Pilihan" pada data katalog.
+- **Prioritas:** Sedang.
+
+#### A37. Laporan tautan base rusak dengan peninjauan ulang
+
+- **Temuan:** `Base Layouts: War & Farm Maps` menyediakan tombol lapor tautan rusak dan menyatakan tautan yang dilaporkan akan diperiksa ulang, guna menekan jumlah tautan mati.
+- **Tujuan fitur:** menjaga kepercayaan pada tombol "Copy Base" — keluhan paling keras pada kompetitor berasal dari tautan yang gagal dibuka di game.
+- **Referensi:** [Base Layouts: War & Farm Maps](https://apps.apple.com/us/app/id6804564319)
+- **Saran:** tombol "Laporkan tautan" pada layar detail; simpan status laporan lokal (mis. `perlu_ditinjau`) dan sembunyikan/beri penanda pada base yang dilaporkan setelah ambang tertentu; validasi format tautan sebelum disalin.
+- **Prioritas:** Sedang.
+
+#### A38. Saran komposisi pasukan berdasarkan tipe base
+
+- **Temuan:** `Base Layouts: War & Farm Maps` menyertakan 48 daftar army TH6–TH18 beserta kelebihan/kekurangan dan rekomendasi army sesuai tipe base yang dipilih.
+- **Tujuan fitur:** memperluas nilai galeri base: setelah memilih base, pengguna juga mendapat saran pasukan penyerang/penahan yang relevan.
+- **Referensi:** [Base Layouts: War & Farm Maps](https://apps.apple.com/us/app/id6804564319)
+- **Saran:** field opsional `saranPasukan` pada model base (daftar nama komposisi + catatan singkat) yang ditampilkan sebagai section di layar detail; isi dari data statis, bukan AI/backend. Berbeda dari A31 (tautan army yang disalin ke game) karena ini saran tekstual per base.
+- **Prioritas:** Sedang.
+
+#### A39. Koleksi "base pribadi" lokal tanpa kedaluwarsa
+
+- **Temuan:** `Cocbases` menyediakan "Private Bases" — layout pribadi yang hanya terlihat oleh pemilik dan tidak pernah kedaluwarsa, terpisah dari favorit publik.
+- **Tujuan fitur:** memberi ruang menyimpan layout milik pengguna sendiri (mis. hasil eksperimen) tanpa mencampurnya dengan daftar favorit.
+- **Referensi:** [Cocbases](https://play.google.com/store/apps/details?id=com.coc.cocbases)
+- **Saran:** perluas skema favorit dengan penanda `sumber` (`katalog`/`pribadi`) dan formulir sederhana (nama, tautan, catatan) untuk menyimpan base pribadi; tanpa unggah ke server.
+- **Prioritas:** Rendah.
+
+#### A40. Arsip tips dan istilah strategi offline
+
+- **Temuan:** `Database for Clash of Clans™` menyediakan basis data offline bangunan, pasukan, mantra, statistik, walkthrough, strategi serangan, dan tips per item — seluruhnya tanpa jaringan.
+- **Tujuan fitur:** memberi konteks belajar bagi pengguna baru langsung di aplikasi, sejalan dengan prinsip offline-first proyek.
+- **Referensi:** [Database for Clash of Clans™ (unofficial)](https://apps.apple.com/us/app/id898757582)
+- **Saran:** halaman "Panduan" statis berisi istilah (funneling, Queen Charge, anti-3-star) dan tips singkat yang dapat dibuka dari layar detail; data dari aset JSON lokal.
+- **Prioritas:** Rendah.
+
 ## B. Optimasi Fitur Eksisting
 
 Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). Karena itu tidak ada fitur sejenis yang dapat dibandingkan secara langsung dengan kompetitor. Bagian ini memuat arahan kualitas pra-implementasi agar fitur yang nanti dibangun tidak mengulang kelemahan kompetitor.
@@ -383,6 +438,40 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 - **Perbandingan:** ClashPrime memuat Base Library dari snapshot on-device lebih dulu (TTL 3 hari) lalu refresh di latar belakang; tab kembali instan. Katalog digabung dari dua sumber (ClashLy API + clash-bases statis), dedup berdasarkan layout link, di-interleave (3:2), dan dikelompokkan per tahun dengan urutan popularitas.
 - **Potensi peningkatan:** jika `base_coc` kelak mengunduh pembaruan katalog, pakai pola cache-first + TTL + refresh latar; tentukan strategi dedup bila multi-sumber; jangan blokir UI; hormati prinsip offline-first.
 - **Tujuan peningkatan:** pembaruan katalog tanpa mengorbankan kecepatan dan offline-first.
+- **Prioritas:** Rendah.
+
+### Batch 4 — arahan optimasi tambahan (2026-11-15 WIB, sesi 103)
+
+#### B8. Pemodelan boost, potion, helper, dan penyesuaian event pada sisa waktu upgrade
+
+- **Temuan:** `coc-tracker (Clash Ledger)` memodelkan efek Builder Potion (10×), Research Potion (24×), Pet Potion (24×), Clock Tower (10×), Study Soup, Builder Bite, Builder's Apprentice, dan Lab Assistant, plus pengali event yang dapat disesuaikan; peringatan dini 0–1440 menit dihitung dari timer yang sudah disesuaikan.
+- **Tujuan:** menjaga estimasi sisa waktu upgrade (fitur A16 yang sudah berjalan) tetap akurat saat pengguna memakai potion, helper, atau event diskon.
+- **Referensi:** [coc-tracker (Clash Ledger)](https://github.com/chitti-a7r4/coc-tracker)
+- **Saran:** tambahkan tabel pengali per jenis boost pada perhitungan sisa waktu, dengan opsi "pengali event" manual dan peringatan agar tidak menghitung diskon dua kali bila data ekspor sudah memuatnya.
+- **Prioritas:** Tinggi.
+
+#### B9. Peringatan dini dan format hitung mundur yang dapat dipilih
+
+- **Temuan:** `coc-tracker` menawarkan peringatan 0–1440 menit sebelum upgrade selesai (menggantikan, bukan menggandakan, peringatan selesai) dan tiga format hitung mundur: ringkas (`1d 3h 6m`), ramah (`1 day 3 hr 6 min`), serta jam (`27:05:12`).
+- **Tujuan:** menyesuaikan pengingat dengan kebiasaan pengguna dan menampilkan angka yang mudah dibaca pada widget maupun daftar.
+- **Referensi:** [coc-tracker (Clash Ledger)](https://github.com/chitti-a7r4/coc-tracker)
+- **Saran:** tambahkan pengaturan "ingatkan sebelum selesai" (menit) pada notifikasi lokal A19, dan pilihan format waktu pada tampilan progres; gunakan `FontFeature.tabularFigures()` agar angka tidak bergeser.
+- **Prioritas:** Sedang.
+
+#### B10. Pratinjau dan konfirmasi hasil impor clipboard
+
+- **Temuan:** `coc-tracker` menampilkan ringkasan "Export loaded" dan langkah "Preview import" sebelum impor dijalankan, menolak duplikat berdasarkan tag pemain, serta memperingatkan snapshot lama.
+- **Tujuan:** melengkapi B5 (impor clipboard satu ketuk) agar satu ketukan tidak berubah menjadi impor data yang salah.
+- **Referensi:** [coc-tracker (Clash Ledger)](https://github.com/chitti-a7r4/coc-tracker)
+- **Saran:** tampilkan dialog pratinjau berisi tag, TH/BH, dan jumlah item terdeteksi sebelum menulis ke database; bandingkan dengan data tersimpan dan tawarkan "perbarui" atau "batal".
+- **Prioritas:** Sedang.
+
+#### B11. Penanda tanggal pembaruan katalog dan peringatan data usang
+
+- **Temuan:** `Database for Clash of Clans™` masih memuat data 2015 (versi 1.2.1) tanpa penanda usang, sehingga pengguna bisa mengira datanya mutakhir; kompetitor yang rutin memperbarui konten mencantumkan jadwal pembaruan (mis. `COC BASES` menambah base setiap minggu).
+- **Tujuan:** menghindari kesan katalog usang dan memberi pengguna ekspektasi yang benar terhadap usia data.
+- **Referensi:** [Database for Clash of Clans™ (unofficial)](https://apps.apple.com/us/app/id898757582), [COC BASES](https://play.google.com/store/apps/details?id=com.saad.coc_bases)
+- **Saran:** simpan `diperbaruiPada` pada metadata katalog dan tampilkan di beranda/tentang; bila lebih dari ambang tertentu (mis. 90 hari), tampilkan penanda "data mungkin usang".
 - **Prioritas:** Rendah.
 
 ## C. Referensi UI, UX, dan Layout
@@ -597,6 +686,56 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 - **Saran:** pertahankan `ColorScheme`/token Material 3; pertimbangkan skala spacing 8pt dan skeleton loader pada grid; jangan menyalin palet atau identitas mentah kompetitor.
 - **Prioritas:** Rendah.
 
+### Batch 4 — pola UI/UX/layout tambahan (2026-11-15 WIB, sesi 103)
+
+#### C26. Tab ganda Home Village/Builder Base dengan kartu ringkasan di atas daftar
+
+- **Temuan:** `coc-tracker (Clash Ledger)` menaruh tab Home Village dan Builder Base di atas daftar, dengan tiga kartu ringkasan (builder berikutnya, lab berikutnya, dan status) sebelum antrean upgrade.
+- **Tujuan:** memberi orientasi satu layar sebelum pengguna menelusuri detail; mengurangi scroll untuk informasi paling sering dicek.
+- **Referensi:** [coc-tracker (Clash Ledger)](https://github.com/chitti-a7r4/coc-tracker)
+- **Saran:** pada layar progres desa, tampilkan dua tab desa dan kartu ringkasan (pekerja bebas berikutnya, riset berikutnya, total sisa waktu) di atas daftar; kartu dapat diketuk untuk melompat ke kategori.
+- **Prioritas:** Sedang.
+
+#### C27. Badge popularitas dan label kurasi pada kartu base
+
+- **Temuan:** `Base Layouts: War & Farm Maps` menampilkan jumlah salin per layout; `Cocbases` menonjolkan "Editor's Picks" dan sortir berdasarkan unduhan/rating.
+- **Tujuan:** memberi sinyal kualitas cepat pada grid tanpa membuka detail.
+- **Referensi:** [Base Layouts: War & Farm Maps](https://apps.apple.com/us/app/id6804564319), [Cocbases](https://play.google.com/store/apps/details?id=com.coc.cocbases)
+- **Saran:** badge kecil "Pilihan" atau "Sering disalin" pada sudut kartu grid, memakai data lokal A36; jaga maksimal satu badge agar tidak menutupi thumbnail.
+- **Prioritas:** Sedang.
+
+#### C28. Widget ringkas berbentuk grid ikon dengan progress ring
+
+- **Temuan:** `coc-tracker` menyediakan widget ringkas berisi ikon upgrade, progress ring, dan satu hitung mundur per item, menampilkan `+N more` bila ruang habis; urutan mengutamakan upgrade yang sedang berjalan.
+- **Tujuan:** memberi status sekilas di layar utama tanpa membuka aplikasi, dengan ruang widget yang kecil.
+- **Referensi:** [coc-tracker (Clash Ledger)](https://github.com/chitti-a7r4/coc-tracker)
+- **Saran:** bila widget A18 dikerjakan, sediakan dua tata letak: daftar rinci (default) dan grid ikon ringkas; simpan preferensi tata letak yang berlaku untuk semua widget.
+- **Prioritas:** Rendah.
+
+#### C29. Format hitung mundur yang dapat dipilih pengguna
+
+- **Temuan:** `coc-tracker` memberi tiga format waktu dan menerapkannya konsisten di aplikasi dan widget.
+- **Tujuan:** menyesuaikan keterbacaan angka dengan preferensi (ringkas vs jam berdetak).
+- **Referensi:** [coc-tracker (Clash Ledger)](https://github.com/chitti-a7r4/coc-tracker)
+- **Saran:** sediakan pilihan format pada pengaturan tampilan progres; gunakan satu sumber format agar daftar, detail, dan widget tidak berbeda.
+- **Prioritas:** Rendah.
+
+#### C30. Varian tema hitam pekat (OLED) dan kontras tinggi
+
+- **Temuan:** `coc-tracker` menyediakan opsi "Pure black · OLED" yang mematikan latar navy menjadi hitam murni, dengan border dan teks tetap terbaca.
+- **Tujuan:** kenyamanan membaca di malam hari dan penghematan daya pada layar OLED.
+- **Referensi:** [coc-tracker (Clash Ledger)](https://github.com/chitti-a7r4/coc-tracker)
+- **Saran:** tambahkan opsi tema gelap "hitam pekat" di samping tema gelap standar (C8), memakai `ColorScheme` turunan tanpa hardcode warna di widget.
+- **Prioritas:** Rendah.
+
+#### C31. Pemisahan menu Panduan dan Berita/Patch Notes dengan cache offline
+
+- **Temuan:** `Clash of Maps 2026:CoC Layouts` memisahkan Panduan (guide dan video) dari Berita/Patch Notes dan Kalender event, dengan cache offline untuk konten yang sudah dibuka.
+- **Tujuan:** menjaga galeri base tetap fokus, sementara konten edukasi punya rumah sendiri yang tetap terbaca tanpa jaringan.
+- **Referensi:** [Clash of Maps 2026:CoC Layouts](https://play.google.com/store/apps/details?id=com.phuocly.coc.layouts.link)
+- **Saran:** bila A40 dikerjakan, tempatkan sebagai tab/menu "Panduan" terpisah dari galeri; simpan konten yang sudah dimuat agar dapat dibuka offline.
+- **Prioritas:** Rendah.
+
 ## D. Katalog Listing
 
 | Nama Aplikasi | Ringkasan Singkat | Store | Link | Status Analisa |
@@ -636,6 +775,21 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 | Base Atlas | Community base library: satu ketuk copy, filter TH/BH, kategori Progress & Art & Funny; profil pembangun publik (avatar, badge, galeri), follow builder, Trending feed, Top Builders leaderboard, Creator Pulse (likes/copies), pin base terbaik & simpan pencarian, moderasi otomatis unggahan (screen gambar+teks) + lapor, iklan rewarded opsional, tanpa akun, founder slots (100 pertama ad-free permanen). | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6765773332) | Sudah Dianalisa |
 | Keepwatch for Clash of Clans | Impor Data Export tanpa login (copy di game → satu tap Import village), sisa upgrade per kategori (HV+BB) dengan estimasi waktu/sumber daya, gold pass/event/helper discounts, plan builders (kapan builder bebas), timeline day-by-day, pengingat selesai upgrade, widget time display, game data auto-update, 22 bahasa. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6828926176) | Sudah Dianalisa |
 | Clash of Helper | Assistant all-in-one: events & calendar hub, multi-account hub (2–20 desa), live war & daily timers (6 reset countdowns), progress upgrade TH4–18/BH4–10 (level-capped), 20.000+ base layouts (Grid/List view, copy satu ketuk), CWL medal calculator, share cards/poster rekrutmen, leaderboards 200+ negara + arsip season, smart search keyboard (validasi tag, # auto-complete), 17 bahasa. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6636552878) | Sudah Dianalisa |
+
+### Batch 4 — katalog listing (2026-11-15 WIB, sesi 103; 10 APK terverifikasi dan dianalisa)
+
+| Nama Aplikasi | Ringkasan Singkat | Store | Link | Status Analisa |
+| --- | --- | --- | --- | --- |
+| Cockit – Clash Base Layouts | Ratusan base TH4–TH18 dan BH4–BH9 (war, trophy, farming, hybrid), copy satu ketuk langsung ke game, bookmark favorit, UI sederhana; 1K+ unduhan, tanpa pengumpulan data. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.heyisoft.cockit) | Sudah Dianalisa |
+| Maps for Clash of Clans layout | Ribuan base TH4–TH18 dan BH4–BH10, tag war/farm/trophy/hybrid/progress/defense, pinch-to-zoom untuk mempelajari trap, favorit, 11 bahasa; data tidak dienkripsi dan tidak dapat dihapus. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.clashof.maps.cocbaselayout) | Sudah Dianalisa |
+| COC BASES | Galeri TH4–TH17 dan BH4–BH10 dengan kategori anti-2/anti-3 star, anti-air/e-dragon/balloon, anti-trophy dropper, Legend League, dan funny; pembaruan mingguan, copy satu ketuk, UI ringkas. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.saad.coc_bases) | Sudah Dianalisa |
+| Clash of Maps 2026:CoC Layouts | Companion (judul di toko: "Maps for Clasher of Clans"): maps & layouts, army links, Time/Left to Max, kalkulator gem/XP/wall/ZapQuake/Collector Idle, Progress Tracker, Attack Mapper, basis data unit, ranking pemain/klan, panduan & patch notes dengan cache offline, tema gelap, My Layouts sync; 1M+ unduhan. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.phuocly.coc.layouts.link) | Sudah Dianalisa |
+| Cocbases (Clash of Clan Bases) | 8.000+ base link diperbarui harian, unggah/bagikan, Editor's Picks, sortir (terbaru/terbanyak diunduh/rating/liga), filter lanjutan, bookmark, private base tanpa kedaluwarsa, direktori clan/pemain dengan filter rinci; 500K+ unduhan. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.coc.cocbases) | Sudah Dianalisa |
+| coc-tracker (Clash Ledger) | Open source (MIT, 43 bintang): impor Data Export tanpa login, multi-desa dengan pergantian dari widget, widget daftar/grid ringkas, format hitung mundur, tema OLED, pemodelan potion/snack/helper, penyesuaian event, peringatan dini 0–1440 menit, saran clipboard dengan pratinjau, 92 unit test, offline. | GitHub | [Buka Repositori](https://github.com/chitti-a7r4/coc-tracker) | Sudah Dianalisa |
+| stats_for_clash_of_clans | Repositori desain aplikasi statistik (Profil, Troops, Achievements) memakai API publik Clash of Clans; README berisi spesifikasi, wireframe, dan model data; tidak ada APK/rilis dan tidak ada deskripsi repositori. | GitHub | [Buka Repositori](https://github.com/ClashStat/stats_for_clash_of_clans) | Sudah Dianalisa |
+| Base Layouts: War & Farm Maps | Sekitar 9.700 base TH4–TH18 (war, farming, hybrid, anti-3-star), jumlah salin per layout, laporan tautan rusak dengan pemeriksaan ulang, 48 army list TH6–TH18 dan 10 panduan, 10 bahasa, tanpa akun; versi 1.0.6 (Nov 2026). | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6804564319) | Sudah Dianalisa |
+| Database for Clash of Clans™ (unofficial) | Basis data offline: bangunan, pasukan, mantra, deskripsi/gambar/statistik/strategi per item, walkthrough, strategi serangan, base design, tips, info pembaruan game; versi 1.2.1 (2015) sehingga data berusia ~10 tahun. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id898757582) | Sudah Dianalisa |
+| Hall Editor: CoC Base Layouts | Katalog per TH dan kategori (war, farming, trophy, defense, hybrid, TH layouts, CWL-ready), pratinjau sebelum memilih, favorit, copy & play; versi 1.0, 1 rating; alur preview-first sederhana. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6804436527) | Sudah Dianalisa |
 
 ## E. Prioritas Gabungan
 
@@ -725,6 +879,22 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 | 83 | C21 Toggle Grid/List view | UI/UX | Fleksibilitas pemindaian daftar panjang. |
 | 84 | C23 Iklan rewarded video opsional | UI/UX | Monetisasi tanpa hambatan; bila monetisasi dipilih. |
 | 85 | C25 Token desain & skeleton loader | UI/UX | Identitas visual konsisten; muat terasa cepat. |
+| 86 | B8 Pemodelan boost/potion/helper pada sisa waktu | Optimasi | Menjaga akurasi fitur progres upgrade yang sudah berjalan. |
+| 87 | A37 Laporan tautan base rusak | Fitur | Menjaga kepercayaan pada aksi copy; dapat berjalan lokal. |
+| 88 | A36 Indikator popularitas base lokal | Fitur | Membantu pemilihan base tanpa backend. |
+| 89 | A38 Saran komposisi pasukan per tipe base | Fitur | Nilai tambah dari data statis lokal. |
+| 90 | B9 Peringatan dini dan format hitung mundur | Optimasi | Melengkapi notifikasi upgrade yang sudah ada. |
+| 91 | C26 Tab Home/Builder Base + kartu ringkasan | UI/UX | Orientasi cepat pada layar progres. |
+| 92 | C27 Badge popularitas/kurasi pada kartu | UI/UX | Sinyal kualitas cepat di grid. |
+| 93 | A35 Attack Mapper | Fitur | Diferensiasi; dapat berjalan lokal. |
+| 94 | B10 Pratinjau impor clipboard | Optimasi | Mencegah impor data salah. |
+| 95 | B11 Tanggal pembaruan katalog/usang | Optimasi | Menjaga ekspektasi usia data. |
+| 96 | A39 Base pribadi lokal | Fitur | Pemisahan koleksi pribadi vs favorit. |
+| 97 | A40 Arsip tips/istilah offline | Fitur | Edukasi pengguna baru; aset statis. |
+| 98 | C28 Widget grid ringkas | UI/UX | Status sekilas di layar utama. |
+| 99 | C29 Format hitung mundur pilihan | UI/UX | Keterbacaan angka. |
+| 100 | C30 Tema OLED hitam pekat | UI/UX | Kenyamanan malam hari. |
+| 101 | C31 Menu Panduan/Berita terpisah | UI/UX | Menjaga galeri tetap fokus. |
 
 ## F. Verifikasi dan Keterbatasan
 
@@ -741,7 +911,12 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 - Klaim fitur diambil dari deskripsi resmi pada halaman toko/repositori dan, untuk sebagian aplikasi, dari ulasan pengguna yang tampil di halaman tersebut.
 - Halaman toko menyediakan tangkapan layar, tetapi laporan ini **tidak** melakukan pembacaan piksel atau pengujian langsung aplikasi. Pola UI/UX diidentifikasi dari label fitur, alur yang dijelaskan pada deskripsi, dan keluhan/pujian pada ulasan, bukan dari pengamatan visual terperinci.
 - Jumlah unduhan dan rating tidak dijadikan dasar prioritas; prioritas ditentukan oleh relevansi terhadap kebutuhan `base_coc`.
-- Tidak ada aplikasi di luar 10 listing batch 3 (dan 20 listing batch 1–2) pada `apk_kompetitor.md` yang dianalisa pada pembaruan ini; listing lain tetap berstatus `Belum Dianalisa`.
+- Batch 4 (10 APK, sesi 103, 2026-11-15 WIB) diverifikasi dengan `curl` dan pembacaan halaman: 5 halaman Google Play Store (`com.heyisoft.cockit`, `com.clashof.maps.cocbaselayout`, `com.saad.coc_bases`, `com.phuocly.coc.layouts.link`, `com.coc.cocbases`) mengembalikan HTTP 200 dan deskripsi/ulasan terbaca; 2 repositori GitHub (`chitti-a7r4/coc-tracker` README lengkap; `ClashStat/stats_for_clash_of_clans` README spesifikasi, tanpa APK) mengembalikan HTTP 200; 3 Apple App Store via iTunes lookup (`resultCount = 1`: id6804564319, id898757582, id6804436527). Tidak ada pembacaan piksel tangkapan layar pada batch 4.
+- `Clash of Maps 2026:CoC Layouts` di `apk_kompetitor.md` tampil di Google Play Store dengan judul "Maps for Clasher of Clans" (pengembang phuocly); package id sama dan tetap dicatat sebagai satu listing.
+- `stats_for_clash_of_clans` tidak menyediakan APK/rilis dan tidak memiliki deskripsi repositori; hanya dipakai sebagai pola layar statistik (Profil/Troops/Achievements) dan tidak dijadikan dasar rekomendasi fitur.
+- `Database for Clash of Clans™` (Apple, id898757582) memakai data 2015 (versi 1.2.1, pembaruan terakhir 2015-04-21); hanya dijadikan referensi struktur ensiklopedia offline, bukan sumber data game terkini.
+- `Hall Editor` (Apple, id6804436527) baru versi 1.0 dengan 1 rating; klaim fiturnya terbatas pada deskripsi resmi dan tidak diverifikasi lewat pengujian aplikasi.
+- Tidak ada aplikasi di luar 10 listing batch 4 (dan 30 listing batch 1–3) pada `apk_kompetitor.md` yang dianalisa pada pembaruan ini; listing lain tetap berstatus `Belum Dianalisa`.
 - `apk_serupa.md` tidak tersedia di root proyek; jika berkas itu muncul kemudian, katalog perlu ditinjau ulang.
 
 ## G. Sumber
@@ -771,3 +946,16 @@ Batch 3 (sesi 93, 2026-11-14):
 18. [Base Atlas](https://apps.apple.com/us/app/id6765773332)
 19. [Keepwatch for Clash of Clans](https://apps.apple.com/us/app/id6828926176)
 20. [Clash of Helper](https://apps.apple.com/us/app/id6636552878)
+
+Batch 4 (sesi 103, 2026-11-15 WIB):
+
+21. [Cockit – Clash Base Layouts](https://play.google.com/store/apps/details?id=com.heyisoft.cockit)
+22. [Maps for Clash of Clans layout](https://play.google.com/store/apps/details?id=com.clashof.maps.cocbaselayout)
+23. [COC BASES](https://play.google.com/store/apps/details?id=com.saad.coc_bases)
+24. [Clash of Maps 2026:CoC Layouts (judul toko: Maps for Clasher of Clans)](https://play.google.com/store/apps/details?id=com.phuocly.coc.layouts.link)
+25. [Cocbases (Clash of Clan Bases)](https://play.google.com/store/apps/details?id=com.coc.cocbases)
+26. [coc-tracker / Clash Ledger (GitHub, MIT)](https://github.com/chitti-a7r4/coc-tracker)
+27. [stats_for_clash_of_clans (GitHub)](https://github.com/ClashStat/stats_for_clash_of_clans)
+28. [Base Layouts: War & Farm Maps](https://apps.apple.com/us/app/id6804564319)
+29. [Database for Clash of Clans™ (unofficial)](https://apps.apple.com/us/app/id898757582)
+30. [Hall Editor: CoC Base Layouts](https://apps.apple.com/us/app/id6804436527)
