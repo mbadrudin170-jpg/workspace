@@ -118,7 +118,6 @@ Setiap `SKILL.md` wajib memiliki frontmatter di paling atas file, dibungkus deng
 | `metadata.kategori`        | Sesuai folder kategori (default `"custom"`)                                                                                                            |
 | `metadata.versi`           | Format semver, contoh `"1.0.0"`                                                                                                                        |
 | `metadata.diperbarui`      | Waktu pembaruan terakhir isi skill (format `TZ=Asia/Jakarta date`), wajib diisi dan diperbarui setiap kali isi skill berubah (frontmatter maupun body) |
-| `metadata.sumber-terakhir` | Sumber terakhir perubahan (hash commit atau perintah/hasil eksplisit pengguna), menggantikan `metadata.commit-terakhir`                                |
 
 ### 7.2 Field Opsional
 
@@ -136,7 +135,6 @@ metadata:
   kategori: "custom"
   versi: "1.0.0"
   diperbarui: "Wed Nov 11 2026 23:30:00 WIB"
-  sumber-terakhir: "perintah pengguna: perbarui skill index"
   model: "models/gemini-3.1-pro-preview"
 ---
 ```
@@ -186,8 +184,8 @@ Deskripsi skill (bagian `description` dan paragraf pengantar) wajib mencakup poi
 
 ### 8.5 Rekonsiliasi dengan Front Matter
 
-- `metadata.diperbarui` dan `metadata.sumber-terakhir` adalah field **wajib** (lihat §7.1) dan menggantikan `metadata.commit-terakhir` yang tidak lagi dipakai.
-- Setiap perubahan `description` (termasuk penambahan/perbaikan segmen trigger) wajib memperbarui `metadata.diperbarui` dan `metadata.sumber-terakhir`, serta menaikkan `metadata.versi` (bump patch default).
+- `metadata.diperbarui` adalah field **wajib** (lihat §7.1) dan diperbarui setiap kali isi skill berubah.
+- Setiap perubahan `description` (termasuk penambahan/perbaikan segmen trigger) wajib memperbarui `metadata.diperbarui`, serta menaikkan `metadata.versi` (bump patch default). Rujukan sumber perubahan dicantumkan pada section `## Sumber Evaluasi` (hash commit / perintah pengguna), bukan sebagai field frontmatter.
 - Segmen trigger-only di awal `description` adalah syarat validitas deskripsi, sehingga `description` tanpa penanda `Trigger:` dianggap belum memenuhi aturan ini.
 
 ## 9. Format Lengkap `SKILL.md`
@@ -204,7 +202,6 @@ metadata:
   kategori: "custom"
   versi: "1.0.0"
   diperbarui: "Wed Nov 11 2026 23:30:00 WIB"
-  sumber-terakhir: "<hash-commit>"
   model: "kilo-auto/free"
 ---
 ```
@@ -330,7 +327,6 @@ metadata:
   kategori: "custom"
   versi: "1.0.0"
   diperbarui: "<waktu TZ=Asia/Jakarta date>"
-  sumber-terakhir: "<hash-commit atau perintah/hasil eksplisit pengguna>"
   model: "nama-model-ai"
 ---
 
@@ -394,7 +390,7 @@ Sebelum mengakhiri pembuatan atau pembaruan `SKILL.md`, verifikasi semua poin be
 - [ ] File berada di `.agents/skills/<kategori>/<nama-skill>/SKILL.md`
 - [ ] Nama folder menggunakan kebab-case, bahasa Indonesia, deskriptif
 - [ ] Tidak ada underscore, spasi, huruf besar, angka di awal, atau karakter selain `a-z0-9-`
-- [ ] Front matter YAML lengkap dengan field wajib (`name`, `description`, `metadata.kategori`, `metadata.versi`, `metadata.diperbarui`, `metadata.sumber-terakhir`)
+- [ ] Front matter YAML lengkap dengan field wajib (`name`, `description`, `metadata.kategori`, `metadata.versi`, `metadata.diperbarui`)
 - [ ] Semua section wajib ada (Judul/Intro, Cakupan, Aturan, Steps [jika diperlukan], Larangan, Contoh Benar, Contoh Salah, Sumber Evaluasi)
 - [ ] Isi mengikuti riwayat commit yang relevan (tidak diarang dari working directory/staging/untracked)
 - [ ] Deskripsi mencakup segmen trigger-only di awal (lihat §8.2), cakupan, larangan, workflow, dan referensi file

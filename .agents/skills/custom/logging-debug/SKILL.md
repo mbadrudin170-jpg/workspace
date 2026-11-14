@@ -4,8 +4,7 @@ description: "Trigger: saat menambahkan log debug | Panduan logging proyek (L.i,
 metadata:
   kategori: "custom"
   versi: "1.0.1"
-  diperbarui: "Fri Nov 13 2026 05:33:40 WIB"
-  sumber-terakhir: "perintah pengguna: kerjakan task.md (Kelompok 34)"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Logging Debug pada Variabel dan Parameter

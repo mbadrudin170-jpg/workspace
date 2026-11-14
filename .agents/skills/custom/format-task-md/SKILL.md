@@ -4,8 +4,7 @@ description: "Trigger: saat menambahkan atau memperbarui isi file task.md di roo
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "Sun Nov 15 2026 01:43 WIB"
-  sumber-terakhir: "commit 2d96c25 (isi format_task.md) + perintah pengguna: konversi penuh menjadi skill (sesi 64)"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Format Penulisan task.md

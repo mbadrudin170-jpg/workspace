@@ -4,8 +4,7 @@ description: "Trigger: saat membuat atau memperbarui PRD | Panduan format PRD pr
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "Sun Nov 15 2026 01:46 WIB"
-  sumber-terakhir: "perintah pengguna sesi 66: jadikan format_PRD.md skill dan hapus dari rules; isi disusun dari berkas aturan sumber (commit 2d96c25)"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
   model: "openrouter/thinkingmachines/inkling-2-small:free"
 ---
 

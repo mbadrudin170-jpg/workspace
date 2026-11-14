@@ -4,8 +4,7 @@ description: "Trigger: saat membuat atau mengubah konfigurasi Kilo proyek atau c
 metadata:
   kategori: "custom"
   versi: "1.0.1"
-  diperbarui: "Sat Nov 14 2026 17:30 WIB"
-  sumber-terakhir: "perintah pengguna sesi 47: hapus command sinkronkan_commands.md"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Konfigurasi Kilo Proyek dan Commands Kilo

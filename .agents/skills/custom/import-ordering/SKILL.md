@@ -4,8 +4,7 @@ description: "Trigger: saat menambahkan atau merapikan import | Panduan urutan i
 metadata:
   kategori: "custom"
   versi: "1.1.1"
-  diperbarui: "Fri Nov 13 2026 05:33:40 WIB"
-  sumber-terakhir: "perintah pengguna: kerjakan task.md (Kelompok 34)"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Import Ordering (Urutan Import)

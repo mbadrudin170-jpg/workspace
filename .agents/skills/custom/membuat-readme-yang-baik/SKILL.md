@@ -4,8 +4,7 @@ description: Trigger: saat membuat atau memperbaiki file README proyek | Panduan
 metadata:
   kategori: "custom"
   versi: "1.1.0"
-  diperbarui: "Sat Nov 14 2026 17:05:00 WIB"
-  sumber-terakhir: "referensi eksternal: https://www.freecodecamp.org/news/how-to-write-a-good-readme-file, https://dev.to/mfts/how-to-write-a-perfect-readme-for-your-github-project-59f2"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Membuat README yang Baik

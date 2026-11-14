@@ -74,15 +74,6 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 
 ### Prioritas Sedang
 
-#### A5. Favorit dan koleksi base tersimpan
-
-- **Temuan:** Tiga kompetitor menyediakan daftar favorit atau koleksi khusus untuk menyimpan base yang akan dipakai pada persiapan perang.
-- **Tujuan fitur:** memungkinkan pengguna menyiapkan beberapa base untuk situasi berbeda tanpa mencari ulang.
-- **Referensi:** [Map Layout Links Base for COC](https://play.google.com/store/apps/details?id=com.coc.layouts), [Maps For COC Base Layouts 2026](https://play.google.com/store/apps/details?id=com.baselayouts.cocmaps), [Base Drop](https://play.google.com/store/apps/details?id=com.cocbasedrop)
-- **Saran:** simpan favorit secara lokal menggunakan penyimpanan kunci-nilai; beri nama koleksi (mis. "War TH12") agar relevan dengan alur perang klan.
-- **Prioritas:** Sedang.
-- **Status PRD:** Sudah dibuatkan PRD (`prd/prd_favorit_base.md`, baris 77–83 refrensi_apk.md).
-
 #### A6. Kategori strategi lanjutan (anti-3-star, anti-air, anti-ground, CWL)
 
 - **Temuan:** Kompetitor menambahkan label strategi di luar tipe base dasar; label ini membantu pemain memilih pertahanan terhadap meta serangan tertentu.
@@ -90,6 +81,8 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Referensi:** [Base Drop](https://play.google.com/store/apps/details?id=com.cocbasedrop), [CoC Base Maps 2026](https://play.google.com/store/apps/details?id=com.m3android7s.projects.clashofclansbaselayouts), [COC Base Layouts:Clash of Maps](https://play.google.com/store/apps/details?id=com.sb.newclashmaps2020)
 - **Saran:** jadikan label sebagai tag banyak-nilai pada setiap base, tampilkan sebagai badge pada kartu, dan biarkan filter memakai satu atau beberapa tag.
 - **Prioritas:** Sedang.
+- **Status PRD:** Sudah dibuatkan PRD (`prd/prd_kategori_strategi_lanjutan.md`).
+- **Catatan:** tag banyak-nilai (anti-3-star, anti-air, anti-ground, anti-2-star, CWL), badge maks 2 + `+n`, filter multi-select semantik OR.
 
 #### A7. Berbagi base ke anggota klan
 

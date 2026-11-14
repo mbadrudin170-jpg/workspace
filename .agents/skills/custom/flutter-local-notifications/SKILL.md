@@ -4,8 +4,7 @@ description: "Trigger: saat menambahkan notifikasi lokal Flutter | Panduan flutt
 metadata:
   kategori: "custom"
   versi: "2.0.1"
-  diperbarui: "Fri Nov 13 2026 05:33:40 WIB"
-  sumber-terakhir: "perintah pengguna: kerjakan task.md (Kelompok 34)"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Standar flutter_local_notifications v23.0.0 pada Notifikasi Harian

@@ -4,8 +4,7 @@ description: Trigger: saat menata atau membuat struktur folder lib/ Flutter | Pa
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "Sat Nov 14 2026 02:05:25 WIB"
-  sumber-terakhir: "perintah pengguna: buat skill dari diskusi_4 sekarang (belum ada commit terkait; blueprint belum dieksekusi)"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 # Struktur Folder `lib/` Flutter
 

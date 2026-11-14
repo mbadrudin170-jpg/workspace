@@ -3,9 +3,8 @@ name: aturan-pembuatan-skill
 description: "Trigger: saat membuat skill baru atau memperbarui skill | Panduan SKILL.md di .agents/skills: lokasi, struktur, penamaan kebab-case bahasa Indonesia, sumber isi dari riwayat commit, front matter YAML, segmen trigger-only, section wajib, dan checklist verifikasi. Termasuk referensi dokumen resmi Kilo (kilo.ai/docs/customize/skills) dan repositori skill Kilo (github.com/Kilo-Org/skills) sebagai pedoman lokasi tambahan, bundled resources, dan shell command di skill."
 metadata:
   kategori: "custom"
-  versi: "1.0.5"
-  diperbarui: "Sat Nov 14 2026 23:46 WIB"
-  sumber-terakhir: "perintah pengguna: tambahkan temuan dari kilo.ai/docs/customize/skills dan github.com/Kilo-Org/skills"
+  versi: "2.0.0"
+  diperbarui: "Sun Nov 15 2026 02:09 WIB"
 ---
 
 # Aturan Pembuatan dan Pembaruan SKILL.md
@@ -21,7 +20,7 @@ Mengatur cara **membuat** dan **memperbarui** file `SKILL.md` di `.agents/skills
 - Bundled resources opsional: `scripts/`, `references/`, `assets/`, `examples/`
 - Referensi format UI: `pola-ux/SKILL.md`, `pola-ui/SKILL.md`, `gaya/SKILL.md`, `tipografi/SKILL.md`, `spacing/SKILL.md`, `widget-custom/SKILL.md`
 - Referensi format non-UI: `bug-runtime/SKILL.md`
-- Front matter YAML: `name` (maks 64 karakter, lowercase, angka, strip, harus cocok dengan nama folder), `description` (maks 1024 karakter, wajib diawali segmen trigger-only), `metadata.kategori`, `metadata.versi` (semver), `metadata.diperbarui` (format `TZ=Asia/Jakarta date`), dan `metadata.sumber-terakhir` (hash commit atau perintah/hasil eksplisit pengguna). Field opsional `license` dan `compatibility` boleh ditambahkan bila relevan.
+- Front matter YAML: `name` (maks 64 karakter, lowercase, angka, strip, harus cocok dengan nama folder), `description` (maks 1024 karakter, wajib diawali segmen trigger-only), `metadata.kategori`, `metadata.versi` (semver), dan `metadata.diperbarui` (format `TZ=Asia/Jakarta date`). Field opsional `license` dan `compatibility` boleh ditambahkan bila relevan.
 - Section wajib: Judul/Intro, `## Cakupan yang Di-Cover`, `## Aturan`, `## Larangan`, `## Contoh Benar`, `## Contoh Salah`, `## Sumber Evaluasi`
 - Sumber isi: riwayat commit (`git log`, `git show`, `git diff`)
 - Shell command di skill: syntax `` !`command` `` (hanya dieksekusi di lokasi terpercaya: global skill, built-in, atau path absolut di global config; project skill dan remote URL tidak dieksekusi)
@@ -37,7 +36,7 @@ Mengatur cara **membuat** dan **memperbarui** file `SKILL.md` di `.agents/skills
 4. Field `name` di frontmatter **harus sama persis** dengan nama parent directory (Name Matching Rule).
 5. Susun isi `SKILL.md` hanya dari **commit yang berkaitan** (commit yang menyentuh file/folder terkait topik skill) menggunakan `git log`, `git show <commit>`, atau `git diff <commit>`.
 6. Jika ada beberapa commit relevan dengan pola berbeda, pilih pola dari **commit terbaru yang relevan** kecuali pengguna menentukan lain.
-7. Cantumkan front matter YAML di paling atas (dibungkus `---`) dengan field wajib: `name` (sama dengan nama folder), `description` (wajib diawali segmen trigger-only, lihat aturan 8), `metadata.kategori`, `metadata.versi` (semver), `metadata.diperbarui` (format `TZ=Asia/Jakarta date`), dan `metadata.sumber-terakhir` (hash commit atau perintah/hasil eksplisit pengguna). Field opsional `license` dan `compatibility` boleh ditambahkan bila relevan.
+7. Cantumkan front matter YAML di paling atas (dibungkus `---`) dengan field wajib: `name` (sama dengan nama folder), `description` (wajib diawali segmen trigger-only, lihat aturan 8), `metadata.kategori`, `metadata.versi` (semver), dan `metadata.diperbarui` (format `TZ=Asia/Jakarta date`). Field opsional `license` dan `compatibility` boleh ditambahkan bila relevan.
 8. Tulis `description` diawali segmen trigger-only: diawali literal `Trigger:`, segmen trigger hanya berisi kondisi/tugas pemicu dalam bahasa Indonesia, dipisah dari segmen cakupan lain dengan `|` (spasi-pipe-spasi), dan berakhir pada `|` pertama atau akhir string. Setelah segmen trigger, `description` dan intro mencakup: apa yang di-cover, apa yang harus dihindari, langkah kerja (workflow), dan referensi ke file terkait.
 9. Sertakan semua section wajib: Judul dan intro, `## Cakupan yang Di-Cover`, `## Aturan`, `## Larangan`, `## Contoh Benar`, `## Contoh Salah`, dan `## Sumber Evaluasi`. Contoh kode ditulis langsung di `SKILL.md` (tanpa folder `examples` terpisah).
 10. Bundled resources (`scripts/`, `references/`, `assets/`, `examples/`) boleh ditambahkan sebagai pendukung, tetapi `SKILL.md` tetap menjadi berkas tunggal yang wajib ada di root folder skill.
@@ -74,7 +73,6 @@ metadata:
   kategori: "custom"
   versi: "1.0.0"
   diperbarui: "Wed Nov 11 2026 23:30:00 WIB"
-  sumber-terakhir: "perintah pengguna: perbarui skill index"
   license: MIT
   compatibility:
     product: "Kilo Code"
@@ -140,7 +138,6 @@ metadata:
   kategori: "custom"
   versi: "1.0.0"
   diperbarui: "Wed Nov 11 2026 23:30:00 WIB"
-  sumber-terakhir: "perintah pengguna"
 ---
 
 !`git status --short`

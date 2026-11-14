@@ -22,7 +22,7 @@ Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan
 
 1. **Scan seluruh file SKILL.md.**
    - Temukan semua file `SKILL.md` di `.agents/skills/**/` (termasuk folder `bawaan` dan `custom`).
-   - Baca front matter YAML setiap file untuk mendapatkan: `name`, `description`, `metadata.kategori`, `metadata.versi`, `metadata.diperbarui`, `metadata.sumber-terakhir`.
+   - Baca front matter YAML setiap file untuk mendapatkan: `name`, `description`, `metadata.kategori`, `metadata.versi`, `metadata.diperbarui`.
    - Catat path relatif setiap file untuk keperluan validasi dan pelaporan.
 
 2. **Ekstrak trigger dari description (deterministik).**
@@ -107,7 +107,7 @@ Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan
 
 1. Pekerjaan hanya mencakup pembuatan/memperbarui `SKILLS_INDEX.md` dari `SKILL.md` yang ada.
 2. Tidak membuat, mengubah, atau menghapus file `SKILL.md`.
-3. Jika `metadata.diperbarui` atau `metadata.sumber-terakhir` belum ada pada `SKILL.md`, catat di indeks dan lanjutkan; tidak menghentikan proses.
+3. Jika `metadata.diperbarui` belum ada pada `SKILL.md`, catat di indeks dan lanjutkan; tidak menghentikan proses.
 4. Anomali **ringan** (mis. `metadata.kategori` kosong) dilaporkan tetapi tidak menghentikan penulisan indeks. Anomali **serius/fatal** (di luar `bawaan`/`custom`, konflik kategori, folder tak terbaca, tidak ada `SKILL.md`) **menghentikan** perintah dan tidak menulis indeks.
 
 # Hasil Akhir

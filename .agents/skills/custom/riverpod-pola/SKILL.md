@@ -4,8 +4,7 @@ description: "Trigger: saat memakai Riverpod | Pola standar: Notifier CRUD keepA
 metadata:
   kategori: "custom"
   versi: "1.1.1"
-  diperbarui: "Fri Nov 13 2026 05:33:40 WIB"
-  sumber-terakhir: "perintah pengguna: kerjakan task.md (Kelompok 34)"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Pola Riverpod Standar

@@ -4,8 +4,7 @@ description: "Trigger: saat memvalidasi mode berhenti bertahap (tapering) | Pand
 metadata:
   kategori: "custom"
   versi: "1.0.1"
-  diperbarui: "Fri Nov 13 2026 05:33:40 WIB"
-  sumber-terakhir: "perintah pengguna: kerjakan task.md (Kelompok 34)"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Validasi dan Perhitungan Mode Berhenti Bertahap (Tapering)

@@ -3,9 +3,8 @@ name: pembuatan-command-kilo
 description: "Trigger: saat membuat command Kilo baru atau memperbarui command Kilo | Panduan command `.kilo/commands/**.md`: lokasi rekursif, penamaan, frontmatter (`description`, `agent`, `model`, `variant`, `subtask`), parameter `$ARGUMENTS`/`$1`–`$N` dengan fallback `question`, struktur standar (Tujuan, Ketentuan Umum, Cakupan, Alur Kerja Analyze→Plan→Execute→Review, Format Laporan, Larangan, Kriteria Selesai/STOP), penanganan ambiguitas, rujukan wajib ke skill yang relevan, dan checklist verifikasi."
 metadata:
   kategori: "custom"
-  versi: "1.2.1"
-  diperbarui: "Sun Nov 15 2026 01:44 WIB"
-  sumber-terakhir: "perintah pengguna sesi 64: konversi penuh format_task.md menjadi skill format-task-md (rujukan diperbarui)"
+  versi: "1.2.2"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Membuat dan Memperbarui Command Kilo
@@ -20,7 +19,7 @@ Mengatur cara membuat dan memperbarui command Kilo di `.kilo/commands/` agar pen
 - Parameter: `$ARGUMENTS`, `$1`–`$N`; fallback wajib via tool `question` saat argumen kosong/tidak valid/ambigu
 - Pola kerja: Analyze → Plan → Execute → Review; kondisi STOP dan konfirmasi sebelum menulis berkas
 - Format keluaran: laporan terstruktur (tabel/daftar) dengan status, temuan/bukti, dan tindakan/hasil
-- Rujukan proyek: `.agents/rules/global/format_hasil_diskusi.md`, `.agents/skills/custom/format-task-md/SKILL.md`, `.agents/rules/global/format_PRD.md`, `AGENTS.md`
+- Rujukan proyek: `.agents/rules/global/format_hasil_diskusi.md`, `.agents/skills/custom/format-task-md/SKILL.md`, `.agents/skills/custom/format-prd/SKILL.md`, `AGENTS.md`
 - Skill terkait: `konfigurasi-kilo-proyek`, `memori-check` (bila command mengubah state proyek yang memerlukan sinkronisasi memori)
 - Rujukan skill di command: setiap command wajib mencantumkan rujukan ke skill yang relevan (nama/path skill) dan memerintahkan agen memuatnya melalui tool `skill` sebelum bekerja; skill relevan ditentukan dari `SKILLS_INDEX.md` berdasarkan kecocokan trigger dengan tujuan command
 
@@ -39,7 +38,7 @@ Mengatur cara membuat dan memperbarui command Kilo di `.kilo/commands/` agar pen
 11. Tentukan format keluaran/laporan secara eksplisit (tabel atau daftar dengan kolom/field tetap) agar hasil konsisten dan dapat ditindaklanjuti.
 12. Nyatakan kriteria selesai secara eksplisit, mis. kalimat penutup yang menandai hasil, bukti verifikasi, atau alasan command berhenti.
 13. Cantumkan larangan eksplisit bila command tidak boleh menyentuh kode Dart, berkas hasil generate, arsip `hasil_diskusi/`, konfigurasi Kilo, atau melakukan commit/push.
-14. Sesuaikan command dengan aturan format yang relevan (mis. `format-task-md` untuk `task.md`, `format_hasil_diskusi.md` untuk `diskusi_N.md`, `format_PRD.md` untuk PRD) alih-alih mendefinisikan format baru.
+14. Sesuaikan command dengan aturan format yang relevan (mis. `format-task-md` untuk `task.md`, `format_hasil_diskusi.md` untuk `diskusi_N.md`, `format-prd` untuk PRD) alih-alih mendefinisikan format baru.
 15. Muat konteks wajib di awal command: `AGENTS.md`, berkas yang ditunjuk argumen, dan aturan format yang relevan.
 16. Setiap command wajib menyertakan rujukan ke skill yang relevan dengan tujuan command — mis. di bagian Ketentuan Umum atau Analyze — berupa nama/path skill (mis. `.agents/skills/custom/<nama>/SKILL.md`) beserta perintah eksplisit agar agen memuat skill tersebut melalui tool `skill` sebelum bekerja. Skill yang relevan ditentukan dari `SKILLS_INDEX.md` dengan mencocokkan trigger skill terhadap tujuan command; bila beberapa skill cocok, cantumkan semuanya; bila tidak ada skill yang trigger-nya terpenuhi, nyatakan secara eksplisit bahwa tidak ada skill terkait. Jangan menyalin isi skill ke dalam command; cukup rujuk path/namanya.
 17. Jika command mengubah berkas, wajib meminta konfirmasi pengguna sebelum menulis, dan sebutkan berkas target pada laporan.
@@ -159,7 +158,7 @@ Command di atas DILARANG bila ada skill yang trigger-nya terpenuhi oleh tujuan c
 
 - Berkas command nyata di proyek: `.kilo/commands/tambah_log.md`, `.kilo/commands/analisa_log.md`, `.kilo/commands/kerjakan_hasil_diskusi.md`, `.kilo/commands/mode/mode_diskusi.md`, `.kilo/commands/analisa/analisa_kesehatan_kode_alur.md`, `.kilo/commands/evaluasi_aturan.md`, `.kilo/commands/evaluasi_aturan_khusus.md`, `.kilo/commands/salin_konfigurasi_ke_global.md`
 - Skill terkait: `.agents/skills/custom/konfigurasi-kilo-proyek/SKILL.md`
-- Aturan terkait: `.agents/rules/global/format_hasil_diskusi.md`, `.agents/skills/custom/format-task-md/SKILL.md`, `.agents/rules/global/format_PRD.md`
+- Aturan terkait: `.agents/rules/global/format_hasil_diskusi.md`, `.agents/skills/custom/format-task-md/SKILL.md`, `.agents/skills/custom/format-prd/SKILL.md`
 - Konvensi trigger: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` (aturan 8)
 - Dokumentasi resmi Kilo (wajib dibaca): `https://kilo.ai/docs/customize/workflows` (frontmatter, parameter, model/variant, kapabilitas tool, reserved name `goal`) dan `https://kilo.ai/docs/customize/prompt-engineering` (spesifik, konteks, pemecahan tugas, contoh, format keluaran, Analyze → Plan → Execute → Review, penanganan ambiguitas)
 - Perintah pengguna rujukan: sesi 61 (2026-11-15) — optimasi command berdasarkan kedua dokumen resmi di atas; sesi 63 (2026-11-15) — setiap command wajib menyertakan skill yang relevan (aturan 16, v1.2.0)

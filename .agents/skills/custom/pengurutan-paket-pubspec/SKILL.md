@@ -4,8 +4,7 @@ description: "Trigger: saat menambah atau mengurutkan dependensi pubspec.yaml | 
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "Sat Nov 14 2026 02:59:52 WIB"
-  sumber-terakhir: "perintah pengguna: tindak lanjut hasil_diskusi/diskusi_5.md (kerjakan_hasil_diskusi)"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Pengurutan Paket pubspec.yaml Sesuai Abjad
@@ -126,4 +125,4 @@ dependency_overrides:
 - File aturan sumber: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`
 - Hasil diskusi: `hasil_diskusi/diskusi_5.md` (K-1..K-10; keputusan disusun atas pertanyaan pengguna melalui tool `question`)
 - Skill referensi format non-UI: `.agents/skills/custom/bug-runtime/SKILL.md`
-- Catatan: tidak ada commit yang berkaitan dengan pengurutan paket `pubspec.yaml`; isi skill disusun dari kondisi proyek aktual atas persetujuan pengguna, dan `metadata.sumber-terakhir` diisi perintah pengguna (bukan hash commit). Bagian `Contoh Benar` memakai versi dan komentar paket sebagaimana tercatat di `pubspec.yaml` proyek pada saat penulisan.
+- Catatan: tidak ada commit yang berkaitan dengan pengurutan paket `pubspec.yaml`; isi skill disusun dari kondisi proyek aktual atas persetujuan pengguna. Bagian `Contoh Benar` memakai versi dan komentar paket sebagaimana tercatat di `pubspec.yaml` proyek pada saat penulisan.

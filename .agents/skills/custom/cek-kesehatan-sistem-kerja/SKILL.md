@@ -4,8 +4,7 @@ description: Trigger: saat mengaudit kesehatan sistem kerja proyek (struktur, in
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "Sat Nov 14 2026 11:25:35 WIB"
-  sumber-terakhir: "hasil_diskusi/diskusi_8.md (K-1 s.d. K-6, R-1, R-2, R-5)"
+  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Cek Kesehatan Sistem Kerja
