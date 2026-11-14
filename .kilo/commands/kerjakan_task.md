@@ -1,4 +1,4 @@
-1. Baca terlebih dahulu file \`[AGENTS.md](http://AGENTS.md)\` diroot lalu patuhi aturannya.
+1. Baca terlebih dahulu file \`[AGENTS.md](AGENTS.md)\` diroot lalu patuhi aturannya.
 2. implementasikan semua task yang hanya berstatus `kerjakan` saja.
 3. urutannya cari semua task yang berstatus `kerjakan` pada setiap kelompok, implementasikan dulu semua task itu sampai task dalam satu kelompok selesai, baru pindah ke kelompok lainnya.
 4. setelah mengerjakan satu task wajib edit dulu file task.md nya agar menandai task itu dengan selesai atau dilewati.
