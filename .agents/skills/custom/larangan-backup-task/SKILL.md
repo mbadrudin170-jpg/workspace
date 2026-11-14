@@ -6,7 +6,6 @@ metadata:
   versi: "1.0.1"
   diperbarui: "Fri Nov 13 2026 05:33:40 WIB"
   sumber-terakhir: "perintah pengguna: kerjakan task.md (Kelompok 34)"
-  model: "openrouter/thinkingmachines/inkling-2-small:free"
 ---
 
 # Larangan Membawa Berkas Cadangan `.backup task/` ke Repository

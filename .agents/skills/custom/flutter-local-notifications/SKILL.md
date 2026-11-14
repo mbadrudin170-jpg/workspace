@@ -6,7 +6,6 @@ metadata:
   versi: "2.0.1"
   diperbarui: "Fri Nov 13 2026 05:33:40 WIB"
   sumber-terakhir: "perintah pengguna: kerjakan task.md (Kelompok 34)"
-  model: "openrouter/thinkingmachines/inkling-2-small:free"
 ---
 
 # Standar flutter_local_notifications v23.0.0 pada Notifikasi Harian

@@ -6,7 +6,6 @@ metadata:
   versi: "1.0.0"
   diperbarui: "Sat Nov 14 2026 17:35 WIB"
   sumber-terakhir: "perintah pengguna sesi 47: buat skill pembuatan commands"
-  model: "kilo/kilo-auto/free"
 ---
 
 # Membuat dan Memperbarui Command Kilo

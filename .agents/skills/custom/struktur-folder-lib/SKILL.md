@@ -6,7 +6,6 @@ metadata:
   versi: "1.0.0"
   diperbarui: "Sat Nov 14 2026 02:05:25 WIB"
   sumber-terakhir: "perintah pengguna: buat skill dari diskusi_4 sekarang (belum ada commit terkait; blueprint belum dieksekusi)"
-  model: "openrouter/thinkingmachines/inkling-2-small:free"
 ---
 # Struktur Folder `lib/` Flutter
 

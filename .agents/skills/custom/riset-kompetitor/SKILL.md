@@ -6,7 +6,6 @@ metadata:
   versi: "1.6.1"
   diperbarui: "Sat Nov 14 2026 15:55 WIB"
   sumber-terakhir: "perintah pengguna: ubah command cari_apk_kompetitor agar mencari semua store; skill diselaraskan (2026-11-14)"
-  model: "openrouter/thinkingmachines/inkling-2-small:free"
 ---
 
 # Riset Kompetitor Aplikasi Mobile (Lintas Proyek)

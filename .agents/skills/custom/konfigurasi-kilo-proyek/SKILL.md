@@ -6,7 +6,6 @@ metadata:
   versi: "1.0.1"
   diperbarui: "Sat Nov 14 2026 17:30 WIB"
   sumber-terakhir: "perintah pengguna sesi 47: hapus command sinkronkan_commands.md"
-  model: "openrouter/thinkingmachines/inkling-2-small:free"
 ---
 
 # Konfigurasi Kilo Proyek dan Commands Kilo

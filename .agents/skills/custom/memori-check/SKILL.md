@@ -6,7 +6,6 @@ metadata:
   versi: "1.6.1"
   diperbarui: "Sat Nov 14 2026 15:30 WIB"
   sumber-terakhir: "perintah pengguna: sesi 31 — implementasi tanggal diperbarui MEMORI.md"
-  model: "kilo/reflection/beam-free"
 ---
 
 # Memeriksa File MEMORI.md dan Berkas Sesi

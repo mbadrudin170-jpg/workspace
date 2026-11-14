@@ -6,7 +6,6 @@ metadata:
   versi: "1.0.0"
   diperbarui: "Sat Nov 14 2026 11:25:35 WIB"
   sumber-terakhir: "hasil_diskusi/diskusi_8.md (K-1 s.d. K-6, R-1, R-2, R-5)"
-  model: "kilo/kilo-auto/free"
 ---
 
 # Cek Kesehatan Sistem Kerja

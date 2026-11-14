@@ -6,7 +6,6 @@ metadata:
   versi: "2.0.0"
   diperbarui: "Sat Nov 14 2026 20:46:43 WIB"
   sumber-terakhir: "gabungan: commit b70ffda33ce6473e6309af8acd0c64b48c2d0404, acf4bb6dddc17ca633d551b2e9f5f62f39020d78, 804b307506389b678f09e7c2cb7bfb8f2aa94112 (state); commit 3b67d3095dacc4e5c7ea78d7eb251809e3e9d981, a15acd9603fe5d1251afa4acc3817e7e9c1607b1, a5beae01b86a4d9753963380818bc437c2b4741a, 2462af81050e12b2933717f457a33a5b05d3719f (model DB); SDK resmi package:freezed (contoh model JSON)"
-  model: "kilo-auto/free"
 ---
 
 # Membuat Model dan State dengan Freezed

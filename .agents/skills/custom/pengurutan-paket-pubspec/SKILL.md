@@ -6,7 +6,6 @@ metadata:
   versi: "1.0.0"
   diperbarui: "Sat Nov 14 2026 02:59:52 WIB"
   sumber-terakhir: "perintah pengguna: tindak lanjut hasil_diskusi/diskusi_5.md (kerjakan_hasil_diskusi)"
-  model: "openrouter/thinkingmachines/inkling-2-small:free"
 ---
 
 # Pengurutan Paket pubspec.yaml Sesuai Abjad
