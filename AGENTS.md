@@ -9,6 +9,8 @@
 Aturan ini berlaku saat AI **membuat** atau **memperbarui** file `SKILL.md`.
 Semua skill yang dibuat sebisa mungkin harus dapat digunakan oleh berbagai proyek Flutter milik pengguna (portabel lintas-proyek).
 
+**Skill adalah aturan.** Setiap `SKILL.md` yang sudah ada di `.agents/skills/` **wajib diperlakukan sebagai aturan yang mengikat**, setara dengan aturan di `.agents/rules/`, bukan sekadar referensi, dokumentasi pasif, atau saran opsional. Konsekuensi, larangan, dan kewajiban yang ditetapkan di §12 berlaku untuk **seluruh** skill, bukan hanya untuk skill yang sedang dibuat atau diperbarui.
+
 ## 2. Lokasi dan Struktur
 
 - Path skill: `.agents/skills/<kategori>/<nama-skill>/SKILL.md`
@@ -89,6 +91,7 @@ AI hanya boleh membaca dari commit yang sudah ada menggunakan perintah git seper
 
 - Jika menemukan skill lama yang melanggar aturan ini, AI wajib **melaporkan kepada pengguna dan mengusulkan perbaikan** melalui komentar/pesan sebelum melakukan rename atau restructure.
 - AI dilarang membiarkan pelanggaran tetap tanpa ditindaklanjuti. Jika pelanggaran ditemukan, AI harus memberitahu pengguna dan menunggu arahan sebelum melanjutkan perubahan apapun pada skill tersebut.
+- Pelanggaran terhadap **isi** skill diperlakukan sama dengan pelanggaran aturan: mengabaikan `## Aturan`, melanggar `## Larangan`, atau tidak memuat skill yang trigger-nya terpenuhi **wajib** dilaporkan dan diperbaiki, bukan diabaikan (lihat §12).
 
 ## 7. Front Matter (YAML)
 
@@ -386,6 +389,17 @@ Sebelum mengakhiri pembuatan atau pembaruan `SKILL.md`, verifikasi semua poin be
 - [ ] Bahasa Indonesia, gaya teknis ringkas, tanpa pengalaman konversasi
 - [ ] Backtick digunakan untuk class, properti, method, package
 - [ ] Jika menemukan pelanggaran pada skill lama, telah melaporkan dan mengusulkan perbaikan
+- [ ] Skill yang trigger-nya terpenuhi telah dimuat melalui tool `skill` sebelum mengubah kode/dokumen, dan seluruh `## Aturan` serta `## Larangan` di dalamnya dijalankan (skill diperlakukan sebagai aturan, lihat §12)
+
+## 12. Skill sebagai Aturan yang Mengikat
+
+1. **Status mengikat.** Setiap `SKILL.md` yang terdaftar di `SKILLS_INDEX.md` berkekuatan aturan yang sama dengan berkas di `.agents/rules/`. Isi skill **bukan** dokumentasi pasif, catatan sukarela, atau saran yang boleh diabaikan.
+2. **Kewajiban memuat.** Saat trigger sebuah skill terpenuhi (kondisi/tugas pemicu sesuai segmen trigger pada `description`), AI **wajib** memuat skill tersebut melalui tool `skill` **sebelum** mengubah kode atau dokumen, lalu **wajib** menjalankan seluruh `## Aturan` dan mematuhi seluruh `## Larangan` di dalamnya.
+3. **Larangan mengabaikan.** Mengabaikan skill yang trigger-nya terpenuhi diperlakukan sebagai pelanggaran aturan dengan bobot yang sama seperti mengabaikan aturan di `.agents/rules/`; pelanggaran ini **wajib** dilaporkan kepada pengguna.
+4. **Rujukan silsilah.** Bila skill memuat rujukan ke berkas aturan (mis. `aturan_skill.md §8`), rujukan itu **wajib** dibaca; ringkasan yang ada di dalam skill tidak menggantikan isi aturan sumber.
+5. **Benturan aturan.** Bila isi skill bertentangan dengan aturan di `.agents/rules/`, AI **wajib** melaporkan pertentangan kepada pengguna dan menunggu arahan; **DILARANG** memilih sendiri aturan mana yang dipatuhi.
+6. **Pembaruan tetap tunduk pada aturan.** Setiap perubahan isi skill tetap tunduk pada §4 (penamaan), §5 (sumber dari riwayat commit), §7 (front matter), §8 (segmen trigger), §9 (section wajib), dan §11 (checklist).
+7. **Keterlacakan.** Setiap skill wajib tercantum di `SKILLS_INDEX.md` beserta trigger dan `metadata.diperbarui`; skill yang tidak terindeks dianggap belum sah digunakan.
 
 // ============================================================
 // FILE: .agents/rules/global/format_hasil_diskusi.md
@@ -421,35 +435,41 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
 1. Seluruh berkas hasil diskusi **WAJIB** disimpan di folder `hasil_diskusi/` pada root proyek.
 2. Nama berkas **WAJIB** berformat `diskusi_N.md` dengan `N` berupa bilangan bulat positif tanpa awalan nol (contoh: `diskusi_1.md`, `diskusi_12.md`).
 3. Penentuan nomor:
-   - Jika folder `hasil_diskusi/` kosong, gunakan nomor `1`.
-   - Jika sudah ada berkas, gunakan **nomor tertinggi + 1**.
-   - Nomor yang terlewat (gap) **tidak diisi**; tetap gunakan `tertinggi + 1`.
+
+
+    - Jika folder `hasil_diskusi/` kosong, gunakan nomor `1`.
+    - Jika sudah ada berkas, gunakan **nomor tertinggi + 1**.
+    - Nomor yang terlewat (gap) **tidak diisi**; tetap gunakan `tertinggi + 1`.
+
 4. **DILARANG** menyimpan berkas hasil diskusi di lokasi lain (mis. `prd/`, `docs/`, atau root tanpa folder).
 5. **DILARANG** menimpa berkas hasil diskusi yang sudah ada. Diskusi baru selalu membuat berkas baru dengan nomor berikutnya.
 
 ## 5. Aturan Struktur Isi
 
 1. Berkas **WAJIB** memuat bagian berikut **berurutan**, dengan teks judul **persis** seperti tertulis (tanpa penomoran):
-   1. `# Hasil Diskusi <N> — <judul topik>`
-   2. `## Status`
-   3. `## Latar Belakang`
-   4. `## Poin Diskusi`
-   5. `## Keputusan`
-   6. `## Rekomendasi`
-   7. `## Tindak Lanjut`
-   8. `## File Terdampak`
-   9. `## Pertanyaan Terbuka`
-   10. `## Riwayat Perubahan`
-2. Isi tiap bagian:
-   - `## Status` — memuat metadata: `Dokumen`, `Implementasi`, `Tanggal`, dan `Topik`.
-   - `## Latar Belakang` — masalah, pemicu, atau konteks yang memunculkan diskusi.
-   - `## Poin Diskusi` — poin-poin yang dibahas; setiap poin memuat pertanyaan dan kesimpulan singkat.
-   - `## Keputusan` — daftar keputusan final, diberi kode `K-1`, `K-2`, dan seterusnya.
-   - `## Rekomendasi` — daftar saran/tindakan yang dianjurkan, diberi kode `R-1`, `R-2`, dan seterusnya.
-   - `## Tindak Lanjut` — tabel dengan kolom `No`, `Tindakan`, `File Terdampak`, `Status`.
-   - `## File Terdampak` — tabel dengan kolom `Lokasi File`, `Status Perubahan`, `Deskripsi`.
-   - `## Pertanyaan Terbuka` — hal yang masih menunggu jawaban/keputusan; tulis `Belum ada` bila tidak ada. **WAJIB diperbarui setiap kali status atau isi berkas berubah**: pertanyaan yang sudah terjawab WAJIB dihapus dari daftar dan dicatat sebagai jejak di `## Riwayat Perubahan` (mis. "Pertanyaan terbuka ditutup: <ringkasan pertanyaan> — <jawaban singkat> (<tanggal>)").
-   - `## Riwayat Perubahan` — tabel dengan kolom `Tanggal`, `Perubahan`.
+1. `# Hasil Diskusi <N> — <judul topik>`
+1. `## Status`
+1. `## Latar Belakang`
+1. `## Poin Diskusi`
+1. `## Keputusan`
+1. `## Rekomendasi`
+1. `## Tindak Lanjut`
+1. `## File Terdampak`
+1. `## Pertanyaan Terbuka`
+1. `## Riwayat Perubahan`
+1. Isi tiap bagian:
+
+
+    - `## Status` — memuat metadata: `Dokumen`, `Implementasi`, `Tanggal`, dan `Topik`.
+    - `## Latar Belakang` — masalah, pemicu, atau konteks yang memunculkan diskusi.
+    - `## Poin Diskusi` — poin-poin yang dibahas; setiap poin memuat pertanyaan dan kesimpulan singkat.
+    - `## Keputusan` — daftar keputusan final, diberi kode `K-1`, `K-2`, dan seterusnya.
+    - `## Rekomendasi` — daftar saran/tindakan yang dianjurkan, diberi kode `R-1`, `R-2`, dan seterusnya.
+    - `## Tindak Lanjut` — tabel dengan kolom `No`, `Tindakan`, `File Terdampak`, `Status`.
+    - `## File Terdampak` — tabel dengan kolom `Lokasi File`, `Status Perubahan`, `Deskripsi`.
+    - `## Pertanyaan Terbuka` — hal yang masih menunggu jawaban/keputusan; tulis `Belum ada` bila tidak ada. **WAJIB diperbarui setiap kali status atau isi berkas berubah**: pertanyaan yang sudah terjawab WAJIB dihapus dari daftar dan dicatat sebagai jejak di `## Riwayat Perubahan` (mis. "Pertanyaan terbuka ditutup: <ringkasan pertanyaan> — <jawaban singkat> (<tanggal>)").
+    - `## Riwayat Perubahan` — tabel dengan kolom `Tanggal`, `Perubahan`.
+
 3. **Jumlah dan judul bagian DILARANG diubah** tanpa pembaruan aturan ini. Bila format perlu diperluas, ubah aturan ini terlebih dahulu.
 4. Seluruh isi **WAJIB** menggunakan bahasa Indonesia, gaya teknis ringkas, tanpa pengalaman konversasi.
 5. Seluruh isi **WAJIB** didasarkan pada hasil diskusi dan informasi proyek yang diketahui. **DILARANG mengarang informasi.**
@@ -459,9 +479,12 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
 ## 6. Aturan Status
 
 1. `Dokumen` pada `## Status` **WAJIB** diisi salah satu dari:
-   - `Draft` — masih dibahas atau belum disepakati.
-   - `Final` — hasil diskusi sudah disepakati.
-   - `Batal` — diskusi dibatalkan.
+
+
+    - `Draft` — masih dibahas atau belum disepakati.
+    - `Final` — hasil diskusi sudah disepakati.
+    - `Batal` — diskusi dibatalkan.
+
 2. `Implementasi` pada `## Status` **WAJIB** diisi sesuai kondisi aktual, mis. `Belum Diimplementasikan`, `Sedang Diimplementasikan`, atau `Sudah Diimplementasikan`. Jika belum diketahui atau belum relevan, tulis secara eksplisit (mis. `Belum diketahui`) dan **DILARANG** mengarang.
 3. Perubahan status **WAJIB** disertai penyesuaian isi bagian yang relevan agar dokumen tetap konsisten.
 
@@ -474,8 +497,11 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
 ## 8. Aturan Pencatatan di `MEMORI.md` dan `memori/riwayat_perubahan.md`
 
 1. Setelah berkas hasil diskusi dibuat, diperbarui, atau dihapus, **WAJIB** perbarui `MEMORI.md` pada bagian yang relevan, sekurang-kurangnya:
-   - `Lokasi Hasil Diskusi` — lokasi folder, daftar berkas, dan nomor tertinggi.
-   - `Riwayat Diskusi` — topik, status PRD, dan tindak lanjut.
+
+
+    - `Lokasi Hasil Diskusi` — lokasi folder, daftar berkas, dan nomor tertinggi.
+    - `Riwayat Diskusi` — topik, status PRD, dan tindak lanjut.
+
 2. Tambahkan entri riwayat perubahan pada `memori/riwayat_perubahan.md` — ringkasan perubahan berkas (sebagai pengganti bagian `Riwayat Perubahan` yang sebelumnya berada di `MEMORI.md`).
 3. **DILARANG** membiarkan `MEMORI.md` memuat nomor tertinggi atau daftar berkas yang sudah usang.
 4. Sinkronisasi `MEMORI.md` wajib dilakukan melalui alur berkas sesi (`memori/sesi/sesi_N.md`, status `Belum Sinkron` → `Sudah Sinkron`) sesuai skill `memori-check`: catat sesi ke berkas sesi sebelum/selama pembaruan, lalu tandai `Sudah Sinkron` setelah `MEMORI.md` dan `memori/riwayat_perubahan.md` diperbarui. Berkas `sesi_N.md` **tidak boleh dihapus** (diarsipkan permanen). Pada setiap **awal sesi**, setelah membaca `MEMORI.md` dan sebelum membuat berkas sesi baru, AI wajib melakukan **catch-up sync**: pindai berkas `memori/sesi/*.md` ber-status `Belum Sinkron` milik sesi sebelumnya; yatim/kosong tanpa perubahan nyata → ditandai `Sudah Sinkron` dengan catatan eksplisit "tidak ada perubahan untuk disinkronkan"; berisi perubahan nyata → disinkronkan dengan prosedur yang sama seperti akhir sesi (`MEMORI.md` + `memori/riwayat_perubahan.md` → isi `## Sinkronisasi ke MEMORI.md` → `Sudah Sinkron`); berkas sesi yang sedang aktif di sesi ini tidak ditandai; bila ambigu → dilaporkan ke pengguna, jangan diputuskan sendiri. Pemindaian dibatasi pada berkas `Belum Sinkron` saja; alur akhir sesi tetap dipertahankan (catch-up hanya jaring pengaman).

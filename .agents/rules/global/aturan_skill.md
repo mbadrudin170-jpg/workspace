@@ -5,6 +5,8 @@
 Aturan ini berlaku saat AI **membuat** atau **memperbarui** file `SKILL.md`.
 Semua skill yang dibuat sebisa mungkin harus dapat digunakan oleh berbagai proyek Flutter milik pengguna (portabel lintas-proyek).
 
+**Skill adalah aturan.** Setiap `SKILL.md` yang sudah ada di `.agents/skills/` **wajib diperlakukan sebagai aturan yang mengikat**, setara dengan aturan di `.agents/rules/`, bukan sekadar referensi, dokumentasi pasif, atau saran opsional. Konsekuensi, larangan, dan kewajiban yang ditetapkan di §12 berlaku untuk **seluruh** skill, bukan hanya untuk skill yang sedang dibuat atau diperbarui.
+
 ## 2. Lokasi dan Struktur
 
 - Path skill: `.agents/skills/<kategori>/<nama-skill>/SKILL.md`
@@ -87,6 +89,7 @@ AI hanya boleh membaca dari commit yang sudah ada menggunakan perintah git seper
 
 - Jika menemukan skill lama yang melanggar aturan ini, AI wajib **melaporkan kepada pengguna dan mengusulkan perbaikan** melalui komentar/pesan sebelum melakukan rename atau restructure.
 - AI dilarang membiarkan pelanggaran tetap tanpa ditindaklanjuti. Jika pelanggaran ditemukan, AI harus memberitahu pengguna dan menunggu arahan sebelum melanjutkan perubahan apapun pada skill tersebut.
+- Pelanggaran terhadap **isi** skill diperlakukan sama dengan pelanggaran aturan: mengabaikan `## Aturan`, melanggar `## Larangan`, atau tidak memuat skill yang trigger-nya terpenuhi **wajib** dilaporkan dan diperbaiki, bukan diabaikan (lihat §12).
 
 ## 7. Front Matter (YAML)
 
@@ -386,3 +389,14 @@ Sebelum mengakhiri pembuatan atau pembaruan `SKILL.md`, verifikasi semua poin be
 - [ ] Bahasa Indonesia, gaya teknis ringkas, tanpa pengalaman konversasi
 - [ ] Backtick digunakan untuk class, properti, method, package
 - [ ] Jika menemukan pelanggaran pada skill lama, telah melaporkan dan mengusulkan perbaikan
+- [ ] Skill yang trigger-nya terpenuhi telah dimuat melalui tool `skill` sebelum mengubah kode/dokumen, dan seluruh `## Aturan` serta `## Larangan` di dalamnya dijalankan (skill diperlakukan sebagai aturan, lihat §12)
+
+## 12. Skill sebagai Aturan yang Mengikat
+
+1. **Status mengikat.** Setiap `SKILL.md` yang terdaftar di `SKILLS_INDEX.md` berkekuatan aturan yang sama dengan berkas di `.agents/rules/`. Isi skill **bukan** dokumentasi pasif, catatan sukarela, atau saran yang boleh diabaikan.
+2. **Kewajiban memuat.** Saat trigger sebuah skill terpenuhi (kondisi/tugas pemicu sesuai segmen trigger pada `description`), AI **wajib** memuat skill tersebut melalui tool `skill` **sebelum** mengubah kode atau dokumen, lalu **wajib** menjalankan seluruh `## Aturan` dan mematuhi seluruh `## Larangan` di dalamnya.
+3. **Larangan mengabaikan.** Mengabaikan skill yang trigger-nya terpenuhi diperlakukan sebagai pelanggaran aturan dengan bobot yang sama seperti mengabaikan aturan di `.agents/rules/`; pelanggaran ini **wajib** dilaporkan kepada pengguna.
+4. **Rujukan silsilah.** Bila skill memuat rujukan ke berkas aturan (mis. `aturan_skill.md §8`), rujukan itu **wajib** dibaca; ringkasan yang ada di dalam skill tidak menggantikan isi aturan sumber.
+5. **Benturan aturan.** Bila isi skill bertentangan dengan aturan di `.agents/rules/`, AI **wajib** melaporkan pertentangan kepada pengguna dan menunggu arahan; **DILARANG** memilih sendiri aturan mana yang dipatuhi.
+6. **Pembaruan tetap tunduk pada aturan.** Setiap perubahan isi skill tetap tunduk pada §4 (penamaan), §5 (sumber dari riwayat commit), §7 (front matter), §8 (segmen trigger), §9 (section wajib), dan §11 (checklist).
+7. **Keterlacakan.** Setiap skill wajib tercantum di `SKILLS_INDEX.md` beserta trigger dan `metadata.diperbarui`; skill yang tidak terindeks dianggap belum sah digunakan.
