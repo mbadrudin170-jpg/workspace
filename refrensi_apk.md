@@ -50,15 +50,6 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 
 ### Prioritas Tinggi
 
-<!-- PRD: prd_galeri_base_terfilter.md -->
-#### A1. Galeri base terfilter per Town Hall dan tipe base
-
-- **Temuan:** Seluruh kompetitor utama menyediakan katalog base yang dikelompokkan berdasarkan Town Hall, Builder Hall, dan tujuan pertahanan (war, farming, trophy, hybrid, CWL).
-- **Tujuan fitur:** memungkinkan pengguna menemukan base yang sesuai level dan strategi tanpa menelusuri ratusan gambar.
-- **Referensi:** [COC Base Layouts:Clash of Maps](https://play.google.com/store/apps/details?id=com.sb.newclashmaps2020), [Coc Base Layout 2026](https://play.google.com/store/apps/details?id=com.cocbase.net), [CoC Base Maps 2026](https://play.google.com/store/apps/details?id=com.m3android7s.projects.clashofclansbaselayouts)
-- **Saran:** gunakan struktur data `TownHallLevel`, `BuilderHallLevel`, `TipeBase`, dan `GayaBase`; tampilkan filter sebagai chip horizontal di atas grid. Untuk MVP, batasi pada TH dan tipe base agar data awal tidak terlalu besar.
-- **Prioritas:** Tinggi.
-
 <!-- PRD: prd_copy_base_link.md -->
 #### A2. Copy base link satu ketuk
 
@@ -305,7 +296,6 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 
 | Urutan | Item | Jenis | Alasan |
 | --- | --- | --- | --- |
-| 1 | A1 Galeri base terfilter | Fitur | Fondasi seluruh pengalaman; tanpa katalog terstruktur fitur lain tidak berguna. |
 | 2 | A2 Copy base link satu ketuk | Fitur | Inti nilai aplikasi dan alasan utama pengguna memasang aplikasi sejenis. |
 | 3 | C3 Tombol aksi utama menetap | UI/UX | Menjamin fitur inti dapat diselesaikan tanpa hambatan navigasi. |
 | 4 | C6 Umpan balik setelah menyalin | UI/UX | Mengurangi persepsi gagal copy yang dikeluhkan pada kompetitor. |

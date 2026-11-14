@@ -49,7 +49,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `m share_global_saya` — submodule memiliki perubahan isi yang belum di-pointer-update; jangan di-commit tanpa perintah pengguna.
 - `riverpod_lint` 3.2.0 terpasang di submodule `share_global_saya` dan `base_coc` (`dev_dependencies` + `plugins` pada `analysis_options.yaml`); perubahan sudah ter-commit di repo submodule (`share_global_saya` `c59ed5b`, `base_coc` `ad79bd6`, sesi 13), tetapi pointer submodule di root belum diperbarui.
 - `flutter pub get` dijalankan pada 2026-11-14 (sesi 21) di submodule `base_coc` dan `share_global_saya` dengan Flutter 3.47.9 — berhasil (`Got dependencies!`). Tool Flutter menambahkan `analyzer.exclude` (`build/**` dan folder platform) pada `base_coc/analysis_options.yaml`; perubahan belum di-commit.
-- `base_coc/README.md` — diperbarui pada sesi 8 (2026-11-14) menjadi dokumentasi lengkap sesuai implementasi aktual (masih template `flutter create`, fitur penyedia base belum tersedia); perubahan di dalam submodule, belum di-commit.
+- `base_coc` implementasi PRD `prd/prd_galeri_base_terfilter.md` (Galeri base terfilter per Town Hall dan tipe base) selesai pada commit `36fc573` (submodule); status PRD diubah menjadi `Sudah Diimplementasikan`; section A1 dihapus dari `refrensi_apk.md` (sesi 23/27). Pointer submodule di root belum diperbarui.
 - `README.md` root — sebelumnya kosong (0 byte), kini diisi dokumentasi repositori `workspace` pada sesi 8 (2026-11-14).
 - `share_global_saya/README.md` — dibuat pada sesi 9 (2026-11-14) sebagai dokumentasi paket pustaka bersama sesuai implementasi aktual; ditautkan dari README root; perubahan di dalam submodule, belum di-commit.
 - `share_global_saya/docs/laporan_linter.md` — dibuat pada sesi 11 (2026-11-14) dari hasil `flutter analyze`: 235 temuan `info` (231 `public_member_api_docs`, 3 `discarded_futures`, 1 `avoid_print`); `base_coc` bersih. Dokumen memuat rencana penanganan per berkas dan contoh perbaikan; belum diimplementasikan dan belum di-commit.
@@ -88,7 +88,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `SKILLS_INDEX.md` = indeks skill yang wajib diperbarui saat skill dibuat/diubah (lihat skill `aturan-pembuatan-skill`, `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`).
 - Skill `memori-check` (`.agents/skills/custom/memori-check/SKILL.md`) mengatur alur `memori/sesi/sesi_N.md` + sinkronisasi `MEMORI.md` di akhir sesi; baca sebelum interaksi proyek apa pun.
 - Skill `riset-kompetitor` (`.agents/skills/custom/riset-kompetitor/SKILL.md`) v1.6.0 bersifat portabel lintas proyek; konteks aplikasi sasaran wajib dibaca dari `README.md`/`AGENTS.md`/PRD, bukan di-hardcode ke dalam skill.
-- Aturan penulisan `SKILL.md`, hasil diskusi, PRD, dan `task.md` ada di `.agents/rules/global/` (`aturan_skill.md`, `format_hasil_diskusi.md`, `format_PRD.md`, `format_task.md`).
+- Aturan alur Git & commit (Conventional Commits, Trunk-based, penamaan branch prefix wajib, Squash merge, Semver + changelog) tersimpan di `.agents/rules/global/alur_git_commit.md` (dibuat sesi 26; rujukan hasil diskusi `hasil_diskusi/diskusi_2.md`).
 
 ## Lokasi Berkas Memori
 
@@ -99,8 +99,8 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 ## Hasil Diskusi
 
 - Lokasi: `hasil_diskusi/` di root proyek (dibuat 2026-11-14, sesi 12).
-- Daftar berkas: `diskusi_1.md` — perluasan cakupan command `perbarui_readme.md` ke README submodule (status Final, sudah diimplementasikan).
-- Nomor tertinggi: 1.
+- Daftar berkas: `diskusi_1.md` — perluasan cakupan command `perbarui_readme.md` ke README submodule (status Final, sudah diimplementasikan); `diskusi_2.md` — sistem kerja global: alur Git & commit (Conventional Commits + Trunk-based) (status Final, belum diimplementasikan).
+- Nomor tertinggi: 2.
 
 ## Catatan untuk Model Selanjutnya
 
