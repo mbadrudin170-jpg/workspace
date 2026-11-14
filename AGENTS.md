@@ -16,185 +16,63 @@
 
 # Aturan Pembuatan dan Pembaruan SKILL.md
 
-## 1. Cakupan
+Mengatur cara **membuat** dan **memperbarui** file `SKILL.md` di `.agents/skills/` agar format, sumber isi, dan penamaan konsisten. Skill yang dibuat sebisa mungkin portabel dan dapat digunakan lintas-proyek Flutter.
 
-Aturan ini berlaku saat AI **membuat** atau **memperbarui** file `SKILL.md`.
-Semua skill yang dibuat sebisa mungkin harus dapat digunakan oleh berbagai proyek Flutter milik pengguna (portabel lintas-proyek).
+## Cakupan yang Di-Cover
 
-**Skill adalah aturan.** Setiap `SKILL.md` yang sudah ada di `.agents/skills/` **wajib diperlakukan sebagai aturan yang mengikat**, setara dengan aturan di `.agents/rules/`, bukan sekadar referensi, dokumentasi pasif, atau saran opsional. Konsekuensi, larangan, dan kewajiban yang ditetapkan di §12 berlaku untuk **seluruh** skill, bukan hanya untuk skill yang sedang dibuat atau diperbarui.
-
-## 2. Lokasi dan Struktur
-
-- Path skill: `.agents/skills/<kategori>/<nama-skill>/SKILL.md`
-- Wajib menggunakan folder `skills` (jamak), bukan `skill`
+- Lokasi: `.agents/skills/<kategori>/<nama-skill>/SKILL.md` (proyek) dan `.kilo/skills/<nama-skill>/SKILL.md` (project-level, prioritas lebih tinggi)
+- Lokasi global kompatibilitas: `~/.kilo/skills/`, `~/.agents/skills/`, `~/.claude/skills/` (dipuat bersama dalam satu pool)
 - Kategori default: `custom`
-- Struktur wajib:
+- Struktur: satu folder per skill berisi `SKILL.md` (wajib)
+- Bundled resources opsional: `scripts/`, `references/`, `assets/`, `examples/`
+- Referensi format UI: `pola-ux/SKILL.md`, `pola-ui/SKILL.md`, `gaya/SKILL.md`, `tipografi/SKILL.md`, `spacing/SKILL.md`, `widget-custom/SKILL.md`
+- Referensi format non-UI: `bug-runtime/SKILL.md`
+- Front matter YAML: `name` (maks 64 karakter, lowercase, angka, strip, harus cocok dengan nama folder), `description` (maks 1024 karakter, wajib diawali segmen trigger-only), `metadata.kategori`, `metadata.versi` (semver), dan `metadata.diperbarui` (format `TZ=Asia/Jakarta date`). Field opsional `license` dan `compatibility` boleh ditambahkan bila relevan.
+- Section wajib: Judul/Intro, `## Cakupan yang Di-Cover`, `## Aturan`, `## Larangan`, `## Contoh Benar`, `## Contoh Salah`, `## Sumber Evaluasi`
+- Sumber isi: riwayat commit (`git log`, `git show`, `git diff`)
+- Shell command di skill: syntax `` !`command` `` (hanya dieksekusi di lokasi terpercaya: global skill, built-in, atau path absolut di global config; project skill dan remote URL tidak dieksekusi)
+- Slash command: setiap skill tersedia sebagai `/<nama>:skill` di menu `/`
+- Penemuan skill: saat session dimulai; gunakan `/reload` untuk memindai ulang tanpa memulai session baru
+- Mode-specific skill: tidak ada direktori terpisah per mode; semua skill dalam satu pool, agent memilih berdasarkan `description`
 
-```
-.agents/skills/<kategori>/<nama-skill>/
-└── SKILL.md
-```
+## Aturan
 
-## 3. Topik Wajib (Referensi Format)
+1. Gunakan path `.agents/skills/<kategori>/<nama-skill>/SKILL.md` dengan folder `skills` (jamak), bukan `skill`; kategori default `custom`.
+2. Jika ingin skill dengan prioritas lebih tinggi di proyek ini, tambahkan di `.kilo/skills/<nama-skill>/SKILL.md` dan daftarkan path di `kilo.jsonc` under `"skills": { "paths": [...] }`.
+3. Beri nama folder skill dalam **bahasa Indonesia**, **deskriptif**, dan **kebab-case**: hanya `a-z`, `0-9`, dan strip `-`; tidak diawali angka.
+4. Field `name` di frontmatter **harus sama persis** dengan nama parent directory (Name Matching Rule).
+5. Susun isi `SKILL.md` hanya dari **commit yang berkaitan** (commit yang menyentuh file/folder terkait topik skill) menggunakan `git log`, `git show <commit>`, atau `git diff <commit>`.
+6. Jika ada beberapa commit relevan dengan pola berbeda, pilih pola dari **commit terbaru yang relevan** kecuali pengguna menentukan lain.
+7. Cantumkan front matter YAML di paling atas (dibungkus `---`) dengan field wajib: `name` (sama dengan nama folder), `description` (wajib diawali segmen trigger-only, lihat aturan 8), `metadata.kategori`, `metadata.versi` (semver), dan `metadata.diperbarui` (format `TZ=Asia/Jakarta date`). Field opsional `license` dan `compatibility` boleh ditambahkan bila relevan.
+8. Tulis `description` diawali segmen trigger-only: diawali literal `Trigger:`, segmen trigger hanya berisi kondisi/tugas pemicu dalam bahasa Indonesia, dipisah dari segmen cakupan lain dengan `|` (spasi-pipe-spasi), dan berakhir pada `|` pertama atau akhir string. Setelah segmen trigger, `description` dan intro mencakup: apa yang di-cover, apa yang harus dihindari, langkah kerja (workflow), dan referensi ke file terkait.
+9. Sertakan semua section wajib: Judul dan intro, `## Cakupan yang Di-Cover`, `## Aturan`, `## Larangan`, `## Contoh Benar`, `## Contoh Salah`, dan `## Sumber Evaluasi`. Contoh kode ditulis langsung di `SKILL.md` (tanpa folder `examples` terpisah).
+10. Bundled resources (`scripts/`, `references/`, `assets/`, `examples/`) boleh ditambahkan sebagai pendukung, tetapi `SKILL.md` tetap menjadi berkas tunggal yang wajib ada di root folder skill.
+11. Gunakan bahasa Indonesia, gaya teknis ringkas, tanpa pengalaman konversasi. Gunakan backtick `` ` `` untuk nama class, properti, method, dan package.
+12. Ikuti standar format dan penulisan dari skill referensi sesuai topik (UI atau non-UI) sebagai acuan tata letak section, gaya bahasa, dan penggunaan backtick.
+13. Jika menemukan skill lama yang melanggar aturan, laporkan kepada pengguna dan usulkan perbaikan sebelum melakukan rename atau restructure; jangan membiarkan pelanggaran tanpa tindak lanjut.
+14. Sebelum selesai, verifikasi checklist: lokasi benar, nama folder valid, front matter lengkap, semua section ada, isi berbasis commit relevan, `description` diawali segmen trigger-only, dan pelanggaran skill lama telah dilaporkan bila ada.
+15. Patuhi konvensi segmen trigger: literal `Trigger:` di posisi paling awal, trigger hanya memuat kondisi/tugas pemicu (bahasa Indonesia), tanpa cakupan/larangan/workflow/referensi file, dan ekstraksi trigger membaca dari setelah `Trigger:` sampai `|` pertama atau akhir string.
+16. Shell command di `SKILL.md` (syntax `` !`command` ``) hanya diizinkan di lokasi terpercaya (global skill, built-in, atau path absolut di global config). Project skill (`.kilo/skills/`) dan remote URL (`skills.urls`) **DILARANG** mengeksekusi shell command; placeholder diganti dengan marker untrusted.
+17. Setiap skill otomatis tersedia sebagai slash command `/<nama>:skill`; pastikan nama tidak bentrok dengan custom command atau MCP prompt yang sudah ada.
+18. Skill ditemukan saat session dimulai; untuk memindai ulang skill yang baru ditambahkan atau diubah tanpa memulai session baru, gunakan `/reload`.
 
-Setiap skill harus mengikuti standar format dan penulisan dari skill referensi yang sudah ada. Skill referensi ini digunakan sebagai acuan tata letak section, gaya bahasa, dan penggunaan backtick, bukan harus meniru isi secara harfiah.
+## Larangan
 
-### 3.1 Referensi Skill Topik UI
+- DILARANG menggunakan folder `skill` (tunggal); wajib `skills`.
+- DILARANG menamai folder skill dengan garis bawah (`_`), spasi, huruf besar, angka di awal, atau karakter selain `a-z`, `0-9`, dan `-`.
+- DILARANG field `name` di frontmatter tidak sama dengan nama parent directory.
+- DILARANG mengambil isi `SKILL.md` dari file yang belum di-commit (working directory/working tree), perubahan staging (`git diff --cached`), atau file untracked.
+- DILARANG mengarang pola, gaya, atau contoh bila **tidak ada** commit yang berkaitan; wajib berhenti dan menanyakan kepada pengguna cara melanjutkan.
+- DILARANG mengubah atau restructure skill lama yang melanggar aturan tanpa melaporkan dan menunggu arahan pengguna.
+- DILARANG menghilangkan section wajib atau memindahkan contoh ke folder `examples` terpisah.
+- DILARANG menulis deskripsi yang tidak mencakup trigger, cakupan, larangan penggunaan, langkah kerja, dan referensi file terkait.
+- DILARANG menulis `description` tanpa segmen trigger-only di awal (literal `Trigger:`, lihat aturan 8 di skill ini).
+- DILARANG mengeksekusi shell command (`!`command``) di project skill (`.kilo/skills/`) atau remote URL (`skills.urls`); hanya diperbolehkan di lokasi terpercaya.
+- DILARANG menambahkan bundled resources (`scripts/`, `references/`, `assets/`, `examples/`) tanpa `SKILL.md` di root folder skill.
 
-Berikut adalah daftar skill referensi UI yang formatnya harus diikuti sebagai acuan:
+## Contoh Benar
 
-- `pola-ux/SKILL.md`
-- `pola-ui/SKILL.md`
-- `gaya/SKILL.md`
-- `tipografi/SKILL.md`
-- `spacing/SKILL.md`
-- `widget-custom/SKILL.md`
-
-### 3.2 Referensi Skill Topik Non-UI
-
-- `bug-runtime/SKILL.md`
-
-## 4. Nama Folder Skill
-
-Nama folder skill wajib memenuhi semua ketentuan berikut:
-
-1. Wajib **bahasa Indonesia**.
-2. Wajib **deskriptif** (menunjukkan isi skill, bukan nama generik).
-3. Wajib **kebab-case** (pemisah strip `-`).
-4. Dilarang menggunakan garis bawah (`_`).
-5. Dilarang menggunakan spasi.
-6. Dilarang huruf besar.
-7. Dilarang angka di awal nama.
-8. Dilarang karakter selain `a-z`, `0-9`, dan strip `-`.
-   Contoh nama yang benar: `menambahkan-integration-test-flutter`, `material-app-tema-lokalisasi`, `flutter-local-notifikasi-push`.
-   Contoh nama yang salah: `integration_test`, `Integration Test`, `01-test`, `my-skill`, `skill_test`.
-
-## 5. Sumber Isi (Berdasarkan Riwayat Commit)
-
-Semua isi `SKILL.md` wajib **mengikuti riwayat commit code** pengguna.
-
-### 5.1 Pengambilan Sumber
-
-AI hanya boleh membaca dari commit yang sudah ada menggunakan perintah git seperti:
-
-- `git log`
-- `git show <commit>`
-- `git diff <commit>`
-
-### 5.2 Dilarang Mengambil Dari
-
-- File yang belum di-commit (working directory / working tree)
-- Perubahan yang masih di staging (`git diff --cached`)
-- File untracked
-
-### 5.3 Commit yang Berkaitan
-
-"Commit yang berkaitan" berarti commit yang menyentuh file atau folder yang berhubungan dengan topik skill.
-
-- Jika ada commit yang berkaitan: isi `SKILL.md` disusun dari commit tersebut.
-- Jika ada beberapa commit yang berkaitan dan polanya berbeda: AI memilih pola dari **commit terbaru yang relevan**, kecuali pengguna menentukan lain.
-- Jika **tidak ada** commit yang berkaitan: AI **dilarang mengarang** pola, gaya, atau contoh. AI wajib berhenti dan menanyakan kepada pengguna bagaimana ingin melanjutkan (contoh: memberikan contoh dari SDK resmi, atau menunda pembuatan skill sampai ada commit yang relevan).
-
-### 5.4 Referensi Commit
-
-`SKILL.md` boleh mencantumkan hash commit sebagai rujukan (opsional).
-
-## 6. Pelanggaran Aturan
-
-- Jika menemukan skill lama yang melanggar aturan ini, AI wajib **melaporkan kepada pengguna dan mengusulkan perbaikan** melalui komentar/pesan sebelum melakukan rename atau restructure.
-- AI dilarang membiarkan pelanggaran tetap tanpa ditindaklanjuti. Jika pelanggaran ditemukan, AI harus memberitahu pengguna dan menunggu arahan sebelum melanjutkan perubahan apapun pada skill tersebut.
-- Pelanggaran terhadap **isi** skill diperlakukan sama dengan pelanggaran aturan: mengabaikan `## Aturan`, melanggar `## Larangan`, atau tidak memuat skill yang trigger-nya terpenuhi **wajib** dilaporkan dan diperbaiki, bukan diabaikan (lihat §12).
-
-## 7. Front Matter (YAML)
-
-Setiap `SKILL.md` wajib memiliki frontmatter di paling atas file, dibungkus dengan `---` pada baris pertama dan `---` setelah field terakhir.
-
-### 7.1 Field Wajib
-
-| Field                      | Keterangan                                                                                                                                             |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `name`                     | Sama dengan nama folder skill (kebab-case, bahasa Indonesia)                                                                                           |
-| `description`              | Deskripsi yang sangat detail; **wajib diawali segmen trigger-only** (lihat §8)                                                                         |
-| `metadata.kategori`        | Sesuai folder kategori (default `"custom"`)                                                                                                            |
-| `metadata.versi`           | Format semver, contoh `"1.0.0"`                                                                                                                        |
-| `metadata.diperbarui`      | Waktu pembaruan terakhir isi skill (format `TZ=Asia/Jakarta date`), wajib diisi dan diperbarui setiap kali isi skill berubah (frontmatter maupun body) |
-
-### 7.2 Field Opsional
-
-| Field            | Keterangan                                                                                                                 |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `metadata.model` | Jika dicantumkan, wajib diisi dengan model AI yang sedang mengedit skill saat itu, dan diperbarui setiap kali skill diedit |
-
-### 7.3 Contoh Front Matter
-
-```yaml
----
-name: menambahkan-integration-test-flutter
-description: Trigger: saat menambahkan integration test Flutter | Panduan integration test, eksplorasi UI via MCP, dan mengotomasi alur pengguna dengan integration_test.
-metadata:
-  kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Wed Nov 11 2026 23:30:00 WIB"
-  model: "models/gemini-3.1-pro-preview"
----
-```
-
-## 8. Aturan Penulisan Deskripsi Skill
-
-Deskripsi skill (bagian `description` dan paragraf pengantar) wajib mencakup poin-poin §8.4. Bagian `description` **wajib diawali segmen trigger-only** agar ekstraksi trigger untuk `SKILLS_INDEX.md` dapat dilakukan secara deterministik.
-
-### 8.1 Definisi Trigger
-
-**Trigger** adalah kondisi atau tugas pemicu yang membuat skill ini relevan digunakan (mis. "saat menambahkan notifikasi lokal", "saat membuat PRD"). Aturan definisi trigger:
-
-1. Trigger hanya berisi **kondisi/tugas pemicu** — bukan cakupan, bukan larangan, bukan langkah kerja (workflow), dan bukan referensi file.
-2. Trigger **tidak boleh** memuat daftar package/class/versi (cakupan), hal yang dilarang, urutan kerja, atau path file/folder.
-3. Trigger wajib spesifik dan dapat dibedakan dari skill lain (bukan "saat bekerja dengan Flutter").
-4. Trigger ditulis dalam **bahasa Indonesia** baku; istilah teknis (mis. `build_runner`, `SKILL.md`, `PRD`) boleh tetap dalam bahasa Inggris.
-
-### 8.2 Format dan Penempatan Segmen Trigger di `description`
-
-1. `description` **wajib diawali** dengan penanda literal `Trigger:` pada posisi paling awal (huruf `T` besar, diikuti satu spasi).
-2. Segmen trigger adalah teks dari setelah `Trigger:` sampai pemisah **`|`** pertama (spasi, pipe, spasi) atau sampai akhir string bila pemisah tidak ada.
-3. Setelah pemisah `|`, segmen berikutnya memuat cakupan, larangan, workflow, dan referensi file seperti biasa (lihat §8.4).
-4. Segmen trigger **hanya memuat trigger** — isi selain kondisi/tugas pemicu dilarang berada di segmen trigger.
-5. Bila `description` tidak memuat pemisah `|`, seluruh isi setelah `Trigger:` dianggap sebagai segmen trigger (satu segmen).
-   Contoh:
-
-```yaml
-description: Trigger: saat menambahkan notifikasi lokal Flutter | Panduan flutter_local_notifications v23.0.0, cek platform, izin runtime, dan payload validation.
-```
-
-### 8.3 Penanganan Bahasa ID/EN
-
-1. Segmen trigger wajib **bahasa Indonesia**; isi boleh memuat istilah teknis bahasa Inggris yang lazim.
-2. Segmen setelah pemisah `|` boleh bahasa Indonesia atau bahasa Inggris-campuran, tetapi dianjurkan bahasa Indonesia.
-3. Bila `description` lama seluruhnya bahasa Inggris, terjemahkan hanya segmen trigger ke bahasa Indonesia saat normalisasi; segmen lainnya boleh dipertahankan (lihat strategi migrasi pada `task.md`).
-4. Ekstraktor (mis. `perbarui_skills_index.md`) wajib membaca dari setelah `Trigger:` sampai `|` pertama atau akhir string; tidak boleh menebak-nebak isi non-trigger.
-
-### 8.4 Poin Wajib Deskripsi Skill
-
-Deskripsi skill (bagian `description` dan paragraf pengantar) wajib mencakup poin-poin berikut:
-
-1. **Kapan digunakan (trigger/use case)** — jelaskan skenario spesifik yang memerlukan skill ini. Bagian ini **wajib** menjadi segmen trigger-only di awal `description` (lihat §8.1–8.3).
-2. **Apa yang di-cover** — cakupan fungsi, class, package, atau versi yang relevan (contoh: `flutter_local_notifications` v22.3.3).
-3. **Apa yang harus dihindari** — jangan digunakan untuk UI web, jangan diedit manual file generated, dll.
-4. **Langkah kerja (workflow)** — urutan tindakan yang wajib diikuti, misal `pub get` → `build_runner` → verifikasi `dart analyze`.
-5. **Referensi ke file terkait** — path file atau folder yang relevan dengan topik skill dan digunakan sebagai acuan saat menerapkan skill tersebut.
-
-### 8.5 Rekonsiliasi dengan Front Matter
-
-- `metadata.diperbarui` adalah field **wajib** (lihat §7.1) dan diperbarui setiap kali isi skill berubah.
-- Setiap perubahan `description` (termasuk penambahan/perbaikan segmen trigger) wajib memperbarui `metadata.diperbarui`, serta menaikkan `metadata.versi` (bump patch default). Rujukan sumber perubahan dicantumkan pada section `## Sumber Evaluasi` (hash commit / perintah pengguna), bukan sebagai field frontmatter.
-- Segmen trigger-only di awal `description` adalah syarat validitas deskripsi, sehingga `description` tanpa penanda `Trigger:` dianggap belum memenuhi aturan ini.
-
-## 9. Format Lengkap `SKILL.md`
-
-Setiap section di bawah ini **wajib ada** dalam setiap `SKILL.md`. Tidak perlu folder `examples` terpisah — contoh kode langsung di dalam `SKILL.md`. Gunakan bahasa Indonesia, gaya teknis ringkas, tanpa pengalaman konversasi. Gunakan backtick `` ` `` untuk nama class, properti, method, dan package.
-
-### 9.1 YAML Frontmatter (awal file)
-
-```yaml
+````markdown
 ---
 name: material-app-tema-lokalisasi
 description: Trigger: saat mengonfigurasi MaterialApp dan WidgetsApp | Panduan tema (theme, darkTheme, themeMode), lokalisasi (locale, supportedLocales, localizationsDelegates), serta ScrollBehavior.
@@ -202,212 +80,86 @@ metadata:
   kategori: "custom"
   versi: "1.0.0"
   diperbarui: "Wed Nov 11 2026 23:30:00 WIB"
-  model: "kilo-auto/free"
+  license: MIT
+  compatibility:
+    product: "Kilo Code"
+    systemPackages: ["flutter"]
 ---
-```
 
-### 9.2 Judul dan Intro
-
-```markdown
 # Konfigurasi MaterialApp, Tema, dan Lokalisasi
 
-Mengatur `MaterialApp` / `WidgetsApp` dengan tema gelap/terang, locale, supportedLocales, dan localizationsDelegates untuk aplikasi multi-bahasa.
-```
+Mengatur `MaterialApp` / `WidgetsApp` dengan tema gelap/terang dan lokalisasi.
 
-- H1 = judul skill
-- Paragraf berikutnya = penjelasan singkat tujuan skill
-
-### 9.3 `## Cakupan yang Di-Cover`
-
-Daftar bullet dengan kategori: Package, Class, Enum, Properti, Method.
-
-```markdown
 ## Cakupan yang Di-Cover
 
-- Package: `package:flutter` (file `lib/src/widgets/material/app.dart`, `lib/src/widgets/app.dart`)
-- Class: `MaterialApp`, `WidgetsApp`, `ThemeMode`, `ThemeData`, ...
-- Enum: `ThemeMode.system`, `ThemeMode.light`, `ThemeMode.dark`
-- Properti: `theme`, `darkTheme`, ...
-- Method: `basicLocaleListResolution`, `Theme.of`, ...
-```
+- Package: `package:flutter`
+- Class: `MaterialApp`, `WidgetsApp`
 
-### 9.4 `## Aturan`
-
-Daftar berurutan (numbered list) yang harus diikuti saat menerapkan skill ini.
-
-```markdown
 ## Aturan
 
-1. `MaterialApp` membungkus `WidgetsApp` ...
-2. Salah satu dari `home`, `routes`, `onGenerateRoute`, atau `builder` harus non-null.
-   ...
-```
+1. Sertakan `home`, `routes`, `onGenerateRoute`, atau `builder` pada `MaterialApp`.
 
-### 9.5 `## Steps` (Opsional)
-
-Daftar langkah-langkah berurutan yang menjelaskan urutan kerja (workflow) dalam menerapkan skill ini. Section ini **hanya ada jika aksi membutuhkan urutan kerja** yang jelas dan tidak dapat dijelaskan sekadar dalam section Aturan. Jika urutan kerja sudah cukup dijelaskan dalam section Aturan, section Steps tidak perlu ditambahkan.
-
-```markdown
-## Steps
-
-1. Langkah pertama yang harus dilakukan.
-2. Langkah kedua yang harus dilakukan.
-3. Langkah ketiga yang harus dilakukan.
-```
-
-- Gunakan numbered list untuk mempertahankan urutan.
-- Setiap langkah harus spesifik, dapat diikuti, dan tidak ambigu.
-- Jangan memasukkan langkah yang tidak relevan atau redundan dengan aturan.
-
-### 9.6 `## Larangan`
-
-Daftar bullet yang dimulai dengan `DILARANG` atau menjelaskan hal yang tidak boleh dilakukan.
-
-```markdown
 ## Larangan
 
-- `darkTheme` dengan brightness bukan `Brightness.dark`.
-- `MaterialApp` tanpa `home`, `routes`, `onGenerateRoute`, atau `builder`.
-  ...
-```
+- DILARANG `supportedLocales` kosong.
 
-### 9.7 `## Contoh Benar`
-
-Satu blok kode Dart dengan implementasi yang benar.
-
-````markdown
 ## Contoh Benar
 
 ```dart
-MaterialApp(
-  ...
-);
+MaterialApp(home: HomePage());
 ```
 ````
 
-### 9.8 `## Contoh Salah`
-
-Satu atau lebih blok kode Dart dengan komentar `// DILARANG` atau `// salah: ...` yang menjelaskan mengapa salah.
-
-````markdown
 ## Contoh Salah
 
 ```dart
-// darkTheme tanpa brightness dark
-darkTheme: ThemeData(primaryColor: Colors.blue), // salah: brightness default light
+MaterialApp(supportedLocales: []); // DILARANG
+```
+
+```markdown
+---
+name: Integration_Test
+description: panduan test
+metadata:
+  kategori: "custom"
+  versi: "1.0"
+---
+
+# Skill
+
+Contoh diambil dari perubahan yang belum di-commit.
 ```
 
 ```dart
-// supportedLocales kosong
-supportedLocales: [], // assert error
+// DILARANG: nama folder pakai huruf besar/underscore, front matter tidak lengkap,
+// section wajib tidak ada, dan isi diambil dari working directory (bukan commit).
 ```
-````
 
-### 9.9 `## Sumber Evaluasi`
-
-Daftar file sumber dan class terkait untuk verifikasi.
+Contoh pelanggaran shell command di project skill:
 
 ```markdown
-## Sumber Evaluasi
-
-- File: `lib/path/to/file.dart`
-- Class terkait: `NamaClass1`, `NamaClass2`
-- Commit rujukan: `<hash-commit>`
-```
-
-## 10. Contoh Lengkap `SKILL.md` (Template Siap Salin)
-
-Berikut adalah contoh lengkap yang dapat langsung disalin sebagai template untuk skill baru:
-
-````markdown
 ---
-name: nama-skill-bahasa-indonesia
-description: Trigger: saat <kondisi/tugas pemicu> | <deskripsi detail: cakupan yang di-cover, larangan penggunaan, langkah kerja, dan referensi file terkait>.
+name: repo-status
+description: Trigger: saat mengecek status repository | Ringkasan working tree.
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "<waktu TZ=Asia/Jakarta date>"
-  model: "nama-model-ai"
+  diperbarui: "Wed Nov 11 2026 23:30:00 WIB"
 ---
 
-# Judul Skill dalam Bahasa Indonesia
+!`git status --short`
 
-Penjelasan singkat tujuan skill dalam satu atau dua paragraf.
-
-## Cakupan yang Di-Cover
-
-- Package: `package:nama_package`
-- Class: `NamaClass1`, `NamaClass2`
-- Enum: `EnumNilai1`, `EnumNilai2`
-- Properti: `propertiSatu`, `propertiDua`
-- Method: `namaMethodSatu`, `namaMethodDua`
-
-## Aturan
-
-1. Aturan pertama yang harus diikuti.
-2. Aturan kedua yang harus diikuti.
-3. Aturan ketiga yang harus diikuti.
-
-## Steps
-
-1. Langkah pertama yang harus dilakukan (hanya jika aksi membutuhkan urutan kerja).
-2. Langkah kedua yang harus dilakukan.
-3. Langkah ketiga yang harus dilakukan.
-
-## Larangan
-
-- DILARANG melakukan sesuatu yang melanggar pola.
-- DILARANG menggunakan properti tanpa validasi yang sesuai.
-
-## Contoh Benar
-
-```dart
-// Implementasi yang benar sesuai aturan skill
-NamaClass(
-  propertiSatu: nilai,
-);
-```
-
-## Contoh Salah
-
-```dart
-// DILARANG: implementasi yang tidak sesuai
-NamaClass(
-  propertiSatu: null, // salah: properti wajib diisi
-);
+DILARANG: shell command `!`command`` tidak dieksekusi di project skill (`.kilo/skills/`) atau remote URL (`skills.urls`); hanya diperbolehkan di lokasi terpercaya.
 ```
 
 ## Sumber Evaluasi
 
-- File: `path/to/file.dart`
-- Class terkait: `NamaClass1`, `NamaClass2`
-````
-
-## 11. Checklist Sebelum Menyelesaikan SKILL.md
-
-Sebelum mengakhiri pembuatan atau pembaruan `SKILL.md`, verifikasi semua poin berikut:
-
-- [ ] File berada di `.agents/skills/<kategori>/<nama-skill>/SKILL.md`
-- [ ] Nama folder menggunakan kebab-case, bahasa Indonesia, deskriptif
-- [ ] Tidak ada underscore, spasi, huruf besar, angka di awal, atau karakter selain `a-z0-9-`
-- [ ] Front matter YAML lengkap dengan field wajib (`name`, `description`, `metadata.kategori`, `metadata.versi`, `metadata.diperbarui`)
-- [ ] Semua section wajib ada (Judul/Intro, Cakupan, Aturan, Steps [jika diperlukan], Larangan, Contoh Benar, Contoh Salah, Sumber Evaluasi)
-- [ ] Isi mengikuti riwayat commit yang relevan (tidak diarang dari working directory/staging/untracked)
-- [ ] Deskripsi mencakup segmen trigger-only di awal (lihat §8.2), cakupan, larangan, workflow, dan referensi file
-- [ ] Bahasa Indonesia, gaya teknis ringkas, tanpa pengalaman konversasi
-- [ ] Backtick digunakan untuk class, properti, method, package
-- [ ] Jika menemukan pelanggaran pada skill lama, telah melaporkan dan mengusulkan perbaikan
-- [ ] Skill yang trigger-nya terpenuhi telah dimuat melalui tool `skill` sebelum mengubah kode/dokumen, dan seluruh `## Aturan` serta `## Larangan` di dalamnya dijalankan (skill diperlakukan sebagai aturan, lihat §12)
-
-## 12. Skill sebagai Aturan yang Mengikat
-
-1. **Status mengikat.** Setiap `SKILL.md` yang terdaftar di `SKILLS_INDEX.md` berkekuatan aturan yang sama dengan berkas di `.agents/rules/`. Isi skill **bukan** dokumentasi pasif, catatan sukarela, atau saran yang boleh diabaikan.
-2. **Kewajiban memuat.** Saat trigger sebuah skill terpenuhi (kondisi/tugas pemicu sesuai segmen trigger pada `description`), AI **wajib** memuat skill tersebut melalui tool `skill` **sebelum** mengubah kode atau dokumen, lalu **wajib** menjalankan seluruh `## Aturan` dan mematuhi seluruh `## Larangan` di dalamnya.
-3. **Larangan mengabaikan.** Mengabaikan skill yang trigger-nya terpenuhi diperlakukan sebagai pelanggaran aturan dengan bobot yang sama seperti mengabaikan aturan di `.agents/rules/`; pelanggaran ini **wajib** dilaporkan kepada pengguna.
-4. **Rujukan silsilah.** Bila skill memuat rujukan ke berkas aturan (mis. `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` aturan 8), rujukan itu **wajib** dibaca; ringkasan yang ada di dalam skill tidak menggantikan isi aturan sumber.
-5. **Benturan aturan.** Bila isi skill bertentangan dengan aturan di `.agents/rules/`, AI **wajib** melaporkan pertentangan kepada pengguna dan menunggu arahan; **DILARANG** memilih sendiri aturan mana yang dipatuhi.
-6. **Pembaruan tetap tunduk pada aturan.** Setiap perubahan isi skill tetap tunduk pada §4 (penamaan), §5 (sumber dari riwayat commit), §7 (front matter), §8 (segmen trigger), §9 (section wajib), dan §11 (checklist).
-7. **Keterlacakan.** Setiap skill wajib tercantum di `SKILLS_INDEX.md` beserta trigger dan `metadata.diperbarui`; skill yang tidak terindeks dianggap belum sah digunakan.
+- File aturan sumber: skill ini (`.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`) — aturan 8 (segmen trigger-only)
+- Skill referensi format UI: `.agents/skills/custom/pola-ux/SKILL.md`, `.agents/skills/custom/pola-ui/SKILL.md`, `.agents/skills/custom/gaya/SKILL.md`, `.agents/skills/custom/tipografi/SKILL.md`, `.agents/skills/custom/spacing/SKILL.md`, `.agents/skills/custom/widget-custom/SKILL.md`
+- Skill referensi format non-UI: `.agents/skills/custom/bug-runtime/SKILL.md`
+- Rujukan dokumen resmi Kilo (wajib dibaca): https://kilo.ai/docs/customize/skills?utm_source=chatgpt.com (SKILL.md format, frontmatter fields, bundled resources, shell commands, skill locations, slash commands, mode-specific skills, name matching rule)
+- Rujukan repositori skill Kilo (wajib dibaca): https://github.com/Kilo-Org/skills (struktur skill, installed via `npx skills add Kilo-Org/skills`, kompatibilitas lintas agen, panduan kontribusi dan distribusi)
+- Commit rujukan: `85421c9fc058fc1af147fc29f7b2ab1721dec16b` (docs(agents): rombak panduan kerja dan pertegas aturan referensi skill), `413f7e4` (refactor(agents): restrukturisasi skill kustom dan ringkas aturan pembuatan SKILL.md), `3cbc5db` (docs(agents): tambah aturan pembuatan SKILL.md dan perbarui AGENTS.md)
 
 // ============================================================
 // FILE: .agents/rules/global/format_hasil_diskusi.md
@@ -430,13 +182,14 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
 1. Berkas hasil diskusi **BUKAN** dokumen PRD. Sifatnya catatan proses: latar belakang, poin diskusi, keputusan, rekomendasi, dan tindak lanjut.
 2. `.agents/skills/custom/format-prd/SKILL.md` hanya berlaku untuk dokumen PRD dan **tidak** menjadi acuan struktur berkas hasil diskusi.
 3. Perbedaan utama:
-   | Aspek | PRD (`format-prd`) | Hasil Diskusi (aturan ini) |
-   | ----- | --------------------- | -------------------------- |
-   | Sifat | Spesifikasi produk | Catatan proses/keputusan |
-   | Pembuka | H1 PRD, metadata status, pemisah `---` | H1 topik + metadata ringkas pada `## Status` |
-   | Bagian | 6 bagian PRD (Informasi Produk, Tujuan PRD, Daftar Fitur, Alur Pengguna, Steps, File-File Terdampak) | Latar Belakang, Poin Diskusi, Keputusan, Rekomendasi, Tindak Lanjut, File Terdampak, Pertanyaan Terbuka, Riwayat Perubahan |
-   | Pengulangan aturan | Tiap bagian memuat "Konteks penggunaan" dan "Aturan pengisian" | Tidak ada pengulangan; langsung isi |
-   | Kata kunci wajib | — | `## Status`, `## Keputusan`, `## Tindak Lanjut` (dipakai `kerjakan_hasil_diskusi.md`) |
+
+| Aspek | PRD (`format-prd`) | Hasil Diskusi (aturan ini) |
+| ----- | --------------------- | -------------------------- |
+| Sifat | Spesifikasi produk | Catatan proses/keputusan |
+| Pembuka | H1 PRD, metadata status, pemisah `---` | H1 topik + metadata ringkas pada `## Status` |
+| Bagian | 6 bagian PRD (Informasi Produk, Tujuan PRD, Daftar Fitur, Alur Pengguna, Steps, File-File Terdampak) | Latar Belakang, Poin Diskusi, Keputusan, Rekomendasi, Tindak Lanjut, File Terdampak, Pertanyaan Terbuka, Riwayat Perubahan |
+| Pengulangan aturan | Tiap bagian memuat "Konteks penggunaan" dan "Aturan pengisian" | Tidak ada pengulangan; langsung isi |
+| Kata kunci wajib | — | `## Status`, `## Keputusan`, `## Tindak Lanjut` (dipakai `kerjakan_hasil_diskusi.md`) |
 
 ## 4. Aturan Lokasi dan Penamaan
 
@@ -446,24 +199,23 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
    - Jika folder `hasil_diskusi/` kosong, gunakan nomor `1`.
    - Jika sudah ada berkas, gunakan **nomor tertinggi + 1**.
    - Nomor yang terlewat (gap) **tidak diisi**; tetap gunakan `tertinggi + 1`.
-
 4. **DILARANG** menyimpan berkas hasil diskusi di lokasi lain (mis. `prd/`, `docs/`, atau root tanpa folder).
 5. **DILARANG** menimpa berkas hasil diskusi yang sudah ada. Diskusi baru selalu membuat berkas baru dengan nomor berikutnya.
 
 ## 5. Aturan Struktur Isi
 
 1. Berkas **WAJIB** memuat bagian berikut **berurutan**, dengan teks judul **persis** seperti tertulis (tanpa penomoran):
-1. `# Hasil Diskusi <N> — <judul topik>`
-1. `## Status`
-1. `## Latar Belakang`
-1. `## Poin Diskusi`
-1. `## Keputusan`
-1. `## Rekomendasi`
-1. `## Tindak Lanjut`
-1. `## File Terdampak`
-1. `## Pertanyaan Terbuka`
-1. `## Riwayat Perubahan`
-1. Isi tiap bagian:
+   1. `# Hasil Diskusi <N> — <judul topik>`
+   2. `## Status`
+   3. `## Latar Belakang`
+   4. `## Poin Diskusi`
+   5. `## Keputusan`
+   6. `## Rekomendasi`
+   7. `## Tindak Lanjut`
+   8. `## File Terdampak`
+   9. `## Pertanyaan Terbuka`
+   10. `## Riwayat Perubahan`
+2. Isi tiap bagian:
    - `## Status` — memuat metadata: `Dokumen`, `Implementasi`, `Tanggal`, dan `Topik`.
    - `## Latar Belakang` — masalah, pemicu, atau konteks yang memunculkan diskusi.
    - `## Poin Diskusi` — poin-poin yang dibahas; setiap poin memuat pertanyaan dan kesimpulan singkat.
@@ -473,12 +225,11 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
    - `## File Terdampak` — tabel dengan kolom `Lokasi File`, `Status Perubahan`, `Deskripsi`.
    - `## Pertanyaan Terbuka` — hal yang masih menunggu jawaban/keputusan; tulis `Belum ada` bila tidak ada. **WAJIB diperbarui setiap kali status atau isi berkas berubah**: pertanyaan yang sudah terjawab WAJIB dihapus dari daftar dan dicatat sebagai jejak di `## Riwayat Perubahan` (mis. "Pertanyaan terbuka ditutup: <ringkasan pertanyaan> — <jawaban singkat> (<tanggal>)").
    - `## Riwayat Perubahan` — tabel dengan kolom `Tanggal`, `Perubahan`.
-
-1. **Jumlah dan judul bagian DILARANG diubah** tanpa pembaruan aturan ini. Bila format perlu diperluas, ubah aturan ini terlebih dahulu.
-1. Seluruh isi **WAJIB** menggunakan bahasa Indonesia, gaya teknis ringkas, tanpa pengalaman konversasi.
-1. Seluruh isi **WAJIB** didasarkan pada hasil diskusi dan informasi proyek yang diketahui. **DILARANG mengarang informasi.**
-1. Teks judul `## Status`, `## Keputusan`, dan `## Tindak Lanjut` **WAJIB** dipertahankan apa adanya karena menjadi titik baca `.kilo/commands/kerjakan_hasil_diskusi.md`.
-1. **Pengecualian arsip.** Berkas hasil diskusi yang dibuat sebelum aturan ini berlaku (mis. `diskusi_1.md` sampai `diskusi_4.md`) dikecualikan dari kewajiban struktur di atas dan dipertahankan apa adanya sebagai arsip. **DILARANG** mengubah arsip tersebut tanpa persetujuan pengguna.
+3. **Jumlah dan judul bagian DILARANG diubah** tanpa pembaruan aturan ini. Bila format perlu diperluas, ubah aturan ini terlebih dahulu.
+4. Seluruh isi **WAJIB** menggunakan bahasa Indonesia, gaya teknis ringkas, tanpa pengalaman konversasi.
+5. Seluruh isi **WAJIB** didasarkan pada hasil diskusi dan informasi proyek yang diketahui. **DILARANG mengarang informasi.**
+6. Teks judul `## Status`, `## Keputusan`, dan `## Tindak Lanjut` **WAJIB** dipertahankan apa adanya karena menjadi titik baca `.kilo/commands/kerjakan_hasil_diskusi.md`.
+7. **Pengecualian arsip.** Berkas hasil diskusi yang dibuat sebelum aturan ini berlaku (mis. `diskusi_1.md` sampai `diskusi_4.md`) dikecualikan dari kewajiban struktur di atas dan dipertahankan apa adanya sebagai arsip. **DILARANG** mengubah arsip tersebut tanpa persetujuan pengguna.
 
 ## 6. Aturan Status
 
@@ -486,7 +237,6 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
    - `Draft` — masih dibahas atau belum disepakati.
    - `Final` — hasil diskusi sudah disepakati.
    - `Batal` — diskusi dibatalkan.
-
 2. `Implementasi` pada `## Status` **WAJIB** diisi sesuai kondisi aktual, mis. `Belum Diimplementasikan`, `Sedang Diimplementasikan`, atau `Sudah Diimplementasikan`. Jika belum diketahui atau belum relevan, tulis secara eksplisit (mis. `Belum diketahui`) dan **DILARANG** mengarang.
 3. Perubahan status **WAJIB** disertai penyesuaian isi bagian yang relevan agar dokumen tetap konsisten.
 
@@ -501,7 +251,6 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
 1. Setelah berkas hasil diskusi dibuat, diperbarui, atau dihapus, **WAJIB** perbarui `MEMORI.md` pada bagian yang relevan, sekurang-kurangnya:
    - `Lokasi Hasil Diskusi` — lokasi folder, daftar berkas, dan nomor tertinggi.
    - `Riwayat Diskusi` — topik, status PRD, dan tindak lanjut.
-
 2. Tambahkan entri riwayat perubahan pada `memori/riwayat_perubahan.md` — ringkasan perubahan berkas (sebagai pengganti bagian `Riwayat Perubahan` yang sebelumnya berada di `MEMORI.md`).
 3. **DILARANG** membiarkan `MEMORI.md` memuat nomor tertinggi atau daftar berkas yang sudah usang.
 4. Sinkronisasi `MEMORI.md` wajib dilakukan melalui alur berkas sesi (`memori/sesi/sesi_N.md`, status `Belum Sinkron` → `Sudah Sinkron`) sesuai skill `memori-check`: catat sesi ke berkas sesi sebelum/selama pembaruan, lalu tandai `Sudah Sinkron` setelah `MEMORI.md` dan `memori/riwayat_perubahan.md` diperbarui. Berkas `sesi_N.md` **tidak boleh dihapus** (diarsipkan permanen). Pada setiap **awal sesi**, setelah membaca `MEMORI.md` dan sebelum membuat berkas sesi baru, AI wajib melakukan **catch-up sync**: pindai berkas `memori/sesi/*.md` ber-status `Belum Sinkron` milik sesi sebelumnya; yatim/kosong tanpa perubahan nyata → ditandai `Sudah Sinkron` dengan catatan eksplisit "tidak ada perubahan untuk disinkronkan"; berisi perubahan nyata → disinkronkan dengan prosedur yang sama seperti akhir sesi (`MEMORI.md` + `memori/riwayat_perubahan.md` → isi `## Sinkronisasi ke MEMORI.md` → `Sudah Sinkron`); berkas sesi yang sedang aktif di sesi ini tidak ditandai; bila ambigu → dilaporkan ke pengguna, jangan diputuskan sendiri. Pemindaian dibatasi pada berkas `Belum Sinkron` saja; alur akhir sesi tetap dipertahankan (catch-up hanya jaring pengaman).
@@ -524,51 +273,41 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
 # Hasil Diskusi <N> — <judul topik>
 
 ## Status
-
 - Dokumen: Draft | Final | Batal
 - Implementasi: Belum Diimplementasikan | Sedang Diimplementasikan | Sudah Diimplementasikan
 - Tanggal: YYYY-MM-DD
 - Topik: <ringkasan topik>
 
 ## Latar Belakang
-
 <masalah, pemicu, atau konteks diskusi>
 
 ## Poin Diskusi
-
 ### 1. <poin>
-
 - Tanya: <pertanyaan>
 - Kesimpulan: <kesimpulan singkat>
 
 ## Keputusan
-
 - K-1: <keputusan>
 
 ## Rekomendasi
-
 - R-1: <rekomendasi>
 
 ## Tindak Lanjut
-
-| No  | Tindakan   | File Terdampak | Status |
-| --- | ---------- | -------------- | ------ |
-| 1   | <tindakan> | <file>         | belum  |
+| No | Tindakan | File Terdampak | Status |
+|----|----------|----------------|--------|
+| 1  | <tindakan> | <file> | belum |
 
 ## File Terdampak
-
-| Lokasi File | Status Perubahan          | Deskripsi   |
-| ----------- | ------------------------- | ----------- |
-| <file>      | Dibuat / Diubah / Dihapus | <deskripsi> |
+| Lokasi File | Status Perubahan | Deskripsi |
+|-------------|------------------|-----------|
+| <file> | Dibuat / Diubah / Dihapus | <deskripsi> |
 
 ## Pertanyaan Terbuka
-
 - <pertanyaan> / Belum ada
 
 ## Riwayat Perubahan
-
-| Tanggal    | Perubahan   |
-| ---------- | ----------- |
+| Tanggal | Perubahan |
+|---------|-----------|
 | YYYY-MM-DD | <perubahan> |
 ```
 
