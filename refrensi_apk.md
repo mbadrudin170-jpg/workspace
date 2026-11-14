@@ -50,15 +50,6 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 
 ### Prioritas Tinggi
 
-<!-- PRD: prd_copy_base_link.md -->
-#### A2. Copy base link satu ketuk
-
-- **Temuan:** Kompetitor menjadikan tombol copy sebagai aksi utama; deskripsi menekankan "one-tap copy" dan pembukaan otomatis ke game.
-- **Tujuan fitur:** menghilangkan pekerjaan menyusun ulang layout secara manual, yang merupakan alasan utama pengguna memasang aplikasi sejenis.
-- **Referensi:** [Maps For COC Base Layouts 2026](https://play.google.com/store/apps/details?id=com.baselayouts.cocmaps), [Base Drop](https://play.google.com/store/apps/details?id=com.cocbasedrop), [Map Layout Links Base for COC](https://play.google.com/store/apps/details?id=com.coc.layouts)
-- **Saran:** salin tautan resmi ke clipboard, tampilkan konfirmasi berisi tombol "Buka Clash of Clans", dan tangani kasus game tidak terpasang. Uji tautan sebelum rilis karena tautan invalid adalah keluhan utama pada kompetitor.
-- **Prioritas:** Tinggi.
-
 #### A3. Preview base resolusi tinggi dengan pinch-to-zoom
 
 - **Temuan:** Beberapa kompetitor menyebut preview HD, zoom, dan penanda trap sebagai pembeda; pengguna memakai preview untuk memeriksa jarak pertahanan sebelum menyalin.

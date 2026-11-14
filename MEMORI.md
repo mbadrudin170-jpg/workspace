@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Sat Nov 14 2026 16:30 WIB (sesi 35)
+Diperbarui: Sat Nov 14 2026 15:37 WIB (sesi 37)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -52,6 +52,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `m share_global_saya` — submodule memiliki perubahan isi yang belum di-pointer-update; jangan di-commit tanpa perintah pengguna.
 - `riverpod_lint` 3.2.0 terpasang di submodule `share_global_saya` dan `base_coc` (`dev_dependencies` + `plugins` pada `analysis_options.yaml`); perubahan sudah ter-commit di repo submodule (`share_global_saya` `c59ed5b`, `base_coc` `ad79bd6`, sesi 13), tetapi pointer submodule di root belum diperbarui.
 - `flutter pub get` dijalankan pada 2026-11-14 (sesi 21) di submodule `base_coc` dan `share_global_saya` dengan Flutter 3.47.9 — berhasil (`Got dependencies!`). Tool Flutter menambahkan `analyzer.exclude` (`build/**` dan folder platform) pada `base_coc/analysis_options.yaml`; perubahan belum di-commit.
+- `base_coc` implementasi PRD `prd/prd_copy_base_link.md` (Copy base link satu ketuk) selesai pada sesi 37: service clipboard + validasi + layar detail base + konfirmasi + pembukaan game + test; dependensi `url_launcher` ditambahkan; navigasi dari galeri ke detail diaktifkan; status PRD `Sudah Diimplementasikan` lalu berkas PRD dihapus; section A2 dihapus dari `refrensi_apk.md`. Pointer submodule di root belum diperbarui.
 - `base_coc` implementasi PRD `prd/prd_galeri_base_terfilter.md` (Galeri base terfilter per Town Hall dan tipe base) selesai pada commit `36fc573` (submodule); status PRD diubah menjadi `Sudah Diimplementasikan`; section A1 dihapus dari `refrensi_apk.md` (sesi 23/27). Pointer submodule di root belum diperbarui.
 - `README.md` root — sebelumnya kosong (0 byte), kini diisi dokumentasi repositori `workspace` pada sesi 8 (2026-11-14).
 - `share_global_saya/README.md` — dibuat pada sesi 9 (2026-11-14) sebagai dokumentasi paket pustaka bersama sesuai implementasi aktual; ditautkan dari README root; perubahan di dalam submodule, belum di-commit.

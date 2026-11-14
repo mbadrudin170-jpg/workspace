@@ -89,3 +89,7 @@ Catatan: `apk_serupa.md` tidak ditemukan di root proyek per 2026-11-14; lingkup 
 | Maps of COC - Base Layouts | Ratusan base TH4–TH15 dan BH4–BH9 untuk war, farming, hybrid, dan trophy dengan copy link ke game serta zoom gambar base. | APKPure | [Unduh APK](https://apkpure.com/maps-of-coc-base-layouts/com.hivefiveapps.new_maps_of_coc) | Belum Dianalisa |
 | Clash Base Designer for COC | Alat desain base dengan menampilkan tangkapan layar layout sebagai lapisan transparan di atas editor game, dilengkapi koleksi base war/farming/trophy/hybrid dan favorit. | APKPure | [Unduh APK](https://apkpure.com/clash-base-designer-for-coc/com.spookyideas.cocbasecopy) | Belum Dianalisa |
 | Formasi Pertahanan COC | Koleksi 200+ desain formasi TH4–TH11 untuk war, farming, trophy, defense, dan hybrid dengan zoom serta simpan/bagikan gambar. | APKPure | [Unduh APK](https://apkpure.com/formasi-pertahanan-coc/dev.merahkemarun.formasipertahanancoc) | Belum Dianalisa |
+
+## F-Droid
+
+Tidak ditemukan aplikasi mobile relevan (penyedia base/layout Clash of Clans) di F-Droid per 2026-11-14. Pencarian "clash of clans" dan "clash" hanya mengembalikan klien VPN/proxy (Clash Meta For Android, ClashFest) yang tidak relevan dengan aplikasi sasaran `base_coc`.
