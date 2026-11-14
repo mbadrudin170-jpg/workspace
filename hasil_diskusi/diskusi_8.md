@@ -61,6 +61,7 @@ Pengguna ingin membuat command baru untuk memeriksa kesehatan sistem kerja proye
 - K-9: `.kilo/commands/sinkronisasi/sinkronkan_commands.md` dihapus karena folder mirror `gpt/` yang menjadi targetnya sudah tidak ada; rujukan di skill `konfigurasi-kilo-proyek` disesuaikan.
 - K-10: `.kilo/commands/saran_aturan_baru.md` dihapus atas perintah pengguna.
 - K-11: `.kilo/commands/scan.md` dan `.kilo/commands/analisa_kesehatan_kode.md` **tidak** disatukan; keduanya tetap berdiri sendiri.
+- K-12: Format command tidak ditambahkan sebagai aturan di `.agents/rules/global/`; sebagai gantinya dibuat skill `.agents/skills/custom/pembuatan-command-kilo/SKILL.md` (versi 1.0.0).
 
 ## Rekomendasi
 
@@ -85,6 +86,9 @@ Pengguna ingin membuat command baru untuk memeriksa kesehatan sistem kerja proye
 | 7   | Dokumentasikan hasil diskusi ini                                                                  | `hasil_diskusi/diskusi_8.md`                                          | selesai |
 | 8   | Pertimbangkan penambahan aturan format command                                                    | `.agents/rules/global/`                                               | belum   |
 | 9   | Tulis command gate prasyarat `analisa_kesehatan_kode_alur.md`                                     | `.kilo/commands/analisa_kesehatan_kode_alur.md`                       | selesai |
+| 10  | Tulis skill pembuatan command Kilo                                                                | `.agents/skills/custom/pembuatan-command-kilo/SKILL.md`                | selesai |
+| 11  | Perbarui `SKILLS_INDEX.md` untuk skill pembuatan command Kilo                                     | `SKILLS_INDEX.md`                                                     | selesai |
+| 12  | Putuskan penambahan aturan format command di `.agents/rules/global/`                              | `.agents/rules/global/`                                               | selesai (tidak ditambahkan; digantikan skill) |
 
 ## File Terdampak
 
@@ -98,6 +102,8 @@ Pengguna ingin membuat command baru untuk memeriksa kesehatan sistem kerja proye
 | `.kilo/commands/sinkronisasi/sinkronkan_commands.md`         | Dihapus          | Menunjuk folder mirror `gpt/` yang sudah tidak ada; dihapus atas perintah pengguna (sesi 47). |
 | `.agents/skills/custom/konfigurasi-kilo-proyek/SKILL.md`     | Diubah           | Rujukan mirror `gpt/` dan `sinkronkan_commands.md` disesuaikan; versi 1.0.1. |
 | `.kilo/commands/saran_aturan_baru.md`                        | Dihapus          | Command dihapus atas perintah pengguna (sesi 47).                                      |
+| `.agents/skills/custom/pembuatan-command-kilo/SKILL.md`      | Dibuat           | Skill panduan pembuatan/perbaruan command Kilo (v1.0.0): lokasi, penamaan, frontmatter, variabel, alur, larangan, checklist. |
+| `SKILLS_INDEX.md`                                            | Diubah           | Entri skill `pembuatan-command-kilo` ditambahkan dan penomoran custom disinkronkan.    |
 | `.kilo/commands/kerjakan_task.md`                            | Diubah           | Memuat tautan markdown keliru `[AGENTS.md](http://AGENTS.md)`.                         |
 | `.kilo/commands/analisa_kesehatan_kode.md`                   | Diubah           | Memuat tautan markdown keliru pada `task.md`, `catatan.md`, dan `AGENTS.md`.           |
 | `memori/sesi/sesi_47.md`                                     | Diubah           | Catatan sesi dan sinkronisasi.                                                         |
@@ -106,7 +112,7 @@ Pengguna ingin membuat command baru untuk memeriksa kesehatan sistem kerja proye
 
 ## Pertanyaan Terbuka
 
-- Apakah aturan format command perlu ditambahkan di `.agents/rules/global/`, dan apakah `aturan_skill.md` diperluas atau dibuat berkas baru? (belum diputuskan)
+Belum ada.
 
 ## Riwayat Perubahan
 
@@ -116,3 +122,4 @@ Pengguna ingin membuat command baru untuk memeriksa kesehatan sistem kerja proye
 | 2026-11-14 | Ditambahkan poin 7 (alur pemeriksaan prasyarat), K-7, R-6, R-7, tindak lanjut 9, dan command `.kilo/commands/analisa_kesehatan_kode_alur.md` ditulis pada sesi ini. |
 | 2026-11-14 | Pertanyaan terbuka ditutup: penanganan `sinkronkan_commands.md` — dihapus atas perintah pengguna (K-9, tindak lanjut 4 selesai); rujukan di skill `konfigurasi-kilo-proyek` diperbarui (versi 1.0.1) dan `SKILLS_INDEX.md` disinkronkan. |
 | 2026-11-14 | Pertanyaan terbuka ditutup: penyatuan command — `saran_aturan_baru.md` dihapus (K-10), `scan.md` dan `analisa_kesehatan_kode.md` dibiarkan terpisah (K-11); tindak lanjut 6 selesai. |
+| 2026-11-14 | Pertanyaan terbuka ditutup: format command tidak ditambahkan sebagai aturan global (K-12); dibuat skill `pembuatan-command-kilo` (tindak lanjut 10–11 selesai) dan `SKILLS_INDEX.md` disinkronkan. |

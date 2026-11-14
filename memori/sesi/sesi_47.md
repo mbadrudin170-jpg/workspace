@@ -24,6 +24,8 @@
 - Klarifikasi melalui tool `question`: (a) status `hasil_diskusi/` selain `Sudah Diimplementasikan` dianggap belum selesai; (b) command dibuat terpisah (bukan mengubah `analisa_kesehatan_kode.md`); (c) cakupan = seluruh berkas `.md` pada kedua folder.
 - Berkas `.kilo/commands/analisa_kesehatan_kode_alur.md` dibuat dengan frontmatter `description`, cakupan pemeriksaan, rantai 5 tahap (3.1–3.5), format laporan tabel, dan larangan. `analisa_kesehatan_kode.md` tidak diubah.
 - `hasil_diskusi/diskusi_8.md` diperbarui: poin 7, K-7, K-8, R-6, R-7, tindak lanjut 9, dan baris riwayat perubahan.
+- Penutupan pertanyaan terbuka (10:33 UTC): pengguna memutuskan format command **tidak** ditambahkan sebagai aturan di `.agents/rules/global/`, cukup dibuat skill pembuatan command. Berkas `.agents/skills/custom/pembuatan-command-kilo/SKILL.md` dibuat (v1.0.0) dengan section wajib (Cakupan, Aturan 1–14, Steps, Larangan, Contoh Benar, Contoh Salah, Sumber Evaluasi) dan `SKILLS_INDEX.md` diperbarui (entri baru + penomoran custom 1–58 disinkronkan). `diskusi_8.md` diperbarui: K-12, tindak lanjut 10–12, pertanyaan terbuka ditutup + jejak riwayat.
+- Penutupan pertanyaan terbuka (10:32 UTC): verifikasi bahwa `sinkronkan_commands.md` sudah dihapus pada 10:26 UTC; tidak ada tindakan tambahan yang diperlukan.
 - Penutupan pertanyaan terbuka (10:30 UTC): pengguna memutuskan (a) `saran_aturan_baru.md` **dihapus**, dan (b) `scan.md` serta `analisa_kesehatan_kode.md` **dibiarkan terpisah** (tidak disatukan). Berkas `.kilo/commands/saran_aturan_baru.md` dihapus; `grep` pada `.agents` dan `.kilo` memastikan tidak ada rujukan aktif yang tersisa. `diskusi_8.md` diperbarui: K-10, K-11, tindak lanjut 6 `selesai`, pertanyaan terbuka ditutup + jejak riwayat.
 - Penutupan pertanyaan terbuka (10:26 UTC): pengguna memutuskan `sinkronkan_commands.md` **dihapus**. Berkas `.kilo/commands/sinkronisasi/sinkronkan_commands.md` dihapus; rujukan di skill `konfigurasi-kilo-proyek` disesuaikan (mirror `gpt/` tidak ada, contoh subfolder `sinkronisasi/`, daftar `Sumber Evaluasi`), versi skill naik 1.0.0 → 1.0.1, dan `SKILLS_INDEX.md` disinkronkan. `diskusi_8.md` diperbarui: K-9, tindak lanjut 4 `selesai (dihapus)`, pertanyaan terbuka ditutup + jejak riwayat.
 
@@ -37,7 +39,9 @@
 | `.kilo/commands/sinkronisasi/sinkronkan_commands.md` | Dihapus | Command mirror `gpt/` dihapus atas perintah pengguna. |
 | `.kilo/commands/saran_aturan_baru.md` | Dihapus | Command saran aturan baru dihapus atas perintah pengguna. |
 | `.agents/skills/custom/konfigurasi-kilo-proyek/SKILL.md` | Diubah | Rujukan mirror `gpt/` dan `sinkronkan_commands.md` disesuaikan; versi 1.0.1. |
-| `SKILLS_INDEX.md` | Diubah | Entri skill `konfigurasi-kilo-proyek` disinkronkan (17:30 WIB). |
+| `SKILLS_INDEX.md` | Diubah | Entri skill `konfigurasi-kilo-proyek` disinkronkan (17:30 WIB); entri `pembuatan-command-kilo` ditambahkan dan penomoran custom disinkronkan. |
+| `.agents/skills/custom/pembuatan-command-kilo/SKILL.md` | Dibuat | Skill panduan pembuatan/perbaruan command Kilo (v1.0.0). |
+| `.kilo/commands/saran_aturan_baru.md` | Dihapus | Command dihapus atas perintah pengguna. |
 | `MEMORI.md` | Diubah | Tanggal diperbarui (sesi 47); daftar `Hasil Diskusi` (+`diskusi_8.md`, nomor tertinggi 8); catatan audit pada `Status Kerja`. |
 | `memori/riwayat_perubahan.md` | Diubah | Entri riwayat perubahan sesi ini. |
 | `hasil_diskusi/diskusi_1.md`, `hasil_diskusi/diskusi_7.md` | Dihapus (di luar sesi) | Terhapus oleh commit `5690938` (sesi lain); dilaporkan, tidak dipulihkan. |
