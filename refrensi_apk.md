@@ -89,6 +89,7 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Referensi:** [ClasherPro - Base Layout Map](https://play.google.com/store/apps/details?id=qtstudio.clashofclans.mapsmaster), [Base Drop](https://play.google.com/store/apps/details?id=com.cocbasedrop)
 - **Saran:** gunakan `share_plus` untuk membagikan tautan dan nama base; hindari membuat tautan internal yang tidak dapat dibuka penerima.
 - **Prioritas:** Sedang.
+- **Status PRD:** PRD sudah dibuat (`prd/prd_berbagi_base_klan.md`, sesi 97); belum diimplementasikan.
 
 #### A8. Panduan singkat dan alasan pemilihan layout
 
@@ -97,6 +98,7 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Referensi:** [clashOFbase](https://play.google.com/store/apps/details?id=com.namaari.clashofbase), [CoC Base Maps 2026](https://play.google.com/store/apps/details?id=com.m3android7s.projects.clashofclansbaselayouts)
 - **Saran:** mulai dari catatan teks pendek per base (kekuatan, kelemahan, saran trap) yang disimpan bersama data base; video dapat ditunda karena membutuhkan hosting.
 - **Prioritas:** Sedang.
+- **Status PRD:** PRD sudah dibuat (`prd/prd_panduan_singkat_base.md`, sesi 95); belum diimplementasikan.
 
 #### A9. Kategori Clan Capital dan Builder Base 2.0
 

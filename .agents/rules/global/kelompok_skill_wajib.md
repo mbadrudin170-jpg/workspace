@@ -2,7 +2,7 @@
 
 ## Ringkasan
 
-Berkas ini merangkum kelompok skill yang wajib dirujuk untuk tiap jenis pekerjaan pada proyek milik pengguna. Setiap kelompok menyatakan bahwa semua proyek wajib menggunakan teknologi tertentu beserta daftar skill `.agents/skills/custom/<nama>/SKILL.md` yang harus dimuat bersamaan — Riverpod (semua provider wajib Riverpod), SQLite, Freezed, model/state yang harus punya method dan getter (wajib Freezed), model database (konstanta nama tabel/kolom, bukan string literal manual), provider dengan fungsi CRUD (wajib Notifier), Testing, dan UI (gaya/tema). Setiap nama skill berupa tautan klikable ke berkas `SKILL.md`-nya. Sumber kebenaran daftar skill dan trigger tetap `SKILLS_INDEX.md`.
+Berkas ini merangkum kelompok skill yang wajib dirujuk untuk tiap jenis pekerjaan pada proyek milik pengguna. Setiap kelompok menyatakan bahwa semua proyek wajib menggunakan teknologi tertentu beserta daftar skill `.agents/skills/custom/<nama>/SKILL.md` yang harus dimuat bersamaan — Riverpod (semua provider wajib Riverpod), SQLite, Freezed, model/state yang harus punya method dan getter (wajib Freezed), model database (konstanta nama tabel/kolom, bukan string literal manual), provider dengan fungsi CRUD (wajib Notifier), tipe data null/nullable, Testing, dan UI (gaya/tema). Setiap nama skill berupa tautan klikable ke berkas `SKILL.md`-nya. Sumber kebenaran daftar skill dan trigger tetap `SKILLS_INDEX.md`.
 
 - semua proyek saya wajib menggunakan riverpod maka gunakan skill:
   - [riverpod-pola](../../skills/custom/riverpod-pola/SKILL.md)
@@ -15,6 +15,9 @@ Berkas ini merangkum kelompok skill yang wajib dirujuk untuk tiap jenis pekerjaa
   - [penamaan-konstanta-snake-case](../../skills/custom/penamaan-konstanta-snake-case/SKILL.md)
   - [parsing-nullable-int](../../skills/custom/parsing-nullable-int/SKILL.md)
   - [notifier-crud-database](../../skills/custom/notifier-crud-database/SKILL.md)
+- semua proyek saya wajib melihat skill berikut bila ada tipe data null/nullable maka gunakan skill:
+  - [type-promotion-null-safety](../../skills/custom/type-promotion-null-safety/SKILL.md)
+  - [parsing-nullable-int](../../skills/custom/parsing-nullable-int/SKILL.md)
 - semua proyek saya wajib menggunakan freezed maka gunakan skill:
   - [model-state-freezed-abstract](../../skills/custom/model-state-freezed-abstract/SKILL.md)
   - [build-runner-codegen](../../skills/custom/build-runner-codegen/SKILL.md)
