@@ -1,12 +1,12 @@
 ---
 name: riset-kompetitor
-description: "Trigger: saat membuat atau memperbarui katalog aplikasi kompetitor proyek | Panduan riset kompetitor portabel lintas proyek: menentukan aplikasi sasaran dari dokumen proyek, format tabel apk_kompetitor.md, status analisa per listing, verifikasi tautan, alur satu store per iterasi, dan laporan refrensi_apk.md."
+description: "Trigger: saat membuat atau memperbarui katalog aplikasi kompetitor proyek | Panduan riset kompetitor portabel lintas proyek: menentukan aplikasi sasaran dari dokumen proyek, format tabel apk_kompetitor.md, status analisa per listing, verifikasi tautan, alur satu run mencakup semua store, dan laporan refrensi_apk.md."
 metadata:
   kategori: "custom"
-  versi: "1.6.0"
-  diperbarui: "Sat Nov 14 2026 06:50 WIB"
-  sumber-terakhir: "perintah pengguna: menjadikan skill global dan portabel lintas proyek, bukan spesifik satu aplikasi"
-  model: "kilo/particle-ai/particle-1:free"
+  versi: "1.6.1"
+  diperbarui: "Sat Nov 14 2026 15:55 WIB"
+  sumber-terakhir: "perintah pengguna: ubah command cari_apk_kompetitor agar mencari semua store; skill diselaraskan (2026-11-14)"
+  model: "openrouter/thinkingmachines/inkling-2-small:free"
 ---
 
 # Riset Kompetitor Aplikasi Mobile (Lintas Proyek)
@@ -33,12 +33,12 @@ Hasil riset disimpan dalam tabel standar di `apk_kompetitor.md`. Analisa lanjuta
 2. Setiap aplikasi **wajib** memiliki nama, ringkasan singkat (maks 2-3 kalimat), nama store/sumber, link yang valid, dan **kolom `Status Analisa`** (nilai: `Belum Dianalisa` atau `Sudah Dianalisa`).
 3. Ringkasan singkat **wajib** menyebutkan fitur utama yang relevan dengan aplikasi sasaran proyek, bukan deskripsi umum dari store. Fitur yang disebut harus berasal dari kategori yang sudah ditentukan pada langkah 1.
 4. Format tabel **wajib** mengikuti standar Markdown pipe (`| Kolom 1 | Kolom 2 | ... |`) dengan header dan separator baris kedua (`| --- | --- | ... |`).
-5. Aplikasi dari store yang sama **dikelompokkan** secara berurutan. Urutan default: Google Play → Apple App Store → F-Droid → GitHub → store lainnya.
+5. Aplikasi dari store yang sama **dikelompokkan** secara berurutan. Urutan default: Google Play → F-Droid → GitHub → Apple App Store → Samsung Galaxy Store → Mi/GetApps → Oppo App Market → store lainnya.
 6. Duplikat nama aplikasi di store berbeda **diperbolehkan** (mis. aplikasi sama di Play Store dan App Store) dengan baris terpisah.
 7. Link **wajib** mengarah ke halaman resmi store/repositori (bukan pencarian umum), gunakan format `[Buka Aplikasi](url)`, `[Buka Repositori](url)`, `[Unduh APK](url)`, atau `[Cari Aplikasi](url)` sesuai jenis store.
 8. Setiap penambahan/perubahan **wajib** di-commit dengan pesan `docs: ...` dan referensi ke skill ini, kecuali pengguna melarang commit.
 9. **Wajib** verifikasi link masih aktif sebelum commit (cek manual atau otomatis).
-10. **Satu store per iterasi.** Mulai dari Google Play Store; setelah seluruh kandidat terverifikasi independen dan `apk_kompetitor.md` diperbarui, baru lanjut ke store berikutnya (F-Droid → GitHub → Apple App Store → Samsung Galaxy Store → Mi/GetApps → Oppo App Market → store lainnya). DILARANG meriset semua store sekaligus tanpa memperbarui katalog setelah tiap store.
+10. **Satu run mencakup semua store.** Mulai dari Google Play Store; riset dikerjakan store demi store dalam satu run dengan urutan: Google Play Store → F-Droid → GitHub → Apple App Store → Samsung Galaxy Store → Mi/GetApps → Oppo App Market → store lainnya. Setelah seluruh kandidat suatu store terverifikasi independen dan `apk_kompetitor.md` diperbarui, baru lanjut ke store berikutnya. DILARANG melewati store tanpa mencatat hasilnya (termasuk nihil temuan) ke `apk_kompetitor.md` atau laporan.
 11. Verifikasi otomatis dengan: `curl -s -o /dev/null -w "%{http_code}" -A "Mozilla/5.0 (X11; Linux x86_64) Chrome/120.0" -L <url>`. HTTP **200** = valid; HTTP **404** = buang entri; HTTP **403** dari APKPure/Aptoide/SlideME = anti-bot (bukan link mati) — verifikasi via websearch/webfetch.
 12. Untuk id aplikasi Apple App Store, gunakan lookup `https://itunes.apple.com/lookup?id=<id>`; `resultCount: 0` berarti aplikasi tidak ada dan **tidak boleh** disertakan.
 13. Aplikasi Tionghoa/regional tanpa link halaman aplikasi spesifik yang terverifikasi **tidak boleh** disertakan; keberadaan di store saja (dari sumber sekunder) tidak cukup.
@@ -86,7 +86,7 @@ Hasil riset disimpan dalam tabel standar di `apk_kompetitor.md`. Analisa lanjuta
 - DILARANG menganggap HTTP 403 dari APKPure/Aptoide/SlideME sebagai link mati.
 - DILARANG menyertakan link HTTP 404 atau id App Store dengan `resultCount: 0`.
 - DILARANG menambah tabel tanpa header/separator.
-- DILARANG meriset semua store sekaligus dalam satu iterasi.
+- DILARANG melewati store dari urutan riset dalam satu run tanpa mencatat hasilnya (termasuk nihil temuan).
 - DILARANG merekomendasikan fitur non-mobile sebagai rekomendasi utama.
 - DILARANG menganggap Galaxy Store HTTP 200 + judul halaman sebagai verifikasi penuh.
 - DILARANG memperluas lingkup di luar katalog tanpa perintah eksplisit.
@@ -147,4 +147,4 @@ Skill ini hanya untuk aplikasi NamaAplikasiTertentu dengan fitur X, Y, dan Z.
 - Perintah terkait: `.kilo/commands/cari_apk_kompetitor.md`, `.kilo/commands/riset_kompetitor.md` (bila tersedia)
 - Aturan rujukan: `.agents/rules/global/aturan_skill.md` §1 (skill portabel lintas proyek), §7 (front matter), §8 (trigger-only), §9 (section wajib)
 - Perintah pengguna 2026-11-14: menjadikan skill global dan portabel, bukan spesifik satu aplikasi
-- Riwayat: v1.5.0 memuat konteks satu aplikasi; v1.6.0 menghapus ketergantungan tersebut dan memindahkan konteks proyek ke dokumen proyek
+- Riwayat: v1.5.0 memuat konteks satu aplikasi; v1.6.0 menghapus ketergantungan tersebut dan memindahkan konteks proyek ke dokumen proyek; v1.6.1 menyelaraskan aturan satu run mencakup semua store (Aturan #5 dan #10, Deskripsi, Larangan) dengan command `cari_apk_kompetitor.md`

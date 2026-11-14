@@ -1,0 +1,1 @@
+1. kenapa setiap membuat script baru tidak menjalankan chmod, dan agar si aibisa menyarankan apakah perlu dibuatkan alias nya juga. dan juga saya ingin selalu gunakan variabel jika argumen bisa di ubah sumber nya.

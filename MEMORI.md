@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Sat Nov 14 2026 15:37 WIB (sesi 37)
+Diperbarui: Sat Nov 14 2026 16:27 WIB (sesi 42)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -68,10 +68,11 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 
 - Berkas katalog: `apk_kompetitor.md` (root proyek).
 - Berkas analisa: `refrensi_apk.md` (root proyek).
-- Status terbaru (sesi 20, 2026-11-14): pencarian APK kompetitor baru dilakukan store demi store untuk aplikasi sasaran `base_coc`; katalog diperbarui setelah tiap store.
-- Total listing saat ini: 64 baris data; 10 listing `Sudah Dianalisa`, 54 listing `Belum Dianalisa`.
-- Sebaran: Google Play Store 28 (10 sudah, 18 belum), GitHub 1, Apple App Store 32, APKPure 3.
-- Store tanpa listing terverifikasi pada sesi 20: F-Droid, Samsung Galaxy Store, Mi/GetApps, Oppo App Market, dan Uptodown (HTTP 410/404 berulang; tidak ada mirror resmi dengan package id sama).
+- Status terbaru (sesi 38, 2026-11-14): riset APK kompetitor dijalankan ulang store demi store (satu run, perintah `cari_apk_kompetitor.md`) untuk aplikasi sasaran `base_coc`; katalog diperbarui per store.
+- Total listing saat ini: 82 baris data; 10 listing `Sudah Dianalisa`, 72 listing `Belum Dianalisa`.
+- Sebaran: Google Play Store 30 (10 sudah, 20 belum), GitHub 2, Apple App Store 38, APKPure 7, Aptoide 5.
+- Listing baru sesi 38 (18): Play Store — BaseVault for Clash of Clans (`com.apphubnow.basedrop`), Cockit – Clash Base Layouts (`com.heyisoft.cockit`); GitHub — Clash Trackers (`Killersparrow1/clash-Trackers`); Apple App Store — COC Baselinks (6790808297), Cockit – Clash Base Layouts (6760241444), Clash of Helper (6636552878), Keepwatch for Clash of Clans (6828926176), Database for Clash of Clans™ (unofficial) (898757582), House of Clashers: Clash Guide (653987498); APKPure — Hall Base Layouts for Clash (`com.hall.editor`), COC Base Layouts Clash of Maps (`com.sb.newclashmaps2020`), Clash of Maps - Base, Layouts (`com.akstudio.clashofmaps`), Maps of Clash of Clans 2026 (`com.moonstudio.mapcoc`); Aptoide (section baru, verifikasi via hasil pencarian karena HTTP 403 anti-bot) — Clash Base Layout | Quick Copy, Cocbases, Clash of Maps - Base, Layouts, Pro Clash of Maps Base Layouts, Maps of Clash of Clans 2026.
+- Store nihil temuan pada sesi 38 (dicatat di `apk_kompetitor.md`): F-Droid, Samsung Galaxy Store (`galaxy.store` tidak dapat diakses), Mi/GetApps (konten dirender JS, tanpa link aplikasi spesifik), Oppo App Market, Uptodown (HTTP 410), IzzyOnDroid (index 200, tidak ada paket `clash` relevan), Amazon Appstore, SlideME (403), Huawei AppGallery (503), Tencent MyApp.
 - Listing yang sudah dianalisa: COC Base Layouts Design links, COC Base Layouts:Clash of Maps, Coc Base Layout 2026, clashOFbase, Maps For COC Base Layouts 2026, Base Drop, Map Layout Links Base for COC, ClasherPro, CoC Base Maps 2026, Notificlash.
 - Katalog lama 159 listing bertema Spektra (sesi 10/14) dikosongkan pengguna sebelum sesi 19 dan tidak dipakai ulang.
 - `apk_serupa.md` tidak ditemukan di root proyek; lingkup riset mengikuti `apk_kompetitor.md` sesuai perintah pengguna.
@@ -84,6 +85,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - Sumber kebenaran: `.kilo/kilo.jsonc` (ter-`.gitignore`, jangan dianggap bagian git tree).
 - Model global: `model`, `small_model`, `subagent_model` = `kilo/kilo-auto/free`.
 - `agent.code`: `model` = `kilo/reflection/beam-free`, `variant` = `max` (per 2026-11-14, sesi 22; sebelumnya `kilo/particle-ai/particle-1:free`).
+- `docs/model_agents.md` (sesi 39, diperbarui sesi 40–41, 2026-11-14) — H1 `# List Model`, daftar model di bagian atas (sejak sesi 41); dokumentasi model yang digunakan beserta kondisi konfigurasi Kilo; hanya pencatatan, bukan sumber kebenaran konfigurasi. Daftar model: `kilo/kilo-auto/free` (model global), `kilo/particle-ai/particle-1:free` (bekas `agent.code.model`), `kilo/reflection/beam-free` (`agent.code.model` saat ini, variant `max`), dan `openrouter/thinkingmachines/inkling-2-small:free` (model sesi 39; sempat menjadi `agent.code.model` hingga 2026-11-14 06:10).
 - Perubahan model agent hanya dilakukan atas permintaan eksplisit pengguna dengan konfirmasi sebelum eksekusi; bagian config lain (permission, instructions, skills.paths, agent lain) tidak diubah.
 
 ## Konvensi & Sumber Kebenaran
@@ -103,8 +105,8 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 ## Hasil Diskusi
 
 - Lokasi: `hasil_diskusi/` di root proyek (dibuat 2026-11-14, sesi 12).
-- Daftar berkas: `diskusi_1.md` — perluasan cakupan command `perbarui_readme.md` ke README submodule (status Final, sudah diimplementasikan); `diskusi_2.md` — sistem kerja global: alur Git & commit (Conventional Commits + Trunk-based) (status Final, sudah diimplementasikan sebagian); `diskusi_3.md` — lanjutan: PR, review, tag, changelog, pengecualian, submodule (status Final, sebagian diimplementasikan); `diskusi_4.md` — penambahan tanggal diperbarui pada `MEMORI.md` dan instruksi di skill `memori-check` (status Final, belum diimplementasikan); `diskusi_5.md` — analisa mengapa agen AI tidak menggunakan mockito saat membuat test, plus rekomendasi R-1..R-5 (status Final, belum diimplementasikan).
-- Nomor tertinggi: 5.
+- Daftar berkas: `diskusi_1.md` — perluasan cakupan command `perbarui_readme.md` ke README submodule (status Final, sudah diimplementasikan); `diskusi_2.md` — sistem kerja global: alur Git & commit (Conventional Commits + Trunk-based) (status Final, sudah diimplementasikan sebagian); `diskusi_3.md` — lanjutan: PR, review, tag, changelog, pengecualian, submodule (status Final, sebagian diimplementasikan); `diskusi_4.md` — penambahan tanggal diperbarui pada `MEMORI.md` dan instruksi di skill `memori-check` (status Final, belum diimplementasikan); `diskusi_5.md` — analisa mengapa agen AI tidak menggunakan mockito saat membuat test, plus rekomendasi R-1..R-5 (status Final, belum diimplementasikan); `diskusi_6.md` — praktik skrip shell: chmod, alias, variabel argumen (status Draft, belum diimplementasikan).
+- Nomor tertinggi: 6.
 
 ## Catatan untuk Model Selanjutnya
 

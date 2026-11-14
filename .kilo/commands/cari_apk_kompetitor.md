@@ -16,15 +16,16 @@ Command ini bersifat global dan portabel lintas proyek. Jangan mengasumsikan nam
 - `apk_kompetitor.md`
 - `.agents/skills/custom/riset-kompetitor/SKILL.md`
 
-9. **Satu store per iterasi** — setiap kali perintah ini dijalankan, riset dikerjakan store demi store, bukan sekaligus:
+9. **Satu run mencakup semua store** — setiap kali perintah ini dijalankan, riset dikerjakan store demi store dalam satu run, bukan dibatasi satu store:
    - Mulai dari store pertama (**Google Play Store** sebagai prioritas).
-   - Setelah seluruh kandidat dari store itu terverifikasi independen (curl / iTunes lookup / webfetch) dan ditambahkan ke `apk_kompetitor.md`, perbarui `apk_kompetitor.md` terlebih dahulu sebelum lanjut.
-   - Urutan setelah Google Play Store: **F-Droid → GitHub → Apple App Store → Samsung Galaxy Store → Mi/GetApps → Oppo App Market → store lainnya** (instruksi eksplisit pengguna, 2026-11-13).
-   - DILARANG meriset semua store sekaligus tanpa memperbarui `apk_kompetitor.md` setelah tiap store.
+   - Urutan store: **Google Play Store → F-Droid → GitHub → Apple App Store → Samsung Galaxy Store → Mi/GetApps → Oppo App Market → store lainnya** (instruksi eksplisit pengguna, 2026-11-13; perubahan 2026-11-14: satu run mencakup semua store).
+   - Setelah seluruh kandidat dari suatu store terverifikasi independen (curl / iTunes lookup / webfetch) dan ditambahkan ke `apk_kompetitor.md`, perbarui `apk_kompetitor.md` terlebih dahulu sebelum lanjut ke store berikutnya.
+   - DILARANG melewati store tanpa mencatat hasilnya (termasuk nihil temuan) ke `apk_kompetitor.md` atau laporan; DILARANG berhenti setelah satu store bila masih ada store dalam urutan yang belum diriset.
+   - Catatan: skill `riset-kompetitor` aturan #10 dan aturan #5 (urutan default) ikut disesuaikan 2026-11-14 (satu run mencakup semua store; versi 1.6.1) agar konsisten dengan command ini.
 10. Acuan "aplikasi serupa" = **aplikasi sasaran yang didefinisikan pada dokumen proyek** (`README.md`, `AGENTS.md`, PRD, atau dokumen produk lain):
     - Tentukan platform, domain, dan fitur inti aplikasi sasaran dari dokumen proyek sebelum riset dimulai.
     - Ringkasan singkat setiap listing **wajib** menyebut fitur relevan dengan aplikasi sasaran (fitur inti, alur pengguna, UI/UX, atau kategori lain yang ditetapkan dari dokumen proyek), bukan deskripsi umum dari store.
     - Bila dokumen proyek tidak tersedia atau saling bertentangan, **DILARANG menebak** dari nama repositori; tanyakan kepada pengguna.
 11. `apk_kompetitor.md` dibuat **baru** bila belum ada, dengan kerangka skill `riset-kompetitor` (section per store; section `# Tambahan Riset (YYYY-MM-DD)` untuk batch besar; tabel pipe Markdown dengan header+separator; kolom `Status Analisa` per baris). Semua listing baru wajib `Status Analisa = Belum Dianalisa`.
-12. Riset store dilakukan berurutan; bila ingin mempercepat pencarian kandidat di dalam satu store boleh memakai subagen paralel, tetapi **verifikasi tetap independen** per skill `riset-kompetitor` dan perbarui `apk_kompetitor.md` sebelum lanjut store berikutnya.
+12. Riset store dilakukan berurutan dalam satu run; bila ingin mempercepat pencarian kandidat di dalam satu store boleh memakai subagen paralel, tetapi **verifikasi tetap independen** per skill `riset-kompetitor` dan perbarui `apk_kompetitor.md` sebelum lanjut store berikutnya.
 13. **Aturan portabilitas:** DILARANG menulis nama aplikasi, domain, kategori fitur, atau istilah khas satu proyek ke dalam command ini; konteks proyek selalu dibaca dari dokumen proyek.

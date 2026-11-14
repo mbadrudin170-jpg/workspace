@@ -38,12 +38,15 @@ Catatan: `apk_serupa.md` tidak ditemukan di root proyek per 2026-11-14; lingkup 
 | Clash of Maps 2026:CoC Layouts | Ribuan base TH3–TH18 dan BH4–BH10 dengan copy link, kategori war/farming/trophy/CWL/funny, favorit, dan notifikasi base terbaru. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.phuocly.coc.layouts.link) | Belum Dianalisa |
 | ClashCodes: Clash Base Layouts | Alat untuk mendesain base dan berbagi layout Clash of Clans terbaru melalui tautan yang dapat disalin ke game. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.clashbaselayouts.cocmaps) | Belum Dianalisa |
 | COC Layout | Galeri base TH4–TH15 dan BH4–BH10 untuk war, farming, trophy, dan layout lucu dengan copy satu ketuk, rating desain pemain, zoom, serta berbagi ke media sosial. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.supercell.clashofclans.map.coc.layout) | Belum Dianalisa |
+| BaseVault for Clash of Clans | Companion dengan 8.000–10.000+ base anti-3-star yang diperbarui harian, analisis strategi berbasis AI (screenshot ke strategi), dan Clan Vault privat untuk menyimpan serta membagikan base dan pasukan. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.apphubnow.basedrop) | Belum Dianalisa |
+| Cockit – Clash Base Layouts | Koleksi ratusan base TH4–TH18 dan BH4–BH9 untuk war, trophy, farming, dan hybrid dengan copy link langsung ke game serta penyimpanan favorit. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.heyisoft.cockit) | Belum Dianalisa |
 
 ## GitHub
 
 | Nama Aplikasi | Ringkasan Singkat | Store | Link | Status Analisa |
 | --- | --- | --- | --- | --- |
 | ClashPrime | Aplikasi Android companion Clash of Clans dengan Base Library yang menggabungkan katalog layout Home Village dan Builder Base (ClashLy dan clash-bases), filter TH, favorit, serta copy layout langsung ke game; APK tersedia di setiap rilis GitHub. | GitHub | [Buka Repositori](https://github.com/FarhanZafarr-9/ClashPrime) | Belum Dianalisa |
+| Clash Trackers | Pelengkap non-galeri: aplikasi Android offline dan widget layar utama untuk melacak timer upgrade Home Village dan Builder Base, potion, serta event, dengan dukungan banyak akun; APK tersedia di setiap rilis GitHub. | GitHub | [Buka Repositori](https://github.com/Killersparrow1/clash-Trackers) | Belum Dianalisa |
 
 ## Apple App Store
 
@@ -81,6 +84,12 @@ Catatan: `apk_serupa.md` tidak ditemukan di root proyek per 2026-11-14; lingkup 
 | Clash Cookbook: Armies & Bases | Companion berisi komposisi pasukan, base, panduan, scouting pemain, dan rekrutmen clan. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6797191703) | Belum Dianalisa |
 | Clash Companion: Base Layouts | Companion all-in-one dengan layout war, trophy, dan farming untuk membantu desain base. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6801626558) | Belum Dianalisa |
 | Clasher Map | Sumber layout map, desain base, link layout, dan panduan strategi Clash of Clans. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6740137322) | Belum Dianalisa |
+| COC Baselinks | Companion dengan pustaka base link TH4–TH17, BH4–BH10, dan Clan Capital (war, farming, trophy, tournament, artistik) yang dapat disalin satu ketuk, plus persenjataan pro dan manajemen desa. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6790808297) | Belum Dianalisa |
+| Cockit – Clash Base Layouts | Koleksi ratusan base TH4–TH18 dan BH4–BH9 untuk war, trophy, farming, dan hybrid dengan copy link langsung ke game serta penyimpanan favorit. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6760241444) | Belum Dianalisa |
+| Clash of Helper | Asisten all-in-one untuk pemain dan pemimpin klan: manajemen multi-akun, pelacakan perang real-time, kalender event resmi, persentase upgrade TH/BH, poster rekrutmen, dan copy base instan. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6636552878) | Belum Dianalisa |
+| Keepwatch for Clash of Clans | Pelengkap non-galeri: menempel ke data export game untuk menghitung sisa upgrade setiap bangunan, hero, pet, pasukan, mantra, equipment, dan tembok per level TH dengan estimasi waktu dan sumber daya. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6828926176) | Belum Dianalisa |
+| Database for Clash of Clans™ (unofficial) | Database offline bangunan, pasukan, mantra, statistik, walkthrough, strategi serangan, dan Base Designs beserta tips untuk setiap level item. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id898757582) | Belum Dianalisa |
+| House of Clashers: Clash Guide | Guide Clash of Clans 1000+ halaman dengan strategi serangan dan taktik, serta copy link base Town Hall dan Builder Hall untuk disalin ke game. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id653987498) | Belum Dianalisa |
 
 ## APKPure
 
@@ -89,7 +98,46 @@ Catatan: `apk_serupa.md` tidak ditemukan di root proyek per 2026-11-14; lingkup 
 | Maps of COC - Base Layouts | Ratusan base TH4–TH15 dan BH4–BH9 untuk war, farming, hybrid, dan trophy dengan copy link ke game serta zoom gambar base. | APKPure | [Unduh APK](https://apkpure.com/maps-of-coc-base-layouts/com.hivefiveapps.new_maps_of_coc) | Belum Dianalisa |
 | Clash Base Designer for COC | Alat desain base dengan menampilkan tangkapan layar layout sebagai lapisan transparan di atas editor game, dilengkapi koleksi base war/farming/trophy/hybrid dan favorit. | APKPure | [Unduh APK](https://apkpure.com/clash-base-designer-for-coc/com.spookyideas.cocbasecopy) | Belum Dianalisa |
 | Formasi Pertahanan COC | Koleksi 200+ desain formasi TH4–TH11 untuk war, farming, trophy, defense, dan hybrid dengan zoom serta simpan/bagikan gambar. | APKPure | [Unduh APK](https://apkpure.com/formasi-pertahanan-coc/dev.merahkemarun.formasipertahanancoc) | Belum Dianalisa |
+| Hall Base Layouts for Clash | Koleksi layout TH4–TH18 war/farming/trophy/anti-2/anti-3/troll dengan copy link satu ketuk dan penyimpanan favorit. | APKPure | [Unduh APK](https://apkpure.com/hall-base-layouts-for-clash/com.hall.editor) | Belum Dianalisa |
+| COC Base Layouts Clash of Maps | Ribuan base TH4–TH18 dan BH4–BH10 dengan copy satu klik, kategori war/farming/hybrid/trophy/CWL/legend/ring/funny, serta builder base 2.0. | APKPure | [Unduh APK](https://apkpure.com/coc-base-layouts-clash-of-maps/com.sb.newclashmaps2020) | Belum Dianalisa |
+| Clash of Maps - Base, Layouts | Ratusan base TH5–TH15 dan BH4–BH10 dengan copy link war/farming/trophy/CWL/hybrid/legend/ring/troll, favorit, dan notifikasi base baru. | APKPure | [Unduh APK](https://apkpure.com/clash-of-maps-base-layouts/com.akstudio.clashofmaps) | Belum Dianalisa |
+| Maps of Clash of Clans 2026 | Katalog map TH1–TH18 dan BH1–BH10 untuk war, farming, trophy, hybrid dengan zoom, like/bagikan, dan unduh peta. | APKPure | [Unduh APK](https://apkpure.com/maps-of-clash-of-clans-2023/com.moonstudio.mapcoc) | Belum Dianalisa |
+
+## Aptoide
+
+Catatan: `aptoide.com` mengembalikan HTTP 403 (anti-bot) pada curl/webfetch; verifikasi konten dilakukan melalui hasil pencarian yang memuat nama aplikasi, developer, versi, dan tanggal pembaruan dari halaman resmi Aptoide per 2026-11-14 (sesi 38).
+
+| Nama Aplikasi | Ringkasan Singkat | Store | Link | Status Analisa |
+| --- | --- | --- | --- | --- |
+| Clash Base Layout \| Quick Copy | Koleksi 1000+ layout pro TH3–TH17 dan BH3–BH10 untuk war, farming, trophy, hybrid, dan Clan Capital dengan copy link satu ketuk, indikator kualitas peta, rating pengguna, dan attack planner. | Aptoide | [Unduh APK](https://clash-maps-autocopy.en.aptoide.com/app) | Belum Dianalisa |
+| Cocbases(Clash of Clans Bases) | Ribuan base link TH4–TH18 dan BH4–BH10 dengan filter war/farming/trophy/hybrid/anti-queen walk/anti-air, unggah dan bagikan layout, favorit, serta fitur rekrutmen klan dan direktori pemain. | Aptoide | [Unduh APK](https://cocbases.en.aptoide.com/app) | Belum Dianalisa |
+| Clash of Maps - Base, Layouts | Ratusan base TH5–TH15 dan BH4–BH10 dengan copy link untuk farming/trophy/war/CWL/hybrid/legend/farm/troll, favorit, dan notifikasi base baru. | Aptoide | [Unduh APK](https://clash-of-maps.en.aptoide.com/app) | Belum Dianalisa |
+| Pro Clash of Maps Base Layouts | Ribuan base TH4–TH18 dengan copy satu ketuk, layout pro terinspirasi World Finals, war/farming/trophy/CWL, dan pembaruan rutin. | Aptoide | [Unduh APK](https://pro-maps-of-coc-2020.en.aptoide.com/app) | Belum Dianalisa |
+| Maps of Clash of Clans 2026 | Katalog map TH1–TH18 dan BH1–BH10 untuk war, farming, trophy, hybrid dengan zoom, like/bagikan, unduh peta, dan berbagi layout. | Aptoide | [Unduh APK](https://moonstudios-coc-maps.en.aptoide.com/app) | Belum Dianalisa |
+
+## Store Lainnya
+
+Catatan nihil temuan per 2026-11-14 (sesi 38); tidak ada link halaman aplikasi spesifik yang dapat diverifikasi untuk aplikasi penyedia base/layout Clash of Clans:
+
+- Uptodown: HTTP 410 berulang pada URL kandidat (konsisten dengan catatan sesi 20); tidak ada mirror resmi dengan package id sama yang terverifikasi.
+- IzzyOnDroid: `https://apt.izzysoft.de/fdroid/repo/index.xml` terunduh (HTTP 200, ~4,6 MB); pencarian `clash` tidak mengembalikan paket relevan.
+- Amazon Appstore: pencarian `https://www.amazon.com/s?k=clash+of+clans+base&i=software` mengembalikan HTTP 200 tetapi hasilnya produk/buku campuran tanpa aplikasi base/layout Clash of Clans yang spesifik dan dapat diverifikasi.
+- SlideME: HTTP 403 (anti-bot); tidak ada halaman aplikasi spesifik yang dapat diverifikasi.
+- Huawei AppGallery: HTTP 503 (`https://www.huawei.com/mobile/appgallery/search?q=clash%20of%20clans`); tidak dapat diakses.
+- Tencent MyApp: hanya ditemukan halaman game resmi Clash of Clans (`sj.qq.com/appdetail/com.tencent.tmgp.supercell.clashofclans`) dan artikel bantuan copy阵型; tidak ada aplikasi base/layout pihak ketiga spesifik yang dapat diverifikasi.
 
 ## F-Droid
 
-Tidak ditemukan aplikasi mobile relevan (penyedia base/layout Clash of Clans) di F-Droid per 2026-11-14. Pencarian "clash of clans" dan "clash" hanya mengembalikan klien VPN/proxy (Clash Meta For Android, ClashFest) yang tidak relevan dengan aplikasi sasaran `base_coc`.
+Tidak ditemukan aplikasi mobile relevan (penyedia base/layout Clash of Clans) di F-Droid per 2026-11-14 (dicek ulang sesi 38, 2026-11-14). Pencarian "clash of clans" dan "clash" hanya mengembalikan klien VPN/proxy (Clash Meta For Android, ClashFest) yang tidak relevan dengan aplikasi sasaran `base_coc`.
+
+## Samsung Galaxy Store
+
+Tidak ditemukan aplikasi mobile relevan di Samsung Galaxy Store per 2026-11-14 (sesi 38). Situs `galaxy.store` tidak dapat diakses dari lingkungan ini (gagal koneksi/`Transport error` pada curl maupun `webfetch`), dan tidak ada halaman aplikasi spesifik yang dapat diverifikasi untuk aplikasi penyedia base/layout Clash of Clans. Sesuai aturan verifikasi skill `riset-kompetitor`, tanpa link halaman aplikasi spesifik yang terverifikasi, tidak ada listing yang disertakan.
+
+## Mi/GetApps
+
+Tidak ditemukan aplikasi mobile relevan di Mi/GetApps per 2026-11-14 (sesi 38). Halaman pencarian `app.xiaomi.com/search?keyword=...` mengembalikan HTTP 200, tetapi isinya dirender JavaScript dan tidak memuat id/halaman aplikasi spesifik yang dapat diverifikasi untuk aplikasi penyedia base/layout Clash of Clans. Sesuai aturan skill `riset-kompetitor`, tanpa link halaman aplikasi spesifik yang terverifikasi, tidak ada listing yang disertakan.
+
+## Oppo App Market
+
+Tidak ditemukan aplikasi mobile relevan di Oppo App Market per 2026-11-14 (sesi 38). Pencarian web untuk listing aplikasi spesifik penyedia base/layout Clash of Clans di Oppo App Market tidak mengembalikan halaman aplikasi yang dapat diverifikasi; hanya halaman informasi platform developer yang ditemukan. Sesuai aturan skill `riset-kompetitor`, tanpa link halaman aplikasi spesifik yang terverifikasi, tidak ada listing yang disertakan.

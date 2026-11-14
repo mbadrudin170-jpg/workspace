@@ -21,6 +21,8 @@ alias code_paket="script/code_paket.sh"
 alias gabung_example_teks="script/gabung_example_teks.sh"
 alias install_rg="sudo apt-get update && sudo apt-get install -y ripgrep"
 
+
+alias download="cloudshell download"
 # Install SKILLS (ke .agents/skills/bawaan)
 # Alias yang benar - jalankan dari root project
 alias iskills="dart run skills@ get --all"
@@ -64,6 +66,7 @@ alias rr='flutter pub get && flutter run -d web-server --web-port=8080 --web-hos
 
 # Build APK
 alias flbuild='flutter build apk --release'
+alias build_apk='script/build_apk.sh'
 alias flbundle='flutter build appbundle --release'
 alias flabi='flutter clean && flutter build apk --release --split-per-abi'
 alias build64='flutter clean && flutter build apk --release --split-per-abi --target-platform android-arm64'
@@ -107,12 +110,9 @@ alias port='sudo netstat -tulpn | grep -E ":(8080|8081)"'
 # NAVIGATION
 # ============================================
 alias c='clear'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias global="cd ~/share_global_saya"
-alias proj='cd $PROJECT_DIR'
-alias script='cd $SCRIPT_DIR'
-
+alias global="cd cd ~/workspace/share_global_saya"
+alias apk="cd ~/workspace/base_coc"
+alias utama="cd ~/workspace"
 
 # SUPABASE
 alias dblogin="npx supabase login"
