@@ -1,3 +1,15 @@
+# AGENTS.md — Aturan Proyek
+
+> **Peringkat wajib dibaca sebelum bertindak.**
+>
+> **Skill adalah aturan.** Setiap `SKILL.md` yang ada di `.agents/skills/` **wajib diperlakukan sebagai aturan yang mengikat**, setara dengan aturan di `.agents/rules/`. Skill bukan sekadar referensi, dokumentasi pasif, atau saran opsional.
+>
+> - Saat trigger sebuah skill terpenuhi, AI **wajib** memuat skill tersebut melalui tool `skill` **sebelum** mengubah kode atau dokumen.
+> - Setelah skill dimuat, AI **wajib** menjalankan seluruh `## Aturan` dan mematuhi seluruh `## Larangan` di dalamnya.
+> - Mengabaikan skill yang trigger-nya terpenuhi diperlakukan sebagai pelanggaran aturan dengan bobot sama seperti mengabaikan `.agents/rules/`, dan **wajib** dilaporkan kepada pengguna.
+>
+> Rujukan: `.agents/rules/global/aturan_skill.md` §12 (Skill sebagai Aturan yang Mengikat).
+
 // ============================================================
 // FILE: .agents/rules/global/aturan_skill.md
 // ============================================================
@@ -689,6 +701,8 @@ Digunakan untuk mengidentifikasi file proyek yang berkaitan dengan implementasi 
 // ============================================================
 // FILE: .agents/rules/global/format_task.md
 // ============================================================
+
+> **Catatan penekanan:** sebuah `SKILL.md` di `.agents/skills/` **tidak hanya referensi** — ia adalah **aturan yang mengikat**, setara dengan aturan di `.agents/rules/`. Saat trigger skill terpenuhi, AI wajib memuat skill melalui tool `skill` sebelum mengubah kode/dokumen, menjalankan seluruh `## Aturan` dan `## Larangan` di dalamnya, dan melaporkan pengabaian kepada pengguna (lihat `.agents/rules/global/aturan_skill.md` §12). Pada `task.md`, kepatuhan terhadap skill yang terkait harus dicatat pada kolom `aturan dilanggar` bila relevan.
 
 saya ingin agar yang menambahkan atau memperbarui isi file `task.md` di root harus menaati semua aturan gaya penulisan format ini.
 jadi agar setiap orang dan AI yang mengedit file task.md ini isi nya akan selalu konsisten.
