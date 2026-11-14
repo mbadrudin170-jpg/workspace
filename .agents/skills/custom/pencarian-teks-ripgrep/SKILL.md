@@ -111,7 +111,7 @@ bersih # DILARANG
 
 ## Sumber Evaluasi
 
-- File aturan sumber: `.agents/rules/global/aturan_skill.md`
+- File aturan sumber: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`
 - Perintah eksplisit pengguna: implementasi `prd/hasil_diskusi/diskusi_7.md` (jawaban konfirmasi nama folder `pencarian-teks-ripgrep`, cakupan, dan sumber isi dari perintah eksplisit pengguna)
 - Perintah eksplisit pengguna: "perbarui skill rg nya" — diagnosa dan pemulihan binary `rg` Kilo pada 2026-11-12 (`install_rg` = `sudo apt-get install -y ripgrep` v14.1.0 di `/usr/bin/rg`, lalu `mkdir -p ~/.cache/kilo/bin` dan salin `/usr/bin/rg` ke `~/.cache/kilo/bin/rg`; verifikasi `rg --version` dan uji invocation gagal `rg --no-config --json --hidden --no-messages --ignore-case --glob='!**/.git/**' -- memori SKILLS_INDEX.md` → exit 0)
 - Skill referensi format non-UI: `.agents/skills/custom/bug-runtime/SKILL.md`

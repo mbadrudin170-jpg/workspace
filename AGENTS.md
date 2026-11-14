@@ -8,10 +8,10 @@
 > - Setelah skill dimuat, AI **wajib** menjalankan seluruh `## Aturan` dan mematuhi seluruh `## Larangan` di dalamnya.
 > - Mengabaikan skill yang trigger-nya terpenuhi diperlakukan sebagai pelanggaran aturan dengan bobot sama seperti mengabaikan `.agents/rules/`, dan **wajib** dilaporkan kepada pengguna.
 >
-> Rujukan: `.agents/rules/global/aturan_skill.md` §12 (Skill sebagai Aturan yang Mengikat).
+> Rujukan: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` (Skill sebagai Aturan yang Mengikat).
 
 // ============================================================
-// FILE: .agents/rules/global/aturan_skill.md
+// SKILL: .agents/skills/custom/aturan-pembuatan-skill/SKILL.md
 // ============================================================
 
 # Aturan Pembuatan dan Pembaruan SKILL.md
@@ -408,7 +408,7 @@ Sebelum mengakhiri pembuatan atau pembaruan `SKILL.md`, verifikasi semua poin be
 1. **Status mengikat.** Setiap `SKILL.md` yang terdaftar di `SKILLS_INDEX.md` berkekuatan aturan yang sama dengan berkas di `.agents/rules/`. Isi skill **bukan** dokumentasi pasif, catatan sukarela, atau saran yang boleh diabaikan.
 2. **Kewajiban memuat.** Saat trigger sebuah skill terpenuhi (kondisi/tugas pemicu sesuai segmen trigger pada `description`), AI **wajib** memuat skill tersebut melalui tool `skill` **sebelum** mengubah kode atau dokumen, lalu **wajib** menjalankan seluruh `## Aturan` dan mematuhi seluruh `## Larangan` di dalamnya.
 3. **Larangan mengabaikan.** Mengabaikan skill yang trigger-nya terpenuhi diperlakukan sebagai pelanggaran aturan dengan bobot yang sama seperti mengabaikan aturan di `.agents/rules/`; pelanggaran ini **wajib** dilaporkan kepada pengguna.
-4. **Rujukan silsilah.** Bila skill memuat rujukan ke berkas aturan (mis. `aturan_skill.md §8`), rujukan itu **wajib** dibaca; ringkasan yang ada di dalam skill tidak menggantikan isi aturan sumber.
+4. **Rujukan silsilah.** Bila skill memuat rujukan ke berkas aturan (mis. `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` aturan 8), rujukan itu **wajib** dibaca; ringkasan yang ada di dalam skill tidak menggantikan isi aturan sumber.
 5. **Benturan aturan.** Bila isi skill bertentangan dengan aturan di `.agents/rules/`, AI **wajib** melaporkan pertentangan kepada pengguna dan menunggu arahan; **DILARANG** memilih sendiri aturan mana yang dipatuhi.
 6. **Pembaruan tetap tunduk pada aturan.** Setiap perubahan isi skill tetap tunduk pada §4 (penamaan), §5 (sumber dari riwayat commit), §7 (front matter), §8 (segmen trigger), §9 (section wajib), dan §11 (checklist).
 7. **Keterlacakan.** Setiap skill wajib tercantum di `SKILLS_INDEX.md` beserta trigger dan `metadata.diperbarui`; skill yang tidak terindeks dianggap belum sah digunakan.
@@ -702,7 +702,7 @@ Digunakan untuk mengidentifikasi file proyek yang berkaitan dengan implementasi 
 // FILE: .agents/rules/global/format_task.md
 // ============================================================
 
-> **Catatan penekanan:** sebuah `SKILL.md` di `.agents/skills/` **tidak hanya referensi** — ia adalah **aturan yang mengikat**, setara dengan aturan di `.agents/rules/`. Saat trigger skill terpenuhi, AI wajib memuat skill melalui tool `skill` sebelum mengubah kode/dokumen, menjalankan seluruh `## Aturan` dan `## Larangan` di dalamnya, dan melaporkan pengabaian kepada pengguna (lihat `.agents/rules/global/aturan_skill.md` §12). Pada `task.md`, kepatuhan terhadap skill yang terkait harus dicatat pada kolom `aturan dilanggar` bila relevan.
+> **Catatan penekanan:** sebuah `SKILL.md` di `.agents/skills/` **tidak hanya referensi** — ia adalah **aturan yang mengikat**, setara dengan aturan di `.agents/rules/`. Saat trigger skill terpenuhi, AI wajib memuat skill melalui tool `skill` sebelum mengubah kode/dokumen, menjalankan seluruh `## Aturan` dan `## Larangan` di dalamnya, dan melaporkan pengabaian kepada pengguna (lihat `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`). Pada `task.md`, kepatuhan terhadap skill yang terkait harus dicatat pada kolom `aturan dilanggar` bila relevan.
 
 saya ingin agar yang menambahkan atau memperbarui isi file `task.md` di root harus menaati semua aturan gaya penulisan format ini.
 jadi agar setiap orang dan AI yang mengedit file task.md ini isi nya akan selalu konsisten.

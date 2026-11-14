@@ -161,7 +161,7 @@ Berkas sumber (proyek):
 - Skill bawaan: `kilo-config` (builtin, konfigurasi Kilo generik)
 - Diskusi terkait: `hasil_diskusi/diskusi_6.md` (K-1 s.d. K-10, R-1 s.d. R-5, TL-1 s.d. TL-5)
 
-Commit rujukan (menyentuh `.kilo/kilo.jsonc` dan/atau `.kilo/prompts/`; sumber isi disusun dari commit yang berkaitan sesuai `.agents/rules/global/aturan_skill.md` §5):
+Commit rujukan (menyentuh `.kilo/kilo.jsonc` dan/atau `.kilo/prompts/`; sumber isi disusun dari commit yang berkaitan sesuai `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` aturan 5):
 
 - `26362be` (terbaru relevan — menyentuh `.kilo/kilo.jsonc` dan `.kilo/prompts/ask.md`, `.kilo/prompts/debug.md`)
 - `50ee3c7` (penerapan config proyek `.kilo/kilo.jsonc` dan pemindahan `prompts/code.md` → `.kilo/prompts/code.md`)

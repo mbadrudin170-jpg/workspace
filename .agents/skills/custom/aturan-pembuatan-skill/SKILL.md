@@ -38,7 +38,7 @@ Mengatur cara **membuat** dan **memperbarui** file `SKILL.md` di `.agents/skills
 5. Susun isi `SKILL.md` hanya dari **commit yang berkaitan** (commit yang menyentuh file/folder terkait topik skill) menggunakan `git log`, `git show <commit>`, atau `git diff <commit>`.
 6. Jika ada beberapa commit relevan dengan pola berbeda, pilih pola dari **commit terbaru yang relevan** kecuali pengguna menentukan lain.
 7. Cantumkan front matter YAML di paling atas (dibungkus `---`) dengan field wajib: `name` (sama dengan nama folder), `description` (wajib diawali segmen trigger-only, lihat aturan 8), `metadata.kategori`, `metadata.versi` (semver), `metadata.diperbarui` (format `TZ=Asia/Jakarta date`), dan `metadata.sumber-terakhir` (hash commit atau perintah/hasil eksplisit pengguna). Field opsional `license` dan `compatibility` boleh ditambahkan bila relevan.
-8. Tulis `description` diawali segmen trigger-only sesuai `.agents/rules/global/aturan_skill.md` §8: diawali literal `Trigger:`, segmen trigger hanya berisi kondisi/tugas pemicu dalam bahasa Indonesia, dipisah dari segmen cakupan lain dengan `|` (spasi-pipe-spasi), dan berakhir pada `|` pertama atau akhir string. Setelah segmen trigger, `description` dan intro mencakup: apa yang di-cover, apa yang harus dihindari, langkah kerja (workflow), dan referensi ke file terkait.
+8. Tulis `description` diawali segmen trigger-only: diawali literal `Trigger:`, segmen trigger hanya berisi kondisi/tugas pemicu dalam bahasa Indonesia, dipisah dari segmen cakupan lain dengan `|` (spasi-pipe-spasi), dan berakhir pada `|` pertama atau akhir string. Setelah segmen trigger, `description` dan intro mencakup: apa yang di-cover, apa yang harus dihindari, langkah kerja (workflow), dan referensi ke file terkait.
 9. Sertakan semua section wajib: Judul dan intro, `## Cakupan yang Di-Cover`, `## Aturan`, `## Larangan`, `## Contoh Benar`, `## Contoh Salah`, dan `## Sumber Evaluasi`. Contoh kode ditulis langsung di `SKILL.md` (tanpa folder `examples` terpisah).
 10. Bundled resources (`scripts/`, `references/`, `assets/`, `examples/`) boleh ditambahkan sebagai pendukung, tetapi `SKILL.md` tetap menjadi berkas tunggal yang wajib ada di root folder skill.
 11. Gunakan bahasa Indonesia, gaya teknis ringkas, tanpa pengalaman konversasi. Gunakan backtick `` ` `` untuk nama class, properti, method, dan package.
@@ -60,7 +60,7 @@ Mengatur cara **membuat** dan **memperbarui** file `SKILL.md` di `.agents/skills
 - DILARANG mengubah atau restructure skill lama yang melanggar aturan tanpa melaporkan dan menunggu arahan pengguna.
 - DILARANG menghilangkan section wajib atau memindahkan contoh ke folder `examples` terpisah.
 - DILARANG menulis deskripsi yang tidak mencakup trigger, cakupan, larangan penggunaan, langkah kerja, dan referensi file terkait.
-- DILARANG menulis `description` tanpa segmen trigger-only di awal (literal `Trigger:`, lihat `.agents/rules/global/aturan_skill.md` §8.2).
+- DILARANG menulis `description` tanpa segmen trigger-only di awal (literal `Trigger:`, lihat aturan 8 di skill ini).
 - DILARANG mengeksekusi shell command (`!`command``) di project skill (`.kilo/skills/`) atau remote URL (`skills.urls`); hanya diperbolehkan di lokasi terpercaya.
 - DILARANG menambahkan bundled resources (`scripts/`, `references/`, `assets/`, `examples/`) tanpa `SKILL.md` di root folder skill.
 
@@ -150,7 +150,7 @@ DILARANG: shell command `!`command`` tidak dieksekusi di project skill (`.kilo/s
 
 ## Sumber Evaluasi
 
-- File aturan sumber: `.agents/rules/global/aturan_skill.md` (§8 Definisi dan Konvensi Trigger)
+- File aturan sumber: skill ini (`.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`) — aturan 8 (segmen trigger-only)
 - Skill referensi format UI: `.agents/skills/custom/pola-ux/SKILL.md`, `.agents/skills/custom/pola-ui/SKILL.md`, `.agents/skills/custom/gaya/SKILL.md`, `.agents/skills/custom/tipografi/SKILL.md`, `.agents/skills/custom/spacing/SKILL.md`, `.agents/skills/custom/widget-custom/SKILL.md`
 - Skill referensi format non-UI: `.agents/skills/custom/bug-runtime/SKILL.md`
 - Rujukan dokumen resmi Kilo (wajib dibaca): https://kilo.ai/docs/customize/skills?utm_source=chatgpt.com (SKILL.md format, frontmatter fields, bundled resources, shell commands, skill locations, slash commands, mode-specific skills, name matching rule)

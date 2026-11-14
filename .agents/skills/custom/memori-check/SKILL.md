@@ -180,4 +180,4 @@ MaterialApp(
 - Skill terkait: `aturan-pembuatan-skill`, `validasi-platform-izin`, `gaya`, `penamaan-konvensi`
 - Keputusan rujukan: `hasil_diskusi/diskusi_8.md` (K-1..K-11; alur sesi, larangan penghapusan berkas sesi), `hasil_diskusi/diskusi_1.md` (K-1..K-9, R-1..R-4; catch-up sync awal sesi)
 - Rujukan perintah pengguna: sesi_18 (2026-11-14; berkas sesi `Sudah Sinkron` bersifat arsip — koreksi/tindak lanjut dicatat di berkas sesi baru)
-- Catatan: skill ini memuat alur sesi (bukan hanya struktur `MEMORI.md`); pembaruan berikutnya untuk perubahan alur sesi mengikuti `aturan_skill.md`.
+- Catatan: skill ini memuat alur sesi (bukan hanya struktur `MEMORI.md`); pembaruan berikutnya untuk perubahan alur sesi mengikuti `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`.

@@ -18,7 +18,7 @@ Mengatur cara membuat command Kilo baru di `.kilo/commands/` agar pemuatan, pena
 - Berkas: satu berkas per command, ekstensi `.md`
 - Frontmatter: `description`, `agent`, `model`, `variant`, `subtask`
 - Variabel: `$ARGUMENTS`, `$1`–`$N`, `@file`, fallback tool `question`
-- Aturan proyek: `.agents/rules/global/format_hasil_diskusi.md`, `.agents/rules/global/format_task.md`, `.agents/rules/global/format_PRD.md`, `.agents/rules/global/aturan_skill.md`
+- Aturan proyek: `.agents/rules/global/format_hasil_diskusi.md`, `.agents/rules/global/format_task.md`, `.agents/rules/global/format_PRD.md`, `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`
 - Skill terkait: `konfigurasi-kilo-proyek` (prosedur & larangan konfigurasi Kilo), `pola-testing`, `bug-runtime`
 
 ## Aturan
@@ -117,5 +117,5 @@ Baca @prd/contoh.md lalu kerjakan.
 - Berkas command nyata di proyek: `.kilo/commands/tambah_log.md`, `.kilo/commands/analisa_log.md`, `.kilo/commands/kerjakan_hasil_diskusi.md`, `.kilo/commands/mode/mode_diskusi.md`, `.kilo/commands/analisa_kesehatan_kode_alur.md`, `.kilo/commands/evaluasi_aturan.md`, `.kilo/commands/evaluasi_aturan_khusus.md`, `.kilo/commands/salin_konfigurasi_ke_global.md`
 - Skill terkait: `.agents/skills/custom/konfigurasi-kilo-proyek/SKILL.md`
 - Aturan terkait: `.agents/rules/global/format_hasil_diskusi.md`, `.agents/rules/global/format_task.md`, `.agents/rules/global/format_PRD.md`
-- Konvensi trigger: `.agents/rules/global/aturan_skill.md` §8
+- Konvensi trigger: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` (aturan 8)
 - Dokumentasi resmi Kilo: `https://kilo.ai/docs/customize/workflows`

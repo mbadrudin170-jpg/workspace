@@ -1,6 +1,6 @@
 ---
 name: pengurutan-paket-pubspec
-description: "Trigger: saat menambah atau mengurutkan dependensi pubspec.yaml | Panduan urutan paket pada section `dependencies` dan `dev_dependencies` di `pubspec.yaml`: abjad case-insensitive, entri berbasis SDK (`flutter`, `flutter_test`) tetap di posisi teratas, komentar di atas entri paket dianggap bagian dari entri paket dan ikut berpindah; `dependency_overrides` dan section lain di luar cakupan. Untuk proyek Flutter: urutkan paket, lalu verifikasi `flutter pub get`. Acuan: `pubspec.yaml`, `.agents/rules/global/aturan_skill.md`."
+description: "Trigger: saat menambah atau mengurutkan dependensi pubspec.yaml | Panduan urutan paket pada section `dependencies` dan `dev_dependencies` di `pubspec.yaml`: abjad case-insensitive, entri berbasis SDK (`flutter`, `flutter_test`) tetap di posisi teratas, komentar di atas entri paket dianggap bagian dari entri paket dan ikut berpindah; `dependency_overrides` dan section lain di luar cakupan. Untuk proyek Flutter: urutkan paket, lalu verifikasi `flutter pub get`. Acuan: `pubspec.yaml`, `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`."
 metadata:
   kategori: "custom"
   versi: "1.0.0"
@@ -123,7 +123,7 @@ dependency_overrides:
 ## Sumber Evaluasi
 
 - File: `pubspec.yaml`
-- File aturan sumber: `.agents/rules/global/aturan_skill.md`
+- File aturan sumber: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`
 - Hasil diskusi: `hasil_diskusi/diskusi_5.md` (K-1..K-10; keputusan disusun atas pertanyaan pengguna melalui tool `question`)
 - Skill referensi format non-UI: `.agents/skills/custom/bug-runtime/SKILL.md`
 - Catatan: tidak ada commit yang berkaitan dengan pengurutan paket `pubspec.yaml`; isi skill disusun dari kondisi proyek aktual atas persetujuan pengguna, dan `metadata.sumber-terakhir` diisi perintah pengguna (bukan hash commit). Bagian `Contoh Benar` memakai versi dan komentar paket sebagaimana tercatat di `pubspec.yaml` proyek pada saat penulisan.
