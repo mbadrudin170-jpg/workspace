@@ -1,6 +1,6 @@
 # PRD — Favorit dan Koleksi Base Tersimpan
 
-**Status Dokumen:** Draft
+**Status Dokumen:** Final
 
 **Status Implementasi:** Belum Diimplementasikan
 
@@ -37,11 +37,12 @@ Digunakan untuk menentukan hasil yang ingin dicapai dari dokumen PRD ini. Tujuan
 - Jangan memasukkan tujuan yang berada di luar ruang lingkup PRD.
 
 **Isi:**
-1. Pengguna dapat menyimpan base favorit ke dalam koleksi pribadi.
-2. Pengguna dapat melihat daftar base favorit di layar terpisah.
-3. Pengguna dapat menghapus base dari koleksi favorit.
+1. Pengguna dapat menandai base sebagai favorit dari grid galeri.
+2. Pengguna dapat membuka layar Koleksi Favorit dari ikon di `AppBar` galeri.
+3. Pengguna dapat menghapus base dari koleksi favorit (toggle bintang).
 4. Indikator favorit ditampilkan pada kartu base di galeri.
-5. Semua data favorit disimpan secara lokal (offline-first).
+5. Layar Koleksi Favorit menampilkan empty state eksplisit saat belum ada favorit.
+6. Semua data favorit disimpan secara lokal di SQLite (offline-first), tanpa dependensi baru.
 
 ## 3. Daftar Fitur
 
@@ -57,11 +58,12 @@ Digunakan untuk melihat keseluruhan fitur produk dan menentukan tingkat kepentin
 
 | Fitur | Deskripsi | Prioritas |
 | ----- | --------- | ----------- |
-| Simpan base ke favorit | Menandai base sebagai favorit saat pengguna menekan ikon bintang pada kartu atau layar detail | Must Have |
-| Hapus base dari favorit | Menghapus base dari koleksi favorit | Must Have |
-| Lihat koleksi favorit | Layar terpisah yang menampilkan semua base favorit | Must Have |
-| Indikator favorit di galeri | Badge/ikon bintang pada kartu base yang sudah difavoritkan | Must Have |
-| Penyimpanan lokal | Data favorit disimpan di SQLite agar dapat diakses offline | Must Have |
+| Simpan base ke favorit | Menandai base sebagai favorit saat pengguna menekan ikon bintang pada kartu di grid galeri | Must Have |
+| Hapus base dari favorit | Menghapus base dari koleksi favorit (toggle bintang pada kartu) | Must Have |
+| Lihat koleksi favorit | Layar terpisah yang menampilkan semua base favorit, dibuka dari ikon di `AppBar` galeri | Must Have |
+| Indikator favorit di galeri | Ikon bintang terisi/kosong pada kartu base | Must Have |
+| Empty state koleksi favorit | State kosong eksplisit (ikon + teks + tombol kembali ke galeri) saat belum ada favorit | Must Have |
+| Penyimpanan lokal SQLite | Tabel `favorit_base` di `base_coc.db`, offline-first, tanpa dependensi baru | Must Have |
 
 ## 4. Alur Pengguna
 
@@ -79,14 +81,17 @@ Digunakan untuk menjelaskan urutan interaksi pengguna dengan aplikasi dari awal 
 
 **Isi:**
 
-1. Pengguka membuka layar Galeri Base.
-2. Penggula melihat daftar base dalam grid.
-3. Penggula menekan ikon bintang pada kartu base untuk menandai sebagai favorit.
-4. Sistem menyimpan id base ke tabel favorit di database SQLite lokal.
-5. Kartu base ditandai sebagai favorit (badge berwarna berbeda).
-6. Penggula membuka layar Koleksi Favorit untuk melihat semua base favorit.
-7. Penggula dapat menghapus base dari koleksi favorit dengan menekan ikon bintang kembali.
-8. Sistem menghapus data favorit dari database dan memperbarui tampilan.
+1. Pengguna membuka layar Galeri Base.
+2. Pengguna melihat daftar base dalam grid dua kolom.
+3. Pengguna menekan ikon bintang pada kartu base untuk menandai sebagai favorit.
+4. Sistem menyimpan `id_base` ke tabel `favorit_base` di database SQLite lokal.
+5. Kartu base menampilkan ikon bintang terisi.
+6. Pengguna menekan ikon bintang pada kartu yang sudah difavoritkan untuk menghapus dari favorit.
+7. Sistem menghapus baris dari tabel `favorit_base` dan memperbarui tampilan.
+8. Pengguna menekan ikon favorit di `AppBar` galeri untuk membuka layar Koleksi Favorit.
+9. Sistem menampilkan daftar base favorit (terbaru di atas) hasil gabungan `favorit_base` dengan katalog base.
+10. Jika belum ada favorit, layar menampilkan empty state (ikon + teks “Belum ada base favorit” + tombol kembali ke galeri).
+11. Pengguna dapat menghapus base dari favorit melalui ikon bintang di kartu pada layar Koleksi Favorit.
 
 ## 5. Steps
 
@@ -101,16 +106,16 @@ Digunakan untuk menjelaskan urutan langkah-langkah kerja yang harus diikuti dala
 
 **Isi:**
 
-1. Tambah dependensi `shared_preferences` atau gunakan `sqflite` yang sudah ada di `pubspec.yaml`.
-2. Buat tabel `favorit_base` di `db_helper.dart` (onCreate) dengan kolom `id_base TEXT PRIMARY KEY`.
-3. Buat file `base_coc/lib/fitur/galeri_base/provider/favorit_provider.dart` untuk mengelola state favorit dengan Riverpod.
-4. Buat file `base_coc/lib/fitur/galeri_base/service/favorit_service.dart` untuk CRUD favorit ke database.
-5. Ubah `base_coc/lib/fitur/galeri_base/model/base_layout.dart` untuk menambah getter `isFavorit` (runtime, tidak disimpan di JSON).
-6. Ubah `base_coc/lib/fitur/galeri_base/widget/grid_base.dart` untuk menambah ikon bintang pada kartu base.
-7. Ubah `base_coc/lib/fitur/galeri_base/screen/beranda_galeri_screen.dart` untuk menambah provider favorit dan navigasi ke layar koleksi favorit.
-8. Buat layar `base_coc/lib/fitur/galeri_base/screen/koleksi_favorit_screen.dart` untuk menampilkan daftar favorit.
-9. Ubah `base_coc/lib/app.dart` untuk menambahkan route ke layar koleksi favorit.
-10. Tambah test untuk `favorit_service` dan `favorit_provider`.
+1. Tidak perlu dependensi baru; `sqflite` dan `sqflite_common_ffi` sudah tersedia di `pubspec.yaml`.
+2. Ubah `base_coc/lib/core/database/db_helper.dart`: tambahkan `static const int _versiDatabase = 2;` dengan komentar versi (mis. `// Versi 2: tabel favorit_base`), gunakan `_versiDatabase` sebagai argumen `version` pada `openDatabase`, buat tabel `favorit_base` (`id_base TEXT PRIMARY KEY, dibuat TEXT NOT NULL`) di `onCreate`, dan tambahkan cabang `if (oldVersion < 2)` di `onUpgrade` yang membuat tabel yang sama (sesuai skill `migrasi-skema-sqlite`: `onCreate` mencerminkan skema terkini, `onUpgrade` menangani pengguna lama).
+3. Buat `base_coc/lib/core/database/favorit_dao.dart` mengikuti pola `progres_dao.dart`: konstruktor menerima `Database`, method `ambilSemua()` (urutan `dibuat` terbaru di atas), `tambah(idBase)`, `hapus(idBase)`, `apakahFavorit(idBase)` (atau set `id_base`), dan `hapusSemua()` bila diperlukan pengujian.
+4. Buat `base_coc/lib/fitur/galeri_base/provider/favorit_provider.dart` dengan `@Riverpod(keepAlive: true)` (sesuai skill `notifier-crud-database`): `build()` memuat seluruh `id_base` dari database; method `toggle(String idBase)` yang menambah/menghapus baris lalu memperbarui state setelah DB berhasil; tangkap `Exception`, catat dengan logger, lalu `rethrow`.
+5. Jangan mengubah `base_coc/lib/fitur/galeri_base/model/base_layout.dart`; status favorit dibaca dari `favoritProvider` (set `id_base`), bukan dari model.
+6. Ubah `base_coc/lib/fitur/galeri_base/widget/grid_base.dart`: tambah parameter `Set<String> favoritIds` (atau `bool Function(BaseLayout) isFavorit`) dan callback `onFavoritToggle`; tampilkan `IconButton` bintang (terisi bila `id_base` ada di set, kosong bila tidak) di kanan atas kartu.
+7. Ubah `base_coc/lib/fitur/galeri_base/screen/beranda_galeri_screen.dart`: tambah `IconButton` favorit di `AppBar` yang mem-push `KoleksiFavoritScreen` via `MaterialPageRoute`, watch `favoritProvider`, teruskan set id favorit dan callback toggle ke `GridBase`.
+8. Buat `base_coc/lib/fitur/galeri_base/screen/koleksi_favorit_screen.dart`: tampilkan daftar base favorit hasil gabungan `favoritProvider` dengan `katalogProvider` (urut terbaru di atas), gunakan `GridBase` atau daftar serupa; tampilkan empty state eksplisit (ikon + teks “Belum ada base favorit” + tombol kembali ke galeri) saat kosong.
+9. Jangan mengubah `base_coc/lib/app.dart` dan `detail_base_screen.dart`; navigasi memakai `MaterialPageRoute` langsung (konsisten dengan `DetailBaseScreen`) dan tombol favorit hanya di galeri.
+10. Tambah test: `base_coc/test/favorit_dao_test.dart` (CRUD + urutan terbaru) dan `base_coc/test/favorit_provider_test.dart` (toggle menambah/menghapus state); verifikasi `PRAGMA table_info(favorit_base)` untuk skema instalasi baru dan hasil chain `onUpgrade` sebelum fitur dinyatakan selesai (skill `migrasi-skema-sqlite` aturan 13).
 
 ## 6. File-File Terdampak
 
@@ -129,16 +134,16 @@ Digunakan untuk mengidentifikasi file proyek yang berkaitan dengan implementasi 
 
 | Lokasi File | Status Perubahan | Deskripsi Perubahan |
 | ----------- | ------------------------- | ------------------- |
-| `base_coc/lib/fitur/galeri_base/model/base_layout.dart` | Diubah | Tambah getter `isFavorit` (runtime, tidak dari JSON) |
-| `base_coc/lib/core/database/db_helper.dart` | Diubah | Tambah tabel `favorit_base` pada `onCreate` |
-| `base_coc/lib/fitur/galeri_base/provider/favorit_provider.dart` | Dibuat | Riverpod provider untuk state favorit |
-| `base_coc/lib/fitur/galeri_base/service/favorit_service.dart` | Dibuat | Layanan CRUD favorit ke SQLite |
-| `base_coc/lib/fitur/galeri_base/widget/grid_base.dart` | Diubah | Tambah ikon bintang pada kartu base |
-| `base_coc/lib/fitur/galeri_base/screen/beranda_galeri_screen.dart` | Diubah | Tambah integrasi provider favorit dan navigasi |
-| `base_coc/lib/fitur/galeri_base/screen/koleksi_favorit_screen.dart` | Dibuat | Layar koleksi base favorit |
-| `base_coc/lib/app.dart` | Diubah | Tambah route ke layar koleksi favorit |
-| `base_coc/test/favorit_service_test.dart` | Dibuat | Unit test untuk layanan favorit |
-| `base_coc/pubspec.yaml` | Diubah | Pastikan `sqflite` tersedia (sudah ada) |
+| `base_coc/lib/core/database/db_helper.dart` | Diubah | Tambah `_versiDatabase = 2`, tabel `favorit_base` di `onCreate` dan cabang `onUpgrade` (migrasi skema) |
+| `base_coc/lib/core/database/favorit_dao.dart` | Dibuat | DAO CRUD favorit mengikuti pola `progres_dao.dart` |
+| `base_coc/lib/fitur/galeri_base/provider/favorit_provider.dart` | Dibuat | Notifier keepAlive untuk state id favorit (toggle, muat awal) |
+| `base_coc/lib/fitur/galeri_base/screen/koleksi_favorit_screen.dart` | Dibuat | Layar koleksi base favorit + empty state |
+| `base_coc/lib/fitur/galeri_base/widget/grid_base.dart` | Diubah | Tambah ikon bintang (toggle favorit) pada kartu base |
+| `base_coc/lib/fitur/galeri_base/screen/beranda_galeri_screen.dart` | Diubah | `IconButton` favorit di `AppBar`, watch provider, teruskan ke `GridBase` |
+| `base_coc/test/favorit_dao_test.dart` | Dibuat | Unit test DAO favorit |
+| `base_coc/test/favorit_provider_test.dart` | Dibuat | Unit test provider favorit |
+
+File yang sengaja **tidak** diubah: `base_layout.dart` (model tetap murni), `app.dart` (navigasi `MaterialPageRoute`), `detail_base_screen.dart` (tombol favorit hanya di galeri), `pubspec.yaml` (tidak ada dependensi baru).
 
 ## 7. Referensi Refrensi APK
 
@@ -151,36 +156,29 @@ Isi bagian A5:
 > A5. Favorit dan koleksi base tersimpan — Pengguna dapat menyimpan base favorit dan mengaksesnya kembali melalui koleksi pribadi.
 > Prioritas: Sedang
 > Referensi: Map Layout Links Base for COC, Base Drop, Maps For COC Base Layouts 2026 (semua memiliki fitur simpan/favorit)
-> Status PRD: Sudah dibuatkan PRD (`prd/prd_favorit_base.md`)
+> Status PRD: Sudah dibuatkan PRD (`prd/prd_favorit_base.md`, baris 77–83 refrensi_apk.md).
 
 ## 8. Pemeriksaan Implementasi
 
-**Temuan pemeriksaan (aturan 6):**
-- `base_layout.dart` — Belum punya field `favorit`/`isFavorit`. Field yang ada: `id`, `townHall`, `tipe`, `thumbnailPath`, `baseLink`, `detailImagePath`, `builderHall`, `gaya`. A3 sebelumnya menambah `detailImagePath`; A5 akan menambah `isFavorit` sebagai getter runtime, bukan field JSON.
-- `katalog_provider.dart` — Belum ada provider/state untuk favorit.
-- `db_helper.dart` — Sudah ada tabel `akun_desa` dan `progres`; belum ada tabel `favorit_base`.
-- `grid_base.dart` — Belum ada ikon/indikator favorit pada kartu.
-- `beranda_galeri_screen.dart` — Belum ada navigasi ke layar koleksi favorit.
-- `detail_base_screen.dart` — Belum ada tombol favorit (dihindari untuk menghindari overlap dengan PRD A3).
-- `pubspec.yaml` — Sudah ada `sqflite`; tidak perlu dependensi baru.
+**Temuan pemeriksaan (per 2026-11-15, terhadap `base_coc`):**
+- `base_layout.dart` — Belum ada field/getter favorit; sudah punya `detailImagePath` dan `previewImagePath` (A3 sudah diimplementasikan). PRD ini tidak mengubah model.
+- `katalog_provider.dart` — Belum ada state/provider favorit.
+- `db_helper.dart` — Skema versi 1 (`akun_desa`, `progres` + indeks); belum ada tabel `favorit_base`; `onUpgrade` masih kosong; belum ada konstanta `_versiDatabase`.
+- `progres_dao.dart` — Pola DAO yang bisa diikuti untuk `favorit_dao.dart` (konstruktor `Database`, transaksi atomik bila perlu).
+- `grid_base.dart` — Belum ada ikon bintang pada kartu base.
+- `beranda_galeri_screen.dart` — Belum ada ikon favorit di `AppBar` dan belum ada navigasi ke layar koleksi favorit.
+- `app.dart` — `home: BerandaGaleriScreen()`, tanpa named routes; layar detail dipush via `MaterialPageRoute`.
+- `detail_base_screen.dart` — Sudah punya preview + pinch-to-zoom (A3); belum ada dan tidak akan ditambah tombol favorit (PRD ini hanya di galeri).
+- `pubspec.yaml` — Sudah ada `sqflite` dan `sqflite_common_ffi`; tidak perlu dependensi baru.
 
 **Kesimpulan:** Fondasi fitur favorit belum diimplementasikan. Semua komponen perlu dibuat dari nol.
 
 ## 9. Catatan Overlap File Terdampak
 
-PRD A3 (`prd/prd_preview_base_zoom.md`) mengubah file-file berikut:
-- `detail_base_screen.dart`
-- `base_layout.dart`
-- `katalog_service.dart`
-- `pubspec.yaml`
-- `assets/images/bases/`
-- `assets/data/base_katalog.json`
-- `test/detail_base_test.dart`
+PRD A3 (`prd/prd_preview_base_zoom.md`) sudah diimplementasikan dan berkas PRD-nya telah dihapus; kode A3 (`detailImagePath`, `previewImagePath`, `InteractiveViewer`, reset zoom) sudah ada di `base_coc`. Karena itu tidak ada overlap aktif dengan PRD lain di `prd/` (saat PRD ini disusun hanya ada `prd_favorit_base.md`).
 
-File-file yang sama dengan A5:
-- `base_layout.dart` — A3 tambah `detailImagePath`; A5 tambah `isFavorit` getter (tidak menambah field JSON)
-- `pubspec.yaml` — A3 menambah aset; A5 tidak menambah dependensi baru (sqflite sudah ada)
-
-Untuk menghindari overlap yang signifikan, A5 **tidak menyentuh** `detail_base_screen.dart` (tombol favorit hanya di galeri, bukan di detail).
-
----
+Pemisahan yang disepakati:
+- `detail_base_screen.dart` **tidak** disentuh (tombol favorit hanya di galeri).
+- `base_layout.dart` **tidak** diubah (status favorit dari provider, bukan model).
+- `app.dart` **tidak** diubah (navigasi `MaterialPageRoute`).
+- `db_helper.dart` adalah satu-satunya berkas bersama yang disentuh; perubahan dilakukan lewat migrasi skema versi 2 (skill `migrasi-skema-sqlite`), bukan edit ad-hoc di `onCreate` saja.
