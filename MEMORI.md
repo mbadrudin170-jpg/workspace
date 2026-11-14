@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Sun Nov 15 2026 02:45 WIB (sesi 76)
+Diperbarui: Sun Nov 15 2026 03:00 WIB (sesi 78)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -17,8 +17,8 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 
 | Lokasi | Isi |
 | ------ | --- |
-| `.agents/rules/global/` | Aturan global (kini `alur_git_commit.md` dan `format_hasil_diskusi.md`; `format_PRD.md` dan `format_task.md` telah dijadikan skill `format-prd` / `format-task-md` per sesi 66/68) |
-| `.agents/rules/proyek/` | Aturan khusus proyek (`aturan_khusus.md`, `aturan_proyek.md`) |
+| `.agents/rules/global/` | Aturan global (`alur_git_commit.md`, `format_hasil_diskusi.md`, dan `rujukan_skill.md` — dibuat sesi 77, belum dimasukkan ke `AGENTS.md`) |
+| `.agents/rules/proyek/` | Tidak ditemukan di mesin (2026-11-15); catatan lama menyebut folder ini memuat aturan khusus proyek |
 | `.agents/rules/AGENTS.md` | Berkas aturan gabungan (sumber AGENTS.md root) |
 | `.agents/skills/custom/` | Skill buatan/kurasi pengguna |
 | `.agents/skills/bawaan/` | Skill bawaan (Flutter/Dart) |
@@ -28,14 +28,14 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 | `script/*.sh` | Skrip bantu (build docs, snippets, struktur proyek, dsb.) |
 | `bash_aliases.sh` | Kumpulan alias bash (build, flutter, git, monitoring, supabase) |
 | `.vscode/` | Snippet kode (`*.code-snippets`), `settings.json`, `launch.json`, `mcp.json` |
-| `.kilo/` | Konfigurasi Kilo proyek (`kilo.jsonc`, commands, prompts) — di-ignore lewat `.gitignore` |
+| `.kilo/` | Konfigurasi Kilo proyek (`kilo.jsonc`, commands, prompts); berkas `.kilo/commands/**` terlacak git (per 2026-11-15); sebagian berkas di dalam `.kilo/` di-ignore via `.kilo/.gitignore` — bukan di-ignore oleh `.gitignore` root (kosongnya per 2026-11-15) |
 | `base_coc/` | **Submodule** — proyek Flutter untuk membuat APK penyedia base/layout Clash of Clans (`https://github.com/mbadrudin170-jpg/base_coc.git`) |
 | `share_global_saya/` | **Submodule** — pustaka Flutter bersama (utils, widget, logging) (`https://github.com/mbadrudin170-jpg/share_global_saya.git`) |
 
 ## Aturan Operasional di Mesin Ini
 
 1. Perintah `cat` (dan pola `cat *`) **ditolak** oleh aturan izin proyek; gunakan tool Read untuk membaca berkas.
-2. `.kilo/` ter-`.gitignore` — jangan menelusuri/menganggap `.kilo/` sebagai bagian dari git tree.
+2. `.kilo/` **tidak** ter-`.gitignore` oleh `.gitignore` root (kosong per 2026-11-15); berkas `.kilo/commands/**` terlacak git; sebagian berkas di dalam `.kilo/` di-ignore lewat `.kilo/.gitignore`. Jangan menganggap seluruh `.kilo/` ter-ignore sebagai satu kesatuan (dikoreksi sesi 77).
 3. `memori/` **tidak** ter-`.gitignore`; berkas sesi diarsipkan permanen (tidak boleh dihapus).
 4. Hindari `git add .` secara membabi buta: `.dart_tool/` tidak ter-ignore dan dua klon skill di dalamnya tercatat sebagai gitlink; commit hanya atas perintah eksplisit pengguna.
 5. Verifikasi setelah ubah `.dart` pada submodule: `dart format`, `dart analyze`. Submodule `base_coc`/`share_global_saya` memiliki `pubspec.yaml` masing-masing.
@@ -44,8 +44,9 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 8. Larangan operasi destruktif (hapus paksa, `reset --hard`, `push --force`) tanpa konfirmasi pengguna.
 9. Root `workspace` bukan proyek Flutter; `lib/main.dart` hanya ada di submodule `base_coc`. Konfigurasi `myapp (debug mode - Local only)` pada `.vscode/launch.json` memakai `cwd` = `${workspaceFolder}/base_coc` dan `program` = `lib/main.dart` (relatif terhadap `cwd`, bukan root workspace); jangan menulis `program` sebagai `base_coc/lib/main.dart` karena akan menjadi path ganda (per 2026-11-14, sesi 6–7).
 
-## Status Kerja (per 2026-11-14)
+## Status Kerja (per 2026-11-15)
 
+- Aturan global baru `.agents/rules/global/rujukan_skill.md` (sesi 77, disederhanakan sesi 78, 2026-11-15): daftar/tabel pemetaan topik→skill — 61 baris skill custom dari `SKILLS_INDEX.md`, format tabel Markdown dua kolom (`Saya ingin …` | `Gunakan skill …`). Tujuan asalnya: mewajibkan agen AI mencocokkan topik/tugas dengan trigger pada `SKILLS_INDEX.md` dan memuat skill yang cocok melalui tool `skill` SEBELUM menulis kode, dokumen, atau konfigurasi (mis. Riverpod → `riverpod-pola`). Backfill aturan lama tidak dilakukan (keputusan pengguna); `AGENTS.md` tidak diubah (permintaan pengguna: "jangan dulu ubah agent"). Belum di-commit. Rujukan: sesi 77, sesi 78.
 - Commit `29a2f81` (2026-11-13 22:53 UTC, pesan "a", di luar sesi ini) memuat restrukturisasi `.agents/skills/` → subfolder `custom/` dan `bawaan/`; berkas-berkas yang sebelumnya tampak `D`/`M` kini sudah ter-commit.
 - Pembersihan skill longgar (sesi 48, 2026-11-14): 27 folder skill yang masih berada langsung di `.agents/skills/` (25 folder `dart-*`/`flutter-*` versi lama berformat luar yang sudah punya padanan di `bawaan/`, serta `sqflite-common-ffi-desktop` dan `sqflite-common-ffi-testing` yang tidak punya padanan nama di `bawaan/`) **dihapus** atas persetujuan pengguna; kini `.agents/skills/` hanya berisi `custom/` dan `bawaan/`. Total 35 berkas terhapus dan sudah ter-commit pada `a8bb38f` (commit oleh sesi paralel/pengguna, bukan oleh sesi ini). `SKILLS_INDEX.md` tidak berubah karena hanya mencantumkan skill `custom/` dan `bawaan/`.
 - `base_coc/.github/workflows/build-apk.yml` ditambahkan (sesi 29): workflow GitHub Actions build APK debug, trigger push/PR ke `main`, setup Flutter 3.47.9, analisis + test + build, upload artefak `app-debug-apk`; perubahan di dalam submodule, belum di-commit.
@@ -123,6 +124,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `AGENTS.md` = gabungan berkas aturan di `.agents/rules/` (jangan edit `AGENTS.md` manual bila sumbernya di `.agents/rules/`; regenerasi bila ada tooling).
 - `SKILLS_INDEX.md` = indeks skill yang wajib diperbarui saat skill dibuat/diubah (lihat skill `aturan-pembuatan-skill`, `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`).
 - **Skill = aturan.** Skill yang trigger-nya terpenuhi bersifat **mengikat** (prinsip "Skill adalah aturan" pada blok header `AGENTS.md`; rujukan lama `.agents/rules/global/aturan_skill.md` §12 — berkas tersebut tidak ada di `.agents/rules/global/` per sesi 76, ditandai stale): wajib dimuat melalui tool `skill` **sebelum** mengubah kode/dokumen, lalu seluruh `## Aturan` dan `## Larangan` di dalamnya dijalankan. Mengabaikan skill yang trigger-nya terpenuhi diperlakukan sebagai pelanggaran aturan dengan bobot sama seperti mengabaikan `.agents/rules/`.
+- Aturan rujukan skill (global): `.agents/rules/global/rujukan_skill.md` (dibuat sesi 77, disederhanakan sesi 78) — tabel pemetaan 61 skill custom dari `SKILLS_INDEX.md` (`Saya ingin …` → skill yang digunakan); sumber kebenaran tetap `SKILLS_INDEX.md`. Belum didaftarkan di `AGENTS.md`/`kilo.jsonc` instructions (menunggu persetujuan pengguna).
 - Skill `memori-check` (`.agents/skills/custom/memori-check/SKILL.md`) mengatur alur `memori/sesi/sesi_N.md` + sinkronisasi `MEMORI.md` di akhir sesi; baca sebelum interaksi proyek apa pun.
 - Skill `riset-kompetitor` (`.agents/skills/custom/riset-kompetitor/SKILL.md`) v1.6.0 bersifat portabel lintas proyek; konteks aplikasi sasaran wajib dibaca dari `README.md`/`AGENTS.md`/PRD, bukan di-hardcode ke dalam skill.
 - Aturan alur Git & commit (Conventional Commits, Trunk-based, penamaan branch prefix wajib, Squash merge, Semver + changelog, wajib PR tanpa commit langsung ke `main`, template PR wajib, minimal 1 reviewer tanpa auto-merge, tag manual oleh maintainer, changelog Keep a Changelog wajib commit, berlaku root + submodule) tersimpan di `.agents/rules/global/alur_git_commit.md` (diperbarui sesi 28; rujukan hasil diskusi `hasil_diskusi/diskusi_2.md` dan `diskusi_3.md`).
