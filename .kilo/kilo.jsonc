@@ -106,6 +106,7 @@
     "AGENTS.md",
     ".agents/rules/global/alur_git_commit.md",
     ".agents/rules/global/format_hasil_diskusi.md",
+    ".agents/rules/global/kelompok_skill_wajib.md",
     "SKILLS_INDEX.md"
   ],
   "auto_collapse_reasoning": true,

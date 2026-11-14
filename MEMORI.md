@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Sun Nov 15 2026 03:00 WIB (sesi 78)
+Diperbarui: Sun Nov 15 2026 03:25 WIB (sesi 84)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -17,7 +17,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 
 | Lokasi | Isi |
 | ------ | --- |
-| `.agents/rules/global/` | Aturan global (`alur_git_commit.md`, `format_hasil_diskusi.md`, dan `rujukan_skill.md` — dibuat sesi 77, belum dimasukkan ke `AGENTS.md`) |
+| `.agents/rules/global/` | Aturan global (`alur_git_commit.md`, `format_hasil_diskusi.md`, dan `kelompok_skill_wajib.md` — dibuat sesi 77 dengan nama `rujukan_skill.md`, diganti nama sesi 84, belum dimasukkan ke `AGENTS.md`) |
 | `.agents/rules/proyek/` | Tidak ditemukan di mesin (2026-11-15); catatan lama menyebut folder ini memuat aturan khusus proyek |
 | `.agents/rules/AGENTS.md` | Berkas aturan gabungan (sumber AGENTS.md root) |
 | `.agents/skills/custom/` | Skill buatan/kurasi pengguna |
@@ -46,7 +46,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 
 ## Status Kerja (per 2026-11-15)
 
-- Aturan global baru `.agents/rules/global/rujukan_skill.md` (sesi 77, disederhanakan sesi 78, 2026-11-15): daftar/tabel pemetaan topik→skill — 61 baris skill custom dari `SKILLS_INDEX.md`, format tabel Markdown dua kolom (`Saya ingin …` | `Gunakan skill …`). Tujuan asalnya: mewajibkan agen AI mencocokkan topik/tugas dengan trigger pada `SKILLS_INDEX.md` dan memuat skill yang cocok melalui tool `skill` SEBELUM menulis kode, dokumen, atau konfigurasi (mis. Riverpod → `riverpod-pola`). Backfill aturan lama tidak dilakukan (keputusan pengguna); `AGENTS.md` tidak diubah (permintaan pengguna: "jangan dulu ubah agent"). Belum di-commit. Rujukan: sesi 77, sesi 78.
+- Aturan global baru `.agents/rules/global/kelompok_skill_wajib.md` (dibuat sesi 77 dengan nama `rujukan_skill.md`, diganti nama sesi 84; disederhanakan sesi 78–83; 2026-11-15): 6 kelompok wajib/terikat dengan beberapa skill per kelompok — Riverpod (`riverpod-pola`, `model-state-freezed-abstract`, `notifier-crud-database`, `penanganan-asyncvalue-berkali`, `penanganan-async-data-kosong`), SQLite (`migrasi-skema-sqlite`, `penamaan-konstanta-snake-case`, `parsing-nullable-int`, `notifier-crud-database`), Freezed (`model-state-freezed-abstract`, `build-runner-codegen`), Model/state wajib freezed (semua model dan state yang harus punya method dan getter wajib pakai freezed → `model-state-freezed-abstract`, `build-runner-codegen`), Testing (`pola-testing`, `build-runner-codegen`), UI gaya/tema (`gaya`, `theme-data-color-schema`, `tipografi`, `spacing`). Path skill berupa tautan Markdown klikable sejak sesi 81; teks tautan berupa nama folder skill sejak sesi 82 (target tetap `../../skills/custom/<nama>/SKILL.md`). Berkas memuat bagian `## Ringkasan` di bawah H1 sejak sesi 83; H1 `# Kelompok Skill Wajib (Global)` sejak sesi 84. Catatan: `model-state-freezed-abstract` dan `build-runner-codegen` muncul di lebih dari satu kelompok. `AGENTS.md` tidak diubah (permintaan pengguna: "jangan dulu ubah agent"); backfill aturan lama tidak dilakukan. Berkas terdaftar pada `instructions` di `.kilo/kilo.jsonc` sejak sesi 84 (belum di `AGENTS.md`). Belum di-commit. Rujukan: sesi 77, sesi 78, sesi 79, sesi 80, sesi 81, sesi 82, sesi 83, sesi 84.
 - Commit `29a2f81` (2026-11-13 22:53 UTC, pesan "a", di luar sesi ini) memuat restrukturisasi `.agents/skills/` → subfolder `custom/` dan `bawaan/`; berkas-berkas yang sebelumnya tampak `D`/`M` kini sudah ter-commit.
 - Pembersihan skill longgar (sesi 48, 2026-11-14): 27 folder skill yang masih berada langsung di `.agents/skills/` (25 folder `dart-*`/`flutter-*` versi lama berformat luar yang sudah punya padanan di `bawaan/`, serta `sqflite-common-ffi-desktop` dan `sqflite-common-ffi-testing` yang tidak punya padanan nama di `bawaan/`) **dihapus** atas persetujuan pengguna; kini `.agents/skills/` hanya berisi `custom/` dan `bawaan/`. Total 35 berkas terhapus dan sudah ter-commit pada `a8bb38f` (commit oleh sesi paralel/pengguna, bukan oleh sesi ini). `SKILLS_INDEX.md` tidak berubah karena hanya mencantumkan skill `custom/` dan `bawaan/`.
 - `base_coc/.github/workflows/build-apk.yml` ditambahkan (sesi 29): workflow GitHub Actions build APK debug, trigger push/PR ke `main`, setup Flutter 3.47.9, analisis + test + build, upload artefak `app-debug-apk`; perubahan di dalam submodule, belum di-commit.
@@ -113,7 +113,8 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 
 ## Konfigurasi Kilo (Model Agent)
 
-- Sumber kebenaran: `.kilo/kilo.jsonc` (ter-`.gitignore`, jangan dianggap bagian git tree).
+- Sumber kebenaran: `.kilo/kilo.jsonc` (**tidak** ter-`.gitignore` oleh root `.gitignore` yang kosong; isi `.kilo/commands/**` terlacak git; sebagian `.kilo/` di-ignore via `.kilo/.gitignore`; per 2026-11-15).
+- `instructions` (sesi 84): `AGENTS.md`, `.agents/rules/global/alur_git_commit.md`, `.agents/rules/global/format_hasil_diskusi.md`, `.agents/rules/global/kelompok_skill_wajib.md` (ditambahkan sesi 84), `SKILLS_INDEX.md`.
 - Model global: `model`, `small_model`, `subagent_model` = `kilo/kilo-auto/free`.
 - `agent.code`: `model` = `kilo/reflection/beam-free`, `variant` = `max` (per 2026-11-14, sesi 22; sebelumnya `kilo/particle-ai/particle-1:free`).
 - `docs/model_agents.md` (sesi 39, diperbarui sesi 40–41, 2026-11-14) — H1 `# List Model`, daftar model di bagian atas (sejak sesi 41); dokumentasi model yang digunakan beserta kondisi konfigurasi Kilo; hanya pencatatan, bukan sumber kebenaran konfigurasi. Daftar model: `kilo/kilo-auto/free` (model global), `kilo/particle-ai/particle-1:free` (bekas `agent.code.model`), `kilo/reflection/beam-free` (`agent.code.model` saat ini, variant `max`), dan `openrouter/thinkingmachines/inkling-2-small:free` (model sesi 39; sempat menjadi `agent.code.model` hingga 2026-11-14 06:10).
@@ -124,7 +125,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `AGENTS.md` = gabungan berkas aturan di `.agents/rules/` (jangan edit `AGENTS.md` manual bila sumbernya di `.agents/rules/`; regenerasi bila ada tooling).
 - `SKILLS_INDEX.md` = indeks skill yang wajib diperbarui saat skill dibuat/diubah (lihat skill `aturan-pembuatan-skill`, `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`).
 - **Skill = aturan.** Skill yang trigger-nya terpenuhi bersifat **mengikat** (prinsip "Skill adalah aturan" pada blok header `AGENTS.md`; rujukan lama `.agents/rules/global/aturan_skill.md` §12 — berkas tersebut tidak ada di `.agents/rules/global/` per sesi 76, ditandai stale): wajib dimuat melalui tool `skill` **sebelum** mengubah kode/dokumen, lalu seluruh `## Aturan` dan `## Larangan` di dalamnya dijalankan. Mengabaikan skill yang trigger-nya terpenuhi diperlakukan sebagai pelanggaran aturan dengan bobot sama seperti mengabaikan `.agents/rules/`.
-- Aturan rujukan skill (global): `.agents/rules/global/rujukan_skill.md` (dibuat sesi 77, disederhanakan sesi 78) — tabel pemetaan 61 skill custom dari `SKILLS_INDEX.md` (`Saya ingin …` → skill yang digunakan); sumber kebenaran tetap `SKILLS_INDEX.md`. Belum didaftarkan di `AGENTS.md`/`kilo.jsonc` instructions (menunggu persetujuan pengguna).
+- Aturan rujukan skill (global): `.agents/rules/global/kelompok_skill_wajib.md` (dibuat sesi 77 sebagai `rujukan_skill.md`, diganti nama sesi 84) — 6 kelompok wajib/terikat (Riverpod, SQLite, Freezed, model/state wajib freezed, Testing, UI gaya/tema) dengan beberapa skill per kelompok; sumber kebenaran tetap `SKILLS_INDEX.md`. Terdaftar pada `instructions` di `.kilo/kilo.jsonc` sejak sesi 84; belum didaftarkan di `AGENTS.md` (menunggu persetujuan pengguna).
 - Skill `memori-check` (`.agents/skills/custom/memori-check/SKILL.md`) mengatur alur `memori/sesi/sesi_N.md` + sinkronisasi `MEMORI.md` di akhir sesi; baca sebelum interaksi proyek apa pun.
 - Skill `riset-kompetitor` (`.agents/skills/custom/riset-kompetitor/SKILL.md`) v1.6.0 bersifat portabel lintas proyek; konteks aplikasi sasaran wajib dibaca dari `README.md`/`AGENTS.md`/PRD, bukan di-hardcode ke dalam skill.
 - Aturan alur Git & commit (Conventional Commits, Trunk-based, penamaan branch prefix wajib, Squash merge, Semver + changelog, wajib PR tanpa commit langsung ke `main`, template PR wajib, minimal 1 reviewer tanpa auto-merge, tag manual oleh maintainer, changelog Keep a Changelog wajib commit, berlaku root + submodule) tersimpan di `.agents/rules/global/alur_git_commit.md` (diperbarui sesi 28; rujukan hasil diskusi `hasil_diskusi/diskusi_2.md` dan `diskusi_3.md`).
