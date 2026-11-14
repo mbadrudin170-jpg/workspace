@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Sat Nov 14 2026 17:00 WIB (sesi 47)
+Diperbarui: Sat Nov 14 2026 17:56 WIB (sesi 48)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -47,6 +47,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 ## Status Kerja (per 2026-11-14)
 
 - Commit `29a2f81` (2026-11-13 22:53 UTC, pesan "a", di luar sesi ini) memuat restrukturisasi `.agents/skills/` → subfolder `custom/` dan `bawaan/`; berkas-berkas yang sebelumnya tampak `D`/`M` kini sudah ter-commit.
+- Pembersihan skill longgar (sesi 48, 2026-11-14): 27 folder skill yang masih berada langsung di `.agents/skills/` (25 folder `dart-*`/`flutter-*` versi lama berformat luar yang sudah punya padanan di `bawaan/`, serta `sqflite-common-ffi-desktop` dan `sqflite-common-ffi-testing` yang tidak punya padanan nama di `bawaan/`) **dihapus** atas persetujuan pengguna; kini `.agents/skills/` hanya berisi `custom/` dan `bawaan/`. Total 35 berkas terhapus dan sudah ter-commit pada `a8bb38f` (commit oleh sesi paralel/pengguna, bukan oleh sesi ini). `SKILLS_INDEX.md` tidak berubah karena hanya mencantumkan skill `custom/` dan `bawaan/`.
 - `base_coc/.github/workflows/build-apk.yml` ditambahkan (sesi 29): workflow GitHub Actions build APK debug, trigger push/PR ke `main`, setup Flutter 3.47.9, analisis + test + build, upload artefak `app-debug-apk`; perubahan di dalam submodule, belum di-commit.
 - `.dart_tool/` tidak ter-ignore (`.gitignore` hanya berisi `.kilo/`) — berisi cache tool `dart_skills` (klon `dart-lang/skills` dan `flutter/agent-plugins`, 2,3 MB) dan tercatat sebagai dua gitlink (mode `160000`) pada commit `29a2f81` tanpa entri `.gitmodules`, sehingga tidak dapat dipulihkan lewat `git clone`; jangan `git add .` membabi buta.
 - `m share_global_saya` — submodule memiliki perubahan isi yang belum di-pointer-update; jangan di-commit tanpa perintah pengguna.

@@ -2,7 +2,7 @@
 
 ## Status
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: Sat Nov 14 2026 17:56 WIB
 - Topik: Penghapusan folder skill di luar subfolder `custom/` dan `bawaan/`
 
@@ -16,7 +16,7 @@
 - Seluruh 27 folder ter-track di git dengan working tree bersih, sehingga penghapusan dapat dipulihkan melalui `git checkout`/`git restore`.
 - Penelusuran rujukan (`rg` atas `AGENTS.md`, `.agents/rules/`, `.kilo/`, `SKILLS_INDEX.md`) tidak menemukan rujukan ke path skill longgar tersebut; `SKILLS_INDEX.md` hanya memuat section `custom` dan `bawaan`. Kecocokan lain hanya berasal dari cache `.dart_tool/` dan `.config/dart_skills/` di luar repositori.
 - Klarifikasi pengguna melalui tool `question`: cakupan penghapusan = **semua 27 folder**, termasuk 2 folder `sqflite-*` yang tidak punya padanan di `bawaan/`.
-- Eksekusi: `rm -rf` atas 27 folder; `.agents/skills/` kini hanya berisi `custom/` dan `bawaan/`. `git status --porcelain .agents/skills/` menunjukkan 35 berkas terhapus (belum di-stage, tidak ada commit).
+- Eksekusi: `rm -rf` atas 27 folder; `.agents/skills/` kini hanya berisi `custom/` dan `bawaan/`. Status git setelah penghapusan menunjukkan 35 berkas terhapus; penghapusan tersebut kemudian **ter-commit** pada `a8bb38f` oleh sesi paralel/pengguna (bukan oleh sesi ini). Perubahan `MEMORI.md`, `memori/riwayat_perubahan.md`, dan berkas sesi ini tetap belum di-commit.
 - Tidak ada pembaruan `SKILLS_INDEX.md` yang diperlukan karena indeks memang hanya mencantumkan skill `custom/` dan `bawaan/`.
 
 ## Berkas Terdampak
@@ -32,4 +32,5 @@
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan.
+- `MEMORI.md` diperbarui pada bagian `Status Kerja` (catatan pembersihan 27 folder skill longgar beserta jumlah berkas terhapus dan status git) dan field tanggal header (sesi 48).
+- `memori/riwayat_perubahan.md` menerima entri perubahan sesi ini.
