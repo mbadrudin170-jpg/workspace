@@ -1,187 +1,150 @@
 ---
 name: riset-kompetitor
-description: "Trigger: saat menambah atau memperbarui apk_kompetitor.md atau mencari aplikasi kompetitor untuk Spektra | Panduan riset kompetitor Spektra: format tabel apk_kompetitor.md, kolom Status Analisa per listing (Belum/Sudah Dianalisa), verifikasi link (curl/iTunes lookup/webfetch), alur satu store per iterasi (Play Store → F-Droid → GitHub → Apple App Store → Samsung/Mi/Oppo/lainnya), dan laporan refrensi_apk.md."
+description: "Trigger: saat membuat atau memperbarui katalog aplikasi kompetitor proyek | Panduan riset kompetitor portabel lintas proyek: menentukan aplikasi sasaran dari dokumen proyek, format tabel apk_kompetitor.md, status analisa per listing, verifikasi tautan, alur satu store per iterasi, dan laporan refrensi_apk.md."
 metadata:
   kategori: "custom"
-  versi: "1.5.0"
-  diperbarui: "Sat Nov 14 2026 01:35:34 WIB"
-  sumber-terakhir: "perintah pengguna: tindak lanjut diskusi_3 (kerjakan_hasil_diskusi) — selaraskan skill dari konteks berhenti merokok ke Spektra"
-  model: "openrouter/thinkingmachines/inkling-2-small:free"
+  versi: "1.6.0"
+  diperbarui: "Sat Nov 14 2026 06:50 WIB"
+  sumber-terakhir: "perintah pengguna: menjadikan skill global dan portabel lintas proyek, bukan spesifik satu aplikasi"
+  model: "kilo/particle-ai/particle-1:free"
 ---
 
-# Riset Kompetitor Aplikasi Spektra
+# Riset Kompetitor Aplikasi Mobile (Lintas Proyek)
 
-Mengumpulkan dan mendokumentasikan daftar aplikasi mobile kompetitor (aplikasi serupa Spektra — aplikasi Android berbasis Flutter untuk informasi spesifikasi perangkat, monitoring kondisi hardware, dan alat diagnostik komponen perangkat; "Know Your Device" sesuai `README.md`). Hasil riset disimpan dalam format tabel standar di `apk_kompetitor.md` untuk referensi tim dan stakeholder. Tugas lanjutan analisa referensi (mis. perintah `.kilo/commands/riset_kompetitor.md`) menghasilkan dokumen analisis mendalam `refrensi_apk.md` (bukan daftar baru). **Lingkup analisa hanya APK yang terdaftar di `apk_kompetitor.md` dan berstatus `Belum Dianalisa`** (kolom `Status Analisa`); listing `Sudah Dianalisa` tidak dianalisa ulang kecuali diminta eksplisit. Setelah analisa selesai per APK, status pada baris tersebut diubah menjadi `Sudah Dianalisa`.
+Mengumpulkan dan mendokumentasikan daftar aplikasi mobile kompetitor untuk proyek Flutter atau proyek mobile apa pun. Skill ini **tidak mengasumsikan** nama aplikasi, domain, kategori fitur, atau model bisnis proyek. Konteks aplikasi sasaran wajib dibaca dari dokumen proyek (`README.md`, `AGENTS.md`, PRD, atau dokumen produk lain) sebelum riset dimulai.
+
+Hasil riset disimpan dalam tabel standar di `apk_kompetitor.md`. Analisa lanjutan menghasilkan `refrensi_apk.md` yang memuat rekomendasi fitur, optimasi fitur eksisting, serta pola UI/UX/layout. Nama berkas tersebut adalah **default**; bila proyek memakai nama lain, sesuaikan dengan konvensi proyek dan catat pemetaannya di `README.md` atau dokumen proyek.
 
 ## Cakupan yang Di-Cover
 
-- Package: `tidak ada` (dokumentasi non-kode; proyek Spektra Android-first, Flutter)
-- File: `apk_kompetitor.md` (root proyek) — katalog daftar aplikasi per store dengan **kolom `Status Analisa` per baris** (nilai: `Belum Dianalisa` / `Sudah Dianalisa`) sebagai penanda listing yang sudah/belum dianalisa fitur-fiturnya
-- File: `refrensi_apk.md` (root proyek) — laporan referensi mendalam dari seluruh APK di `apk_kompetitor.md`
-- Perintah terkait: `.kilo/commands/cari_apk_kompetitor.md` untuk menambah listing baru (dengan aturan **satu store per iterasi**); `.kilo/commands/riset_kompetitor.md` untuk analisa fitur dari seluruh APK terdaftar
-- File wajib dibaca sebelum mengerjakan tugas riset: `README.md`, `AGENTS.md`, `apk_kompetitor.md` (bila ada)
+- Package: `tidak ada` (dokumentasi non-kode; berlaku untuk proyek Flutter/mobile lintas domain)
+- File default: `apk_kompetitor.md` (katalog aplikasi per store) dan `refrensi_apk.md` (laporan analisa)
+- Perintah terkait bila tersedia di proyek: `.kilo/commands/cari_apk_kompetitor.md` untuk menambah listing; `.kilo/commands/riset_kompetitor.md` untuk analisa fitur
+- File wajib dibaca sebelum riset: `README.md`, `AGENTS.md`, `apk_kompetitor.md` (bila ada), serta dokumen produk/PRD yang menjelaskan aplikasi sasaran
 - Kolom tabel: `Nama Aplikasi`, `Ringkasan Singkat`, `Store`, `Link`, `Status Analisa`
-- Struktur `refrensi_apk.md`: informasi riset + cara membaca → ringkasan temuan terbesar → kondisi fitur aktual proyek → A. Rekomendasi fitur baru → B. Optimasi fitur eksisting → C. UI/UX & Layout → D. Katalog semua listing → E. Prioritas gabungan → F. Verifikasi & keterbatasan → G. Sumber
+- Struktur `refrensi_apk.md`: informasi riset + cara membaca → ringkasan temuan terbesar → kondisi fitur aktual proyek → A. Rekomendasi fitur baru → B. Optimasi fitur eksisting → C. UI/UX & Layout → D. Katalog listing → E. Prioritas gabungan → F. Verifikasi & keterbatasan → G. Sumber
 - Store yang didukung: Google Play Store, Apple App Store, F-Droid, GitHub, Samsung Galaxy Store, Uptodown, IzzyOnDroid, Amazon Appstore, APKPure, Aptoide, SlideME, Mi/GetApps, Oppo App Market, Tencent MyApp, Huawei AppGallery
-- Toko yang sering memblokir/menyulitkan akses langsung (Xiaomi GetApps, Oppo App Market, Vivo App Store, Huawei AppGallery, Baidu Mobile Assistant): hanya sertakan aplikasi bila link halaman aplikasi spesifik dapat diverifikasi.
-- Kategori relevansi: info perangkat & OS (CPU/RAM/GPU/penyimpanan/OS/kernel/build number), info baterai, info layar, sensor (akselerometer, gyro, magnet, cahaya, proximity, tekanan), termal/suhu, benchmark & performa, diagnostik hardware (layar, kamera, audio/speaker/vibrasi, sensor), uji konektivitas jaringan (WiFi/seluler/ping/kecepatan), monitoring realtime, widget info perangkat
+- Toko yang sering memblokir akses langsung (Xiaomi GetApps, Oppo App Market, Vivo App Store, Huawei AppGallery, Baidu Mobile Assistant): hanya sertakan aplikasi bila link halaman aplikasi spesifik dapat diverifikasi
+- Kategori relevansi: **ditentukan dari dokumen produk proyek**, bukan dari skill. Contoh kategori umum: fitur inti, alur pengguna, UI/UX, monetisasi, integrasi, aksesibilitas, performa, privasi, dan mode offline
 
 ## Aturan
 
-1. Setiap aplikasi **wajib** memiliki nama, ringkasan singkat (maks 2-3 kalimat), nama store/sumber, link yang valid, dan **kolom `Status Analisa`** (nilai: `Belum Dianalisa` atau `Sudah Dianalisa`).
-2. Ringkasan singkat **wajib** menyebutkan fitur-fitur utama yang relevan dengan Spektra (info perangkat/CPU/RAM/penyimpanan, info baterai, info layar, info OS/kernel, monitoring sensor, diagnostik layar/kamera/audio, uji jaringan, monitoring realtime, benchmark, widget info perangkat), bukan deskripsi umum dari store.
-3. Format tabel **wajib** mengikuti standar Markdown pipe (`| Kolom 1 | Kolom 2 | ... |`) dengan header dan separator baris kedua (`| --- | --- | ... |`).
-4. Aplikasi dari store yang sama **dikelompokkan** secara berurutan (Google Play → Apple App Store → F-Droid → GitHub → Lainnya).
-5. Duplikat nama aplikasi di store berbeda **diperbolehkan** (mis. aplikasi sama di Play Store dan App Store) dengan baris terpisah.
-6. Link **wajib** mengarah ke halaman resmi store/repositori (bukan pencarian umum), gunakan format `[Buka Aplikasi](url)`, `[Buka Repositori](url)`, `[Unduh APK](url)`, atau `[Cari Aplikasi](url)` sesuai jenis store.
-7. Setiap penambahan/perubahan **wajib** di-commit dengan pesan `docs: ...` dan referensi ke skill ini.
-8. **Wajib** verifikasi link masih aktif sebelum commit (cek manual atau otomatis).
-9. **Satu store per iterasi.** Eksekusi sesuai `.kilo/commands/cari_apk_kompetitor.md`: mulai dari Google Play Store, setelah seluruh kandidat terverifikasi independen dan `apk_kompetitor.md` diperbarui, baru lanjut ke store berikutnya (**F-Droid → GitHub → Apple App Store → Samsung Galaxy Store → Mi/GetApps → Oppo App Market → store lainnya**). DILARANG meriset semua store sekaligus tanpa memperbarui `apk_kompetitor.md` setelah tiap store. Subagen paralel boleh dipakai untuk mengumpulkan kandidat di dalam satu store, tetapi **verifikasi tetap independen** (curl/iTunes/webfetch).
-10. Verifikasi otomatis dengan: `curl -s -o /dev/null -w "%{http_code}" -A "Mozilla/5.0 (X11; Linux x86_64) Chrome/120.0" -L <url>`. HTTP **200** = valid; HTTP **404** = buang entri; HTTP **403** dari APKPure/Aptoide/SlideME = anti-bot (bukan link mati) — verifikasi via websearch/webfetch, jangan dibuang otomatis.
-11. Untuk id aplikasi Apple App Store, gunakan lookup `https://itunes.apple.com/lookup?id=<id>`; `resultCount: 0` berarti aplikasi tidak ada dan **tidak boleh** disertakan. Link per-region (`us`/`gb`/`id`/dst.) boleh dipakai bila mengembalikan 200.
-12. Aplikasi Tionghoa/Regional tanpa link halaman aplikasi spesifik yang terverifikasi **tidak boleh** disertakan; keberadaan di store saja (dari sumber sekunder) tidak cukup.
-13. Periksa duplikat exact berdasarkan `package id` sebelum menambah baris (mis. dua varian aplikasi dengan package id berbeda di store sama tetap dicatat terpisah bila memang dua aplikasi).
-14. Untuk batch besar, tambahkan section `# Tambahan Riset (YYYY-MM-DD)` dengan sub-section `## <Store>`; setiap tabel tetap wajib punya header + separator (tabel yang kehilangan header rusak saat dirender).
-15. Untuk tugas "mencarikan referensi dari seluruh APK di `apk_kompetitor.md`": baca `README.md`, `AGENTS.md`, dan `apk_kompetitor.md` lebih dulu; **lingkup hanya APK yang terdaftar di `apk_kompetitor.md`** — jangan menambah aplikasi baru ke daftar tanpa perintah eksplisit. Hasil ditulis/diperbarui di `refrensi_apk.md`.
-16. `refrensi_apk.md` wajib memuat: link referensi pada tiap rekomendasi, pengelompokan per fitur (A), optimasi fitur eksisting (B), dan UI/UX/layout (C), penjelasan **tujuan** tiap item, serta **prioritas** (Tinggi/Sedang/Rendah) untuk penyortiran pengguna. Pengguna menyortir sendiri; dokumen ini riset pembanding, bukan keputusan implementasi.
-17. Untuk `refrensi_apk.md`: hanya rekomendasikan fitur yang dapat berjalan di mobile. Fitur khusus iOS (Apple Watch, Live Activities, WidgetKit, Wear-only tanpa padanan Android) dicatat sebagai referensi pola saja, bukan rekomendasi. Fitur yang butuh backend/akun ditandai jelas dan ditempatkan pada prioritas rendah; Spektra bersifat lokal-first.
-18. Klasifikasikan status verifikasi listing dengan tiga tingkat: **terverifikasi** (halaman/README/mirror terbaca, atau iTunes `resultCount > 0`, atau curl 200 dengan isi terbaca), **verifikasi ringan** (Samsung Galaxy Store: curl 200 tetapi hanya judul halaman tampil, atau Amazon Appstore tanpa isi detail — cukup untuk ketersediaan, tidak cukup untuk rekomendasi fitur), **tidak terverifikasi** (HTTP 404, 403 tanpa sumber alternatif, halaman kosong, atau listing tidak ditemukan). Cantumkan jumlah perkiraan ("sekitar N dari M") karena tidak semua listing bisa dibaca; listing tidak terverifikasi tidak dijadikan dasar rekomendasi.
-19. Uptodown bisa berputar antara HTTP 410 dan 404 untuk URL yang sama — treat sebagai flaky/rotasi; tandai tidak terverifikasi kecuali ada mirror resmi yang menyebut package id sama.
-20. Temuan cacat kode yang ditemukan saat riset didokumentasikan di `refrensi_apk.md` dengan prioritas dan path file, **tidak diperbaiki** sebagai bagian dari tugas riset. Perbaikan kode adalah tugas terpisah.
-21. Sebelum memperbarui `refrensi_apk.md`, periksa `git diff` working tree/staged — jangan menimpa, membangkitkan kembali, atau menggabungkan ulang bagian yang sudah dihapus pengguna; hilangkan pula tautan ke dokumen yang sudah dihapus dari teks referensi.
-22. Amazon Appstore dan Samsung Galaxy Store dapat mengembalikan HTTP 200 langsung pada curl dengan user agent Chrome; Galaxy Store tetap hanya menampilkan judul halaman, sehingga tetap diklasifikasi **verifikasi ringan**. APKPure/Aptoide/SlideME tetap 403 (anti-bot) — verifikasi via websearch/webfetch, bukan dibuang otomatis.
-23. Untuk perintah `.kilo/commands/riset_kompetitor.md` (analisa fitur dari APK di `apk_kompetitor.md`, hasil ditulis ke `refrensi_apk.md`): **hanya boleh meriset/menganalisa APK yang `Status Analisa = Belum Dianalisa`**. APK berstatus `Sudah Dianalisa` **wajib dilewati** dan tidak dianalisa ulang kecuali pengguna secara eksplisit meminta analisa ulang (kembalikan status ke `Belum Dianalisa` terlebih dahulu). Setelah analisa selesai **per APK**, **wajib** mengubah `Status Analisa` pada baris tabel APK tersebut menjadi `Sudah Dianalisa`. Hanya perintah ini yang boleh mengubah status menjadi `Sudah Dianalisa`.
-24. Untuk perintah `.kilo/commands/cari_apk_kompetitor.md` (menambah listing baru ke `apk_kompetitor.md`): listing yang baru ditambahkan **wajib** diberi `Status Analisa = Belum Dianalisa`. Perintah ini **TIDAK BOLEH** menandai listing sebagai `Sudah Dianalisa`.
-25. Saat menjalankan perintah referensi/analisa (`riset_kompetitor.md`), filter dan proses hanya baris dengan `Status Analisa = Belum Dianalisa` di `apk_kompetitor.md`; jangan memperluas lingkup ke sumber lain. `refrensi_apk.md` tetap memuat katalog lengkap (seksi D) — perbarui hanya bagian yang terdampak oleh listing yang baru dianalisa, jangan tulis ulang dari nol kecuali diminta.
-26. **Section `# Status Analisa Fitur` di akhir file TIDAK LAGI DIPERLUKAN** — penandaan status analisa kini dilakukan **per baris tabel** via kolom `Status Analisa`. Jangan tambah section status di akhir file.
+1. Tentukan aplikasi sasaran dan fitur intinya dari `README.md`, `AGENTS.md`, PRD, atau dokumen produk proyek. Jika dokumen tidak tersedia atau saling bertentangan, tanyakan kepada pengguna; **jangan menebak** dari nama repositori.
+2. Setiap aplikasi **wajib** memiliki nama, ringkasan singkat (maks 2-3 kalimat), nama store/sumber, link yang valid, dan **kolom `Status Analisa`** (nilai: `Belum Dianalisa` atau `Sudah Dianalisa`).
+3. Ringkasan singkat **wajib** menyebutkan fitur utama yang relevan dengan aplikasi sasaran proyek, bukan deskripsi umum dari store. Fitur yang disebut harus berasal dari kategori yang sudah ditentukan pada langkah 1.
+4. Format tabel **wajib** mengikuti standar Markdown pipe (`| Kolom 1 | Kolom 2 | ... |`) dengan header dan separator baris kedua (`| --- | --- | ... |`).
+5. Aplikasi dari store yang sama **dikelompokkan** secara berurutan. Urutan default: Google Play → Apple App Store → F-Droid → GitHub → store lainnya.
+6. Duplikat nama aplikasi di store berbeda **diperbolehkan** (mis. aplikasi sama di Play Store dan App Store) dengan baris terpisah.
+7. Link **wajib** mengarah ke halaman resmi store/repositori (bukan pencarian umum), gunakan format `[Buka Aplikasi](url)`, `[Buka Repositori](url)`, `[Unduh APK](url)`, atau `[Cari Aplikasi](url)` sesuai jenis store.
+8. Setiap penambahan/perubahan **wajib** di-commit dengan pesan `docs: ...` dan referensi ke skill ini, kecuali pengguna melarang commit.
+9. **Wajib** verifikasi link masih aktif sebelum commit (cek manual atau otomatis).
+10. **Satu store per iterasi.** Mulai dari Google Play Store; setelah seluruh kandidat terverifikasi independen dan `apk_kompetitor.md` diperbarui, baru lanjut ke store berikutnya (F-Droid → GitHub → Apple App Store → Samsung Galaxy Store → Mi/GetApps → Oppo App Market → store lainnya). DILARANG meriset semua store sekaligus tanpa memperbarui katalog setelah tiap store.
+11. Verifikasi otomatis dengan: `curl -s -o /dev/null -w "%{http_code}" -A "Mozilla/5.0 (X11; Linux x86_64) Chrome/120.0" -L <url>`. HTTP **200** = valid; HTTP **404** = buang entri; HTTP **403** dari APKPure/Aptoide/SlideME = anti-bot (bukan link mati) — verifikasi via websearch/webfetch.
+12. Untuk id aplikasi Apple App Store, gunakan lookup `https://itunes.apple.com/lookup?id=<id>`; `resultCount: 0` berarti aplikasi tidak ada dan **tidak boleh** disertakan.
+13. Aplikasi Tionghoa/regional tanpa link halaman aplikasi spesifik yang terverifikasi **tidak boleh** disertakan; keberadaan di store saja (dari sumber sekunder) tidak cukup.
+14. Periksa duplikat exact berdasarkan `package id` sebelum menambah baris. Dua varian dengan package id berbeda tetap dicatat terpisah bila memang dua aplikasi.
+15. Untuk batch besar, tambahkan section `# Tambahan Riset (YYYY-MM-DD)` dengan sub-section `## <Store>`; setiap tabel tetap wajib punya header + separator.
+16. Untuk tugas "mencarikan referensi dari seluruh APK di katalog": baca dokumen proyek dan `apk_kompetitor.md` lebih dulu; **lingkup hanya APK yang terdaftar di katalog** — jangan menambah aplikasi baru tanpa perintah eksplisit. Hasil ditulis ke `refrensi_apk.md`.
+17. `refrensi_apk.md` wajib memuat: link referensi pada tiap rekomendasi, pengelompokan per fitur (A), optimasi fitur eksisting (B), dan UI/UX/layout (C), penjelasan **tujuan** tiap item, serta **prioritas** (Tinggi/Sedang/Rendah) untuk penyortiran pengguna.
+18. Untuk `refrensi_apk.md`: hanya rekomendasikan fitur yang dapat berjalan di mobile. Fitur khusus iOS (Apple Watch, Live Activities, WidgetKit, Wear-only tanpa padanan Android) dicatat sebagai referensi pola saja, bukan rekomendasi. Fitur yang butuh backend/akun ditandai jelas dan ditempatkan pada prioritas rendah; jika proyek bersifat lokal-first, pertahankan prinsip itu.
+19. Klasifikasikan status verifikasi listing: **terverifikasi** (halaman/README/mirror terbaca, iTunes `resultCount > 0`, atau curl 200 dengan isi terbaca), **verifikasi ringan** (Galaxy Store 200 dengan judul halaman saja, atau Amazon Appstore tanpa detail), **tidak terverifikasi** (404, 403 tanpa sumber alternatif, halaman kosong, atau listing tidak ditemukan). Listing tidak terverifikasi tidak dijadikan dasar rekomendasi.
+20. Uptodown dapat berputar antara HTTP 410 dan 404 untuk URL yang sama — perlakukan sebagai flaky/rotasi; tandai tidak terverifikasi kecuali ada mirror resmi yang menyebut package id sama.
+21. Temuan cacat kode yang ditemukan saat riset didokumentasikan di `refrensi_apk.md` dengan prioritas dan path file, **tidak diperbaiki** sebagai bagian dari tugas riset.
+22. Sebelum memperbarui `refrensi_apk.md`, periksa `git diff` working tree/staged — jangan menimpa, membangkitkan kembali, atau menggabungkan ulang bagian yang sudah dihapus pengguna; hilangkan tautan ke dokumen yang sudah dihapus.
+23. Amazon Appstore dan Samsung Galaxy Store dapat mengembalikan HTTP 200 pada curl dengan user agent Chrome; Galaxy Store tetap diklasifikasi **verifikasi ringan**.
+24. Untuk perintah analisa: **hanya boleh menganalisa APK yang `Status Analisa = Belum Dianalisa`**. APK `Sudah Dianalisa` wajib dilewati kecuali pengguna meminta analisa ulang secara eksplisit (kembalikan status ke `Belum Dianalisa` terlebih dahulu). Setelah analisa selesai **per APK**, ubah status baris tersebut menjadi `Sudah Dianalisa`.
+25. Listing baru dari perintah `cari_apk_kompetitor.md` **wajib** diberi `Status Analisa = Belum Dianalisa`; perintah itu **tidak boleh** menandai `Sudah Dianalisa`.
+26. Saat menjalankan analisa, filter dan proses hanya baris `Belum Dianalisa`; jangan memperluas lingkup ke sumber lain. `refrensi_apk.md` tetap memuat katalog lengkap (seksi D) — perbarui hanya bagian yang terdampak, jangan tulis ulang dari nol kecuali diminta.
+27. **Section `# Status Analisa Fitur` di akhir file TIDAK DIPERLUKAN** — penandaan status dilakukan per baris tabel via kolom `Status Analisa`.
+28. **Aturan portabilitas:** DILARANG menulis nama aplikasi, domain, kategori fitur, atau istilah khas satu proyek ke dalam skill ini. Konvensi khusus proyek (nama berkas, daftar store prioritas, kategori relevansi) disimpan di `README.md`, `AGENTS.md`, command proyek, atau dokumen produk proyek.
+29. Jika aplikasi sasaran berubah, katalog lama **tidak boleh** langsung dipakai ulang. Verifikasi ulang relevansi setiap listing atau buat katalog baru sesuai perintah pengguna.
+30. Jika pengguna membatasi jumlah APK yang dianalisa (mis. 10), pilih lintas kategori/fitur yang paling relevan, catat alasan pemilihan di `refrensi_apk.md`, dan jangan menandai listing di luar jumlah tersebut sebagai `Sudah Dianalisa`.
+
+## Steps
+
+1. Baca `README.md`, `AGENTS.md`, dokumen produk/PRD, dan `apk_kompetitor.md`; tentukan aplikasi sasaran, fitur inti, serta kategori relevansi.
+2. Periksa katalog yang ada: store yang sudah tercakup, listing `Belum Dianalisa`, dan duplikat.
+3. Riset kandidat per store; verifikasi setiap link secara independen (curl/iTunes/webfetch).
+4. Perbarui `apk_kompetitor.md` setelah tiap store selesai; beri `Belum Dianalisa` pada listing baru.
+5. Untuk analisa, filter hanya listing `Belum Dianalisa`; pilih APK sesuai batas jumlah pengguna; kumpulkan bukti fitur dan tangkapan layar resmi.
+6. Tulis/perbarui `refrensi_apk.md` dengan bagian A–G; sertakan link, tujuan, dan prioritas.
+7. Ubah status APK yang benar-benar dianalisa menjadi `Sudah Dianalisa`; perbarui dokumentasi/memori proyek bila ada konvensinya.
+8. Verifikasi: jumlah status konsisten, tautan aktif, tabel memiliki header, dan tidak ada nama aplikasi proyek yang di-hardcode ke skill.
 
 ## Larangan
 
-- DILARANG menambah aplikasi tanpa ringkasan fitur relevan Spektra (hanya nama dan link).
-- DILARANG menggunakan format tabel non-standar (mis. daftar bullet, JSON, CSV).
+- DILARANG meng-hardcode nama aplikasi, domain, atau fitur spesifik proyek ke dalam `SKILL.md`.
+- DILARANG menganggap katalog dari proyek lain otomatis relevan tanpa verifikasi ulang.
+- DILARANG menambah aplikasi tanpa ringkasan fitur yang relevan dengan aplikasi sasaran.
+- DILARANG menggunakan format tabel non-standar (daftar bullet, JSON, CSV).
 - DILARANG mengubah urutan kolom tabel yang sudah ditetapkan.
-- DILARANG menghapus aplikasi yang sudah tercatat kecuali aplikasi benar-benar tidak lagi tersedia/tersedia di store resmi.
-- DILARANG menyalin ringkasan dari deskripsi store tanpa disesuaikan dengan konteks Spektra (info/diagnostik perangkat).
-- DILARANG menambah kolom baru selain `Status Analisa` tanpa memperbarui skill ini dan seluruh baris tabel.
-- DILARANG mempercayai link hasil subagen tanpa verifikasi independen (curl / iTunes lookup / webfetch) sebelum commit.
-- DILARANG menyertakan aplikasi hanya dari sumber sekunder (situs agregator) tanpa link halaman aplikasi resmi yang terverifikasi.
-- DILARANG menganggap HTTP 403 dari APKPure/Aptoide/SlideME sebagai link mati (itu anti-bot); sebaliknya DILARANG menyertakan link ber-HTTP 404 atau id App Store dengan `resultCount: 0`.
-- DILARANG menambah tabel tanpa header/separator, atau menumpuk baris batch riset di bawah tabel yang sudah ada tanpa header baru.
-- DILARANG meriset semua store sekaligus dalam satu iterasi; riset wajib satu store per iterasi (lihat Aturan 9).
-- DILARANG merekomendasikan fitur yang tidak dapat berjalan di mobile (Apple Watch, Live Activities, WidgetKit-only) sebagai rekomendasi utama `refrensi_apk.md`.
-- DILARANG menganggap Samsung Galaxy Store HTTP 200 + judul halaman sebagai verifikasi penuh isi fitur; hanya ketersediaan (verifikasi ringan).
-- DILARANG memperluas lingkup tugas referensi di luar daftar `apk_kompetitor.md` tanpa perintah eksplisit dari pengguna.
-- DILARANG menimpa/membangkitkan kembali bagian `refrensi_apk.md` yang sudah dihapus pengguna, atau menyisakan tautan ke dokumen yang sudah dihapus, tanpa diminta.
-- DILARANG memperbaiki kode aplikasi sebagai bagian dari tugas riset; dokumentasikan temuan dengan path file dan prioritas.
-- DILARANG menjadikan listing tidak terverifikasi (atau verifikasi ringan) sebagai dasar rekomendasi fitur atau angka prioritas.
-- DILARANG menandai listing sebagai `Sudah Dianalisa` (kolom `Status Analisa`) sebelum analisa benar-benar dijalankan dan didokumentasikan di `refrensi_apk.md` (hanya perintah `riset_kompetitor.md` yang boleh).
-- DILARANG menandai listing baru dari `cari_apk_kompetitor.md` sebagai `Sudah Dianalisa` (wajib `Belum Dianalisa`).
-- DILARANG menghapus atau memodifikasi kolom `Status Analisa` tanpa melalui perintah yang sah.
-- DILARANG membuat section `# Status Analisa Fitur` di akhir file — penandaan status kini per baris tabel.
+- DILARANG menghapus aplikasi yang sudah tercatat kecuali benar-benar tidak lagi tersedia di store resmi.
+- DILARANG menyalin deskripsi store tanpa disesuaikan dengan konteks proyek.
+- DILARANG menambah kolom baru selain `Status Analisa` tanpa memperbarui skill dan seluruh baris tabel.
+- DILARANG mempercayai link hasil subagen tanpa verifikasi independen.
+- DILARANG menyertakan aplikasi hanya dari sumber agregator tanpa link halaman resmi yang terverifikasi.
+- DILARANG menganggap HTTP 403 dari APKPure/Aptoide/SlideME sebagai link mati.
+- DILARANG menyertakan link HTTP 404 atau id App Store dengan `resultCount: 0`.
+- DILARANG menambah tabel tanpa header/separator.
+- DILARANG meriset semua store sekaligus dalam satu iterasi.
+- DILARANG merekomendasikan fitur non-mobile sebagai rekomendasi utama.
+- DILARANG menganggap Galaxy Store HTTP 200 + judul halaman sebagai verifikasi penuh.
+- DILARANG memperluas lingkup di luar katalog tanpa perintah eksplisit.
+- DILARANG menimpa bagian `refrensi_apk.md` yang sudah dihapus pengguna.
+- DILARANG memperbaiki kode sebagai bagian dari tugas riset.
+- DILARANG menjadikan listing tidak terverifikasi sebagai dasar rekomendasi.
+- DILARANG menandai `Sudah Dianalisa` sebelum analisa dijalankan dan didokumentasikan.
+- DILARANG menandai listing baru dari `cari_apk_kompetitor.md` sebagai `Sudah Dianalisa`.
+- DILARANG membuat section `# Status Analisa Fitur` di akhir file.
+- DILARANG menebak aplikasi sasaran ketika dokumen proyek tidak tersedia; tanyakan kepada pengguna.
 
 ## Contoh Benar
 
-Baris berikut hanya ilustrasi format (id aplikasi placeholder, bukan listing nyata):
-
-```markdown
-| Nama Aplikasi | Ringkasan Singkat                                                                                                                                  | Store             | Link                                                                                  | Status Analisa     |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------- | ------------------ |
-| DeviceInfo X  | Aplikasi info perangkat dengan detail CPU, RAM, penyimpanan, baterai, dan identitas Android. Relevan dengan fitur info spesifikasi Spektra.  | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.contoh.deviceinfox)  | Belum Dianalisa    |
-| HardwareMon Y | Monitoring sensor realtime (akselerometer, gyro, cahaya) dan suhu perangkat. Relevan dengan monitoring hardware Spektra.                    | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.contoh.hardwaremony) | Belum Dianalisa    |
-| SensorLab Z   | Diagnostik layar, kamera, dan audio dengan alat uji sensor. Relevan dengan fitur diagnostik komponen Spektra.                               | GitHub            | [Buka Repositori](https://github.com/contoh/sensorlabz)                                | Sudah Dianalisa    |
-```
-
-Contoh verifikasi otomatis sebelum commit (riset massal lintas-store):
-
-```bash
-# Google Play / Apple App Store / GitHub / F-Droid (200 = valid, 404 = buang)
-for u in "<url1>" "<url2>"; do
-  code=$(curl -s -o /dev/null -w "%{http_code}" -A "Mozilla/5.0 (X11; Linux x86_64) Chrome/120.0" --max-time 15 -L "$u"); echo "$code  $u"
-done
-
-# App Store: cek keberadaan app (resultCount: 0 = tidak ada, jangan sertakan)
-curl -s "https://itunes.apple.com/lookup?id=<app_id>" | head -c 300
-
-# APKPure / Aptoide / SlideME sering 403 (anti-bot, bukan mati) -> verifikasi via websearch/webfetch
-```
-
-Contoh item pada `refrensi_apk.md` (fitur/optimasi/UI-UX diberi tujuan + link + prioritas):
-
-```markdown
-#### B1. Widget Informasi Baterai pada Layar Utama
-
-- **Temuan:** Spektra belum menampilkan info baterai realtime di luar layar khusus.
-- **Tujuan perbaikan:** akses cepat info baterai tanpa membuka aplikasi.
-- **Referensi:** [DeviceInfo X](https://play.google.com/store/apps/details?id=com.contoh.deviceinfox)
-- **Saran:** tampilkan level baterai + status pengisian pada widget berukuran kecil.
-- **Prioritas:** Sedang.
-```
-
-Klasifikasi verifikasi listing:
-
-```text
-terverifikasi   -> isi terbaca / iTunes resultCount>0 / mirror resmi package id sama
-verifikasi ringan -> Galaxy Store 200 + judul halaman saja; Amazon tanpa isi detail
-tidak terverifikasi -> 404/403 tanpa alternatif
-```
-
-Contoh penandaan status analisa **per baris tabel** di `apk_kompetitor.md` (setelah menjalankan `riset_kompetitor.md`):
+Katalog generik untuk proyek apa pun (nama aplikasi dan fitur mengikuti dokumen proyek):
 
 ```markdown
 | Nama Aplikasi | Ringkasan Singkat | Store | Link | Status Analisa |
 | ------------- | ----------------- | ----- | ---- | -------------- |
-| DeviceInfo X  | ...               | Google Play Store | [Buka Aplikasi](...) | Sudah Dianalisa |
-| HardwareMon Y | ...               | Google Play Store | [Buka Aplikasi](...) | Belum Dianalisa |
+| Aplikasi A | Menyediakan fitur inti yang relevan dengan aplikasi sasaran, termasuk alur utama dan pengaturan lokal. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.contoh.appa) | Belum Dianalisa |
+| Aplikasi B | Menawarkan fitur pembanding pada kategori yang sama dengan pendekatan UI yang berbeda. | F-Droid | [Buka Aplikasi](https://f-droid.org/packages/com.contoh.appb/) | Belum Dianalisa |
 ```
 
-**Catatan:** Section `# Status Analisa Fitur` di akhir file **TIDAK LAGI DIPERLUKAN** dan **TIDAK DIBUAT**. Penandaan status analisa kini dilakukan **per baris tabel** via kolom `Status Analisa` (nilai: `Belum Dianalisa` / `Sudah Dianalisa`).
+Item referensi generik:
 
-Alur kerja kedua perintah:
+```markdown
+#### A1. Fitur Pembanding yang Relevan
 
-```text
-cari_apk_kompetitor.md      -> tambah listing baru ke apk_kompetitor.md (Status Analisa: Belum Dianalisa)
-                               (satu store per iterasi: Play Store -> F-Droid -> GitHub -> App Store -> Samsung -> Mi/Oppo -> lainnya)
-riset_kompetitor.md -> analisa fitur APK yang Status Analisa = Belum Dianalisa -> perbarui refrensi_apk.md
-                       -> ubah Status Analisa pada baris APK tersebut menjadi: Sudah Dianalisa
+- **Temuan:** Aplikasi kompetitor menyediakan fitur yang belum tercatat pada dokumen produk proyek.
+- **Tujuan fitur:** menjelaskan manfaat fitur bagi pengguna aplikasi sasaran.
+- **Referensi:** [Aplikasi A](https://play.google.com/store/apps/details?id=com.contoh.appa)
+- **Saran:** sesuaikan fitur dengan arsitektur dan batasan platform proyek.
+- **Prioritas:** Sedang.
 ```
 
 ## Contoh Salah
 
 ```markdown
-// DILARANG: Ringkasan tidak menyebutkan fitur relevan Spektra
-| Nama Aplikasi | Ringkasan Singkat | Store | Link | Status Analisa |
-| ------------- | ----------------- | ----- | ---- | -------------- |
-| DeviceInfo X | Aplikasi populer untuk info perangkat. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.contoh.deviceinfox) | Belum Dianalisa |
+# DILARANG: skill mengunci satu aplikasi/domain tertentu
+# Riset Kompetitor Aplikasi NamaAplikasiTertentu
+Skill ini hanya untuk aplikasi NamaAplikasiTertentu dengan fitur X, Y, dan Z.
+```
 
-// DILARANG: Format link tidak standar
-| HardwareMon Y | Monitoring sensor realtime. | Google Play Store | https://play.google.com/store/apps/details?id=com.contoh.hardwaremony | Belum Dianalisa |
+```markdown
+# DILARANG: katalog tanpa status analisa
+| Nama Aplikasi | Ringkasan Singkat | Store | Link |
+| ------------- | ----------------- | ----- | ---- |
+| Aplikasi A | Aplikasi sejenis. | Google Play Store | [Buka](https://play.google.com/store/apps/details?id=com.contoh.appa) |
+```
 
-// DILARANG: Kolom tidak lengkap (hilang Status Analisa)
-| SensorLab Z | Diagnostik layar dan kamera. | Google Play Store | [Buka Aplikasi](...) |
-
-// DILARANG: Tabel tidak menggunakan format pipe Markdown
-- DeviceInfo X: info perangkat Android - Google Play Store - [Link](...)
-
-// DILARANG: Menandai listing baru dari cari_apk_kompetitor.md sebagai Sudah Dianalisa
-| Nama Aplikasi | Ringkasan Singkat | Store | Link | Status Analisa |
-| ------------- | ----------------- | ----- | ---- | -------------- |
-| DeviceInfo X | Baru ditambahkan hari ini | Google Play Store | [Buka](...) | Sudah Dianalisa |  // SALAH: wajib Belum Dianalisa
-
-// DILARANG: Mengubah Status Analisa menjadi Sudah Dianalisa tanpa menjalankan riset_kompetitor.md
-| DeviceInfo X | ... | Google Play Store | [Buka](...) | Sudah Dianalisa |  // SALAH: belum dianalisa
-
-// DILARANG: Masih membuat section # Status Analisa Fitur di akhir file
-# Status Analisa Fitur
-- Seluruh listing sudah dianalisa.
+```markdown
+# DILARANG: menandai Sudah Dianalisa tanpa analisa
+| Aplikasi A | ... | Google Play Store | [Buka](https://play.google.com/store/apps/details?id=com.contoh.appa) | Sudah Dianalisa |
 ```
 
 ## Sumber Evaluasi
 
-- File: `apk_kompetitor.md` (root proyek), `refrensi_apk.md` (root proyek), `.kilo/commands/riset_kompetitor.md`, `.kilo/commands/cari_apk_kompetitor.md`
-- Referensi produk Spektra: `README.md` (aplikasi Android info/diagnostik perangkat, "Know Your Device")
-- Commit rujukan: `a6f3020` — Tambah daftar aplikasi kompetitor serupa (riwayat awal, konteks berhenti merokok)
-- Commit rujukan: `3af4f53` — Tambah riset kompetitor lintas-store (section `# Tambahan Riset (2026-11-10)`)
-- Commit rujukan: `b7f455c` — Perbarui refrensi_apk.md: cakupan 159 tautan listing, metodologi verifikasi (dasar aturan 18–22)
-- v1.5.0 (2026-11-14): penyelarasan konteks skill dari "aplikasi berhenti merokok" ke **Spektra** (perintah pengguna; tindak lanjut `hasil_diskusi/diskusi_3.md` — update skill lama, bukan skill pendamping); judul, intro, kategori relevansi, aturan 2/9 (satu store per iterasi), contoh jujur ilustratif placeholder; mekanisme kolom `Status Analisa`, aturan verifikasi curl/iTunes/webfetch, dan larangan marking dipertahankan tanpa perubahan substansi
-- Instruksi langsung pengguna (2026-11-11, belum di-commit saat itu): penandaan status analisa dipindah dari section di akhir file ke **kolom `Status Analisa` per baris tabel**; hanya `riset_kompetitor.md` yang boleh mengubah status menjadi `Sudah Dianalisa`; `cari_apk_kompetitor.md` wajib set `Belum Dianalisa` pada listing baru
-- 2026-11-13: keputusan pengguna (`hasil_diskusi/diskusi_3.md`) — acuan riset Spektra = README; riset satu store per iterasi (Play Store → F-Droid → GitHub → App Store → Samsung/Mi/Oppo/lainnya); `apk_kompetitor.md` dibuat baru saat perintah riset dijalankan dengan kerangka section per store
+- File: `README.md`, `AGENTS.md`, `apk_kompetitor.md`, `refrensi_apk.md`
+- Perintah terkait: `.kilo/commands/cari_apk_kompetitor.md`, `.kilo/commands/riset_kompetitor.md` (bila tersedia)
+- Aturan rujukan: `.agents/rules/global/aturan_skill.md` §1 (skill portabel lintas proyek), §7 (front matter), §8 (trigger-only), §9 (section wajib)
+- Perintah pengguna 2026-11-14: menjadikan skill global dan portabel, bukan spesifik satu aplikasi
+- Riwayat: v1.5.0 memuat konteks satu aplikasi; v1.6.0 menghapus ketergantungan tersebut dan memindahkan konteks proyek ke dokumen proyek

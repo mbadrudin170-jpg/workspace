@@ -35,7 +35,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 1. Perintah `cat` (dan pola `cat *`) **ditolak** oleh aturan izin proyek; gunakan tool Read untuk membaca berkas.
 2. `.kilo/` ter-`.gitignore` — jangan menelusuri/menganggap `.kilo/` sebagai bagian dari git tree.
 3. `memori/` **tidak** ter-`.gitignore`; berkas sesi diarsipkan permanen (tidak boleh dihapus).
-4. Hindari `git add .` secara membabi buta: `?? .dart_tool/` belum ter-ignore; commit hanya atas perintah eksplisit pengguna.
+4. Hindari `git add .` secara membabi buta: `.dart_tool/` tidak ter-ignore dan dua klon skill di dalamnya tercatat sebagai gitlink; commit hanya atas perintah eksplisit pengguna.
 5. Verifikasi setelah ubah `.dart` pada submodule: `dart format`, `dart analyze`. Submodule `base_coc`/`share_global_saya` memiliki `pubspec.yaml` masing-masing.
 6. Bahasa Indonesia baku untuk respons, dokumen, dan komentar kode.
 7. Jangan mengedit berkas hasil generate (`*.g.dart`, `*.freezed.dart`, `*.mocks.dart`); ubah sumber lalu jalankan `build_runner`.
@@ -45,32 +45,41 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 ## Status Kerja (per 2026-11-14)
 
 - Commit `29a2f81` (2026-11-13 22:53 UTC, pesan "a", di luar sesi ini) memuat restrukturisasi `.agents/skills/` → subfolder `custom/` dan `bawaan/`; berkas-berkas yang sebelumnya tampak `D`/`M` kini sudah ter-commit.
-- `.dart_tool/` tidak ter-ignore (`.gitignore` hanya berisi `.kilo/`) — jangan `git add .` membabi buta.
+- `.dart_tool/` tidak ter-ignore (`.gitignore` hanya berisi `.kilo/`) — berisi cache tool `dart_skills` (klon `dart-lang/skills` dan `flutter/agent-plugins`, 2,3 MB) dan tercatat sebagai dua gitlink (mode `160000`) pada commit `29a2f81` tanpa entri `.gitmodules`, sehingga tidak dapat dipulihkan lewat `git clone`; jangan `git add .` membabi buta.
 - `m share_global_saya` — submodule memiliki perubahan isi yang belum di-pointer-update; jangan di-commit tanpa perintah pengguna.
+- `riverpod_lint` 3.2.0 terpasang di submodule `share_global_saya` dan `base_coc` (`dev_dependencies` + `plugins` pada `analysis_options.yaml`); perubahan sudah ter-commit di repo submodule (`share_global_saya` `c59ed5b`, `base_coc` `ad79bd6`, sesi 13), tetapi pointer submodule di root belum diperbarui.
+- `flutter pub get` dijalankan pada 2026-11-14 (sesi 21) di submodule `base_coc` dan `share_global_saya` dengan Flutter 3.47.9 — berhasil (`Got dependencies!`). Tool Flutter menambahkan `analyzer.exclude` (`build/**` dan folder platform) pada `base_coc/analysis_options.yaml`; perubahan belum di-commit.
 - `base_coc/README.md` — diperbarui pada sesi 8 (2026-11-14) menjadi dokumentasi lengkap sesuai implementasi aktual (masih template `flutter create`, fitur penyedia base belum tersedia); perubahan di dalam submodule, belum di-commit.
 - `README.md` root — sebelumnya kosong (0 byte), kini diisi dokumentasi repositori `workspace` pada sesi 8 (2026-11-14).
 - `share_global_saya/README.md` — dibuat pada sesi 9 (2026-11-14) sebagai dokumentasi paket pustaka bersama sesuai implementasi aktual; ditautkan dari README root; perubahan di dalam submodule, belum di-commit.
 - `share_global_saya/docs/laporan_linter.md` — dibuat pada sesi 11 (2026-11-14) dari hasil `flutter analyze`: 235 temuan `info` (231 `public_member_api_docs`, 3 `discarded_futures`, 1 `avoid_print`); `base_coc` bersih. Dokumen memuat rencana penanganan per berkas dan contoh perbaikan; belum diimplementasikan dan belum di-commit.
-- `refrensi_apk.md` root — dibuat pada sesi 14 (2026-11-14) berisi analisa 10 APK kompetitor: rekomendasi fitur baru, optimasi fitur eksisting, pola UI/UX/layout, katalog, prioritas, verifikasi, dan sumber; status 10 listing di `apk_kompetitor.md` diubah menjadi `Sudah Dianalisa`.
+- `refrensi_apk.md` root — pada sesi 19 (2026-11-14) ditulis ulang untuk aplikasi sasaran `base_coc` (penyedia base/layout Clash of Clans) berisi analisa 10 APK Google Play Store: 15 rekomendasi fitur baru, 2 arahan kualitas pra-implementasi, 10 pola UI/UX, katalog, prioritas gabungan, verifikasi, dan sumber. Sebelumnya berkas ini berisi analisa 10 APK Spektra (sesi 14) dan dikosongkan pengguna sebelum sesi 19.
+- `apk_kompetitor.md` — pada sesi 20 (2026-11-14) ditambahkan 54 listing baru berstatus `Belum Dianalisa` dari Google Play Store (18), GitHub (1), Apple App Store (32), dan APKPure (3); katalog kini memuat 64 listing (10 `Sudah Dianalisa`, 54 `Belum Dianalisa`).
 - `MEMORI.md` dan `memori/` dibuat pada sesi 1 (2026-11-14); sebelumnya belum ada.
 - `.kilo/commands/perbarui_readme.md` — diperluas pada sesi 12 (2026-11-14) agar memperbarui `README.md` root **dan** README setiap submodule (daftar dibaca dinamis dari `.gitmodules`); `.kilo/` ter-`.gitignore`, perubahan hanya di working tree.
+- `.kilo/commands/cari_apk_kompetitor.md` — diperbarui pada sesi 16 (2026-11-14) menjadi portabel/global: nama aplikasi dan daftar fitur proyek dihapus; acuan aplikasi sasaran dibaca dari `README.md`, `AGENTS.md`, PRD, atau dokumen produk proyek. `.kilo/` ter-`.gitignore`, perubahan hanya di working tree.
+- Pencarian kata `spektra` (sesi 18, 2026-11-14): 13 kecocokan di 8 berkas — `.agents/skills/custom/struktur-folder-lib/SKILL.md` (2), `MEMORI.md` (1), `share_global_saya/docs/lib.md` (2), `share_global_saya/SKILLS_INDEX.md` (1), `memori/riwayat_perubahan.md` (1), `memori/sesi/sesi_10.md` (3), `memori/sesi/sesi_14.md` (2), dan `.kilo/commands/salin_konfigurasi_ke_global.md` (1); tidak ada perubahan kode.
 
 ## Riset Kompetitor
 
-- Berkas katalog: `apk_kompetitor.md` (root proyek), dibuat sesi 10 (2026-11-14).
-- Berkas analisa: `refrensi_apk.md` (root proyek), dibuat sesi 14 (2026-11-14) dari 10 APK berstatus `Belum Dianalisa`.
-- Total listing: 159 baris data; 10 listing `Sudah Dianalisa`, 149 listing `Belum Dianalisa`.
-- Listing yang sudah dianalisa: CPU-Z, AIDA64, Device Info HW, DevCheck, Device Info: System & CPU Info, Test Your Android, Display Tester, Battery Guru, AccuBattery, Sensors Toolbox (seluruhnya Google Play Store).
-- Sebaran: Google Play Store 53 (10 sudah dianalisa; 43 belum), F-Droid 21, GitHub 16, Apple App Store 39, Samsung Galaxy Store 14, Mi/GetApps 9, APKPure 3, Aptoide 4.
-- Oppo App Market dan Uptodown belum memiliki listing terverifikasi (tidak ada URL detail publik yang stabil; Uptodown mengembalikan HTTP 410).
-- Acuan riset: `README.md` (Spektra — info spesifikasi, monitoring hardware, dan diagnostik perangkat) dan skill `riset-kompetitor` (satu store per iterasi, verifikasi independen, status per baris).
+- Berkas katalog: `apk_kompetitor.md` (root proyek).
+- Berkas analisa: `refrensi_apk.md` (root proyek).
+- Status terbaru (sesi 20, 2026-11-14): pencarian APK kompetitor baru dilakukan store demi store untuk aplikasi sasaran `base_coc`; katalog diperbarui setelah tiap store.
+- Total listing saat ini: 64 baris data; 10 listing `Sudah Dianalisa`, 54 listing `Belum Dianalisa`.
+- Sebaran: Google Play Store 28 (10 sudah, 18 belum), GitHub 1, Apple App Store 32, APKPure 3.
+- Store tanpa listing terverifikasi pada sesi 20: F-Droid, Samsung Galaxy Store, Mi/GetApps, Oppo App Market, dan Uptodown (HTTP 410/404 berulang; tidak ada mirror resmi dengan package id sama).
+- Listing yang sudah dianalisa: COC Base Layouts Design links, COC Base Layouts:Clash of Maps, Coc Base Layout 2026, clashOFbase, Maps For COC Base Layouts 2026, Base Drop, Map Layout Links Base for COC, ClasherPro, CoC Base Maps 2026, Notificlash.
+- Katalog lama 159 listing bertema Spektra (sesi 10/14) dikosongkan pengguna sebelum sesi 19 dan tidak dipakai ulang.
+- `apk_serupa.md` tidak ditemukan di root proyek; lingkup riset mengikuti `apk_kompetitor.md` sesuai perintah pengguna.
+- Acuan riset: `base_coc/README.md` (masih template Flutter; fitur penyedia base belum ada) dan skill `riset-kompetitor`.
+
 
 
 ## Konfigurasi Kilo (Model Agent)
 
 - Sumber kebenaran: `.kilo/kilo.jsonc` (ter-`.gitignore`, jangan dianggap bagian git tree).
 - Model global: `model`, `small_model`, `subagent_model` = `kilo/kilo-auto/free`.
-- `agent.code`: `model` = `kilo/particle-ai/particle-1:free`, `variant` = `max` (per 2026-11-14, sesi 5; sebelumnya `openrouter/thinkingmachines/inkling-2-small:free`).
+- `agent.code`: `model` = `kilo/reflection/beam-free`, `variant` = `max` (per 2026-11-14, sesi 22; sebelumnya `kilo/particle-ai/particle-1:free`).
 - Perubahan model agent hanya dilakukan atas permintaan eksplisit pengguna dengan konfirmasi sebelum eksekusi; bagian config lain (permission, instructions, skills.paths, agent lain) tidak diubah.
 
 ## Konvensi & Sumber Kebenaran
@@ -78,6 +87,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `AGENTS.md` = gabungan berkas aturan di `.agents/rules/` (jangan edit `AGENTS.md` manual bila sumbernya di `.agents/rules/`; regenerasi bila ada tooling).
 - `SKILLS_INDEX.md` = indeks skill yang wajib diperbarui saat skill dibuat/diubah (lihat skill `aturan-pembuatan-skill`, `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`).
 - Skill `memori-check` (`.agents/skills/custom/memori-check/SKILL.md`) mengatur alur `memori/sesi/sesi_N.md` + sinkronisasi `MEMORI.md` di akhir sesi; baca sebelum interaksi proyek apa pun.
+- Skill `riset-kompetitor` (`.agents/skills/custom/riset-kompetitor/SKILL.md`) v1.6.0 bersifat portabel lintas proyek; konteks aplikasi sasaran wajib dibaca dari `README.md`/`AGENTS.md`/PRD, bukan di-hardcode ke dalam skill.
 - Aturan penulisan `SKILL.md`, hasil diskusi, PRD, dan `task.md` ada di `.agents/rules/global/` (`aturan_skill.md`, `format_hasil_diskusi.md`, `format_PRD.md`, `format_task.md`).
 
 ## Lokasi Berkas Memori

@@ -163,8 +163,8 @@
 - Status : diperbarui : Fri Nov 13 2026 05:33:40 WIB
 
 41. .agents/skills/custom/riset-kompetitor/SKILL.md
-- Trigger : saat menambah atau memperbarui apk_kompetitor.md atau mencari aplikasi kompetitor untuk Spektra
-- Status : diperbarui : Sat Nov 14 2026 01:35:34 WIB
+- Trigger : saat membuat atau memperbarui katalog aplikasi kompetitor proyek
+- Status : diperbarui : Sat Nov 14 2026 06:50 WIB
 
 42. .agents/skills/custom/riverpod-pola/SKILL.md
 - Trigger : saat memakai Riverpod
