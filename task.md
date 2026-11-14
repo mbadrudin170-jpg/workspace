@@ -40,6 +40,15 @@
 - prompt : hanya diisi oleh saya
 - catatan implementasi : selesai (keputusan pengguna via `question`: "Terapkan codegen penuh"). `ProgresNotifier` kini `@Riverpod(keepAlive: true)` `extends _$ProgresNotifier` dengan `build()` memanggil `_ambilSemua()`; `ProgresDesaState` menjadi `@freezed`; provider `progresProvider` dihasilkan `riverpod_generator` (bukan `StateNotifierProvider` legacy). `FavoritNotifier` juga dikonversi menjadi `@Riverpod(keepAlive: true)` dengan `build()` memanggil `_ambilSemua()`, `toggle` memperbarui state setelah DB berhasil, menangkap `Exception` + `debugPrint` lalu `rethrow`; provider `favoritProvider` dihasilkan codegen. `_muat()` mempertahankan `AsyncValue.loading` → data/error. `progresDaoProvider`, `databaseProvider`, `dbHelperProvider`, `favoritDaoProvider` tetap `Provider`/`FutureProvider` manual (bukan CRUD) dan tetap dapat di-override test. Berkas generate `*.freezed.dart`/`*.g.dart` dibuat via `build_runner`. Verifikasi: `dart format`, `dart analyze` bersih, `flutter test` 42/42 lulus (termasuk `favorit_provider_test`).
 
+# Kelompok 3
+
+## file terdampak
+
+- (base_coc/lib/fitur/upgrade_progress/screen/progres_desa_screen.dart)[base_coc/lib/fitur/upgrade_progress/screen/progres_desa_screen.dart]
+- (base_coc/lib/fitur/upgrade_progress/widget/ringkasan_kategori.dart)[base_coc/lib/fitur/upgrade_progress/widget/ringkasan_kategori.dart]
+
+## Tinggi
+
 #### Task 7
 
 - Status : selesai

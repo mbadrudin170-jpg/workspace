@@ -510,7 +510,7 @@ Jangan menentukan versi lama hanya berdasarkan:
 - Nama direktori.
 - Waktu pembuatan file.
 - Waktu modifikasi.
-- Urutan hasil perintah `ls`.
+- Urutan hasil tool `list`.
 - Urutan alfabetis.
 
 Periksa juga apakah versi tersebut merupakan:

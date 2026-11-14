@@ -3,8 +3,8 @@ name: konfigurasi-kilo-proyek
 description: "Trigger: saat membuat atau mengubah konfigurasi Kilo proyek atau command Kilo | Panduan prosedur & larangan konfigurasi `.kilo/kilo.jsonc` proyek (bukan snapshot isi config): baca `permission` sebelum `bash` (AGENTS.md aturan 11), deny mutlak, perbarui `MEMORI.md` setelah ubah config, jangan commit config tanpa perintah pengguna; plus tutorial pembuatan commands Kilo (lokasi & struktur rekursif, frontmatter, variabel template, subcommand & fallback, konvensi proyek); rujukan `.kilo/kilo.jsonc`, `.kilo/commands/`, dan dokumen resmi Kilo."
 metadata:
   kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.0"
+  diperbarui: "Sun Nov 15 2026 05:41 WIB"
 ---
 
 # Konfigurasi Kilo Proyek dan Commands Kilo
@@ -21,8 +21,8 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 ## Aturan
 
 1. Sumber kebenaran konfigurasi Kilo proyek adalah `.kilo/kilo.jsonc` (bukan `kilo.json`, bukan `~/.config/kilo/kilo.jsonc` global, bukan `docs/kilo/kilo_global.txt`). Baca ulang berkas ini setiap interaksi — nilai (terutama `permission`) dapat berubah sewaktu-waktu.
-2. Sebelum menjalankan `bash` atau tindakan lain, wajib baca bagian `permission` pada `.kilo/kilo.jsonc` (AGENTS.md aturan 11). Izin `deny` bersifat mutlak: DILARANG dilewati, diakali, atau dieksekusi lewat perintah lain (mis. `python3 *`, `sed *`, `cat *` untuk membaca berkas yang dilarang).
-3. `deny` saat ini: `bash` → `cat *`, `sed *`, `python3 *`; `read` → `*.env`, `*.env.*` (`*.env.example` diizinkan). Jangan menghafal daftar ini; verifikasi dari berkas.
+2. Sebelum menjalankan `bash` atau tindakan lain, wajib baca bagian `permission` pada `.kilo/kilo.jsonc` (AGENTS.md aturan 11). Gunakan tool bawaan lebih dahulu sesuai `.agents/rules/global/prioritas_tool_bawaan.md`; shell hanya untuk operasi tanpa padanan tool. Izin `deny` bersifat mutlak: DILARANG dilewati, diakali, atau dieksekusi lewat perintah lain.
+3. Daftar `deny` dapat berubah setiap saat; baca `.kilo/kilo.jsonc` dan jangan menghafal atau menyalin daftar tersebut ke skill/dokumen. Verifikasi dari berkas pada setiap interaksi.
 4. Config global `~/.config/kilo/kilo.jsonc` kini nyaris kosong (hanya `$schema`, terverifikasi 2026-11-12). Seluruh `permission` aktif berada di config proyek; jangan mengandalkan global.
 5. `docs/kilo/kilo_global.txt` adalah arsip usang (memuat model dan prompt inline lama, mis. `agent.code` `kilo/baidu/ernie-5.5-flash-preview:free` dan prompt `"kamu adalah pekerja saya"`). DILARANG dijadikan rujukan aktif atau dasar restore; gunakan hanya sebagai arsip historis.
 6. Setelah mengubah `.kilo/kilo.jsonc`, wajib perbarui `MEMORI.md` (bagian `File Konfigurasi & Penting` dan bagian relevan lain) dan tambah entri pada `memori/riwayat_perubahan.md`.
@@ -77,7 +77,7 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 
 ## Larangan
 
-- DILARANG melewati, mengakali, atau mendelegasikan izin `deny` (`cat *`, `sed *`, `python3 *`, `read` `*.env`/`*.env.*`) lewat perintah atau tool lain.
+- DILARANG melewati, mengakali, atau mendelegasikan izin `deny` pada `.kilo/kilo.jsonc` lewat perintah, interpreter, alias, atau tool lain.
 - DILARANG menjadikan `docs/kilo/kilo_global.txt` atau `~/.config/kilo/kilo.jsonc` sebagai sumber kebenaran permission/konfigurasi aktif proyek.
 - DILARANG menyalin isi atau nilai `.kilo/kilo.jsonc` (model, daftar permission, `instructions`) ke dalam skill, dokumen, atau command sebagai snapshot; rujuk path berkas.
 - DILARANG membuat atau mengubah `.kilo/kilo.jsonc` tanpa perintah pengguna, dan DILARANG commit/push config tanpa perintah eksplisit.
@@ -136,6 +136,14 @@ sed -n '1,20p' .env                        # DILARANG: deny `sed *` dan `read *.
 cat .env                                   # DILARANG: deny `cat *`
 ```
 
+```bash
+# Memakai shell untuk operasi yang sudah punya tool bawaan
+rg "namaFungsi" lib/                       # DILARANG: gunakan tool `grep`
+find . -name '*.dart'                      # DILARANG: gunakan tool `glob`
+ls lib/                                    # DILARANG: gunakan tool `list`
+head -n 20 lib/main.dart                   # DILARANG: gunakan tool `read`
+```
+
 ```markdown
 <!-- Snapshot config ke dalam skill/dokumen -->
 Skill ini mencatat bahwa permission proyek berisi `"*": "ask"`, `"git status *": "allow"`, ... // salah: snapshot cepat usang; rujuk .kilo/kilo.jsonc
@@ -153,7 +161,7 @@ subcommands: [satu, dua]   # salah: field tidak didukung; subcommand via $1 + fa
 
 Berkas sumber (proyek):
 
-- File: `.kilo/kilo.jsonc` (sumber kebenaran konfigurasi & permission), `AGENTS.md` (aturan 11), `docs/kilo/kilo_global.txt` (arsip usang), `MEMORI.md`, `memori/riwayat_perubahan.md`, `SKILLS_INDEX.md`
+- File: `.kilo/kilo.jsonc` (sumber kebenaran konfigurasi & permission), `AGENTS.md` (aturan 11), `.agents/rules/global/prioritas_tool_bawaan.md` (tool bawaan lebih dahulu), `docs/kilo/kilo_global.txt` (arsip usang), `MEMORI.md`, `memori/riwayat_perubahan.md`, `SKILLS_INDEX.md`
 - File: `.kilo/prompts/code.md`, `.kilo/prompts/ask.md`, `.kilo/prompts/debug.md`
 - File: `.kilo/commands/tambah_log.md`, `.kilo/commands/analisa_log.md`, `.kilo/commands/kerjakan.md`, `.kilo/commands/kerjakan_task.md`, `.kilo/commands/kerjakan_hasil_diskusi.md`, `.kilo/commands/evaluasi_size_ruang_kerja.md`, `.kilo/commands/sinkronkan_semua.md`, `.kilo/commands/mode/mode_diskusi.md`, `.kilo/commands/prd/kerjakan_prd.md`, `.kilo/commands/fitur/diskusi_fitur_baru.md`, `.kilo/commands/sinkronisasi/sinkronkan_skill_dengan_aturan.md`
 - Catatan akurasi: `contoh_menu*.md` dan `.kilo/shared/contoh_bersama.md` yang disebut pada diskusi_6 tidak ditemukan di repository (tidak pernah ter-commit); tutorial merujuk berkas nyata di atas.

@@ -33,6 +33,6 @@ Menetapkan kewajiban agar setiap berkas yang menjadi sumber aturan dan indeks sk
 ## 5. Sumber Evaluasi
 
 - Perintah pengguna (sesi 87, 2026-11-15): "tambahkan juga pengecekan bahwa semua file yang ada di .agents/rules, AGENTS.md, SKILLS_INDEX.md, wajib ada di instructions".
-- Berkas rujukan nyata: `.kilo/kilo.jsonc` (bagian `instructions`), `.agents/rules/global/` (alur_git_commit.md, format_hasil_diskusi.md, kelompok_skill_wajib.md, instructions_lengkap.md), `AGENTS.md`, `SKILLS_INDEX.md`.
+- Berkas rujukan nyata: `.kilo/kilo.jsonc` (bagian `instructions`), `.agents/rules/global/` (alur_git_commit.md, format_hasil_diskusi.md, kelompok_skill_wajib.md, instructions_lengkap.md, prioritas_tool_bawaan.md), `AGENTS.md`, `SKILLS_INDEX.md`.
 - Preseden: `kelompok_skill_wajib.md` didaftarkan ke `instructions` pada sesi 84 tanpa didaftarkan ke `AGENTS.md`.
 - Skill terkait: `.agents/skills/custom/konfigurasi-kilo-proyek/SKILL.md`, `.agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md`.

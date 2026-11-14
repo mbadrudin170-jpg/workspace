@@ -3,8 +3,8 @@ name: pembuatan-command-kilo
 description: "Trigger: saat membuat command Kilo baru atau memperbarui command Kilo | Panduan command `.kilo/commands/**.md`: lokasi rekursif, penamaan, frontmatter (`description`, `agent`, `model`, `variant`, `subtask`), parameter `$ARGUMENTS`/`$1`–`$N` dengan fallback `question`, struktur standar (Tujuan, Ketentuan Umum, Cakupan, Alur Kerja Analyze→Plan→Execute→Review, Format Laporan, Larangan, Kriteria Selesai/STOP), penanganan ambiguitas, rujukan wajib ke skill yang relevan, dan checklist verifikasi."
 metadata:
   kategori: "custom"
-  versi: "1.2.2"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.3.0"
+  diperbarui: "Sun Nov 15 2026 05:41 WIB"
 ---
 
 # Membuat dan Memperbarui Command Kilo
@@ -44,10 +44,11 @@ Mengatur cara membuat dan memperbarui command Kilo di `.kilo/commands/` agar pen
 17. Jika command mengubah berkas, wajib meminta konfirmasi pengguna sebelum menulis, dan sebutkan berkas target pada laporan.
 18. Setelah membuat atau memperbarui command, perbarui `MEMORI.md` dan `memori/riwayat_perubahan.md` melalui berkas sesi `memori/sesi/sesi_N.md`.
 19. Jika command menjadi usang (mis. target yang dirujuk sudah tidak ada), laporkan kepada pengguna dan usulkan penghapusan atau penggantian; jangan membiarkan command usang tetap aktif.
+20. Instruksi command wajib memakai tool bawaan lebih dahulu (`read`, `glob`, `grep`, `list`, `edit`, `write`, `webfetch`, `websearch`) sesuai `.agents/rules/global/prioritas_tool_bawaan.md`; DILARANG menyuruh `rg`, `grep`, `find`, `ls`, `cat`, `head`, atau `tail` untuk operasi yang dapat dilakukan tool tersebut.
 
 ## Steps
 
-1. Tentukan tujuan command dan periksa apakah sudah ada command sejenis (`ls .kilo/commands/` dan `rg` isi command).
+1. Tentukan tujuan command dan periksa apakah sudah ada command sejenis (daftar isi `.kilo/commands/` dengan tool `glob`, lalu cari isi command dengan tool `grep`).
 2. Tentukan lokasi berkas: root `.kilo/commands/` atau subdirektori yang sesuai.
 3. Tentukan nama berkas sesuai aturan 2.
 4. Susun frontmatter sesuai aturan 3–4.
@@ -72,6 +73,7 @@ Mengatur cara membuat dan memperbarui command Kilo di `.kilo/commands/` agar pen
 - DILARANG mengubah kode Dart, berkas hasil generate, atau konfigurasi Kilo tanpa perintah eksplisit pengguna.
 - DILARANG commit/push hasil pembuatan atau pembaruan command.
 - DILARANG menyalin isi command ke skill atau dokumen lain; gunakan path berkas.
+- DILARANG menulis instruksi command yang memakai shell (`rg`, `grep`, `find`, `ls`, `cat`, `head`, `tail`) untuk operasi yang dapat dilakukan tool bawaan (`read`, `glob`, `grep`, `list`, `edit`, `write`).
 
 ## Contoh Benar
 
@@ -91,7 +93,7 @@ Jelaskan tujuan command dalam satu paragraf.
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya.
 2. Muat skill `memori-check` (`.agents/skills/custom/memori-check/SKILL.md`) melalui tool `skill` sebelum bekerja; muat juga skill lain yang trigger-nya terpenuhi.
 3. Gunakan bahasa Indonesia baku untuk seluruh laporan.
-4. Jangan menggunakan terminal untuk membaca berkas; gunakan tool `read`/`glob`/`rg`.
+4. Jangan menggunakan terminal untuk membaca berkas; gunakan tool `read`/`glob`/`grep`/`list`.
 
 ## Cakupan
 
@@ -158,7 +160,7 @@ Command di atas DILARANG bila ada skill yang trigger-nya terpenuhi oleh tujuan c
 
 - Berkas command nyata di proyek: `.kilo/commands/tambah_log.md`, `.kilo/commands/analisa_log.md`, `.kilo/commands/kerjakan_hasil_diskusi.md`, `.kilo/commands/mode/mode_diskusi.md`, `.kilo/commands/analisa/analisa_kesehatan_kode_alur.md`, `.kilo/commands/evaluasi_aturan.md`, `.kilo/commands/evaluasi_aturan_khusus.md`, `.kilo/commands/salin_konfigurasi_ke_global.md`
 - Skill terkait: `.agents/skills/custom/konfigurasi-kilo-proyek/SKILL.md`
-- Aturan terkait: `.agents/rules/global/format_hasil_diskusi.md`, `.agents/skills/custom/format-task-md/SKILL.md`, `.agents/skills/custom/format-prd/SKILL.md`
+- Aturan terkait: `.agents/rules/global/format_hasil_diskusi.md`, `.agents/rules/global/prioritas_tool_bawaan.md`, `.agents/skills/custom/format-task-md/SKILL.md`, `.agents/skills/custom/format-prd/SKILL.md`
 - Konvensi trigger: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` (aturan 8)
 - Dokumentasi resmi Kilo (wajib dibaca): `https://kilo.ai/docs/customize/workflows` (frontmatter, parameter, model/variant, kapabilitas tool, reserved name `goal`) dan `https://kilo.ai/docs/customize/prompt-engineering` (spesifik, konteks, pemecahan tugas, contoh, format keluaran, Analyze → Plan → Execute → Review, penanganan ambiguitas)
-- Perintah pengguna rujukan: sesi 61 (2026-11-15) — optimasi command berdasarkan kedua dokumen resmi di atas; sesi 63 (2026-11-15) — setiap command wajib menyertakan skill yang relevan (aturan 16, v1.2.0)
+- Perintah pengguna rujukan: sesi 61 (2026-11-15) — optimasi command berdasarkan kedua dokumen resmi di atas; sesi 63 (2026-11-15) — setiap command wajib menyertakan skill yang relevan (aturan 16, v1.2.0); sesi 106 (2026-11-15) — command wajib memakai tool bawaan lebih dahulu (aturan 20)
