@@ -28,7 +28,7 @@ Command ini bersifat global dan portabel lintas proyek. Jangan mengasumsikan nam
 
 9. **Satu run mencakup semua store** — setiap kali perintah ini dijalankan, riset dikerjakan store demi store dalam satu run, bukan dibatasi satu store:
    - Mulai dari store pertama (**Google Play Store** sebagai prioritas).
-    - Urutan store: **Google Play Store → F-Droid → GitHub → Apple App Store → Samsung Galaxy Store → Mi/GetApps → Oppo App Market → Vivo V-Appstore → Amazon Appstore → Huawei AppGallery → Aurora Store → store lainnya** (instruksi eksplisit pengguna, 2026-11-13; perubahan 2026-11-14: satu run mencakup semua store; perubahan 2026-11-15: Amazon Appstore dan Huawei AppGallery ditambahkan atas perintah pengguna; penambahan 2026-11-15: Vivo V-Appstore (setelah Oppo App Market) dan Aurora Store (sebelum store lainnya) atas perintah pengguna).
+    - Urutan store: **Google Play Store → F-Droid → GitHub → Apple App Store → Samsung Galaxy Store → Mi/GetApps → Oppo App Market → Vivo V-Appstore → Amazon Appstore → Huawei AppGallery → Aurora Store → store lainnya** (instruksi eksplisit pengguna, 2026-11-13; perubahan 2026-11-14: satu run mencakup semua store; perubahan 2026-11-15: Amazon Appstore dan Huawei AppGallery ditambahkan atas perintah pengguna — catatan 2026-11-15: Amazon Appstore untuk Android dihentikan 2025-08-20, sisanya hanya rujukan FAQ/historis; penambahan 2026-11-15: Vivo V-Appstore (setelah Oppo App Market) dan Aurora Store (sebelum store lainnya) atas perintah pengguna; perbaikan tautan 2026-11-15: Samsung Galaxy Store → `galaxystore.samsung.com`, OPPO → `oppomobile.com`, Vivo → `h5.appstore.vivo.com.cn`, Amazon → halaman FAQ `https://www.amazon.com/app-android`. Catatan: Amazon Appstore tidak lagi tersedia untuk Android; bila riset dijalankan, store ini dilewati dengan catatan eksplisit di `apk_kompetitor.md`).
    - Setelah seluruh kandidat dari suatu store terverifikasi independen (curl / iTunes lookup / webfetch) dan ditambahkan ke `apk_kompetitor.md`, perbarui `apk_kompetitor.md` terlebih dahulu sebelum lanjut ke store berikutnya.
    - DILARANG melewati store tanpa mencatat hasilnya (termasuk nihil temuan) ke `apk_kompetitor.md` atau laporan; DILARANG berhenti setelah satu store bila masih ada store dalam urutan yang belum diriset.
    - Catatan: skill `riset-kompetitor` aturan #10 dan aturan #5 (urutan default) ikut disesuaikan 2026-11-14 (satu run mencakup semua store; versi 1.6.1) agar konsisten dengan command ini.
@@ -53,8 +53,8 @@ Gunakan tautan berikut saat mengakses store (dipatok dan diperbarui perintah pen
 | Xiaomi GetApps (Mi/GetApps) | <https://www.apkmirror.com/apk/xiaomi-inc/xiaomi-market-2/> | Tersedia via APKMirror (contoh) |
 | OPPO App Market | <https://www.oppomobile.com/> | Halaman resmi 软件商店 (深圳市欢太科技有限公司); tautan unduh APK terverifikasi. Alternatif: oppo.com.cn → 服务支持 > 软件下载 (tidak terverifikasi dari mesin ini) |
 | Vivo V-Appstore | <https://h5.appstore.vivo.com.cn/> | Etalase resmi H5 "乐享好应用-vivo应用商店" (root `appstore.vivo.com.cn` bukan etalase; tidak layak) |
-| F-Droid | <https://f-droid.org/F-Droid.apk> | — |
-| Aurora Store | <https://auroraoss.com/aurora-store> | — |
+| F-Droid | <https://f-droid.org/F-Droid.apk> | Tautan unduhan resmi APK klien F-Droid (biner >5MB); etalase: <https://f-droid.org/> |
+| Aurora Store | <https://auroraoss.com/aurora-store> | Domain resmi AuroraOSS (halaman JS); unduhan resmi: <https://auroraoss.com/files/AuroraStore/Release> |
 
 ## Kriteria Selesai / STOP
 
