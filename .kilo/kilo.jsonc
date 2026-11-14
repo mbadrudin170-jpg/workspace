@@ -170,8 +170,7 @@
   "skills": {
     "paths": [
       ".agents/skills/custom",
-      ".agents/skills",
-      ".agents/skills/bawaan"
+      ".agents/skills"
     ]
   },
   "retention": {

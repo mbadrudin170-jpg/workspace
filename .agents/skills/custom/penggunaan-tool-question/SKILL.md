@@ -59,10 +59,6 @@ Mengatur cara memanggil tool `question` Kilo agar setiap pertanyaan, permintaan 
         {
           "label": "custom (Recommended)",
           "description": "Panduan khusus proyek ini, sesuai konvensi skill kustom."
-        },
-        {
-          "label": "bawaan",
-          "description": "Skill bawaan yang dibagikan lintas proyek."
         }
       ],
       "multiple": false,

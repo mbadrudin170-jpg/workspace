@@ -4,7 +4,6 @@
 2. file yang harus dibaca terlebih dahulu dan patuhi aturan di dalamnya:
    - `AGENTS.md`
    - `.agents/rules/global`
-   - `.agents/skills/bawaan`
    - `.agents/skills/custom`
    - `.agents/rules/global/format_PRD.md`
 

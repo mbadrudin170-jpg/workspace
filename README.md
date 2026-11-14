@@ -28,8 +28,7 @@ Repositori induk untuk menghimpun aturan, skill, snippet, skrip bantu, dan proye
 | `.agents/rules/global/` | 19 berkas aturan global Flutter/Dart, format dokumen, dan standar optimasi |
 | `.agents/rules/proyek/` | 2 berkas aturan khusus proyek |
 | `.agents/rules/AGENTS.md` | Gabungan berkas aturan yang menjadi sumber `AGENTS.md` root |
-| `.agents/skills/custom/` | 57 skill buatan/kurasi pengguna |
-| `.agents/skills/bawaan/` | 33 skill bawaan Dart/Flutter |
+| `.agents/skills/custom/` | 59 skill buatan/kurasi pengguna |
 | `AGENTS.md` | Gabungan aturan yang dibaca agen AI |
 | `SKILLS_INDEX.md` | Indeks skill berisi trigger dan status pembaruan |
 | `skills-lock.json` | Kunci versi dan hash skill yang dipasang |
@@ -55,7 +54,7 @@ script/build_rules_context.sh
 
 ### Skill
 
-Skill disimpan di `.agents/skills/` dan dimuat sesuai trigger pekerjaan. `SKILLS_INDEX.md` mencatat trigger serta waktu pembaruan setiap skill, sedangkan `skills-lock.json` mengunci versi dan hash skill yang dipasang. Skill buatan pengguna berada di `custom/`, sedangkan skill bawaan Dart/Flutter berada di `bawaan/`.
+Skill disimpan di `.agents/skills/custom/` dan dimuat sesuai trigger pekerjaan. `SKILLS_INDEX.md` mencatat trigger serta waktu pembaruan setiap skill, sedangkan `skills-lock.json` mengunci versi dan hash skill yang dipasang.
 
 ### Snippet VS Code
 
