@@ -1,5 +1,7 @@
 # MEMORI — Proyek workspace
 
+Diperbarui: Sat Nov 14 2026 16:30 WIB (sesi 35)
+
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
 ## Informasi Proyek
@@ -100,8 +102,8 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 ## Hasil Diskusi
 
 - Lokasi: `hasil_diskusi/` di root proyek (dibuat 2026-11-14, sesi 12).
-- Daftar berkas: `diskusi_1.md` — perluasan cakupan command `perbarui_readme.md` ke README submodule (status Final, sudah diimplementasikan); `diskusi_2.md` — sistem kerja global: alur Git & commit (Conventional Commits + Trunk-based) (status Final, sudah diimplementasikan sebagian); `diskusi_3.md` — lanjutan: PR, review, tag, changelog, pengecualian, submodule (status Final, sebagian diimplementasikan).
-- Nomor tertinggi: 3.
+- Daftar berkas: `diskusi_1.md` — perluasan cakupan command `perbarui_readme.md` ke README submodule (status Final, sudah diimplementasikan); `diskusi_2.md` — sistem kerja global: alur Git & commit (Conventional Commits + Trunk-based) (status Final, sudah diimplementasikan sebagian); `diskusi_3.md` — lanjutan: PR, review, tag, changelog, pengecualian, submodule (status Final, sebagian diimplementasikan); `diskusi_4.md` — penambahan tanggal diperbarui pada `MEMORI.md` dan instruksi di skill `memori-check` (status Final, belum diimplementasikan); `diskusi_5.md` — analisa mengapa agen AI tidak menggunakan mockito saat membuat test, plus rekomendasi R-1..R-5 (status Final, belum diimplementasikan).
+- Nomor tertinggi: 5.
 
 ## Catatan untuk Model Selanjutnya
 
