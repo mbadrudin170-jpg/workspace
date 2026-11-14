@@ -12,13 +12,13 @@ Menilai kesehatan kode pada commit Dart terbaru: kesesuaian dengan paket/SDK Flu
 ## Ketentuan Umum
 
 1. Wajib membaca `AGENTS.md`, `catatan.md`, dan `task.md` lebih dahulu.
-2. Baca `.agents/rules/global/format_task.md` sebelum menulis `task.md`.
+2. Muat skill `format-task-md` (`.agents/skills/custom/format-task-md/SKILL.md`) melalui tool `skill` sebelum menulis `task.md`.
 3. Untuk paket/SDK: baca versi pada `pubspec.yaml`, lalu verifikasi ke pub.dev/dokumentasi resmi sebagai sumber kebenaran.
 4. Gunakan bahasa Indonesia baku.
 
 ## Cakupan
 
-- Commit Dart pada branch `master`.
+- Commit Dart pada branch aktif repository (nama branch apa pun, mis. `main`, `master`, `develop`); tidak dikhususkan ke `master`.
 - Berkas yang boleh diubah hanya `catatan.md` dan `task.md`.
 
 ## Parameter
@@ -28,9 +28,9 @@ Menilai kesehatan kode pada commit Dart terbaru: kesesuaian dengan paket/SDK Flu
 
 ## Alur Kerja
 
-1. **Analyze** — baca bagian `# Evaluasi kesehatan code dari commit` pada `catatan.md` untuk mengetahui commit terakhir yang dievaluasi; bila belum ada, ambil 5 commit terakhir.
-2. **Plan** — tentukan daftar commit yang akan dievaluasi (setelah commit terakhir tercatat hingga `HEAD`); abort commit baru yang muncul saat evaluasi berjalan; baca dari yang terlama ke terbaru.
-3. **Execute** — periksa hanya perubahan kode Dart; bandingkan dengan SDK/Flutter dan skill; catat setiap ketidaksesuaian ke `task.md` sesuai `format_task.md`.
+1. **Analyze** — tentukan branch aktif repository (mis. `git branch --show-current`) dan catat pada laporan; baca bagian `# Evaluasi kesehatan code dari commit` pada `catatan.md` untuk mengetahui commit terakhir yang dievaluasi; bila belum ada, ambil 5 commit terakhir pada branch aktif.
+2. **Plan** — tentukan daftar commit yang akan dievaluasi (setelah commit terakhir tercatat hingga `HEAD` pada branch aktif); abort commit baru yang muncul saat evaluasi berjalan; baca dari yang terlama ke terbaru.
+3. **Execute** — periksa hanya perubahan kode Dart; bandingkan dengan SDK/Flutter dan skill; catat setiap ketidaksesuaian ke `task.md` sesuai skill `format-task-md`.
 4. **Review** — perbarui `catatan.md` bagian `# Evaluasi kesehatan code dari commit` dengan commit terakhir yang dievaluasi; pastikan tidak ada berkas lain yang berubah.
 
 ## Format Laporan
@@ -52,4 +52,4 @@ Sertakan hash commit terakhir yang dicatat.
 ## Kriteria Selesai / STOP
 
 - Selesai bila seluruh commit dalam rentang dievaluasi, `task.md` diperbarui bila perlu, dan `catatan.md` mencatat commit terakhir.
-- STOP bila berkas wajib tidak ditemukan atau branch `master` tidak tersedia.
+- STOP bila berkas wajib tidak ditemukan atau repositori git/`HEAD` tidak tersedia.
