@@ -77,7 +77,8 @@
       "dart *": "allow",
       "timeout *": "allow",
       "date *": "allow",
-      "mkdir *": "allow"
+      "mkdir *": "allow",
+      "perl": "deny"
     },
     "external_directory": {
       "/home/mbadrudin170/.pub-cache/*": "allow",
