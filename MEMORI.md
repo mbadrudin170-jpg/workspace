@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Sat Nov 14 2026 16:38 WIB (sesi 45)
+Diperbarui: Sat Nov 14 2026 16:41 WIB (sesi 46)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -63,6 +63,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `MEMORI.md` dan `memori/` dibuat pada sesi 1 (2026-11-14); sebelumnya belum ada.
 - `.kilo/commands/perbarui_readme.md` — diperluas pada sesi 12 (2026-11-14) agar memperbarui `README.md` root **dan** README setiap submodule (daftar dibaca dinamis dari `.gitmodules`); `.kilo/` ter-`.gitignore`, perubahan hanya di working tree.
 - `.kilo/commands/cari_apk_kompetitor.md` — diperbarui pada sesi 16 (2026-11-14) menjadi portabel/global: nama aplikasi dan daftar fitur proyek dihapus; acuan aplikasi sasaran dibaca dari `README.md`, `AGENTS.md`, PRD, atau dokumen produk proyek. `.kilo/` ter-`.gitignore`, perubahan hanya di working tree.
+- `.kilo/commands/fitur/diskusi_fitur_baru.md` — diperbaiki pada sesi 46 (2026-11-14): aturan 6 diarahkan ke aturan 19-20, dan aturan 19-20 ditambahkan agar header `Status Implementasi` PRD untuk sesi tanpa ubah kode wajib `Belum Diimplementasikan`; temuan "fondasi fitur sudah ada" dicatat di `Status pengembangan` (bagian 1) dan/atau `Pemeriksaan Implementasi`, bukan header. `.kilo/` ter-`.gitignore`, perubahan hanya di working tree. Rujukan: `hasil_diskusi/diskusi_7.md`.
 - Pencarian kata `spektra` (sesi 18, 2026-11-14): 13 kecocokan di 8 berkas — `.agents/skills/custom/struktur-folder-lib/SKILL.md` (2), `MEMORI.md` (1), `share_global_saya/docs/lib.md` (2), `share_global_saya/SKILLS_INDEX.md` (1), `memori/riwayat_perubahan.md` (1), `memori/sesi/sesi_10.md` (3), `memori/sesi/sesi_14.md` (2), dan `.kilo/commands/salin_konfigurasi_ke_global.md` (1); tidak ada perubahan kode.
 
 ## Riset Kompetitor
@@ -107,8 +108,8 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 ## Hasil Diskusi
 
 - Lokasi: `hasil_diskusi/` di root proyek (dibuat 2026-11-14, sesi 12).
-- Daftar berkas: `diskusi_1.md` — perluasan cakupan command `perbarui_readme.md` ke README submodule (status Final, sudah diimplementasikan); `diskusi_2.md` — sistem kerja global: alur Git & commit (Conventional Commits + Trunk-based) (status Final, sudah diimplementasikan sebagian); `diskusi_3.md` — lanjutan: PR, review, tag, changelog, pengecualian, submodule (status Final, sebagian diimplementasikan); `diskusi_4.md` — penambahan tanggal diperbarui pada `MEMORI.md` dan instruksi di skill `memori-check` (status Final, belum diimplementasikan); `diskusi_5.md` — analisa mengapa agen AI tidak menggunakan mockito saat membuat test, plus rekomendasi R-1..R-5 (status Final, belum diimplementasikan); `diskusi_6.md` — praktik skrip shell: chmod, alias, variabel argumen (status Final, belum diimplementasikan).
-- Nomor tertinggi: 6.
+- Daftar berkas: `diskusi_1.md` — perluasan cakupan command `perbarui_readme.md` ke README submodule (status Final, sudah diimplementasikan); `diskusi_2.md` — sistem kerja global: alur Git & commit (Conventional Commits + Trunk-based) (status Final, sudah diimplementasikan sebagian); `diskusi_3.md` — lanjutan: PR, review, tag, changelog, pengecualian, submodule (status Final, sebagian diimplementasikan); `diskusi_4.md` — penambahan tanggal diperbarui pada `MEMORI.md` dan instruksi di skill `memori-check` (status Final, belum diimplementasikan); `diskusi_5.md` — analisa mengapa agen AI tidak menggunakan mockito saat membuat test, plus rekomendasi R-1..R-5 (status Final, belum diimplementasikan); `diskusi_6.md` — praktik skrip shell: chmod, alias, variabel argumen (status Final, belum diimplementasikan); `diskusi_7.md` — penyebab status PRD `Sedang Diimplementasikan` dan perbaikan command `diskusi_fitur_baru.md` (status Final, sudah diimplementasikan).
+- Nomor tertinggi: 7.
 
 ## Catatan untuk Model Selanjutnya
 
