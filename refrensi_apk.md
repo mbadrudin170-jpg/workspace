@@ -50,6 +50,7 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 
 ### Prioritas Tinggi
 
+<!-- PRD: prd_galeri_base_terfilter.md -->
 #### A1. Galeri base terfilter per Town Hall dan tipe base
 
 - **Temuan:** Seluruh kompetitor utama menyediakan katalog base yang dikelompokkan berdasarkan Town Hall, Builder Hall, dan tujuan pertahanan (war, farming, trophy, hybrid, CWL).
@@ -58,6 +59,7 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Saran:** gunakan struktur data `TownHallLevel`, `BuilderHallLevel`, `TipeBase`, dan `GayaBase`; tampilkan filter sebagai chip horizontal di atas grid. Untuk MVP, batasi pada TH dan tipe base agar data awal tidak terlalu besar.
 - **Prioritas:** Tinggi.
 
+<!-- PRD: prd_copy_base_link.md -->
 #### A2. Copy base link satu ketuk
 
 - **Temuan:** Kompetitor menjadikan tombol copy sebagai aksi utama; deskripsi menekankan "one-tap copy" dan pembukaan otomatis ke game.
