@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Sat Nov 14 2026 20:43 WIB (sesi 54)
+Diperbarui: Sat Nov 14 2026 23:16 WIB (sesi 56)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -22,7 +22,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 | `.agents/rules/AGENTS.md` | Berkas aturan gabungan (sumber AGENTS.md root) |
 | `.agents/skills/custom/` | Skill buatan/kurasi pengguna |
 | `.agents/skills/bawaan/` | Skill bawaan (Flutter/Dart) |
-| `AGENTS.md` | Gabungan aturan (712 baris; dibaca agent AI) |
+| `AGENTS.md` | Gabungan aturan (738 baris; dibaca agent AI) |
 | `SKILLS_INDEX.md` | Indeks skill (trigger + status pembaruan) |
 | `skills-lock.json` | Lock versi skill |
 | `script/*.sh` | Skrip bantu (build docs, snippets, struktur proyek, dsb.) |
@@ -71,6 +71,8 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - PRD `prd/prd_preview_base_zoom.md` (item A3 preview base resolusi tinggi dengan pinch-to-zoom) dibuat dan diperbarui pada sesi 53 (catch-up sync sesi 54): status dokumen `Draft`, implementasi `Belum Diimplementasikan`; keputusan diskusi: skema data field detail terpisah (mis. `detailImagePath`) dengan fallback `thumbnailPath`, aset bundel lokal offline dua ukuran bila tersedia, galeri tetap thumbnail, tanpa penanda trap. Item A3 pada `refrensi_apk.md` ditandai sudah dibuatkan PRD. Belum di-commit (working tree `M refrensi_apk.md` + `?? prd/`).
 - Skill `.agents/skills/custom/model-state-freezed-abstract/SKILL.md` digabung dengan cakupan Freezed state + model (JSON + DB) pada sesi 54 (v1.1.1 → v2.0.0): menambahkan pola Freezed state dari commit `share_global_saya` (`LogDebugState` `@freezed` + notifier Riverpod), contoh model JSON dari SDK resmi package:freezed, dan larangan mengedit berkas hasil generate; pola model DB lama (`fromSqflite`/`toSqflite`/`ParserUtil`/UTC) dipertahankan. Folder skill baru `freezed-model-state` yang sempat dibuat dihapus karena tumpang tindih trigger. `SKILLS_INDEX.md` (root + `share_global_saya`) tidak menambah entri baru, hanya memperbarui status. Rujukan: `hasil_diskusi/diskusi_9.md`. Tidak ada kode Dart yang diubah.
 - Temuan audit yang masih menunggu penanganan (belum diperbaiki, di luar cakupan `task.md`): tautan markdown keliru `[AGENTS.md](http://AGENTS.md)` pada `.kilo/commands/fitur/diskusi_fitur_baru.md`; beberapa command `.kilo/commands/` belum memakai frontmatter `description` (mis. `scan.md`, `kerjakan_task.md`, `cek_linter.md`). Temuan tautan markdown pada `kerjakan_task.md` dan `analisa_kesehatan_kode.md` sudah diperbaiki (sesi 47, tindak lanjut 5 diskusi 8); tabel tindak lanjut `diskusi_8.md` sudah ditandai selesai (sesi 50).
+- Aturan skill diperkuat (sesi 56, 2026-11-14): `.agents/rules/global/aturan_skill.md` kini menyatakan **skill adalah aturan yang mengikat** — paragraf tegas pada §1, butir pelanggaran isi skill pada §6, butir checklist §11, dan bagian baru §12 "Skill sebagai Aturan yang Mengikat" (7 butir: status mengikat, kewajiban memuat skill sebelum mengubah kode/dokumen, larangan mengabaikan, rujukan silsilah, pelaporan benturan aturan, pembaruan skill tunduk pada §4/§5/§7/§8/§9/§11, keterlacakan di `SKILLS_INDEX.md`). Perubahan dicerminkan pada blok `aturan_skill.md` di `AGENTS.md` (738 baris). `AGENTS.md` bukan salin-tempel identik dari berkas sumber (ada reformat markdown) sehingga pencerminan dilakukan manual per blok. Perubahan `aturan_skill.md` + `AGENTS.md` sudah ter-commit pada `c113f30` (2026-11-14 16:16 UTC, pesan "a"; commit oleh tooling/pengguna, bukan oleh agent).
+- Temuan (sesi 56, belum ditangani, di luar cakupan permintaan): `.agents/rules/global/alur_git_commit.md` (ditambahkan sesi 28) **belum** pernah digabung ke `AGENTS.md`, sehingga aturan alur Git/commit hanya ada di berkas sumber dan tidak terbaca agen yang hanya membaca `AGENTS.md`. Penyeragaman menunggu persetujuan pengguna.
 - `.agents/skills/custom/pembuatan-command-kilo/SKILL.md` — dibuat pada sesi 47 (2026-11-14, v1.0.0): panduan pembuatan/perbaruan command Kilo (lokasi rekursif `.kilo/commands/`, penamaan `[a-z0-9_]`, frontmatter `description`/`agent`/`model`/`variant`/`subtask`, variabel `$ARGUMENTS`/`$1`–`$N`, larangan `@file` dan `` !`cmd` ``, pola subcommand + fallback `question`, alur laporan, larangan, checklist verifikasi). Aturan format command **tidak** ditambahkan ke `.agents/rules/global/`. `SKILLS_INDEX.md` disinkronkan.
 - `.kilo/commands/saran_aturan_baru.md` — **dihapus** pada sesi 47 (2026-11-14) atas perintah pengguna. `scan.md` dan `analisa_kesehatan_kode.md` **tidak** disatukan (keduanya tetap berdiri sendiri). `.kilo/` ter-`.gitignore`, perubahan hanya di working tree.
 - `.kilo/commands/sinkronisasi/sinkronkan_commands.md` — **dihapus** pada sesi 47 (2026-11-14) atas perintah pengguna karena folder mirror `gpt/` yang menjadi targetnya sudah tidak ada. Skill `konfigurasi-kilo-proyek` (v1.0.0 → v1.0.1) disesuaikan: rujukan mirror `gpt/`, contoh subfolder `sinkronisasi/`, dan daftar `Sumber Evaluasi` tidak lagi menunjuk berkas yang dihapus. `.kilo/` ter-`.gitignore`, perubahan hanya di working tree.
@@ -106,6 +108,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 
 - `AGENTS.md` = gabungan berkas aturan di `.agents/rules/` (jangan edit `AGENTS.md` manual bila sumbernya di `.agents/rules/`; regenerasi bila ada tooling).
 - `SKILLS_INDEX.md` = indeks skill yang wajib diperbarui saat skill dibuat/diubah (lihat skill `aturan-pembuatan-skill`, `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`).
+- **Skill = aturan.** Skill yang trigger-nya terpenuhi bersifat **mengikat** (`.agents/rules/global/aturan_skill.md` §12, dicerminkan di `AGENTS.md`): wajib dimuat melalui tool `skill` **sebelum** mengubah kode/dokumen, lalu seluruh `## Aturan` dan `## Larangan` di dalamnya dijalankan. Mengabaikan skill yang trigger-nya terpenuhi diperlakukan sebagai pelanggaran aturan dengan bobot sama seperti mengabaikan `.agents/rules/`.
 - Skill `memori-check` (`.agents/skills/custom/memori-check/SKILL.md`) mengatur alur `memori/sesi/sesi_N.md` + sinkronisasi `MEMORI.md` di akhir sesi; baca sebelum interaksi proyek apa pun.
 - Skill `riset-kompetitor` (`.agents/skills/custom/riset-kompetitor/SKILL.md`) v1.6.0 bersifat portabel lintas proyek; konteks aplikasi sasaran wajib dibaca dari `README.md`/`AGENTS.md`/PRD, bukan di-hardcode ke dalam skill.
 - Aturan alur Git & commit (Conventional Commits, Trunk-based, penamaan branch prefix wajib, Squash merge, Semver + changelog, wajib PR tanpa commit langsung ke `main`, template PR wajib, minimal 1 reviewer tanpa auto-merge, tag manual oleh maintainer, changelog Keep a Changelog wajib commit, berlaku root + submodule) tersimpan di `.agents/rules/global/alur_git_commit.md` (diperbarui sesi 28; rujukan hasil diskusi `hasil_diskusi/diskusi_2.md` dan `diskusi_3.md`).
@@ -125,6 +128,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 ## Catatan untuk Model Selanjutnya
 
 - Baca `AGENTS.md` (aturan) dan `SKILLS_INDEX.md` sebelum bertindak; muat skill yang relevan via tool `skill`.
+- Perlakukan skill sebagai aturan yang mengikat (`.agents/rules/global/aturan_skill.md` §12): muat skill yang trigger-nya terpenuhi sebelum mengubah kode/dokumen, jalankan seluruh `## Aturan` dan `## Larangan`, dan laporkan pelanggaran/benturan isi skill kepada pengguna.
 - Jangan mengarang informasi proyek; nyatakan tidak diketahui bila data tidak tersedia.
 - Konfirmasi sebelum commit/push; jangan ubah lingkup tanpa persetujuan pengguna.
 - Working tree kotor ≠ rusak; periksa `git status`/`git diff` sebelum menyimpulkan.
