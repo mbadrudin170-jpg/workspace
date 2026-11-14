@@ -1,7 +1,7 @@
 # PRD — Kategori Strategi Lanjutan (Tag Strategi Base)
 
 **Status Dokumen:** Final
-**Status Implementasi:** Belum Diimplementasikan
+**Status Implementasi:** Sedang Diimplementasikan
 
 ---
 
