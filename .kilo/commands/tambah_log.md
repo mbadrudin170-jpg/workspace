@@ -5,6 +5,11 @@ agent: code
 
 # TUJUAN UTAMA
 
+## Parameter
+
+- `$ARGUMENTS`: path berkas Dart target dan variabel/parameter yang ingin diberi log.
+- Jika `$ARGUMENTS` kosong atau berkas target tidak jelas: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
+
 Perintahkan AI untuk menambahkan baris log debug terstruktur menggunakan utilitas kelas `L` pada file-file Dart yang ditentukan oleh pengguna secara presisi, terstruktur, tidak berlebihan, dan mematuhi arsitektur logging proyek.
 
 # REFERENSI PATH & ARSITEKTUR KODE
@@ -73,3 +78,8 @@ AI wajib mengikuti pola dan redaksi berikut secara konsisten:
 2. **Dilarang Salah Posisi:** Dilarang menggunakan metode `L.i()`, `L.w()`, atau `L.e()` sebelum baris `L.init();` dipanggil.
 3. **Dilarang Ubah Logika Bisnis:** AI dilarang memodifikasi logika program, struktur pengendali alur (`if`/`for`), atau kode Dart di luar penambahan fungsi logging.
 4. **Dilarang Pakai Terminal untuk Edit:** Wajib menggunakan tool `edit` yang disediakan, dilarang menggunakan manipulasi file via terminal command.
+
+# KRITERIA SELESAI / STOP
+
+- **Selesai** bila log ditambahkan pada titik yang diminta, `flutter analyze` pada berkas terkait bersih, dan laporan disampaikan.
+- **STOP** bila berkas target tidak ditemukan atau `L.init();` tidak dapat dipastikan posisinya; laporkan sebelum mengedit.

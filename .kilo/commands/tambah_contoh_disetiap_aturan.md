@@ -8,6 +8,12 @@ agent: code
 
 ## 1. Tujuan
 
+## 0. Parameter
+
+- `$ARGUMENTS` (opsional): path berkas aturan yang ingin difokuskan.
+- Jika `$ARGUMENTS` kosong: audit seluruh berkas aturan yang terdeteksi.
+- Jika `$ARGUMENTS` menunjuk berkas yang tidak ada: **STOP** dan laporkan.
+
 Saya ingin setiap aturan dalam proyek memiliki contoh yang mempermudah AI memahami maksud, batasan, dan cara menerapkannya.
 
 Tugas Anda adalah membaca seluruh file aturan yang berlaku di proyek, mengevaluasi apakah setiap aturan membutuhkan contoh, kemudian menambahkan contoh benar dan salah berdasarkan sumber teknis yang benar-benar tersedia.

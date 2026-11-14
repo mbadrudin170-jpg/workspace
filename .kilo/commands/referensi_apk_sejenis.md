@@ -1,7 +1,17 @@
+---
+description: Meneliti aplikasi Android sejenis untuk referensi fitur baru, peningkatan fitur, serta UI/UX, lalu memperbarui `refrensi_apk.md` tanpa mengubah kode.
+---
+
 # Referensi APK Sejenis
 
 **Path file:** `.kilo/commands/referensi_apk_sejenis.md`  
 **Nama command:** `/referensi_apk_sejenis`
+
+## Parameter
+
+- `$ARGUMENTS` (opsional): kategori aplikasi, nama aplikasi referensi, atau fokus (fitur/UI/UX).
+- Jika `$ARGUMENTS` kosong: tentukan kategori dari dokumen proyek.
+- Jika informasi proyek tidak tersedia: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
 
 ## Tujuan
 
@@ -290,3 +300,8 @@ Jangan menyatakan file berhasil diperbarui apabila perubahan belum benar-benar t
 - Kerjakan bagian yang tidak bertentangan dengan aturan proyek dan laporkan bagian yang tidak dapat dilakukan.
 
 **Hasil akhir yang diharapkan:** File `refrensi_apk.md` berisi referensi aplikasi sejenis yang relevan, dikelompokkan berdasarkan fitur baru, peningkatan fitur yang sudah ada, serta UI dan UX. Seluruh referensi disertai tautan, penjelasan tujuan, dan rekomendasi yang disusun berdasarkan prioritas.
+
+## Kriteria Selesai / STOP
+
+- **Selesai** bila penelitian selesai, `refrensi_apk.md` diperbarui dengan tautan terverifikasi, dan laporan singkat disampaikan.
+- **STOP** bila doc proyek tidak tersedia atau tidak ada referensi valid; laporkan keterbatasan tanpa mengarang rekomendasi.

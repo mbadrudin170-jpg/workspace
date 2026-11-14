@@ -6,6 +6,12 @@ description: Memeriksa ketersediaan dan status berkas apk_kompetitor.md, refrens
 
 Command ini adalah command mandiri. Command ini **tidak** mengubah isi `analisa_kesehatan_kode.md`, dan `analisa_kesehatan_kode.md` tetap dapat dipakai sendiri tanpa pemeriksaan prasyarat.
 
+## 0. Parameter
+
+- `$ARGUMENTS` (opsional): path berkas tertentu yang ingin diperiksa.
+- Jika `$ARGUMENTS` kosong: periksa seluruh berkas pada folder yang ditentukan (subbagian 2).
+- Jika `$ARGUMENTS` menunjuk path yang tidak ada: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
+
 Alur kerja berbentuk **rantai pemeriksaan**: setiap tahap wajib berhenti dan melapor kepada pengguna bila prasyaratnya tidak terpenuhi. DILARANG melanjutkan ke tahap berikutnya sebelum tahap sebelumnya dinyatakan lolos.
 
 ## 1. Ketentuan Umum
@@ -101,3 +107,8 @@ Tutup laporan dengan salah satu dari:
 4. DILARANG mengubah berkas selain yang diizinkan oleh `analisa_kesehatan_kode.md` pada tahap 5.
 5. DILARANG mengarang status berkas; status wajib dibaca dari berkas yang sebenarnya.
 6. DILARANG commit/push.
+
+## 6. Kriteria Selesai / STOP
+
+- **Selesai** bila seluruh prasyarat lolos, `analisa_kesehatan_kode.md` dieksekusi, dan laporan rantai pemeriksaan disampaikan.
+- **STOP** bila salah satu tahap tidak terpenuhi; sebutkan tahap, alasan, dan tindakan yang disarankan, lalu akhiri eksekusi tanpa melanjutkan tahap berikutnya.

@@ -2,6 +2,11 @@
 description: Menindaklanjuti hasil diskusi (hasil_diskusi/diskusi_N.md) menjadi rencana kerja terstruktur di task.md, rekomendasi PRD, atau eksekusi langsung di sesi ini atas konfirmasi pengguna.
 ---
 
+## Parameter
+
+- `$1`/`$ARGUMENTS`: path atau nomor berkas diskusi sumber (mis. `diskusi_9` atau `hasil_diskusi/diskusi_9.md`).
+- Jika argumen kosong atau berkas tidak ditemukan: **STOP** dan minta pengguna memilih berkas diskusi dengan tool `question`.
+
 1. **Input**: pengguna wajib menentukan file sumber `hasil_diskusi/diskusi_N.md` yang akan ditindaklanjuti (nomor/path). Jika belum ditentukan, minta pengguna memilih file diskusi terlebih dahulu.
 2. **Baca konteks wajib terlebih dahulu**:
    - `AGENTS.md` (root) dan patuhi aturannya.
@@ -40,3 +45,8 @@ description: Menindaklanjuti hasil diskusi (hasil_diskusi/diskusi_N.md) menjadi 
     - Bagian `## Pertanyaan Terbuka` pada berkas diskusi sumber diperbarui sesuai hasil tindak lanjut (pertanyaan terjawab dihapus + jejak di `## Riwayat Perubahan`); bila tidak ada, berisi `Belum ada`.
      - Jika disetujui, `task.md`/PRD yang relevan diperbarui sesuai format dan siap ditindaklanjuti oleh `kerjakan_task.md` atau alur PRD, atau perubahan untuk Implementasi langsung tereksekusi di sesi ini dengan verifikasi (`dart format`, `dart analyze`, `flutter test` bila relevan) lulus.
 11. **Bahasa**: selalu gunakan bahasa Indonesia saat berinteraksi dengan pengguna.
+
+## Kriteria Selesai / STOP
+
+- **Selesai** bila berkas diskusi tervalidasi `Final`, tindak lanjut terpetakan, draf dikonfirmasi pengguna, keluaran target ditulis, dan `## Pertanyaan Terbuka` sumber diperbarui.
+- **STOP** bila berkas diskusi berstatus `Draft`/tidak valid atau pengguna belum mengonfirmasi draf.

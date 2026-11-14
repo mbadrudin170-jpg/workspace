@@ -1,20 +1,55 @@
+---
+description: Menjalankan `flutter analyze` pada folder `lib` dan `test` proyek Flutter, lalu melaporkan jumlah temuan per linter rule tanpa mengubah kode.
+agent: code
+---
+
 # Cek Linter
 
 ## Tujuan
 
-Mengecek linter di folder `lib` dan `test`.
+Mengecek hasil linter pada folder `lib` dan `test` lalu melaporkan jumlah temuan per linter rule. Command ini bersifat read-only terhadap kode.
 
-## Langkah Kerja
+## Ketentuan Umum
 
-1. Baca file `AGENTS.md` dengan teliti lalu patuhi.
-2. Jalankan `flutter analyze lib` dan `flutter analyze test`.
-3. Laporkan hasilnya: sebutkan ada berapa dari masing-masing linter rules.
-4. Jangan ubah kode `.dart`.
+1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya.
+2. Gunakan bahasa Indonesia baku pada seluruh laporan.
+3. Command ini hanya untuk folder `lib` dan `test` proyek Flutter.
+
+## Cakupan
+
+- `flutter analyze lib`
+- `flutter analyze test`
+
+## Parameter
+
+- `$ARGUMENTS` (opsional): folder atau berkas tertentu yang ingin dianalisis.
+- Jika `$ARGUMENTS` kosong: periksa `lib` dan `test` sesuai cakupan default.
+
+## Alur Kerja
+
+1. **Analyze** — pastikan proyek Flutter aktif dan folder target tersedia.
+2. **Plan** — tentukan target analisis (`lib`, `test`, atau path dari argumen).
+3. **Execute** — jalankan `flutter analyze` pada setiap target dan kumpulkan keluarannya.
+4. **Review** — hitung jumlah temuan per linter rule dan pastikan tidak ada kode yang berubah.
+5. Bila perintah analyze gagal dijalankan: **STOP** dan laporkan galatnya.
+
+## Format Laporan
+
+| Target | Linter rule | Jumlah temuan |
+| --- | --- | --- |
+| `lib` | `<rule>` | `<jumlah>` |
+| `test` | `<rule>` | `<jumlah>` |
+
+Sertakan total temuan dan konfirmasi bahwa kode `.dart` tidak diubah.
 
 ## Larangan
 
-1. Dilarang rombak besar-besaran.
+- DILARANG mengubah kode `.dart`, konfigurasi linter, atau berkas lain.
+- DILARANG merombak kode secara besar-besaran atau memperbaiki temuan pada command ini.
+- DILARANG mengarang jumlah temuan tanpa menjalankan analyze.
+- DILARANG commit/push.
 
-## Ketentuan
+## Kriteria Selesai / STOP
 
-- (Tidak ada.)
+- Selesai bila hasil analyze kedua target dilaporkan beserta jumlah per rule.
+- STOP bila proyek bukan Flutter, folder target tidak ada, atau analyze gagal dijalankan.

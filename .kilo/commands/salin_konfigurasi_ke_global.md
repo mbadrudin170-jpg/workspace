@@ -8,6 +8,12 @@ description: Menyalin konfigurasi dan perintah proyek (.kilo/commands, .kilo/pro
 
 Menyalin berkas konfigurasi, perintah, dan perkakas proyek ini ke repositori template global `/home/muhamadbadrudin1000/share_global_saya/` (selanjutnya "repo tujuan"), kemudian memverifikasi hasil penyalinan.
 
+## 1b. Parameter
+
+- `$ARGUMENTS` (opsional): path repo tujuan pengganti.
+- Jika `$ARGUMENTS` kosong: gunakan `/home/muhamadbadrudin1000/share_global_saya/`.
+- Jika repo tujuan tidak ada: **STOP** dan laporkan; jangan membuat repo baru.
+
 ## 2. Sumber → Tujuan
 
 | Sumber (proyek ini) | Tujuan (repo tujuan) |
@@ -54,3 +60,8 @@ Menyalin berkas konfigurasi, perintah, dan perkakas proyek ini ke repositori tem
 - Penyalinan `.agents` tidak merapikan atau memigrasikan isi lama repo tujuan; migrasi struktur (bila diinginkan) adalah pekerjaan terpisah di luar perintah ini.
 - `docs/` berisi dokumen spesifikasi/referensi spektra (antara lain `struktur_proyek.md`, `lib.md`, `snippet.md`, dan `docs/kilo/kilo_global.txt` yang usang); penyalinan dilakukan apa adanya atas permintaan pengguna — berkas yang tidak relevan bagi proyek tujuan dibiarkan tertimpa/terbiarkan, bukan dihapus.
 - `skills-lock.json` dan `SKILLS_INDEX.md` mencerminkan versi skill terpasang; keduanya disalin agar repo tujuan memakai acuan yang sama dengan proyek ini.
+
+## 6. Kriteria Selesai / STOP
+
+- **Selesai** bila seluruh sumber pada tabel butir 2 tersalin, `git status` repo tujuan terverifikasi tanpa penghapusan tak wajar, dan memori proyek diperbarui.
+- **STOP** bila path sumber atau repo tujuan tidak tersedia; laporkan tanpa menyalin sebagian.

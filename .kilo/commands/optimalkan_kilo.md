@@ -1,8 +1,18 @@
+---
+description: Audit, optimasi, dan pemeliharaan konfigurasi Kilo Code berdasarkan dokumentasi resmi, konfigurasi aktual, dan kebutuhan pengguna, lalu memperbarui laporan optimasi.
+---
+
 # COMMAND: AUDIT, OPTIMASI, DAN PEMELIHARAAN KILO CODE
 
 **Path command:** `.kilo/commands/optimalkan_kilo.md`
 
 **Path laporan:** `./laporan_optimasi_kilo.md`
+
+## 0. Parameter
+
+- `$ARGUMENTS` (opsional): fokus optimasi (mis. `permission`, `extensions`, `skills`, `context`).
+- Jika `$ARGUMENTS` kosong: audit seluruh aspek pada tahap 3–10.
+- Jika `$ARGUMENTS` tidak dikenali: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
 
 ## 1. TUJUAN UTAMA
 

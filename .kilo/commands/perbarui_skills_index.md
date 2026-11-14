@@ -1,4 +1,14 @@
+---
+description: Memindai seluruh `SKILL.md` di `.agents/skills/`, memvalidasi penempatan dan metadata, lalu menulis ulang `SKILLS_INDEX.md` berdasarkan trigger dan status diperbarui.
+---
+
 # Tujuan
+
+## Parameter
+
+- `$ARGUMENTS` (opsional): kategori skill (`custom` atau `bawaan`) yang ingin diproses.
+- Jika `$ARGUMENTS` kosong: pindai seluruh kategori.
+- Jika `$ARGUMENTS` bukan kategori standar: **STOP** dan laporkan sebagai anomali serius.
 
 Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan dan metadata setiap skill, lalu menulis indeks ke `SKILLS_INDEX.md` (root proyek) berdasarkan path skill, trigger, dan status diperbarui dari metadata. Perintah wajib memberi tahu pengguna ketika menemukan skill yang tidak berada dalam kategori standar `bawaan`/`custom`, tidak memiliki `metadata.kategori`, atau berkonflik dengan `metadata.kategori`.
 

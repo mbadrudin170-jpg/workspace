@@ -1,27 +1,57 @@
+---
+description: Menganalisis commit terbaru setelah commit terakhir yang tercatat pada `catatan.md`, lalu memperbarui atau menambahkan skill custom yang relevan dan memperbarui catatan evaluasi.
+agent: code
+---
 
-1. saya ingin kamu agar bisa menganalisa semua riwayat commit terbaru setelah riwayat terakhir yang dievaluasi, untuk mengetahui riwayat terakhir yang di evaluasi cukup lihat isi file `catatan.md` saja.  
-2. jika semisal isi `catatan.md` nya masih kosong gpt cukup ambil 5 commit terbaru saja dulu untuk data awal, baru setelah itu gunakan commit terakhir dievaluasi.  
-3. karena di `catatan,md` terdapat banyak catatan gpt cukup lihat commit terakhir yang berjudul `# Evaluasi Skill dari commit`.  
-4. jika ada commit baru saat sedang evaluasi abaikan commit baru itu, untuk tugas berikutnya saja.  
-5. jadi commit yang akan di ambil nya itu seperti contoh berikut :   
-- contoh ada 10 commit, commit 5, adalah commit terakhir yang tercatat di file catatan.md, nah berarti kita tentukan commit yang akan dievaluasi berarti commit 6 dan 10, ketika sudah menentukan commit yang akan dievaluasi ketika ada commit baru misalnya commit 11 maka commit 11 abaikan jangan ikut dimasukkan ke daftar commit yang akan dievaluasi.  
-- setiap commit selalu baca dari yang terlama ke terbaru dulu.  
-6. tujuannya yaitu untuk menentukan dari riwayat commit itu code mana yang saya inginkan, lalu perbarui atau tambahkan skill custom agar skills ini bisa saya gunakan untuk semua proyek flutter saya.karena kode yang saya commit sudah pasti sesuai dengan paket dan sdk flutter. serta sudah pasti code yang di commit itu sudah saya analisa.  
-7. kalau sudah menemukan cukup perbarui skill yang ada di folder `.agents/skills/custom`   
-8. tapi harus baca dulu file `.agents/rules/global/aturan_skill.md` agar cara penulisan serta yang lainnya sesuai dengan yang saya inginkan.  
-9. setelah itu perbarui isi file `catatan.md` yang ada di root agar memperbarui terakhir commit apa yang dievaluasi, agar tugas selanjut nya tidak kehilangan arah.  
-10. Menentukan commit awal dan commit akhir yang akan dievaluasi.  
-11. Commit awal \= commit setelah hash tersebut.  
-12. Commit akhir \= HEAD saat tugas dimulai.  
-13. Tentukan HEAD di awal tugas dan catat hash-nya sebagai commit akhir.  
-14. jika ada dua commit yang merubah kode yang sama, jadikan commit terbaru sebagai sumber kebenaran.  
-15. Catat hash-nya sebagai commit akhir.  
-16. yang dicatat cuma commit terakhir saja jangan semua commit yang di evaluasi.  
-17. untuk file .md jangan semuanya di jadikan evaluasi.  
-18. Hanya folder skill custom dan catatan.md yang berubah.  
-19. lihat branch `master` karena saya pakai branch `master.`  
-20. file yang wajib dibaca terlebih dahulu :  
-- AGENTS.md  
-- catatan.md  
-21. khusus untuk commit yang isi nya  file `task.md` wajib baca diff yang bagian task berstatus batal dan dihapus, berarti ada alasannya kenapa task statusnya di tandai batal, lalu lihat bagian `prompt` disana ada keterangan kenapa sebuah task ditandai \`batal\`, setelah itu perbarui skill yang relevan agar mengikuti arahan dari prompt pada \`task\` itu.  
-22. sekalian baca file `.agents/rules/global/aturan_skill.md` agar semua skill di folder `custom` sesuai dengan rules itu.
+# Analisa Commit ke Skill
+
+## Tujuan
+
+Menentukan pola kode dari riwayat commit yang diinginkan pengguna, lalu memperbarui atau menambahkan skill custom agar pola tersebut dapat dipakai ulang pada proyek Flutter lain.
+
+## Ketentuan Umum
+
+1. Wajib membaca `AGENTS.md`, `catatan.md`, dan `.agents/rules/global/aturan_skill.md` sebelum bekerja.
+2. Gunakan bahasa Indonesia baku dan muat skill `aturan-pembuatan-skill` sebelum menulis skill.
+3. Sumber kebenaran hanya commit yang sudah ada (`git log`, `git show`, `git diff`); dilarang memakai working tree/staging/untracked.
+
+## Cakupan
+
+- Riwayat commit pada branch `master` (branch yang dipakai pengguna).
+- Folder `.agents/skills/custom/` dan `catatan.md` sebagai berkas yang boleh diubah.
+
+## Parameter
+
+- `$ARGUMENTS` (opsional): hash commit awal atau topik skill yang ingin difokuskan.
+- Jika `$ARGUMENTS` tidak valid: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
+
+## Alur Kerja
+
+1. **Analyze** — baca `catatan.md` dan cari bagian `# Evaluasi Skill dari commit` untuk menentukan commit terakhir yang sudah dievaluasi.
+   - Bila `catatan.md` masih kosong: ambil 5 commit terbaru sebagai data awal.
+   - Commit awal = commit setelah hash tercatat; commit akhir = `HEAD` saat tugas dimulai; catat hash `HEAD` di awal.
+   - Bila ada commit baru saat evaluasi berjalan: abaikan untuk tugas ini.
+2. **Plan** — baca commit dari yang terlama ke terbaru; bila dua commit mengubah kode yang sama, gunakan commit terbaru sebagai sumber kebenaran. Evaluasi hanya perubahan kode Dart (bukan seluruh berkas `.md`).
+3. **Execute** — untuk commit yang menyentuh `task.md`, baca diff bagian task berstatus `batal` yang dihapus beserta bagian `prompt` untuk memahami alasannya, lalu sesuaikan skill terkait.
+4. **Review** — perbarui/tambahkan skill custom sesuai `aturan_skill.md`, lalu perbarui `catatan.md` dengan **hanya** commit terakhir yang dievaluasi.
+
+## Format Laporan
+
+| Commit | Pesan | Berkas | Pola/skill yang diperbarui |
+| --- | --- | --- | --- |
+| `<hash>` | `<pesan>` | `<berkas>` | `<skill>` |
+
+Sertakan hash commit akhir yang dicatat dan daftar skill yang berubah.
+
+## Larangan
+
+- DILARANG mencatat seluruh commit yang dievaluasi pada `catatan.md`; catat commit terakhir saja.
+- DILARANG mengubah berkas selain folder skill custom dan `catatan.md`.
+- DILARANG memakai isi working tree/staging/untracked sebagai sumber.
+- DILARANG mengubah kode Dart.
+- DILARANG commit/push.
+
+## Kriteria Selesai / STOP
+
+- Selesai bila skill relevan diperbarui dan `catatan.md` mencatat commit terakhir yang dievaluasi.
+- STOP bila `catatan.md`/`aturan_skill.md` tidak ditemukan atau tidak ada commit yang dapat dievaluasi.

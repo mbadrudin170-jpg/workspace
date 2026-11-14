@@ -21,6 +21,12 @@ Lakukan pemeriksaan ruang penyimpanan pada lingkungan Linux untuk mengetahui:
 
 **Tujuan akhir:** Berikan daftar file dan direktori beserta ukuran, lokasi, fungsi, serta tingkat keamanan penghapusannya agar pengguna dapat menentukan sendiri apa yang ingin dibersihkan.
 
+## A2. Parameter
+
+- `$ARGUMENTS` (opsional): path direktori yang ingin diaudit (selain `$HOME` dan `$PWD`).
+- Jika `$ARGUMENTS` kosong: audit `$HOME` dan `$PWD`.
+- Jika `$ARGUMENTS` menunjuk path yang tidak ada atau tidak dapat dibaca: **STOP** dan laporkan keterbatasannya.
+
 ## B. Batasan dan Larangan
 
 1. Pemeriksaan hanya boleh membaca informasi penyimpanan dan ukuran file.

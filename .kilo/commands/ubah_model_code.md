@@ -6,7 +6,7 @@ description: Mengubah model (dan opsional variannya) untuk agent code pada .kilo
 
 Menyediakan alur terstandar bagi agen untuk mengubah nilai `agent.code.model` (dan opsional `agent.code.variant`) pada `.kilo/kilo.jsonc` atas permintaan eksplisit pengguna, dengan konfirmasi sebelum eksekusi, tanpa menyentuh bagian konfigurasi lain.
 
-# INPUT
+## Parameter
 
 - `$1` (opsional): model baru yang diinginkan (contoh: `kilo/reflection/beam-free`).
 - `$2` (opsional): variant reasoning yang diinginkan (contoh: `max`). Jika tidak diberikan, gunakan variant reasoning **tertinggi** yang didukung model baru (mis. `max` bila tersedia; jika tidak ada daftar variant, gunakan nilai tertinggi yang terdokumentasi untuk model tersebut).
@@ -59,3 +59,8 @@ Menyediakan alur terstandar bagi agen untuk mengubah nilai `agent.code.model` (d
 - Command ini hanya mengubah model agent `code`; model global (`model`, `small_model`, `subagent_model`) dan agent lain tidak terpengaruh.
 - Jika pengguna ingin mengubah model global atau agent lain, gunakan permintaan terpisah.
 - Setelah perubahan, disarankan menjalankan sesi baru Kilo agar model baru aktif.
+
+# KRITERIA SELESAI / STOP
+
+- **Selesai** bila `.kilo/kilo.jsonc` memuat model/variant baru sesuai draf, config tervalidasi, `MEMORI.md`/riwayat/sesi diperbarui, dan laporan disampaikan.
+- **STOP** bila pengguna belum mengonfirmasi draf, format model tidak valid, atau edit config gagal validasi.

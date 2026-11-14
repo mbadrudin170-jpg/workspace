@@ -23,6 +23,12 @@ Tujuan utama analisis ini adalah:
 
 **PENTING: Ini adalah tahap analisis, bukan tahap implementasi perbaikan.**
 
+## Parameter
+
+- `$ARGUMENTS`: log aplikasi atau path berkas log yang akan dianalisis.
+- Jika `$ARGUMENTS` kosong atau tidak memuat informasi yang cukup: **STOP** dan tanyakan kepada pengguna dengan tool `question`; jangan membuat data atau asumsi sendiri.
+- Jika `$ARGUMENTS` menyebut fitur tertentu: batasi analisis pada fitur tersebut.
+
 ## 2. Batasan Pekerjaan
 
 Selama menjalankan command ini, patuhi batasan berikut:
@@ -302,3 +308,8 @@ Setelah selesai, berikan laporan kepada saya yang berisi:
 6. Konfirmasi bahwa kode Dart tidak diubah.
 
 **Ingat: Tugas Anda hanya menganalisis, menemukan masalah, dan menyimpan saran perbaikan ke `saran.md`. Jangan melakukan implementasi perbaikan sebelum saya memberikan instruksi berikutnya.**
+
+## Kriteria Selesai / STOP
+
+- **Selesai** bila log tercocokkan dengan data dummy, temuan dicatat pada `saran.md`, dan laporan akhir disampaikan.
+- **STOP** bila log tidak diberikan atau informasi tidak cukup; minta data yang diperlukan tanpa mengarang.

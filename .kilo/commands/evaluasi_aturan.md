@@ -23,6 +23,12 @@ Setelah evaluasi selesai, perbarui file `saran_pindah_rules.md` di root proyek b
 
 **PENTING:** Command ini hanya bertugas mengevaluasi dan memberikan rekomendasi. Dilarang memindahkan, menghapus, atau mengubah isi file aturan yang berada di `.agents/rules/global/` maupun `.agents/rules/proyek/`.
 
+## A2. Parameter
+
+- `$ARGUMENTS` (opsional): folder atau berkas aturan yang ingin difokuskan.
+- Jika `$ARGUMENTS` kosong: evaluasi seluruh aturan di kedua folder.
+- Jika `$ARGUMENTS` menunjuk path yang tidak ada: **STOP** dan laporkan sebelum memulai evaluasi.
+
 ## B. Ketentuan Penggunaan Tool
 
 ### 1. Membaca File

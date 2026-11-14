@@ -1,6 +1,15 @@
+---
+description: Mendiskusikan penambahan atau penyempurnaan aturan proyek, memeriksa aturan yang ada, melaporkan konflik, dan menyusun usulan tanpa mengubah berkas aturan.
+---
+
 # Diskusi Penambahan Aturan Baru
 
 **Path:** `.kilo/commands/diskusi_penambahan_aturan_baru.md`
+
+## Parameter
+
+- `$ARGUMENTS`: topik aturan yang ingin didiskusikan.
+- Jika `$ARGUMENTS` kosong atau ambigu: **STOP** dan tanyakan topiknya kepada pengguna dengan tool `question`.
 
 ## Tujuan
 

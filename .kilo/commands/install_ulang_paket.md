@@ -1,4 +1,15 @@
+---
+description: Menginstal ulang seluruh paket pada `pubspec.yaml` satu per satu dengan `flutter pub add` sesuai kelompok dependensinya, lalu mengurutkan paket berdasarkan abjad.
+agent: code
+---
+
 # install_ulang_paket.md
+
+## Parameter
+
+- `$ARGUMENTS` (opsional): kelompok dependensi yang ingin diproses (`dependencies` atau `dev_dependencies`).
+- Jika `$ARGUMENTS` kosong: proses kedua kelompok.
+- Jika `$ARGUMENTS` tidak valid: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
 
 ## Tujuan
 

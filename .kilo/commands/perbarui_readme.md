@@ -1,4 +1,14 @@
+---
+description: Membuat atau memperbarui `README.md` pada root repositori dan setiap submodule berdasarkan kondisi implementasi aktual, tanpa mengubah kode atau konfigurasi.
+---
+
 # Tujuan
+
+## Parameter
+
+- `$ARGUMENTS` (opsional): path repositori atau submodule tertentu yang ingin diperbarui README-nya.
+- Jika `$ARGUMENTS` kosong: proses root dan seluruh submodule dari `.gitmodules`.
+- Jika `$ARGUMENTS` menunjuk path yang bukan repositori/submodule: **STOP** dan laporkan.
 
 Buat atau perbarui berkas `README.md` pada **root repositori dan setiap submodule** agar seluruh proyek memiliki dokumentasi yang profesional, informatif, sistematis, dan mudah dipahami.
 

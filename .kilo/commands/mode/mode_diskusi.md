@@ -1,6 +1,10 @@
+---
+description: Mendampingi diskusi terfokus dengan pengguna dan mendokumentasikan hasilnya ke berkas `hasil_diskusi/diskusi_N.md` sesuai aturan format, tanpa mengubah kode.
+---
+
 # Mode Diskusi
 
-## Argumen
+## Parameter
 
 Topik diskusi: $ARGUMENTS
 
@@ -53,3 +57,8 @@ Mode ini digunakan untuk mendampingi pengguna dalam diskusi terfokus dan mendoku
    - Menghindari pilihan yang ambigu atau membingungkan.
    - Meminta input secara langsung melalui format tool `question` (bukan sekadar pertanyaan di teks biasa).
 3. Jika suatu jawaban atau keputusan bergantung pada input pengguna, model DILARANG memberikan jawaban final atau mengambil keputusan tersebut tanpa terlebih dahulu meminta input melalui tool `question`.
+
+## 6. Kriteria Selesai / STOP
+
+- **Selesai** bila topik selesai didiskusikan dan hasilnya tercatat pada `hasil_diskusi/diskusi_N.md` sesuai aturan format, lalu memori disinkronkan.
+- **STOP** bila topik tidak jelas; tanyakan lebih dahulu sebelum membuat berkas diskusi.

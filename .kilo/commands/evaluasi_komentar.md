@@ -1,6 +1,17 @@
+---
+description: Mengevaluasi dan memperbaiki komentar pada seluruh file Dart di `lib/` agar hanya menyimpan komentar bermanfaat dan dokumentasi `///` satu baris, tanpa mengubah implementasi.
+agent: code
+---
+
 # Evaluasi dan Perbaikan Komentar Dart
 
 **Path:** `.kilo/commands/evaluasi_komentar.md`
+
+## Parameter
+
+- `$ARGUMENTS` (opsional): path berkas atau folder Dart tertentu di `lib/`.
+- Jika `$ARGUMENTS` kosong: periksa seluruh `lib/`.
+- Jika `$ARGUMENTS` menunjuk path di luar `lib/`: **STOP** dan laporkan batasan cakupan.
 
 ## Tujuan
 

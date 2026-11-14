@@ -5,6 +5,12 @@ agent: code
 
 # Sinkronisasi Skill dengan Aturan Proyek
 
+## PARAMETER
+
+- `$ARGUMENTS` (opsional): path aturan atau skill yang ingin difokuskan.
+- Jika `$ARGUMENTS` kosong: periksa seluruh `.agents/rules/` dan `.agents/skills/custom/`.
+- Jika `$ARGUMENTS` menunjuk path di luar kedua direktori tersebut: **STOP** dan laporkan batasan cakupan.
+
 ## TUJUAN UTAMA
 
 Tugas Anda adalah menyelaraskan seluruh skill di dalam folder `.agents/skills/custom/` dengan aturan proyek yang tersimpan di `.agents/rules/`.
@@ -508,3 +514,8 @@ Apabila terdapat perubahan di luar direktori tersebut, jelaskan penyebabnya. Jan
 **PRIORITAS UTAMA:**
 
 Mewujudkan sinkronisasi yang akurat antara seluruh aturan proyek di `.agents/rules/` dan seluruh skill di `.agents/skills/custom/`, dengan menjadikan `.agents/rules/global/aturan_skill.md` sebagai pedoman wajib dalam seluruh proses pengembangan dan audit skill.
+
+## 12. KRITERIA SELESAI / STOP
+
+- **Selesai** bila seluruh aturan yang relevan sudah dipetakan ke skill, audit subfolder selesai, dan laporan bagian A–F disampaikan.
+- **STOP** bila `aturan_skill.md` tidak ditemukan, cacah berkas aturan belum lengkap, atau terdapat konflik yang membutuhkan keputusan pengguna.

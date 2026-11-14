@@ -17,6 +17,12 @@ Command ini mengaudit kesehatan sistem kerja proyek (aset pendukung agen AI: atu
 5. Jangan menggunakan terminal untuk membaca isi berkas; gunakan tool `read`, `glob`, dan `grep` sesuai kebutuhan.
 6. Audit bersifat portabel: sesuaikan pemeriksaan dengan struktur aktual proyek yang sedang diaudit, bukan dengan asumsi nama proyek tertentu.
 
+## Parameter
+
+- `$ARGUMENTS` (opsional): aset atau path yang ingin diperiksa (mis. `skill`, `command`, `memori`).
+- Jika `$ARGUMENTS` kosong: periksa ketujuh aset audit.
+- Jika `$ARGUMENTS` tidak dikenali: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
+
 ## Cakupan Audit (Tujuh Aset)
 
 Periksa aset berikut secara berurutan. Jika suatu aset tidak relevan atau berkasnya tidak ada, laporkan sebagai temuan (GALAT atau PERINGATAN) sesuai kriteria, bukan mengarang hasil.
@@ -62,3 +68,8 @@ Contoh baris temuan:
 - DILARANG mengarang temuan; setiap temuan wajib didukung bukti dari berkas atau hasil pemeriksaan aktual.
 
 Audit selesai ketika laporan tujuh aset telah disampaikan di sesi beserta ringkasan dan catatan keterbatasan (bila ada).
+
+## Kriteria Selesai / STOP
+
+- **Selesai** bila ketujuh aset (atau aset yang diminta) diperiksa dan laporan temuan disampaikan di sesi.
+- **STOP** bila berkas kunci tidak dapat dibaca; laporkan sebagai keterbatasan, jangan mengarang hasil.

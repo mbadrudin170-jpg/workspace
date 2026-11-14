@@ -1,4 +1,14 @@
+---
+description: Mencari aplikasi mobile sejenis dari seluruh store relevan secara terverifikasi lalu menambahkannya ke `apk_kompetitor.md` dengan status Belum Dianalisa.
+---
+
 # Cari APK Kompetitor (Portabel Lintas Proyek)
+
+## Parameter
+
+- `$ARGUMENTS` (opsional): nama/kategori aplikasi sasaran atau store yang ingin diprioritaskan.
+- Jika `$ARGUMENTS` kosong: tentukan aplikasi sasaran dari dokumen proyek.
+- Jika dokumen proyek tidak memuat aplikasi sasaran: **STOP** dan tanyakan kepada pengguna dengan tool `question`; DILARANG menebak dari nama repositori.
 
 Command ini bersifat global dan portabel lintas proyek. Jangan mengasumsikan nama aplikasi, domain, kategori fitur, atau model bisnis proyek tertentu; tentukan aplikasi sasaran dari dokumen proyek.
 
@@ -29,3 +39,8 @@ Command ini bersifat global dan portabel lintas proyek. Jangan mengasumsikan nam
 11. `apk_kompetitor.md` dibuat **baru** bila belum ada, dengan kerangka skill `riset-kompetitor` (section per store; section `# Tambahan Riset (YYYY-MM-DD)` untuk batch besar; tabel pipe Markdown dengan header+separator; kolom `Status Analisa` per baris). Semua listing baru wajib `Status Analisa = Belum Dianalisa`.
 12. Riset store dilakukan berurutan dalam satu run; bila ingin mempercepat pencarian kandidat di dalam satu store boleh memakai subagen paralel, tetapi **verifikasi tetap independen** per skill `riset-kompetitor` dan perbarui `apk_kompetitor.md` sebelum lanjut store berikutnya.
 13. **Aturan portabilitas:** DILARANG menulis nama aplikasi, domain, kategori fitur, atau istilah khas satu proyek ke dalam command ini; konteks proyek selalu dibaca dari dokumen proyek.
+
+## Kriteria Selesai / STOP
+
+- **Selesai** bila seluruh store dalam urutan sudah diriset, setiap hasil (termasuk nihil temuan) dicatat, dan listing baru masuk `apk_kompetitor.md` dengan `Status Analisa = Belum Dianalisa`.
+- **STOP** bila aplikasi sasaran tidak dapat ditentukan; laporkan dan tunggu klarifikasi pengguna.

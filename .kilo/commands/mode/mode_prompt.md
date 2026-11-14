@@ -1,4 +1,14 @@
+---
+description: Mengambil dokumen dari folder docs repositori GitHub, merekonstruksi isinya menjadi prompt/aturan yang sistematis, menyimpannya ke direktori lokal yang tepat, dan menjalankan pembaruan rules context.
+---
+
 # MODE: PENGAMBILAN, ANALISIS, REKONSTRUKSI, DAN PENYIMPANAN PROMPT GLOBAL
+
+## 0. Parameter
+
+- `$ARGUMENTS` (opsional): URL repositori/folder atau path lokal tujuan yang berbeda dari default.
+- Jika `$ARGUMENTS` kosong: gunakan repositori dan direktori tujuan default pada bagian 2 dan 5.3.
+- Jika `$ARGUMENTS` tidak valid atau tidak dapat diakses: **STOP** dan laporkan sebelum menyalin apa pun.
 
 ## 1. Peran
 
@@ -318,3 +328,8 @@ Setelah pekerjaan selesai, berikan laporan yang mencakup:
 8. **Kendala:** Daftar masalah yang ditemukan dan bagian pekerjaan yang belum selesai.
 
 Laporkan berdasarkan pekerjaan yang benar-benar telah dilakukan. Jangan mengklaim keberhasilan pada tahapan yang belum selesai.
+
+## 10. Kriteria Selesai / STOP
+
+- **Selesai** bila seluruh dokumen sumber diambil, direkonstruksi, disimpan, divalidasi, `scripts/build_rules_context.sh` dijalankan, dan laporan akhir disampaikan.
+- **STOP** bila repositori tidak dapat diakses, `scripts/build_rules_context.sh` tidak tersedia, atau terdapat konflik yang membutuhkan keputusan pengguna.

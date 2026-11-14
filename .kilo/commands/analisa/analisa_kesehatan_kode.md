@@ -1,23 +1,55 @@
-1. saya ingin kamu menganalisa semua commit terbaru saya, apakah code terbaru saya sudah sehat, baik itu sudah sesuai paket sdk dan flutter atau sudah sesuai skills yang ada.
-2. untuk paket sdk wajib baca versi yang terinstall di pubscl.yml lalu cari di pub.dev dan dokumentasi terkait untuk sumber kebenaran.
-3. jika masih terdapat tidak sehat sedikitpun wajib perbarui isi file [task.md](task.md) di root proyek.
-4. baca terlebih dahulu isi file `.agents/rules/global/format_task.md` agar penulisan format nya sesuai dengan aturan yang saya inginkan.
-5. untuk commit commit tersebut yang di cek hanya commit mengenai code dart saja.
-6. yang hanya boleh di sentuh cuma file [`catatan.md`](catatan.md) dan `` `task.md` `` saja.
-7. baca bagian `# Evaluasi kesehatan code dari commit` untuk mengetahui commit terakhir mana yang sudah dievaluasi.
-8. ketika sudah menemukan commit terakhir tersebut sekarang cari semua commit yang akan dievaluasi, tentu kan dulu semua commit yang akan di evaluasi.
-9. jadi commit yang akan di ambil nya itu seperti contoh berikut :
+---
+description: Menganalisis commit Dart terbaru terhadap kesesuaian SDK/Flutter dan skill proyek, lalu memperbarui `task.md` serta `catatan.md` bila ditemukan ketidaksesuaian.
+agent: code
+---
 
-- contoh ada 10 commit, commit 5, adalah commit terakhir yang tercatat di file [catatan.md](catatan.md), nah berarti kita tentukan commit yang akan dievaluasi berarti commit 6 dan 10, ketika sudah menentukan commit yang akan dievaluasi ketika ada commit baru misalnya commit 11 maka commit 11 abaikan jangan ikut dimasukkan ke daftar commit yang akan dievaluasi.
-- setiap commit selalu baca dari yang terlama ke terbaru dulu.
--
+# Analisa Kesehatan Kode
 
-10. jika sedang evaluasi dan terdapat commit baru maka abaikan semua commit baru tersebut, biarkan commit baru untuk di kerjakan pada tugas selanjut nya saja.
-11. setelah selesai memperbarui [`task.md`](task.md) maka perbarui isi file [`catatan.md`](catatan.md) yang bagian `# Evaluasi kesehatan code dari commit` dengan commit terakhir yang di evaluasi tersebut.
-12. cari di branch `master` untuk melihat riwayat commit menggunakan branch itu.
-13. jika belum ada commit terakhir dievaluasi yang tercatat di `# Evaluasi kesehatan code dari commit` cukup ambil 5 commit terakhir saja.
-14. file yang wajib dibaca terlebih dahulu :
+## Tujuan
 
-- AGENTS.md
-- [catatan.md](catatan.md)
-- task.md
+Menilai kesehatan kode pada commit Dart terbaru: kesesuaian dengan paket/SDK Flutter yang terpasang dan dengan skill proyek, lalu mencatat temuan ke `task.md`.
+
+## Ketentuan Umum
+
+1. Wajib membaca `AGENTS.md`, `catatan.md`, dan `task.md` lebih dahulu.
+2. Baca `.agents/rules/global/format_task.md` sebelum menulis `task.md`.
+3. Untuk paket/SDK: baca versi pada `pubspec.yaml`, lalu verifikasi ke pub.dev/dokumentasi resmi sebagai sumber kebenaran.
+4. Gunakan bahasa Indonesia baku.
+
+## Cakupan
+
+- Commit Dart pada branch `master`.
+- Berkas yang boleh diubah hanya `catatan.md` dan `task.md`.
+
+## Parameter
+
+- `$ARGUMENTS` (opsional): hash awal atau path berkas yang ingin difokuskan.
+- Jika `$ARGUMENTS` tidak valid: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
+
+## Alur Kerja
+
+1. **Analyze** — baca bagian `# Evaluasi kesehatan code dari commit` pada `catatan.md` untuk mengetahui commit terakhir yang dievaluasi; bila belum ada, ambil 5 commit terakhir.
+2. **Plan** — tentukan daftar commit yang akan dievaluasi (setelah commit terakhir tercatat hingga `HEAD`); abort commit baru yang muncul saat evaluasi berjalan; baca dari yang terlama ke terbaru.
+3. **Execute** — periksa hanya perubahan kode Dart; bandingkan dengan SDK/Flutter dan skill; catat setiap ketidaksesuaian ke `task.md` sesuai `format_task.md`.
+4. **Review** — perbarui `catatan.md` bagian `# Evaluasi kesehatan code dari commit` dengan commit terakhir yang dievaluasi; pastikan tidak ada berkas lain yang berubah.
+
+## Format Laporan
+
+| Commit | Berkas | Ketidaksesuaian | Aturan/Skill | Status |
+| --- | --- | --- | --- | --- |
+| `<hash>` | `<berkas>` | `<masalah>` | `<rujukan>` | Masuk `task.md` / Tidak |
+
+Sertakan hash commit terakhir yang dicatat.
+
+## Larangan
+
+- DILARANG mengubah berkas selain `catatan.md` dan `task.md`.
+- DILARANG memeriksa commit non-Dart sebagai temuan kode.
+- DILARANG menyimpulkan kesesuaian tanpa memverifikasi versi SDK/paket.
+- DILARANG mengubah kode Dart.
+- DILARANG commit/push.
+
+## Kriteria Selesai / STOP
+
+- Selesai bila seluruh commit dalam rentang dievaluasi, `task.md` diperbarui bila perlu, dan `catatan.md` mencatat commit terakhir.
+- STOP bila berkas wajib tidak ditemukan atau branch `master` tidak tersedia.

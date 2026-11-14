@@ -1,4 +1,14 @@
+---
+description: Memperbaiki temuan linter yang secara spesifik ditentukan pengguna tanpa mengubah perilaku aplikasi atau memperluas ruang lingkup.
+agent: code
+---
+
 # MODE: PERBAIKAN LINTER — STRICT SCOPE
+
+## 0. Parameter
+
+- `$ARGUMENTS`: temuan linter yang harus diperbaiki (nama rule, path berkas, nomor baris, atau pesan).
+- Jika `$ARGUMENTS` kosong atau tidak cukup untuk mengidentifikasi temuan: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
 
 ## 1. Tujuan
 
@@ -73,3 +83,8 @@ Jika ditemukan masalah lain selama proses pengerjaan:
 - Cukup laporkan sebagai catatan tambahan jika memang penting.
 
 **Prinsip utama: Perbaiki yang diminta, pertahankan yang tidak bermasalah, dan jangan memperluas ruang lingkup pekerjaan tanpa persetujuan pengguna.**
+
+## 6. Kriteria Selesai / STOP
+
+- **Selesai** bila temuan linter yang ditentukan sudah hilang tanpa kesalahan baru dan laporan disampaikan.
+- **STOP** bila perbaikan memerlukan perubahan di luar ruang lingkup; laporkan dan minta persetujuan pengguna.

@@ -26,10 +26,15 @@ Investigasi harus menjawab pertanyaan berikut:
 
 **Hasil akhir yang diharapkan:** akar penyebab ditemukan berdasarkan bukti, file aturan atau command yang bermasalah diperbaiki, dan efektivitas perbaikan diuji.
 
+## Parameter
+
+- `$ARGUMENTS` (opsional): command, aturan, atau berkas yang ingin difokuskan pada investigasi.
+- Jika `$ARGUMENTS` kosong: periksa seluruh aturan dan command analisis yang relevan.
+- Jika `$ARGUMENTS` menunjuk berkas yang tidak ada: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
+
 ## 2. Batasan pekerjaan
 
 Selama menjalankan command ini, patuhi batasan berikut:
-
 1. Fokus pada investigasi sistem aturan dan proses kerja AI.
 2. Jangan mengubah kode aplikasi di dalam `lib/`, `test/`, atau direktori sumber lainnya.
 3. Jangan melakukan refactor aplikasi.

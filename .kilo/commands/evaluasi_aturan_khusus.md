@@ -58,6 +58,14 @@ Digunakan untuk menyimpan:
 
 ---
 
+# PARAMETER
+
+- `$ARGUMENTS` (opsional): jumlah commit (maksimal 15) atau rentang commit yang ingin dievaluasi.
+- Jika `$ARGUMENTS` kosong: evaluasi maksimal 15 commit terbaru dari branch aktif.
+- Jika `$ARGUMENTS` tidak valid: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
+
+---
+
 # TAHAP 1 — MEMAHAMI ATURAN DAN KONDISI PROYEK
 
 Sebelum melakukan evaluasi:

@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Sun Nov 15 2026 00:25 WIB (sesi 58)
+Diperbarui: Sun Nov 15 2026 00:55 WIB (sesi 61)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -81,6 +81,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - `.kilo/commands/sinkronisasi/sinkronkan_commands.md` — **dihapus** pada sesi 47 (2026-11-14) atas perintah pengguna karena folder mirror `gpt/` yang menjadi targetnya sudah tidak ada. Skill `konfigurasi-kilo-proyek` (v1.0.0 → v1.0.1) disesuaikan: rujukan mirror `gpt/`, contoh subfolder `sinkronisasi/`, dan daftar `Sumber Evaluasi` tidak lagi menunjuk berkas yang dihapus. `.kilo/` ter-`.gitignore`, perubahan hanya di working tree.
 - Status berkas hasil diskusi (per 2026-11-14, sesi 47): commit `5690938` (sesi lain) menghapus `hasil_diskusi/diskusi_1.md` dan `hasil_diskusi/diskusi_7.md` yang masih tercatat di bagian `Hasil Diskusi` dan dirujuk skill `memori-check`; pemulihan memerlukan keputusan pengguna karena berkas sudah ter-commit.
 - Pencarian kata `spektra` (sesi 18, 2026-11-14): 13 kecocokan di 8 berkas — `.agents/skills/custom/struktur-folder-lib/SKILL.md` (2), `MEMORI.md` (1), `share_global_saya/docs/lib.md` (2), `share_global_saya/SKILLS_INDEX.md` (1), `memori/riwayat_perubahan.md` (1), `memori/sesi/sesi_10.md` (3), `memori/sesi/sesi_14.md` (2), dan `.kilo/commands/salin_konfigurasi_ke_global.md` (1); tidak ada perubahan kode.
+- Optimasi command (sesi 60–61, 2026-11-15): seluruh 39 command `.kilo/commands/**.md` diperbarui berdasarkan dokumentasi resmi Kilo `customize/workflows` dan `customize/prompt-engineering` — frontmatter `description` pada semua berkas (sebelumnya 23 berkas tanpa frontmatter), bagian `## Parameter` dengan `$ARGUMENTS`/`$1`–`$N` + fallback `question`, struktur Tujuan/Ketentuan Umum/Cakupan/Alur Kerja (Analyze → Plan → Execute → Review)/Format Laporan/Larangan/Kriteria Selesai atau STOP. Skill `.agents/skills/custom/pembuatan-command-kilo/SKILL.md` dinaikkan ke v1.1.0 sebagai acuan aturan baru. `.kilo/` ter-`.gitignore`, perubahan hanya di working tree.
 
 ## Riset Kompetitor
 

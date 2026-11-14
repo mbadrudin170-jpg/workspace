@@ -1,21 +1,54 @@
-1. saya ingin tugas kan kamu untuk mengerjakan PRD yang saya sebutkan di prompt.
-   - Saya akan memberikan path file PRD di prompt saat menjalankan command ini.
+---
+description: Mengerjakan PRD yang ditentukan dari status Sedang Diimplementasikan hingga Sudah Diimplementasikan, dengan pemeriksaan bentrok file terdampak dan pembersihan referensi terkait.
+agent: code
+---
 
-2. file yang harus dibaca terlebih dahulu dan patuhi aturan di dalamnya:
-   - `AGENTS.md`
-   - `.agents/rules/global`
-   - `.agents/skills/custom`
-   - `.agents/rules/global/format_PRD.md`
+# Kerjakan PRD
 
-3. saat mulai mengimplementasikan, perbarui `Status Implementasi` pada PRD menjadi `Sedang Diimplementasikan`.
+## Tujuan
 
-4. sebelum mengimplementasikan, cek file-file terdampak pada PRD (section "File-File Terdampak"):
-   - bandingkan dengan file-file terdampak pada PRD lain yang status implementasinya `Sedang Diimplementasikan` atau `Sudah Diimplementasikan`.
-   - bentrok terjadi jika terdapat file yang sama dan overlap pada bagian yang akan diubah.
-   - jika terjadi bentrok, batalkan implementasi PRD ini sepenuhnya (hentikan semua pekerjaan, jangan mengubah file apa pun, jangan memperbarui status).
+Mengimplementasikan PRD yang ditentukan pengguna secara utuh, dari pemeriksaan bentrok hingga verifikasi akhir.
 
-5. setelah selesai mengimplementasikan:
-   a. perbarui `Status Implementasi` pada PRD menjadi `Sudah Diimplementasikan`.
-   b. hapus file PRD tersebut.
-   c. hapus juga section di `refrensi_apk.md` yang berkaitan dengan PRD tersebut (section yang ditandai dengan nama file PRD, misal melalui komentar `<!-- PRD: <nama-file-prd> -->` atau section header yang mencantumkan nama file PRD).
-   - jika tidak ada section yang ditandai dengan nama file PRD di `refrensi_apk.md`, lewati langkah 5c.
+## Ketentuan Umum
+
+1. Baca `AGENTS.md`, `.agents/rules/global/`, `.agents/skills/custom/`, dan `.agents/rules/global/format_PRD.md`; patuhi seluruhnya.
+2. Gunakan bahasa Indonesia baku.
+3. Muat skill yang trigger-nya terpenuhi sebelum mengubah kode.
+
+## Cakupan
+
+- Berkas PRD target di `prd/` dan seluruh berkas pada bagian "File-File Terdampak".
+
+## Parameter
+
+- `$ARGUMENTS`: path berkas PRD (mis. `prd/prd_contoh.md`).
+- Jika `$ARGUMENTS` kosong, tidak ditemukan, atau statusnya sudah `Sudah Diimplementasikan`: **STOP** dan tanyakan kepada pengguna dengan tool `question`.
+
+## Alur Kerja
+
+1. **Analyze** — baca PRD, daftar `File-File Terdampak`, dan PRD lain yang berstatus `Sedang Diimplementasikan`/`Sudah Diimplementasikan`.
+2. **Plan** — periksa bentrok: file yang sama dengan bagian perubahan yang beririsan. Bila bentrok, **STOP** tanpa mengubah berkas apa pun dan tanpa memperbarui status.
+3. **Execute** — ubah `Status Implementasi` menjadi `Sedang Diimplementasikan`, lalu implementasikan seluruh kebutuhan PRD.
+4. **Review** — jalankan verifikasi (`dart format`, `dart analyze`, `flutter test` bila relevan) dan pastikan tidak ada perubahan di luar cakupan PRD.
+5. Setelah selesai: ubah status menjadi `Sudah Diimplementasikan`, hapus berkas PRD, dan hapus section terkait pada `refrensi_apk.md` (lewati bila section tidak ditandai nama berkas PRD).
+
+## Format Laporan
+
+| Item PRD | Berkas diubah | Verifikasi | Status |
+| --- | --- | --- | --- |
+| `<fitur>` | `<path>` | `analyze`/`test` | Selesai |
+
+Sertakan konfirmasi status PRD dan penghapusan referensi terkait.
+
+## Larangan
+
+- DILARANG mengimplementasikan PRD yang bentrok dengan PRD lain.
+- DILARANG mengubah berkas di luar `File-File Terdampak` PRD.
+- DILARANG menghapus berkas PRD sebelum implementasi diverifikasi.
+- DILARANG menandai `Sudah Diimplementasikan` tanpa verifikasi.
+- DILARANG commit/push tanpa perintah eksplisit pengguna.
+
+## Kriteria Selesai / STOP
+
+- Selesai bila seluruh kebutuhan PRD terimplementasi, verifikasi lulus, status diperbarui, dan referensi terkait dibersihkan.
+- STOP bila terjadi bentrok, PRD tidak ditemukan, atau verifikasi gagal dan tidak dapat diselesaikan.

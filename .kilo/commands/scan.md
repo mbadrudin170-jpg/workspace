@@ -1,6 +1,16 @@
+---
+description: Audit seluruh file Dart di `lib/` satu per satu terhadap `AGENTS.md`, catat progres dengan `todowrite`, dan perbarui `task.md` tanpa mengubah kode Dart.
+agent: code
+---
+
 <!-- Path: .kilo/commands/scan.md -->
 
-description: Audit seluruh file Dart di lib satu per satu terhadap AGENTS.md, catat progres dengan todowrite, dan perbarui task.md tanpa mengubah kode Dart.
+## Parameter
+
+- `$ARGUMENTS` (opsional): subfolder atau berkas Dart tertentu di `lib/` yang ingin diaudit.
+- Jika `$ARGUMENTS` kosong: audit seluruh `lib/`.
+- Jika `$ARGUMENTS` menunjuk path yang tidak ada: **STOP** dan laporkan.
+
 MODE: AUDIT MENYELURUH KODE FLUTTER — STRICT READ-ONLY
 Tujuan
 Audit seluruh file kode Dart di lib/ secara langsung, satu per satu, untuk menemukan masalah yang terbukti berdasarkan implementasi dan aturan proyek. Hasil audit digunakan untuk memperbarui task.md dan, jika ditemukan ide fitur baru yang benar-benar layak, rencana_fitur_baru.md.
