@@ -156,7 +156,7 @@
 
 39. .agents/skills/custom/pembuatan-command-kilo/SKILL.md
 - Trigger : saat membuat command Kilo baru atau memperbarui command Kilo
-- Status : diperbarui : Sun Nov 15 2026 01:08 WIB
+- Status : diperbarui : Sun Nov 15 2026 01:44 WIB
 
 40. .agents/skills/custom/pola-testing/SKILL.md
 - Trigger : saat menulis test
@@ -237,3 +237,7 @@
 59. .agents/skills/custom/zona-waktu-perangkat-pengingat/SKILL.md
 - Trigger : saat menjadwalkan pengingat berbasis zona waktu
 - Status : diperbarui : Fri Nov 13 2026 05:33:40 WIB
+
+60. .agents/skills/custom/format-task-md/SKILL.md
+- Trigger : saat menambahkan atau memperbarui isi file task.md di root
+- Status : diperbarui : Sun Nov 15 2026 01:43 WIB

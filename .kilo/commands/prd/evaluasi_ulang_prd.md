@@ -10,7 +10,7 @@ Menganalisis ulang PRD yang ditentukan agar tidak menimbulkan kendala saat diimp
 
 ## Ketentuan Umum
 
-1. Baca `AGENTS.md` dan `.agents/rules/global/format_PRD.md`; patuhi keduanya.
+1. Baca `AGENTS.md` dan `.agents/skills/custom/format-prd/SKILL.md`; patuhi keduanya.
 2. Gunakan bahasa Indonesia baku.
 
 ## Cakupan
@@ -24,7 +24,7 @@ Menganalisis ulang PRD yang ditentukan agar tidak menimbulkan kendala saat diimp
 
 ## Alur Kerja
 
-1. **Analyze** — baca PRD dan periksa konsistensi setiap bagian terhadap `format_PRD.md`.
+1. **Analyze** — baca PRD dan periksa konsistensi setiap bagian terhadap `.agents/skills/custom/format-prd/SKILL.md`.
 2. **Plan** — identifikasi potensi kendala implementasi (file terdampak, dependensi, alur, kriteria).
 3. **Execute** — perbaiki PRD seperlunya; jangan mengubah maksud fitur.
 4. **Review** — pastikan seluruh bagian wajib terisi dan tidak ada informasi yang dikarang; perbarui status dokumen menjadi `Final`.
@@ -47,5 +47,5 @@ Sertakan status akhir dokumen.
 
 ## Kriteria Selesai / STOP
 
-- Selesai bila PRD konsisten dengan `format_PRD.md` dan status dokumen `Final`.
+- Selesai bila PRD konsisten dengan `.agents/skills/custom/format-prd/SKILL.md` dan status dokumen `Final`.
 - STOP bila PRD tidak ditemukan, terdapat konflik dengan PRD lain, atau informasi penting tidak tersedia.

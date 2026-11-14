@@ -11,7 +11,7 @@ Mengimplementasikan PRD yang ditentukan pengguna secara utuh, dari pemeriksaan b
 
 ## Ketentuan Umum
 
-1. Baca `AGENTS.md`, `.agents/rules/global/`, `.agents/skills/custom/`, dan `.agents/rules/global/format_PRD.md`; patuhi seluruhnya.
+1. Baca `AGENTS.md`, `.agents/rules/global/`, `.agents/skills/custom/`, dan `.agents/skills/custom/format-prd/SKILL.md`; patuhi seluruhnya.
 2. Gunakan bahasa Indonesia baku.
 3. Muat skill yang trigger-nya terpenuhi sebelum mengubah kode.
 
