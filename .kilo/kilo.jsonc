@@ -103,7 +103,6 @@
   },
   "instructions": [
     "AGENTS.md",
-    ".agents/rules/global",
     ".agents/rules/global/alur_git_commit.md",
     ".agents/rules/global/aturan_skill.md",
     ".agents/rules/global/format_PRD.md",
@@ -168,7 +167,7 @@
   "disabled_providers": [],
   "provider": {},
   "skills": {
-    "paths": [".agents/skills/custom", ".agents/skills"]
+    "paths": [".agents/skills/custom"]
   },
   "retention": {
     "enabled": true
