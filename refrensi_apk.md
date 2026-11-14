@@ -61,6 +61,7 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Referensi:** [CoC Base Maps 2026](https://play.google.com/store/apps/details?id=com.m3android7s.projects.clashofclansbaselayouts), [Maps For COC Base Layouts 2026](https://play.google.com/store/apps/details?id=com.baselayouts.cocmaps), [COC Base Layouts Design links](https://play.google.com/store/apps/details?id=com.srsapps.new_clash_base_layouts_direct_link)
 - **Saran:** simpan gambar base dalam dua ukuran (thumbnail dan detail), gunakan `InteractiveViewer` untuk zoom, dan sediakan tombol reset zoom.
 - **Prioritas:** Tinggi.
+- **Status PRD:** Sudah diimplementasikan.
 
 #### A4. Katalog lokal yang tetap berfungsi tanpa internet
 
@@ -80,6 +81,7 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Referensi:** [Map Layout Links Base for COC](https://play.google.com/store/apps/details?id=com.coc.layouts), [Maps For COC Base Layouts 2026](https://play.google.com/store/apps/details?id=com.baselayouts.cocmaps), [Base Drop](https://play.google.com/store/apps/details?id=com.cocbasedrop)
 - **Saran:** simpan favorit secara lokal menggunakan penyimpanan kunci-nilai; beri nama koleksi (mis. "War TH12") agar relevan dengan alur perang klan.
 - **Prioritas:** Sedang.
+- **Status PRD:** Sudah dibuatkan PRD (`prd/prd_favorit_base.md`, baris 77–83 refrensi_apk.md).
 
 #### A6. Kategori strategi lanjutan (anti-3-star, anti-air, anti-ground, CWL)
 
