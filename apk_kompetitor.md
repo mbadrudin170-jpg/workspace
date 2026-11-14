@@ -40,6 +40,8 @@ Catatan: `apk_serupa.md` tidak ditemukan di root proyek per 2026-11-14; lingkup 
 | COC Layout | Galeri base TH4–TH15 dan BH4–BH10 untuk war, farming, trophy, dan layout lucu dengan copy satu ketuk, rating desain pemain, zoom, serta berbagi ke media sosial. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.supercell.clashofclans.map.coc.layout) | Belum Dianalisa |
 | BaseVault for Clash of Clans | Companion dengan 8.000–10.000+ base anti-3-star yang diperbarui harian, analisis strategi berbasis AI (screenshot ke strategi), dan Clan Vault privat untuk menyimpan serta membagikan base dan pasukan. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.apphubnow.basedrop) | Belum Dianalisa |
 | Cockit – Clash Base Layouts | Koleksi ratusan base TH4–TH18 dan BH4–BH9 untuk war, trophy, farming, dan hybrid dengan copy link langsung ke game serta penyimpanan favorit. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.heyisoft.cockit) | Belum Dianalisa |
+| Clashlayout | Mobile-first, komunitas-driven utility untuk Clash of Clans: temukan, unduh, dan bagikan base layout pemain, one-tap copy ke game, unggah base sendiri, simpan favorit layout, serta komunitas rewards. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.algorithmnp.clashlayout) | Belum Dianalisa |
+| Ultimate Pro Base Layouts | Koleksi besar base layout profesional: war base, farming, hybrid, dan trophy; filter tipe dan kategori, simpan serta bagikan favorit, pencarian cerdas, dan akses offline untuk layout yang di-bookmark. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.coc.bases) | Belum Dianalisa |
 
 ## GitHub
 
@@ -47,6 +49,9 @@ Catatan: `apk_serupa.md` tidak ditemukan di root proyek per 2026-11-14; lingkup 
 | --- | --- | --- | --- | --- |
 | ClashPrime | Aplikasi Android companion Clash of Clans dengan Base Library yang menggabungkan katalog layout Home Village dan Builder Base (ClashLy dan clash-bases), filter TH, favorit, serta copy layout langsung ke game; APK tersedia di setiap rilis GitHub. | GitHub | [Buka Repositori](https://github.com/FarhanZafarr-9/ClashPrime) | Belum Dianalisa |
 | Clash Trackers | Pelengkap non-galeri: aplikasi Android offline dan widget layar utama untuk melacak timer upgrade Home Village dan Builder Base, potion, serta event, dengan dukungan banyak akun; APK tersedia di setiap rilis GitHub. | GitHub | [Buka Repositori](https://github.com/Killersparrow1/clash-Trackers) | Belum Dianalisa |
+| Coc-Base-Layout | Aplikasi Android base layout Clash of Clans dengan topik clash-of-clans, coc, android-application, dan mobile-app; penyedia base layout untuk CoC. | GitHub | [Buka Repositori](https://github.com/mhmdmydn/Coc-Base-Layout) | Belum Dianalisa |
+| coc-tracker (Clash Ledger) | Widget Android open-source untuk melacak upgrade Clash of Clans (builder, penelitian, hewan peliharaan) dari layar utama, bekerja offline, tanpa iklan dan pelacakan. | GitHub | [Buka Repositori](https://github.com/chitti-a7r4/coc-tracker) | Belum Dianalisa |
+| stats_for_clash_of_clans | Aplikasi Android untuk statistik Clash of Clans: Home Village dan Builder Village, level bangunan, pasukan, serta achievement. | GitHub | [Buka Repositori](https://github.com/ClashStat/stats_for_clash_of_clans) | Belum Dianalisa |
 
 ## Apple App Store
 
