@@ -1018,6 +1018,7 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 - **Referensi:** [ClashLy for Clash of Clans](https://play.google.com/store/apps/details?id=np.com.sangams.cocbase)
 - **Saran:** chip sortir di atas grid (Terpopuler memakai penghitung salin/buka lokal dari A36; Terbaru memakai urutan tanggal katalog); dua mode saja cukup agar tidak membebani tampilan.
 - **Prioritas:** Sedang.
+- **Status:** PRD Final (`prd/prd_sorter_baru_populer.md`, sesi 163); belum diimplementasikan.
 
 #### C39. Tema dinamis mengikuti perangkat (Dynamic Color)
 
