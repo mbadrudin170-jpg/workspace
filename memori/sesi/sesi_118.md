@@ -4,7 +4,7 @@
 
 - Status Sinkron: Belum Sinkron
 - Tanggal: Sun Nov 15 2026 18:52 WIB (sesi 118)
-- Topik: Mode Diskusi — topik belum ditentukan (parameter topik kosong; menunggu input pengguna)
+- Topik: Mode Diskusi — memperbarui command `.kilo/commands/kerjakan_hasil_diskusi.md`: sebelum mengimplementasikan hasil diskusi, cek dahulu apakah sudah diimplementasikan, walaupun status PRD/diskusi masih `Belum Diimplementasikan`.
 
 ## Catatan Sesi
 

@@ -241,3 +241,7 @@
 60. .agents/skills/custom/format-prd/SKILL.md
 - Trigger : saat membuat atau memperbarui PRD
 - Status : diperbarui : Sun Nov 15 2026 02:10 WIB
+
+61. .agents/skills/custom/audit-riwayat-sesi/SKILL.md
+- Trigger : saat mengaudit riwayat sesi
+- Status : diperbarui : Sun Nov 15 2026 18:58 WIB

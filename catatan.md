@@ -131,3 +131,39 @@ Tanggal evaluasi: 2026-11-15 (sesi 113). Parameter `$ARGUMENTS` kosong; tidak ad
 - Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus.
 - Berkas yang diubah: `task.md` (Kelompok 4, Task 8–9) dan `catatan.md` (subbagian ini). Di luar batasan command tersebut, sesuai kewajiban skill `memori-check` yang mengikat pada setiap interaksi, turut diubah/ditambah: `MEMORI.md` (header, entri Status Kerja sesi 113, koreksi bagian Hasil Diskusi), `memori/riwayat_perubahan.md` (entri sesi 113), dan `memori/sesi/sesi_113.md` (dibuat; status `Sudah Sinkron`). Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
 - Lingkup commit `2338cd3` (berkas `.backup_task/*.bak` + perubahan pointer `base_coc`) di luar cakupan evaluasi Dart; dicatat di subbagian root sebagai informasi.
+
+### Evaluasi ulang 2026-11-15 sore (root + submodul; sesi 119)
+
+Tanggal evaluasi: 2026-11-15 (sesi 119). Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus. Berkas yang diubah: `catatan.md` (subbagian ini), serta berkas memori (`MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_119.md`) sesuai kewajiban skill `memori-check`. Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul. `task.md` **tidak diperbarui** (tidak ada temuan baru; Task 8 dan Task 9 sudah `selesai` sejak sesi 115).
+
+#### Repositori root (`.`)
+
+- Branch aktif: `main`.
+- Rentang dievaluasi: `aab7fcd..HEAD` (2 commit: `ca73206` `m` 2026-11-15 11:46:46 UTC, `73fa8a9` `a` 2026-11-15 11:52:41 UTC), dibaca dari terlama ke terbaru.
+- Commit Dart: **tidak ada** (`git log aab7fcd..HEAD -- '*.dart'` kosong). Tidak ada temuan untuk root.
+- Pointer submodul: `git ls-tree HEAD base_coc share_global_saya` = `149fe8186b10311336d9a913cb1be59a3ffb2359` (`base_coc`) dan `ae787616e134969379b4ea85dd2fec3f15d67929` (`share_global_saya`). Pointer `base_coc` **berbeda** dari HEAD submodul `cacca30b128aadb43e839d31eb1e944a10101b61` (informasi; `git status` root menampilkan `M base_coc`); pointer `share_global_saya` cocok.
+- Catatan informasi (bukan temuan kode Dart): commit `ca73206` memuat berkas cadangan `.backup_task/filter_provider.dart.bak`, `.backup_task/filter_state.dart.bak`, `.backup_task/task_sesi115.md.bak` — melanggar skill `larangan-backup-task`; commit oleh sesi paralel/pengguna, bukan tindakan evaluasi ini.
+- Commit terakhir yang dievaluasi: `73fa8a9c67bf6813f7b8d0ecfcd1300c54272302` (HEAD; 2026-11-15 11:52:41 UTC; pesan `a`).
+- Tanggal evaluasi: 2026-11-15.
+
+#### Submodul `base_coc` (`base_coc/`)
+
+- Branch aktif: `main` (bukan detached HEAD).
+- Rentang dievaluasi: `149fe81..HEAD` (1 commit: `cacca30` `feat(base): tambahkan panduan base dan fitur berbagi tautan`, 2026-11-15 11:52:43 UTC).
+- Commit Dart yang diperiksa: `cacca30` — `filter_state.dart`, `filter_state.freezed.dart` (baru), `filter_provider.dart`, `filter_provider.g.dart` (baru). Isi: konversi `FilterState` menjadi `@freezed abstract class` (`const FilterState._()`, `@Default('') query`, `@Default(<TagStrategi>{}) tags`, getter `hasFilter` dipertahankan di body; `copyWith`/`==`/`hashCode` dihasilkan codegen), dan konversi `FilterNotifier` menjadi `@Riverpod(keepAlive: true) extends _$FilterNotifier` (`build() => const FilterState()`); `package:flutter_riverpod/legacy.dart` dihapus. Berkas generate memuat penanda `GENERATED CODE - DO NOT MODIFY BY HAND`; tidak ada bukti edit manual.
+- Verifikasi paket/SDK: Flutter 3.47.9 / Dart 3.13.7 (`flutter --version` per 2026-11-15; `environment.sdk ^3.13.7` cocok). Versi ter-lock identik dengan yang diverifikasi ke pub.dev pada 2026-11-15 (sesi 113; `pubspec.lock` tidak berubah untuk paket ini): `flutter_riverpod 3.5.0`, `freezed 4.0.3`, `freezed_annotation 3.1.0`, `riverpod_annotation 4.0.8`, `riverpod_generator 4.0.10`, `riverpod_lint 3.2.0`, `build_runner 2.17.1`, `share_plus 13.3.1`, `sqflite` (constraint `^2.4.6`).
+- Temuan: **tidak ada** — perubahan `cacca30` justru menyelesaikan Kelompok 4 Task 8 (`FilterState` `@freezed`) dan Task 9 (`FilterNotifier` codegen), keduanya sudah `selesai` di `task.md` (sesi 115). `task.md` tidak ditambah.
+- Catatan informasi (bukan temuan kode Dart): pesan commit `cacca30` menggambarkan fitur Panduan Base dan Berbagi tautan (keduanya sudah ter-commit di `149fe81`), padahal isi diff hanya konversi codegen `FilterState`/`FilterNotifier` (pekerjaan sesi 115). Dicatat sebagai informasi; bukan tindakan evaluasi ini untuk mengubah apa pun.
+- Pointer: `git ls-tree HEAD base_coc` = `149fe81` — **berbeda** dengan HEAD submodul `cacca30b128aadb43e839d31eb1e944a10101b61` (informasi; bukan temuan kode; pointer tidak diubah).
+- Catatan: working tree `base_coc` bersih.
+- Commit terakhir yang dievaluasi: `cacca30b128aadb43e839d31eb1e944a10101b61` (HEAD; 2026-11-15 11:52:43 UTC; pesan `feat(base): tambahkan panduan base dan fitur berbagi tautan`).
+- Tanggal evaluasi: 2026-11-15.
+
+#### Submodul `share_global_saya` (`share_global_saya/`)
+
+- Branch aktif: `main`.
+- Rentang dievaluasi: `ae78761..HEAD` — kosong (HEAD `ae787616e134969379b4ea85dd2fec3f15d67929` sudah dievaluasi pada 2026-11-15 sesi 113; 1 commit `ae78761` hanya docs). Tidak ada commit baru; tidak ada temuan.
+- Pointer: `git ls-tree HEAD share_global_saya` = `ae78761` — cocok dengan HEAD submodul.
+- Catatan: working tree bersih.
+- Commit terakhir yang dievaluasi: `ae787616e134969379b4ea85dd2fec3f15d67929` (HEAD; 2026-11-14 23:01:12 UTC; pesan `jm`).
+- Tanggal evaluasi: 2026-11-15.
