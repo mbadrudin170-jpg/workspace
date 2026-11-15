@@ -670,16 +670,6 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 
 ### Batch 8 — arahan optimasi tambahan (2026-11-15 WIB, sesi 128)
 
-#### B19. Pemeriksaan berkala dan penggantian tautan kedaluwarsa
-
-- **Fitur pada proyek:** copy base link satu ketuk (A2) dan pelaporan tautan rusak (A37).
-- **Referensi:** [ClashRG Maps of Clash Of Clans](https://play.google.com/store/apps/details?id=com.socialbytes.mapsofcoc), [Clash Base Links – CoC Layouts](https://play.google.com/store/apps/details?id=ir.ghaderi.clashbaz)
-- **Perbandingan:** `ClashRG` menyatakan tautan diperiksa berkala dan tautan kedaluwarsa langsung diganti; `Clash Base Links – CoC Layouts` menonjolkan "weekly layout updates" agar katalog tidak basi.
-- **Potensi peningkatan:** validasi format tautan saat memuat katalog (lokal), beri penanda `terakhirDiperiksa` per entri, sediakan alur penggantian satu ketuk saat pengguna melaporkan tautan mati, dan tampilkan jumlah tautan yang perlu ditinjau pada layar pengaturan/administrasi lokal.
-- **Tujuan peningkatan:** menjaga kepercayaan aksi copy — keluhan utama pengguna aplikasi sejenis.
-- **Prioritas:** Sedang.
-- **Status:** PRD Final (`prd/prd_pemeriksaan_tautan_kedaluwarsa.md`, sesi 155); belum diimplementasikan.
-
 #### B20. Pengurutan sisa upgrade berdasarkan biaya/waktu tercepat
 
 - **Fitur pada proyek:** pelacakan progres upgrade desa (A16) dan saran upgrade (A45).

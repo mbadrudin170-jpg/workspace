@@ -207,6 +207,57 @@ Tanggal evaluasi: 2026-11-15 (sesi 126). Parameter `$ARGUMENTS` kosong; tidak ad
 - Working tree root memuat dua berkas command yang terhapus belum ter-stage (`.kilo/commands/install_ulang_paket.md`, `.kilo/commands/ubah_model_code.md`) — bukan tindakan sesi ini; tidak dipulihkan dan tidak di-commit; dilaporkan ke pengguna.
 - Berkas yang diubah: `catatan.md` (subbagian ini) dan berkas memori (`MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_126.md`) sesuai kewajiban skill `memori-check`. Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
 
+### Evaluasi ulang 2026-11-15 malam kedua (root + submodul; sesi 157)
+
+Tanggal evaluasi: 2026-11-15/2026-11-16 (sesi 157). Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus. Berkas yang diubah: `task.md` (Kelompok 5–6, Task 10–11) dan `catatan.md` (subbagian ini), serta berkas memori (`MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_157.md`) sesuai kewajiban skill `memori-check`. Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
+
+#### Repositori root (`.`)
+
+- Branch aktif: `main`.
+- Rentang dievaluasi: `21e1220..cb375ef` (19 commit: `54191ec`, `9374a23`, `0f2c650`, `c21e9bb`, `9d92424`, `2b5e033`, `bd87f5e`, `8f404e0`, `f80c81f`, `6ad8bad`, `28844b2`, `fd110b0`, `3ce071f`, `c6c53fb`, `9f223c2`, `f4c12a2`, `d8053fb`, `b3aa371`, `cb375ef`), dibaca dari terlama ke terbaru.
+- Commit Dart: **tidak ada** (`git log 21e1220..HEAD -- '*.dart'` kosong). Tidak ada temuan untuk root.
+- Pointer submodul: `git ls-tree HEAD base_coc` = `207aa5da0a1b8982126fc806ff4e721a929cc3ad` — **berbeda** dengan HEAD submodul `e0c88eb069b4cbba4b2cb40cdf17ec8bcb6383af` (informasi; index gitlink sama dengan HEAD, `207aa5d`; `git status --short` menampilkan `M base_coc`); pointer `share_global_saya` = `ae78761` cocok dengan HEAD submodul.
+- Catatan informasi: working tree root memuat `M prd/prd_pemeriksaan_tautan_kedaluwarsa.md` (perubahan sesi paralel; tidak disentuh sesi ini) serta berkas sesi `sesi_157`/`sesi_158` (sesi paralel) — bukan tindakan evaluasi ini.
+- Commit terakhir yang dievaluasi: `cb375efb22f3f0c14dd139a31d7558c2ec2f534a` (HEAD; 2026-11-15 19:27:30 UTC; pesan `mn`).
+- Tanggal evaluasi: 2026-11-15.
+
+#### Submodul `base_coc` (`base_coc/`)
+
+- Branch aktif: `main` (bukan detached HEAD).
+- Rentang dievaluasi: `cacca30..e0c88eb` (5 commit: `34f4ea9`, `e96a48e`, `207aa5d`, `db65ac2`, `e0c88eb`), dibaca dari terlama ke terbaru.
+- Commit Dart yang diperiksa:
+  1. `34f4ea9` (2026-11-15 15:42:59 UTC; `feat(cadangan): tambahkan fitur cadangkan dan pulihkan data pengguna`) — `cadangan_service.dart` baru (`CadanganService` ekspor/pemulihan JSON; manifest berversi; validasi ketat sebelum DB; cadangan pengaman `base_coc_safety_backup.json`; restore satu transaksi dengan `ConflictAlgorithm.replace`; parsial-write-delete pada kegagalan ekspor), `cadangan_screen.dart` baru (`ConsumerStatefulWidget`, `_sedangMemproses`, dialog konfirmasi destruktif, `FilePicker.pickFile(...)` + `SharePlus.instance.share(...)`, invalidasi `favoritProvider`/`progresProvider`, `kIsWeb` gate, `mounted` checks), `beranda_galeri_screen.dart` (IconButton cadangan), `pubspec.yaml` (`file_picker ^13.3.3`, `path_provider ^2.1.6`), `pubspec.lock`, `test/cadangan_service_test.dart` baru.
+  2. `e96a48e` (2026-11-15 15:57:32 UTC; `a`) — README saja (bukan Dart).
+  3. `207aa5d` (2026-11-15 19:08:26 UTC; `n`) — A56 Saran Base Serupa (sesi 152) di-commit: `base_serupa_service.dart` baru (`cariBaseSerupa`; suffix numerik id, jarak suffix terdekat, tie-break alfabetis, maks 5), `base_serupa_provider.dart` baru (`Provider.family<AsyncValue<List<BaseLayout>>, BaseLayout>` turunan `katalogProvider`), `base_serupa_view.dart` baru (widget murni; `Column`/`Row spacing`, `ColorScheme`, fallback `Icons.shield`), `detail_base_screen.dart` (konversi `ConsumerStatefulWidget`; section Base Serupa paling bawah), test baru/berubah (`base_serupa_test.dart`, `detail_base_test.dart`, `panduan_base_test.dart`).
+  4. `db65ac2` (2026-11-15 19:45:47 UTC; `feat(tautan): tambahkan fitur lapor dan tinjau tautan base rusak`) — B19 (sesi 155) di-commit: `db_helper.dart` naik ke `versiDatabase = 3` (onCreate + onUpgrade `if (oldVersion < 3)`; `CREATE TABLE IF NOT EXISTS`), `tautan_status_dao.dart` baru (`TautanStatus` model database manual + `TautanStatusDao`; `lapor` dalam transaksi; `tandaiDitinjau`; `ambilSemua` urut `jumlah_laporan DESC`), `tautan_tinjauan.dart` baru (`hitungPerluDitinjau`; normalisasi tanggal, klamping usia negatif ke 0, ambang 180 hari), `nama_tabel_tautan.dart` baru (konstanta `NamaTabelTautan`/`NamaKolomTautan` snake_case), `tautan_status_provider.dart` baru (`@Riverpod(keepAlive: true) TautanStatusNotifier` — `build() => _ambilSemua()`, DB dulu lalu update state, `on Exception catch` + `debugPrint` + `rethrow`; `antreanTautanProvider` FutureProvider turunan `katalogProvider` + `tautanStatusProvider`), `administrasi_tautan_screen.dart` baru (layar; `when(loading/error(retry ref.refresh)/data)`; `unawaited` berbagi laporan; badge "Sering dilaporkan" ambang ≥3; `_TampilanGagal` + `_TampilanKosong` custom), `detail_base_screen.dart` (badge "Tautan perlu ditinjau" + tombol Lapor; `antreanAsync.maybeWhen` + `hasError` → `debugPrint`), `base_layout.dart` (field `terakhirDiperiksa` opsional; validasi ketat ISO 8601; `baseLink` kini divalidasi `validasiLinkBase`), `base_layout.freezed.dart` (regenerasi codegen), `.g.dart` provider baru, `base_katalog.json` (non-Dart).
+  5. `e0c88eb` (2026-11-15 19:47:38 UTC; `a`) — korektif/format: `dart format`, penghapusan import `flutter/foundation.dart` tak terpakai di layar, `unawaited(_bagikanLaporan(items))`, test baru (`base_layout_test.dart`, `tautan_status_dao_test.dart`, `tautan_tinjauan_test.dart`, `tautan_widget_test.dart`).
+- Verifikasi paket/SDK: Flutter 3.47.9 / Dart 3.13.7 (`flutter --version` per 2026-11-15; `environment.sdk ^3.13.7` cocok). `pubspec.lock`: `file_picker 13.3.3`, `path_provider 2.1.6` (baru pada `34f4ea9`), `share_plus 13.3.1`, `flutter_riverpod 3.5.0`, `freezed 4.0.3`, `freezed_annotation 3.1.0`, `riverpod_annotation 4.0.8`, `riverpod_generator 4.0.10`, `build_runner 2.17.1`, `sqflite` (constraint `^2.4.6`). `file_picker 13.3.3` terverifikasi di pub.dev (2026-11-10; SDK `>=3.10.0 <4.0.0`, Flutter `>=3.38.0`; API `FilePicker.pickFile({FileType type, List<String>? allowedExtensions})` static terkonfirmasi pada dokumentasi file_picker 13.3.3 — pemakaian `FileType.custom` + `allowedExtensions: ['json']` valid). `path_provider 2.1.6` terverifikasi di pub.dev (2026-06-15; SDK `^3.10.0`, Flutter `>=3.38.0`). Versi lain ter-lock identik dengan verifikasi sesi 113/119.
+- Temuan (dicatat ke `task.md` Kelompok 5–6):
+  1. `detail_base_screen.dart` (`207aa5d`; masih pada HEAD): `ref.watch(baseSerupaProvider(widget.base)).asData?.value` — cache provider turunan ditelan senyap tanpa pesan error/retry/logging → melanggar skill `penanganan-async-data-kosong` Aturan 7 + Larangan. → Task 10.
+  2. `tautan_status_dao.dart` (`db65ac2`): model database `TautanStatus` tanpa `toSqflite()` (hanya `fromSqflite`) → melanggar skill `model-state-freezed-abstract` Aturan 7. → Task 11.
+- Tidak ada temuan lain: migrasi DB 2→3 (onCreate + onUpgrade cermin, `IF NOT EXISTS`) ✓ skill `migrasi-skema-sqlite`; konstanta kolom/tabel snake_case ✓; parsing DB via `ParserUtil` (`parseInt`, `parseStringOrNull`) ✓; normalisasi tanggal + klamping usia ≥0 ✓ skill `normalisasi-tanggal`; validasi katalog ketat (`terakhirDiperiksa` ISO 8601; `baseLink` via `validasiLinkBase`; `KatalogGagalException`) ✓ skill `validasi-json-katalog-ketat`; `TautanStatusNotifier` `@Riverpod(keepAlive: true)`, `build() => _ambilSemua()`, DB dulu lalu `state = AsyncValue.data(...)`, `on Exception catch` + `rethrow` ✓ pola `notifier-crud-database` (adaptasi: tidak ada `SqfliteOp`/`L` di base_coc — pemakaian `debugPrint`); `unawaited` dengan `.catchError` pada `_laporkanTautan` ✓ skill `penanganan-error-unawaited`; layar administrasi `when(loading/error(retry ref.refresh)/data)` ✓; badge ≥3 sesuai keputusan PRD B19; berkas generated (`*.freezed.dart`, `*.g.dart`) tidak diedit manual ✓; test ditambahkan pada seluruh commit kode ✓.
+- Informasi (pra-eksis, di luar rentang dievaluasi): `beranda_galeri_screen.dart` memakai `.asData?.value` (baris ~25, provider `filteredBasesProvider`) tanpa penanganan — sudah tercatat sebagai kandidat audit di `MEMORI.md` (sesi 153); bukan temuan commit dalam rentang ini dan tidak dimasukkan ke `task.md` sesi ini.
+- Pointer: `git ls-tree HEAD base_coc` = `207aa5d` — **berbeda** dengan HEAD submodul `e0c88eb` (informasi; pointer tidak diubah; working tree submodul memuat 4 berkas test yang dimodifikasi belum ter-commit — bukan tindakan evaluasi ini).
+- Commit terakhir yang dievaluasi: `e0c88eb069b4cbba4b2cb40cdf17ec8bcb6383af` (HEAD; 2026-11-15 19:47:38 UTC; pesan `a`).
+- Tanggal evaluasi: 2026-11-15.
+
+#### Submodul `share_global_saya` (`share_global_saya/`)
+
+- Branch aktif: `main`.
+- Rentang dievaluasi: `ae78761..ae78761` — kosong (HEAD `ae787616e134969379b4ea85dd2fec3f15d67929` sudah dievaluasi pada sesi 126). Tidak ada commit baru; tidak ada temuan.
+- Pointer: `git ls-tree HEAD share_global_saya` = `ae78761` — cocok dengan HEAD submodul.
+- Catatan: working tree bersih.
+- Commit terakhir yang dievaluasi: `ae787616e134969379b4ea85dd2fec3f15d67929` (HEAD; 2026-11-14 23:01:12 UTC; pesan `jm`).
+- Tanggal evaluasi: 2026-11-15.
+
+#### Catatan pelaksanaan evaluasi 2026-11-15 malam kedua
+
+- Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus.
+- Berkas yang diubah: `task.md` (Kelompok 5–6, Task 10–11) dan `catatan.md` (subbagian ini). Di luar batasan command tersebut, sesuai kewajiban skill `memori-check` yang mengikat pada setiap interaksi, turut diubah/ditambah: `MEMORI.md` (header + entri sesi 157), `memori/riwayat_perubahan.md` (entri sesi 157), dan `memori/sesi/sesi_157.md` (dibuat; status `Belum Sinkron` selama sesi). Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
+- Catatan: pointer `base_coc` root berbeda dari HEAD submodul (`207aa5d` vs `e0c88eb`) — hanya dicatat sebagai informasi; tidak diubah.
+
+
+
 ## Evaluasi Skill dari commit
 
 Tanggal evaluasi: 2026-11-15 (parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus). Bagian ini belum pernah ada sehingga ketiga repo memakai data awal 5 commit terakhir pada branch aktifnya (dibaca dari terlama ke terbaru), dievaluasi hanya untuk perubahan kode Dart; commit baru yang muncul saat evaluasi berjalan diabaikan. Commit yang menyentuh `task.md` di root (`ca73206`, `c4c7c99`) dibaca bagian `batal` yang dihapus beserta `prompt`-nya — keduanya hanya menghapus task berstatus `selesai` (tidak ada task `batal` yang dihapus), sehingga tidak ada skill yang perlu disesuaikan dari situ. Berkas yang diubah: `catatan.md` (bagian ini) dan `.agents/skills/custom/` (perbarui/tambah skill). Berkas Dart pada seluruh repo tidak disentuh; pointer submodule, `.gitmodules`, dan isi submodule tidak disentuh; tidak ada commit/push di root maupun submodule.

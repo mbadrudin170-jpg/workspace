@@ -1,10 +1,10 @@
 ---
 name: pola-testing
-description: "Trigger: saat menulis test | Pola testing standar: package:test untuk unit test, WidgetTester untuk widget test, integration test, mockito generate mocks, dummy data, build_runner."
+description: "Trigger: saat menulis test | Pola testing standar: package:test untuk unit test, WidgetTester untuk widget test, integration test, mocktail mock manual (tanpa codegen), dummy data, build_runner."
 metadata:
   kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.0"
+  diperbarui: "Mon Nov 16 2026 03:04 WIB"
 ---
 
 # Pola Testing Standar
@@ -112,25 +112,55 @@ void main() {
 ### Referensi
 - `flutter-add-integration-test` skill untuk detail
 
-## 4. Mockito Generate Mocks
+## 4. Mocktail Mock Manual (tanpa codegen)
 
 ### Aturan
-- Gunakan `@GenerateMocks([ClassName])` di file terpisah (mis. `mocks.dart`).
-- Jalankan `dart run build_runner build --delete-conflicting-outputs` setelah ubah.
-- Mock repository/service, **BUKAN** Notifier/Provider (override provider langsung).
+- Jika kode bergantung pada repository/service eksternal, **WAJIB** gunakan `package:mocktail` dengan kelas mock manual `class MockX extends Mock implements X {}`; jangan lewati hanya karena override provider.
+- **JANGAN** gunakan mockito (`@GenerateMocks` + build_runner) untuk proyek ini; mocktail tidak memerlukan codegen.
+- `package:mocktail` wajib tercantum pada `dev_dependencies` (`mocktail: ^1.0.5` per 2026-11-16) sebelum file mock dibuat; tambahkan memakai skill `pengurutan-paket-pubspec` bila belum ada.
+- Mock repository/service, **BUKAN** Notifier/Provider (override provider langsung melalui `ProviderScope`/`ProviderContainer`).
+- `class MockX extends Mock implements X {}` ditulis di `test/mocks.dart` (bukan di file `*_test.dart`); `test/mocks.dart` bukan file test sehingga tidak dijalankan langsung oleh `flutter test`.
 - Dummy data dari `lib/fitur/*/dummy_data/`.
+- Stub dengan `when(() => mock.metode()).thenAnswer(...)`/`thenReturn(...)`; `registerFallbackValue` untuk tipe non-nullable custom bila diperlukan; `verify(() => mock.metode())` dan `verifyNever(...)` untuk verifikasi interaksi.
 
 ```dart
 // test/mocks.dart
-import 'package:mockito/annotations.dart';
-import 'package:berhenti_merokok/shared/db/sqflite/sqflite_op.dart';
+import 'package:mocktail/mocktail.dart';
 
-@GenerateMocks([SqfliteOp])
-void main() {}
+// Sesuaikan X dengan tipe repository/service yang di-mock.
+class MockX extends Mock implements X {}
 ```
 
+```dart
+// test/contoh_repository_test.dart
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+
+import 'mocks.dart';
+
+void main() {
+  test('repository dipanggil dengan argumen yang benar', () async {
+    final mock = MockX();
+    when(() => mock.ambilSemua()).thenAnswer((_) async => <Item>[]);
+
+    final hasil = await panggilAlur(mock);
+
+    expect(hasil, isEmpty);
+    verify(() => mock.ambilSemua()).called(1);
+  });
+}
+```
+
+### Checklist
+- [ ] `mocktail` tercantum di `dev_dependencies` submodule yang bersangkutan.
+- [ ] Kelas mock manual ada di `test/mocks.dart`, bukan di dalam `*_test.dart`.
+- [ ] Tidak ada import `package:mockito` maupun `@GenerateMocks`.
+- [ ] Notifier/Provider di-override langsung, tidak di-mock.
+- [ ] Stub default ditetapkan (`when`) agar tidak ada `NoSuchMethodError` dari pemanggilan tak ter-stub.
+
 ### Referensi
-- `dart-generate-test-mocks` skill untuk detail
+- `hasil_diskusi/diskusi_5.md` (K-5, R-1; sesi 158)
+- `package:mocktail` (https://pub.dev/packages/mocktail)
 
 ## 5. Test Organization & Dummy Data
 
@@ -146,7 +176,6 @@ void main() {}
 - **WAJIB** jalankan `dart run build_runner build --delete-conflicting-outputs` setelah:
   - Ubah model Freezed (`.freezed.dart`)
   - Ubah Riverpod Notifier (`.g.dart`)
-  - Ubah Mockito `@GenerateMocks`
 - Jangan edit file `.g.dart` / `.freezed.dart` manual.
 - CI akan jalanin build_runner otomatis.
 
@@ -193,6 +222,7 @@ dart fix --apply
 - **DILARANG** mock Notifier/Provider → override provider.
 - **DILARANG** test bergantung urutan (gunakan `setUp`/`tearDown`).
 - **DILARANG** hardcode delay (`await Future.delayed`) → gunakan `pumpAndSettle`.
+- **DILARANG** import `package:mockito` / `@GenerateMocks` (proyek ini memakai mocktail; lihat bagian 4).
 
 ## Referensi Aturan Sumber
 
@@ -200,6 +230,6 @@ dart fix --apply
 - `flutter-add-widget-test` skill
 - `flutter-add-integration-test` skill
 - `dart-add-unit-test` skill
-- `dart-generate-test-mocks` skill
 - `dart-collect-coverage` skill
 - `dart-run-static-analysis` skill
+- `hasil_diskusi/diskusi_5.md` (K-5, R-1; sesi 158) — mocktail menggantikan mockito; `dart-generate-test-mocks` (mockito) tidak diikuti untuk proyek ini

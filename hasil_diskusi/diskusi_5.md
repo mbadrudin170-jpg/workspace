@@ -3,7 +3,7 @@
 ## Status
 
 - Dokumen: Final
-- Implementasi: Belum Diimplementasikan
+- Implementasi: Sudah Diimplementasikan
 - Tanggal: 2026-11-14
 - Topik: Analisa penyebab agen AI (Kilo) tidak menggunakan `package:mocktail` saat membuat test, dan rekomendasi agar mocktail dipakai sesuai aturan proyek.
 
@@ -40,6 +40,7 @@ Pengguna mengamati bahwa agen AI ketika membuat test (mis. `base_coc/test/widget
 - K-3: Aturan mocktail (bukan mockito) berlaku untuk **semua submodule** (`base_coc`, `share_global_saya`, dan proyek Flutter lain), bukan hanya `share_global_saya`. Rekomendasi R-3 (penambahan `mocktail` ke `dev_dependencies`) dan R-4 (template `test/mocks.dart` dengan mocktail, tanpa codegen) berlaku lintas submodule.
 - K-4: Implementasi R-1..R-5 **ditunda**; sebelum implementasi, dilakukan diskusi lanjutan untuk menentukan prioritas, cakupan, dan urutan perubahan skill/aturan agar tidak mengganggu konsistensi proyek. Keputusan ini tidak mengubah status rekomendasi (masih rekomendasi, bukan keputusan implementasi).
 - K-5: Paket mocking yang benar untuk proyek ini adalah **mocktail**, bukan mockito. Mocktail tidak memerlukan codegen/build_runner (`@GenerateMocks`), sehingga R-1/R-3/R-4 disesuaikan (tanpa build_runner). `aturan_testing.md` (yang masih menyebut mockito) perlu diperbarui ke mocktail (bagian dari R-2).
+- K-6: Implementasi R-1..R-4 dilaksanakan pada sesi 158 (2026-11-16) atas perintah pengguna. R-2 **dialihkan**: `share_global_saya/docs/aturan/aturan_testing.md` tidak ditemukan lagi di submodule, sehingga kewajiban mocktail dimasukkan ke `.agents/rules/global/kelompok_skill_wajib.md` (kelompok Testing) sebagai pengganti rujukan aturan yang hilang — keputusan pengguna via `question` (sesi 158). Cakupan yang disetujui: R-1 + R-3 + R-4 + R-2 (versi dialihkan); R-5 tidak berupa perubahan berkas.
 
 ## Rekomendasi
 
@@ -53,28 +54,34 @@ Pengguna mengamati bahwa agen AI ketika membuat test (mis. `base_coc/test/widget
 
 | No | Tindakan | File Terdampak | Status |
 | --- | -------- | -------------- | ------ |
-| 1 | Perbarui skill `pola-testing` section 4 (kewajiban mocktail + contoh) | `.agents/skills/custom/pola-testing/SKILL.md` | belum |
-| 2 | Hubungkan `aturan_testing.md` ke konteks agen; ubah "mockito" → "mocktail" | `AGENTS.md`, `.agents/rules/proyek/*`, `share_global_saya/docs/aturan/aturan_testing.md` | belum |
-| 3 | Tambahkan `mocktail` ke `dev_dependencies` bila belum ada | `base_coc/pubspec.yaml`, `share_global_saya/pubspec.yaml` | belum |
-| 4 | Sediakan template `test/mocks.dart` (mocktail manual) | `base_coc/test/mocks.dart`, `share_global_saya/test/mocks.dart` | belum |
+| 1 | Perbarui skill `pola-testing` section 4 (kewajiban mocktail + contoh) | `.agents/skills/custom/pola-testing/SKILL.md` (+ `SKILLS_INDEX.md` entri 39) | selesai (sesi 158; v1.1.0) |
+| 2 | Hubungkan aturan mocktail ke konteks agen; ubah "mockito" → "mocktail" (dialihkan: `aturan_testing.md` tidak ditemukan) | `.agents/rules/global/kelompok_skill_wajib.md` | selesai (sesi 158; lihat K-6) |
+| 3 | Tambahkan `mocktail` ke `dev_dependencies` bila belum ada | `base_coc/pubspec.yaml`, `share_global_saya/pubspec.yaml` | selesai (sesi 158; `mocktail: ^1.0.5` + `pub get`) |
+| 4 | Sediakan template `test/mocks.dart` (mocktail manual) | `base_coc/test/mocks.dart`, `share_global_saya/test/mocks.dart` | selesai (sesi 158) |
 
 ## File Terdampak
 
 | Lokasi File | Status Perubahan | Deskripsi |
 | ----------- | ---------------- | --------- |
-| `.agents/skills/custom/pola-testing/SKILL.md` | Belum diubah | Kandidat perubahan (R-1) |
-| `AGENTS.md` | Belum diubah | Kandidat perubahan (R-2) |
-| `share_global_saya/docs/aturan/aturan_testing.md` | Referensi | Aturan sumber (perlu ubah mockito → mocktail) |
-| `base_coc/test/widget_test.dart` | Referensi | Contoh test tanpa mocktail |
+| `.agents/skills/custom/pola-testing/SKILL.md` | Diubah (sesi 158) | Bagian 4 (Mockito → Mocktail), frontmatter (v1.1.0), Larangan Testing, Referensi Aturan Sumber |
+| `SKILLS_INDEX.md` | Diubah (sesi 158) | Entri 39 diperbarui |
+| `.agents/rules/global/kelompok_skill_wajib.md` | Diubah (sesi 158) | Kelompok Testing + kelompok mocktail baru |
+| `base_coc/pubspec.yaml`, `base_coc/pubspec.lock` | Diubah (sesi 158) | `mocktail: ^1.0.5` di `dev_dependencies` + `pub get` |
+| `share_global_saya/pubspec.yaml`, `share_global_saya/pubspec.lock` | Diubah (sesi 158) | `mocktail: ^1.0.5` di `dev_dependencies` (+ pengurutan dev_deps abjad) + `pub get` |
+| `base_coc/test/mocks.dart` | Dibuat (sesi 158) | Template mock manual mocktail (`MockFavoritDao`) |
+| `share_global_saya/test/mocks.dart` | Dibuat (sesi 158) | Template mock manual mocktail (generik; belum ada kelas kandidat) |
+| `AGENTS.md` | Tidak ada perubahan (sesi 158) | Root `AGENTS.md` tidak memuat blok berkas ini (hanya 2 blok: `aturan-pembuatan-skill`, `format_hasil_diskusi`); tidak perlu regenerasi `/perbarui_agents_md`; Kilo memuat berkas langsung via `instructions` di `.kilo/kilo.jsonc` |
 
 ## Pertanyaan Terbuka
 
-- Urutan dan prioritas implementasi R-1..R-5 yang akan dilakukan setelah diskusi selesai (skill `pola-testing`, koneksi aturan ke konteks agen, dev_dependencies mocktail, template `test/mocks.dart`, prompt eksplisit).
+Belum ada
 
 ## Riwayat Perubahan
 
 | Tanggal | Perubahan |
 | ------- | --------- |
+| 2026-11-16 | Pertanyaan terbuka ditutup: urutan dan prioritas implementasi R-1..R-5 — diputuskan jalankan R-1, R-2 (versi dialihkan), R-3, R-4 sekaligus pada sesi 158 atas perintah pengguna (R-5 bukan perubahan berkas); R-2 dialihkan ke `.agents/rules/global/kelompok_skill_wajib.md` karena `aturan_testing.md` tidak ditemukan (sesi 158). |
+| 2026-11-16 | Implementasi R-1..R-4 dieksekusi sesi 158: skill `pola-testing` v1.1.0 (bagian 4 mocktail + checklist + larangan mockito; `SKILLS_INDEX.md` entri 39 diperbarui); `kelompok_skill_wajib.md` kelompok Testing + kelompok mocktail; `mocktail: ^1.0.5` di `dev_dependencies` kedua submodule + `pub get` (mocktail 1.0.5 terpasang); `test/mocks.dart` template di kedua submodule. Verifikasi: `flutter analyze` bersih (keduanya), `flutter test` base_coc 122/122 lulus. `Implementasi` → `Sudah Diimplementasikan`. (sesi 158) |
 | 2026-11-14 | Koreksi (sesi 36): paket mocking yang benar adalah mocktail, bukan mockito. Perbarui judul, topik, latar belakang, poin, K-1/K-3/K-5, R-1..R-5, tindak lanjut, dan file terdampak (mockito → mocktail; hapus ketergantungan build_runner). `aturan_testing.md` (masih menyebut mockito) perlu diperbarui ke mocktail (R-2). |
 | 2026-11-14 | Pertanyaan terbuka ditutup: apakah implementasi R-1..R-5 dilakukan sekarang atau hanya dokumentasi analisa — diputuskan diskusikan dulu (implementasi ditunda) (sesi 35). Tambah K-4. |
 | 2026-11-14 | Pertanyaan terbuka ditutup: apakah aturan mockito di `aturan_testing.md` berlaku untuk semua submodule atau hanya `share_global_saya` — berlaku untuk semua submodule (base_coc, share_global_saya, dan proyek Flutter lain) (sesi 34). Status Dokumen → Final; tambah K-3. |
