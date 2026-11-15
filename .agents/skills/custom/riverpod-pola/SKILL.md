@@ -1,10 +1,10 @@
 ---
 name: riverpod-pola
-description: "Trigger: saat memakai Riverpod | Pola standar: Notifier CRUD keepAlive, ref.watch/ref.read, family providers, autoDispose, overrides testing, ProviderScope & ProviderContainer, Vsync scheduleRefresh/scheduleDispose."
+description: "Trigger: saat memakai Riverpod | Pola standar: Notifier CRUD keepAlive, Notifier state sinkron non-CRUD codegen (`@Riverpod(keepAlive: true)`, `build()` sinkron, larangan `StateNotifierProvider`/`legacy.dart`), ref.watch/ref.read, family providers, autoDispose, overrides testing, ProviderScope & ProviderContainer, Vsync scheduleRefresh/scheduleDispose."
 metadata:
   kategori: "custom"
-  versi: "1.1.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.2.0"
+  diperbarui: "Sun Nov 15 2026 19:03 WIB"
 ---
 
 # Pola Riverpod Standar
@@ -39,6 +39,40 @@ class BiodataNotifier extends _$BiodataNotifier {
 
 ### Referensi
 - `notifier-crud-database` skill untuk detail lengkap
+
+## 1a. Notifier State Sinkron (non-CRUD, codegen)
+
+### Aturan
+- Notifier state sinkron (mis. state filter, state UI sederhana) wajib memakai codegen `@Riverpod(keepAlive: true)` juga — bukan `StateNotifier`, `StateNotifierProvider`, atau `package:flutter_riverpod/legacy.dart`.
+- `build()` sinkron mengembalikan state default (umumnya `const XState()`), bukan `Future`.
+- State-nya wajib `@freezed` (lihat skill `model-state-freezed-abstract`); field nullable dikosongkan lewat `copyWith(field: null)` sentinel codegen, tanpa bendera manual `clearField`.
+- Nama provider tetap dihasilkan codegen (mis. `filterProvider`); pemanggil tidak berubah saat konversi dari pola manual.
+
+```dart
+@Riverpod(keepAlive: true)
+class FilterNotifier extends _$FilterNotifier {
+  @override
+  FilterState build() => const FilterState();
+
+  void setTownHall(TownHallLevel? value) {
+    // `value == null` menghapus filter Town Hall (field nullable di-clear lewat copyWith).
+    state = state.copyWith(townHall: value);
+  }
+
+  void setQuery(String value) {
+    state = state.copyWith(query: value);
+  }
+
+  void reset() {
+    state = const FilterState();
+  }
+}
+```
+
+### Referensi
+- Commit `cacca30b128aadb43e839d31eb1e944a10101b61` (konversi `FilterNotifier` dari `StateNotifierProvider` legacy ke codegen) dan `c0ed41e4ff2bd8a1e4cc169630b9301f15f9e17c` (konversi `ProgresNotifier`/`FavoritNotifier` ke codegen)
+- `base_coc/lib/fitur/galeri_base/provider/filter_provider.dart`
+- `notifier-crud-database` skill untuk pola notifier database (CRUD)
 
 ## 2. Provider Usage: `ref.watch` vs `ref.read`
 
@@ -197,6 +231,7 @@ final data = async.requireValue; // atau async.asData?.value untuk opsional
 - **DILARANG** mutate state langsung (`state = ...`) di luar Notifier class.
 - **DILARANG** `ProviderScope` nested di widget (hanya di `main.dart` / `app.dart`).
 - **DILARANG** family parameter yang mutable (List, Map, custom object tanpa equality).
+- **DILARANG** `StateNotifier`/`StateNotifierProvider`/`package:flutter_riverpod/legacy.dart` untuk provider state baru; wajib codegen `@Riverpod(keepAlive: true)` (lihat bagian 1a).
 
 ## 11. ProviderScope & ProviderContainer
 
@@ -247,3 +282,5 @@ final data = async.requireValue; // atau async.asData?.value untuk opsional
 - `a15acd9603fe5d1251afa4acc3817e7e9c1607b1` — SOS Craving: widget anak menerima `ref` via konstruktor (dilanggar)
 - `fbbb0906d08d2590caa8c7829595ea7fa4e513a5` — widget teknik SOS diekstrak ke file `*_view.dart` sebagai `ConsumerStatefulWidget`
 - `4dd0cdb5d101413a839c37c3dfb8c594aeef60c2` — `tampilkanDanSimpanHasilIntervensi` menerima `ref` sebagai parameter saat pemanggilan
+- `c0ed41e4ff2bd8a1e4cc169630b9301f15f9e17c` — `ProgresNotifier`/`FavoritNotifier` dikonversi dari `StateNotifier` manual ke `@Riverpod(keepAlive: true)` codegen (`base_coc`)
+- `cacca30b128aadb43e839d31eb1e944a10101b61` — `FilterNotifier` dikonversi dari `StateNotifierProvider` (`flutter_riverpod/legacy.dart`) ke `@Riverpod(keepAlive: true)` codegen (`base_coc`)

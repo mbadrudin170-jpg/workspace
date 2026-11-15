@@ -1,10 +1,10 @@
 ---
 name: model-state-freezed-abstract
-description: "Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '*.freezed.dart' + '*.g.dart'), private constructor `._()` untuk getter/method, `@Default`, integrasi notifier Riverpod, serta model database (fromSqflite/toSqflite, ParserUtil, konversi UTC). Termasuk larangan mengedit berkas hasil generate."
+description: "Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '*.freezed.dart' + '*.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan untuk String/koleksi), pengosongan field nullable via `copyWith(field: null)` sentinel codegen (tanpa bendera `clearField` manual), integrasi notifier Riverpod, serta model database (fromSqflite/toSqflite, ParserUtil, konversi UTC). Termasuk larangan mengedit berkas hasil generate."
 metadata:
   kategori: "custom"
-  versi: "2.0.0"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "2.1.0"
+  diperbarui: "Sun Nov 15 2026 19:03 WIB"
 ---
 
 # Membuat Model dan State dengan Freezed
@@ -24,7 +24,7 @@ Membuat model dan state immutable dengan paket Freezed (`freezed` 4.0.2, `freeze
 1. Model dan state yang dibuat dengan Freezed wajib menggunakan `abstract class` (atau `sealed class`) beranotasi `@freezed`, bukan `class` biasa.
 2. Tambahkan `part '<nama>.freezed.dart';` di berkas sumber. Bila memakai JSON, tambahkan juga `part '<nama>.g.dart';`.
 3. Gunakan `const factory` untuk setiap varian/konstruktor. Untuk satu varian, cukup satu `const factory` dengan nama sama seperti kelas.
-4. Gunakan `@Default(nilai)` untuk memberi nilai awal field; jangan menulis logika di dalam ekspresi `@Default`.
+4. Gunakan `@Default(nilai)` untuk memberi nilai awal field; jangan menulis logika di dalam ekspresi `@Default`. Untuk `String` dan koleksi wajib memakai literal konstan sederhana (`@Default('')`, `@Default([])`, `@Default(<Tag>{})`).
 5. Bila kelas membutuhkan getter atau method, deklarasikan constructor privat `const Nama._();` di dalam body kelas, lalu tulis getter/method biasa.
 6. Untuk serialisasi JSON, anotasi setiap field dengan `@JsonKey(name: '...')` bila nama kolom berbeda dari nama field, dan sediakan `factory Nama.fromJson(Map<String, dynamic> json)` (dihasilkan Freezed) serta `Map<String, dynamic> toJson()`.
 7. Model database wajib menyediakan factory `fromSqflite(Map<String, Object?> row)` dan method `toSqflite()` untuk konversi ke/dari SQLite.
@@ -34,8 +34,9 @@ Membuat model dan state immutable dengan paket Freezed (`freezed` 4.0.2, `freeze
 11. Nilai enum yang dipersistenkan ke kolom `TEXT` wajib `lowerCamelCase` (`berhasilMenahan`, `timer3Menit`) dan konsisten dengan migrasi data (lihat skill `migrasi-skema-sqlite`); nilai `snake_case` lama tidak boleh muncul di enum baru.
 12. Kolom yang nullable di database wajib dipetakan ke properti nullable di model (`String?`, `HasilIntervensiSos?`) dan diparse dengan `ParserUtil.parseStringOrNull` / `safeParseEnum` tanpa fallback paksa.
 13. Untuk state Riverpod, kombinasikan `@freezed` pada kelas state dengan notifier `@Riverpod(keepAlive: true)`; `build()` mengembalikan instance state default.
-14. Jalankan `build_runner` untuk menghasilkan berkas `*.freezed.dart` dan `*.g.dart` setelah menulis/mengubah sumber. Workflow: `dart pub get` → `dart run build_runner build --delete-conflicting-outputs` → `dart format .` → `dart analyze`.
-15. Verifikasi kebenaran dengan `dart format`, `dart analyze`, dan `flutter test` bila relevan.
+14. Field nullable pada state Freezed yang perlu bisa dikosongkan (mis. filter Town Hall/tipe) wajib mengandalkan sentinel `copyWith` dari codegen: panggil `copyWith(field: null)` untuk menghapus nilai. Jangan membuat bendera manual `clearField`/`clearTags` pada state Freezed.
+15. Jalankan `build_runner` untuk menghasilkan berkas `*.freezed.dart` dan `*.g.dart` setelah menulis/mengubah sumber. Workflow: `dart pub get` → `dart run build_runner build --delete-conflicting-outputs` → `dart format .` → `dart analyze`.
+16. Verifikasi kebenaran dengan `dart format`, `dart analyze`, dan `flutter test` bila relevan.
 
 ## Steps
 
@@ -58,6 +59,7 @@ Membuat model dan state immutable dengan paket Freezed (`freezed` 4.0.2, `freeze
 - DILARANG menyimpan waktu lokal seolah-olah UTC.
 - DILARANG memparse enum dari database dengan cast/string matching langsung tanpa `ParserUtil.safeParseEnum`.
 - DILARANG persistenkan nilai enum `snake_case` ke kolom database.
+- DILARANG membuat bendera manual `clearField`/`clearTags` pada state Freezed untuk mengosongkan field nullable; gunakan `copyWith(field: null)` dari codegen.
 
 ## Contoh Benar
 
@@ -91,6 +93,30 @@ class LogDebugNotifier extends _$LogDebugNotifier {
     return const LogDebugState();
   }
 }
+```
+
+State filter Freezed dengan `@Default` koleksi dan pengosongan field nullable via codegen (pola dari commit `cacca30`/`c0ed41e` di `base_coc`):
+
+```dart
+@freezed
+abstract class FilterState with _$FilterState {
+  const FilterState._();
+
+  const factory FilterState({
+    TownHallLevel? townHall,
+    TipeBase? tipe,
+    @Default('') String query,
+    @Default(<TagStrategi>{}) Set<TagStrategi> tags,
+  }) = _FilterState;
+
+  bool get hasFilter =>
+      townHall != null || tipe != null || query.isNotEmpty || tags.isNotEmpty;
+}
+
+// Menghapus filter Town Hall: field nullable di-clear lewat copyWith codegen.
+state = state.copyWith(townHall: null);
+// Menghapus seluruh tag: assign koleksi kosong, bukan bendera manual.
+state = state.copyWith(tags: const <TagStrategi>{});
 ```
 
 Model Freezed dengan serialisasi JSON (pola SDK resmi package:freezed):
@@ -160,5 +186,6 @@ class DiaryCravingModel with _$DiaryCravingModel { ... } // salah: class biasa, 
 - File model JSON (SDK resmi package:freezed): contoh `produk.freezed.dart` / `produk.g.dart` (dokumentasi resmi Freezed, bukan dari commit repo)
 - Kelas terkait: `LogDebugState`, `_LogDebugState`, `_$LogDebugState`, `LogDebugNotifier`, `_$LogDebugNotifier`, `DiaryCravingModel`, `SosIntervensiModel`, `RencanaDaruratModel`
 - Dependensi (commit): `share_global_saya/pubspec.yaml` (`freezed_annotation ^3.1.0`, `freezed ^4.0.2`, `build_runner ^2.16.2`, `riverpod_generator ^4.0.9`)
-- Commit rujukan (state): `b70ffda33ce6473e6309af8acd0c64b48c2d0404`, `acf4bb6dddc17ca633d551b2e9f5f62f39020d78`, `804b307506389b678f09e7c2cb7bfb8f2aa94112`
+- Commit rujukan (state): `b70ffda33ce6473e6309af8acd0c64b48c2d0404`, `acf4bb6dddc17ca633d551b2e9f5f62f39020d78`, `804b307506389b678f09e7c2cb7bfb8f2aa94112`, `cacca30b128aadb43e839d31eb1e944a10101b61` (konversi `FilterState` ke `@freezed`; penghapusan bendera manual `clearTownHall`/`clearTipe`/`clearTags`; pengosongan field nullable via `copyWith(field: null)`), `c0ed41e4ff2bd8a1e4cc169630b9301f15f9e17c` (`ProgresDesaState` `@freezed`; `@Default(<AkunDesa>[])`)
+- File filter (commit `cacca30`): `base_coc/lib/fitur/galeri_base/model/filter_state.dart`, `base_coc/lib/fitur/galeri_base/provider/filter_provider.dart`
 - Commit rujukan (model DB): `3b67d3095dacc4e5c7ea78d7eb251809e3e9d981`, `a15acd9603fe5d1251afa4acc3817e7e9c1607b1`, `a5beae01b86a4d9753963380818bc437c2b4741a`, `2462af81050e12b2933717f457a33a5b05d3719f`
