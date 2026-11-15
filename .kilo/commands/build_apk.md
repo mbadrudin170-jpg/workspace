@@ -35,12 +35,13 @@ Membangun APK Android `release` dari proyek Flutter yang dipilih pengguna secara
 1. **Analyze** —
    1. Verifikasi `flutter` tersedia: `which flutter`. Bila tidak tersedia: **STOP**.
    2. Tentukan proyek target: bila `$ARGUMENTS` terisi dan valid (folder ada, ada `pubspec.yaml`, ada `android/`), pakai itu; selain itu tanyakan via tool `question` dengan opsi hasil pindaian satu tingkat di bawah workspace root. Bila tidak ada satu pun kandidat yang valid: **STOP** dan laporkan.
-2. **Plan** — tampilkan rencana kepada pengguna: proyek target, perintah yang akan dijalankan (`flutter build apk --release --split-per-abi --target-platform android-arm64` dengan working directory = folder proyek), dan perkiraan berkas output (`<proyek>/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk`). Minta konfirmasi pengguna sebelum melanjutkan; tanpa konfirmasi, **STOP**.
+2. **Plan** — tampilkan rencana kepada pengguna: proyek target, perintah yang akan dijalankan (`flutter build apk --release --split-per-abi --target-platform android-arm64` dengan working directory = folder proyek), perkiraan berkas output (`<proyek>/build/app/outputs/flutter-apk/<nama_proyek>-arm64-v8a-release.apk` setelah penggantian nama dari `app-arm64-v8a-release.apk`), dan penggantian nama berkas setelah build. Minta konfirmasi pengguna sebelum melanjutkan; tanpa konfirmasi, **STOP**.
 3. **Execute** — jalankan build dengan tool bash (working directory = folder proyek):
    - `flutter build apk --release --split-per-abi --target-platform android-arm64`
+   - `mv <proyek>/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk <proyek>/build/app/outputs/flutter-apk/<nama_proyek>-arm64-v8a-release.apk` (mis. proyek `base_coc` → `base_coc-arm64-v8a-release.apk`)
    - Jangan menambah flag lain (mis. `--obfuscate`, `--split-debug-info`, `--flavor`) tanpa perintah eksplisit pengguna.
 4. **Review** —
-   1. Verifikasi berkas APK hasil ada di `<proyek>/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk` (via tool `glob`).
+   1. Verifikasi berkas APK hasil ada di `<proyek>/build/app/outputs/flutter-apk/<nama_proyek>-arm64-v8a-release.apk` (via tool `glob`).
    2. Laporkan path berkas dan ukurannya (via shell `stat -c%s <berkas>` atau setara).
    3. Bila build gagal atau berkas APK tidak ditemukan: **STOP**, laporkan galat apa adanya; jangan mencoba memperbaiki kode atau konfigurasi proyek.
 5. Catat hasil ke berkas sesi aktif dan perbarui `MEMORI.md` sesuai skill `memori-check`.
@@ -53,7 +54,7 @@ Membangun APK Android `release` dari proyek Flutter yang dipilih pengguna secara
 | 2 | Proyek target | `<path>` | Valid / STOP |
 | 3 | Konfirmasi pengguna | Disetujui / Ditolak | Lanjut / STOP |
 | 4 | `flutter build apk --release --split-per-abi --target-platform android-arm64` | Berhasil / Gagal | `<ringkasan galat bila gagal>` |
-| 5 | `<proyek>/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk` | Ada / Tidak | `<ukuran byte>` |
+| 5 | `<proyek>/build/app/outputs/flutter-apk/<nama_proyek>-arm64-v8a-release.apk` | Ada / Tidak | `<ukuran byte>` |
 
 Sertakan path absolut APK hasil dan perintah persis yang dijalankan. Jangan mengarang path atau ukuran berkas.
 
