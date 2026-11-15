@@ -4,7 +4,7 @@ description: Mendiskusikan penambahan atau penyempurnaan aturan proyek, memeriks
 
 # Diskusi Penambahan Aturan Baru
 
-**Path:** `.kilo/commands/diskusi_penambahan_aturan_baru.md`
+**Path:** `.kilo/commands/diskusi/diskusi_penambahan_aturan_baru.md`
 
 ## Parameter
 

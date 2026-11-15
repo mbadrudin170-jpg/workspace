@@ -1,0 +1,1 @@
+1. jika parameter kosong pada commands diskusi fitur baru maka ai wajib list daftar semua fitur nya baru untuk saya pilih.

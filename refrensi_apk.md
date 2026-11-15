@@ -83,15 +83,6 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 
 ### Prioritas Tinggi
 
-#### A3. Preview base resolusi tinggi dengan pinch-to-zoom
-
-- **Temuan:** Beberapa kompetitor menyebut preview HD, zoom, dan penanda trap sebagai pembeda; pengguna memakai preview untuk memeriksa jarak pertahanan sebelum menyalin.
-- **Tujuan fitur:** meningkatkan keyakinan pengguna bahwa layout layak dipakai dan mengurangi kesalahan memilih base.
-- **Referensi:** [CoC Base Maps 2026](https://play.google.com/store/apps/details?id=com.m3android7s.projects.clashofclansbaselayouts), [Maps For COC Base Layouts 2026](https://play.google.com/store/apps/details?id=com.baselayouts.cocmaps), [COC Base Layouts Design links](https://play.google.com/store/apps/details?id=com.srsapps.new_clash_base_layouts_direct_link)
-- **Saran:** simpan gambar base dalam dua ukuran (thumbnail dan detail), gunakan `InteractiveViewer` untuk zoom, dan sediakan tombol reset zoom.
-- **Prioritas:** Tinggi.
-- **Status PRD:** Sudah diimplementasikan.
-
 #### A4. Katalog lokal yang tetap berfungsi tanpa internet
 
 - **Temuan:** Notificlash menonjolkan akses offline tanpa login; aplikasi galeri lain bergantung pada pembaruan data daring setiap hari.
@@ -494,6 +485,7 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Referensi:** [Maps Base For Clash of Clans](https://play.google.com/store/apps/details?id=hamidsoft.mapsbaseforcoc), [COC Base Layout Hub](https://play.google.com/store/apps/details?id=com.aarzee.utili.cocbases)
 - **Saran:** tampilkan 3–5 base dengan `townHall`/`tipe` sama di bawah aksi copy (urutkan berdasarkan kedekatan id lalu jumlah salin lokal bila A36/A53 sudah ada); data berasal dari katalog lokal, tanpa backend; sembunyikan section bila tidak ada kandidat.
 - **Prioritas:** Sedang.
+- **Status PRD:** PRD sudah dibuat (`prd/prd_saran_base_serupa.md`, sesi 149); belum diimplementasikan.
 
 #### A57. Impor level desa dari satu tangkapan layar (OCR)
 
