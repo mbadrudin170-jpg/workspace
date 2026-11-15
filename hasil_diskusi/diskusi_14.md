@@ -2,7 +2,7 @@
 
 ## Status
 - Dokumen: Final
-- Implementasi: Belum Diimplementasikan
+- Implementasi: Sedang Diimplementasikan
 - Tanggal: 2026-11-15
 - Topik: Pembuatan berkas `alur_kerja.md` di root workspace yang mendefinisikan alur kerja pipeline berurutan — cari APK kompetitor → riset kompetitor → buat PRD fitur → implementasikan PRD → cek kesehatan kode → implementasikan task → analisa commit skill — dengan file terdampak tertulis eksplisit per langkah ("tiap alur harus tahu dulu file mana saja yang terdampak") dan aturan anti-bentrok terhadap sesi paralel yang `Belum Sinkron`.
 
@@ -57,6 +57,10 @@ Sifat pipeline: langkah 4 bergantung pada langkah 3; langkah 2 bergantung pada l
 - Tanya: Apa esensi dari seluruh aturan anti-bentrok yang dibahas?
 - Kesimpulan: Esensinya adalah **tidak ada dua sesi yang mengedit file yang sama**. Prinsip ini ditegaskan pengguna sebagai inti desain; cakupannya **hanya untuk eksekusi alur pipeline** (bukan seluruh sesi di luar pipeline), dan mekanismenya tetap **cek tabel `## Berkas Terdampak` berkas sesi `Belum Sinkron` + STOP & lapor** (berkas meta-memori dikecualikan; tanpa mekanisme registry/lock lintas sesi). Artinya: selama alur (L1–L7) berjalan, setiap langkah yang file terdampaknya beririsan dengan sesi `Belum Sinkron` wajib dihentikan — tidak ada langkah yang boleh mulai, dan dua sesi tidak boleh mengedit file yang sama. (Arahan pengguna sesi 136: "yang pada intinya saya ingin tiap sesi tidak mengedit file yang sama"; keputusan cakupan/mekanisme via `question`.)
 
+### 9. Perlu command orkestrator, bukan hanya berkas statis
+- Tanya: Apakah `alur_kerja.md` (dokumen) cukup, atau perlu command baru?
+- Kesimpulan: **Perlu command orkestrator baru** (arahan pengguna sesi 137: "berarti kita harus buat commands baru"). Keputusan via `question`: command = orkestrator alur lengkap L1–L7 (bukan pembantu pembuatan berkas, bukan command deteksi pekerjaan); berkas `alur_kerja.md` di root **tetap** sebagai dokumen sumber kebenaran pipeline (langkah, command+path, prasyarat, file terdampak eksplisit, aturan anti-bentrok) — command membacanya dan mengeksekusi isinya; sifat eksekusi **konfirmasi pengguna per langkah**; STOP & lapor bila bentrok atau prasyarat gagal (tidak lanjut langkah bergantung); tanpa parameter; frontmatter memuat `agent: code`; nama `.kilo/commands/alur_kerja.md` (root commands; nama sama dengan dokumen root — dua berkas berbeda: dokumen = sumber kebenaran, command = eksekutor); commit/push tidak otomatis. Pembuatan keduanya dilakukan sesi terpisah atas perintah eksplisit (K-17).
+
 ## Keputusan
 - K-1: Topik `diskusi_14.md` diganti penuh; command `deteksi_pekerjaan` (rancangan K-1..K-13 sesi 131–134) **tidak jadi dibuat** dan ditandai digantikan; substansi anti-bentrok dan tugas pertama dimigrasikan ke alur kerja (K-5, K-6).
 - K-2: Berkas target `alur_kerja.md` di **root workspace**; format Markdown; pedoman kerja AI proyek ini; bukan dokumen portabel/skill/command.
@@ -71,6 +75,10 @@ Sifat pipeline: langkah 4 bergantung pada langkah 3; langkah 2 bergantung pada l
 - K-11: `alur_kerja.md` tidak dibuat pada sesi diskusi ini; pembuatan dilakukan sesi terpisah atas perintah eksplisit pengguna; jangan commit tanpa perintah eksplisit.
 - K-12: Isi `alur_kerja.md` bersifat netral terhadap model/agent; instruksi per langkah ringkas, mengacu ke path command aktual (bukan salinan isi command); bila command berubah, `alur_kerja.md` diperbarui mengikuti (bukan sebaliknya).
 - K-13: **Prinsip esensial desain `alur_kerja.md`: tidak ada dua sesi yang mengedit file yang sama.** Cakupannya **hanya untuk eksekusi alur pipeline** (L1–L7); mekanismenya tetap **cek tabel `## Berkas Terdampak` berkas sesi `Belum Sinkron` + STOP & lapor** (berkas meta-memori dikecualikan; tanpa registry/lock lintas sesi). Setiap langkah wajib memverifikasi file terdampaknya sebelum eksekusi; beririsan → **STOP alur**; dua sesi tidak boleh mengedit file yang sama selama alur berjalan (sesi 136).
+- K-14: Dibuat command baru `.kilo/commands/alur_kerja.md` — **orkestrator alur lengkap** L1–L7; frontmatter: `description` satu baris bahasa Indonesia baku + `agent: code`; **tanpa parameter**; nama `alur_kerja.md` sama dengan dokumen root tetapi dua berkas berbeda (dokumen root = sumber kebenaran pipeline; command = eksekutor yang membacanya). Termasuk rujukan skill relevan (minimal `memori-check` — sinkronisasi memori setiap sesi yang menjalankan alur).
+- K-15: Command membaca dokumen root `alur_kerja.md` sebagai sumber kebenaran pipeline (urutan L1–L7, command+path per langkah, prasyarat, file terdampak eksplisit, aturan anti-bentrok per K-5/K-6/K-13) — **tidak menyalin isi command lain**; instruksi per langkah menunjuk path command (mis. baca `.kilo/commands/riset_kompetitor.md` lalu jalankan alurnya); **konfirmasi pengguna per langkah**; beririsan dengan Berkas Terdampak sesi `Belum Sinkron` atau prasyarat gagal → **STOP & lapor**; tidak lanjut ke langkah bergantung; commit/push tidak otomatis.
+- K-16: Command mengeksekusi langkah dengan memverifikasi keluaran tiap langkah sebelum lanjut (mis. status listing berubah di `apk_kompetitor.md`, PRD Final sebelum L4, `catatan.md` mencatat HEAD sebelum L6/L7); laporan akhir memuat langkah yang dijalankan/dihentikan/dilewati + alasan; per-langkah (termasuk anti-bentrok) selalu dilaporkan; sinkronisasi memori wajib setiap sesi eksekusi.
+- K-17: `alur_kerja.md` (root) dan `.kilo/commands/alur_kerja.md` (command) keduanya dibuat pada **sesi terpisah** atas perintah eksplisit pengguna; pembuatan command mengikuti skill `pembuatan-command-kilo`; jangan commit/push tanpa perintah eksplisit pengguna.
 
 ## Rekomendasi
 - R-1: Tabel file terdampak per langkah (diverifikasi sesi 135):
@@ -86,21 +94,26 @@ Sifat pipeline: langkah 4 bergantung pada langkah 3; langkah 2 bergantung pada l
 - R-4: Saat pembuatan `alur_kerja.md`, verifikasi ulang path dan isi command (bisa berubah, mis. `analisa_kesehatan_kode_alur.md` merujuk path usang yang tercatat di MEMORI) — jangan menyalin mentah; rujuk path saja.
 - R-5: Verifikasi pasca-pembuatan `alur_kerja.md` (konsistensi langkah/command/file terdampak); laporkan; tidak commit tanpa perintah.
 - R-6: Pertahankan pembeda status implementasi di PRD (`Belum Diimplementasikan` → `Sudah Diimplementasikan` + penghapusan PRD di langkah 4) agar tidak ada PRD yatim.
+- R-7: Saat pembuatan command, ikuti `pembuatan-command-kilo` penuh (frontmatter, parameter & STOP, rujukan skill di isi command, tool bawaan lebih dahulu, tidak menyalin isi command lain, verifikasi pasca-pembuatan).
+- R-8: Command memuat tabel file terdampak per langkah **dengan merujuk dokumen root `alur_kerja.md`** (bukan hardcode duplikat), sehingga bila pipeline berubah cukup memperbarui dokumen root; command tetap memverifikasi anti-bentrok per langkah dari isinya.
 
 ## Tindak Lanjut
 | No | Tindakan | File Terdampak | Status |
 |----|----------|----------------|--------|
-| 1 | Buat `alur_kerja.md` di root sesuai K-1..K-13 dan R-1..R-6 (sesi terpisah, atas perintah eksplisit; K-13 sebagai prinsip esensial — tidak ada dua sesi mengedit file yang sama saat alur berjalan) | `alur_kerja.md` | belum |
-| 2 | Verifikasi pasca-pembuatan (konsistensi path command, file terdampak, anti-bentrok) | `alur_kerja.md` | belum |
-| 3 | Commit `alur_kerja.md` hanya atas perintah eksplisit pengguna | `alur_kerja.md` | belum |
+| 1 | Buat `alur_kerja.md` di root sesuai K-1..K-17 dan R-1..R-8 (sesi terpisah, atas perintah eksplisit; K-13 prinsip esensial; pipeline 7 langkah + file terdampak per langkah) | `alur_kerja.md` | selesai (sesi 138) |
+| 2 | Buat `.kilo/commands/alur_kerja.md` (command orkestrator; `agent: code`; tanpa parameter; membaca dokumen root `alur_kerja.md`; konfirmasi per langkah; STOP bila bentrok/prasyarat gagal; rujukan skill `memori-check`) | `.kilo/commands/alur_kerja.md` | selesai (sesi 138) |
+| 3 | Verifikasi pasca-pembuatan keduanya (konsistensi path command, file terdampak, anti-bentrok) | `alur_kerja.md`, `.kilo/commands/alur_kerja.md` | selesai (sesi 138) |
+| 4 | Commit `alur_kerja.md` dan `.kilo/commands/alur_kerja.md` hanya atas perintah eksplisit pengguna | `alur_kerja.md`, `.kilo/commands/alur_kerja.md` | belum |
 
 ## File Terdampak
 | Lokasi File | Status Perubahan | Deskripsi |
 |-------------|------------------|-----------|
-| `hasil_diskusi/diskusi_14.md` | Diubah | Topik diganti penuh menjadi pembuatan `alur_kerja.md`; isi command ditandai digantikan (Riwayat Perubahan) |
-| `memori/sesi/sesi_135.md` | Dibuat | Berkas sesi Mode Diskusi sesi 135 |
-| `MEMORI.md` | Diubah | Entri `Status Kerja` sesi 135 + entri `Hasil Diskusi` `diskusi_14.md` diganti + header `Diperbarui` |
-| `memori/riwayat_perubahan.md` | Diubah | Entri kronologis sesi 135 |
+| `hasil_diskusi/diskusi_14.md` | Diubah | Topik diganti penuh menjadi pembuatan `alur_kerja.md` + command orkestrator `.kilo/commands/alur_kerja.md` (Riwayat Perubahan); sesi 138: Tindak Lanjut 1–3 selesai, Implementasi → Sedang Diimplementasikan |
+| `alur_kerja.md` | Dibuat | Dokumen sumber kebenaran pipeline L1–L7 (sesi 138) |
+| `.kilo/commands/alur_kerja.md` | Dibuat | Command orkestrator (`agent: code`; tanpa parameter; membaca dokumen root; konfirmasi per langkah) (sesi 138) |
+| `memori/sesi/sesi_131.md` s.d. `memori/sesi/sesi_138.md` | Dibuat | Berkas sesi Mode Diskusi + tindak lanjut (per sesi: sesi 131/133/134/135/136/137/138) |
+| `MEMORI.md` | Diubah | Entri `Status Kerja` tiap sesi + `Hasil Diskusi` (`diskusi_14.md`) + header `Diperbarui` |
+| `memori/riwayat_perubahan.md` | Diubah | Entri kronologis tiap sesi |
 
 ## Pertanyaan Terbuka
 Belum ada
@@ -112,3 +125,5 @@ Belum ada
 | 2026-11-15 | Amandemen sesi 133 (K-12 — tugas pertama riset kompetitor; tanpa pertanyaan pemindaian) dan sesi 134 (K-13 — aturan eksekusi anti-bentrok; meta-memori dikecualikan). |
 | 2026-11-15 | Topik diganti penuh (sesi 135, atas arahan pengguna): berkas tidak lagi membahas command `deteksi_pekerjaan`; seluruh keputusan lama (K-1 s.d. K-13/R-1 s.d. R-6) **digantikan/dibatalkan**; topik baru = pembuatan `alur_kerja.md` (root) yang mendefinisikan pipeline cari APK kompetitor → riset kompetitor → buat PRD fitur (`fitur/diskusi_fitur_baru.md`) → implementasikan PRD (`prd/kerjakan_prd.md`) → cek kesehatan kode (`analisa/analisa_kesehatan_kode_alur.md` + `analisa/analisa_kesehatan_kode.md`) → implementasikan task (`kerjakan_task.md`) → analisa commit skill (`analisa/analisa_commit_skill.md`); setiap langkah memuat file terdampak eksplisit ("tiap alur harus tahu dulu file mana saja yang terdampak"); anti-bentrok per langkah + STOP alur (K-5, K-7); meta-memori dikecualikan (K-6); commit hanya perintah eksplisit (K-8); `alur_kerja.md` dibuat sesi terpisah (K-11); status Dokumen tetap `Final` (adalah permintaan eksplisit pengguna via `question`). |
 | 2026-11-15 | Amandemen sesi 136 atas arahan pengguna ("yang pada intinya saya ingin tiap sesi tidak mengedit file yang sama"): ditambah Poin Diskusi 8 dan K-13 — prinsip esensial desain `alur_kerja.md`: tidak ada dua sesi mengedit file yang sama; cakupan **hanya untuk eksekusi alur pipeline**; mekanisme tetap cek Berkas Terdampak sesi `Belum Sinkron` + STOP & lapor (tanpa registry/lock); Tindak Lanjut 1 → K-1..K-13; status Dokumen tetap `Final`. |
+| 2026-11-15 | Amandemen sesi 137 atas arahan pengguna ("berarti kita harus buat commands baru"): ditambah Poin Diskusi 9 dan K-14 s.d. K-17 — dibuat command orkestrator `.kilo/commands/alur_kerja.md` (frontmatter `description` + `agent: code`; tanpa parameter; membaca dokumen root `alur_kerja.md` sebagai sumber kebenaran pipeline — tidak menyalin isi command lain; eksekusi dengan konfirmasi per langkah; STOP & lapor bila bentrok/prasyarat gagal; rujukan skill `memori-check`); berkas `alur_kerja.md` tetap dibuat (root); Tindak Lanjut diperluas (dokumen + command + verifikasi + commit terpisah); R-7 s.d. R-8 ditambahkan; status Dokumen tetap `Final`. |
+| 2026-11-15 | Tindak lanjut sesi 138 (`kerjakan_hasil_diskusi` parameter `14`): `alur_kerja.md` (root) dan `.kilo/commands/alur_kerja.md` dibuat sesuai draf yang dikonfirmasi pengguna; verifikasi pasca-pembuatan lolos (frontmatter valid, path command anak terverifikasi ada, rujukan skill `memori-check` tercantum, tanpa `@file`/perintah shell terlarang; catatan path usang `analisa_kesehatan_kode_alur.md` → `.kilo/commands/analisa_kesehatan_kode.md` ditulis ulang memakai path aktual `.kilo/commands/analisa/analisa_kesehatan_kode.md` + catatan eksplisit); Tindak Lanjut 1–3 selesai; Tindak Lanjut 4 (commit) menunggu perintah eksplisit pengguna; Implementasi → `Sedang Diimplementasikan`. Pertanyaan Terbuka tetap `Belum ada`. |
