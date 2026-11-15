@@ -15,12 +15,11 @@ Menampilkan daftar berkas yang **tercatat pada tabel `## Berkas Terdampak` berka
 2. Muat skill `memori-check` (`.agents/skills/custom/memori-check/SKILL.md`) melalui tool `skill` sebelum bekerja.
 3. Gunakan bahasa Indonesia baku untuk seluruh laporan.
 4. Jangan menggunakan terminal untuk membaca berkas; gunakan tool `read`/`glob`/`grep`. Perintah git dijalankan via `bash` sesuai izin `.kilo/kilo.jsonc`.
-5. **Wajib** menanyakan kepada pengguna (via tool `question`) apakah tugas pada sesi aktif **sudah selesai** sebelum melakukan apa pun. Jika pengguna menjawab "Belum", **STOP** dan jangan commit; laporkan bahwa commit ditunda sampai tugas selesai.
+5. AI menilai sendiri apakah tugas pada sesi aktif sudah selesai berdasarkan catatan sesi dan perubahan yang ada; bila belum selesai atau ragu, **STOP** dan laporkan bahwa commit ditunda sampai tugas selesai. **DILARANG** menanyakan status penyelesaian tugas kepada pengguna.
 6. **Wajib** membaca berkas sesi aktif (`memori/sesi/sesi_N.md` dengan `N` tertinggi) dan mengambil daftar berkas dari tabel `## Berkas Terdampak` (kolom `Lokasi File`) sebagai sumber kebenaran daftar kandidat. Berkas yang tidak tercatat di tabel tersebut **tidak** ditawarkan, meskipun masih berubah di `git status` (mis. sisa perubahan dari sesi lain).
 6. Commit dilakukan per repository (root dan setiap submodule); jangan gabungkan perubahan root dan submodule dalam satu commit.
 7. Pesan commit disusun otomatis mengikuti Conventional Commits (tipe+scope+deskripsi) berdasarkan perubahan file yang dipilih. Jika agen ragu menentukan tipe/scope, tanyakan via tool `question` sebelum commit.
-8. Wajib menampilkan daftar file berubah dan meminta pengguna memilih file yang akan di-commit via tool `question` sebelum menjalankan `git commit`.
-9. Wajib meminta konfirmasi akhir pengguna via tool `question` setelah usulan pesan commit disusun, sebelum menjalankan `git commit`.
+8. AI menentukan berkas yang akan di-commit secara otomatis dari irisan tabel sesi aktif dan `git status --short`; **DILARANG** menanyakan pilihan berkas kepada pengguna. Pesan commit disusun otomatis dan commit dijalankan tanpa konfirmasi pengguna.
 
 ## Cakupan
 
@@ -35,9 +34,10 @@ Menampilkan daftar berkas yang **tercatat pada tabel `## Berkas Terdampak` berka
 
 ## Alur Kerja
 
-0. **Tanya Penyelesaian Tugas (wajib sebelum apa pun)**
-   - Tanyakan kepada pengguna via tool `question`: "Apakah tugas pada sesi aktif sudah selesai?" dengan opsi: "Ya, tugas sudah selesai (lanjut commit)" dan "Belum, jangan commit dulu".
-   - Jika pengguna memilih "Belum, jangan commit dulu" atau tidak menjawab "Ya": **STOP**, laporkan bahwa commit ditunda sampai tugas selesai, dan jangan membaca berkas sesi atau menjalankan git. Selesai.
+0. **Penilaian Penyelesaian Tugas (oleh AI, tanpa tanya pengguna)**
+   - AI menilai sendiri apakah tugas pada sesi aktif sudah selesai berdasarkan catatan sesi aktif dan perubahan yang ada.
+   - Bila belum selesai atau ragu, **STOP**, laporkan bahwa commit ditunda sampai tugas selesai, dan jangan membaca berkas sesi atau menjalankan git. Selesai.
+   - Bila dinilai sudah selesai, lanjut ke tahap Analyze.
 
 1. **Analyze**
    - Tentukan berkas sesi aktif: `glob` `memori/sesi/sesi_*.md`, pilih nomor tertinggi `N`, baca berkasnya dengan `read`. Jika folder/berkas tidak ada atau tabel `## Berkas Terdampak` tidak ditemukan/kosong: **STOP** dan laporkan.
@@ -48,13 +48,11 @@ Menampilkan daftar berkas yang **tercatat pada tabel `## Berkas Terdampak` berka
    - Tampilkan daftar file berubah per repository (path relatif repo + status git) kepada pengguna, beserta nama berkas sesi aktif yang menjadi acuan.
 
 2. **Plan**
-   - Minta pengguna memilih file yang akan di-commit via tool `question` (multiple selection), dengan opsi per file (label = path relatif repo, description = status git + nama repo). Sertakan opsi "Batal".
-   - Jika pengguna memilih "Batal" atau tidak memilih file apa pun, **STOP**.
-   - Kelompokkan file terpilih berdasarkan repository.
-   - Susun usulan pesan commit Conventional Commits per repository berdasarkan file terpilih dan jenis perubahannya.
-   - Tampilkan usulan pesan commit per repository dan minta konfirmasi pengguna via tool `question` dengan opsi: "Commit dengan pesan ini", "Ubah pesan commit", "Batal".
-   - Jika pengguna memilih "Ubah pesan commit", tanyakan pesan baru via `question` (input teks) lalu ulangi konfirmasi.
-   - Jika pengguna memilih "Batal", **STOP**.
+   - AI menentukan berkas yang akan di-commit secara otomatis dari irisan tabel sesi aktif dan `git status --short` (seluruh berkas yang berubah dan tercatat), tanpa menanyakan pilihan kepada pengguna.
+   - Kelompokkan berkas terpilih berdasarkan repository.
+   - Susun pesan commit Conventional Commits per repository berdasarkan berkas terpilih dan jenis perubahannya.
+   - Tampilkan daftar berkas dan usulan pesan commit per repository sebagai informasi, lalu lanjutkan ke Execute tanpa konfirmasi pengguna.
+   - Jika irisan kosong, **STOP** (lihat Analyze).
 
 3. **Execute**
    - Untuk tiap repository yang memiliki file terpilih:
@@ -81,16 +79,16 @@ Jika tidak ada file berubah (irisan kosong): tampilkan "Tidak ada berkas sesi ak
 ## Larangan
 
 - DILARANG commit berkas yang tidak tercatat di tabel `## Berkas Terdampak` berkas sesi aktif.
-- DILARANG commit berkas yang tidak dipilih pengguna.
 - DILARANG commit berkas yang tidak memiliki perubahan nyata pada `git status`.
+- DILARANG menanyakan pilihan berkas atau pesan commit kepada pengguna; AI menentukan dan menjalankan commit otomatis.
 - DILARANG menggabungkan perubahan root dan submodule dalam satu commit.
 - DILARANG melakukan `git push` atau operasi remote lain.
 - DILARANG mengubah kode Dart, berkas hasil generate, atau konfigurasi Kilo.
-- DILARANG melanjutkan commit repository berikutnya jika commit sebelumnya gagal tanpa konfirmasi pengguna.
+- DILARANG menanyakan status penyelesaian tugas kepada pengguna; penilaian dilakukan oleh AI.
 
 ## Kriteria Selesai / STOP
 
-- Selesai bila semua repository yang memiliki file terpilih telah di-commit, hash commit dilaporkan, dan status pasca-commit terverifikasi.
-- STOP bila tidak ada file berubah (irisan kosong), berkas sesi aktif tidak ditemukan/tabel kosong, pengguna membatalkan pemilihan, pengguna menyatakan tugas belum selesai, argumen diberikan, atau `git commit` gagal (laporkan alasan dan tindakan yang disarankan).
+- Selesai bila semua repository yang memiliki berkas terpilih telah di-commit, hash commit dilaporkan, dan status pasca-commit terverifikasi.
+- STOP bila tidak ada file berubah (irisan kosong), berkas sesi aktif tidak ditemukan/tabel kosong, AI menilai tugas belum selesai/ragu, argumen diberikan, atau `git commit` gagal (laporkan alasan dan tindakan yang disarankan).
 
 (End of file - total 108 lines)
