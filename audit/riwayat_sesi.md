@@ -210,3 +210,59 @@ Berkas berjalan hasil audit riwayat sesi (`memori/sesi/sesi_*.md`) untuk proyek 
 - `sesi_81.md` tidak dapat diputuskan sepihak; audit hanya mencatat temuan.
 - `stat` di mesin ini diizinkan lewat pola `*` (ask) dan berjalan; `wc`, `grep` (tool bawaan) dipakai untuk inventarisasi; `grep *` di shell berstatus `deny` dan tidak dipakai.
 
+## Audit 2026-11-15 (sesi 127)
+
+### Ringkasan
+- Berkas diproses: **8** — baru: `sesi_121`–`sesi_126` (belum tercatat di ledger audit pertama); berubah: `sesi_117` (26 → 54 baris) dan `sesi_118` (27 → 34 baris) — mtime dan jumlah baris berbeda dari ledger.
+- Dilewati: **118** (`sesi_1`–`sesi_120` selain `sesi_117`/`sesi_118`; mtime **dan** jumlah baris identik dengan ledger audit pertama).
+- Berkas hilang: 0 (seluruh 120 berkas pada ledger audit pertama masih ada); total berkas terinventarisasi saat audit: 126 (`sesi_1`–`sesi_126`).
+- Konteks agregasi yang selalu dibaca: `MEMORI.md` (dibaca saat header `19:37 WIB (sesi 125)`; versi akhir pada saat audit selesai = 190 baris, header `20:59 WIB (sesi 126)`) dan `memori/riwayat_perubahan.md` (190 baris; memuat entri hingga sesi 126).
+- Sumber data hanya berkas memori; git log tidak digunakan. mtime dicatat dengan `TZ=Asia/Jakarta stat -c %y` (presisi detik; sub-detik diabaikan).
+- Label `(sesi 127)` ditetapkan atas keputusan pengguna memakai tool `question` (audit berjalan tanpa berkas sesi sendiri karena sifat read-only — lihat Catatan Keterbatasan).
+
+### Tabel Pola
+| Masalah | Sesi kemunculan | Frekuensi | Klasifikasi | Rekomendasi |
+|---------|-----------------|-----------|-------------|-------------|
+| Tabrakan/ambiguitas penomoran sesi paralel — `sesi_81.md` tetap `Belum Sinkron` dan dilaporkan ulang oleh **seluruh 8 berkas yang diproses** (`sesi_117`, `sesi_118` versi terbaru, `sesi_121`–`sesi_126`); sesi paralel baru `sesi_127.md` (21:02:40 WIB) dan `sesi_128.md` (21:03:24 WIB) muncul saat audit berjalan (pola masih aktif) | audit 1: sesi 85–120 (≥36 sesi); run ini: sesi 121–126 (6 sesi baru) | **≥42 sesi** | B | R-a (audit 1) masih terbuka: (1) keputusan pengguna untuk `sesi_81.md`; (2) mitigasi struktural penomoran sesi paralel (nama berkas menyertakan waktu, atau mekanisme klaim/lock); (3) aturan eskalasi wajib bila berkas yang sama dilaporkan ≥N sesi berturut-turut. Audit tidak memutuskan sendiri. |
+| "Menunggu keputusan/input/konfirmasi pengguna" menumpuk lintas sesi — run ini: `sesi_121` (`Fanatic App` pada tabel D `refrensi_apk.md`; `Clash Trackers`/`BaseVault`), `sesi_125` (status lama yang sama), `sesi_123` (topik Mode Diskusi belum ditentukan), `sesi_126` (`sesi_122` menunggu konfirmasi); item lama tetap terbuka (`alur_git_commit.md` → `AGENTS.md`; `evaluasi_size_ruang_kerja.md` masih memakai `find`/`head` yang kini `deny`; skill `riset-kompetitor` belum memuat Vivo V-Appstore/Aurora Store) | audit 1: ≥11 rujukan; run ini: sesi_121, 123, 125, 126 | **≥15 rujukan** | B | Perluas satu daftar keputusan tertunda: tambahkan (a) tindak lanjut `diskusi_11` (perbarui `.kilo/commands/kerjakan_hasil_diskusi.md`) — `sesi_122` belum disinkronkan; (b) `diskusi_12` untuk 11 temuan audit `kerjakan_prd.md` (`sesi_123`); (c) status katalog `Fanatic App`/`Clash Trackers`/`BaseVault`. Tinjau daftar pada setiap sinkronisasi akhir sesi; eskalasi ulang ke pengguna. |
+| Rujukan/path yatim pada command (pola baru) — `sesi_126`: command alur merujuk `.kilo/commands/analisa_kesehatan_kode.md` yang **tidak ada** (berkas aktual di subfolder `analisa/`); `sesi_120`: `hapus_task_selesai` merujuk `format_task.md` yang sudah dikonversi menjadi skill `format-task-md` (sesi 68). Catatan: Pola 3 audit 1 (rujukan yatim ke `diskusi_{1,4,7,8}.md`) masih terbuka, tanpa kemunculan baru pada run ini | sesi 120, 126 | 2 sesi | A (pantau; belum ≥3); Pola 3 audit 1 tetap C | R-g: verifikasi seluruh path rujukan `.kilo/commands/**` terhadap berkas aktual (`read`/`glob`) — sesi terpisah atas persetujuan pengguna. Pola C audit 1 tetap menunggu keputusan pengguna (perbarui rujukan atau pulihkan berkas). |
+| Berkas sesi paralel `Belum Sinkron` yang belum tuntas + risiko penandaan silang — run ini: `sesi_122` (tindak lanjut `diskusi_11`) dan `sesi_123` (audit `kerjakan_prd.md`) tetap `Belum Sinkron`; dilaporkan oleh `sesi_124`–`sesi_126` (dan `sesi_127`) | audit 1: ≥7 kejadian (sesi 62/63, 66/67, 88/89, 113, dst.); run ini: +2 berkas | **≥9 kejadian** | B | Serah-terima sinkronisasi `sesi_122`/`sesi_123` kepada pengguna (jangan ditandai oleh sesi lain); perkuat verifikasi kepemilikan berkas sebelum menandai `Sudah Sinkron` (R-d audit 1). |
+| Berkas cadangan `.backup_task/*.bak` ter-commit (melanggar skill `larangan-backup-task`) — tidak ada kemunculan baru pada run ini | sesi 102 (commit `2338cd3`), sesi 119 (commit `ca73206`) | 2 sesi | A (pantau) | R-e audit 1 tetap: `.backup_task/` ke `.gitignore` root atau verifikasi staging — sesi terpisah. |
+| `MEMORI.md` mendekati batas ukuran ±200 baris (aturan 20 `memori-check`) — `sesi_121` mencatat ±188 baris; kondisi saat audit: **190 baris** | sesi 121 + audit 1 | 2 kejadian | A (pantau; mendekati ambang) | R-f audit 1 tetap: agenda konsolidasi `MEMORI.md` (gabung entri usang, pindahkan detail ke `memori/riwayat_perubahan.md`) — sesi terpisah; bukan penghapusan. |
+| Kualitas command `kerjakan_prd.md` — `sesi_123` mencatat 11 temuan audit (antara lain tidak memuat skill via tool `skill` → melanggar aturan 16 `pembuatan-command-kilo`; tidak ada langkah verifikasi implementasi aktual; belum ada STOP untuk kondisi "seluruh item sudah terimplementasi di kode"; konfirmasi penghapusan berkas/section tidak eksplisit; tidak ada kewajiban sinkronisasi memori) | sesi 123 | 1 sesi | A (insidental, substansial) | R-h: buat `diskusi_12` (Mode Diskusi) lalu perbarui command — sesi terpisah atas persetujuan pengguna. |
+| Working tree root memuat dua berkas command terhapus belum ter-stage (`install_ulang_paket.md`, `ubah_model_code.md`) — dicatat `sesi_126` sebagai informasi, bukan tindakan sesi | sesi 126 | 1 sesi | A (informasi) | Pengguna memutuskan: pulihkan (`git checkout -- <path>`) atau biarkan terhapus; audit tidak mengubah working tree. |
+
+### Klasifikasi
+- **(A)** Insidental: Pola rujukan path yatim pada command (2 sesi), `.backup_task` (2 sesi), ukuran `MEMORI.md` (2 kejadian), kualitas `kerjakan_prd.md` (1 sesi), command terhapus belum ter-stage (1 sesi).
+- **(B)** Pola berulang (≥3 sesi): Pola tabrakan penomoran sesi paralel (≥42 sesi), keputusan pengguna menumpuk (≥15 rujukan), berkas sesi paralel `Belum Sinkron` (≥9 kejadian) — kandidat perbaikan sistem (aturan/skill/command/instruksi).
+- **(C)** Kerusakan arsip/rujukan yatim: Pola 3 audit 1 (rujukan yatim ke `diskusi_{1,4,7,8}.md` lintas ≥10 berkas) — masih terbuka, belum ada kemunculan baru pada run ini.
+
+### Rekomendasi (ringkas; perbaikan lewat sesi terpisah atas persetujuan pengguna)
+- R-a s.d. R-f dari audit pertama tetap berlaku dan belum dieksekusi; run ini tidak menambah kemajuan pada R-a.
+- R-g (pola path yatim command): verifikasi seluruh path rujukan `.kilo/commands/**` terhadap berkas aktual.
+- R-h (kualitas `kerjakan_prd.md`): buat `diskusi_12` lalu perbarui command sesuai 11 temuan `sesi_123`.
+- R-i (berkas sesi paralel `Belum Sinkron`): serah-terima sinkronisasi `sesi_122`/`sesi_123` kepada pengguna; koreksi/keputusan dicatat pada berkas sesi baru, bukan dengan mengedit arsip.
+- R-j (keputusan tertunda): tambahkan item (a) tindak lanjut `diskusi_11`, (b) `diskusi_12`, (c) status katalog `Fanatic App`/`Clash Trackers`/`BaseVault` ke daftar keputusan tertunda dan tinjau setiap sinkronisasi akhir.
+- Seluruh tindak lanjut di atas **tidak** dieksekusi oleh audit ini (K-6/K-7).
+
+### Daftar Berkas yang Diaudit
+| Sesi | Tanggal audit | mtime | Jumlah baris |
+|------|---------------|-------|--------------|
+| sesi_117 | 2026-11-15 | 2026-11-15 19:12:55 WIB | 54 |
+| sesi_118 | 2026-11-15 | 2026-11-15 19:02:26 WIB | 34 |
+| sesi_121 | 2026-11-15 | 2026-11-15 19:09:57 WIB | 40 |
+| sesi_122 | 2026-11-15 | 2026-11-15 19:13:19 WIB | 22 |
+| sesi_123 | 2026-11-15 | 2026-11-15 19:29:45 WIB | 34 |
+| sesi_124 | 2026-11-15 | 2026-11-15 19:40:11 WIB | 31 |
+| sesi_125 | 2026-11-15 | 2026-11-15 19:43:47 WIB | 56 |
+| sesi_126 | 2026-11-15 | 2026-11-15 20:59:50 WIB | 51 |
+
+### Catatan Keterbatasan
+- Audit berjalan ±20:59–21:04 WIB. `MEMORI.md` dibaca ketika header masih `Diperbarui: Sun Nov 15 2026 19:37 WIB (sesi 125)`; sesi paralel 126 memperbaruinya menjadi `20:59 WIB (sesi 126)` sebelum audit selesai (isi: entri Status Kerja sesi 126 + konsolidasi entri volatil pointer `base_coc` yang kini cocok). Konteks agregasi (`memori/riwayat_perubahan.md`) sudah memuat entri hingga sesi 126; perubahan tersebut tidak mengubah kesimpulan pola.
+- `sesi_127.md` (18 baris, 21:02:40 WIB) dan `sesi_128.md` (18 baris, 21:03:24 WIB) dibuat sesi paralel **setelah** inventarisasi — **tidak diproses** pada run ini; akan diproses audit berikutnya. Label section `(sesi 127)` ditetapkan pengguna dan **tidak** merujuk `sesi_127.md`. Kemunculan keduanya merupakan bukti tambahan Pola 1.
+- Sesi paralel aktif selama audit (`sesi_127`, `sesi_128`); berkas `Belum Sinkron` milik sesi lain tidak disentuh dan isinya dapat berubah setelah ledger ini dicatat (sesuai desain inkremental K-11/K-12).
+- Audit ini **tidak** membuat berkas sesi `memori/sesi/sesi_*.md` karena command mewajibkan read-only selain append ke berkas ini; deviasi dari alur `memori-check` dilaporkan kepada pengguna.
+- 118 berkas dilewati tanpa analisis ulang karena mtime **dan** jumlah baris identik dengan ledger audit pertama (aturan 3–5 skill).
+- mtime tersedia untuk seluruh berkas (`TZ=Asia/Jakarta stat -c %y`); tidak ada berkas yang tidak dapat dibaca, sehingga tidak ada nilai `tidak tersedia`.
+- Pemeriksaan pelengkap: `git status --short` dijalankan read-only untuk memastikan tidak ada berkas lain yang tersentuh oleh audit.
+
