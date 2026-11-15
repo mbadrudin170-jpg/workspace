@@ -67,6 +67,8 @@ Catatan: `apk_serupa.md` tidak ditemukan di root proyek per 2026-11-14; lingkup 
 | WarBase Pro CoC Layouts | Koleksi base TH4–TH18 dengan layout yang dapat disalin langsung untuk war, trophy, dan farming. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.moonedgestudio.warbasepro2027) | Sudah Dianalisa |
 | Clash Companion | Wiki bangunan/pasukan/spell/hero, pencarian cepat, perencana upgrade TH/BH, koleksi base dan army pribadi dengan link OpenLayout/CopyArmy, favorit, dan browsing offline. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.clashcompanion.com) | Belum Dianalisa |
 | ClashGrid | Pelacak upgrade Home Village (bangunan, pasukan, pet) dengan dashboard, dukungan banyak profil, widget layar utama, dan impor JSON resmi game. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.coc_widgets) | Belum Dianalisa |
+| Base for Clash of Clans | Galeri base TH4–TH18 (war anti-3-star, farming, hybrid, defense, trophy) dengan gambar resolusi tinggi, zoom, dan copy link langsung ke game; termasuk tutorial event dan pelacak pemain/klan. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.NurievDevStudio.com.unity.template.mobile2D) | Belum Dianalisa |
+| Clash Maps Hub | Perpustakaan base/map TH4–TH16 dan BH4–BH10 (war, farming, trophy, hybrid) dengan copy satu klik, pembaruan meta berkala, dan UI ringan; tanpa iklan. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.ahmedoka.clashmapshub) | Belum Dianalisa |
 
 ## GitHub
 
@@ -82,6 +84,7 @@ Catatan: `apk_serupa.md` tidak ditemukan di root proyek per 2026-11-14; lingkup 
 | Clash Timers (Kuswaa) | Widget layar utama Android untuk timer builder, laboratorium, dan pet Clash of Clans; APK tersedia di rilis GitHub. | GitHub | [Buka Repositori](https://github.com/Kuswaa/clash-timers) | Belum Dianalisa |
 | Clash Tracker (rahulkhatri137) | Aplikasi Android pelacak upgrade multi-desa: dashboard, rencana upgrade, notifikasi progres, impor JSON, dan kontrol boost potion; tanpa APK di halaman rilis GitHub. | GitHub | [Buka Repositori](https://github.com/rahulkhatri137/coc-tracker) | Sudah Dianalisa |
 | Clash Command | Aplikasi Flutter Android offline-first untuk melacak upgrade dan ketersediaan builder, impor JSON resmi, backup/restore, widget, dan pengingat lokal; tanpa APK di halaman rilis GitHub (dibangun via Makefile). | GitHub | [Buka Repositori](https://github.com/AmruthLP12/clash-command) | Sudah Dianalisa |
+| ClashKingApp | Aplikasi mobile companion Clash of Clans (iOS/Android, Expo/React Native, GPL-3.0): profil pemain/klan, pelacakan Ranked & Legend League, statistik perang dan CWL, pelacakan upgrade dan kalkulator, widget layar utama, multibahasa, tema terang/gelap; rilis tanpa APK (dibangun dari sumber). | GitHub | [Buka Repositori](https://github.com/ClashKingInc/ClashKingApp) | Belum Dianalisa |
 
 ## Apple App Store
 
@@ -125,6 +128,11 @@ Catatan: `apk_serupa.md` tidak ditemukan di root proyek per 2026-11-14; lingkup 
 | Keepwatch for Clash of Clans | Pelengkap non-galeri: menempel ke data export game untuk menghitung sisa upgrade setiap bangunan, hero, pet, pasukan, mantra, equipment, dan tembok per level TH dengan estimasi waktu dan sumber daya. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6828926176) | Sudah Dianalisa |
 | Database for Clash of Clans™ (unofficial) | Database offline bangunan, pasukan, mantra, statistik, walkthrough, strategi serangan, dan Base Designs beserta tips untuk setiap level item. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id898757582) | Sudah Dianalisa |
 | House of Clashers: Clash Guide | Guide Clash of Clans 1000+ halaman dengan strategi serangan dan taktik, serta copy link base Town Hall dan Builder Hall untuk disalin ke game. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id653987498) | Belum Dianalisa |
+| ClashMax: Attack Planner | Simpan layout base dari link game beserta tangkapan layar (level TH terdeteksi otomatis), gambar rencana serangan di atas base, susun komposisi pasukan dengan Copy Army link, dan catat hasil bintang/kehancuran. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6455786899) | Belum Dianalisa |
+| BurntBase: Clash Base Tool | Unggah tangkapan layar base lawan untuk menemukan video serangan 3-bintang pada base tersebut; mendukung pemindaian base TH17 dan TH18. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6498314218) | Belum Dianalisa |
+| AI Find Base | Pencarian visual berbasis AI dari 2600+ base terverifikasi (TH/BH/Clan Capital): unggah tangkapan layar, deteksi level Town Hall otomatis, kumpulan kategori, dan simpan favorit. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6782599725) | Belum Dianalisa |
+| Base Planner & Layout Maps | Koleksi base war/farming/trophy/hybrid dengan pratinjau layout penuh, copy link langsung ke game, dan berbagi ke teman/tim. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6781214849) | Belum Dianalisa |
+| ClashAlly: CoC Tracker & Guide | Pelacak desa (Town Hall, hero, pasukan, pet) dengan data export game, perencana upgrade builder, pemantau perang dan CWL/Raid Weekend, widget layar utama, dan panduan Clash Book (listing iOS companion Android). | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6754341639) | Belum Dianalisa |
 
 ## APKPure
 
@@ -236,3 +244,61 @@ Halaman pencarian mengembalikan shell JavaScript tanpa hasil aplikasi yang dapat
 ## Uptodown, IzzyOnDroid, SlideME, Tencent MyApp
 
 Tidak ada kandidat baru yang dapat diverifikasi pada batch ini (keterbatasan akses sama seperti catatan 2026-11-14).
+
+# Tambahan Riset (2026-11-16)
+
+Batch ini menambahkan 2 listing Google Play Store, 1 listing GitHub, 5 listing Apple App Store, dan 1 listing Uptodown (mirror) ke tabel store di atas; seluruhnya berstatus `Belum Dianalisa`. Riset store dikerjakan berurutan dalam satu run (sesi 146).
+
+## Google Play Store
+
+2 listing baru ditambahkan ke tabel Google Play Store di atas (verifikasi halaman `play.google.com` HTTP 200 via webfetch/websearch): Base for Clash of Clans (`Nuriev Dev Studio`, `com.NurievDevStudio.com.unity.template.mobile2D`) dan Clash Maps Hub (`AHMED OKA`, `com.ahmedoka.clashmapshub`). Kandidat lain dari pencarian Play Store ("Maps for Clasher of Clans" = `com.phuocly.coc.layouts.link`) sudah tercatat di katalog; `com.phuocly.coc.layouts.link.pro` ternyata package yang sama/berganti nama menjadi aplikasi lain (bukan CoC) sehingga tidak disertakan. Aplikasi statistik klan/perang murni (War Report, Clash of Stats, ClanScope) tetap dilewati.
+
+## F-Droid
+
+Tidak ditemukan aplikasi mobile relevan per 2026-11-16 (`search.f-droid.org` untuk "clash of clans" mengembalikan nol hasil; "clash" hanya mengembalikan klien proxy Clash Meta For Android, ClashFest, dan Lumine).
+
+## GitHub
+
+1 repositori baru ditambahkan ke tabel GitHub di atas (verifikasi rilis dan README): ClashKingApp (`ClashKingInc/ClashKingApp`; mobile iOS/Android, Expo/React Native, GPL-3.0; tidak ada APK di rilis, seperti preseden Clash Command). Kandidat lain: nschmeller/clash-bases (webapp, bukan mobile — dilewati), MMHDJ/Dragonsight (proyek riset YOLO, bukan aplikasi mobile — dilewati), efebolukbasi/BasePilot (desktop PySide6 — dilewati), pluckyswan/ClashLog (companion perang usang, dilewati), danielholmes/coc-base-analyser (Scala web — dilewati).
+
+## Apple App Store
+
+5 listing baru ditambahkan ke tabel Apple App Store di atas (verifikasi iTunes lookup `resultCount: 1`): ClashMax: Attack Planner (id6455786899), BurntBase: Clash Base Tool (id6498314218), AI Find Base (id6782599725), Base Planner & Layout Maps (id6781214849), ClashAlly: CoC Tracker & Guide (id6754341639; `com.mazren.clashally`, pasangan iOS companion Android). Kandidat lain dilewati: "Stats & Tools for Clash" (id1434767560; ternyata companion Clash Royale), "Clash Mi" (id6744321968; klien proxy Clash Meta), Troops and Spells Cost Calculator/Time Planner (id638668517; usang 2016) dan Gems Calc for Clash of Clans (id1441882558; 2019) karena tidak relevan/usang, "War Report for Clash of Clans" (id1669237796) dan "Clash of Stats" (id1546458325) karena statistik murni. "Maps for Clasher of Clans" (`com.phuocly.coc.layouts.link`) sudah tercatat.
+
+## Samsung Galaxy Store
+
+Tidak ditemukan aplikasi mobile relevan yang dapat diverifikasi per 2026-11-16. Halaman etalase `galaxystore.samsung.com` dirender JavaScript (webfetch mengembalikan shell kosong/"Galaxy Store"), jalur pencarian `/search/...` mengembalikan HTTP 404, dan pencarian web tidak menemukan halaman aplikasi base/layout Clash of Clans spesifik di Galaxy Store (hasil hanya listing Google Play/App Store). Sesuai aturan verifikasi skill `riset-kompetitor`, tanpa link halaman aplikasi spesifik yang terverifikasi, tidak ada listing yang disertakan.
+
+## Mi/GetApps
+
+Tidak ditemukan aplikasi mobile relevan yang dapat diverifikasi per 2026-11-16. Halaman `app.xiaomi.com/search?keyword=...` mengembalikan HTTP 200 tetapi isinya dirender JavaScript dan tidak memuat halaman aplikasi base/layout Clash of Clans spesifik yang dapat diverifikasi.
+
+## Oppo App Market
+
+Tidak ada halaman aplikasi base/layout Clash of Clans spesifik yang dapat diverifikasi per 2026-11-16. Situs resmi `oppomobile.com` hanya memuat halaman unduhan klien 软件商店 (深圳市欢太科技有限公司) tanpa katalog web yang dapat dicari; tidak ada link halaman aplikasi yang dapat diverifikasi.
+
+## Vivo V-Appstore
+
+Tidak ada halaman aplikasi base/layout Clash of Clans yang dapat diverifikasi per 2026-11-16. Etalase H5 (`h5.appstore.vivo.com.cn`) dirender JavaScript dan mengembalikan shell kosong tanpa konten aplikasi.
+
+## Amazon Appstore
+
+Dilewati: Amazon Appstore untuk Android dihentikan 2025-08-20 (kini hanya untuk Fire TV/Fire Tablet), sesuai catatan command dan hasil riset 2026-11-15.
+
+## Huawei AppGallery
+
+Tidak ditemukan aplikasi mobile relevan yang dapat diverifikasi per 2026-11-16. Halaman utama `appgallery.huawei.com` kosong via webfetch; pencarian web tidak menemukan halaman aplikasi base/layout Clash of Clans spesifik yang dapat diverifikasi (hasil hanya halaman AppGallery generik/kosong).
+
+## Aurora Store
+
+Aurora Store bukan katalog mandiri; ia adalah klien untuk Play Store sehingga tidak memiliki listing aplikasi sendiri.
+
+## Store lainnya
+
+- Uptodown: 1 listing mirror terverifikasi lewat cuplikan pencarian (halaman langsung memutar HTTP 410 — status flaky/rotasi sesuai aturan #20 skill `riset-kompetitor`):
+
+| Nama Aplikasi | Ringkasan Singkat | Store | Link | Status Analisa |
+| --- | --- | --- | --- | --- |
+| COC Maps - Base Layouts Links | Mirror Uptodown dari aplikasi Play Store "COC Base Layouts Design links" (`com.srsapps.new_clash_base_layouts_direct_link`): galeri base TH4–TH15 dan BH4–BH10 dengan copy link satu klik ke game; versi 1.2.2 (Jul 2026, 152 unduhan). | Uptodown | [Unduh APK](https://coc-maps-base-layouts-links.en.uptodown.com/android) | Belum Dianalisa |
+
+- IzzyOnDroid, SlideME, Tencent MyApp, APKPure, Aptoide: tidak ada kandidat baru yang dapat diverifikasi pada run ini (keterbatasan akses/rotasi status sama seperti catatan 2026-11-14 dan 2026-11-15; APKPure mengembalikan mirror dari aplikasi yang sudah tercatat di katalog).
