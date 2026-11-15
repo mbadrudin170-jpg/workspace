@@ -3,24 +3,8 @@
 # ============================================
 # BUILD SCRIPTS ALIASES
 # ============================================
-alias build_docs="script/build_docs.sh"
-alias build_snippets="script/build_snippets.sh"
-alias build_core_shared="script/build_core_shared.sh"
-alias build_structure="script/build_structure.sh"
-alias build_rules_context="script/build_rules_context.sh"
-alias build_lib_docs="script/build_lib_docs.sh"
 alias rename_apk="script/rename_apk.sh"
-alias generate_model_docs="script/generate_model_docs.sh"
 alias full_clean="script/full_clean.sh"
-alias duplicate_file="script/duplicate_file.sh"
-alias script_tes="script/script_tes.sh"
-alias build_fitur="script/build_fitur.sh"
-alias build_sh_docs="script/build_sh_docs.sh"
-alias migrate_batch="script/migrate_batch.sh"
-alias cp_to_service="script/cp_to_service.sh"
-alias path_paket="script/path_paket.sh"
-alias code_paket="script/code_paket.sh"
-alias gabung_example_teks="script/gabung_example_teks.sh"
 alias install_rg="sudo apt-get update && sudo apt-get install -y ripgrep"
 
 

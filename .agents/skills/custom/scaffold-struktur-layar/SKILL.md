@@ -1,10 +1,10 @@
 ---
 name: scaffold-struktur-layar
-description: "Trigger: saat menyusun struktur layar | Panduan Scaffold, AppBar, body, floatingActionButton, bottomNavigationBar, drawer untuk struktur layar standar."
+description: "Trigger: saat menyusun struktur layar | Panduan Scaffold, AppBar, body, floatingActionButton, bottomNavigationBar, drawer untuk struktur layar standar; feedback sementara memakai `AppToast` dari `share_global_saya` bila tersedia."
 metadata:
   kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.0"
+  diperbarui: "Mon Nov 16 2026 03:10 WIB"
 ---
 
 # Struktur Layar Standar (Scaffold)
@@ -13,17 +13,17 @@ Menggunakan `Scaffold` sebagai kerangka layar dengan `AppBar`, `body`, `floating
 
 ## Cakupan yang Di-Cover
 
-- Package: `package:flutter` (file `lib/src/material/scaffold.dart`, `lib/src/material/app_bar.dart`, `lib/src/material/bottom_app_bar.dart`, `lib/src/material/floating_action_button.dart`)
-- Class: `Scaffold`, `AppBar`, `PreferredSizeWidget`, `BottomNavigationBar`, `BottomNavigationBarItem`, `Drawer`, `FloatingActionButton`, `SnackBar`, `PersistentBottomSheet`, `SliverAppBar`
+- Package: `package:flutter` (file `lib/src/material/scaffold.dart`, `lib/src/material/app_bar.dart`, `lib/src/material/bottom_app_bar.dart`, `lib/src/material/floating_action_button.dart`), `package:share_global_saya` (`lib/src/widget/toast_widget.dart`, kelas `AppToast`)
+- Class: `Scaffold`, `AppBar`, `PreferredSizeWidget`, `BottomNavigationBar`, `BottomNavigationBarItem`, `Drawer`, `FloatingActionButton`, `AppToast`, `PersistentBottomSheet`, `SliverAppBar`
 - Properti: `Scaffold.appBar`, `Scaffold.body`, `Scaffold.floatingActionButton`, `Scaffold.bottomNavigationBar`, `Scaffold.drawer`, `Scaffold.endDrawer`, `Scaffold.bottomSheet`, `Scaffold.backgroundColor`, `Scaffold.resizeToAvoidBottomInset`, `Scaffold.primary`, `Scaffold.drawerEdgeDragWidth`, `Scaffold.extendBody`, `Scaffold.extendBodyBehindAppBar`
-- Method: `Scaffold.of(context)`, `ScaffoldMessenger.of(context).showSnackBar`, `showBottomSheet`, `showModalBottomSheet`
+- Method: `Scaffold.of(context)`, `showBottomSheet`, `showModalBottomSheet`, `AppToast.sukses`, `AppToast.gagal`, `AppToast.info`, `AppToast.warning`
 
 ## Aturan
 
 1. `Scaffold.body` wajib diisi; tidak boleh null. Gunakan widget kosong (`SizedBox.shrink`) jika tidak ada konten.
 2. `AppBar` harus wrap dalam `Scaffold.appBar` dan mengimplementasikan `PreferredSizeWidget`.
 3. `Scaffold.of(context)` mengakses `ScaffoldState` untuk `openDrawer()`, `openEndDrawer()`, `showBottomSheet()`.
-4. `ScaffoldMessenger.of(context).showSnackBar()` untuk menampilkan pesan sementara (snackbar).
+4. Feedback sementara wajib memakai `AppToast` dari `share_global_saya` (`AppToast.sukses`, `AppToast.gagal`, `AppToast.info`, `AppToast.warning`) bila dependency `share_global_saya` tersedia. Jangan memakai `ScaffoldMessenger.showSnackBar`, `SnackBar`, atau `Fluttertoast` langsung untuk feedback sementara. Bila `share_global_saya` belum ada pada dependency, tambahkan path/git dependency + `flutter pub get`, atau tanyakan pengguna sebelum memakai snackbar.
 5. `resizeToAvoidBottomInset = true` default agar body menyusut saat keyboard muncul; setel `false` jika body sudah menangani inset sendiri.
 6. `extendBody = true` agar `bottomNavigationBar` menimpa area body di bawahnya (dipakai dengan `FloatingActionButtonLocation.centerDocked`).
 7. `extendBodyBehindAppBar = true` jika body perlu meluas di belakang app bar (transparan/blur).
@@ -39,6 +39,7 @@ Menggunakan `Scaffold` sebagai kerangka layar dengan `AppBar`, `body`, `floating
 - `Scaffold.of(context)` dengan context di atas Scaffold (melempar error).
 - `AppBar` tanpa `title` atau `leading` yang informatif.
 - `bottomNavigationBar` dengan lebih dari 5 item (terlalu ramai layar seluler).
+- `SnackBar`/`ScaffoldMessenger`/`Fluttertoast` langsung untuk feedback sementara bila `share_global_saya` tersedia; gunakan `AppToast`.
 
 ## Contoh Benar
 
@@ -68,7 +69,19 @@ Scaffold(
 );
 ```
 
+```dart
+// Feedback sementara (butuh package `share_global_saya`; import `package:share_global_saya/core_shared.dart`)
+AppToast.sukses(context, 'Data tersimpan');
+```
+
 ## Contoh Salah
+
+```dart
+// Feedback sementara via snackbar — dilarang bila `share_global_saya` tersedia
+ScaffoldMessenger.of(context).showSnackBar(
+  const SnackBar(content: Text('Data tersimpan')),
+);
+```
 
 ```dart
 // Scaffold tanpa body
@@ -90,4 +103,6 @@ Scaffold(
 ## Sumber Evaluasi
 
 - File: `/google/flutter/packages/flutter/lib/src/material/scaffold.dart`
-- Class terkait: `Scaffold`, `AppBar`, `BottomNavigationBar`, `FloatingActionButton`
+- Class terkait: `Scaffold`, `AppBar`, `BottomNavigationBar`, `FloatingActionButton`, `AppToast`
+- Commit `share_global_saya`: `b79563fc39b0bf79b45c13aac258e148b0f8cf9b` (2026-10-14; `lib/src/widget/toast_widget.dart` — `AppToast` `sukses`/`gagal`/`info`/`warning` memakai `Fluttertoast` `FToast` + logging `L`)
+- File `share_global_saya`: `lib/src/widget/toast_widget.dart`, `lib/core_shared.dart` (export `toast_widget.dart`)
