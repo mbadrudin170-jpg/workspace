@@ -61,6 +61,10 @@ Diskusi dilakukan melalui tool `question` pada sesi 114; tidak ada implementasi 
 - Tanya: Apakah setiap audit membaca ulang seluruh arsip, atau sesi yang sudah diaudit ditandai dan dilewati?
 - Kesimpulan: Sesi yang sudah diaudit **ditandai "sudah diaudit"** di `audit/riwayat_sesi.md` (ledger, bukan di dalam berkas sesi) dan **dilewati penuh** pada audit berikutnya, kecuali berkas tersebut berubah. Deteksi perubahan dibandingkan lewat **mtime + jumlah baris** (keduanya dicatat saat diaudit; dilewati hanya bila keduanya sama). Awal rancangan (audit penuh tanpa jejak per berkas) direvisi pengguna. Sistem bersifat inkremental: audit berikutnya hanya memproses berkas sesi yang belum pernah diaudit atau yang berubah sejak diaudit.
 
+### 10. Nasib sesi yang sudah diaudit (hapus vs arsipkan)
+- Tanya: Apakah sesi yang sudah diaudit cukup dihapus saja dari `memori/sesi/`?
+- Kesimpulan: **Tidak dihapus.** Sesi yang sudah diaudit tetap diarsipkan permanen di `memori/sesi/`; penandaan di ledger `audit/riwayat_sesi.md` sudah cukup untuk melewatinya pada audit berikutnya. Alasan: (1) skill `memori-check` melarang penghapusan berkas sesi dengan alasan apa pun (arsip permanen; penghapusan hanya atas konfirmasi eksplisit luar biasa yang terdokumentasi); (2) provenance `MEMORI.md` (klaim "(sesi N)") merujuk ke berkas sesi; (3) ledger mencatat mtime + jumlah baris — berkas yang hilang akan terdeteksi audit sebagai "berkas hilang", bukan "sudah diaudit"; (4) ukuran berkas kecil, penghematan ruang tidak berarti. Opsi kompresi arsip dan penghapusan permanen ditolak pengguna.
+
 ## Keputusan
 - K-1: Sistem berupa command baru `.kilo/commands/audit_riwayat_sesi.md` + skill baru `.agents/skills/custom/audit-riwayat-sesi/SKILL.md` (portabel lintas proyek).
 - K-2: Pemicu manual via command; tidak ada jadwal/cron otomatis.
@@ -74,6 +78,7 @@ Diskusi dilakukan melalui tool `question` pada sesi 114; tidak ada implementasi 
 - K-10: Penanda "sudah diaudit" disimpan di `audit/riwayat_sesi.md` (ledger), **bukan** di dalam berkas sesi; berkas sesi tidak diubah oleh audit.
 - K-11: Berkas sesi yang sudah diaudit dilewati penuh pada audit berikutnya.
 - K-12: Deteksi perubahan memakai **mtime + jumlah baris** (keduanya dicatat di ledger saat diaudit; berkas dilewati hanya bila keduanya sama).
+- K-13: Sesi yang sudah diaudit **tetap diarsipkan permanen** di `memori/sesi/`; tidak dihapus, tidak dikompresi, dan tidak diubah oleh audit. Penandaan di ledger adalah satu-satunya perlakuan tambahan.
 
 ## Rekomendasi
 - R-1: Saat implementasi, muat skill `pembuatan-command-kilo` (untuk command) dan `aturan-pembuatan-skill` (untuk skill), serta skill `memori-check` dan `cek-kesehatan-sistem-kerja` sebagai rujukan pola command + skill read-only.
@@ -109,3 +114,4 @@ Belum ada
 |---------|-----------|
 | 2026-11-15 | Berkas dibuat dari diskusi sesi 114; seluruh keputusan diambil melalui tool `question`. Output audit direvisi pengguna dari "laporan di sesi saja" menjadi "laporan di sesi + berkas berjalan `audit/riwayat_sesi.md` (append per audit)". |
 | 2026-11-15 | Diskusi lanjutan: pengguna mempertanyakan apakah setiap audit membaca ulang seluruh arsip. Disepakati desain inkremental — sesi yang sudah diaudit ditandai di `audit/riwayat_sesi.md` (ledger) dan dilewati penuh, kecuali berubah (deteksi mtime + jumlah baris). Ditambahkan Poin Diskusi 9, K-10 s.d. K-12, R-6; langkah 2, 3, 4, 7 alur kerja diperjelas; Tindak Lanjut item 4 diperluas. |
+| 2026-11-15 | Diskusi lanjutan: pengguna mempertanyakan apakah sesi yang sudah diaudit cukup dihapus. Diputuskan tetap diarsipkan permanen (ditolak: penghapusan permanen dan kompresi arsip). Ditambahkan Poin Diskusi 10 dan K-13. |

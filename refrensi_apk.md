@@ -403,6 +403,7 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Referensi:** [Clash Command (GitHub)](https://github.com/AmruthLP12/clash-command)
 - **Saran:** buat layar "Cadangkan & Pulihkan" yang mengekspor satu berkas (manifest versi + database + preferensi), validasi versi sebelum restore, dan buat cadangan otomatis sebelum menimpa. Gunakan transaksi database agar gagal di tengah tidak merusak data.
 - **Prioritas:** Tinggi.
+- **Status PRD:** PRD sudah dibuat (`prd/prd_cadangan_pemulihan_lokal.md`, sesi 116); belum diimplementasikan.
 
 #### A47. Mode impor "Gabung" versus "Ganti" dengan deteksi snapshot ganda
 

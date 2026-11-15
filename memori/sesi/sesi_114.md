@@ -25,15 +25,14 @@
   - Tindak lanjut rekomendasi: rekomendasi saja di sesi; perbaikan lewat sesi terpisah atas persetujuan pengguna.
   - Isi `audit/riwayat_sesi.md`: **append per audit**.
   - Lokasi berkas: folder baru **`audit/` di root** proyek.
-- Diskusi lanjutan (setelah pengguna mempertanyakan apakah audit mengaudit ulang seluruh arsip):
-  - Pengguna memilih desain **inkremental**: sesi yang sudah diaudit **ditandai di `audit/riwayat_sesi.md`** (ledger; bukan di dalam berkas sesi) dan **dilewati penuh** pada audit berikutnya.
-  - Deteksi berkas berubah: **mtime + jumlah baris** (keduanya dicatat di ledger; dilewati hanya bila keduanya sama).
-  - Sebelumnya ditawarkan tiga opsi (audit penuh + dedup / inkremental murni / hibrida); pengguna sempat meminta "jelaskan dulu", lalu memilih penandaan "sudah diaudit".
-  - Ditambahkan sebagai Poin Diskusi 9 + keputusan **K-10** (penanda di `audit/riwayat_sesi.md`, berkas sesi tidak diubah), **K-11** (dilewati penuh), **K-12** (deteksi mtime + jumlah baris); alur kerja langkah 2, 3, 4, 7 diperjelas (ledger diinventarisasi; agregasi frekuensi untuk berkas yang dilewati memakai catatan audit sebelumnya); rekomendasi **R-6** (skill mendefinisikan format ledger presisi; bila mtime meragukan boleh verifikasi baca ulang); Tindak Lanjut item 4 diperluas (format ledger + section append).
-- Berkas `hasil_diskusi/diskusi_10.md` dibuat (nomor tertinggi 9 + 1) dan diperbarui dua kali: seluruh keputusan diskusi, lalu Poin Diskusi 9/K-10..K-12/R-6 (diskusi lanjutan). Status Dokumen Final, Implementasi Belum Diimplementasikan.
+- Diskusi lanjutan 1 (audit ulang seluruh arsip):
+  - Pengguna memilih desain **inkremental**: sesi yang sudah diaudit ditandai di `audit/riwayat_sesi.md` (ledger; bukan di dalam berkas sesi) dan **dilewati penuh** pada audit berikutnya; deteksi berkas berubah memakai **mtime + jumlah baris**. Ditambahkan Poin Diskusi 9, **K-10** (ledger di `audit/riwayat_sesi.md`; berkas sesi tidak diubah), **K-11** (dilewati penuh), **K-12** (deteksi mtime + jumlah baris), rekomendasi **R-6**; langkah alur 2, 3, 4, 7 diperjelas; Tindak Lanjut item 4 diperluas.
+- Diskusi lanjutan 2 (hapus sesi yang sudah diaudit?):
+  - Pengguna bertanya apakah sesi yang sudah diaudit cukup dihapus. Jawaban: **tidak dihapus** — sesi tetap diarsipkan permanen; penandaan di ledger sudah cukup. Opsi penghapusan permanen dan kompresi arsip ditolak pengguna (bertentangan dengan aturan arsip permanen skill `memori-check`; provenance `MEMORI.md` merujuk berkas sesi; ledger membutuhkan berkas untuk verifikasi mtime + jumlah baris). Ditambahkan Poin Diskusi 10 dan **K-13**.
+- Berkas `hasil_diskusi/diskusi_10.md` dibuat (nomor tertinggi 9 + 1) dan diperbarui tiga kali: seluruh keputusan diskusi, diskusi lanjutan 1 (K-10..K-12), diskusi lanjutan 2 (K-13). Status Dokumen Final, Implementasi Belum Diimplementasikan.
 - Verifikasi rujukan: commit penghapusan berkas diskusi diverifikasi via `git log --diff-filter=D --name-only -- hasil_diskusi/` — `diskusi_8.md` (`c6f3ce6`), `diskusi_1.md` + `diskusi_7.md` (`5c32924`), `diskusi_4.md` (`6b027fc`).
-- `MEMORI.md` diperbarui: header `Diperbarui` → `Sun Nov 15 2026 18:35 WIB (sesi 114)` lalu dipertahankan (isi bagian Hasil Diskusi disesuaikan dengan keputusan K-10..K-12 pada 18:44 WIB); bagian `## Hasil Diskusi` menambah `diskusi_10.md`, nomor tertinggi 9 → 10, folder aktif 6 berkas.
-- Entri `memori/riwayat_perubahan.md` ditambahkan dua kali (sesi 114, 18:35 WIB dan 18:44 WIB — diskusi lanjutan desain inkremental).
+- `MEMORI.md` diperbarui: header `Diperbarui` → `Sun Nov 15 2026 18:35 WIB (sesi 114)`; bagian `## Hasil Diskusi` menambah `diskusi_10.md`, nomor tertinggi 9 → 10, folder aktif 6 berkas, deskripsi disesuaikan dengan desain inkremental. (Isi MEMORI.md tidak berubah lagi pada diskusi lanjutan 2 — keputusan penghapusan tidak mengubah bagian apa pun.)
+- Entri `memori/riwayat_perubahan.md` ditambahkan tiga kali (sesi 114: 18:35, 18:44, 18:50 WIB).
 - Tidak ada implementasi (mode diskusi); tidak ada kode Dart yang diubah.
 
 ## Berkas Terdampak
@@ -41,13 +40,13 @@
 | Lokasi File | Status Perubahan | Deskripsi |
 | ----------- | ---------------- | --------- |
 | `memori/sesi/sesi_114.md` | Dibuat lalu diubah | Berkas sesi ini |
-| `hasil_diskusi/diskusi_10.md` | Dibuat lalu diubah | Hasil diskusi sistem audit riwayat sesi (Final; belum diimplementasikan; Poin Diskusi 9 + K-10..K-12 + R-6 ditambahkan pada diskusi lanjutan) |
+| `hasil_diskusi/diskusi_10.md` | Dibuat lalu diubah | Hasil diskusi sistem audit riwayat sesi (Final; belum diimplementasikan; Poin Diskusi 9 + K-10..K-12, Poin Diskusi 10 + K-13) |
 | `MEMORI.md` | Diubah | Header `Diperbarui` → sesi 114; bagian Hasil Diskusi (daftar + nomor tertinggi 10 + deskripsi desain inkremental) |
-| `memori/riwayat_perubahan.md` | Diubah | Dua entri sesi 114 (pembuatan diskusi; diskusi lanjutan desain inkremental) |
+| `memori/riwayat_perubahan.md` | Diubah | Tiga entri sesi 114 (pembuatan diskusi; diskusi lanjutan 1; diskusi lanjutan 2) |
 
 ## Sinkronisasi ke MEMORI.md
 
-- `MEMORI.md` bagian `## Hasil Diskusi`: entri `diskusi_10.md` ditambahkan dan disesuaikan dengan keputusan K-10..K-12 (desain inkremental, ledger di `audit/riwayat_sesi.md`, deteksi mtime + jumlah baris); nomor tertinggi 9 → 10; header `Diperbarui: Sun Nov 15 2026 18:35 WIB (sesi 114)`.
+- `MEMORI.md` bagian `## Hasil Diskusi`: entri `diskusi_10.md` ditambahkan dan disesuaikan dengan desain inkremental (ledger di `audit/riwayat_sesi.md`, mtime + jumlah baris); nomor tertinggi 9 → 10; header `Diperbarui: Sun Nov 15 2026 18:35 WIB (sesi 114)`.
 - Bagian lain `MEMORI.md` tidak berubah; `sesi_113.md` dan `sesi_115.md` tetap `Belum Sinkron` (sesi paralel aktif, tidak disentuh).
-- Dua entri `memori/riwayat_perubahan.md` (sesi 114, 18:35 dan 18:44 WIB) ditambahkan.
+- Tiga entri `memori/riwayat_perubahan.md` (sesi 114) ditambahkan.
 - Tidak ada perubahan pada berkas `Sudah Sinkron` lainnya.
