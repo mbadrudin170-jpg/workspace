@@ -60,6 +60,7 @@
       "tail *": "deny",
       "rg *": "deny",
       "grep *": "deny",
+      "for *": "deny",
       "echo *": "allow",
       "flutter analyze *": "allow",
       "flutter analyze": "allow",
