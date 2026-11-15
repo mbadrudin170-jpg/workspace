@@ -1,7 +1,7 @@
 # Sesi 129 — Mode Diskusi: command scan
 
 ## Status
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-15
 - Topik: Mode Diskusi mengenai command `.kilo/commands/scan.md` — dukungan submodule, kebijakan larangan bash, strategi checklist per berkas, dan usulan revisi lain.
 
@@ -25,4 +25,9 @@
 | `memori/riwayat_perubahan.md` | Diubah | Entri kronologis sesi 129 |
 
 ## Sinkronisasi ke MEMORI.md
-Belum disinkronkan
+- Header `Diperbarui` → `Sun Nov 15 2026 21:08 WIB (sesi 129)`.
+- Bagian `Status Kerja`: entri baru sesi 129 (hasil diskusi command `scan`, keputusan K-1 s.d. K-6, catatan tabrakan penomoran sesi dan catch-up) dengan provenance `(sesi 129)`.
+- Bagian `Struktur Direktori`: entri `.agents/rules/AGENTS.md` dikoreksi menjadi **tidak ditemukan** (terverifikasi `glob`).
+- Bagian `Hasil Diskusi`: entri `diskusi_12.md` ditambahkan dan `Nomor tertinggi` → 12; jumlah berkas folder diperbarui menjadi 8 per 2026-11-15 21:08 WIB.
+- `memori/riwayat_perubahan.md` — entri kronologis sesi 129 ditambahkan (teratas).
+- Tidak ada kontradiksi baru; `MEMORI.md` tetap di bawah batas ±200 baris.

@@ -409,15 +409,6 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Saran:** perluas notifikasi selesai upgrade dengan nama item berikutnya dari rencana pengguna; bila rencana kosong, tampilkan tautan untuk menyusun rencana. Simpan seluruhnya lokal.
 - **Prioritas:** Sedang.
 
-#### A46. Cadangan dan pemulihan lokal satu berkas
-
-- **Temuan:** `Clash Command` menyediakan arsip portabel `.clashcommandbackup` berisi manifest berversi, database SQLite, dan preferensi; restore divalidasi lebih dulu, membuat cadangan pengaman otomatis sebelum menimpa data, dan berjalan dalam transaksi atomik.
-- **Tujuan fitur:** melindungi data progres dan favorit pengguna saat berganti perangkat atau membersihkan data aplikasi, tanpa cloud.
-- **Referensi:** [Clash Command (GitHub)](https://github.com/AmruthLP12/clash-command)
-- **Saran:** buat layar "Cadangkan & Pulihkan" yang mengekspor satu berkas (manifest versi + database + preferensi), validasi versi sebelum restore, dan buat cadangan otomatis sebelum menimpa. Gunakan transaksi database agar gagal di tengah tidak merusak data.
-- **Prioritas:** Tinggi.
-- **Status PRD:** PRD sudah dibuat (`prd/prd_cadangan_pemulihan_lokal.md`, sesi 116); belum diimplementasikan.
-
 #### A47. Mode impor "Gabung" versus "Ganti" dengan deteksi snapshot ganda
 
 - **Temuan:** `Clash Command` menawarkan mode Merge dan Replace saat mengimpor JSON resmi game, memetakan 150+ id game, mempertahankan jumlah item lintas level (mis. tembok), serta mendeteksi snapshot duplikat.
