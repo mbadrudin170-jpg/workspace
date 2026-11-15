@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 21:38 WIB (sesi 180; commit seluruh berkas perubahan agen)
+Diperbarui: Mon Nov 16 2026 21:41 WIB (sesi 181; skill memori-check satu sesi per percakapan)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -46,6 +46,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 
 ## Status Kerja (per 2026-11-16)
 
+- Sesi 181 (2026-11-16; ~21:40–21:41 WIB): interaksi langsung (tanpa command) — pengguna mengeluhkan pembuatan berkas sesi baru untuk setiap interaksi pendek. `.agents/skills/custom/memori-check/SKILL.md` diperbarui v1.10.0 → v1.11.0: satu berkas sesi per percakapan/tugas (bukan per pesan); sesi baru hanya bila percakapan/tugas baru dimulai atau ada pekerjaan nyata yang belum tercatat; definisi, Aturan 3, Steps, Larangan, dan Contoh Benar disesuaikan. `SKILLS_INDEX.md` entri 21 diperbarui. Rujukan: `memori/sesi/sesi_181.md`. (sesi 181)
 - Sesi 180 (2026-11-16; ~21:38 WIB): interaksi langsung (tanpa command) — pengguna meminta seluruh berkas yang diubah agen ikut ter-commit. Commit root menggabungkan perubahan build APK via GitHub Actions workflow: `.kilo/commands/build_apk.md`, skill `.agents/skills/custom/bangun-apk-github-workflow/SKILL.md`, aturan `.agents/rules/global/build_apk_github_workflow.md`, `SKILLS_INDEX.md`, serta berkas memori (`MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_170`–`sesi_180`; sesi 177 sudah di-commit sebelumnya). `share_global_saya` (submodule) tidak di-commit karena bukan perubahan agen. Rujukan: `memori/sesi/sesi_180.md`. (sesi 180)
 - Sesi 179 (2026-11-16; ~21:31–21:32 WIB): interaksi langsung (tanpa command) — commit terpisah `.kilo/kilo.jsonc` yang tertinggal dari sesi 173 (entri `instructions` aturan global `build_apk_github_workflow.md`), karena tidak termasuk tabel berkas sesi aktif saat `/commit_sesi_aktif` dijalankan. Commit root: `49c1709 chore(config): daftarkan aturan build apk github workflow ke instructions` (1 berkas). Tidak ada push. Rujukan: `memori/sesi/sesi_179.md`. (sesi 179)
 - Sesi 178 (2026-11-16; ~21:28–21:29 WIB): command `commit_sesi_aktif` (sesi aktif = 177) — AI menilai tugas selesai dan menentukan berkas otomatis; commit root berhasil `c04b6ea chore(commands): jadikan commit_sesi_aktif otomatis tanpa tanya pengguna` (2 berkas: `.kilo/commands/commit_sesi_aktif.md`, `memori/sesi/sesi_177.md`). Status pasca-commit root masih ada perubahan dari sesi lain (tidak ditampilkan/di-commit). Tidak ada push. Rujukan: `memori/sesi/sesi_178.md`. (sesi 178)

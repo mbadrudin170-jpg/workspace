@@ -1,15 +1,15 @@
 ---
 name: memori-check
-description: "Trigger: setiap interaksi apa pun di proyek mana pun | Panduan wajib baca MEMORI.md di root proyek sebelum interaksi dan perbarui bagian relevan setelahnya (kode, dokumen, state). Berlaku lintas repositori; tidak terikat satu proyek/path. Sinkronisasi disertai konsolidasi konflik, klasifikasi semantic/episodic/procedural, provenance sesi, dan pinning fakta eksplisit pengguna. Alur sesi: di awal sesi AI wajib membuat `memori/sesi/sesi_N.md` (`Belum Sinkron`) dan catch-up sync berkas sesi `Belum Sinkron` dari sesi sebelumnya (yatim/kosong → `Sudah Sinkron` + catatan eksplisit; berisi perubahan → prosedur akhir sesi; ambigu → lapor pengguna). Di akhir sesi AI wajib memperbarui `MEMORI.md` lalu menandai berkas sesi `Sudah Sinkron`. Berkas `sesi_N.md` tidak boleh dihapus (arsip permanen); berkas `Sudah Sinkron` bersifat arsip — koreksi/klarifikasi WAJIB dicatat pada berkas sesi baru (nomor tertinggi + 1). Jangan dilewati walau interaksi tampak kecil."
+description: "Trigger: saat memulai percakapan atau tugas di proyek mana pun | Panduan wajib baca MEMORI.md di root proyek sebelum interaksi dan perbarui bagian relevan setelahnya (kode, dokumen, state). Berlaku lintas repositori; tidak terikat satu proyek/path. Satu berkas sesi (`memori/sesi/sesi_N.md`) per percakapan/tugas, bukan per pesan; berkas sesi baru hanya dibuat bila percakapan/tugas baru dimulai atau ada pekerjaan nyata yang belum tercatat. Sinkronisasi disertai konsolidasi konflik, klasifikasi semantic/episodic/procedural, provenance sesi, dan pinning fakta eksplisit pengguna. Catch-up sync berkas `Belum Sinkron` dari sesi sebelumnya (yatim/kosong → `Sudah Sinkron` + catatan eksplisit; berisi perubahan → prosedur akhir sesi; ambigu → lapor pengguna). Di akhir percakapan/tugas AI wajib memperbarui `MEMORI.md` lalu menandai berkas sesi `Sudah Sinkron`. Berkas `sesi_N.md` tidak boleh dihapus (arsip permanen); berkas `Sudah Sinkron` bersifat arsip — koreksi/klarifikasi WAJIB dicatat pada berkas sesi baru."
 metadata:
   kategori: "custom"
-  versi: "1.10.0"
-  diperbarui: "Sun Nov 15 2026 23:58 WIB"
+  versi: "1.11.0"
+  diperbarui: "Mon Nov 16 2026 21:41 WIB"
 ---
 
 # Memeriksa File MEMORI.md dan Berkas Sesi
 
-Setiap kali model (AI) berinteraksi dengan proyek apa pun yang memiliki `MEMORI.md` di root proyek, **wajib** membaca file `MEMORI.md` di root proyek tersebut sebelum interaksi apa pun (bukan hanya task; termasuk pertanyaan, diskusi, review, penelusuran), dan **wajib** memperbarui bagian yang relevan di `MEMORI.md` setelah interaksi yang mengubah proyek (kode, dokumen, state). Skill ini berlaku untuk SEMUA interaksi di proyek mana pun; tidak terikat satu proyek, satu path, atau satu jenis proyek (bukan khusus proyek Flutter). Project root ditentukan dari direktori kerja aktif atau root repositori tempat interaksi berlangsung.
+Setiap kali model (AI) memulai percakapan atau tugas dengan proyek apa pun yang memiliki `MEMORI.md` di root proyek, **wajib** membaca file `MEMORI.md` di root proyek tersebut sebelum interaksi apa pun (bukan hanya task; termasuk pertanyaan, diskusi, review, penelusuran), dan **wajib** memperbarui bagian yang relevan di `MEMORI.md` setelah interaksi yang mengubah proyek (kode, dokumen, state). Skill ini berlaku untuk SEMUA percakapan/tugas di proyek mana pun; tidak terikat satu proyek, satu path, atau satu jenis proyek (bukan khusus proyek Flutter). Project root ditentukan dari direktori kerja aktif atau root repositori tempat interaksi berlangsung. **Satu berkas sesi** (`memori/sesi/sesi_N.md`) mewakili **satu percakapan/tugas** — bukan satu pesan atau satu tindakan kecil.
 
 Bila proyek belum memiliki `MEMORI.md` di root, jangan mengarang konteks proyek dan jangan menulis memori sembarangan: tanyakan kepada pengguna apakah ingin menginisialisasi `MEMORI.md` dan folder `memori/sesi/` terlebih dahulu.
 
@@ -21,7 +21,7 @@ Memori bersifat **per root proyek** (per repositori); fakta, konvensi, dan statu
 
 Kronologi mentah termasuk episodic memory, bukan semantic memory: `MEMORI.md` hanya memuat ringkasan durable, bukan transkrip sesi.
 
-Mulai 2026-11-13, setiap sesi juga wajib dicatat ke berkas sesi `memori/sesi/sesi_N.md` (bernomor, `sesi_1.md`, `sesi_2.md`, …; penomoran nomor tertinggi + 1, gap tidak diisi). Berkas sesi menjadi perantara antara sesi kerja dan `MEMORI.md`: AI tidak boleh mengubah `MEMORI.md` secara langsung tanpa mencatat sesi ke berkas sesi terlebih dahulu, dan di akhir sesi AI wajib memperbarui `MEMORI.md` dengan catatan yang relevan dari berkas sesi lalu menandai berkas sesi `Sudah Sinkron`. Berkas `sesi_N.md` **tidak boleh dihapus** dengan alasan apa pun (diarsipkan permanen).
+Mulai 2026-11-13, setiap sesi (percakapan/tugas) wajib dicatat ke berkas sesi `memori/sesi/sesi_N.md` (bernomor, `sesi_1.md`, `sesi_2.md`, …; penomoran nomor tertinggi + 1, gap tidak diisi). Berkas sesi menjadi perantara antara sesi kerja dan `MEMORI.md`: AI tidak boleh mengubah `MEMORI.md` secara langsung tanpa mencatat sesi ke berkas sesi terlebih dahulu, dan di akhir sesi AI wajib memperbarui `MEMORI.md` dengan catatan yang relevan dari berkas sesi lalu menandai berkas sesi `Sudah Sinkron`. Berkas `sesi_N.md` **tidak boleh dihapus** dengan alasan apa pun (diarsipkan permanen).
 
 Pada setiap **awal sesi**, setelah membaca `MEMORI.md` dan sebelum membuat berkas sesi baru, AI wajib melakukan **catch-up sync**: memindai berkas `memori/sesi/*.md` ber-status `Belum Sinkron` milik sesi sebelumnya dan menyinkronkannya. Sinkronisasi akhir sesi tetap dipertahankan sebagai penyelesaian normal; catch-up berfungsi sebagai **jaring pengaman**. Berkas yatim/kosong tanpa perubahan nyata ditandai `Sudah Sinkron` dengan catatan eksplisit "tidak ada perubahan untuk disinkronkan"; berkas berisi perubahan nyata disinkronkan dengan prosedur akhir sesi; bila isi ambigu/tidak dapat diverifikasi → laporkan ke pengguna, jangan diputuskan sendiri. Pemindaian dibatasi pada berkas `Belum Sinkron` saja (bukan seluruh riwayat). Berkas sesi yang sedang aktif di sesi ini tidak boleh ditandai pada langkah catch-up.
 
@@ -45,7 +45,7 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
    - Berkas sesi yang sedang aktif di sesi ini → **tidak boleh ditandai** pada langkah catch-up.
    - Isi ambigu/tidak dapat diverifikasi → jangan diputuskan sendiri; laporkan ke pengguna. Sesi paralel: best-effort; bila ambigu, lapor.
    - Alur akhir sesi **tetap dipertahankan**; catch-up hanya jaring pengaman.
-3. **Wajib buat berkas sesi di awal sesi.** Pada awal setiap sesi/interaksi, sebelum tindakan apa pun yang mengubah proyek, buat `memori/sesi/sesi_N.md` dengan `N` = nomor tertinggi yang ada + 1 (gap tidak diisi; jika folder kosong, buat `sesi_1.md`). Berkas sesi wajib memuat (struktur lengkap):
+3. **Wajib buat satu berkas sesi per percakapan/tugas.** Pada awal percakapan/tugas, sebelum tindakan apa pun yang mengubah proyek, buat `memori/sesi/sesi_N.md` dengan `N` = nomor tertinggi yang ada + 1 (gap tidak diisi; jika folder kosong, buat `sesi_1.md`). **Satu berkas sesi digunakan untuk seluruh percakapan/tugas tersebut**; DILARANG membuat berkas sesi baru hanya karena ada pesan, pertanyaan, atau tindakan kecil berikutnya dalam percakapan yang sama. Berkas sesi baru hanya dibuat bila: (a) percakapan/tugas baru dimulai, atau (b) ada pekerjaan nyata yang belum tercatat pada berkas sesi aktif. Berkas sesi wajib memuat (struktur lengkap):
    - `## Status` — `Status Sinkron: Belum Sinkron`, `Tanggal` (tanggal Jakarta), `Command` (command yang memerintahkan sesi — mis. `/kerjakan_task` atau path command; bila tidak ada command yang dijalankan, tulis `interaksi langsung (tanpa command)`), `Topik` sesi. Field `Command` wajib diisi pada setiap berkas sesi.
    - `## Catatan Sesi` — kronologi/poin penting/keputusan sesi (diperbarui selama sesi).
    - `## Berkas Terdampak` — tabel `Lokasi File | Status Perubahan | Deskripsi` (kelengkapan dan verifikasi tabel diatur pada Aturan 22 dan Aturan 23).
@@ -78,9 +78,9 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
 
 ## Steps
 
-1. Awal sesi: baca `MEMORI.md` (dan berkas pendukung lain sesuai konteks); catat poin relevan.
+1. Awal percakapan/tugas: baca `MEMORI.md` (dan berkas pendukung lain sesuai konteks); catat poin relevan.
 2. Catch-up sync (sebelum membuat berkas sesi baru): pindai berkas `memori/sesi/*.md` ber-status `Belum Sinkron` milik sesi sebelumnya; yatim/kosong → tandai `Sudah Sinkron` dengan catatan eksplisit; berisi perubahan nyata → sinkronkan dengan prosedur akhir sesi (`MEMORI.md` + `memori/riwayat_perubahan.md` → isi `## Sinkronisasi ke MEMORI.md` → tandai `Sudah Sinkron`); ambigu/tidak dapat diverifikasi atau sesi paralel → laporkan ke pengguna, jangan diputuskan sendiri; berkas sesi yang sedang aktif di sesi ini tidak ditandai.
-3. Buat `memori/sesi/sesi_N.md` (format lengkap, status `Belum Sinkron`) — bila folder belum ada, buat foldernya terlebih dahulu.
+3. Buat satu `memori/sesi/sesi_N.md` untuk percakapan/tugas ini (format lengkap, status `Belum Sinkron`) — bila folder belum ada, buat foldernya terlebih dahulu. Jangan membuat berkas sesi baru untuk pesan/tindakan berikutnya dalam percakapan yang sama.
 4. Selama sesi: perbarui `## Catatan Sesi` dan `## Berkas Terdampak` setiap ada perubahan substantif.
 5. Akhir sesi: perbarui `MEMORI.md` bagian relevan berdasarkan catatan berkas sesi — jalankan promosi sesuai kriteria (aturan 14), cantumkan provenance `sesi N` (aturan 15), selesaikan kontradiksi (aturan 16), tinjau entri volatil (aturan 17), hormati pinning (aturan 18), demote entri basi (aturan 19), dan cek batas ukuran (aturan 20); tambah entri `memori/riwayat_perubahan.md`; perbarui field tanggal diperbarui di header `MEMORI.md` sesuai sesi yang melakukan sinkronisasi (format `Diperbarui: <tanggal Jakarta> (sesi N)`); isi `## Sinkronisasi ke MEMORI.md`; ubah `Status Sinkron` berkas sesi menjadi `Sudah Sinkron`.
 6. Verifikasi: berkas sesi bernomor benar (`tertinggi + 1`), struktur lengkap, status hasil catch-up sesuai (yatim/kosong ditandai `Sudah Sinkron`), `MEMORI.md` konsisten dengan isi berkas sesi, tidak ada kontradiksi antar bagian `MEMORI.md`, tidak ada kredensial/secret yang tertulis, dan setiap klaim baru di `MEMORI.md` memiliki provenance `sesi N`. Selain itu wajib memastikan tidak ada berkas sesi ber-status `Sudah Sinkron` yang berubah: jalankan `git status -- memori/sesi/` dan `git diff -- memori/sesi/` — yang muncul hanya berkas sesi aktif dan (bila ada) berkas `Belum Sinkron` yang disinkronkan lewat catch-up; berkas `Sudah Sinkron` tidak boleh muncul. Terakhir, sebelum menandai berkas sesi `Sudah Sinkron`, cocokkan isi tabel `## Berkas Terdampak` dengan `git status --short` / `git diff --name-only` (root + setiap submodule yang terlibat); seluruh berkas yang berubah selama sesi WAJIB tercantum pada tabel, dan selisih WAJIB diselesaikan (tabel diperbaiki) atau dilaporkan ke pengguna.
@@ -88,6 +88,7 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
 ## Larangan
 
 - DILARANG memulai interaksi/task apa pun tanpa membaca `MEMORI.md` terlebih dahulu.
+- DILARANG membuat berkas sesi baru untuk setiap pesan, pertanyaan, atau tindakan kecil dalam percakapan/tugas yang sama; gunakan berkas sesi aktif yang sudah ada.
 - DILARANG mengubah `MEMORI.md` secara langsung tanpa mencatat sesi ke `memori/sesi/sesi_N.md` terlebih dahulu (berkas sesi adalah satu-satunya perantara yang sah menuju `MEMORI.md`).
 - DILARANG mengubah berkas `sesi_N.md` ber-status `Sudah Sinkron` dengan alasan apa pun, termasuk menambahkan catatan koreksi/klarifikasi ke dalamnya; berkas tersebut arsip, dan koreksi WAJIB dicatat pada berkas sesi baru (nomor tertinggi + 1) yang merujuk berkas lama. Yang boleh disentuh hanya berkas `Belum Sinkron` (catch-up) dan berkas sesi yang sedang aktif di sesi ini.
 - DILARANG pola "hapus lalu buat ulang" untuk "membetulkan" berkas sesi lama; berkas sesi tidak boleh dihapus, koreksi bersifat aditif di berkas sesi baru.
@@ -114,11 +115,11 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
 ## Contoh Benar
 
 ```markdown
-Sebelum memulai interaksi ini, lakukan langkah berikut:
+Sebelum memulai percakapan/tugas ini, lakukan langkah berikut:
 
 1. Buka file MEMORI.md di root proyek dan baca konteks yang relevan
-2. Buat memori/sesi/sesi_9.md (nomor tertinggi 8 + 1) dengan Status Sinkron: Belum Sinkron
-3. Catat poin penting sesi dan berkas terdampak ke memori/sesi/sesi_9.md selama bekerja
+2. Buat satu memori/sesi/sesi_9.md (nomor tertinggi 8 + 1) dengan Status Sinkron: Belum Sinkron untuk seluruh percakapan/tugas ini
+3. Catat poin penting sesi dan berkas terdampak ke memori/sesi/sesi_9.md selama bekerja (jangan buat sesi baru untuk pesan berikutnya)
 4. Mulai pekerjaan setelah konteks tercerna
 
 Setelah selesai dan bila ada perubahan proyek:
@@ -245,7 +246,7 @@ MaterialApp(
 - Commit rujukan: `1823940` (chore(agents): perluas kewajiban pemeriksaan MEMORI.md ke seluruh interaksi proyek), `5e2a55d` (docs(agents): perbarui path hasil diskusi ke prd/hasil_diskusi), `b7f2b05` (docs(memori): lengkapi catatan proyek dan tata ulang arsip diskusi)
 - Skill terkait: `aturan-pembuatan-skill`, `validasi-platform-izin`, `gaya`, `penamaan-konvensi`
 - Keputusan rujukan: `hasil_diskusi/diskusi_8.md` (K-1..K-11; alur sesi, larangan penghapusan berkas sesi), `hasil_diskusi/diskusi_1.md` (K-1..K-9, R-1..R-4; catch-up sync awal sesi)
-- Rujukan perintah pengguna: sesi_18 (2026-11-14; berkas sesi `Sudah Sinkron` bersifat arsip — koreksi/tindak lanjut dicatat di berkas sesi baru); sesi_64 (2026-11-15; skill dijadikan global lintas proyek — tidak terikat satu repo/path/jenis proyek; selanjutnya seluruh rekomendasi analisis tautan arsitektur memori diterapkan — klasifikasi semantic/episodic/procedural, kriteria promosi, provenance, konsolidasi, entri volatil, pinning, demote, batas ukuran)
+- Rujukan perintah pengguna: sesi_18 (2026-11-14; berkas sesi `Sudah Sinkron` bersifat arsip — koreksi/tindak lanjut dicatat di berkas sesi baru); sesi_64 (2026-11-15; skill dijadikan global lintas proyek — tidak terikat satu repo/path/jenis proyek; selanjutnya seluruh rekomendasi analisis tautan arsitektur memori diterapkan — klasifikasi semantic/episodic/procedural, kriteria promosi, provenance, konsolidasi, entri volatil, pinning, demote, batas ukuran); sesi_181 (2026-11-16; satu berkas sesi per percakapan/tugas, bukan per pesan — v1.11.0).
 - Rujukan arsitektur memori agen (adaptasi konsep ke memori berkas Markdown, bukan implementasi arsitektur):
   - Microsoft multi-agent-reference-architecture — Long-Term-Memory: https://github.com/microsoft/multi-agent-reference-architecture/blob/main/docs/memory/Long-Term-Memory.md
   - Microsoft multi-agent-reference-architecture — Memory-Architecture-Patterns: https://github.com/microsoft/multi-agent-reference-architecture/blob/main/docs/memory/Memory-Architecture-Patterns.md

@@ -2,6 +2,8 @@
 
 Catatan kronologis perubahan proyek. Entri terbaru di atas.
 
+| Mon Nov 16 2026 21:41 WIB (sesi 181) | Interaksi langsung (tanpa command) — pengguna mengeluhkan pembuatan berkas sesi baru untuk setiap interaksi pendek. `.agents/skills/custom/memori-check/SKILL.md` diperbarui v1.10.0 → v1.11.0: satu berkas sesi per percakapan/tugas (bukan per pesan); sesi baru hanya bila percakapan/tugas baru dimulai atau ada pekerjaan nyata yang belum tercatat; definisi, Aturan 3, Steps, Larangan, dan Contoh Benar disesuaikan. `SKILLS_INDEX.md` entri 21 diperbarui. Rujukan: `memori/sesi/sesi_181.md`. |
+
 | Mon Nov 16 2026 21:38 WIB (sesi 180) | Interaksi langsung (tanpa command) — pengguna meminta seluruh berkas yang diubah agen ikut ter-commit. Commit root menggabungkan perubahan build APK via GitHub Actions workflow: `.kilo/commands/build_apk.md`, skill `.agents/skills/custom/bangun-apk-github-workflow/SKILL.md`, aturan `.agents/rules/global/build_apk_github_workflow.md`, `SKILLS_INDEX.md`, serta berkas memori (`MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_170`–`sesi_180`; sesi 177 sudah di-commit sebelumnya). `share_global_saya` (submodule) tidak di-commit karena bukan perubahan agen. Rujukan: `memori/sesi/sesi_180.md`. |
 
 | Mon Nov 16 2026 21:32 WIB (sesi 179) | Interaksi langsung (tanpa command) — commit terpisah `.kilo/kilo.jsonc` yang tertinggal dari sesi 173 (entri `instructions` aturan global `build_apk_github_workflow.md`), karena tidak termasuk tabel berkas sesi aktif saat `/commit_sesi_aktif` dijalankan. Commit root: `49c1709 chore(config): daftarkan aturan build apk github workflow ke instructions` (1 berkas). Tidak ada push. Rujukan: `memori/sesi/sesi_179.md`. |
