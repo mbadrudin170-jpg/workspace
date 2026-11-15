@@ -1,6 +1,5 @@
 ---
 description: Commit git seluruh berkas yang memiliki perubahan yang belum di-commit pada repository root dan seluruh submodule yang terdaftar, secara terpisah per repository, dengan pesan Conventional Commits otomatis. Command ini tidak melakukan push.
-agent: code
 ---
 
 # Commit Berkas Sesi Saat ini
