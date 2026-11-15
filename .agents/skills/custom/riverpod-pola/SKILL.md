@@ -3,8 +3,8 @@ name: riverpod-pola
 description: "Trigger: saat memakai Riverpod | Pola standar: Notifier CRUD keepAlive, Notifier state sinkron non-CRUD codegen (`@Riverpod(keepAlive: true)`, `build()` sinkron, larangan `StateNotifierProvider`/`legacy.dart`), ref.watch/ref.read, family providers, autoDispose, overrides testing, ProviderScope & ProviderContainer, Vsync scheduleRefresh/scheduleDispose."
 metadata:
   kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Sun Nov 15 2026 19:03 WIB"
+  versi: "1.3.0"
+  diperbarui: "Mon Nov 16 2026 02:05 WIB"
 ---
 
 # Pola Riverpod Standar
@@ -205,7 +205,7 @@ final isLoading = ref.watch(biodataProvider.select((v) => v.isLoading));
 
 ### Aturan
 - Tangani `isLoading` → `hasError` → `requireValue` (early return).
-- Gunakan `asData?.value` untuk akses opsional tanpa throw.
+- Gunakan `asData?.value` hanya untuk akses **opsional** yang memang boleh tanpa penanganan penuh (bukan konten utama layar); setiap kasus gagal — termasuk pada cache provider (provider sinkron turunan maupun `keepAlive`) — tetap wajib ditangani eksplisit: konten utama `pesan error + retry`, section opsional minimal `L.w`/`L.e`. Lihat skill `penanganan-async-data-kosong` (Aturan 7).
 
 ```dart
 final async = ref.watch(provider);
@@ -273,6 +273,7 @@ final data = async.requireValue; // atau async.asData?.value untuk opsional
 
 - `aturan_bersama.md` — Notifier CRUD, keepAlive, build/_ambilSemua, DB via SqfliteOp
 - `aturan_khusus.md` — AsyncValue handling, multiple providers
+- `penanganan-async-data-kosong` (Aturan 7, sesi 153, 2026-11-16) — cache provider: konten utama wajib pesan error + retry, section opsional minimal `L.w`/`L.e`
 - `notifier-crud-database` skill — detail Notifier CRUD
 
 ## Referensi Commit Terkait

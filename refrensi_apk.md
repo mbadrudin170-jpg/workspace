@@ -678,6 +678,7 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 - **Potensi peningkatan:** validasi format tautan saat memuat katalog (lokal), beri penanda `terakhirDiperiksa` per entri, sediakan alur penggantian satu ketuk saat pengguna melaporkan tautan mati, dan tampilkan jumlah tautan yang perlu ditinjau pada layar pengaturan/administrasi lokal.
 - **Tujuan peningkatan:** menjaga kepercayaan aksi copy — keluhan utama pengguna aplikasi sejenis.
 - **Prioritas:** Sedang.
+- **Status:** PRD Final (`prd/prd_pemeriksaan_tautan_kedaluwarsa.md`, sesi 155); belum diimplementasikan.
 
 #### B20. Pengurutan sisa upgrade berdasarkan biaya/waktu tercepat
 

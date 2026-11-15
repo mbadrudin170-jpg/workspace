@@ -120,7 +120,7 @@
 
 30. .agents/skills/custom/penanganan-async-data-kosong/SKILL.md
 - Trigger : saat layar menangani state async atau data kosong
-- Status : diperbarui : Sun Nov 15 2026 02:10 WIB
+- Status : diperbarui : Mon Nov 16 2026 02:05 WIB
 
 31. .agents/skills/custom/penanganan-asyncvalue-berkali/SKILL.md
 - Trigger : saat layar menangani beberapa AsyncValue
@@ -172,7 +172,7 @@
 
 43. .agents/skills/custom/riverpod-pola/SKILL.md
 - Trigger : saat memakai Riverpod
-- Status : diperbarui : Sun Nov 15 2026 02:10 WIB
+- Status : diperbarui : Mon Nov 16 2026 02:05 WIB
 
 44. .agents/skills/custom/scaffold-struktur-layar/SKILL.md
 - Trigger : saat menyusun struktur layar

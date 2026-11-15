@@ -69,10 +69,7 @@ if (basesAsync.isLoading) {
   return const Center(child: CircularProgressIndicator());
 }
 if (basesAsync.hasError) {
-  return _TampilanGagal(
-    pesan: 'Gagal memuat katalog',
-    onCobaLagi: () => ref.refresh(katalogProvider),
-  );
+  return _TampilanGagal(onCobaLagi: () => ref.refresh(katalogProvider));
 }
 final bases = basesAsync.requireValue;
 ```
@@ -104,3 +101,5 @@ return GridBase(bases: bases, ...);
 
 - Commit: `3b67d3095dacc4e5c7ea78d7eb251809e3e9d981`, `02aa6b29b0669a4f5bf21651b09b43552f65d6f8`, `65abc0104fc8eec90cde9906c52d3f65cba13ba3` (`EmptyStateView` sebagai empty state bersama)
 - File: `lib/fitur/diary_craving/screens/diary_craving_screen.dart`, `lib/fitur/pemulihan_kesehatan/screens/pemulihan_kesehatan_screen.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`
+- Commit `base_coc` `b8fbdbb`, `71a69f0`, `6272b61` (pola cache provider sinkron turunan: `katalog_provider.dart` — `filteredBasesProvider` via `.whenData(...)`; `base_serupa_provider.dart` — `baseSerupaProvider`)
+- Diskusi/sesi 153 (2026-11-16): aturan cache provider — konten utama wajib pesan error + retry; section opsional minimal `L.w`/`L.e` (keputusan pengguna via tool `question`)
