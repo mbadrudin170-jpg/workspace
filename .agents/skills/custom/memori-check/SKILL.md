@@ -3,13 +3,13 @@ name: memori-check
 description: "Trigger: saat memulai percakapan atau tugas di proyek mana pun | Panduan wajib baca MEMORI.md di root proyek sebelum interaksi dan perbarui bagian relevan setelahnya (kode, dokumen, state). Berlaku lintas repositori; tidak terikat satu proyek/path. Satu berkas sesi (`memori/sesi/sesi_N.md`) per percakapan/tugas, bukan per pesan; berkas sesi baru hanya dibuat bila percakapan/tugas baru dimulai atau ada pekerjaan nyata yang belum tercatat. Sinkronisasi disertai konsolidasi konflik, klasifikasi semantic/episodic/procedural, provenance sesi, dan pinning fakta eksplisit pengguna. Catch-up sync berkas `Belum Sinkron` dari sesi sebelumnya (yatim/kosong → `Sudah Sinkron` + catatan eksplisit; berisi perubahan → prosedur akhir sesi; ambigu → lapor pengguna). Di akhir percakapan/tugas AI wajib memperbarui `MEMORI.md` lalu menandai berkas sesi `Sudah Sinkron`. Berkas `sesi_N.md` tidak boleh dihapus (arsip permanen); berkas `Sudah Sinkron` bersifat arsip — koreksi/klarifikasi WAJIB dicatat pada berkas sesi baru."
 metadata:
   kategori: "custom"
-  versi: "1.11.0"
-  diperbarui: "Mon Nov 16 2026 21:41 WIB"
+  versi: "1.12.0"
+  diperbarui: "Mon Nov 16 2026 22:10 WIB"
 ---
 
 # Memeriksa File MEMORI.md dan Berkas Sesi
 
-Setiap kali model (AI) memulai percakapan atau tugas dengan proyek apa pun yang memiliki `MEMORI.md` di root proyek, **wajib** membaca file `MEMORI.md` di root proyek tersebut sebelum interaksi apa pun (bukan hanya task; termasuk pertanyaan, diskusi, review, penelusuran), dan **wajib** memperbarui bagian yang relevan di `MEMORI.md` setelah interaksi yang mengubah proyek (kode, dokumen, state). Skill ini berlaku untuk SEMUA percakapan/tugas di proyek mana pun; tidak terikat satu proyek, satu path, atau satu jenis proyek (bukan khusus proyek Flutter). Project root ditentukan dari direktori kerja aktif atau root repositori tempat interaksi berlangsung. **Satu berkas sesi** (`memori/sesi/sesi_N.md`) mewakili **satu percakapan/tugas** — bukan satu pesan atau satu tindakan kecil.
+Setiap kali model (AI) memulai percakapan atau tugas dengan proyek apa pun yang memiliki `MEMORI.md` di root proyek, **wajib** membaca file `MEMORI.md` di root proyek tersebut sebelum interaksi apa pun (bukan hanya task; termasuk pertanyaan, diskusi, review, penelusuran), **dan wajib membuat/aktifkan berkas sesi `memori/sesi/sesi_N.md` (nomor tertinggi + 1) sebelum bertindak atau mengubah kode/dokumen apa pun**, lalu **wajib** memperbarui bagian yang relevan di `MEMORI.md` setelah interaksi yang mengubah proyek (kode, dokumen, state). Skill ini berlaku untuk SEMUA percakapan/tugas di proyek mana pun; tidak terikat satu proyek, satu path, atau satu jenis proyek (bukan khusus proyek Flutter). Project root ditentukan dari direktori kerja aktif atau root repositori tempat interaksi berlangsung. **Satu berkas sesi** (`memori/sesi/sesi_N.md`) mewakili **satu percakapan/tugas** — bukan satu pesan atau satu tindakan kecil.
 
 Bila proyek belum memiliki `MEMORI.md` di root, jangan mengarang konteks proyek dan jangan menulis memori sembarangan: tanyakan kepada pengguna apakah ingin menginisialisasi `MEMORI.md` dan folder `memori/sesi/` terlebih dahulu.
 
@@ -38,7 +38,7 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
 
 ## Aturan
 
-1. **Wajib baca `MEMORI.md` terlebih dahulu** sebelum interaksi apa pun di proyek mana pun yang memiliki `MEMORI.md` di root proyek (task, pertanyaan, diskusi, review, penelusuran). Bila `MEMORI.md` belum ada, tanyakan kepada pengguna apakah ingin menginisialisasi; jangan mengarang konteks proyek.
+1. **Wajib baca `MEMORI.md` terlebih dahulu** sebelum interaksi apa pun di proyek mana pun yang memiliki `MEMORI.md` di root proyek (task, pertanyaan, diskusi, review, penelusuran). **Sebelum interaksi apa pun yang mengubah proyek, wajib membuat/aktifkan berkas sesi `memori/sesi/sesi_N.md` (nomor tertinggi + 1) terlebih dahulu**; bila `MEMORI.md` belum ada, tanyakan kepada pengguna apakah ingin menginisialisasi; jangan mengarang konteks proyek.
 2. **Catch-up sync di awal sesi.** Setelah membaca `MEMORI.md` dan sebelum membuat berkas sesi baru, pindai berkas `memori/sesi/*.md` ber-status `Belum Sinkron` milik sesi sebelumnya (pemindaian dibatasi pada berkas `Belum Sinkron` saja, bukan seluruh riwayat). Tindak lanjutnya:
    - Berkas yatim/kosong tanpa perubahan nyata → tandai `Sudah Sinkron` dengan catatan eksplisit "tidak ada perubahan untuk disinkronkan" (jejak diarsipkan permanen, tidak dihapus).
    - Berkas berisi perubahan nyata → sinkronkan dengan prosedur yang sama seperti sinkronisasi akhir sesi (perbarui `MEMORI.md` + `memori/riwayat_perubahan.md` → isi `## Sinkronisasi ke MEMORI.md` → tandai `Sudah Sinkron`).

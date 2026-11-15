@@ -46,3 +46,4 @@ Berkas ini merangkum kelompok skill yang wajib dirujuk untuk tiap jenis pekerjaa
   - [theme-data-color-schema](../../skills/custom/theme-data-color-schema/SKILL.md)
   - [tipografi](../../skills/custom/tipografi/SKILL.md)
   - [spacing](../../skills/custom/spacing/SKILL.md)
+- utnuk memberi jarak di antara column, row dan wrap wajib ikuti skill,

@@ -14,6 +14,7 @@
 - Berkas PRD dihapus setelah verifikasi; section `#### C38` dihapus dari `refrensi_apk.md` (tertandai nama berkas PRD).
 - Catatan koreksi: file sesi tidak dibuat pada awal sesi (terlewat); dibuat pada pertanyaan pengguna sebagai catch-up. Status Sinkron tetap `Belum Sinkron` sampai sinkronisasi ke `MEMORI.md`/`memori/riwayat_perubahan.md` dilakukan.
 - Tambahan pasca-PRD: `FilterChipBar` direfactor mengikuti skill `spacing` — `Row(spacing: 8)` menggantikan `SizedBox(width: 8)` berulang (verifikasi `dart format`/`dart analyze` lulus).
+- Perbarui command `.kilo/commands/commit_sesi_aktif.md`: hapus filter berdasarkan tabel `## Berkas Terdampak`; commit seluruh file yang berubah di `git status --short` per repository (root + submodule).
 
 ## Berkas Terdampak
 | Lokasi File | Status Perubahan | Deskripsi |
@@ -31,6 +32,7 @@
 | `base_coc/test/statistik_dao_test.dart` | Dibuat | Test DAO: upsert, increment ganda, pemetaan pembacaan, migrasi v3→v4. |
 | `base_coc/test/sortir_test.dart` | Dibuat | Test logika sortir: terbaru = katalog; terpopuler menurun; tie-break stabil; fallback saat statistik gagal. |
 | `refrensi_apk.md` | Diubah | Section `#### C38` dihapus (tertandai nama berkas PRD). |
+| `.kilo/commands/commit_sesi_aktif.md` | Diubah | Hapus filter irisan tabel Berkas Terdampak; commit seluruh file berubah di git status. |
 | `prd/prd_sorter_baru_populer.md` | Dihapus | PRD dihapus setelah implementasi diverifikasi. |
 | Berkas generate (`*.g.dart`, `*.freezed.dart`) | Diubah | Hasil `build_runner` (sumber diubah, bukan edit manual). |
 
