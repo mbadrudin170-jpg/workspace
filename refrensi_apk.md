@@ -1011,15 +1011,6 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 
 ### Batch 6 — pola UI/UX/layout tambahan (2026-11-15 WIB, sesi 121)
 
-#### C38. Sorter "Baru / Populer / Pilihan" pada daftar base
-
-- **Pola yang diamati:** `ClashLy` menyediakan refinement "New, Hot or Top" selain filter level dan tipe base.
-- **Tujuan UI/UX:** membantu pengguna menemukan base yang sedang populer atau baru tanpa backend (melengkapi A36, C22, dan C27).
-- **Referensi:** [ClashLy for Clash of Clans](https://play.google.com/store/apps/details?id=np.com.sangams.cocbase)
-- **Saran:** chip sortir di atas grid (Terpopuler memakai penghitung salin/buka lokal dari A36; Terbaru memakai urutan tanggal katalog); dua mode saja cukup agar tidak membebani tampilan.
-- **Prioritas:** Sedang.
-- **Status:** PRD Final (`prd/prd_sorter_baru_populer.md`, sesi 163); belum diimplementasikan.
-
 #### C39. Tema dinamis mengikuti perangkat (Dynamic Color)
 
 - **Pola yang diamati:** `ClashLy` menyediakan "Dark theme and dynamic theme that follows your device".
