@@ -3,8 +3,8 @@ name: memori-check
 description: "Trigger: setiap interaksi apa pun di proyek mana pun | Panduan wajib baca MEMORI.md di root proyek sebelum interaksi dan perbarui bagian relevan setelahnya (kode, dokumen, state). Berlaku lintas repositori; tidak terikat satu proyek/path. Sinkronisasi disertai konsolidasi konflik, klasifikasi semantic/episodic/procedural, provenance sesi, dan pinning fakta eksplisit pengguna. Alur sesi: di awal sesi AI wajib membuat `memori/sesi/sesi_N.md` (`Belum Sinkron`) dan catch-up sync berkas sesi `Belum Sinkron` dari sesi sebelumnya (yatim/kosong → `Sudah Sinkron` + catatan eksplisit; berisi perubahan → prosedur akhir sesi; ambigu → lapor pengguna). Di akhir sesi AI wajib memperbarui `MEMORI.md` lalu menandai berkas sesi `Sudah Sinkron`. Berkas `sesi_N.md` tidak boleh dihapus (arsip permanen); berkas `Sudah Sinkron` bersifat arsip — koreksi/klarifikasi WAJIB dicatat pada berkas sesi baru (nomor tertinggi + 1). Jangan dilewati walau interaksi tampak kecil."
 metadata:
   kategori: "custom"
-  versi: "1.8.0"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.9.0"
+  diperbarui: "Sun Nov 15 2026 21:31 WIB"
 ---
 
 # Memeriksa File MEMORI.md dan Berkas Sesi
@@ -48,9 +48,9 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
 3. **Wajib buat berkas sesi di awal sesi.** Pada awal setiap sesi/interaksi, sebelum tindakan apa pun yang mengubah proyek, buat `memori/sesi/sesi_N.md` dengan `N` = nomor tertinggi yang ada + 1 (gap tidak diisi; jika folder kosong, buat `sesi_1.md`). Berkas sesi wajib memuat (struktur lengkap):
    - `## Status` — `Status Sinkron: Belum Sinkron`, `Tanggal` (tanggal Jakarta), `Topik` sesi.
    - `## Catatan Sesi` — kronologi/poin penting/keputusan sesi (diperbarui selama sesi).
-   - `## Berkas Terdampak` — tabel `Lokasi File | Status Perubahan | Deskripsi`.
+   - `## Berkas Terdampak` — tabel `Lokasi File | Status Perubahan | Deskripsi` (kelengkapan dan verifikasi tabel diatur pada Aturan 22 dan Aturan 23).
    - `## Sinkronisasi ke MEMORI.md` — ringkasan penyesuaian `MEMORI.md` pada akhir sesi, atau `Belum disinkronkan` selama sesi berlangsung.
-4. **Catat ke berkas sesi selama sesi berlangsung.** Setiap perubahan penting (file dibuat/diubah/dihapus, keputusan, temuan) wajib dicatat ke berkas sesi yang aktif; berkas sesi menjadi bahan sinkronisasi `MEMORI.md`, bukan duplikasi penuh `MEMORI.md`.
+4. **Catat ke berkas sesi selama sesi berlangsung.** Setiap perubahan penting (file dibuat/diubah/dihapus, keputusan, temuan) wajib dicatat ke berkas sesi yang aktif; berkas sesi menjadi bahan sinkronisasi `MEMORI.md`, bukan duplikasi penuh `MEMORI.md`. Selama sesi, bandingkan tabel `## Berkas Terdampak` dengan `git status --short` (root + setiap submodule yang terlibat) pada setiap titik perubahan substantif — bukan hanya di akhir sesi — agar selisih terdeteksi lebih dini.
 5. **Pahami konteks dari keseluruhan isi `MEMORI.md`** — termasuk (jika ada) status proyek, struktur, konvensi penamaan, konfigurasi/berkas penting, daftar atau rujukan skill dan aturan, catatan teknis, riwayat, serta bagian lain yang tersedia. Jangan berasumsi hanya ada bagian tertentu.
 6. **Terapkan konteks/aturan yang relevan** dari isi `MEMORI.md` pada pekerjaan yang akan dilakukan.
 7. **Catat poin-poin penting** dari `MEMORI.md` yang relevan dengan interaksi/task yang akan dikerjakan.
@@ -73,6 +73,8 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
 19. **Decay = demote, bukan hapus.** Entri `MEMORI.md` yang tidak lagi relevan DILARANG dihapus begitu saja; tandai usang secara eksplisit atau pindahkan ringkasan historisnya ke `memori/riwayat_perubahan.md`, lalu rapikan bagian `MEMORI.md`. Kebijakan demote ini sejalan dengan larangan penghapusan berkas sesi.
 20. **Batas ukuran `MEMORI.md`.** `MEMORI.md` wajib cukup kecil untuk diinjeksikan utuh ke konteks; bila mendekati ±200 baris (atau bagian status membengkak tanpa terkendali), lakukan **konsolidasi** (gabung entri usang, pindahkan detail ke `riwayat_perubahan.md`, ringkas) — bukan membiarkannya membesar tanpa batas (*fading memory*: sinyal tenggelam di kebisingan).
 21. **Klasifikasi memori.** Gunakan klasifikasi semantic/episodic/procedural sebagaimana dijelaskan di bagian intro: `MEMORI.md` (semantic, ringkas, diinjeksikan), `memori/sesi/*.md` dan `memori/riwayat_perubahan.md` (episodic, diarsipkan/dirujuk), skills + rules (procedural, dimuat sesuai trigger). Jangan menulis kronologi sesi ke `MEMORI.md`; jangan memasukkan detail duplikatif episodic ke `MEMORI.md`.
+22. **Kelengkapan tabel `## Berkas Terdampak`.** Tabel `## Berkas Terdampak` pada berkas sesi WAJIB mencantumkan **seluruh** berkas yang dibuat/diubah/dihapus selama sesi — termasuk perubahan di dalam submodule — dengan path relatif terhadap root repositori tempat sesi berjalan (mis. `base_coc/lib/fitur/cadangan/service/cadangan_service.dart`). Tabel DILARANG hanya memuat berkas sesi bila ada perubahan lain; perubahan yang tidak tercantum pada tabel dianggap tidak tercatat dan melanggar alur sinkronisasi ini.
+23. **Larangan menandai `Sudah Sinkron` sebelum tabel terverifikasi.** Berkas sesi DILARANG ditandai `Sudah Sinkron` sebelum tabel `## Berkas Terdampak` lengkap mencakup seluruh perubahan (root + submodule yang terlibat) dan cocok dengan hasil `git status --short` / `git diff --name-only`. Selisih WAJIB diselesaikan (tabel diperbaiki hingga cocok) atau dilaporkan ke pengguna sebelum penandaan dilakukan.
 
 ## Steps
 
@@ -81,7 +83,7 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
 3. Buat `memori/sesi/sesi_N.md` (format lengkap, status `Belum Sinkron`) — bila folder belum ada, buat foldernya terlebih dahulu.
 4. Selama sesi: perbarui `## Catatan Sesi` dan `## Berkas Terdampak` setiap ada perubahan substantif.
 5. Akhir sesi: perbarui `MEMORI.md` bagian relevan berdasarkan catatan berkas sesi — jalankan promosi sesuai kriteria (aturan 14), cantumkan provenance `sesi N` (aturan 15), selesaikan kontradiksi (aturan 16), tinjau entri volatil (aturan 17), hormati pinning (aturan 18), demote entri basi (aturan 19), dan cek batas ukuran (aturan 20); tambah entri `memori/riwayat_perubahan.md`; perbarui field tanggal diperbarui di header `MEMORI.md` sesuai sesi yang melakukan sinkronisasi (format `Diperbarui: <tanggal Jakarta> (sesi N)`); isi `## Sinkronisasi ke MEMORI.md`; ubah `Status Sinkron` berkas sesi menjadi `Sudah Sinkron`.
-6. Verifikasi: berkas sesi bernomor benar (`tertinggi + 1`), struktur lengkap, status hasil catch-up sesuai (yatim/kosong ditandai `Sudah Sinkron`), `MEMORI.md` konsisten dengan isi berkas sesi, tidak ada kontradiksi antar bagian `MEMORI.md`, tidak ada kredensial/secret yang tertulis, dan setiap klaim baru di `MEMORI.md` memiliki provenance `sesi N`. Selain itu wajib memastikan tidak ada berkas sesi ber-status `Sudah Sinkron` yang berubah: jalankan `git status -- memori/sesi/` dan `git diff -- memori/sesi/` — yang muncul hanya berkas sesi aktif dan (bila ada) berkas `Belum Sinkron` yang disinkronkan lewat catch-up; berkas `Sudah Sinkron` tidak boleh muncul.
+6. Verifikasi: berkas sesi bernomor benar (`tertinggi + 1`), struktur lengkap, status hasil catch-up sesuai (yatim/kosong ditandai `Sudah Sinkron`), `MEMORI.md` konsisten dengan isi berkas sesi, tidak ada kontradiksi antar bagian `MEMORI.md`, tidak ada kredensial/secret yang tertulis, dan setiap klaim baru di `MEMORI.md` memiliki provenance `sesi N`. Selain itu wajib memastikan tidak ada berkas sesi ber-status `Sudah Sinkron` yang berubah: jalankan `git status -- memori/sesi/` dan `git diff -- memori/sesi/` — yang muncul hanya berkas sesi aktif dan (bila ada) berkas `Belum Sinkron` yang disinkronkan lewat catch-up; berkas `Sudah Sinkron` tidak boleh muncul. Terakhir, sebelum menandai berkas sesi `Sudah Sinkron`, cocokkan isi tabel `## Berkas Terdampak` dengan `git status --short` / `git diff --name-only` (root + setiap submodule yang terlibat); seluruh berkas yang berubah selama sesi WAJIB tercantum pada tabel, dan selisih WAJIB diselesaikan (tabel diperbaiki) atau dilaporkan ke pengguna.
 
 ## Larangan
 
@@ -94,6 +96,7 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
 - DILARANG memutuskan sendiri bila isi berkas sesi yang disinkronkan lewat catch-up ambigu atau tidak dapat diverifikasi — laporkan ke pengguna.
 - DILARANG menandai berkas sesi `Sudah Sinkron` sebelum `MEMORI.md` benar-benar diperbarui dan bagian `## Sinkronisasi ke MEMORI.md` terisi (berlaku juga untuk berkas yang disinkronkan lewat catch-up).
 - DILARANG memperbarui `MEMORI.md` tanpa memperbarui field tanggal diperbarui di header (`Diperbarui: <tanggal Jakarta> (sesi N)`).
+- DILARANG menandai berkas sesi `Sudah Sinkron` sebelum tabel `## Berkas Terdampak` lengkap mencakup seluruh perubahan (root + submodule yang terlibat) dan terverifikasi cocok dengan `git status --short` / `git diff --name-only` (lihat Aturan 22 dan Aturan 23).
 - DILARANG mengabaikan bagian "catatan untuk model selanjutnya" (atau sebutan setara) yang ada di `MEMORI.md`.
 - DILARANG menggunakan versi proyek yang sudah usang tanpa dicek di `MEMORI.md`.
 - DILARANG mengabaikan aturan/konvensi yang tercantum di `MEMORI.md` setelah membacanya.
