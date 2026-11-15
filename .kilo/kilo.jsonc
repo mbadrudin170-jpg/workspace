@@ -11,8 +11,8 @@
       // jangan di hapus komemtar model ini karena untuk mempermudah jika ingin pindah model
       // "model": "kilo/particle-ai/particle-1:free",
       // "model": "kilo/kilo-auto/free"
-      "model": "openrouter/thinkingmachines/inkling-2-small:free"
-      // "model": "kilo/reflection/beam-free",
+      // "model": "openrouter/thinkingmachines/inkling-2-small:free"
+      "model": "kilo/reflection/beam-free"
       // "model": "kilo/particle-ai/particle-1:free",
       // "model": "kilo/nvidia/nemotron-3.5-super-vl:free",
     },
