@@ -241,3 +241,7 @@
 60. .agents/skills/custom/audit-riwayat-sesi/SKILL.md
 - Trigger : saat mengaudit riwayat sesi
 - Status : diperbarui : Sun Nov 15 2026 18:58 WIB
+
+61. .agents/skills/custom/bangun-apk-github-workflow/SKILL.md
+- Trigger : saat membangun APK Android release atau memperbarui proses build APK
+- Status : diperbarui : Mon Nov 16 2026 21:19 WIB
