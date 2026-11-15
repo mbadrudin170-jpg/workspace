@@ -3,8 +3,8 @@ name: memori-check
 description: "Trigger: setiap interaksi apa pun di proyek mana pun | Panduan wajib baca MEMORI.md di root proyek sebelum interaksi dan perbarui bagian relevan setelahnya (kode, dokumen, state). Berlaku lintas repositori; tidak terikat satu proyek/path. Sinkronisasi disertai konsolidasi konflik, klasifikasi semantic/episodic/procedural, provenance sesi, dan pinning fakta eksplisit pengguna. Alur sesi: di awal sesi AI wajib membuat `memori/sesi/sesi_N.md` (`Belum Sinkron`) dan catch-up sync berkas sesi `Belum Sinkron` dari sesi sebelumnya (yatim/kosong → `Sudah Sinkron` + catatan eksplisit; berisi perubahan → prosedur akhir sesi; ambigu → lapor pengguna). Di akhir sesi AI wajib memperbarui `MEMORI.md` lalu menandai berkas sesi `Sudah Sinkron`. Berkas `sesi_N.md` tidak boleh dihapus (arsip permanen); berkas `Sudah Sinkron` bersifat arsip — koreksi/klarifikasi WAJIB dicatat pada berkas sesi baru (nomor tertinggi + 1). Jangan dilewati walau interaksi tampak kecil."
 metadata:
   kategori: "custom"
-  versi: "1.9.0"
-  diperbarui: "Sun Nov 15 2026 21:31 WIB"
+  versi: "1.10.0"
+  diperbarui: "Sun Nov 15 2026 23:58 WIB"
 ---
 
 # Memeriksa File MEMORI.md dan Berkas Sesi
@@ -46,7 +46,7 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
    - Isi ambigu/tidak dapat diverifikasi → jangan diputuskan sendiri; laporkan ke pengguna. Sesi paralel: best-effort; bila ambigu, lapor.
    - Alur akhir sesi **tetap dipertahankan**; catch-up hanya jaring pengaman.
 3. **Wajib buat berkas sesi di awal sesi.** Pada awal setiap sesi/interaksi, sebelum tindakan apa pun yang mengubah proyek, buat `memori/sesi/sesi_N.md` dengan `N` = nomor tertinggi yang ada + 1 (gap tidak diisi; jika folder kosong, buat `sesi_1.md`). Berkas sesi wajib memuat (struktur lengkap):
-   - `## Status` — `Status Sinkron: Belum Sinkron`, `Tanggal` (tanggal Jakarta), `Topik` sesi.
+   - `## Status` — `Status Sinkron: Belum Sinkron`, `Tanggal` (tanggal Jakarta), `Command` (command yang memerintahkan sesi — mis. `/kerjakan_task` atau path command; bila tidak ada command yang dijalankan, tulis `interaksi langsung (tanpa command)`), `Topik` sesi. Field `Command` wajib diisi pada setiap berkas sesi.
    - `## Catatan Sesi` — kronologi/poin penting/keputusan sesi (diperbarui selama sesi).
    - `## Berkas Terdampak` — tabel `Lokasi File | Status Perubahan | Deskripsi` (kelengkapan dan verifikasi tabel diatur pada Aturan 22 dan Aturan 23).
    - `## Sinkronisasi ke MEMORI.md` — ringkasan penyesuaian `MEMORI.md` pada akhir sesi, atau `Belum disinkronkan` selama sesi berlangsung.
