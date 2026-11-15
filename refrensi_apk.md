@@ -478,15 +478,6 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 
 ### Batch 8 — temuan dari 10 APK (2026-11-15 WIB, sesi 128)
 
-#### A56. Saran base serupa pada layar detail
-
-- **Temuan:** `Maps Base For Clash of Clans` menambahkan "similar bases" di layar base baru, sehingga pengguna dapat membandingkan layout lain dengan Town Hall dan tipe yang sama tanpa kembali ke galeri; `COC Base Layout Hub` dan `WarBase Pro CoC Layouts` mengandalkan alur yang sama sederhananya (buka base → copy).
-- **Tujuan fitur:** mempercepat perbandingan base setara dan mengurangi langkah bolak-balik galeri–detail.
-- **Referensi:** [Maps Base For Clash of Clans](https://play.google.com/store/apps/details?id=hamidsoft.mapsbaseforcoc), [COC Base Layout Hub](https://play.google.com/store/apps/details?id=com.aarzee.utili.cocbases)
-- **Saran:** tampilkan 3–5 base dengan `townHall`/`tipe` sama di bawah aksi copy (urutkan berdasarkan kedekatan id lalu jumlah salin lokal bila A36/A53 sudah ada); data berasal dari katalog lokal, tanpa backend; sembunyikan section bila tidak ada kandidat.
-- **Prioritas:** Sedang.
-- **Status PRD:** PRD sudah dibuat (`prd/prd_saran_base_serupa.md`, sesi 149); belum diimplementasikan.
-
 #### A57. Impor level desa dari satu tangkapan layar (OCR)
 
 - **Temuan:** `Village Tracker: CoC Upgrades` menyediakan "one-screenshot import" — pindai desa lalu isi level otomatis tanpa entri manual; ini melengkapi impor Data Export dan impor clipboard satu tap (B5).

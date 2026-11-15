@@ -1,10 +1,10 @@
 ---
 name: penanganan-async-data-kosong
-description: "Trigger: saat layar menangani state async atau data kosong | Panduan isLoading, hasError, requireValue, empty state, data tidak lengkap, early return, mounted check."
+description: "Trigger: saat layar menangani state async atau data kosong | Panduan isLoading, hasError, requireValue, empty state, data tidak lengkap, early return, mounted check, penanganan wajib cache provider (provider sinkron turunan dan keepAlive)."
 metadata:
   kategori: "custom"
-  versi: "1.1.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.2.0"
+  diperbarui: "Mon Nov 16 2026 02:05 WIB"
 ---
 
 # Penanganan State Asynchronous dan Data Kosong pada Layar
@@ -19,12 +19,14 @@ Layar async wajib handle isLoading → hasError → requireValue → empty state
 4. Gunakan early return (guard clause) untuk setiap kondisi tersebut agar alur build tetap linear dan mudah dibaca.
 5. Gunakan `const SizedBox.shrink()` untuk widget kondisional yang disembunyikan.
 6. Setelah `await`/operasi asynchronous, periksa `mounted` sebelum mengakses `context` atau memanggil `setState`.
+7. Pengambilan data dari provider yang berfungsi sebagai cache wajib menangani tiga status (`isLoading`, `hasError`, `data`) secara eksplisit. Cakupan cache provider meliputi: (a) provider sinkron turunan `Provider<AsyncValue<T>>` yang menurunkan `AsyncValue` dari provider sumber (mis. `filteredBasesProvider`, `baseSerupaProvider`); (b) `FutureProvider`/`AsyncNotifier` dengan `keepAlive: true`. Pada **konten utama** layar, setiap kasus gagal (`hasError`) wajib menampilkan pesan error dan aksi retry (`ref.refresh(provider)`). Pada **bagian opsional** yang disembunyikan secara sadar saat gagal (mis. ikon favorit, section rekomendasi), minimal wajib logging (`L.w`/`L.e`) di titik konsumsi.
 
 ## Larangan
 
 - Jangan memanggil `requireValue` sebelum memastikan `isLoading` dan `hasError` sudah ditangani.
 - Jangan menampilkan layar kosong tanpa informasi atau CTA ketika data kosong.
 - Jangan menggabungkan penanganan loading, error, dan data kosong dalam satu blok yang sulit dibaca.
+- DILARANG menelan kegagalan cache provider secara senyap: `.asData?.value`/`valueOrNull` tanpa pesan error, tanpa retry, dan tanpa logging. Khusus konten utama layar, `.asData?.value`/`valueOrNull` DILARANG sama sekali.
 
 ## Contoh Benar
 
@@ -58,11 +60,44 @@ if (state.list.isEmpty) {
 return Scaffold(body: _Daftar(state.list));
 ```
 
+Konten utama yang mengambil data dari cache provider turunan:
+
+```dart
+final basesAsync = ref.watch(filteredBasesProvider);
+
+if (basesAsync.isLoading) {
+  return const Center(child: CircularProgressIndicator());
+}
+if (basesAsync.hasError) {
+  return _TampilanGagal(
+    pesan: 'Gagal memuat katalog',
+    onCobaLagi: () => ref.refresh(katalogProvider),
+  );
+}
+final bases = basesAsync.requireValue;
+```
+
+Bagian opsional yang disembunyikan secara sadar saat gagal (wajib log):
+
+```dart
+final serupaAsync = ref.watch(baseSerupaProvider(widget.base));
+if (serupaAsync.hasError) {
+  L.w('Gagal memuat base serupa: ${serupaAsync.error}');
+}
+final serupa = serupaAsync.asData?.value ?? const <BaseLayout>[];
+```
+
 ## Contoh Salah
 
 ```dart
 final state = dataAsync.requireValue;
 return Scaffold(body: ListView(...));
+```
+
+```dart
+// DILARANG: kegagalan cache provider ditelan senyap; konten utama memakai asData tanpa penanganan
+final bases = ref.watch(filteredBasesProvider).asData?.value ?? [];
+return GridBase(bases: bases, ...);
 ```
 
 ## Sumber Evaluasi
