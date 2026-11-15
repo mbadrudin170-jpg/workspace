@@ -58,3 +58,32 @@
 - file bermasalah : progres_desa_screen.dart, ringkasan_kategori.dart
 - prompt : hanya diisi oleh saya
 - catatan implementasi : selesai. Helper baru `base_coc/lib/fitur/upgrade_progress/util/durasi_format.dart` berisi `extension FormatDurasi on Duration { String toTeksSingkat(); }` (murni, tanpa `BuildContext`/provider). Tiga implementasi lokal `_formatDurasi` dihapus; `_ProgresDesaScreenState`, `RingkasanKategoriCard`, dan `DaftarItemUpgrade` memakai `toTeksSingkat()` dengan keluaran identik (`3h 5j 20m`, `2j 15m`, `45m`). Verifikasi `dart analyze` bersih dan `flutter test` 42/42 lulus.
+
+# Kelompok 4
+
+## file terdampak
+
+- (base_coc/lib/fitur/galeri_base/model/filter_state.dart)[base_coc/lib/fitur/galeri_base/model/filter_state.dart]
+- (base_coc/lib/fitur/galeri_base/provider/filter_provider.dart)[base_coc/lib/fitur/galeri_base/provider/filter_provider.dart]
+
+## Tinggi
+
+#### Task 8
+
+- Status : selesai
+- Masalah : `FilterState` (state untuk `FilterNotifier`) ditulis sebagai `class` biasa dengan implementasi manual `copyWith`, `operator ==`, `hashCode` (memakai `setEquals`/`Object.hashAllUnordered`) dan getter `hasFilter`; tidak memakai `@freezed`. `base_coc` sudah memasang `freezed`/`freezed_annotation` sejak commit `c0ed41e` (Kelompok 2 Task 4 selesai), tetapi `FilterState` tidak dikonversi. Commit `71a69f0` (PRD A6) menambahkan field `tags` ke `FilterState`; kelas masih manual pada HEAD.
+- Solusi : Ubah menjadi `@freezed abstract class FilterState with _$FilterState` dengan `const FilterState._();` (getter `hasFilter` dipertahankan di body), `@Default(<TagStrategi>{}) Set<TagStrategi> tags`, lalu `dart run build_runner build --delete-conflicting-outputs`. `copyWith`/`==`/`hashCode` dihasilkan codegen. Verifikasi: `dart analyze` bersih dan `flutter test` lulus.
+- aturan dilanggar : kelompok_skill_wajib (kelompok "semua model dan state yang harus punya method dan getter wajib pakai freezed" dan kelompok "semua proyek saya wajib menggunakan freezed"), model-state-freezed-abstract
+- file bermasalah : filter_state.dart (pemanggilan `copyWith` oleh `filter_provider.dart` menyesuaikan signature codegen bila perlu)
+- prompt : hanya diisi oleh saya
+- catatan implementasi : selesai. `FilterState` kini `@freezed abstract class` dengan `const FilterState._()` dan `@Default(<TagStrategi>{}) Set<TagStrategi> tags`; getter `hasFilter` dipertahankan di body; `copyWith`/`==`/`hashCode` dihasilkan codegen (`filter_state.freezed.dart`). Field `townHall`/`tipe` nullable memanfaatkan sentinel codegen sehingga `copyWith(townHall: null)` menghapus filter. Tanda `clearTownHall`/`clearTipe`/`clearTags` dihapus dari API (tidak ada pemanggil di luar `filter_provider.dart`). Verifikasi: `dart format` (0 perubahan), `dart analyze` bersih (satu `info` unnecessary_import pada `filter_provider.dart` dihapus), `flutter analyze` bersih, `flutter test` 63/63 lulus.
+
+#### Task 9
+
+- Status : selesai
+- Masalah : `FilterNotifier extends StateNotifier<FilterState>` dan provider utamanya memakai `StateNotifierProvider` dari `package:flutter_riverpod/legacy.dart`. Commit `c0ed41e` mengkonversi `ProgresNotifier` dan `FavoritNotifier` menjadi `@Riverpod(keepAlive: true)` dengan codegen `riverpod_generator`, tetapi `filter_provider.dart` tidak ikut dikonversi dan masih memakai pola legacy pada HEAD. `FilterNotifier` bukan provider CRUD database sehingga di luar cakupan eksplisit Kelompok 2 Task 6; apakah `filter_provider` sengaja dibiarkan legacy atau terlewat dari codegen sesi 102 belum diketahui dan menunggu keputusan pengguna. (Rujukan: skill `riverpod-pola` mensyaratkan pola Riverpod standar/codegen untuk provider state.)
+- Solusi : Opsi (a) konversi ke `@Riverpod(keepAlive: true) class FilterNotifier extends _$FilterNotifier { @override FilterState build() => const FilterState(); ... }` lalu `dart run build_runner build --delete-conflicting-outputs`; seluruh pemanggil (`filter_chip_bar.dart`, `katalog_provider.dart`, `beranda_galeri_screen.dart`, dst.) memakai `filterProvider` hasil codegen. Opsi (b) atas keputusan pengguna, catat pengecualian eksplisit `filter_provider` sebagai legacy pada aturan/skill terkait. Jangan membiarkan selisih tanpa keputusan.
+- aturan dilanggar : kelompok_skill_wajib (kelompok "semua provider (state) wajib dibuat dengan Riverpod"), riverpod-pola
+- file bermasalah : filter_provider.dart (konsumen: filter_chip_bar.dart, katalog_provider.dart, beranda_galeri_screen.dart)
+- prompt : hanya diisi oleh saya
+- catatan implementasi : selesai (keputusan pengguna via `question` sesi 115: "Konversi codegen (Recommended)"). `FilterNotifier` kini `@Riverpod(keepAlive: true)` `extends _$FilterNotifier` dengan `build()` mengembalikan `const FilterState()`; pemanggilan `copyWith` disesuaikan signature codegen (`copyWith(townHall: null)` / `copyWith(tipe: null)` untuk menghapus filter; `copyWith(tags: {...})` untuk tag). `filterProvider` dihasilkan `riverpod_generator` (bukan `StateNotifierProvider` legacy); `package:flutter_riverpod/legacy.dart` tidak lagi dipakai. Nama provider tetap `filterProvider`; pemanggil (`filter_chip_bar.dart`, `katalog_provider.dart`, `beranda_galeri_screen.dart`, `test/tag_strategi_test.dart`) tidak berubah. `filter_provider.g.dart` dibuat via `build_runner`. Verifikasi: `dart format`, `dart analyze` bersih, `flutter analyze` bersih, `flutter test` 63/63 lulus.

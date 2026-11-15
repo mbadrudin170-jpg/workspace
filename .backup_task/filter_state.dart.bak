@@ -1,0 +1,51 @@
+import 'package:base_coc/fitur/galeri_base/model/base_layout.dart';
+import 'package:flutter/foundation.dart';
+
+/// State filter untuk galeri base.
+class FilterState {
+  const FilterState({
+    this.townHall,
+    this.tipe,
+    this.query = '',
+    this.tags = const <TagStrategi>{},
+  });
+
+  final TownHallLevel? townHall;
+  final TipeBase? tipe;
+  final String query;
+  final Set<TagStrategi> tags;
+
+  FilterState copyWith({
+    TownHallLevel? townHall,
+    bool clearTownHall = false,
+    TipeBase? tipe,
+    bool clearTipe = false,
+    String? query,
+    Set<TagStrategi>? tags,
+    bool clearTags = false,
+  }) {
+    return FilterState(
+      townHall: clearTownHall ? null : (townHall ?? this.townHall),
+      tipe: clearTipe ? null : (tipe ?? this.tipe),
+      query: query ?? this.query,
+      tags: clearTags ? const <TagStrategi>{} : (tags ?? this.tags),
+    );
+  }
+
+  bool get hasFilter =>
+      townHall != null || tipe != null || query.isNotEmpty || tags.isNotEmpty;
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is FilterState &&
+        other.townHall == townHall &&
+        other.tipe == tipe &&
+        other.query == query &&
+        setEquals(other.tags, tags);
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(townHall, tipe, query, Object.hashAllUnordered(tags));
+}
