@@ -1,13 +1,13 @@
 ---
-description: Commit git berkas yang dipilih pengguna dari daftar file yang saat ini berubah di working tree (root dan submodule), dengan pesan Conventional Commits otomatis dan konfirmasi sebelum commit. Tanpa argumen dan tanpa membaca berkas sesi.
+description: Commit git berkas yang dipilih pengguna, dibatasi pada berkas yang tercatat di tabel `## Berkas Terdampak` berkas sesi aktif (root dan submodule), dengan pesan Conventional Commits otomatis dan konfirmasi sebelum commit.
 agent: code
 ---
 
-# Commit Berkas yang Dipilih dari Working Tree
+# Commit Berkas Sesi Aktif
 
 ## Tujuan
 
-Menampilkan daftar berkas yang saat ini berubah (modified/untracked/deleted) pada repository root dan seluruh submodule yang terdaftar, lalu meng-commit hanya berkas yang dipilih pengguna, secara terpisah per repository, dengan pesan commit Conventional Commits yang disusun otomatis dari konteks perubahan. Command ini **tidak** melakukan push dan **tidak** membaca berkas sesi (`memori/sesi/*.md`).
+Menampilkan daftar berkas yang **tercatat pada tabel `## Berkas Terdampak` berkas sesi aktif** (`memori/sesi/sesi_N.md` dengan `N` tertinggi) dan **masih memiliki perubahan yang belum di-commit** (`git status --short`) pada repository root dan seluruh submodule yang terdaftar, lalu meng-commit hanya berkas yang dipilih pengguna, secara terpisah per repository, dengan pesan commit Conventional Commits yang disusun otomatis dari konteks perubahan. Command ini **tidak** melakukan push dan **tidak** menampilkan berkas dari sesi lain yang kebetulan masih berubah di working tree.
 
 ## Ketentuan Umum
 
@@ -15,7 +15,8 @@ Menampilkan daftar berkas yang saat ini berubah (modified/untracked/deleted) pad
 2. Muat skill `memori-check` (`.agents/skills/custom/memori-check/SKILL.md`) melalui tool `skill` sebelum bekerja.
 3. Gunakan bahasa Indonesia baku untuk seluruh laporan.
 4. Jangan menggunakan terminal untuk membaca berkas; gunakan tool `read`/`glob`/`grep`. Perintah git dijalankan via `bash` sesuai izin `.kilo/kilo.jsonc`.
-5. **DILARANG** membaca berkas `memori/sesi/*.md` untuk menentukan daftar berkas; daftar berkas diambil dari `git status --short` tiap repository.
+5. **Wajib** menanyakan kepada pengguna (via tool `question`) apakah tugas pada sesi aktif **sudah selesai** sebelum melakukan apa pun. Jika pengguna menjawab "Belum", **STOP** dan jangan commit; laporkan bahwa commit ditunda sampai tugas selesai.
+6. **Wajib** membaca berkas sesi aktif (`memori/sesi/sesi_N.md` dengan `N` tertinggi) dan mengambil daftar berkas dari tabel `## Berkas Terdampak` (kolom `Lokasi File`) sebagai sumber kebenaran daftar kandidat. Berkas yang tidak tercatat di tabel tersebut **tidak** ditawarkan, meskipun masih berubah di `git status` (mis. sisa perubahan dari sesi lain).
 6. Commit dilakukan per repository (root dan setiap submodule); jangan gabungkan perubahan root dan submodule dalam satu commit.
 7. Pesan commit disusun otomatis mengikuti Conventional Commits (tipe+scope+deskripsi) berdasarkan perubahan file yang dipilih. Jika agen ragu menentukan tipe/scope, tanyakan via tool `question` sebelum commit.
 8. Wajib menampilkan daftar file berubah dan meminta pengguna memilih file yang akan di-commit via tool `question` sebelum menjalankan `git commit`.
@@ -23,9 +24,10 @@ Menampilkan daftar berkas yang saat ini berubah (modified/untracked/deleted) pad
 
 ## Cakupan
 
+- Berkas sesi aktif: `memori/sesi/sesi_N.md` dengan `N` tertinggi (ditentukan via `glob` pada `memori/sesi/sesi_*.md`, lalu pilih nomor terbesar).
 - Repository root (`.`).
 - Submodule yang terdaftar di `.gitmodules` (mis. `base_coc`, `share_global_saya`), divalidasi dengan `git -C <path> rev-parse --git-dir`.
-- Hanya file yang statusnya modified/untracked/deleted pada `git status --short`.
+- Hanya file yang **tercatat di tabel `## Berkas Terdampak` sesi aktif** DAN statusnya modified/untracked/deleted pada `git status --short`.
 
 ## Parameter
 
@@ -33,11 +35,17 @@ Menampilkan daftar berkas yang saat ini berubah (modified/untracked/deleted) pad
 
 ## Alur Kerja
 
+0. **Tanya Penyelesaian Tugas (wajib sebelum apa pun)**
+   - Tanyakan kepada pengguna via tool `question`: "Apakah tugas pada sesi aktif sudah selesai?" dengan opsi: "Ya, tugas sudah selesai (lanjut commit)" dan "Belum, jangan commit dulu".
+   - Jika pengguna memilih "Belum, jangan commit dulu" atau tidak menjawab "Ya": **STOP**, laporkan bahwa commit ditunda sampai tugas selesai, dan jangan membaca berkas sesi atau menjalankan git. Selesai.
+
 1. **Analyze**
+   - Tentukan berkas sesi aktif: `glob` `memori/sesi/sesi_*.md`, pilih nomor tertinggi `N`, baca berkasnya dengan `read`. Jika folder/berkas tidak ada atau tabel `## Berkas Terdampak` tidak ditemukan/kosong: **STOP** dan laporkan.
    - Susun daftar repository: root (`.`) + satu repo per entri `.gitmodules` (baca dengan `git config --file .gitmodules --get-regexp '\.path$'`); validasi tiap path dengan `git -C <path> rev-parse --git-dir`. Repo yang tidak valid dicatat `Tidak dievaluasi` dan dilewati.
-   - Untuk tiap repository, jalankan `git -C <repo> status --short` dan kumpulkan daftar file berubah (kolom status + path relatif repo).
-   - Jika tidak ada file berubah di seluruh repository, **STOP** dan laporkan bahwa tidak ada yang perlu di-commit.
-   - Tampilkan daftar file berubah per repository (path relatif repo + status git) kepada pengguna.
+   - Parse tabel `## Berkas Terdampak` sesi aktif → daftar path (kolom `Lokasi File`), abaikan baris yang bukan path berkas (mis. `MEMORI.md` tetap dimasukkan bila tercatat).
+   - Untuk tiap repository, jalankan `git -C <repo> status --short` dan **iriskan** dengan daftar path sesi aktif (normalisasi: path berawalan `<submodule>/` milik submodule tersebut; path lain milik root). Hanya file yang ada di kedua daftar yang ditawarkan.
+   - Jika tidak ada file berubah (irisan kosong) di seluruh repository, **STOP** dan laporkan bahwa tidak ada berkas sesi aktif yang perlu di-commit (sisa perubahan dari sesi lain tidak ditampilkan).
+   - Tampilkan daftar file berubah per repository (path relatif repo + status git) kepada pengguna, beserta nama berkas sesi aktif yang menjadi acuan.
 
 2. **Plan**
    - Minta pengguna memilih file yang akan di-commit via tool `question` (multiple selection), dengan opsi per file (label = path relatif repo, description = status git + nama repo). Sertakan opsi "Batal".
@@ -68,11 +76,11 @@ Tabel per repository:
 | `workspace` (root) | `<file1>, <file2>` | `<pesan>` | `<hash>` | Bersih / Ada sisa |
 | `base_coc` | `<file1>` | `<pesan>` | `<hash>` | Bersih / Ada sisa |
 
-Jika tidak ada file berubah: tampilkan "Tidak ada berkas yang perlu di-commit." dan selesai.
+Jika tidak ada file berubah (irisan kosong): tampilkan "Tidak ada berkas sesi aktif yang perlu di-commit (berkas dari sesi lain tidak ditampilkan)." dan selesai.
 
 ## Larangan
 
-- DILARANG membaca berkas `memori/sesi/*.md` untuk menentukan daftar berkas.
+- DILARANG commit berkas yang tidak tercatat di tabel `## Berkas Terdampak` berkas sesi aktif.
 - DILARANG commit berkas yang tidak dipilih pengguna.
 - DILARANG commit berkas yang tidak memiliki perubahan nyata pada `git status`.
 - DILARANG menggabungkan perubahan root dan submodule dalam satu commit.
@@ -83,4 +91,6 @@ Jika tidak ada file berubah: tampilkan "Tidak ada berkas yang perlu di-commit." 
 ## Kriteria Selesai / STOP
 
 - Selesai bila semua repository yang memiliki file terpilih telah di-commit, hash commit dilaporkan, dan status pasca-commit terverifikasi.
-- STOP bila tidak ada file berubah, pengguna membatalkan pemilihan, argumen diberikan, atau `git commit` gagal (laporkan alasan dan tindakan yang disarankan).
+- STOP bila tidak ada file berubah (irisan kosong), berkas sesi aktif tidak ditemukan/tabel kosong, pengguna membatalkan pemilihan, pengguna menyatakan tugas belum selesai, argumen diberikan, atau `git commit` gagal (laporkan alasan dan tindakan yang disarankan).
+
+(End of file - total 108 lines)
