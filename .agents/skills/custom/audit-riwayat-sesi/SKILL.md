@@ -91,7 +91,7 @@ Contoh section append:
 
 - DILARANG mengubah berkas apa pun selain append ke `audit/riwayat_sesi.md`.
 - DILARANG memperbaiki temuan audit secara otomatis.
-- DILARANG mengubah berkas `memori/sesi/*.md` (termasuk penandaan di dalamnya), `MEMORI.md`, `memori/riwayat_perubahan.md`, `SKILLS_INDEX.md`, skill, command, aturan, `task.md`, atau kode sumber.
+- DILARANG mengubah berkas `memori/sesi/*.md` (termasuk penandaan di dalamnya), `MEMORI.md`, `memori/riwayat_perubahan.md`, `.agents/rules/global/SKILLS_INDEX.md`, skill, command, aturan, `task.md`, atau kode sumber.
 - DILARANG menghapus, mengompres, atau mengubah sesi yang sudah diaudit.
 - DILARANG menganalisis ulang penuh berkas yang dilewati tanpa alasan (mis. keraguan mtime harus diselesaikan dengan membaca ulang untuk verifikasi, bukan analisis ulang).
 - DILARANG memakai git log sebagai sumber data audit.

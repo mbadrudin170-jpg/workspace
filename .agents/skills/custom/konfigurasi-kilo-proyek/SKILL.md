@@ -13,7 +13,7 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 
 ## Cakupan yang Di-Cover
 
-- Berkas: `.kilo/kilo.jsonc` (config proyek, sumber kebenaran — AGENTS.md aturan 11), `.kilo/prompts/code.md`, `.kilo/prompts/ask.md`, `.kilo/prompts/debug.md`, `.kilo/commands/**`, `SKILLS_INDEX.md`, `MEMORI.md`, `memori/riwayat_perubahan.md`, `docs/kilo/kilo_global.txt` (arsip usang)
+- Berkas: `.kilo/kilo.jsonc` (config proyek, sumber kebenaran — AGENTS.md aturan 11), `.kilo/prompts/code.md`, `.kilo/prompts/ask.md`, `.kilo/prompts/debug.md`, `.kilo/commands/**`, `.agents/rules/global/SKILLS_INDEX.md`, `MEMORI.md`, `memori/riwayat_perubahan.md`, `docs/kilo/kilo_global.txt` (arsip usang)
 - Konsep config Kilo: bagian `permission` (`allow`/`ask`/`deny`, pola glob, proteksi `.env`), `instructions`, `skills.paths` (path relatif), `agent.<nama>.prompt` dengan `{file:...}`, `commit_message.prompt`, `indexing`
 - Konsep commands Kilo: pola pemuatan `{command,commands}/**/*.md` rekursif, frontmatter command (`description`, `agent`, `model`, `variant`, `subtask`), variabel template (`$1`–`$N`, `$ARGUMENTS`, `@file`)
 - Skill bawaan: `kilo-config` (builtin, generik; bukan pengganti skill ini dan bukan project-local)
@@ -161,7 +161,7 @@ subcommands: [satu, dua]   # salah: field tidak didukung; subcommand via $1 + fa
 
 Berkas sumber (proyek):
 
-- File: `.kilo/kilo.jsonc` (sumber kebenaran konfigurasi & permission), `AGENTS.md` (aturan 11), `.agents/rules/global/prioritas_tool_bawaan.md` (tool bawaan lebih dahulu), `docs/kilo/kilo_global.txt` (arsip usang), `MEMORI.md`, `memori/riwayat_perubahan.md`, `SKILLS_INDEX.md`
+- File: `.kilo/kilo.jsonc` (sumber kebenaran konfigurasi & permission), `AGENTS.md` (aturan 11), `.agents/rules/global/prioritas_tool_bawaan.md` (tool bawaan lebih dahulu), `docs/kilo/kilo_global.txt` (arsip usang), `MEMORI.md`, `memori/riwayat_perubahan.md`, `.agents/rules/global/SKILLS_INDEX.md`
 - File: `.kilo/prompts/code.md`, `.kilo/prompts/ask.md`, `.kilo/prompts/debug.md`
 - File: `.kilo/commands/tambah_log.md`, `.kilo/commands/analisa_log.md`, `.kilo/commands/kerjakan.md`, `.kilo/commands/kerjakan_task.md`, `.kilo/commands/kerjakan_hasil_diskusi.md`, `.kilo/commands/evaluasi_size_ruang_kerja.md`, `.kilo/commands/sinkronkan_semua.md`, `.kilo/commands/mode/mode_diskusi.md`, `.kilo/commands/prd/kerjakan_prd.md`, `.kilo/commands/fitur/diskusi_fitur_baru.md`, `.kilo/commands/sinkronisasi/sinkronkan_skill_dengan_aturan.md`
 - Catatan akurasi: `contoh_menu*.md` dan `.kilo/shared/contoh_bersama.md` yang disebut pada diskusi_6 tidak ditemukan di repository (tidak pernah ter-commit); tutorial merujuk berkas nyata di atas.

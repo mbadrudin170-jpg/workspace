@@ -15,7 +15,7 @@ Menyalin isi berkas prompt/sumber ke berkas target secara **rapi dan terkontrol*
 2. Gunakan tool bawaan Kilo (`read`, `edit`, `write`, `glob`) sebelum shell; patuhi `.agents/rules/global/prioritas_tool_bawaan.md`.
 3. Izin `deny` pada `.kilo/kilo.jsonc` bersifat mutlak.
 4. Jangan ubah berkas apa pun tanpa persetujuan pengguna.
-5. Muat skill `aturan-pembuatan-rules` dan `aturan-pembuatan-skill` bila relevan (cek `SKILLS_INDEX.md`).
+5. Muat skill `aturan-pembuatan-rules` dan `aturan-pembuatan-skill` bila relevan (cek `.agents/rules/global/SKILLS_INDEX.md`).
 
 ## Parameter
 

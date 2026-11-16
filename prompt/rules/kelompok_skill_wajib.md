@@ -11,7 +11,7 @@ ditimpa ke : `.agents/rules/global/kelompok_skill_wajib.md`
 4. Jarak antar anak di dalam parent Column, Row, dan Wrap wajib menggunakan spacing, kecuali untuk jarak khusus tertentu.
 5. Setiap pemanggilan provider untuk mengambil data wajib menangani status loading, error, dan data secara eksplisit.
 6. Semua proyek wajib memuat skill kelompok sesuai teknologi yang digunakan: Riverpod, SQLite, Freezed, model database, provider CRUD, null/nullable, testing/mocktail, UI tema, dan feedback `AppToast`.
-7. Sumber kebenaran daftar dan trigger skill: `SKILLS_INDEX.md`.
+7. Sumber kebenaran daftar dan trigger skill: `.agents/rules/global/SKILLS_INDEX.md`.
 8. Jika skill tidak tersedia, laporkan; jangan mengarang.
 9. 
 

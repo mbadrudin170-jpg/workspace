@@ -2,6 +2,8 @@
 
 Catatan kronologis perubahan proyek. Entri terbaru di atas.
 
+| Mon Nov 16 2026 11:15 WIB (sesi 190) | Interaksi langsung (tanpa command) — atas permintaan pengguna, berkas `SKILLS_INDEX.md` dipindahkan dari root ke `.agents/rules/global/SKILLS_INDEX.md`. `.kilo/kilo.jsonc` bagian `instructions` diperbarui (path entri). Referensi aktif diperbarui (`MEMORI.md`, `.agents/rules/global/instructions_lengkap.md`, `README.md`, `kelompok_skill_wajib.md`, skill `memori-check`/`cek-kesehatan-sistem-kerja`/`konfigurasi-kilo-proyek`/`aturan-pembuatan-commands`/`audit-riwayat-sesi`, `prompt/`). Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_190.md`. |
+
 | Mon Nov 16 2026 09:44 WIB (sesi 187) | Interaksi langsung (tanpa command) — atas permintaan pengguna, berkas aturan global `.agents/rules/global/alur_git_commit.md` dihapus. `.kilo/kilo.jsonc` bagian `instructions` diperbarui (entri dicabut; config tervalidasi). Referensi lain di skill/command/docs/memori dibiarkan (broken link) agar cakupan tetap minimal. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_187.md`. |
 
 | Mon Nov 16 2026 09:43 WIB (sesi 186) | Interaksi langsung (tanpa command) — atas permintaan pengguna, berkas aturan global `.agents/rules/global/prioritas_tool_bawaan.md` dihapus. `.kilo/kilo.jsonc` bagian `instructions` diperbarui (entri `prioritas_tool_bawaan.md` dicabut; config tervalidasi). Referensi lain di skill/command/docs/memori tetap ada (broken link) — dapat diperbarui bila diinginkan; tidak diubah pada sesi ini agar cakupan tetap minimal. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_186.md`. |
