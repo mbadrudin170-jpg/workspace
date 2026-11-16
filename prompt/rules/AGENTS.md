@@ -1,0 +1,1 @@
+1. setiap awal sesi wajib 
