@@ -1,4 +1,4 @@
-diperbarui : Mon Nov 16 2026 12:55 WIB
+diperbarui : Mon Nov 16 2026 13:00 WIB
 file : [riset_kompetitor](../../.kilo/commands/riset_kompetitor.md)
 
 1. Baca `README.md`, `AGENTS.md`, `apk_kompetitor.md`, dan skill `riset-kompetitor` sebelum riset.
@@ -9,5 +9,4 @@ file : [riset_kompetitor](../../.kilo/commands/riset_kompetitor.md)
 6. Larangan: jangan analisis listing `Sudah Dianalisa` tanpa perintah pengguna; jangan rekomendasikan fitur web/desktop; jangan mengarang link/fitur/temuan; jangan ubah kode Dart atau berkas selain `apk_kompetitor.md` dan `refrensi_apk.md`; jangan commit/push.
 7. STOP bila dokumen proyek tidak tersedia, katalog kosong, atau seluruh listing sudah dianalisis.
 8. Format laporan: tabel (Listing, Store, Link, Fitur/UI/UX ditemukan, Prioritas) + jumlah listing yang dianalisis dan berkas yang diperbarui.
-9. tambah satu section untuk list contoh :
-    - A1 tambah kopi = perioritas = ringkasan singkat
+9. Tambahkan section contoh pada `refrensi_apk.md` dengan format: `A1 <fitur> — prioritas: <Tinggi/Sedang/Rendah> — ringkasan singkat: <1 kalimat>` (contoh: `A1 Tambah Kopi — prioritas: Sedang — ringkasan singkat: fitur pencatatan konsumsi kopi harian dengan pengingat`).

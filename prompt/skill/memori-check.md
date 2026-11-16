@@ -1,4 +1,4 @@
-diperbarui : Mon Nov 16 2026 12:28 WIB
+diperbarui : Mon Nov 16 2026 13:02 WIB
 file : [memori-check](../../.agents/skills/custom/memori-check/SKILL.md)
 
 1. Sebelum interaksi apa pun, baca `MEMORI.md` root proyek; bila belum ada, tanyakan inisialisasi.
@@ -13,5 +13,5 @@ file : [memori-check](../../.agents/skills/custom/memori-check/SKILL.md)
 10. Perbarui `MEMORI.md` sesuai kriteria promosi (permintaan eksplisit pengguna atau sinyal berulang konsisten) dan pengetahuan baru yang bermanfaat; setiap entri durable wajib provenance `sesi N`.
 11. `MEMORI.md` wajib memuat section kategori yang sesuai isi proyek (mis. Informasi Proyek, Struktur, Status Kerja); jangan hapus bagian yang tidak relevan tanpa alasan.
 12. Penandaan `Sudah Sinkron` hanya boleh dilakukan oleh sesi pembuat berkas tersebut; sesi lain dilarang mengubah berkas sesi milik sesi lain.
-13. tidak perlu menambahkan riwayat perubahan karena tidak berguna untuk saya.
-14. 
+13. Pengecualian pengguna: entri `memori/riwayat_perubahan.md` tidak ditambahkan (preferensi pengguna); nyatakan eksplisit pada sesi yang bersangkutan.
+14. Selama satu percakapan/task belum ditutup, gunakan berkas sesi aktif yang sama; jangan buat berkas sesi baru untuk pesan/tindakan kecil.

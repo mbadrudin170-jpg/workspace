@@ -314,3 +314,7 @@ Catatan kronologis perubahan proyek. Entri terbaru di atas.
 | Mon Nov 16 2026 12:55 WIB (sesi 206) | Interaksi langsung (tanpa command) — pembuatan `prompt/commands/riset_kompetitor.md` (8 poin penting) dari command `riset_kompetitor` untuk audit. Berkas prompt dibuat; target command tidak disentuh. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_206.md`. |
 
 | Mon Nov 16 2026 12:56 WIB (sesi 207) | Interaksi langsung (tanpa command) — pembuatan `prompt/commands/commit_file_sesi_ini.md` (10 poin penting) dari command `commit_file_sesi_ini` untuk audit. Berkas prompt dibuat; target command tidak disentuh. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_207.md`. |
+
+| Mon Nov 16 2026 13:00 WIB (sesi 208) | Interaksi langsung (tanpa command) — perapian poin 9 pada `prompt/commands/riset_kompetitor.md` (template section contoh pada `refrensi_apk.md`) atas persetujuan pengguna. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_208.md`. |
+
+| Mon Nov 16 2026 13:01 WIB (sesi 209) | Interaksi langsung (tanpa command) — perapian poin 13–14 pada `prompt/skill/memori-check.md` (pengecualian eksplisit pengguna untuk riwayat perubahan) atas persetujuan pengguna; berkas prompt skill direkonstruksi (13 poin). Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_209.md`. |
