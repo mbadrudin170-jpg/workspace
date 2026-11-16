@@ -1,6 +1,6 @@
 ---
-name: pembuatan-command-kilo
-description: "Trigger: saat membaca field integer nullable dari database | Panduan parseIntOrNull (null tetap null, tidak jadi 0) dan parseInt/parseBool dengan defaultValue untuk field non-nullable."
+name: aturan-pembuatan-commands
+description: "Trigger: saat membuat atau memperbarui command Kilo | Panduan pembuatan dan pembaruan command Kilo."
 ---
 
 1. Setiap `command` wajib menyertakan `description` yang ringkas dan jelas.
