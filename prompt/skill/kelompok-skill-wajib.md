@@ -3,6 +3,8 @@ ditimpa ke : `.agents/skills/custom/kelompok-skill-wajib/SKILL.md`
 
 1. Setiap skill pada kelompok skill wajib wajib memiliki path file yang valid, trigger yang jelas, dan tanggal diperbarui lengkap beserta jam.
 2. Jika skill tidak tersedia, laporkan; jangan mengarang.
+3. Setiap skill yang diubah wajib memperbarui tanggal diperbaruinya.
+4. Jika memperbarui berkas kelompok skill wajib, wajib memuat skill ini terlebih dahulu.
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
