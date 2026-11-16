@@ -292,3 +292,25 @@ Catatan kronologis perubahan proyek. Entri terbaru di atas.
 | Sat Nov 14 2026 06:01 | Mencatat tujuan repo `base_coc` (APK penyedia base/layout Clash of Clans) di `base_coc/README.md` dan `MEMORI.md`. |
 | Sat Nov 14 2026 05:56 | `base_coc/README.md` diganti versi minimal (default Flutter README dikosongkan pengguna); perubahan di dalam submodule, belum di-commit. |
 | Sat Nov 14 2026 05:53 | Membuat `MEMORI.md`, `memori/riwayat_perubahan.md`, dan `memori/sesi/sesi_1.md` (belum ada sebelumnya). Tidak ada perubahan kode; commit `29a2f81` (restrukturisasi `.agents/skills/`) terjadi di luar sesi ini — bukan oleh agent. |
+
+| Mon Nov 16 2026 12:28 WIB (sesi 197) | Interaksi langsung (tanpa command) — perapian `prompt/skill/memori-check.md` (12 poin): penyusunan ulang poin, perbaikan typo/penempatan, penambahan poin catch-up, struktur berkas sesi, arsip, tabel Berkas Terdampak, kriteria promosi, section kategori, dan kewenangan penandaan sinkron. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_197.md`. |
+
+| Mon Nov 16 2026 12:32 WIB (sesi 198) | Interaksi langsung (tanpa command) — pembuatan `prompt/skill/riset-kompetitor.md` (14 poin penting) dari skill `riset-kompetitor` untuk evaluasi pengguna. Berkas prompt dibuat; target skill tidak disentuh. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_198.md`. |
+
+| Mon Nov 16 2026 12:35 WIB (sesi 199) | Interaksi langsung (tanpa command) — penghapusan poin 12 pada `prompt/skill/riset-kompetitor.md` (pemeriksaan git diff sebelum memperbarui `refrensi_apk.md`) atas permintaan pengguna; renumber poin 13–14 menjadi 12–13. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_199.md`. |
+
+| Mon Nov 16 2026 12:38 WIB (sesi 200) | Interaksi langsung (tanpa command) — perapian penomoran (gap 13) dan redaksi poin terakhir pada `prompt/skill/riset-kompetitor.md` (link APK cacat/tidak ditemukan tidak dipindai ulang) atas persetujuan pengguna. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_200.md`. |
+
+| Mon Nov 16 2026 12:41 WIB (sesi 201) | Interaksi langsung (tanpa command) — penambahan poin 14 pada `prompt/skill/riset-kompetitor.md`: catat tanggal pembaruan pada `apk_kompetitor.md` dan `refrensi_apk.md` setiap kali diperbarui. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_201.md`. |
+
+| Mon Nov 16 2026 12:43 WIB (sesi 202) | Interaksi langsung (tanpa command) — pembuatan `prompt/commands/cari_apk_kompetitor.md` (12 poin penting) dari command `cari_apk_kompetitor` untuk audit. Berkas prompt dibuat; target command tidak disentuh. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_202.md`. |
+
+| Mon Nov 16 2026 12:51 WIB (sesi 203) | Interaksi langsung (tanpa command) — perapian poin 15–18 pada `prompt/skill/riset-kompetitor.md` (prioritas store, riwayat pencarian, subagent satu APK, prioritas batch berikutnya) atas persetujuan pengguna. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_203.md`. |
+
+| Mon Nov 16 2026 12:52 WIB (sesi 204) | Interaksi langsung (tanpa command) — pemindahan poin 15–18 dari `prompt/skill/riset-kompetitor.md` ke `prompt/commands/cari_apk_kompetitor.md` atas permintaan pengguna. Berkas prompt skill (14 poin) dan command (16 poin) diperbarui; target tidak disentuh. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_204.md`. |
+
+| Mon Nov 16 2026 12:54 WIB (sesi 205) | Interaksi langsung (tanpa command) — perapian redaksi poin 15 pada `prompt/commands/cari_apk_kompetitor.md` (subagent hingga 3 + pembaruan `apk_kompetitor.md` sebelum lanjut) atas persetujuan pengguna. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_205.md`. |
+
+| Mon Nov 16 2026 12:55 WIB (sesi 206) | Interaksi langsung (tanpa command) — pembuatan `prompt/commands/riset_kompetitor.md` (8 poin penting) dari command `riset_kompetitor` untuk audit. Berkas prompt dibuat; target command tidak disentuh. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_206.md`. |
+
+| Mon Nov 16 2026 12:56 WIB (sesi 207) | Interaksi langsung (tanpa command) — pembuatan `prompt/commands/commit_file_sesi_ini.md` (10 poin penting) dari command `commit_file_sesi_ini` untuk audit. Berkas prompt dibuat; target command tidak disentuh. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_207.md`. |
