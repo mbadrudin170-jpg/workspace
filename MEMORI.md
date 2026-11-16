@@ -17,7 +17,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 
 | Lokasi | Isi |
 | ------ | --- |
-| `.agents/rules/global/` | Aturan global (`alur_git_commit.md`, `format_hasil_diskusi.md`, dan `kelompok_skill_wajib.md` — dibuat sesi 77 dengan nama `rujukan_skill.md`, diganti nama sesi 84; `kelompok_skill_wajib.md` tidak terdaftar di `AGENTS.md` — `AGENTS.md` root hanya memuat blok `aturan-pembuatan-skill` dan `format_hasil_diskusi` (terverifikasi sesi 158); kebijakan mocktail ditambahkan ke berkas ini pada sesi 158, dimuat Kilo langsung via `instructions` di `.kilo/kilo.jsonc`) |
+| `.agents/rules/global/` | Aturan global (`format_hasil_diskusi.md`, dan `instructions_lengkap.md`, `build_apk_github_workflow.md`; `kelompok_skill_wajib.md` dihapus atas permintaan pengguna sesi ini) |
 | `.agents/rules/proyek/` | Tidak ditemukan di mesin (2026-11-15); catatan lama menyebut folder ini memuat aturan khusus proyek |
 | `.agents/rules/AGENTS.md` | **Tidak ditemukan** di repositori (terverifikasi `glob` sesi 129, 2026-11-15); catatan lama keliru menyebutnya sebagai berkas aturan gabungan — sumber `AGENTS.md` root adalah `.agents/rules/global/*.md` dan skill |
 | `.agents/skills/custom/` | Skill buatan/kurasi pengguna |
