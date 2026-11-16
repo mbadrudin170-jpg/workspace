@@ -6,5 +6,6 @@ ditimpa ke : `.kilo/commands/evaluasi_skill_dari_commit.md`
 3. Analisa perubahan kode untuk menentukan skill/aturan yang perlu ditambah atau diperbarui.
 4. Setelah analisa, perbarui penanda commit terakhir yang dievaluasi pada file laporan; jangan menumpuk daftar commit.
 5. Tambahkan atau perbarui hasil analisa pada `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`, tanpa mengubah skill secara otomatis.
-6. STOP bila rentang commit atau target repositori tidak jelas; tanyakan via tool `question`.
-7. 
+6. Jika ada yang perlu diperbaiki, wajib sertakan path skill/aturan terkait agar mudah diaudit.
+7. Susun hasil analisa berdasarkan prioritas tertinggi.
+8. STOP bila rentang commit atau target repositori tidak jelas; tanyakan via tool `question`.

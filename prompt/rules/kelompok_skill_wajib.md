@@ -13,6 +13,7 @@ ditimpa ke : `.agents/rules/global/kelompok_skill_wajib.md`
 6. Semua proyek wajib memuat skill kelompok sesuai teknologi yang digunakan: Riverpod, SQLite, Freezed, model database, provider CRUD, null/nullable, testing/mocktail, UI tema, dan feedback `AppToast`.
 7. Sumber kebenaran daftar dan trigger skill: `SKILLS_INDEX.md`.
 8. Jika skill tidak tersedia, laporkan; jangan mengarang.
+9. 
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
