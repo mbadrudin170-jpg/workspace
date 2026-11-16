@@ -245,3 +245,7 @@
 61. .agents/skills/custom/bangun-apk-github-workflow/SKILL.md
 - Trigger : saat membangun APK Android release atau memperbarui proses build APK
 - Status : diperbarui : Mon Nov 16 2026 21:19 WIB
+
+62. .agents/skills/custom/aturan-folder-prompt/SKILL.md
+- Trigger : saat menambah atau memperbarui file di folder prompt
+- Status : diperbarui : Mon Nov 16 2026 07:48 WIB

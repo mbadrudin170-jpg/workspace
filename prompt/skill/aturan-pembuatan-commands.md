@@ -1,3 +1,7 @@
+diperbarui : Mon Nov 16 2026 07:45 WIB
+
+file : [aturan-pembuatan-commands](../../.agents/skills/custom/aturan-pembuatan-commands/SKILL.md)
+
 1. Setiap `command` wajib menyertakan `description` yang ringkas, jelas, dan tidak menyesatkan AI.
 2. Setiap `command` wajib memerintahkan AI untuk membaca terlebih dahulu `instructions` yang terdaftar di `.kilo/kilo.jsonc`, dan mematuhi aturan yang ada di dalamnya.
 3. Wajib menggunakan bahasa Indonesia.

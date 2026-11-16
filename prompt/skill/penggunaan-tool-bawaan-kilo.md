@@ -1,3 +1,7 @@
+diperbarui : Mon Nov 16 2026 07:45 WIB
+
+file : [penggunaan-tool-bawaan-kilo](../../.agents/skills/custom/penggunaan-tool-bawaan-kilo/SKILL.md)
+
 # Aturan
 
 1. Wajib gunakan tool bawaan Kilo yang terdaftar di bawah ini bila ada padanan yang setara dengan kebutuhan; shell (`Bash`) hanya dipakai bila tidak ada tool bawaan yang mencukupi.
