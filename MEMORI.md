@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 17:39 WIB (sesi 217; penambahan entri keempat pada `keluhan.md` — gejala kegagalan awal sesi 217: tidak membuat sesi, tidak memuat skill memori-check, tidak membaca rules global melalui tool)
+Diperbarui: Mon Nov 16 2026 17:48 WIB (sesi 217; `prompt/commands/catat_keluhan.md` diedit (9 poin) lalu dikembalikan ke asli (6 poin) atas permintaan pengguna; tambah entri keempat pada `keluhan.md` — gejala kegagalan awal sesi 217)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
