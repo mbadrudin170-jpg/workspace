@@ -12,3 +12,4 @@ Argumen: `$ARGUMENTS`
 4. Bila argumen kosong, wajib tanyakan pengguna via tool `question` sebelum bekerja.
 5. Cukup tampilkan hasil rapi terlebih dahulu sebelum menanyakan penimpaan.
 6. Jangan mengubah atau menambah poin/aturan; pengecualian: perubahan demi kejelasan pembaca (agar tidak bingung atau salah menafsirkan) diperbolehkan.
+7. Cari aturan yang kemungkinan duplikat atau bentrok, atau misalnya dua aturan yang bisa dijadikan satu baris.
