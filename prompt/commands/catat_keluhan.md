@@ -7,4 +7,4 @@ ditimpa ke : `.kilo/commands/catat_keluhan.md`
 4. Tanyakan akar masalah (kenapa AI tidak mematuhi) sebelum mencatat.
 5. Catat entri ringkas ke `keluhan.md`: gejala, terkait, tindak lanjut.
 6. Jangan mengubah kode sumber sebagai bagian pencatatan keluhan.
-7. sertakan aturan, commands dan skill mana yang anda langgar agar kita bisa perbaiki antara ketiga kategori itu
+7. Sertakan path file aturan, rules, dan command yang dilanggar (mis. `AGENTS.md`, `.agents/rules/global/*.md`, `.kilo/commands/*.md`, `.agents/skills/custom/*/SKILL.md`) agar kita bisa perbaiki di antara ketiga kategori itu.
