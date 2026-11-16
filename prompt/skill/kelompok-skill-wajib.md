@@ -5,6 +5,7 @@ ditimpa ke : `.agents/skills/custom/kelompok-skill-wajib/SKILL.md`
 2. Jika skill tidak tersedia, laporkan; jangan mengarang.
 3. Setiap skill yang diubah wajib memperbarui tanggal diperbaruinya.
 4. Jika memperbarui berkas kelompok skill wajib, wajib memuat skill ini terlebih dahulu.
+5. Susun daftar skill berdasarkan abjad A-Z.
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
