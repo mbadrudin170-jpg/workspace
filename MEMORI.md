@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 21:31 WIB (sesi 213; salin prompt ke target — riverpod-pola diisi, aturan-pembuatan-commands dilengkapi, cari_apk_kompetitor + subagent, cari_rules_commands_skill_yang_diinginkan dibuat, rujukan prioritas_tool_bawaan lama dibersihkan pada scope)
+Diperbarui: Mon Nov 16 2026 17:39 WIB (sesi 217; penambahan entri keempat pada `keluhan.md` — gejala kegagalan awal sesi 217: tidak membuat sesi, tidak memuat skill memori-check, tidak membaca rules global melalui tool)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
