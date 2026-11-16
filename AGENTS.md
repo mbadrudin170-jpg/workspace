@@ -3,3 +3,4 @@
 3. Setiap SKILL.md di .agents/skills/ wajib diperlakukan sebagai aturan yang mengikat, setara dengan .agents/rules/.
 4. Root proyek bukan workspace Flutter, cari submodul yang menjadi lib/main nya.
 5. Semua aturan di sini berlaku untuk semua repo.
+6. Baca juga semua aturan yang ada di folder `.agents/rules/global`.

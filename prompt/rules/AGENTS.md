@@ -6,4 +6,5 @@ ditimpa ke : `AGENTS.md` (root)
 3. Setiap SKILL.md di .agents/skills/ wajib diperlakukan sebagai aturan yang mengikat, setara dengan .agents/rules/.
 4. root proyek bukan workspace Flutter, cari submodul yang menjadi lib/main nya.
 5. semua aturan disini berlaku untuk semua repo.
-6.
+6. baca juga semua aturan yang ada di folder `.agents/rules/global`.
+7.
