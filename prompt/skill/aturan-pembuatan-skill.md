@@ -1,3 +1,5 @@
+file : [aturan-pembuatan-skill](../../.agents/skills/custom/aturan-pembuatan-skill/SKILL.md)
+
 1. Setiap skill wajib memiliki frontmatter dengan `name` dan `description`; field `name` harus sama persis dengan nama folder (Name Matching Rule).
 2. Untuk nama folder, gunakan nama-nama Indonesia, kecuali yang spesifik dan yang sudah umum (misalnya jangan ubah `build` menjadi `bangun` dan lainnya); serta untuk penghubung antar kata wajib menggunakan `-` bukan `_`.
 3. Lokasi skill wajib berada di `.agents/skills/` (atau subfolder yang diminta pengguna).
@@ -8,6 +10,7 @@
 8. Tambahkan section di akhir skill untuk sumber (commit, web, source SDK, atau permintaan eksplisit pengguna).
 9. Batasan `name` — 1–64 karakter; huruf kecil/angka/strip; tidak diawali/diakhiri strip; tidak boleh strip ganda (`--`).
 10. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi.
+11. Setiap skill wajib memiliki berkas poin di folder `prompt/skill/` dengan nama yang sama dengan nama skill (mis. skill `penggunaan-tool-bawaan-kilo` → `prompt/skill/penggunaan-tool-bawaan-kilo.md`).
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
