@@ -5,3 +5,4 @@
 5. Untuk description, wajib bisa membuat skill ini dibutuhkan ketika sedang apa; jangan sampai skill sia-sia karena tidak terpakai sama sekali.
 6. Name matching — field `name` harus sama persis dengan nama folder (Name Matching Rule).
 7. Trigger-only description — `description` wajib diawali segmen trigger-only (`Trigger:` ... `|`), agar skill terpanggil saat tepat.
+8. Setiap skill usahakan untuk menyertakan contoh.
