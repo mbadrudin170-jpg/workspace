@@ -2,7 +2,11 @@
 
 Catatan kronologis perubahan proyek. Entri terbaru di atas.
 
+| Mon Nov 16 2026 12:15 WIB (sesi 196) | Command `salin_prompt_ke_target` (parameter "semuanya") — verifikasi seluruh 13 berkas `prompt/` terhadap target: target lain sudah selaras; `.kilo/commands/salin_prompt_ke_target.md` dibuat sebagai command lengkap (frontmatter + struktur standar) sesuai skill `aturan-pembuatan-commands`; perbaikan typo/ambigu pada sumber `prompt/commands/commit_file_sesi_ini.md` dan `prompt/skill/kelompok-skill-wajib.md`. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_196.md`. |
+
 | Mon Nov 16 2026 12:00 WIB (sesi 195) | Interaksi langsung (command `salin_prompt_ke_target`, parameter "semuanya") — verifikasi seluruh berkas `prompt/` terhadap target masing-masing: 12 berkas memiliki target; target lain sudah selaras; ditemukan celah pada skill `kelompok-skill-wajib` (poin 7 belum ditimpa) → ditambahkan Aturan 7, Larangan terkait, dan Sumber Evaluasi poin 1–7; typo kapitalisasi pada `prompt/rules/AGENTS.md` diperbaiki. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_195.md`. |
+
+| Mon Nov 16 2026 11:35 WIB (sesi 194) | Interaksi langsung (tanpa command) — diskusi isi berkas di folder `prompt/` (analisis, tanpa edit); rename skill `bangun-apk-github-workflow` → `build-apk-github-workflow` (folder, frontmatter `name`, referensi aktif). Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_194.md`. |
 "
 
 | Mon Nov 16 2026 11:45 WIB (sesi 192) | Interaksi langsung (tanpa command) — proses semua berkas di folder `prompt/` ditimpa ke target masing-masing: perbaikan typo/poin ambigu pada prompt source (salin_prompt_ke_target, aturan-pembuatan-skill, kelompok-skill-wajib, AGENTS) dan target (salin_prompt_ke_target, aturan-pembuatan-commands, aturan-pembuatan-skill), pembuatan skill baru `kelompok-skill-wajib`, penambahan entri 63 pada `SKILLS_INDEX.md`. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_192.md`. |

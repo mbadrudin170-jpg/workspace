@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 12:00 WIB (sesi 195; salin prompt ke target — verifikasi seluruh berkas prompt/ ke target; penutupan celah kelompok-skill-wajib poin 7)
+Diperbarui: Mon Nov 16 2026 12:15 WIB (sesi 196; salin prompt ke target — pemrosesan seluruh berkas prompt/ ke target; pembuatan command salin_prompt_ke_target.md; perbaikan typo sumber)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -46,7 +46,11 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 
 ## Status Kerja (per 2026-11-16)
 
+- Sesi 196 (2026-11-16; ~12:15 WIB): command `salin_prompt_ke_target` (parameter "semuanya") — verifikasi seluruh 13 berkas `prompt/` terhadap target: target skill/aturan/command lain sudah selaras dengan poin sumber; target `.kilo/commands/salin_prompt_ke_target.md` belum berbentuk command (hanya poin) → dibuat command lengkap (frontmatter + struktur standar) sesuai skill `aturan-pembuatan-commands`; perbaikan typo/ambigu pada sumber `prompt/commands/commit_file_sesi_ini.md` dan `prompt/skill/kelompok-skill-wajib.md`. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_196.md`. (sesi 196)
+
 - Sesi 195 (2026-11-16; ~12:00 WIB): command `salin_prompt_ke_target` (parameter "semuanya") — verifikasi seluruh berkas di folder `prompt/` terhadap target masing-masing (12 berkas, semua memiliki target): target lain sudah selaras; ditemukan dan ditutup celah pada skill `kelompok-skill-wajib` (poin 7 dari `prompt/skill/kelompok-skill-wajib.md` belum ditimpa → ditambahkan Aturan 7, Larangan terkait, dan Sumber Evaluasi poin 1–7); typo kapitalisasi pada `prompt/rules/AGENTS.md` diperbaiki. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_195.md`. (sesi 195)
+
+- Sesi 194 (2026-11-16; ~11:35 WIB): interaksi langsung (tanpa command) — diskusi isi berkas di folder `prompt/` (analisis, tanpa edit); rename skill `bangun-apk-github-workflow` → `build-apk-github-workflow` (folder, frontmatter `name`, referensi aktif pada prompt, aturan, kelompok skill, command). Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_194.md`. (sesi 194)
 
 - Sesi 193 (2026-11-16; ~11:45 WIB): interaksi langsung (tanpa command) — proses semua berkas di folder `prompt/` ditimpa ke target masing-masing: perbaikan typo/poin ambigu pada prompt source dan target, pembuatan skill baru `kelompok-skill-wajib`, penambahan entri 63 pada `kelompok_skill_wajib.md`. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_193.md`. (sesi 193)
 

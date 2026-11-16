@@ -24,4 +24,4 @@ Pada sesi ini juga dilakukan rename skill `bangun-apk-github-workflow` → `buil
 | memori/sesi/sesi_194.md | Dibuat | Berkas sesi baru (sesi 194) |
 
 ## Sinkronisasi ke MEMORI.md
-Belum Sinkron
+Sudah Sinkron: MEMORI.md (header + Status Kerja sesi 194), memori/riwayat_perubahan.md (entri sesi 194). Berkas sesi ditandai Sudah Sinkron.
