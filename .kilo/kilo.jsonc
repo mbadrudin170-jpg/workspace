@@ -128,7 +128,6 @@
     "AGENTS.md",
     ".agents/rules/global/format_hasil_diskusi.md",
     ".agents/rules/global/instructions_lengkap.md",
-    ".agents/rules/global/build_apk_github_workflow.md",
     ".agents/rules/global/kelompok_skill_wajib.md"
   ],
   "auto_collapse_reasoning": true,

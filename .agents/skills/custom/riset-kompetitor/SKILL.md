@@ -57,6 +57,7 @@ Hasil riset disimpan dalam tabel standar di `apk_kompetitor.md`. Analisa lanjuta
 28. **Aturan portabilitas:** DILARANG menulis nama aplikasi, domain, kategori fitur, atau istilah khas satu proyek ke dalam skill ini. Konvensi khusus proyek (nama berkas, daftar store prioritas, kategori relevansi) disimpan di `README.md`, `AGENTS.md`, command proyek, atau dokumen produk proyek.
 29. Jika aplikasi sasaran berubah, katalog lama **tidak boleh** langsung dipakai ulang. Verifikasi ulang relevansi setiap listing atau buat katalog baru sesuai perintah pengguna.
 30. Jika pengguna membatasi jumlah APK yang dianalisa (mis. 10), pilih lintas kategori/fitur yang paling relevan, catat alasan pemilihan di `refrensi_apk.md`, dan jangan menandai listing di luar jumlah tersebut sebagai `Sudah Dianalisa`.
+31. Catat tanggal pembaruan (mis. `diperbarui: YYYY-MM-DD`) pada `apk_kompetitor.md` dan `refrensi_apk.md` setiap kali berkas diperbarui.
 
 ## Steps
 

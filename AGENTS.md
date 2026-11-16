@@ -4,3 +4,4 @@
 4. Root proyek bukan workspace Flutter, cari submodul yang menjadi lib/main nya.
 5. Semua aturan di sini berlaku untuk semua repo.
 6. Baca juga semua aturan yang ada di folder `.agents/rules/global`.
+7. file file yang ada di folder rules global wajib di baca, saya tidak akan meneruskan sesi jika semua file itu tidak di baca terlebih dahulu karena akan fatal ke code code saya

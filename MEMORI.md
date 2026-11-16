@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 13:15 WIB (sesi 211; salin prompt ke target — celah audit_riwayat_sesi ditutup, celah minor ditutup)
+Diperbarui: Mon Nov 16 2026 13:25 WIB (sesi 212; salin prompt ke target — celah riset-kompetitor poin 14 dan memori-check poin 6/12 ditutup)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -46,6 +46,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 
 ## Status Kerja (per 2026-11-16)
 
+- Sesi 212 (2026-11-16; ~13:20 WIB): command `salin_prompt_ke_target` (parameter kosong → pengguna memilih "Semuanya") — verifikasi seluruh 19 berkas `prompt/` terhadap target: semua memiliki target (tidak ada STOP); sebagian besar target sudah selaras; celah ditutup pada skill `riset-kompetitor` (poin 14 → Aturan 31 catat tanggal pembaruan) dan skill `memori-check` (poin 6 → Aturan 9 tanyakan pengguna apakah sesi diakhiri; poin 12 → Aturan 23 penandaan hanya oleh sesi pembuat). Poin ambigu dilaporkan: `prompt/commands/build_apk.md` poin 3 kosong ("3. ") — tidak diarang, target `build_apk.md` sudah menetapkan via GitHub Actions. Tidak ada typo yang jelas pada sumber. Tidak ada kode Dart. Rujukan: `memori/sesi/sesi_212.md`. (sesi 212)
 - Sesi 211 (2026-11-16; ~13:09 WIB): command `salin_prompt_ke_target` (parameter kosong → pengguna memilih "Semuanya") — verifikasi seluruh 19 berkas `prompt/` terhadap target: celah utama ditutup (target `.kilo/commands/audit_riwayat_sesi.md` kosong → dibuat command lengkap dari 15 poin sumber); celah minor ditutup (target `cari_apk_kompetitor.md` +poin 14–16, target `riset_kompetitor.md` +format section contoh, skill `riset-kompetitor` +larangan memindai ulang link cacat, skill `memori-check` +Aturan 24 pengecualian pengguna); perbaikan typo pada sumber `prompt/commands/audit_riwayat_sesi.md` (poin 12 "seubah" → "setelah semua sesi selesai diaudit..."). Berkas lain sudah selaras. Tidak ada kode Dart. Rujukan: `memori/sesi/sesi_211.md`. (sesi 211)
 - Sesi 209 (2026-11-16; ~13:01 WIB): interaksi langsung (tanpa command) — perapian poin 13–14 pada `prompt/skill/memori-check.md` (pengecualian eksplisit pengguna untuk riwayat perubahan) atas persetujuan pengguna; berkas prompt skill direkonstruksi (13 poin) karena isi sebelumnya terhapus. Berkas prompt diperbarui; target skill tidak disentuh. Tidak ada kode Dart. Rujukan: `memori/sesi/sesi_209.md`.
 
