@@ -15,3 +15,8 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 10. Batasan `name` — 1–64 karakter; huruf kecil/angka/strip; tidak diawali/diakhiri strip; tidak boleh strip ganda (`--`).
 11. Batasan `description` — 1–1024 karakter, non-kosong; jelaskan apa yang dilakukan dan kapan dipakai.
 12. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi.
+
+## Sumber Evaluasi
+
+- https://kilo.ai/docs/customize/skills
+- https://kilo.ai/docs/customize/skills?utm_source=chatgpt.com
