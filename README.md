@@ -26,7 +26,7 @@ Daftar submodule bersumber dari `.gitmodules`. Submodule tidak memiliki `.gitmod
 | `.agents/rules/global/` | Aturan global (format PRD, hasil diskusi, task, dan alur Git & commit). |
 | `.agents/skills/custom/` | 61 skill kustom (`SKILL.md`) untuk konteks kerja tertentu. |
 | `.agents/skills/bawaan/` | Skill bawaan (`flutter-dart`). |
-| `.agents/rules/global/.agents/rules/global/SKILLS_INDEX.md` | Indeks skill (trigger dan status pembaruan). |
+| `.agents/rules/global/.agents/rules/global/kelompok_skill_wajib.md` | Indeks skill (trigger dan status pembaruan). |
 | `skills-lock.json` | Kunci versi/hash skill yang dipasang. |
 | `.kilo/` | Konfigurasi Kilo proyek (`kilo.jsonc`, command, prompt); diabaikan Git (`.gitignore`). |
 | `.vscode/` | 12 berkas snippet (`*.code-snippets`) serta konfigurasi editor/debug/MCP. |
@@ -47,7 +47,7 @@ Daftar submodule bersumber dari `.gitmodules`. Submodule tidak memiliki `.gitmod
 
 - Aturan global pada `.agents/rules/global/` mencakup format PRD, hasil diskusi, task, dan alur Git & commit.
 - `AGENTS.md` menjadi rujukan aturan gabungan bagi agen AI.
-- Skill dimuat sesuai trigger; `.agents/rules/global/SKILLS_INDEX.md` dan `skills-lock.json` menjaga keterlacakan serta konsistensi skill.
+- Skill dimuat sesuai trigger; `.agents/rules/global/kelompok_skill_wajib.md` dan `skills-lock.json` menjaga keterlacakan serta konsistensi skill.
 
 ### Konfigurasi Kilo
 
@@ -66,7 +66,7 @@ Daftar submodule bersumber dari `.gitmodules`. Submodule tidak memiliki `.gitmod
 ## Kelebihan Repositori
 
 - **Konfigurasi terpusat**: aturan, skill, snippet, dan skrip dihimpun dalam satu repositori induk.
-- **Skill terindeks**: trigger dan status pembaruan terdokumentasi di `.agents/rules/global/SKILLS_INDEX.md` dengan penguncian versi di `skills-lock.json`.
+- **Skill terindeks**: trigger dan status pembaruan terdokumentasi di `.agents/rules/global/kelompok_skill_wajib.md` dengan penguncian versi di `skills-lock.json`.
 - **Keterlacakan kerja**: memori sesi, riwayat perubahan, hasil diskusi, dan PRD mendukung kontinuitas pengerjaan.
 - **Pemisahan riwayat kode**: submodule menjaga aplikasi (`base_coc`) dan pustaka bersama (`share_global_saya`) tetap independen.
 
@@ -94,7 +94,7 @@ git submodule update --init --recursive
 ### Penggunaan Singkat
 
 - Muat alias shell (opsional): `source script/bash_aliases.sh`
-- Baca `AGENTS.md` dan `.agents/rules/global/SKILLS_INDEX.md` sebelum bekerja dengan agen AI.
+- Baca `AGENTS.md` dan `.agents/rules/global/kelompok_skill_wajib.md` sebelum bekerja dengan agen AI.
 - Jalankan perintah Flutter/Dart dari root submodule yang relevan (`base_coc/` atau `share_global_saya/`), bukan dari root `workspace`.
 
 ## Status Proyek

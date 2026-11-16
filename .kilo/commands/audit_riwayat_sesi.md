@@ -95,7 +95,7 @@ Sampaikan laporan yang memuat:
 
 - DILARANG mengubah berkas apa pun selain append ke `audit/riwayat_sesi.md`.
 - DILARANG memperbaiki temuan audit secara otomatis; tindak lanjut hanya rekomendasi tertulis dan dieksekusi lewat sesi terpisah atas persetujuan pengguna.
-- DILARANG mengubah berkas `memori/sesi/*.md` (termasuk penandaan apa pun di dalamnya), `MEMORI.md`, `memori/riwayat_perubahan.md`, `.agents/rules/global/SKILLS_INDEX.md`, skill, command, aturan, `task.md`, atau kode sumber.
+- DILARANG mengubah berkas `memori/sesi/*.md` (termasuk penandaan apa pun di dalamnya), `MEMORI.md`, `memori/riwayat_perubahan.md`, `.agents/rules/global/kelompok_skill_wajib.md`, skill, command, aturan, `task.md`, atau kode sumber.
 - DILARANG menghapus, mengompres, atau mengubah sesi yang sudah diaudit; penandaan di ledger adalah satu-satunya perlakuan tambahan.
 - DILARANG memakai git log sebagai sumber data audit.
 - DILARANG menganalisis ulang penuh berkas yang dilewati; bila meragukan mtime, baca ulang berkas hanya untuk verifikasi, bukan analisis ulang (lihat skill `audit-riwayat-sesi`).

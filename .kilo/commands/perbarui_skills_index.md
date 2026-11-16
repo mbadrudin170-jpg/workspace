@@ -1,5 +1,5 @@
 ---
-description: Memindai seluruh `SKILL.md` di `.agents/skills/`, memvalidasi penempatan dan metadata, lalu menulis ulang `.agents/rules/global/SKILLS_INDEX.md` berdasarkan trigger dan status diperbarui.
+description: Memindai seluruh `SKILL.md` di `.agents/skills/`, memvalidasi penempatan dan metadata, lalu menulis ulang `.agents/rules/global/kelompok_skill_wajib.md` berdasarkan trigger dan status diperbarui.
 ---
 
 # Tujuan
@@ -10,7 +10,7 @@ description: Memindai seluruh `SKILL.md` di `.agents/skills/`, memvalidasi penem
 - Jika `$ARGUMENTS` kosong: pindai seluruh kategori.
 - Jika `$ARGUMENTS` bukan kategori standar: **STOP** dan laporkan sebagai anomali serius.
 
-Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan dan metadata setiap skill, lalu menulis indeks ke `.agents/rules/global/SKILLS_INDEX.md` (root proyek) berdasarkan path skill, trigger, dan status diperbarui dari metadata. Perintah wajib memberi tahu pengguna ketika menemukan skill yang tidak berada dalam kategori standar `bawaan`/`custom`, tidak memiliki `metadata.kategori`, atau berkonflik dengan `metadata.kategori`.
+Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan dan metadata setiap skill, lalu menulis indeks ke `.agents/rules/global/kelompok_skill_wajib.md` (root proyek) berdasarkan path skill, trigger, dan status diperbarui dari metadata. Perintah wajib memberi tahu pengguna ketika menemukan skill yang tidak berada dalam kategori standar `bawaan`/`custom`, tidak memiliki `metadata.kategori`, atau berkonflik dengan `metadata.kategori`.
 
 # Sumber Kebenaran Kategori
 
@@ -67,7 +67,7 @@ Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan
     - **Description tanpa `Trigger:`**: skill tidak diawali penanda literal `Trigger:` pada `description` (konvensi `aturan_skill.md` §8.2), sehingga ekstraksi trigger jatuh ke penanda `perlu dilengkapi trigger`.
 
 8. **Ambil keputusan berdasarkan tingkat anomali (WAJIB).**
-   - Jika ada anomali serius/fatal: **STOP**. Cetak daftar anomali + ringkasan, **JANGAN menulis `.agents/rules/global/SKILLS_INDEX.md`**, dan akhiri dengan status gagal.
+   - Jika ada anomali serius/fatal: **STOP**. Cetak daftar anomali + ringkasan, **JANGAN menulis `.agents/rules/global/kelompok_skill_wajib.md`**, dan akhiri dengan status gagal.
    - Jika hanya ada anomali ringan: lanjutkan penulisan indeks sambil mencatat peringatan.
 
 9. **Laporkan hasil (WAJIB).**
@@ -76,12 +76,12 @@ Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan
    - Bila tidak ada anomali, cetak "Tidak ada anomali".
    - DILARANG diam ketika daftar anomali tidak kosong.
 
-10. **Tulis .agents/rules/global/SKILLS_INDEX.md.** (hanya bila tidak ada anomali serius/fatal)
-    - Simpan di root proyek (`.agents/rules/global/SKILLS_INDEX.md`).
+10. **Tulis .agents/rules/global/kelompok_skill_wajib.md.** (hanya bila tidak ada anomali serius/fatal)
+    - Simpan di root proyek (`.agents/rules/global/kelompok_skill_wajib.md`).
     - Gunakan format waktu baku Asia/Jakarta untuk semua timestamp.
 
 11. **Validasi akhir.**
-    - Pastikan `.agents/rules/global/SKILLS_INDEX.md` hanya memuat trigger (bukan cakupan/larangan/workflow).
+    - Pastikan `.agents/rules/global/kelompok_skill_wajib.md` hanya memuat trigger (bukan cakupan/larangan/workflow).
     - Pastikan `SKILL.md` tetap menjadi sumber kebenaran (wajib di-load sebelum mengerjakan tugas).
     - Pastikan jumlah entri indeks sama dengan jumlah `SKILL.md` yang dipindai (tidak ada yang hilang).
 
@@ -98,14 +98,14 @@ Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan
 1. Dilarang mengubah file `SKILL.md` selama proses scan (hanya baca).
 2. Dilarang mencantumkan cakupan, larangan, atau workflow di indeks — hanya trigger.
 3. Dilarang mengarang trigger jika tidak ditemukan; wajib tulis `perlu dilengkapi trigger`.
-4. Dilarang mengubah file lain di luar `.agents/rules/global/SKILLS_INDEX.md`.
+4. Dilarang mengubah file lain di luar `.agents/rules/global/kelompok_skill_wajib.md`.
 5. Dilarang menentukan kategori dari `metadata.kategori` (kategori wajib dari folder fisik).
 6. Dilarang melewatkan pelaporan anomali atau menampilkan hasil seolah normal ketika ada anomali.
-7. Dilarang menulis `.agents/rules/global/SKILLS_INDEX.md` ketika terdapat anomali serius/fatal (perintah wajib berhenti).
+7. Dilarang menulis `.agents/rules/global/kelompok_skill_wajib.md` ketika terdapat anomali serius/fatal (perintah wajib berhenti).
 
 # Batasan Ruang Lingkup
 
-1. Pekerjaan hanya mencakup pembuatan/memperbarui `.agents/rules/global/SKILLS_INDEX.md` dari `SKILL.md` yang ada.
+1. Pekerjaan hanya mencakup pembuatan/memperbarui `.agents/rules/global/kelompok_skill_wajib.md` dari `SKILL.md` yang ada.
 2. Tidak membuat, mengubah, atau menghapus file `SKILL.md`.
 3. Jika `metadata.diperbarui` belum ada pada `SKILL.md`, catat di indeks dan lanjutkan; tidak menghentikan proses.
 4. Anomali **ringan** (mis. `metadata.kategori` kosong) dilaporkan tetapi tidak menghentikan penulisan indeks. Anomali **serius/fatal** (di luar `bawaan`/`custom`, konflik kategori, folder tak terbaca, tidak ada `SKILL.md`) **menghentikan** perintah dan tidak menulis indeks.
@@ -113,7 +113,7 @@ Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan
 # Hasil Akhir
 
 Setelah selesai:
-1. `.agents/rules/global/SKILLS_INDEX.md` di root proyek berisi indeks seluruh skill.
+1. `.agents/rules/global/kelompok_skill_wajib.md` di root proyek berisi indeks seluruh skill.
 2. Setiap kategori memiliki heading sendiri (`## custom`, `## bawaan`, dll.).
 3. Entri diurutkan alfabetis per kategori.
 4. Format waktu menggunakan Asia/Jakarta.

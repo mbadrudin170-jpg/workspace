@@ -129,7 +129,7 @@
     ".agents/rules/global/format_hasil_diskusi.md",
     ".agents/rules/global/instructions_lengkap.md",
     ".agents/rules/global/build_apk_github_workflow.md",
-    ".agents/rules/global/SKILLS_INDEX.md"
+    ".agents/rules/global/kelompok_skill_wajib.md"
   ],
   "auto_collapse_reasoning": true,
   "terminal_command_display": "collapsed",

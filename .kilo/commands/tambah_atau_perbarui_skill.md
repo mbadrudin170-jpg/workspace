@@ -16,7 +16,7 @@ Menambahkan skill baru atau memperbarui skill yang sudah ada di `.agents/skills/
 
 ## Cakupan
 
-- Hanya `.agents/skills/custom/` (dan `.agents/rules/global/SKILLS_INDEX.md` untuk sinkronisasi indeks).
+- Hanya `.agents/skills/custom/` (dan `.agents/rules/global/kelompok_skill_wajib.md` untuk sinkronisasi indeks).
 
 ## Parameter
 
@@ -27,7 +27,7 @@ Menambahkan skill baru atau memperbarui skill yang sudah ada di `.agents/skills/
 
 1. **Analyze** — pelajari sumber yang diberikan; periksa skill custom yang sudah ada untuk menghindari duplikasi tujuan; baca commit yang relevan sebagai sumber isi.
 2. **Plan** — tentukan: memperbarui skill yang ada atau membuat skill baru, nama folder kebab-case, dan versi yang dinaikkan.
-3. **Execute** — tulis/perbarui `SKILL.md` dengan seluruh section wajib, frontmatter lengkap, dan segmen trigger-only; perbarui `.agents/rules/global/SKILLS_INDEX.md`.
+3. **Execute** — tulis/perbarui `SKILL.md` dengan seluruh section wajib, frontmatter lengkap, dan segmen trigger-only; perbarui `.agents/rules/global/kelompok_skill_wajib.md`.
 4. **Review** — verifikasi checklist skill (nama folder, frontmatter, section, sumber dari commit, trigger) dan pastikan indeks konsisten.
 5. Bila tidak ada commit yang berkaitan dan pola tidak tersedia: **STOP** dan tanyakan cara melanjutkan; dilarang mengarang.
 
@@ -35,11 +35,11 @@ Menambahkan skill baru atau memperbarui skill yang sudah ada di `.agents/skills/
 
 | Skill | Tindakan | Versi | Berkas |
 | --- | --- | --- | --- |
-| `<nama>` | Dibuat/Diperbarui | `1.x.x` | `<path SKILL.md>`, `.agents/rules/global/SKILLS_INDEX.md` |
+| `<nama>` | Dibuat/Diperbarui | `1.x.x` | `<path SKILL.md>`, `.agents/rules/global/kelompok_skill_wajib.md` |
 
 ## Larangan
 
-- DILARANG mengubah berkas di luar `.agents/skills/custom/` dan `.agents/rules/global/SKILLS_INDEX.md`.
+- DILARANG mengubah berkas di luar `.agents/skills/custom/` dan `.agents/rules/global/kelompok_skill_wajib.md`.
 - DILARANG membuat skill duplikat atau tumpang tindih tujuan.
 - DILARANG mengarang isi skill tanpa sumber/commit yang relevan.
 - DILARANG mengubah kode Dart.

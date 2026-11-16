@@ -1,12 +1,12 @@
 ---
-description: Mengaudit kesehatan sistem kerja proyek (struktur folder, .agents/rules/global/SKILLS_INDEX.md, frontmatter skill, command, memori sesi, repositori, hasil diskusi, dan kelengkapan `instructions`) lalu melaporkan temuan GALAT/PERINGATAN di sesi; read-only kecuali penambahan berkas yang belum terdaftar ke `instructions`.
+description: Mengaudit kesehatan sistem kerja proyek (struktur folder, .agents/rules/global/kelompok_skill_wajib.md, frontmatter skill, command, memori sesi, repositori, hasil diskusi, dan kelengkapan `instructions`) lalu melaporkan temuan GALAT/PERINGATAN di sesi; read-only kecuali penambahan berkas yang belum terdaftar ke `instructions`.
 ---
 
 # Cek Kesehatan Sistem Kerja
 
 ## Tujuan
 
-Command ini mengaudit kesehatan sistem kerja proyek (aset pendukung agen AI: aturan, skill, command, memori, hasil diskusi, repositori, dan kelengkapan `instructions`) untuk memastikan kondisi konsisten dan tidak rusak. Command ini **read-only dengan satu pengecualian**: bila ada berkas wajib (`.agents/rules/**/*.md`, `AGENTS.md`, `.agents/rules/global/SKILLS_INDEX.md`) yang belum terdaftar di `instructions` pada `.kilo/kilo.jsonc`, berkas tersebut **ditambahkan otomatis** oleh command ini. Laporan temuan disampaikan hanya di sesi.
+Command ini mengaudit kesehatan sistem kerja proyek (aset pendukung agen AI: aturan, skill, command, memori, hasil diskusi, repositori, dan kelengkapan `instructions`) untuk memastikan kondisi konsisten dan tidak rusak. Command ini **read-only dengan satu pengecualian**: bila ada berkas wajib (`.agents/rules/**/*.md`, `AGENTS.md`, `.agents/rules/global/kelompok_skill_wajib.md`) yang belum terdaftar di `instructions` pada `.kilo/kilo.jsonc`, berkas tersebut **ditambahkan otomatis** oleh command ini. Laporan temuan disampaikan hanya di sesi.
 
 ## Ketentuan Umum
 
@@ -27,14 +27,14 @@ Command ini mengaudit kesehatan sistem kerja proyek (aset pendukung agen AI: atu
 
 Periksa aset berikut secara berurutan. Jika suatu aset tidak relevan atau berkasnya tidak ada, laporkan sebagai temuan (GALAT atau PERINGATAN) sesuai kriteria, bukan mengarang hasil.
 
-1. **Struktur folder dan berkas wajib** — keberadaan dan keterbacaan folder/berkas kunci yang dirujuk proyek (mis. `AGENTS.md`, `MEMORI.md`, `.agents/rules/global/SKILLS_INDEX.md`, `.agents/rules/`, `.agents/skills/`, `.kilo/commands/`, `memori/sesi/`, `hasil_diskusi/` bila digunakan). Catat yang hilang atau tidak sesuai harapan.
-2. **Konsistensi `.agents/rules/global/SKILLS_INDEX.md`** — setiap entri indeks menunjuk `SKILL.md` yang ada; setiap folder skill yang seharusnya terindeks memiliki entri; path, trigger, dan status diperbarui konsisten dengan isi aktual.
+1. **Struktur folder dan berkas wajib** — keberadaan dan keterbacaan folder/berkas kunci yang dirujuk proyek (mis. `AGENTS.md`, `MEMORI.md`, `.agents/rules/global/kelompok_skill_wajib.md`, `.agents/rules/`, `.agents/skills/`, `.kilo/commands/`, `memori/sesi/`, `hasil_diskusi/` bila digunakan). Catat yang hilang atau tidak sesuai harapan.
+2. **Konsistensi `.agents/rules/global/kelompok_skill_wajib.md`** — setiap entri indeks menunjuk `SKILL.md` yang ada; setiap folder skill yang seharusnya terindeks memiliki entri; path, trigger, dan status diperbarui konsisten dengan isi aktual.
 3. **Metadata frontmatter skill** — setiap `SKILL.md` memiliki frontmatter YAML dengan field wajib (`name`, `description`, `metadata.kategori`, `metadata.versi`, `metadata.diperbarui`), `description` diawali segmen trigger-only `Trigger:` sesuai aturan, dan `name` sesuai nama folder.
 4. **Validasi command** — berkas command `.md` di `.kilo/commands/**` memiliki nama aman (huruf kecil, angka, garis bawah, `.md`), frontmatter `description` bila diwajibkan konvensi proyek, tidak memuat tautan markdown keliru (mis. URL palsu untuk berkas lokal), dan tidak merujuk target yang sudah tidak ada.
 5. **Kesehatan memori sesi** — berkas `memori/sesi/sesi_N.md` yang berstatus `Belum Sinkron` (di luar sesi aktif bila dapat diidentifikasi), ketidakkonsistenan penomoran/penamaan, atau status sinkronisasi yang tidak jelas; periksa juga keselarasan tanggal/status pada `MEMORI.md` bila relevan.
 6. **Kesehatan repositori** — kondisi yang teramati dari `git status`/struktur (submodule, pointer submodule yang tidak sinkron, berkas ter-ignore yang seharusnya diabaikan, atau anomali `.gitignore` vs working tree) **tanpa** menjalankan operasi yang mengubah state git.
 7. **Penomoran `hasil_diskusi/`** — berkas `diskusi_N.md` mengikuti penomoran yang konsisten (nomor tertinggi, gap, duplikasi nama), dan pencatatan daftar/nomor tertinggi di `MEMORI.md` selaras dengan isi folder aktual.
-8. **Kelengkapan `instructions`** — setiap berkas `.agents/rules/**/*.md` (rekursif), `AGENTS.md` di root, dan `.agents/rules/global/SKILLS_INDEX.md` wajib terdaftar di `instructions` pada `.kilo/kilo.jsonc`. Bila ada yang belum terdaftar, **tambahkan otomatis** sebagai entri baru (satu baris per berkas, path relatif root) dan catat sebagai temuan `GALAT` yang sudah diperbaiki; bila `.kilo/kilo.jsonc` tidak ada, tidak dapat dibaca, atau gagal tervalidasi setelah ditulis, laporkan sebagai `GALAT` tanpa memakai jalur lain. Lihat aturan `.agents/rules/global/instructions_lengkap.md`.
+8. **Kelengkapan `instructions`** — setiap berkas `.agents/rules/**/*.md` (rekursif), `AGENTS.md` di root, dan `.agents/rules/global/kelompok_skill_wajib.md` wajib terdaftar di `instructions` pada `.kilo/kilo.jsonc`. Bila ada yang belum terdaftar, **tambahkan otomatis** sebagai entri baru (satu baris per berkas, path relatif root) dan catat sebagai temuan `GALAT` yang sudah diperbaiki; bila `.kilo/kilo.jsonc` tidak ada, tidak dapat dibaca, atau gagal tervalidasi setelah ditulis, laporkan sebagai `GALAT` tanpa memakai jalur lain. Lihat aturan `.agents/rules/global/instructions_lengkap.md`.
 
 ## Alur Kerja
 
@@ -57,7 +57,7 @@ Contoh baris temuan:
 
 | No | Aset | Tingkat | Path/Objek | Temuan | Saran |
 | --- | --- | --- | --- | --- | --- |
-| 1 | .agents/rules/global/SKILLS_INDEX.md | GALAT | `.agents/rules/global/SKILLS_INDEX.md` | Entri menunjuk `SKILL.md` yang tidak ada | Hapus entri atau buat/restore skill, lalu sinkronkan indeks |
+| 1 | .agents/rules/global/kelompok_skill_wajib.md | GALAT | `.agents/rules/global/kelompok_skill_wajib.md` | Entri menunjuk `SKILL.md` yang tidak ada | Hapus entri atau buat/restore skill, lalu sinkronkan indeks |
 
 ## Larangan
 

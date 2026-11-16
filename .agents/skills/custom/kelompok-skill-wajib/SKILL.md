@@ -5,7 +5,7 @@ description: "Trigger: saat memperbarui kelompok skill wajib | Panduan kelompok 
 
 # Kelompok Skill Wajib
 
-Panduan pemeliharaan kelompok skill wajib pada `.agents/rules/global/SKILLS_INDEX.md` (atau berkas indeks serupa) agar konsisten dan dapat diaudit.
+Panduan pemeliharaan kelompok skill wajib pada `.agents/rules/global/kelompok_skill_wajib.md` (atau berkas indeks serupa) agar konsisten dan dapat diaudit.
 
 ## Aturan
 

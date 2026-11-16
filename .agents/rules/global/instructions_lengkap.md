@@ -11,7 +11,7 @@ Menetapkan kewajiban agar setiap berkas yang menjadi sumber aturan dan indeks sk
 - Berkas wajib terdaftar:
   - seluruh `.agents/rules/**/*.md` (rekursif);
   - `AGENTS.md` di root proyek;
-  - `.agents/rules/global/SKILLS_INDEX.md`.
+  - `.agents/rules/global/kelompok_skill_wajib.md`.
 - Target pengecekan: bagian `instructions` pada `.kilo/kilo.jsonc` proyek yang sedang berjalan.
 
 ## 3. Aturan
@@ -32,7 +32,7 @@ Menetapkan kewajiban agar setiap berkas yang menjadi sumber aturan dan indeks sk
 
 ## 5. Sumber Evaluasi
 
-- Perintah pengguna (sesi 87, 2026-11-15): "tambahkan juga pengecekan bahwa semua file yang ada di .agents/rules, AGENTS.md, SKILLS_INDEX.md, wajib ada di instructions".
-- Berkas rujukan nyata: `.kilo/kilo.jsonc` (bagian `instructions`), `.agents/rules/global/` (alur_git_commit.md, format_hasil_diskusi.md, kelompok_skill_wajib.md, instructions_lengkap.md, prioritas_tool_bawaan.md), `AGENTS.md`, `.agents/rules/global/SKILLS_INDEX.md`.
+- Perintah pengguna (sesi 87, 2026-11-15): "tambahkan juga pengecekan bahwa semua file yang ada di .agents/rules, AGENTS.md, kelompok_skill_wajib.md, wajib ada di instructions".
+- Berkas rujukan nyata: `.kilo/kilo.jsonc` (bagian `instructions`), `.agents/rules/global/` (alur_git_commit.md, format_hasil_diskusi.md, kelompok_skill_wajib.md, instructions_lengkap.md, prioritas_tool_bawaan.md), `AGENTS.md`, `.agents/rules/global/kelompok_skill_wajib.md`.
 - Preseden: `kelompok_skill_wajib.md` didaftarkan ke `instructions` pada sesi 84 tanpa didaftarkan ke `AGENTS.md`.
 - Skill terkait: `.agents/skills/custom/konfigurasi-kilo-proyek/SKILL.md`, `.agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md`.
