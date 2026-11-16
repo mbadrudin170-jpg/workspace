@@ -34,6 +34,8 @@ Memeriksa apakah seluruh berkas di folder `prompt/` sudah ditimpa ke target masi
 
 ## Alur Kerja
 
+Urutan pemrosesan per folder (kerjakan satu folder tuntas sebelum pindah): `prompt/skill/` → `prompt/rules/` → `prompt/commands/` → `prompt/mode/` (bila ada).
+
 1. **Analyze** — daftar seluruh berkas di `prompt/` (via `glob` pola `prompt/**/*`). Untuk setiap berkas, baca header `diperbarui :` dan target (`ditimpa ke :` / `file :`). Jika sebuah berkas tidak menyertakan target, **STOP** dan laporkan berkas tersebut.
 2. **Konfirmasi cakupan** — jika `$ARGUMENTS` kosong, tanyakan pengguna (tool `question`): proses semua berkas atau hanya beberapa (sebutkan nama). Jika pengguna memilih beberapa, minta daftar nama/path.
 3. **Plan** — untuk setiap berkas sumber yang akan diproses:
