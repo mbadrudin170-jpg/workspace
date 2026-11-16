@@ -1,4 +1,5 @@
 diperbarui :
+di timpa ke : 
 
 # Aturan Pembuatan Rules
 
