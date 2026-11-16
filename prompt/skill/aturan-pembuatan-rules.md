@@ -1,4 +1,4 @@
-diperbarui : 
+diperbarui :
 
 # Aturan Pembuatan Rules
 
@@ -13,4 +13,3 @@ Link referensi ini jangan dimasukkan ke skill.
 - https://kilo.ai/docs/customize/custom-rules
 - https://kilo.ai/docs/customize/custom-instructions
 - https://kilo.ai/docs/customize/agents-md
-
