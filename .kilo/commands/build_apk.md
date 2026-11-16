@@ -13,7 +13,7 @@ Membangun APK Android `release` dari proyek Flutter yang dipilih pengguna secara
 
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya.
 2. Muat skill `memori-check` (`.agents/skills/custom/memori-check/SKILL.md`) melalui tool `skill` sebelum bekerja — command ini mencatat ke berkas sesi dan `MEMORI.md`.
-3. Skill lain yang trigger-nya terpenuhi: `bangun-apk-github-workflow` (`.agents/skills/custom/bangun-apk-github-workflow/SKILL.md`) — muat melalui tool `skill` sebelum bekerja. Skill `build-runner-codegen` (`.agents/skills/custom/build-runner-codegen/SKILL.md`) **tidak** terkait karena command ini tidak menjalankan code generation.
+3. Skill lain yang trigger-nya terpenuhi: `build-apk-github-workflow` (`.agents/skills/custom/build-apk-github-workflow/SKILL.md`) — muat melalui tool `skill` sebelum bekerja. Skill `build-runner-codegen` (`.agents/skills/custom/build-runner-codegen/SKILL.md`) **tidak** terkait karena command ini tidak menjalankan code generation.
 4. Gunakan bahasa Indonesia baku pada seluruh laporan.
 5. Tool bawaan diprioritaskan (`read`, `glob`, `grep`, `list`, `edit`, `write`) sesuai `.agents/rules/global/prioritas_tool_bawaan.md`; shell hanya untuk perintah `gh`/`git` dan pemeriksaan metadata berkas.
 6. Jangan menggunakan terminal untuk membaca berkas sumber; gunakan tool `read`.

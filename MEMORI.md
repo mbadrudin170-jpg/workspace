@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 11:55 WIB (sesi 193; rename SKILLS_INDEX.md → kelompok_skill_wajib.md)
+Diperbarui: Mon Nov 16 2026 12:00 WIB (sesi 195; salin prompt ke target — verifikasi seluruh berkas prompt/ ke target; penutupan celah kelompok-skill-wajib poin 7)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -46,7 +46,9 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 
 ## Status Kerja (per 2026-11-16)
 
-- Sesi 192 (2026-11-16; ~11:45 WIB): interaksi langsung (tanpa command) — proses semua berkas di folder `prompt/` ditimpa ke target masing-masing: perbaikan typo/poin ambigu pada prompt source dan target, pembuatan skill baru `kelompok-skill-wajib`, penambahan entri 63 pada `kelompok_skill_wajib.md`. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_192.md`. (sesi 192)
+- Sesi 195 (2026-11-16; ~12:00 WIB): command `salin_prompt_ke_target` (parameter "semuanya") — verifikasi seluruh berkas di folder `prompt/` terhadap target masing-masing (12 berkas, semua memiliki target): target lain sudah selaras; ditemukan dan ditutup celah pada skill `kelompok-skill-wajib` (poin 7 dari `prompt/skill/kelompok-skill-wajib.md` belum ditimpa → ditambahkan Aturan 7, Larangan terkait, dan Sumber Evaluasi poin 1–7); typo kapitalisasi pada `prompt/rules/AGENTS.md` diperbaiki. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_195.md`. (sesi 195)
+
+- Sesi 193 (2026-11-16; ~11:45 WIB): interaksi langsung (tanpa command) — proses semua berkas di folder `prompt/` ditimpa ke target masing-masing: perbaikan typo/poin ambigu pada prompt source dan target, pembuatan skill baru `kelompok-skill-wajib`, penambahan entri 63 pada `kelompok_skill_wajib.md`. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_193.md`. (sesi 193)
 
 - Sesi 190 (2026-11-16; ~11:10 WIB): interaksi langsung (tanpa command) — atas permintaan pengguna, berkas `.agents/rules/global/kelompok_skill_wajib.md` dipindahkan dari root ke `.agents/rules/global/.agents/rules/global/kelompok_skill_wajib.md`. `.kilo/kilo.jsonc` bagian `instructions` diperbarui (path entri). Referensi aktif diperbarui (`MEMORI.md`, `.agents/rules/global/instructions_lengkap.md`, `README.md`, `kelompok_skill_wajib.md`, skill `memori-check`/`cek-kesehatan-sistem-kerja`/`konfigurasi-kilo-proyek`/`aturan-pembuatan-commands`/`audit-riwayat-sesi`, `prompt/`). Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_190.md`. (sesi 190)
 

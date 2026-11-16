@@ -2,8 +2,8 @@ diperbarui : Mon Nov 16 2026 07:45 WIB
 ditimpa ke : `AGENTS.md` (root)
 
 1. Setiap awal sesi wajib membaca memori terlebih dahulu, kemudian membuatkan file sesi-nya. Jika sesi tertingginya adalah sesi 5, maka buat file dengan nama sesi_6.md.
-2. setiap awal sesi wajib membuat file sesi di file `memori/sesi/`.
+2. Setiap awal sesi wajib membuat file sesi di file `memori/sesi/`.
 3. Setiap SKILL.md di .agents/skills/ wajib diperlakukan sebagai aturan yang mengikat, setara dengan .agents/rules/.
-4. root proyek bukan workspace Flutter, cari submodul yang menjadi lib/main nya.
-5. semua aturan disini berlaku untuk semua repo.
-6. baca juga semua aturan yang ada di folder `.agents/rules/global`.
+4. Root proyek bukan workspace Flutter, cari submodul yang menjadi lib/main nya.
+5. Semua aturan di sini berlaku untuk semua repo.
+6. Baca juga semua aturan yang ada di folder `.agents/rules/global`.

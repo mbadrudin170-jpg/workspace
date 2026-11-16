@@ -12,7 +12,7 @@ Menetapkan standar build APK Android `release` (split per ABI, hanya `android-ar
 
 - Proyek Flutter dengan folder `android/` dan berkas `.github/workflows/build-apk.yml`.
 - Command terkait: `.kilo/commands/build_apk.md`.
-- Skill terkait: `.agents/skills/custom/bangun-apk-github-workflow/SKILL.md`.
+- Skill terkait: `.agents/skills/custom/build-apk-github-workflow/SKILL.md`.
 
 ## Aturan
 
@@ -36,7 +36,7 @@ Menetapkan standar build APK Android `release` (split per ABI, hanya `android-ar
 
 ## Sumber Evaluasi
 
-- Skill terkait: `.agents/skills/custom/bangun-apk-github-workflow/SKILL.md`
+- Skill terkait: `.agents/skills/custom/build-apk-github-workflow/SKILL.md`
 - Command terkait: `.kilo/commands/build_apk.md`
 - Berkas workflow nyata: `<proyek>/.github/workflows/build-apk.yml`
 - Commit rujukan: `007b854`, `7295cda`, root `e3e40f4`

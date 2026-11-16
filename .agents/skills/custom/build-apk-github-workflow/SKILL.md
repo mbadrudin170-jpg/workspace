@@ -1,5 +1,5 @@
 ---
-name: bangun-apk-github-workflow
+name: build-apk-github-workflow
 description: Trigger: saat membangun APK Android release atau memperbarui proses build APK | Panduan build APK release via GitHub Actions workflow (bukan build lokal): prasyarat `gh` terautentikasi dengan scope `workflow`, proyek wajib memiliki `.github/workflows/build-apk.yml`, konfigurasi tetap `--split-per-abi --target-platform android-arm64`, pemicuan `gh workflow run`, pemantauan `gh run watch --exit-status`, pengunduhan artefak `app-release-apk`, dan verifikasi berkas `<proyek>-arm64-v8a-release.apk`. Termasuk larangan build lokal tanpa Android SDK, perubahan flag tanpa perintah pengguna, dan commit direktori `build/`.
 metadata:
   kategori: "custom"
