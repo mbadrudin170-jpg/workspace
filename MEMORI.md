@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 11:45 WIB (sesi 192; salin prompt ke target semua berkas)
+Diperbarui: Mon Nov 16 2026 11:55 WIB (sesi 193; rename SKILLS_INDEX.md → kelompok_skill_wajib.md)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
