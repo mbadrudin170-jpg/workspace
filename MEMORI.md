@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 09:43 WIB (sesi 186; penghapusan aturan global prioritas_tool_bawaan.md + pembaruan instructions)
+Diperbarui: Mon Nov 16 2026 09:44 WIB (sesi 187; penghapusan aturan global alur_git_commit.md + pembaruan instructions)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -45,6 +45,8 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 9. Root `workspace` bukan proyek Flutter; `lib/main.dart` hanya ada di submodule `base_coc`. Konfigurasi `myapp (debug mode - Local only)` pada `.vscode/launch.json` memakai `cwd` = `${workspaceFolder}/base_coc` dan `program` = `lib/main.dart` (relatif terhadap `cwd`, bukan root workspace); jangan menulis `program` sebagai `base_coc/lib/main.dart` karena akan menjadi path ganda (per 2026-11-14, sesi 6–7).
 
 ## Status Kerja (per 2026-11-16)
+
+- Sesi 187 (2026-11-16; ~09:44 WIB): interaksi langsung (tanpa command) — atas permintaan pengguna, berkas aturan global `.agents/rules/global/alur_git_commit.md` dihapus. `.kilo/kilo.jsonc` bagian `instructions` diperbarui (entri dicabut; config tervalidasi). `memori/riwayat_perubahan.md` ditambah entri (sesi 187). Referensi lain dibiarkan (broken link) agar cakupan tetap minimal. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_187.md`. (sesi 187)
 
 - Sesi 186 (2026-11-16; ~09:43 WIB): interaksi langsung (tanpa command) — atas permintaan pengguna, berkas aturan global `.agents/rules/global/prioritas_tool_bawaan.md` dihapus. `.kilo/kilo.jsonc` bagian `instructions` diperbarui (entri dicabut; config tervalidasi). `memori/riwayat_perubahan.md` ditambah entri (sesi 186). Referensi lain di skill/command/docs/memori dibiarkan (broken link) agar cakupan tetap minimal. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_186.md`. (sesi 186)
 

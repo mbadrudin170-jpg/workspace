@@ -126,7 +126,6 @@
   },
   "instructions": [
     "AGENTS.md",
-    ".agents/rules/global/alur_git_commit.md",
     ".agents/rules/global/format_hasil_diskusi.md",
     ".agents/rules/global/kelompok_skill_wajib.md",
     ".agents/rules/global/instructions_lengkap.md",
