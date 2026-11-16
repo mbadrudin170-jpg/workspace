@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 12:56 WIB (sesi 207; pembuatan poin penting command commit_file_sesi_ini di folder prompt)
+Diperbarui: Mon Nov 16 2026 13:15 WIB (sesi 211; salin prompt ke target — celah audit_riwayat_sesi ditutup, celah minor ditutup)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -45,6 +45,11 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 9. Root `workspace` bukan proyek Flutter; `lib/main.dart` hanya ada di submodule `base_coc`. Konfigurasi `myapp (debug mode - Local only)` pada `.vscode/launch.json` memakai `cwd` = `${workspaceFolder}/base_coc` dan `program` = `lib/main.dart` (relatif terhadap `cwd`, bukan root workspace); jangan menulis `program` sebagai `base_coc/lib/main.dart` karena akan menjadi path ganda (per 2026-11-14, sesi 6–7).
 
 ## Status Kerja (per 2026-11-16)
+
+- Sesi 211 (2026-11-16; ~13:09 WIB): command `salin_prompt_ke_target` (parameter kosong → pengguna memilih "Semuanya") — verifikasi seluruh 19 berkas `prompt/` terhadap target: celah utama ditutup (target `.kilo/commands/audit_riwayat_sesi.md` kosong → dibuat command lengkap dari 15 poin sumber); celah minor ditutup (target `cari_apk_kompetitor.md` +poin 14–16, target `riset_kompetitor.md` +format section contoh, skill `riset-kompetitor` +larangan memindai ulang link cacat, skill `memori-check` +Aturan 24 pengecualian pengguna); perbaikan typo pada sumber `prompt/commands/audit_riwayat_sesi.md` (poin 12 "seubah" → "setelah semua sesi selesai diaudit..."). Berkas lain sudah selaras. Tidak ada kode Dart. Rujukan: `memori/sesi/sesi_211.md`. (sesi 211)
+- Sesi 209 (2026-11-16; ~13:01 WIB): interaksi langsung (tanpa command) — perapian poin 13–14 pada `prompt/skill/memori-check.md` (pengecualian eksplisit pengguna untuk riwayat perubahan) atas persetujuan pengguna; berkas prompt skill direkonstruksi (13 poin) karena isi sebelumnya terhapus. Berkas prompt diperbarui; target skill tidak disentuh. Tidak ada kode Dart. Rujukan: `memori/sesi/sesi_209.md`.
+
+- Sesi 208 (2026-11-16; ~13:00 WIB): interaksi langsung (tanpa command) — perapian poin 9 pada `prompt/commands/riset_kompetitor.md` (template section contoh pada `refrensi_apk.md`) atas persetujuan pengguna. Berkas prompt command diperbarui; target command tidak disentuh. Tidak ada kode Dart. Rujukan: `memori/sesi/sesi_208.md`.
 
 - Sesi 207 (2026-11-16; ~12:56 WIB): interaksi langsung (tanpa command) — pembuatan `prompt/commands/commit_file_sesi_ini.md` (10 poin penting) dari command `commit_file_sesi_ini` untuk audit. Berkas prompt dibuat; target command tidak disentuh. Tidak ada kode Dart. Rujukan: `memori/sesi/sesi_207.md`.
 

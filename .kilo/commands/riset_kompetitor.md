@@ -29,7 +29,7 @@ Menganalisis aplikasi kompetitor yang belum dianalisis untuk menemukan referensi
 1. **Analyze** — tentukan aplikasi sasaran dari dokumen proyek; pilih maksimal 10 listing `Belum Dianalisa`.
 2. **Plan** — kelompokkan target riset per listing; verifikasi setiap tautan aplikasi.
 3. **Execute** — untuk setiap listing, analisis fitur (hanya yang berjalan di mobile), optimalisasi fitur yang sudah ada, serta pola UI/UX/layout; tandai `Sudah Dianalisa` pada `apk_kompetitor.md`.
-4. **Review** — perbarui `refrensi_apk.md`: sertakan link referensi, kelompokkan per fitur dan UI/UX, jelaskan tujuan, dan susun berdasarkan prioritas.
+4. **Review** — perbarui `refrensi_apk.md`: sertakan link referensi, kelompokkan per fitur dan UI/UX, jelaskan tujuan, dan susun berdasarkan prioritas. Tambahkan section contoh dengan format: `A1 <fitur> — prioritas: <Tinggi/Sedang/Rendah> — ringkasan singkat: <1 kalimat>` (contoh: `A1 Tambah Kopi — prioritas: Sedang — ringkasan singkat: fitur pencatatan konsumsi kopi harian dengan pengingat`).
 5. Bila listing kurang dari permintaan atau store tidak dapat diakses: laporkan keterbatasannya, jangan mengarang data.
 
 ## Format Laporan

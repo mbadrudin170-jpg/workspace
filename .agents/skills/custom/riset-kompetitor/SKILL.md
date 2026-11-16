@@ -90,7 +90,7 @@ Hasil riset disimpan dalam tabel standar di `apk_kompetitor.md`. Analisa lanjuta
 - DILARANG memperluas lingkup di luar katalog tanpa perintah eksplisit.
 - DILARANG menimpa bagian `refrensi_apk.md` yang sudah dihapus pengguna.
 - DILARANG memperbaiki kode sebagai bagian dari tugas riset.
-- DILARANG menjadikan listing tidak terverifikasi sebagai dasar rekomendasi.
+- DILARANG memindai ulang link APK yang cacat atau tidak dapat ditemukan; tandai sebagai tidak terverifikasi atau tidak disertakan.
 - DILARANG menandai `Sudah Dianalisa` sebelum analisa dijalankan dan didokumentasikan.
 - DILARANG menandai listing baru dari `cari_apk_kompetitor.md` sebagai `Sudah Dianalisa`.
 - DILARANG membuat section `# Status Analisa Fitur` di akhir file.

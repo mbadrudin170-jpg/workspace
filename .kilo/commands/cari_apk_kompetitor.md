@@ -40,6 +40,12 @@ Command ini bersifat global dan portabel lintas proyek. Jangan mengasumsikan nam
 12. Riset store dilakukan berurutan dalam satu run; bila ingin mempercepat pencarian kandidat di dalam satu store boleh memakai subagen paralel, tetapi **verifikasi tetap independen** per skill `riset-kompetitor` dan perbarui `apk_kompetitor.md` sebelum lanjut store berikutnya.
 13. **Aturan portabilitas:** DILARANG menulis nama aplikasi, domain, kategori fitur, atau istilah khas satu proyek ke dalam command ini; konteks proyek selalu dibaca dari dokumen proyek.
 
+14. **Urutan prioritas pencarian store:** Tinggi (Google Play, Apple App Store, Mi/GetApps, Samsung Galaxy Store, Huawei AppGallery, Oppo App Market), Sedang (Amazon Appstore, F-Droid), Rendah (APKPure).
+
+15. **Tambahkan section "Riwayat Pencarian Store"** yang mencatat berapa kali tiap store sudah diriset (mis. "Google Play: 2"); perbarui setiap run.
+
+16. **Pada batch berikutnya, prioritaskan store dengan riwayat pencarian terendah**, meskipun store prioritas tinggi belum selesai.
+
 ## Tautan Store Resmi
 
 Gunakan tautan berikut saat mengakses store (dipatok dan diperbarui perintah pengguna, 2026-11-15; tautan diverifikasi 2026-11-15 via webfetch/websearch — lihat `memori/sesi/sesi_91.md`):
