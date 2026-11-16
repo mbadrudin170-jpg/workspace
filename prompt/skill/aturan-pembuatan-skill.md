@@ -8,6 +8,7 @@
 8. Setiap skill usahakan untuk menyertakan contoh.
 9. Tambahkan section di akhir skill untuk sumber, misalnya dari commit, web, source SDK, atau karena pengguna minta secara eksplisit.
 
-
-
 # Link referensi
+
+- https://kilo.ai/docs/customize/skills
+- https://kilo.ai/docs/customize/skills?utm_source=chatgpt.com
