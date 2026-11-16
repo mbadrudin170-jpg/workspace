@@ -150,7 +150,7 @@
 - Trigger : saat membaca pengaturan sistem dari engine
 - Status : diperbarui : Sun Nov 15 2026 02:10 WIB
 
-38. .agents/skills/custom/pembuatan-command-kilo/SKILL.md
+38. .agents/skills/custom/aturan-pembuatan-commands/SKILL.md
 - Trigger : saat membuat command Kilo baru atau memperbarui command Kilo
 - Status : diperbarui : Sun Nov 15 2026 05:41 WIB
 

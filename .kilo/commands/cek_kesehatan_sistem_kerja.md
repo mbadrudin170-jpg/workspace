@@ -12,7 +12,7 @@ Command ini mengaudit kesehatan sistem kerja proyek (aset pendukung agen AI: atu
 
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya.
 2. Baca `MEMORI.md` untuk konteks proyek dan konvensi memori.
-3. Muat skill yang relevan sebelum audit: `skill` dengan nama `aturan-pembuatan-skill`, `pembuatan-command-kilo`, dan `bug-runtime` (sebagai referensi format pelaporan/penanganan temuan bila relevan). Muat juga skill `memori-check` bila diperlukan untuk konteks alur sesi.
+3. Muat skill yang relevan sebelum audit: `skill` dengan nama `aturan-pembuatan-skill`, `aturan-pembuatan-commands`, dan `bug-runtime` (sebagai referensi format pelaporan/penanganan temuan bila relevan). Muat juga skill `memori-check` bila diperlukan untuk konteks alur sesi.
 4. Gunakan bahasa Indonesia baku untuk seluruh laporan.
 5. Jangan menggunakan terminal untuk membaca isi berkas; gunakan tool `read`, `glob`, dan `grep` sesuai kebutuhan.
 6. Audit bersifat portabel: sesuaikan pemeriksaan dengan struktur aktual proyek yang sedang diaudit, bukan dengan asumsi nama proyek tertentu.

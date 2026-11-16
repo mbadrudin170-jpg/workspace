@@ -81,7 +81,7 @@ Diskusi dilakukan melalui tool `question` pada sesi 114; tidak ada implementasi 
 - K-13: Sesi yang sudah diaudit **tetap diarsipkan permanen** di `memori/sesi/`; tidak dihapus, tidak dikompresi, dan tidak diubah oleh audit. Penandaan di ledger adalah satu-satunya perlakuan tambahan.
 
 ## Rekomendasi
-- R-1: Saat implementasi, muat skill `pembuatan-command-kilo` (untuk command) dan `aturan-pembuatan-skill` (untuk skill), serta skill `memori-check` dan `cek-kesehatan-sistem-kerja` sebagai rujukan pola command + skill read-only.
+- R-1: Saat implementasi, muat skill `aturan-pembuatan-commands` (untuk command) dan `aturan-pembuatan-skill` (untuk skill), serta skill `memori-check` dan `cek-kesehatan-sistem-kerja` sebagai rujukan pola command + skill read-only.
 - R-2: Saat implementasi, daftarkan skill baru ke `SKILLS_INDEX.md`; pertimbangkan pendaftaran command baru di dokumentasi yang relevan (mis. `README.md`) dan ke `AGENTS.md` hanya atas persetujuan pengguna; skill tidak wajib masuk `instructions` di `.kilo/kilo.jsonc` (instructions hanya untuk aturan + `AGENTS.md` + `SKILLS_INDEX.md`).
 - R-3: Daftar sinyal awal untuk langkah ekstraksi (dapat disesuaikan saat implementasi): `ambigu`, `tabrakan`, `tidak disentuh`, `dilaporkan`, `Belum Sinkron`, `belum di-commit`, `melanggar`, `menunggu keputusan`.
 - R-4: Buat folder `audit/` saat implementasi (belum ada di root proyek); tentukan format header `audit/riwayat_sesi.md` saat implementasi.
@@ -91,7 +91,7 @@ Diskusi dilakukan melalui tool `question` pada sesi 114; tidak ada implementasi 
 ## Tindak Lanjut
 | No | Tindakan | File Terdampak | Status |
 |----|----------|----------------|--------|
-| 1  | Buat command `.kilo/commands/audit_riwayat_sesi.md` (format mengikuti skill `pembuatan-command-kilo`; read-only kecuali append `audit/riwayat_sesi.md`) | `.kilo/commands/audit_riwayat_sesi.md` | belum |
+| 1  | Buat command `.kilo/commands/audit_riwayat_sesi.md` (format mengikuti skill `aturan-pembuatan-commands`; read-only kecuali append `audit/riwayat_sesi.md`) | `.kilo/commands/audit_riwayat_sesi.md` | belum |
 | 2  | Buat skill `.agents/skills/custom/audit-riwayat-sesi/SKILL.md` (format mengikuti skill `aturan-pembuatan-skill`) | `.agents/skills/custom/audit-riwayat-sesi/SKILL.md` | belum |
 | 3  | Perbarui `SKILLS_INDEX.md` dengan entri skill baru | `SKILLS_INDEX.md` | belum |
 | 4  | Buat folder `audit/` dan berkas berjalan `audit/riwayat_sesi.md` saat implementasi — berisi header, format section append per audit, dan format ledger (mis. tabel `Sesi | Tanggal audit | mtime | jumlah baris`) yang dipakai K-10..K-12 | `audit/riwayat_sesi.md` | belum |

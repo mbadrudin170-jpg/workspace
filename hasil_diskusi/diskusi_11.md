@@ -45,7 +45,7 @@
 
 ### 8. Cakupan pembaruan command
 - Tanya: selain penambahan langkah, apa lagi yang diubah?
-- Kesimpulan: frontmatter `description` diperbarui mencakup verifikasi implementasi aktual; Kriteria STOP ditambah kondisi "seluruh item tindak lanjut sudah diimplementasikan seluruhnya → STOP + lapor"; rujukan skill relevan (mis. `pembuatan-command-kilo`) dipertahankan/dipatuhi; tidak ada perubahan lain di luar tujuan diskusi.
+- Kesimpulan: frontmatter `description` diperbarui mencakup verifikasi implementasi aktual; Kriteria STOP ditambah kondisi "seluruh item tindak lanjut sudah diimplementasikan seluruhnya → STOP + lapor"; rujukan skill relevan (mis. `aturan-pembuatan-commands`) dipertahankan/dipatuhi; tidak ada perubahan lain di luar tujuan diskusi.
 
 ## Keputusan
 
@@ -57,12 +57,12 @@
 - K-6: Bila per item ditemukan **sebagian** → **lapor rincian yang sudah/belum; kerjakan hanya sisa yang belum**, atas konfirmasi pengguna.
 - K-7: Bila **status dokumen tidak sesuai kondisi aktual** (dokumen `Belum Diimplementasikan` padahal kodenya ada) → **lapor saja**; command tidak mengubah berkas apa pun tanpa konfirmasi eksplisit pengguna.
 - K-8: Frontmatter `description` command diperbarui mencakup verifikasi implementasi aktual; Kriteria STOP ditambah kondisi "seluruh item tindak lanjut sudah diimplementasikan seluruhnya → STOP + lapor"; penomoran langkah disesuaikan.
-- K-9: Command diperbarui dengan mematuhi skill `pembuatan-command-kilo` (rujukan skill relevan, tool bawaan lebih dahulu, konfirmasi sebelum menulis); mode diskusi ini **tidak** mengubah command — implementasi dilakukan pada tindak lanjut terpisah atas persetujuan pengguna.
+- K-9: Command diperbarui dengan mematuhi skill `aturan-pembuatan-commands` (rujukan skill relevan, tool bawaan lebih dahulu, konfirmasi sebelum menulis); mode diskusi ini **tidak** mengubah command — implementasi dilakukan pada tindak lanjut terpisah atas persetujuan pengguna.
 
 ## Rekomendasi
 
-- R-1: Susun draf perubahan command (teks langkah baru + penomoran ulang + `description` + Kriteria STOP) dan konfirmasikan ke pengguna sebelum menulis berkas, sesuai skill `pembuatan-command-kilo` (konfirmasi sebelum menulis).
-- R-2: Setelah command ditulis, verifikasi dengan membaca ulang berkas (frontmatter valid, rujukan skill tercantum, tidak ada rujukan usang, tool bawaan dipakai) sesuai Steps 10 skill `pembuatan-command-kilo`; jangan commit/push tanpa perintah eksplisit pengguna.
+- R-1: Susun draf perubahan command (teks langkah baru + penomoran ulang + `description` + Kriteria STOP) dan konfirmasikan ke pengguna sebelum menulis berkas, sesuai skill `aturan-pembuatan-commands` (konfirmasi sebelum menulis).
+- R-2: Setelah command ditulis, verifikasi dengan membaca ulang berkas (frontmatter valid, rujukan skill tercantum, tidak ada rujukan usang, tool bawaan dipakai) sesuai Steps 10 skill `aturan-pembuatan-commands`; jangan commit/push tanpa perintah eksplisit pengguna.
 - R-3: Saat command yang diperbarui dijalankan, tampilkan hasil verifikasi per item (tabel: item | kata kunci | ditemukan/tidak | status) sebelum menyusun draf tindak lanjut.
 
 ## Tindak Lanjut
@@ -70,7 +70,7 @@
 | No | Tindakan | File Terdampak | Status |
 |----|----------|----------------|--------|
 | 1 | Perbarui command `kerjakan_hasil_diskusi.md`: tambah langkah "Verifikasi implementasi aktual" setelah validasi status `Final` (K-1), penomoran ulang, perbarui `description` dan Kriteria STOP (K-8), sumber bukti kode sumber saja (K-2), granul per item (K-3), kata kunci dari konten diskusi/PRD (K-4), STOP+lapor bila seluruh item sudah diimplementasikan (K-5), lapor+kerjakan sisa bila sebagian (K-6), lapor saja bila dokumen tidak sesuai kondisi aktual (K-7) | `.kilo/commands/kerjakan_hasil_diskusi.md` | belum |
-| 2 | Konfirmasi pengguna sebelum menulis command; jalankan verifikasi sesuai skill `pembuatan-command-kilo` (R-1, R-2) | `.kilo/commands/kerjakan_hasil_diskusi.md` | belum |
+| 2 | Konfirmasi pengguna sebelum menulis command; jalankan verifikasi sesuai skill `aturan-pembuatan-commands` (R-1, R-2) | `.kilo/commands/kerjakan_hasil_diskusi.md` | belum |
 | 3 | Uji command yang diperbarui dengan `/kerjakan_hasil_diskusi` pada diskusi yang sudah diimplementasikan (bila ada kandidat) (R-3) | — | belum |
 
 ## File Terdampak

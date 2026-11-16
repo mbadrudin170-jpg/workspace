@@ -12,7 +12,7 @@ Menetapkan kewajiban menggunakan tool bawaan Kilo sebelum perintah shell untuk o
 
 - Seluruh sesi dan agent Kilo di proyek ini.
 - Operasi: pencarian nama/pola berkas, pencarian teks, daftar folder, baca/tulis/ubah berkas, pengambilan URL, pencarian web, subagent, skill, LSP, todo, dan pertanyaan ke pengguna.
-- Berkas sumber kebenaran: `.kilo/kilo.jsonc` bagian `permission` (baca ulang setiap sesi), `AGENTS.md`, serta skill `konfigurasi-kilo-proyek` dan `pembuatan-command-kilo`.
+- Berkas sumber kebenaran: `.kilo/kilo.jsonc` bagian `permission` (baca ulang setiap sesi), `AGENTS.md`, serta skill `konfigurasi-kilo-proyek` dan `aturan-pembuatan-commands`.
 
 ## Aturan
 
@@ -45,5 +45,5 @@ Menetapkan kewajiban menggunakan tool bawaan Kilo sebelum perintah shell untuk o
 
 - Perintah pengguna sesi 106 (2026-11-15): "perbarui sekill dan aturan agar harus pakai tools yang ada dulu dan hapus skill mengenai rg".
 - File: `.kilo/kilo.jsonc` (bagian `permission.bash` dan `permission.read`), `AGENTS.md`.
-- Skill terkait: `.agents/skills/custom/konfigurasi-kilo-proyek/SKILL.md`, `.agents/skills/custom/pembuatan-command-kilo/SKILL.md`, `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`.
+- Skill terkait: `.agents/skills/custom/konfigurasi-kilo-proyek/SKILL.md`, `.agents/skills/custom/aturan-pembuatan-commands/SKILL.md`, `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`.
 - Skill yang dihapus pada sesi 106: `.agents/skills/custom/pencarian-teks-ripgrep/SKILL.md`.
