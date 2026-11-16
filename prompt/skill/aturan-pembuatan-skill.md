@@ -6,3 +6,4 @@
 6. Name matching — field `name` harus sama persis dengan nama folder (Name Matching Rule).
 7. Trigger-only description — `description` wajib diawali segmen trigger-only (`Trigger:` ... `|`), agar skill terpanggil saat tepat.
 8. Setiap skill usahakan untuk menyertakan contoh.
+9. Tambahkan section di akhir skill untuk sumber, misalnya dari commit, web, source SDK, atau karena pengguna minta secara eksplisit.
