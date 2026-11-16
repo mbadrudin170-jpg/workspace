@@ -25,7 +25,18 @@ file : [riverpod-pola](../../.agents/skills/custom/riverpod-pola/SKILL.md)
 
 19. Provider yang hanya mengambil nilai wajib disimpan di folder `provider/`; namanya cukup tanpa akhiran `Provider` (build runner menambahkannya otomatis, mis. `biodata` → `biodataProvider`).
 
-## Contoh
+20. Setiap fungsi `Future` wajib dibungkus `try-catch`.
+
+21. Setiap fungsi di Notifier wajib mengerjakan operasi database terlebih dahulu, baru memperbarui state.
+
+## Catatan Pengujian
+
+- Jika sedang menguji pola `listen`/`listenManual`, baca file: [consumer_listen_test.dart](file:///home/mbadrudin170/.pub-cache/hosted/pub.dev/flutter_riverpod-3.5.0/test/consumer_listen_test.dart).
+
+- Riverpod: [riverpod.dart](file:///home/mbadrudin170/.pub-cache/hosted/pub.dev/riverpod-3.5.0/lib/riverpod.dart)
+- Riverpod generator: [builder.dart](file:///home/mbadrudin170/.pub-cache/hosted/pub.dev/riverpod_generator-4.0.10/lib/builder.dart)
+- Riverpod annotation: [riverpod_annotation.dart](file:///home/mbadrudin170/.pub-cache/hosted/pub.dev/riverpod_annotation-4.0.8/lib/riverpod_annotation.dart)
+- Flutter SDK: [flutter](file:///google/flutter/bin/flutter)
 
 ```dart
 // Notifier CRUD (codegen)
@@ -68,4 +79,51 @@ final data = async.requireValue;
 
 // gunakan ini di dalam provider future yang ingin selalu memantau data terbaru:
 final future = await ref.watch(provider.future);
+```
+
+### Contoh Resmi Paket (flutter_riverpod)
+
+```dart
+final counterProvider = NotifierProvider<Counter, int>(Counter.new);
+
+class Counter extends Notifier<int> {
+  @override
+  int build() => 0;
+
+  void increment() => state++;
+}
+
+Consumer(
+  builder: (context, ref, _) {
+    final count = ref.watch(counterProvider);
+    return Text('$count');
+  },
+);
+
+onPressed: () => ref.read(counterProvider.notifier).increment(),
+```
+
+### Contoh Pengujian (ProviderContainer.test)
+
+```dart
+void main() {
+  test('exports provider.listenable', () {
+    final container = ProviderContainer.test();
+    final provider = NotifierProvider<_Counter, int>(_Counter.new);
+
+    final sub = container.listen(provider.listenable, (_, _) {});
+    final listenable = sub.read();
+    expect(listenable.value, 0);
+
+    container.read(provider.notifier).increment();
+    expect(listenable.value, 1);
+  });
+}
+
+class _Counter extends Notifier<int> {
+  @override
+  int build() => 0;
+
+  void increment() => state++;
+}
 ```
