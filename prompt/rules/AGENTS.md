@@ -7,4 +7,3 @@ ditimpa ke : `AGENTS.md` (root)
 4. root proyek bukan workspace Flutter, cari submodul yang menjadi lib/main nya.
 5. semua aturan disini berlaku untuk semua repo.
 6. baca juga semua aturan yang ada di folder `.agents/rules/global`.
-7.

@@ -10,9 +10,9 @@ file : [aturan-pembuatan-skill](../../.agents/skills/custom/aturan-pembuatan-ski
 6. Trigger-only description — `description` wajib diawali segmen trigger-only (`Trigger:` ... `|`), agar skill terpanggil saat tepat.
 7. Setiap skill sebaiknya menyertakan contoh; utamakan contoh benar, contoh salah opsional.
 8. Tambahkan section di akhir skill untuk sumber (commit, web, source SDK, atau permintaan eksplisit pengguna).
-8. Batasan `name` — 1–64 karakter; huruf kecil/angka/strip; tidak diawali/diakhiri strip; tidak boleh strip ganda (`--`).
-9. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi.
-10. Setiap skill wajib memiliki berkas poin di folder `prompt/skill/` dengan nama yang sama dengan nama skill (mis. skill `penggunaan-tool-bawaan-kilo` → `prompt/skill/penggunaan-tool-bawaan-kilo.md`).
+9. Batasan `name` — 1–64 karakter; huruf kecil/angka/strip; tidak diawali/diakhiri strip; tidak boleh strip ganda (`--`).
+10. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi.
+11. Setiap skill wajib memiliki berkas poin di folder `prompt/skill/` dengan nama yang sama dengan nama skill (mis. skill `penggunaan-tool-bawaan-kilo` → `prompt/skill/penggunaan-tool-bawaan-kilo.md`).
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 

@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 11:20 WIB (sesi 190; pemindahan .agents/rules/global/SKILLS_INDEX.md ke .agents/rules/global/)
+Diperbarui: Mon Nov 16 2026 11:45 WIB (sesi 192; salin prompt ke target semua berkas)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -45,6 +45,8 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 9. Root `workspace` bukan proyek Flutter; `lib/main.dart` hanya ada di submodule `base_coc`. Konfigurasi `myapp (debug mode - Local only)` pada `.vscode/launch.json` memakai `cwd` = `${workspaceFolder}/base_coc` dan `program` = `lib/main.dart` (relatif terhadap `cwd`, bukan root workspace); jangan menulis `program` sebagai `base_coc/lib/main.dart` karena akan menjadi path ganda (per 2026-11-14, sesi 6–7).
 
 ## Status Kerja (per 2026-11-16)
+
+- Sesi 192 (2026-11-16; ~11:45 WIB): interaksi langsung (tanpa command) — proses semua berkas di folder `prompt/` ditimpa ke target masing-masing: perbaikan typo/poin ambigu pada prompt source dan target, pembuatan skill baru `kelompok-skill-wajib`, penambahan entri 63 pada `SKILLS_INDEX.md`. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_192.md`. (sesi 192)
 
 - Sesi 190 (2026-11-16; ~11:10 WIB): interaksi langsung (tanpa command) — atas permintaan pengguna, berkas `.agents/rules/global/SKILLS_INDEX.md` dipindahkan dari root ke `.agents/rules/global/.agents/rules/global/SKILLS_INDEX.md`. `.kilo/kilo.jsonc` bagian `instructions` diperbarui (path entri). Referensi aktif diperbarui (`MEMORI.md`, `.agents/rules/global/instructions_lengkap.md`, `README.md`, `kelompok_skill_wajib.md`, skill `memori-check`/`cek-kesehatan-sistem-kerja`/`konfigurasi-kilo-proyek`/`aturan-pembuatan-commands`/`audit-riwayat-sesi`, `prompt/`). Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_190.md`. (sesi 190)
 

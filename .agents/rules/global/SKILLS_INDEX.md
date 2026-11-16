@@ -249,3 +249,7 @@
 62. .agents/skills/custom/aturan-folder-prompt/SKILL.md
 - Trigger : saat menambah atau memperbarui file di folder prompt
 - Status : diperbarui : Mon Nov 16 2026 07:48 WIB
+
+63. .agents/skills/custom/kelompok-skill-wajib/SKILL.md
+- Trigger : saat memperbarui kelompok skill wajib
+- Status : diperbarui : Mon Nov 16 2026 11:45 WIB
