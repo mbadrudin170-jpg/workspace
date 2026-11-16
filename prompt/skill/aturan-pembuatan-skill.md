@@ -8,7 +8,7 @@
 8. Setiap skill usahakan untuk menyertakan contoh.
 9. Tambahkan section di akhir skill untuk sumber, misalnya dari commit, web, source SDK, atau karena pengguna minta secara eksplisit.
 
-# Link referensi
+# Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
 Link referensi ini jangan dimasukkan ke skill.
 
