@@ -7,6 +7,9 @@
 7. Trigger-only description — `description` wajib diawali segmen trigger-only (`Trigger:` ... `|`), agar skill terpanggil saat tepat.
 8. Setiap skill usahakan untuk menyertakan contoh.
 9. Tambahkan section di akhir skill untuk sumber, misalnya dari commit, web, source SDK, atau karena pengguna minta secara eksplisit.
+10. Batasan `name` — 1–64 karakter; huruf kecil/angka/strip; tidak diawali/diakhiri strip; tidak boleh strip ganda (`--`).
+11. Batasan `description` — 1–1024 karakter, non-kosong; jelaskan apa yang dilakukan dan kapan dipakai.
+12. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi.
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
