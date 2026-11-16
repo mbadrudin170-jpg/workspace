@@ -13,7 +13,7 @@ Memastikan tugas yang dikerjakan AI pada sesi ini telah selesai sebelum melakuka
 
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya.
 2. Gunakan bahasa Indonesia baku untuk seluruh interaksi dan laporan.
-3. Gunakan tool bawaan (`read`, `glob`, `grep`) untuk membaca berkas; gunakan perintah Git melalui shell sesuai `.agents/rules/global/prioritas_tool_bawaan.md`.
+3. Gunakan tool bawaan (`read`, `glob`, `grep`) untuk membaca berkas; gunakan perintah Git melalui shell sesuai `.agents/skills/custom/penggunaan-tool-bawaan-kilo/SKILL.md`.
 4. Tidak ada skill terkait yang trigger-nya terpenuhi oleh tujuan command ini; nyatakan secara eksplisit tidak ada skill terkait.
 
 ## Cakupan

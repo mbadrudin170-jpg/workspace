@@ -1,4 +1,4 @@
-diperbarui : Mon Nov 16 2026 07:45 WIB
+diperbarui : Mon Nov 16 2026 21:31 WIB
 
 file : [aturan-pembuatan-commands](../../.agents/skills/custom/aturan-pembuatan-commands/SKILL.md)
 

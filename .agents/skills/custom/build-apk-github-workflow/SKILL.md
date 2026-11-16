@@ -3,8 +3,8 @@ name: build-apk-github-workflow
 description: Trigger: saat membangun APK Android release atau memperbarui proses build APK | Panduan build APK release via GitHub Actions workflow (bukan build lokal): prasyarat `gh` terautentikasi dengan scope `workflow`, proyek wajib memiliki `.github/workflows/build-apk.yml`, konfigurasi tetap `--split-per-abi --target-platform android-arm64`, pemicuan `gh workflow run`, pemantauan `gh run watch --exit-status`, pengunduhan artefak `app-release-apk`, dan verifikasi berkas `<proyek>-arm64-v8a-release.apk`. Termasuk larangan build lokal tanpa Android SDK, perubahan flag tanpa perintah pengguna, dan commit direktori `build/`.
 metadata:
   kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Mon Nov 16 2026 21:19 WIB"
+  versi: "1.1.0"
+  diperbarui: "Mon Nov 16 2026 21:31 WIB"
 ---
 
 # Build APK via GitHub Actions Workflow
@@ -76,4 +76,4 @@ APK size: 18000000 bytes
 - Commit root `e3e40f4` (rename berkas APK hasil build) — penyesuaian laporan/path pada command.
 - Berkas workflow nyata: `<proyek>/.github/workflows/build-apk.yml`.
 - Command terkait: `.kilo/commands/build_apk.md`.
-- Aturan global terkait: `.agents/rules/global/prioritas_tool_bawaan.md`.
+- Aturan global terkait: `.agents/rules/global/kelompok_skill_wajib.md`; panduan tool bawaan: `.agents/skills/custom/penggunaan-tool-bawaan-kilo/SKILL.md` (aturan prioritas lama `prioritas_tool_bawaan.md` sudah dihapus sesi 186).

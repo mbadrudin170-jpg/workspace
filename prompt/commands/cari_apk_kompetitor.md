@@ -1,4 +1,4 @@
-diperbarui : Mon Nov 16 2026 12:54 WIB
+diperbarui : Mon Nov 16 2026 21:31 WIB
 file : [cari_apk_kompetitor](../../.kilo/commands/cari_apk_kompetitor.md)
 
 1. Tentukan aplikasi sasaran dari dokumen proyek (`README.md`, `AGENTS.md`, PRD, atau dokumen produk); jika tidak tersedia/ambigu, STOP dan tanyakan pengguna (DILARANG menebak dari nama repositori).

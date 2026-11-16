@@ -1,4 +1,4 @@
-diperbarui : Mon Nov 16 2026 07:45 WIB
+diperbarui : Mon Nov 16 2026 21:31 WIB
 
 file : [penggunaan-tool-bawaan-kilo](../../.agents/skills/custom/penggunaan-tool-bawaan-kilo/SKILL.md)
 

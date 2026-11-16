@@ -3,8 +3,8 @@ name: penggunaan-tool-bawaan-kilo
 description: Trigger: saat memilih atau memakai tool bawaan Kilo (read, edit, glob, grep, bash, webfetch, dll.) | Panduan pemilihan tool bawaan Kilo: pemetaan kebutuhan ke tool yang tepat, contoh pemanggilan, aturan prioritas tool bawaan atas shell, dan izin deny yang mutlak.
 metadata:
   kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Mon Nov 16 2026 11:51:45 WIB"
+  versi: "1.1.0"
+  diperbarui: "Mon Nov 16 2026 21:31 WIB"
 ---
 
 # Penggunaan Tool Bawaan Kilo
@@ -16,7 +16,7 @@ Panduan memilih dan memakai tool bawaan Kilo sesuai kebutuhan, beserta contoh pe
 - Tool bawaan Kilo yang tersedia pada build saat ini: berkas, web, tugas/perencanaan, sesi/memori, interaksi pengguna, orkestrasi/sistem.
 - Pemetaan kebutuhan ke tool yang tepat.
 - Aturan prioritas tool bawaan atas shell dan izin `deny` yang mutlak.
-- Sumber: `prompt/skill/penggunaan-tool-bawaan-kilo.md` (commit `19177b4`) dan `.agents/rules/global/prioritas_tool_bawaan.md` (commit `c85674e`).
+- Sumber: `prompt/skill/penggunaan-tool-bawaan-kilo.md` (commit `19177b4`); aturan prioritas lama `prioritas_tool_bawaan.md` (commit `c85674e`) sudah dihapus dan isinya diserap oleh skill ini.
 
 ## Aturan
 
@@ -132,6 +132,6 @@ bash: { command: "find lib -name '*.dart'" } // gunakan Glob
 ## Sumber Evaluasi
 
 - Berkas sumber (commit `19177b4`): `prompt/skill/penggunaan-tool-bawaan-kilo.md` — daftar tool bawaan Kilo dan deskripsi.
-- Aturan prioritas (commit `c85674e`): `.agents/rules/global/prioritas_tool_bawaan.md` — pemetaan tool bawaan vs shell, `deny` mutlak.
+- Aturan prioritas (commit `c85674e`): `.agents/rules/global/prioritas_tool_bawaan.md` — sudah dihapus (sesi 186); isinya diserap oleh skill ini.
 - Skill terkait: `.agents/skills/custom/konfigurasi-kilo-proyek/SKILL.md`, `.agents/skills/custom/aturan-pembuatan-commands/SKILL.md`.
 - Dokumen resmi Kilo: https://kilo.ai/docs/customize/skills

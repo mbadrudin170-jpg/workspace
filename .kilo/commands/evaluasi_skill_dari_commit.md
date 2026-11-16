@@ -13,7 +13,7 @@ Mengevaluasi perubahan kode Dart yang sudah di-commit pada repositori utama dan 
 
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya.
 2. Gunakan bahasa Indonesia baku untuk seluruh interaksi dan laporan.
-3. Gunakan tool bawaan Kilo (`read`, `glob`, `grep`) untuk membaca berkas; gunakan perintah Git melalui shell sesuai `.agents/rules/global/prioritas_tool_bawaan.md`.
+3. Gunakan tool bawaan Kilo (`read`, `glob`, `grep`) untuk membaca berkas; gunakan perintah Git melalui shell sesuai `.agents/skills/custom/penggunaan-tool-bawaan-kilo/SKILL.md`.
 4. Sumber kebenaran hanya commit yang sudah ada (`git log`, `git show`, `git diff`); dilarang memakai working tree, staging, atau berkas untracked.
 5. Daftar submodule dibaca dari `.gitmodules` (mis. `git config --file .gitmodules --get-regexp '\.path$'`); `git submodule status` dapat gagal karena gitlink yatim di `.dart_tool/`, jangan andalkan perintah tersebut.
 6. Validasi tiap path submodule dengan `git -C <path> rev-parse --git-dir`.
@@ -54,7 +54,7 @@ Tabel per repo:
 | `base_coc` | `<branch>` | `<hash awal>`..`<hash akhir>` | `<berkas>` | `<skill/aturan>` | `<catatan>` |
 | `share_global_saya` | `<branch>` | `<hash awal>`..`<hash akhir>` | `<berkas>` | `<skill/aturan>` | `<catatan>` |
 
-Sertakan hash commit akhir yang dievaluasi per repo dan daftar skill/aturan yang disarankan. Repo yang tidak dapat diakses dicatat `Tidak dievaluasi` (jangan mengarang hash).
+Sertakan hash commit akhir yang dievaluasi per repo dan daftar skill/aturan yang disarankan; susun hasil analisa berdasarkan prioritas tertinggi. Repo yang tidak dapat diakses dicatat `Tidak dievaluasi` (jangan mengarang hash).
 
 ## Larangan
 
