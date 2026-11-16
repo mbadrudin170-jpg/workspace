@@ -130,7 +130,6 @@
     ".agents/rules/global/format_hasil_diskusi.md",
     ".agents/rules/global/kelompok_skill_wajib.md",
     ".agents/rules/global/instructions_lengkap.md",
-    ".agents/rules/global/prioritas_tool_bawaan.md",
     ".agents/rules/global/build_apk_github_workflow.md",
     "SKILLS_INDEX.md"
   ],

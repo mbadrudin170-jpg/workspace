@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 21:41 WIB (sesi 181; skill memori-check satu sesi per percakapan)
+Diperbarui: Mon Nov 16 2026 09:43 WIB (sesi 186; penghapusan aturan global prioritas_tool_bawaan.md + pembaruan instructions)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
@@ -45,6 +45,8 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 9. Root `workspace` bukan proyek Flutter; `lib/main.dart` hanya ada di submodule `base_coc`. Konfigurasi `myapp (debug mode - Local only)` pada `.vscode/launch.json` memakai `cwd` = `${workspaceFolder}/base_coc` dan `program` = `lib/main.dart` (relatif terhadap `cwd`, bukan root workspace); jangan menulis `program` sebagai `base_coc/lib/main.dart` karena akan menjadi path ganda (per 2026-11-14, sesi 6–7).
 
 ## Status Kerja (per 2026-11-16)
+
+- Sesi 186 (2026-11-16; ~09:43 WIB): interaksi langsung (tanpa command) — atas permintaan pengguna, berkas aturan global `.agents/rules/global/prioritas_tool_bawaan.md` dihapus. `.kilo/kilo.jsonc` bagian `instructions` diperbarui (entri dicabut; config tervalidasi). `memori/riwayat_perubahan.md` ditambah entri (sesi 186). Referensi lain di skill/command/docs/memori dibiarkan (broken link) agar cakupan tetap minimal. Tidak ada kode Dart yang diubah. Rujukan: `memori/sesi/sesi_186.md`. (sesi 186)
 
 - Sesi 184 (2026-11-16; ~07:47–07:49 WIB): interaksi langsung (tanpa command) — penegasan aturan: semua file di folder `prompt/` wajib hanya mencakup poin-poin penting (ringkas), dilarang memuat isi final/lengkap. Skill `aturan-folder-prompt` diperbarui v1.0.0 → v1.1.0 (Aturan 8 + Larangan baru). Berkas poin dan `SKILLS_INDEX.md` entri 62 diperbarui (07:48 WIB). Rujukan: `memori/sesi/sesi_184.md`. (sesi 184)
 
@@ -196,7 +198,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 ## Konfigurasi Kilo (Model Agent)
 
 - Sumber kebenaran: `.kilo/kilo.jsonc` (**tidak** ter-`.gitignore` oleh root `.gitignore` yang kosong; isi `.kilo/commands/**` terlacak git; sebagian `.kilo/` di-ignore via `.kilo/.gitignore`; per 2026-11-15).
-- `instructions` (sesi 84, diperbarui sesi 106): `AGENTS.md`, `.agents/rules/global/alur_git_commit.md`, `.agents/rules/global/format_hasil_diskusi.md`, `.agents/rules/global/kelompok_skill_wajib.md` (ditambahkan sesi 84), `.agents/rules/global/instructions_lengkap.md`, `.agents/rules/global/prioritas_tool_bawaan.md` (ditambahkan sesi 106), `SKILLS_INDEX.md`.
+- `instructions` (sesi 84, diperbarui sesi 106, sesi 186): `AGENTS.md`, `.agents/rules/global/alur_git_commit.md`, `.agents/rules/global/format_hasil_diskusi.md`, `.agents/rules/global/kelompok_skill_wajib.md` (ditambahkan sesi 84), `.agents/rules/global/instructions_lengkap.md`, `SKILLS_INDEX.md`. (Berkas `.agents/rules/global/prioritas_tool_bawaan.md` dihapus sesi 186; entri instructions dicabut.)
 - Model global: `model`, `small_model`, `subagent_model` = `kilo/kilo-auto/free`.
 - `agent.code`: `model` = `kilo/reflection/beam-free`, `variant` = `max` (per 2026-11-14, sesi 22; sebelumnya `kilo/particle-ai/particle-1:free`).
 - `docs/model_agents.md` (sesi 39, diperbarui sesi 40–41, 2026-11-14) — H1 `# List Model`, daftar model di bagian atas (sejak sesi 41); dokumentasi model yang digunakan beserta kondisi konfigurasi Kilo; hanya pencatatan, bukan sumber kebenaran konfigurasi. Daftar model: `kilo/kilo-auto/free` (model global), `kilo/particle-ai/particle-1:free` (bekas `agent.code.model`), `kilo/reflection/beam-free` (`agent.code.model` saat ini, variant `max`), dan `openrouter/thinkingmachines/inkling-2-small:free` (model sesi 39; sempat menjadi `agent.code.model` hingga 2026-11-14 06:10).
@@ -212,7 +214,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 - Skill `memori-check` (`.agents/skills/custom/memori-check/SKILL.md`) mengatur alur `memori/sesi/sesi_N.md` + sinkronisasi `MEMORI.md` di akhir sesi; baca sebelum interaksi proyek apa pun.
 - Skill `riset-kompetitor` (`.agents/skills/custom/riset-kompetitor/SKILL.md`) v1.6.0 bersifat portabel lintas proyek; konteks aplikasi sasaran wajib dibaca dari `README.md`/`AGENTS.md`/PRD, bukan di-hardcode ke dalam skill.
 - Aturan alur Git & commit (Conventional Commits, Trunk-based, penamaan branch prefix wajib, Squash merge, Semver + changelog, wajib PR tanpa commit langsung ke `main`, template PR wajib, minimal 1 reviewer tanpa auto-merge, tag manual oleh maintainer, changelog Keep a Changelog wajib commit, berlaku root + submodule) tersimpan di `.agents/rules/global/alur_git_commit.md` (diperbarui sesi 28; rujukan hasil diskusi `hasil_diskusi/diskusi_2.md` dan `diskusi_3.md`).
-- Prioritas tool bawaan: `.agents/rules/global/prioritas_tool_bawaan.md` (dibuat sesi 106) — wajib memakai `read`/`grep`/`glob`/`list`/`edit`/`write` sebelum perintah shell; shell hanya untuk operasi tanpa padanan tool atau saat tool gagal. Terdaftar pada `instructions` di `.kilo/kilo.jsonc`; skill `pencarian-teks-ripgrep` dihapus pada sesi 106.
+- Prioritas tool bawaan: berkas `.agents/rules/global/prioritas_tool_bawaan.md` dihapus sesi 186 atas permintaan pengguna; prinsip prioritas tool bawaan tetap berlaku via `.kilo/kilo.jsonc` bagian `permission` (deny mutlak) dan skill terkait (`penggunaan-tool-bawaan-kilo`).
 
 ## Lokasi Berkas Memori
 
@@ -234,7 +236,7 @@ Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan 
 ## Catatan untuk Model Selanjutnya
 
 - Baca `AGENTS.md` (aturan) dan `SKILLS_INDEX.md` sebelum bertindak; muat skill yang relevan via tool `skill`.
-- Gunakan tool bawaan lebih dahulu (lihat `.agents/rules/global/prioritas_tool_bawaan.md`): `read`/`grep`/`glob`/`list`/`edit`/`write` sebelum `cat`/`rg`/`grep`/`find`/`ls`/`sed`; shell hanya untuk operasi tanpa padanan tool.
+- Gunakan tool bawaan lebih dahulu (lihat `.kilo/kilo.jsonc` bagian `permission` dan skill `penggunaan-tool-bawaan-kilo`): `read`/`grep`/`glob`/`list`/`edit`/`write` sebelum `cat`/`rg`/`grep`/`find`/`ls`/`sed`; shell hanya untuk operasi tanpa padanan tool. Berkas `.agents/rules/global/prioritas_tool_bawaan.md` dihapus sesi 186.
 - Perlakukan skill sebagai aturan yang mengikat (prinsip "Skill adalah aturan" pada blok header `AGENTS.md`; rujukan lama `.agents/rules/global/aturan_skill.md` §12 — berkas tidak ada per sesi 76, ditandai stale): muat skill yang trigger-nya terpenuhi sebelum mengubah kode/dokumen, jalankan seluruh `## Aturan` dan `## Larangan`, dan laporkan pelanggaran/benturan isi skill kepada pengguna.
 - Jangan mengarang informasi proyek; nyatakan tidak diketahui bila data tidak tersedia.
 - Konfirmasi sebelum commit/push; jangan ubah lingkup tanpa persetujuan pengguna.
