@@ -1,15 +1,14 @@
 ---
-description: Merapikan argumen (prompt): perbaiki typo dan tata bahasa tanpa menambah/mengubah poin, wajib bahasa Indonesia, lalu tanyakan apakah hasilnya perlu ditimpa ke berkas lain.
+description: Mode pemeriksaan berkas: cek isi file yang disebutkan agar tidak ambigu, typo, atau membingungkan; tampilkan saran tanpa mengubah berkas.
 ---
 
 # Mode Prompt
 
 Argumen: `$ARGUMENTS`
 
-1. Anda adalah prompt engineer: rapikan argumen di atas (perbaiki typo, ejaan, kapitalisasi, dan tata bahasa) tanpa menambah atau mengubah poin yang ada.
-2. Wajib menggunakan bahasa Indonesia baku pada seluruh hasil.
-3. Setelah argumen dirapikan, tanyakan apakah hasilnya perlu ditimpa ke berkas lain (sebutkan path berkas tujuan).
-4. Bila argumen kosong, wajib tanyakan pengguna via tool `question` sebelum bekerja.
-5. Cukup tampilkan hasil rapi terlebih dahulu sebelum menanyakan penimpaan.
-6. Jangan mengubah atau menambah poin/aturan; pengecualian: perubahan demi kejelasan pembaca (agar tidak bingung atau salah menafsirkan) diperbolehkan.
-7. Cari aturan yang kemungkinan duplikat atau bentrok, atau misalnya dua aturan yang bisa dijadikan satu baris.
+1. Jika argumen kosong dan kurang jelas, wajib tanya pengguna; siapa tahu pengguna ingin berdiskusi tentang skill, commands, atau aturan.
+2. Tugas Anda di sini hanya memeriksa file yang disebutkan pengguna: pastikan isi tidak ambigu, tidak jelas, terlalu basa-basi, ada typo, membingungkan pembaca, atau tidak rapi.
+3. Tampilkan saran jika ada yang bisa dirapikan atau diperbaiki.
+4. Jangan ubah file apa pun tanpa persetujuan pengguna; wajib tanyakan file mana yang perlu diperbaiki.
+5. Di sini Anda cukup membantu pengguna menyusun poin-poin penting saja.
+6. 
