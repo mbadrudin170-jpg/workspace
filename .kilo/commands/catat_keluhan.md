@@ -13,10 +13,11 @@ Mencatat kegagalan AI terkait rules, skill, atau command ke `keluhan.md` secara 
 
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya.
 2. Baca secara eksplisit seluruh berkas di `.agents/rules/global/` sebelum bekerja.
-3. Muat skill `memori-check` melalui tool `skill` sebelum bekerja.
-4. Gunakan bahasa Indonesia baku.
-5. Gunakan tool bawaan Kilo (`read`, `glob`, `grep`, `edit`, `write`) untuk membaca/menulis berkas.
-6. Jangan mengubah kode sumber, konfigurasi, atau berkas lain di luar cakupan.
+3. Baca `instructions` pada `.kilo/kilo.jsonc` dan patuhi aturan yang diinjeksikan.
+4. Muat skill `memori-check` melalui tool `skill` sebelum bekerja.
+5. Gunakan bahasa Indonesia baku.
+6. Gunakan tool bawaan Kilo (`read`, `glob`, `grep`, `edit`, `write`) untuk membaca/menulis berkas.
+7. Jangan mengubah kode sumber, konfigurasi, atau berkas lain di luar cakupan.
 
 ## Cakupan
 
@@ -29,7 +30,7 @@ Mencatat kegagalan AI terkait rules, skill, atau command ke `keluhan.md` secara 
 
 ## Alur Kerja
 
-1. **Analyze** — jika `$ARGUMENTS` kosong, tanyakan gejala, aturan/skill/command yang terkait, dan bukti kejadian.
+1. **Analyze** — jika `$ARGUMENTS` kosong, tanyakan gejala, aturan/skill/command yang terlewat/tidak dibaca/tidak sesuai, dan bukti kejadian. Sertakan path file aturan, rules, dan command yang dilanggar (mis. `AGENTS.md`, `.agents/rules/global/*.md`, `.kilo/commands/*.md`, `.agents/skills/custom/*/SKILL.md`) agar bisa diperbaiki di antara ketiga kategori itu.
 2. **Plan** — tanyakan akar masalah (kenapa AI tidak mematuhi) sebelum mencatat.
 3. **Execute** — tambahkan entri ringkas ke `keluhan.md` dengan format:
    - Gejala: <apa yang terjadi>

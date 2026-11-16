@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Mon Nov 16 2026 17:48 WIB (sesi 217; `prompt/commands/catat_keluhan.md` diedit (9 poin) lalu dikembalikan ke asli (6 poin) atas permintaan pengguna; tambah entri keempat pada `keluhan.md` — gejala kegagalan awal sesi 217)
+Diperbarui: Mon Nov 16 2026 17:55 WIB (sesi 218; salin_prompt_ke_target pada `prompt/commands/catat_keluhan.md` → target `.kilo/commands/catat_keluhan.md` diselaraskan: poin 7 tercermin, baca instructions + muat memori-check, penomoran diperbaiki)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
