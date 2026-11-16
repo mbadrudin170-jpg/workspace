@@ -42,19 +42,19 @@ Pengguna membuat skrip shell baru di folder `script/` tetapi izin eksekusi (`chm
 
 ## Tindak Lanjut
 
-| No | Tindakan | File Terdampak | Status |
-| --- | ---------- | -------------- | ------ |
-| 1 | Tambah alias untuk semua skrip `.sh` di `script/` yang belum memiliki alias | `script/bash_aliases.sh` | selesai |
-| 2 | Terapkan otomatisasi `chmod +x` dalam alur pembuatan skrip baru | alur pembuatan skrip | belum |
-| 3 | Terapkan variabel untuk argumen yang sumbernya dapat diubah | skrip terkait | belum |
+| No  | Tindakan                                                                    | File Terdampak           | Status  |
+| --- | --------------------------------------------------------------------------- | ------------------------ | ------- |
+| 1   | Tambah alias untuk semua skrip `.sh` di `script/` yang belum memiliki alias | `script/bash_aliases.sh` | selesai |
+| 2   | Terapkan otomatisasi `chmod +x` dalam alur pembuatan skrip baru             | alur pembuatan skrip     | belum   |
+| 3   | Terapkan variabel untuk argumen yang sumbernya dapat diubah                 | skrip terkait            | belum   |
 
 ## File Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ----------------- | ----------- |
-| `script/bash_aliases.sh` | Diubah | Tambah alias untuk `build_sh_docs.sh` dan `migrate_batch.sh`. |
-| `script/rename_apk.sh` | Diubah | Berikan izin eksekusi (`chmod +x`). |
-| `script/*.sh` | Belum | Tambah `chmod +x` otomatis dan variabel sesuai keputusan. |
+| Lokasi File              | Status Perubahan | Deskripsi                                                     |
+| ------------------------ | ---------------- | ------------------------------------------------------------- |
+| `script/bash_aliases.sh` | Diubah           | Tambah alias untuk `build_sh_docs.sh` dan `migrate_batch.sh`. |
+| `script/rename_apk.sh`   | Diubah           | Berikan izin eksekusi (`chmod +x`).                           |
+| `script/*.sh`            | Belum            | Tambah `chmod +x` otomatis dan variabel sesuai keputusan.     |
 
 ## Pertanyaan Terbuka
 
@@ -62,8 +62,8 @@ Belum ada
 
 ## Riwayat Perubahan
 
-| Tanggal | Perubahan |
-|---------|-----------|
-| 2026-11-14 | Buat `hasil_diskusi/diskusi_6.md` (Draft) — topik diskusi skrip shell: chmod, alias, variabel argumen. |
-| 2026-11-14 | Ubah status ke `Final`; tetapkan K-1 (alias semua skrip tanpa alias) dan K-2 (chmod otomatis); tutup Pertanyaan Terbuka; perbarui Tindak Lanjut. |
+| Tanggal    | Perubahan                                                                                                                                                 |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-11-14 | Buat `hasil_diskusi/diskusi_6.md` (Draft) — topik diskusi skrip shell: chmod, alias, variabel argumen.                                                    |
+| 2026-11-14 | Ubah status ke `Final`; tetapkan K-1 (alias semua skrip tanpa alias) dan K-2 (chmod otomatis); tutup Pertanyaan Terbuka; perbarui Tindak Lanjut.          |
 | 2026-11-14 | Eksekusi Task 1 & 2: tambah alias `build_sh_docs` & `migrate_batch` ke `bash_aliases.sh`; `chmod +x` pada `rename_apk.sh`. Tindak lanjut #1 & #2 selesai. |

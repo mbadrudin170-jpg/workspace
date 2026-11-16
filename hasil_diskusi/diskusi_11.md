@@ -1,6 +1,7 @@
 # Hasil Diskusi 11 — Pembaruan Command kerjakan_hasil_diskusi: Verifikasi Implementasi Aktual Sebelum Eksekusi
 
 ## Status
+
 - Dokumen: Final
 - Implementasi: Belum Diimplementasikan
 - Tanggal: 2026-11-15
@@ -16,34 +17,42 @@
 ## Poin Diskusi
 
 ### 1. Sumber bukti verifikasi
+
 - Tanya: bukti apa saja yang dipakai command untuk memverifikasi bahwa hasil diskusi sudah diimplementasikan?
 - Kesimpulan: **pencarian kode sumber saja** (tool `glob`/`grep` di `lib/` submodule yang terlibat, mis. `base_coc`/`share_global_saya`). Berkas `prd/`, section `refrensi_apk.md`, `MEMORI.md`, dan `git log` submodule **tidak** dipakai sebagai bukti (menghindari klaim tanpa bukti kode; dokumen dapat usang).
 
 ### 2. Posisi langkah verifikasi dalam alur command
+
 - Tanya: di tahap mana langkah verifikasi ditempatkan?
 - Kesimpulan: **setelah validasi status Final (langkah 3–4) dan sebelum pemetaan tindak lanjut (langkah 6)**; menjadi langkah baru (mis. langkah 4a/5) berjudul "Verifikasi implementasi aktual".
 
 ### 3. Granul verifikasi
+
 - Tanya: verifikasi dilakukan per item atau keseluruhan diskusi?
 - Kesimpulan: **per item tindak lanjut** (per Keputusan/Tindak Lanjut yang konkret); hasil per item: `sudah` / `sebagian` / `belum`.
 
 ### 4. Kata kunci pencarian
+
 - Tanya: apa dasar kata kunci pencarian kode sumber?
 - Kesimpulan: **diekstrak dari konten berkas diskusi dan PRD terkait** — nama class/fitur/berkas yang disebut dipakai sebagai pola `glob`/`grep`; tidak ada daftar kata kunci tetap (hardcode).
 
 ### 5. Hasil verifikasi: seluruh item sudah diimplementasikan
+
 - Tanya: apa tindakan command bila seluruh item tindak lanjut ternyata sudah diimplementasikan?
 - Kesimpulan: **STOP + lapor** — command berhenti, tidak menulis/mengeksekusi apa pun; usul pembaruan status dokumen hanya atas konfirmasi eksplisit pengguna.
 
 ### 6. Hasil verifikasi: implementasi sebagian
+
 - Tanya: apa tindakan command bila sebagian item sudah ada dan sebagian belum?
 - Kesimpulan: **lapor rincian yang sudah/belum; command hanya mengerjakan sisa yang belum**, atas konfirmasi pengguna.
 
 ### 7. Status dokumen tidak sesuai kondisi aktual
+
 - Tanya: apa yang dilakukan command bila dokumen menyatakan `Belum Diimplementasikan` padahal kodenya ditemukan ada?
 - Kesimpulan: **lapor saja** — command tidak mengubah berkas diskusi/PRD (status, `## Pertanyaan Terbuka`, dsb.) tanpa konfirmasi eksplisit pengguna.
 
 ### 8. Cakupan pembaruan command
+
 - Tanya: selain penambahan langkah, apa lagi yang diubah?
 - Kesimpulan: frontmatter `description` diperbarui mencakup verifikasi implementasi aktual; Kriteria STOP ditambah kondisi "seluruh item tindak lanjut sudah diimplementasikan seluruhnya → STOP + lapor"; rujukan skill relevan (mis. `aturan-pembuatan-commands`) dipertahankan/dipatuhi; tidak ada perubahan lain di luar tujuan diskusi.
 
@@ -67,18 +76,18 @@
 
 ## Tindak Lanjut
 
-| No | Tindakan | File Terdampak | Status |
-|----|----------|----------------|--------|
-| 1 | Perbarui command `kerjakan_hasil_diskusi.md`: tambah langkah "Verifikasi implementasi aktual" setelah validasi status `Final` (K-1), penomoran ulang, perbarui `description` dan Kriteria STOP (K-8), sumber bukti kode sumber saja (K-2), granul per item (K-3), kata kunci dari konten diskusi/PRD (K-4), STOP+lapor bila seluruh item sudah diimplementasikan (K-5), lapor+kerjakan sisa bila sebagian (K-6), lapor saja bila dokumen tidak sesuai kondisi aktual (K-7) | `.kilo/commands/kerjakan_hasil_diskusi.md` | belum |
-| 2 | Konfirmasi pengguna sebelum menulis command; jalankan verifikasi sesuai skill `aturan-pembuatan-commands` (R-1, R-2) | `.kilo/commands/kerjakan_hasil_diskusi.md` | belum |
-| 3 | Uji command yang diperbarui dengan `/kerjakan_hasil_diskusi` pada diskusi yang sudah diimplementasikan (bila ada kandidat) (R-3) | — | belum |
+| No  | Tindakan                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | File Terdampak                             | Status |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ------ |
+| 1   | Perbarui command `kerjakan_hasil_diskusi.md`: tambah langkah "Verifikasi implementasi aktual" setelah validasi status `Final` (K-1), penomoran ulang, perbarui `description` dan Kriteria STOP (K-8), sumber bukti kode sumber saja (K-2), granul per item (K-3), kata kunci dari konten diskusi/PRD (K-4), STOP+lapor bila seluruh item sudah diimplementasikan (K-5), lapor+kerjakan sisa bila sebagian (K-6), lapor saja bila dokumen tidak sesuai kondisi aktual (K-7) | `.kilo/commands/kerjakan_hasil_diskusi.md` | belum  |
+| 2   | Konfirmasi pengguna sebelum menulis command; jalankan verifikasi sesuai skill `aturan-pembuatan-commands` (R-1, R-2)                                                                                                                                                                                                                                                                                                                                                       | `.kilo/commands/kerjakan_hasil_diskusi.md` | belum  |
+| 3   | Uji command yang diperbarui dengan `/kerjakan_hasil_diskusi` pada diskusi yang sudah diimplementasikan (bila ada kandidat) (R-3)                                                                                                                                                                                                                                                                                                                                           | —                                          | belum  |
 
 ## File Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| `hasil_diskusi/diskusi_11.md` | Dibuat | Berkas hasil diskusi ini |
-| `.kilo/commands/kerjakan_hasil_diskusi.md` | Belum diubah | Target pembaruan (lihat Tindak Lanjut) |
+| Lokasi File                                | Status Perubahan | Deskripsi                              |
+| ------------------------------------------ | ---------------- | -------------------------------------- |
+| `hasil_diskusi/diskusi_11.md`              | Dibuat           | Berkas hasil diskusi ini               |
+| `.kilo/commands/kerjakan_hasil_diskusi.md` | Belum diubah     | Target pembaruan (lihat Tindak Lanjut) |
 
 ## Pertanyaan Terbuka
 
@@ -86,6 +95,6 @@ Belum ada
 
 ## Riwayat Perubahan
 
-| Tanggal | Perubahan |
-|---------|-----------|
+| Tanggal    | Perubahan                                                    |
+| ---------- | ------------------------------------------------------------ |
 | 2026-11-15 | Berkas dibuat dari hasil diskusi (sesi 118); status `Final`. |

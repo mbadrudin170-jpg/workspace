@@ -12,41 +12,41 @@ Dokumen ini mencatat hasil `flutter analyze` pada submodule `share_global_saya` 
 
 ## Ringkasan Temuan
 
-| Aturan linter | Jumlah | Sifat |
-| --- | ---: | --- |
-| `public_member_api_docs` | 231 | Dokumentasi API publik belum lengkap |
-| `discarded_futures` | 3 | `Future` dibuang tanpa `await`/`unawaited` |
-| `avoid_print` | 1 | Pemakaian `print` langsung |
-| **Total** | **235** | Seluruhnya `info` |
+| Aturan linter            |  Jumlah | Sifat                                      |
+| ------------------------ | ------: | ------------------------------------------ |
+| `public_member_api_docs` |     231 | Dokumentasi API publik belum lengkap       |
+| `discarded_futures`      |       3 | `Future` dibuang tanpa `await`/`unawaited` |
+| `avoid_print`            |       1 | Pemakaian `print` langsung                 |
+| **Total**                | **235** | Seluruhnya `info`                          |
 
 Catatan: `flutter analyze` keluar dengan kode `1` karena masih ada temuan, meskipun tidak ada error kompilasi. Submodule `base_coc` terpisah dan bersih (`No issues found`).
 
 ## Sebaran per Berkas
 
-| Berkas | `public_member_api_docs` | Temuan lain |
-| --- | ---: | --- |
-| `lib/src/widget/input/input_teks.dart` | 40 | - |
-| `lib/src/widget/input/input_rupiah.dart` | 21 | - |
-| `lib/src/widget/input/input_angka.dart` | 19 | - |
-| `lib/src/utils/format_utils.dart` | 16 | - |
-| `lib/log_debug/overlay_log_debug.dart` | 15 | - |
-| `lib/src/widget/input/input_telepon.dart` | 13 | - |
-| `lib/src/utils/shared_pref_service.dart` | 13 | - |
-| `lib/db/model/log_debug_model.dart` | 13 | - |
-| `lib/src/widget/input/input_password.dart` | 12 | - |
-| `lib/src/widget/input/input_autocomplete.dart` | 12 | - |
-| `lib/src/utils/l.dart` | 11 | `discarded_futures` (1) |
-| `lib/log_debug/log_debug_notifier.dart` | 11 | - |
-| `lib/src/widget/pemilih_tanggal_waktu.dart` | 8 | - |
-| `lib/src/utils/parser_util.dart` | 6 | - |
-| `lib/src/widget/toast_widget.dart` | 5 | - |
-| `lib/log_debug/log_debug_page.dart` | 5 | `discarded_futures` (2) |
-| `lib/src/widget/confirmation_dialog.dart` | 4 | - |
-| `lib/src/utils/async_value_x.dart` | 2 | - |
-| `lib/src/utils/app_keys.dart` | 2 | - |
-| `lib/src/widget/input/rupiah_input_formatter.dart` | 1 | - |
-| `lib/src/widget/input/input_dropdown.dart` | 1 | - |
-| `lib/log_debug/print_custom.dart` | 1 | `avoid_print` (1) |
+| Berkas                                             | `public_member_api_docs` | Temuan lain             |
+| -------------------------------------------------- | -----------------------: | ----------------------- |
+| `lib/src/widget/input/input_teks.dart`             |                       40 | -                       |
+| `lib/src/widget/input/input_rupiah.dart`           |                       21 | -                       |
+| `lib/src/widget/input/input_angka.dart`            |                       19 | -                       |
+| `lib/src/utils/format_utils.dart`                  |                       16 | -                       |
+| `lib/log_debug/overlay_log_debug.dart`             |                       15 | -                       |
+| `lib/src/widget/input/input_telepon.dart`          |                       13 | -                       |
+| `lib/src/utils/shared_pref_service.dart`           |                       13 | -                       |
+| `lib/db/model/log_debug_model.dart`                |                       13 | -                       |
+| `lib/src/widget/input/input_password.dart`         |                       12 | -                       |
+| `lib/src/widget/input/input_autocomplete.dart`     |                       12 | -                       |
+| `lib/src/utils/l.dart`                             |                       11 | `discarded_futures` (1) |
+| `lib/log_debug/log_debug_notifier.dart`            |                       11 | -                       |
+| `lib/src/widget/pemilih_tanggal_waktu.dart`        |                        8 | -                       |
+| `lib/src/utils/parser_util.dart`                   |                        6 | -                       |
+| `lib/src/widget/toast_widget.dart`                 |                        5 | -                       |
+| `lib/log_debug/log_debug_page.dart`                |                        5 | `discarded_futures` (2) |
+| `lib/src/widget/confirmation_dialog.dart`          |                        4 | -                       |
+| `lib/src/utils/async_value_x.dart`                 |                        2 | -                       |
+| `lib/src/utils/app_keys.dart`                      |                        2 | -                       |
+| `lib/src/widget/input/rupiah_input_formatter.dart` |                        1 | -                       |
+| `lib/src/widget/input/input_dropdown.dart`         |                        1 | -                       |
+| `lib/log_debug/print_custom.dart`                  |                        1 | `avoid_print` (1)       |
 
 ## Temuan Non-Dokumentasi
 

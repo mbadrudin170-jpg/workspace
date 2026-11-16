@@ -72,22 +72,22 @@ Pengguna ingin sistem kerja yang bersifat global (tidak khusus satu proyek) untu
 
 ## Tindak Lanjut
 
-| No | Tindakan | File Terdampak | Status |
-| --- | --- | --- | --- |
-| 1 | Buat berkas aturan global alur Git & commit (K-2 s.d. K-6) | `.agents/rules/global/alur_git_commit.md` (baru) | belum |
-| 2 | Rujuk aturan baru dari `AGENTS.md` dan/atau buat skill portabel | `AGENTS.md`, `.agents/skills/...` | belum |
-| 3 | Diskusikan aturan PR, review, tag, changelog, dan pengecualian | `hasil_diskusi/diskusi_N.md` (lanjutan) | belum |
-| 4 | Perbarui `MEMORI.md` dan `memori/riwayat_perubahan.md` setelah implementasi | `MEMORI.md`, `memori/riwayat_perubahan.md` | belum |
+| No  | Tindakan                                                                    | File Terdampak                                   | Status |
+| --- | --------------------------------------------------------------------------- | ------------------------------------------------ | ------ |
+| 1   | Buat berkas aturan global alur Git & commit (K-2 s.d. K-6)                  | `.agents/rules/global/alur_git_commit.md` (baru) | belum  |
+| 2   | Rujuk aturan baru dari `AGENTS.md` dan/atau buat skill portabel             | `AGENTS.md`, `.agents/skills/...`                | belum  |
+| 3   | Diskusikan aturan PR, review, tag, changelog, dan pengecualian              | `hasil_diskusi/diskusi_N.md` (lanjutan)          | belum  |
+| 4   | Perbarui `MEMORI.md` dan `memori/riwayat_perubahan.md` setelah implementasi | `MEMORI.md`, `memori/riwayat_perubahan.md`       | belum  |
 
 ## File Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| `hasil_diskusi/diskusi_2.md` | Dibuat | Berkas hasil diskusi ini |
-| `.agents/rules/global/alur_git_commit.md` | Belum dibuat | Aturan global alur Git & commit (tindak lanjut) |
-| `AGENTS.md` | Belum diubah | Rujukan aturan baru (tindak lanjut) |
-| `MEMORI.md` | Belum diubah | Pencatatan konvensi & sumber kebenaran (tindak lanjut) |
-| `memori/riwayat_perubahan.md` | Belum diubah | Entri riwayat perubahan (tindak lanjut) |
+| Lokasi File                               | Status Perubahan | Deskripsi                                              |
+| ----------------------------------------- | ---------------- | ------------------------------------------------------ |
+| `hasil_diskusi/diskusi_2.md`              | Dibuat           | Berkas hasil diskusi ini                               |
+| `.agents/rules/global/alur_git_commit.md` | Belum dibuat     | Aturan global alur Git & commit (tindak lanjut)        |
+| `AGENTS.md`                               | Belum diubah     | Rujukan aturan baru (tindak lanjut)                    |
+| `MEMORI.md`                               | Belum diubah     | Pencatatan konvensi & sumber kebenaran (tindak lanjut) |
+| `memori/riwayat_perubahan.md`             | Belum diubah     | Entri riwayat perubahan (tindak lanjut)                |
 
 ## Pertanyaan Terbuka
 
@@ -100,6 +100,6 @@ Pengguna ingin sistem kerja yang bersifat global (tidak khusus satu proyek) untu
 
 ## Riwayat Perubahan
 
-| Tanggal | Perubahan |
-| --- | --- |
+| Tanggal    | Perubahan                                                                                                                     |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | 2026-11-14 | Berkas hasil diskusi dibuat (Draft → Final) dengan keputusan K-1 s.d. K-6; pertanyaan terbuka dicatat untuk diskusi lanjutan. |

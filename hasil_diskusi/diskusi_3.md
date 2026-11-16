@@ -61,21 +61,21 @@
 
 ## Tindak Lanjut
 
-| No | Tindakan | File Terdampak | Status |
-| --- | --- | --- | --- |
-| 1 | Perbarui `.agents/rules/global/alur_git_commit.md` (section PR, review, tag, changelog, pengecualian, submodule) | `.agents/rules/global/alur_git_commit.md` | belum |
-| 2 | Sediakan template PR (opsional) | `.github/pull_request_template.md` (root & submodule) | belum |
-| 3 | Tambahkan `CHANGELOG.md` (opsional, saat rilis pertama) | `CHANGELOG.md` (root & submodule) | belum |
-| 4 | Perbarui `MEMORI.md` dan `memori/riwayat_perubahan.md` | `MEMORI.md`, `memori/riwayat_perubahan.md` | belum |
+| No  | Tindakan                                                                                                         | File Terdampak                                        | Status |
+| --- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------ |
+| 1   | Perbarui `.agents/rules/global/alur_git_commit.md` (section PR, review, tag, changelog, pengecualian, submodule) | `.agents/rules/global/alur_git_commit.md`             | belum  |
+| 2   | Sediakan template PR (opsional)                                                                                  | `.github/pull_request_template.md` (root & submodule) | belum  |
+| 3   | Tambahkan `CHANGELOG.md` (opsional, saat rilis pertama)                                                          | `CHANGELOG.md` (root & submodule)                     | belum  |
+| 4   | Perbarui `MEMORI.md` dan `memori/riwayat_perubahan.md`                                                           | `MEMORI.md`, `memori/riwayat_perubahan.md`            | belum  |
 
 ## File Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| `hasil_diskusi/diskusi_3.md` | Dibuat | Berkas hasil diskusi ini |
-| `.agents/rules/global/alur_git_commit.md` | Belum diubah | Perbarui section (tindak lanjut) |
-| `MEMORI.md` | Belum diubah | Pencatatan konvensi (tindak lanjut) |
-| `memori/riwayat_perubahan.md` | Belum diubah | Entri riwayat perubahan (tindak lanjut) |
+| Lokasi File                               | Status Perubahan | Deskripsi                               |
+| ----------------------------------------- | ---------------- | --------------------------------------- |
+| `hasil_diskusi/diskusi_3.md`              | Dibuat           | Berkas hasil diskusi ini                |
+| `.agents/rules/global/alur_git_commit.md` | Belum diubah     | Perbarui section (tindak lanjut)        |
+| `MEMORI.md`                               | Belum diubah     | Pencatatan konvensi (tindak lanjut)     |
+| `memori/riwayat_perubahan.md`             | Belum diubah     | Entri riwayat perubahan (tindak lanjut) |
 
 ## Pertanyaan Terbuka
 
@@ -83,6 +83,6 @@
 
 ## Riwayat Perubahan
 
-| Tanggal | Perubahan |
-| --- | --- |
+| Tanggal    | Perubahan                                                                                                                                                  |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2026-11-14 | Berkas hasil diskusi dibuat (Final) dengan keputusan K-1 s.d. K-6; pertanyaan terbuka diskusi_2 (PR/review/tag/changelog/pengecualian/submodule) terjawab. |

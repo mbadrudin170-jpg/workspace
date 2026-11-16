@@ -1,6 +1,7 @@
 # Hasil Diskusi 15 — Mencegah Bentrok Antar-Sesi pada Repositori yang Sama
 
 ## Status
+
 - Dokumen: Draft
 - Implementasi: Belum Diimplementasikan
 - Tanggal: 2026-11-15
@@ -13,22 +14,27 @@ Pengguna bertanya (sesi 145, 2026-11-15): "cara agar sesi tidak bentrok misalnya
 ## Poin Diskusi
 
 ### 1. Apakah cek Berkas Terdampak sesi `Belum Sinkron` cukup?
+
 - Tanya: Apakah aturan K-13 `alur_kerja.md` (cek tabel `## Berkas Terdampak` berkas sesi `Belum Sinkron` → STOP & lapor) sudah mencegah bentrok?
 - Kesimpulan: Tidak. Aturan itu reaktif — hanya mendeteksi setelah sesi lain sudah berjalan/menulis. `git status` tidak melihat proses sesi lain; sesi paralel pada direktori yang sama saling menimpa apa pun hasil cek awal.
 
 ### 2. Apa penyebab akar bentrok?
+
 - Tanya: Mengapa dua sesi bisa mengedit file yang sama tanpa terdeteksi?
 - Kesimpulan: Git tidak mengetahui adanya proses lain; kedua sesi berbagi satu working tree. Deteksi berbasis status working tree bersifat lokal dan tidak sinkron dengan proses paralel.
 
 ### 3. Opsi solusi yang tersedia
+
 - Tanya: Lock file, antrean berurutan, branch + PR, atau worktree terpisah?
 - Kesimpulan: Worktree terpisah adalah satu-satunya isolasi struktural (dua proses tidak berbagi working tree). Lock file manual ditolak (gampang basi, tidak terjaga git). Branch + PR memindahkan penyelesaian konflik ke titik merge. Antrean berurutan paling aman tetapi paling lambat. Anti-bentrok K-13 tetap dipakai sebagai jaring pengaman, bukan pengganti isolasi.
 
 ### 4. Batasan submodule
+
 - Tanya: Apakah solusi worktree berlaku penuh untuk repo dengan submodule (`base_coc`, `share_global_saya`)?
 - Kesimpulan: Tidak otomatis penuh — `git worktree add` di level root tidak memisahkan isi submodule secara independen; isolasi praktis hanya di level repo. Perubahan di dalam submodule memerlukan kehati-hatian tersendiri.
 
 ### 5. Relasi dengan `alur_kerja.md` (K-13)
+
 - Tanya: Apakah prinsip anti-bentrok K-13 menjadi usang?
 - Kesimpulan: Tidak. K-13 dipertahankan sebagai jaring pengaman untuk sesi yang tetap berjalan di direktori yang sama; worktree menjadi lapisan pencegahan utama untuk sesi paralel.
 
@@ -49,21 +55,21 @@ Pengguna bertanya (sesi 145, 2026-11-15): "cara agar sesi tidak bentrok misalnya
 
 ## Tindak Lanjut
 
-| No | Tindakan | File Terdampak | Status |
-|----|----------|----------------|--------|
-| 1  | Buat `hasil_diskusi/diskusi_15.md` (dokumen ini) | `hasil_diskusi/diskusi_15.md` | selesai |
-| 2  | Tinjau/finalisasi isi diskusi; ubah `Dokumen` menjadi `Final` bila disetujui | `hasil_diskusi/diskusi_15.md` | belum |
-| 3  | Bila disetujui: buat aturan global anti-bentrok (worktree) + daftarkan ke `instructions` | `.agents/rules/global/<nama-aturan>.md`, `.kilo/kilo.jsonc` | belum |
-| 4  | Sinkronisasi memori akhir sesi (MEMORI.md + riwayat_perubahan.md + sesi_145) | `MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_145.md` | selesai |
+| No  | Tindakan                                                                                 | File Terdampak                                                        | Status  |
+| --- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------- |
+| 1   | Buat `hasil_diskusi/diskusi_15.md` (dokumen ini)                                         | `hasil_diskusi/diskusi_15.md`                                         | selesai |
+| 2   | Tinjau/finalisasi isi diskusi; ubah `Dokumen` menjadi `Final` bila disetujui             | `hasil_diskusi/diskusi_15.md`                                         | belum   |
+| 3   | Bila disetujui: buat aturan global anti-bentrok (worktree) + daftarkan ke `instructions` | `.agents/rules/global/<nama-aturan>.md`, `.kilo/kilo.jsonc`           | belum   |
+| 4   | Sinkronisasi memori akhir sesi (MEMORI.md + riwayat_perubahan.md + sesi_145)             | `MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_145.md` | selesai |
 
 ## File Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| `hasil_diskusi/diskusi_15.md` | Dibuat | Hasil diskusi anti-bentrok sesi paralel |
-| `memori/sesi/sesi_145.md` | Diubah | Catatan sesi + tabel berkas terdampak + sinkronisasi |
-| `MEMORI.md` | Diubah | Entri `diskusi_15.md` pada bagian Hasil Diskusi; header Diperbarui |
-| `memori/riwayat_perubahan.md` | Diubah | Entri riwayat perubahan sesi 145 |
+| Lokasi File                   | Status Perubahan | Deskripsi                                                          |
+| ----------------------------- | ---------------- | ------------------------------------------------------------------ |
+| `hasil_diskusi/diskusi_15.md` | Dibuat           | Hasil diskusi anti-bentrok sesi paralel                            |
+| `memori/sesi/sesi_145.md`     | Diubah           | Catatan sesi + tabel berkas terdampak + sinkronisasi               |
+| `MEMORI.md`                   | Diubah           | Entri `diskusi_15.md` pada bagian Hasil Diskusi; header Diperbarui |
+| `memori/riwayat_perubahan.md` | Diubah           | Entri riwayat perubahan sesi 145                                   |
 
 ## Pertanyaan Terbuka
 
@@ -72,7 +78,7 @@ Pengguna bertanya (sesi 145, 2026-11-15): "cara agar sesi tidak bentrok misalnya
 
 ## Riwayat Perubahan
 
-| Tanggal | Perubahan |
-|---------|-----------|
-| 2026-11-15 | Berkas dibuat dari percakapan sesi 145 (pertanyaan pengguna tentang cara mencegah bentrok sesi paralel; keputusan K-1..K-6, rekomendasi R-1..R-3). |
+| Tanggal    | Perubahan                                                                                                                                                              |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-11-15 | Berkas dibuat dari percakapan sesi 145 (pertanyaan pengguna tentang cara mencegah bentrok sesi paralel; keputusan K-1..K-6, rekomendasi R-1..R-3).                     |
 | 2026-11-15 | Informasi: `hasil_diskusi/diskusi_14.md` dihapus oleh commit paralel `28844b2` (pesan `z`) pada 2026-11-15 sesaat setelah dokumen ini dibuat; rujukan R-3 disesuaikan. |
