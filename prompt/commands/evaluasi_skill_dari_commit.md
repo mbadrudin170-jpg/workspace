@@ -1,11 +1,11 @@
-diperbarui : Mon Nov 16 2026 10:27 WIB
+diperbarui : Tue Nov 17 2026 21:27 WIB
 ditimpa ke : `.kilo/commands/evaluasi_skill_dari_commit.md`
 
-1. Ambil daftar commit dan diff kode Dart yang sudah di-commit pada repositori utama dan submodule.
-2. Tentukan rentang commit sejak commit terakhir yang tercatat di `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`; jika tidak ada, gunakan 5 commit terakhir dari masing-masing repositori.
-3. Analisa perubahan kode untuk menentukan skill/aturan yang perlu ditambah atau diperbarui.
-4. Setelah analisa, perbarui penanda commit terakhir yang dievaluasi pada file laporan; jangan menumpuk daftar commit.
-5. Tambahkan atau perbarui hasil analisa pada `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`, tanpa mengubah skill secara otomatis.
-6. Jika ada yang perlu diperbaiki, wajib sertakan path skill/aturan terkait agar mudah diaudit.
-7. Susun hasil analisa berdasarkan prioritas tertinggi.
+1. Baca `AGENTS.md`; sumber kebenaran hanya commit (`git log`, `git show`, `git diff`), bukan working tree/staging/untracked.
+2. Cakupan: repositori root + tiap submodule dari `.gitmodules`.
+3. Tentukan rentang: commit terakhir yang tercatat di `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md` (per repo); fallback 5 commit terakhir per repo; STOP + `question` bila ambigu.
+4. Evaluasi perubahan kode Dart untuk menentukan skill/aturan yang perlu ditambah/diperbarui; jangan ubah skill.
+5. Setiap pola/temuan pada hasil wajib mencantumkan hash commit sumber (dan subjek singkat); jangan mengarang hash.
+6. Tulis hasil ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md` (tabel per repo), urut prioritas tertinggi.
+7. Perbarui penanda commit terakhir yang dievaluasi per repo; jangan menumpuk daftar commit.
 8. STOP bila rentang commit atau target repositori tidak jelas; tanyakan via tool `question`.

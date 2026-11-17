@@ -32,6 +32,7 @@
 | alur_kerja.md | Diubah | Judul/teks pipeline L1–L7 → L1–L6; langkah L7 Analisa Commit Skill dihapus; referensi L7 dihapus |
 | .kilo/commands/alur_kerja.md | Diubah | Acuan pipeline L1–L7 → L1–L6; baris L7 pada tabel laporan dihapus; teks terkait L7 dihapus |
 | prompt/commands/evaluasi_skill_dari_commit.md | Dikembalikan | Berkas sempat berubah karena proses penyuntingan; dikembalikan ke kondisi repositori (tidak ada perubahan akhir) |
+| prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Dirapikan: typo ("repositori utama"→"root"), urutan langkah diperbaiki (tulis hasil sebelum perbarui penanda), ditambah poin sumber commit (hash + subjek), larangan ubah skill/kode, dan parameter/referensi `.gitmodules` |
 
 ## Sinkronisasi ke MEMORI.md
 Belum disinkronkan
