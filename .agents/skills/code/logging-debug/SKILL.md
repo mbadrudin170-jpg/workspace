@@ -1,15 +1,34 @@
 ---
 name: logging-debug
-description: "Trigger: saat menambahkan log debug | Panduan logging proyek (L.i, L.w, L.e) untuk variabel dan parameter, format singkat dan konsisten."
+description: "Trigger: saat menambahkan log debug | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten."
 metadata:
   kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.0"
+  diperbarui: "Wed Nov 18 2026 02:27 WIB"
 ---
 
 # Logging Debug pada Variabel dan Parameter
 
-Gunakan sistem logging yang sudah tersedia di proyek (`L.i()`, `L.w()`, `L.e()` dari `lib/shared/utils/l.dart`) untuk mencatat nilai variabel dan parameter, alih-alih membuat sistem logging baru.
+Gunakan sistem logging yang sudah tersedia di proyek (`L.*` dari `share_global_saya`, `lib/src/utils/l.dart`) untuk mencatat nilai variabel dan parameter, alih-alih membuat sistem logging baru.
+
+## API `L` (share_global_saya)
+
+- `L.i(String message)` → `ℹ️ …` (`TipeLog.info`)
+- `L.s(String message)` → `✅ …` (`TipeLog.sukses`)
+- `L.w(String message)` → `⚠️ …` (`TipeLog.warning`)
+- `L.e(String message)` → `❌ …` (`TipeLog.error`)
+- `L.json(Map<String, dynamic> data)` → `📦 …` (`TipeLog.info`)
+- `L.list(List<dynamic> items, {String label = '📋'})` → `<label> …` (`TipeLog.info`)
+- `L.api(String path, Map<String, dynamic> data, {required String method})` → `🌐 [<method>][<id-uuid>] <path> Data: <data>` (`TipeLog.api`)
+
+## Infrastruktur Overlay Debug
+
+- `L.init(ProviderContainer container)` WAJIB dipanggil dengan container yang sama dengan root app; tanpa init, log hanya keluar ke console (`debugPrint`, `kDebugMode`) dan TIDAK masuk panel overlay.
+- Routing ke overlay: setiap log ditambahkan sinkron ke buffer `L.buffer`, lalu di-kirim ke `logDebugProvider.notifier.tambah(model)` lewat `Future.delayed(Duration(milliseconds: 50))` dalam `try/catch` (kegagalan dicatat via `debugPrint` di `kDebugMode` saja).
+- `L.hapusBuffer()` mengosongkan `L.buffer` (sinkron dengan `hapusSemua` notifier).
+- `L.buffer` adalah sumber gabungan panel overlay (dedup per `id` dengan `logDebugProvider`) — lihat skill `overlay-log-debug`.
+- `showLocation = true` (default): setiap output console diberi prefix `[<file.dart>:<line>]` hasil parse stack trace (`useTerse = true`; frame `.g.dart`/`.freezed.dart`/riverpod/flutter/dart-sdk dilewati; fallback `_getCallerInfoManual`). `_aktifkanLog = true` bersifat `final` — tidak ada API publik untuk mematikan logging.
+- `L` bukan pengganti `print()` untuk debugging satu-kali sembarangan; helper paralel `p(...)` (`print_custom.dart`, `kDebugMode` saja) khusus dipakai internal `share_global_saya` dan TIDAK routing ke overlay — jangan dipakai di kode proyek sebagai pengganti `L`.
 
 ## Aturan
 
@@ -41,6 +60,10 @@ L.i('row=$row');
 L.i('biodata=$biodata');
 L.i('impian=$impian');
 L.i('konfirmasi=$konfirmasi');
+L.s('isinImpianBerhasil: id=$idImpian');
+L.json({'row': row, 'tanggal': tanggal});
+L.list(listImpian, label: '📋 daftarImpian');
+L.api('/api/impian', {'id': 1}, method: 'GET');
 L.i('_namaController.text=${_namaController.text}, _jumlahController.text=${_jumlahController.text}, _targetTanggal=$_targetTanggal');
 L.i('listImpian.length=${listImpian.length}, totalJumlah=${impianState.totalJumlah}');
 L.i('DashboardScreen initState');
@@ -66,4 +89,6 @@ print('data=$data'); // menggunakan print() alih-alih L.*
 ## Sumber Evaluasi
 
 - Commit: `f2859a0f7b8f6ebeb0befefffa8047a9c3173c04`, `6bae21014ab8f156d70364ea40ff669573de1f37`, `f55410ae5d09de92cb53f1f284ab69051d6af46a`, `c05f4460a316c3bf33aaad30fc1d8a32f66b9c5b`, `7b9e8d054624b8941c1f44b11551fe9ea57a54a1`, `be04199e5b44537ee1052a3815f5af8518308148`, `fc8100ff6cd50280b6d7b4cd650c3a3314ca1d6f` (penghapusan log debug satu-kali di dashboard & pelacakan toxin)
+- Berkas sumber: `share_global_saya/lib/src/utils/l.dart` (commit rujukan untuk `L` belum diverifikasi spesifik pada sesi 24)
+- Audit `l.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): rujukan path diperbaiki (`lib/shared/utils/l.dart` → `lib/src/utils/l.dart`); API lengkap `L` didokumentasikan (`i`, `s`, `w`, `e`, `json`, `list`, `api`); infrastruktur overlay (`L.init`, `L.buffer`, `hapusBuffer`, `Future.delayed(50ms)`, `try/catch`) dan default `showLocation`/`useTerse` dicatat; `p(...)` dibedakan dari `L`; Contoh Benar ditambah; versi 1.0.1 → 1.1.0. Catatan: komentar header `l.dart` sendiri juga merujuk path usang (`lib/shared/utils/l.dart`) — di submodule, TIDAK diubah sesi ini.
 - File: `lib/fitur/dummy/helper/dummy_helper.dart`, `lib/fitur/dummy/screens/dummy_screen.dart`, `lib/fitur/impian/screens/impian_screen.dart`, `lib/fitur/impian/screens/form_impian.dart`, `lib/fitur/biodata/notifier/biodata_notifier.dart`, `lib/fitur/biodata/screens/biodata_screen.dart`, `lib/fitur/impian/notifier/impian_notifier.dart`, `lib/fitur/pengaturan/screens/pengaturan_screen.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`, `.kilo/commands/tambah_log.md`

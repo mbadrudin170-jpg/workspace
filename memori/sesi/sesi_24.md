@@ -42,6 +42,19 @@
   - Perubahan pada `.agents/skills/code/navigator-routing/SKILL.md` (v1.1.1 → v1.2.0, `diperbarui: Wed Nov 18 2026 02:24 WIB`): Aturan 1 diberi konteks proyek `share_global_saya`; Aturan 12 diperluas ke seluruh permukaan `Nav` (to/toReplacement/pop/pushAndRemoveUntil + default predicate + `MaterialPageRoute<T>` + private ctor `Nav._()` + kewajiban `unawaited` untuk panggilan Future); Aturan 16 ditambahkan (wajib-Nav pada proyek ber-`share_global_saya`; `Navigator` langsung dilarang, ditolak di code review); Larangan ditambah 1 butir; Sumber Evaluasi dicatat (audit sesi 24) + catatan koreksi path usang `//lib/shared/utils/navigator_helper.dart` di komentar kode (TIDAK diubah — kode/submodule tidak disentuh sesi ini).
   - Indeks `.agents/rules/kelompok_skill_wajib.md` #20 `navigator-routing` timestamp → `Wed Nov 18 2026 02:24 WIB`.
   - `npx prettier` scoped: 2 berkas "unchanged". Commit rujukan Nav pada Sumber Evaluasi belum diverifikasi spesifik (dicatat eksplisit di skill).
+- Potongan kode ketiga (pesan berikutnya, 2026-11-18 02:26 WIB): `share_global_saya/lib/src/utils/l.dart` (baris 1–185, `class L`). Audit skill relevan `code/logging-debug`:
+  - Temuan: skill hanya menyebut `L.i/L.w/L.e`; kode menyediakan `L.s` (✅, TipeLog.sukses), `L.json` (📦, info), `L.list(items, {label = '📋'})`, `L.api(path, data, {required method})` → `🌐 [method][uuid] path Data: ...` (TipeLog.api). Skill merujuk path usang `lib/shared/utils/l.dart` (aktual `lib/src/utils/l.dart`; komentar header `l.dart` juga usang — TIDAK diubah). Infrastruktur overlay (`L.init(container)`, buffer sinkron `L.buffer` + `Future.delayed(50ms)` + `try/catch`, `hapusBuffer`, `showLocation`/`useTerse`, `_aktifkanLog = true` final) tidak terdokumentasi; `p(...)` tidak routing ke overlay dan tidak boleh menggantikan `L`.
+  - Keputusan pengguna: draf lengkap diterapkan.
+  - Perubahan pada `.agents/skills/code/logging-debug/SKILL.md` (v1.0.1 → v1.1.0, `diperbarui: Wed Nov 18 2026 02:27 WIB`): description frontmatter diperbarui; section baru "API `L` (share_global_saya)" dan "Infrastruktur Overlay Debug"; Contoh Benar ditambah (`L.s`, `L.json`, `L.list`, `L.api`); rujukan path diperbarui; Sumber Evaluasi dicatat (audit sesi 24).
+  - Indeks `.agents/rules/kelompok_skill_wajib.md` #16 `logging-debug` timestamp → `Wed Nov 18 2026 02:27 WIB`.
+  - `npx prettier` scoped: 2 berkas "unchanged". Commit rujukan untuk `L` belum diverifikasi spesifik (dicatat eksplisit di skill).
+- Potongan kode keempat (2026-11-18 02:28 WIB): `share_global_saya/lib/src/utils/parser_util.dart` (baris 1–155, `ParserUtil`). Audit skill relevan `code/parsing-nullable-int`. Temuan: Aturan 4 skill menyarankan `parseBool` untuk field `bool?` — keliru (tidak ada `parseBoolOrNull`; `parseBool` selalu mengisi `defaultValue`); skill tidak menyebut `parseDateTime` (heuristik int < 1e12 → detik), `parseDouble`/`parseDoubleOrNull`, `parseString`, `parseStringOrNull`, `safeParseEnum<T extends Enum>`; komentar header kode usang (`// lib/shared/utils/parser_util.dart`). Draf v1.0.4 → 1.1.0 disusun, tetapi pertanyaan persetujuan di-**dismiss pengguna** → TIDAK ada perubahan diterapkan pada skill `parsing-nullable-int`.
+- Potongan kode kelima (2026-11-18 02:28 WIB): `share_global_saya/lib/src/widget/confirmation_dialog.dart` (baris 1–203, `ConfirmationDialog`). Audit skill relevan `code/konfirmasi-sebelum-simpan`:
+  - Temuan: `ConfirmationDialog` (API `show`/`showDelete`/`showDeleteAll`/`showInfo`; `isDestructive` → ikon warning + warna error; `showDeleteAll` menambahkan pesan "Tindakan ini tidak dapat dibatalkan!" + `Colors.red.shade700`; navigasi via `Nav.pop(context, result)` + `colorScheme` + `withValues(alpha:)`) belum tercatat di skill mana pun; skill tetap memakai adaptive_dialog (`showOkCancelAlertDialog) sebagai pola utama.
+  - Keputusan pengguna: draf lengkap diterapkan.
+  - Perubahan pada `.agents/skills/code/konfirmasi-sebelum-simpan/SKILL.md` (v1.0.1 → v1.1.0, `diperbarui: Wed Nov 18 2026 02:29 WIB`): section baru "Alternatif: `ConfirmationDialog` (share_global_saya)" ditambahkan (aturan pemakaian + seluruh API); section "Contoh Salah" terpulihkan kembali setelah sempat tertindih saat penyisipan (diperbaiki pada edit berikutnya); Sumber Evaluasi dicatat (commit rujukan `ConfirmationDialog` belum diverifikasi).
+  - Indeks `.agents/rules/kelompok_skill_wajib.md` #15 `konfirmasi-sebelum-simpan` timestamp → `Wed Nov 18 2026 02:29 WIB`.
+  - `npx prettier` scoped: 2 berkas "unchanged". Komentar header kode (`//~/warkop/lib/shared/widget/confirmation_dialog.dart`, merujuk proyek lama) TIDAK diubah — di submodule.
 
 ## Berkas Terdampak
 
@@ -49,7 +62,9 @@
 | ----------- | ---------------- | --------- |
 | `.agents/skills/code/overlay-log-debug/SKILL.md` | Diubah | Audit vs `overlay_log_debug.dart`; v1.0.0 → 1.1.0; Aturan 7 direvisi, Aturan 10–12 + gotcha ditambahkan, File Terkait + `print_custom.dart`, Sumber Evaluasi dicatat |
 | `.agents/skills/code/navigator-routing/SKILL.md` | Diubah | Audit vs `navigator_helper.dart`; v1.1.1 → 1.2.0; Aturan 1 diberi konteks, Aturan 12 diperluas, Aturan 16 + Larangan ditambahkan, Sumber Evaluasi/catatan path usang dicatat |
-| `.agents/rules/kelompok_skill_wajib.md` | Diubah | Indeks code/ #52 `overlay-log-debug` → 02:18 WIB; #20 `navigator-routing` → 02:24 WIB |
+| `.agents/skills/code/logging-debug/SKILL.md` | Diubah | Audit vs `l.dart`; v1.0.1 → 1.1.0; section API `L` + Infrastruktur Overlay Debug ditambahkan, Contoh Benar diperbarui, path diperbaiki |
+| `.agents/skills/code/konfirmasi-sebelum-simpan/SKILL.md` | Diubah | Audit vs `confirmation_dialog.dart`; v1.0.1 → 1.1.0; section "Alternatif: ConfirmationDialog (share_global_saya)" ditambahkan |
+| `.agents/rules/kelompok_skill_wajib.md` | Diubah | Indeks code/ #52 `overlay-log-debug` → 02:18 WIB; #20 `navigator-routing` → 02:24 WIB; #16 `logging-debug` → 02:27 WIB; #15 `konfirmasi-sebelum-simpan` → 02:29 WIB |
 | `memori/sesi/sesi_24.md` | Dibuat/Diubah | Berkas sesi aktif (Belum Sinkron) |
 
 ## Sinkronisasi ke MEMORI.md
