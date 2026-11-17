@@ -1150,8 +1150,8 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 
 | Urutan | Item | Jenis | Alasan |
 | --- | --- | --- | --- |
-| 2 | A2 Copy base link satu ketuk | Fitur | Inti nilai aplikasi dan alasan utama pengguna memasang aplikasi sejenis. |
-| 3 | C3 Tombol aksi utama menetap | UI/UX | Menjamin fitur inti dapat diselesaikan tanpa hambatan navigasi. |
+| 2 | A2 Copy base link satu ketuk | Fitur | Inti nilai aplikasi dan alasan utama pengguna memasang aplikasi sejenis. | Status: Sudah Diimplementasikan. |
+| 3 | C3 Tombol aksi utama menetap | UI/UX | Menjamin fitur inti dapat diselesaikan tanpa hambatan navigasi. | Status: Sudah dibuatkan PRD (prd/prd_c3_tombol_aksi_utama_menetap.md). |
 | 4 | C6 Umpan balik setelah menyalin | UI/UX | Mengurangi persepsi gagal copy yang dikeluhkan pada kompetitor. |
 | 5 | A3 Preview HD dan zoom | Fitur | Meningkatkan keyakinan sebelum menyalin layout. |
 | 6 | A4 Katalog lokal/offline-first | Fitur | Menjaga aplikasi tetap berguna dan menunda kebutuhan backend. |

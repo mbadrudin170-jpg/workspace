@@ -10,7 +10,7 @@ Membuatkan PRD untuk satu item fitur yang belum memiliki PRD, lalu berdiskusi de
 
 ## Ketentuan Umum
 
-1. Baca `AGENTS.md` dan `.agents/skills/custom/format-prd/SKILL.md`; patuhi keduanya.
+1. Baca `AGENTS.md` dan `.agents/skills/non-code/format-prd/SKILL.md`; patuhi keduanya.
 2. Gunakan bahasa Indonesia baku.
 3. Command ini hanya menghasilkan/memperbarui dokumen PRD; tidak mengubah kode.
 
@@ -27,7 +27,7 @@ Membuatkan PRD untuk satu item fitur yang belum memiliki PRD, lalu berdiskusi de
 
 1. **Analyze** — ambil satu item dari `refrensi_apk.md`; periksa apakah fitur sudah diimplementasikan dan catat hasilnya sesuai aturan 19–20 (status implementasi tetap `Belum Diimplementasikan`).
 2. **Plan** — identifikasi `file terdampak`; jika bertumpang tindih dengan PRD lain, pilih item lain. Periksa tautan APK referensi untuk gambaran fitur.
-3. **Execute** — susun PRD sesuai `.agents/skills/custom/format-prd/SKILL.md`, sertakan path dan baris `refrensi_apk.md`, serta contoh potongan kode singkat. Tandai item pada `refrensi_apk.md` sebagai sudah dibuatkan PRD.
+3. **Execute** — susun PRD sesuai `.agents/skills/non-code/format-prd/SKILL.md`, sertakan path dan baris `refrensi_apk.md`, serta contoh potongan kode singkat. Tandai item pada `refrensi_apk.md` sebagai sudah dibuatkan PRD.
 4. **Review** — perbarui PRD sambil berdiskusi; gunakan tool `question` sampai pengguna menyatakan PRD final.
 5. Muat skill yang trigger-nya relevan dengan fitur sebelum menyusun PRD.
 
