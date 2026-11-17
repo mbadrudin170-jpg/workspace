@@ -132,6 +132,6 @@ bash: { command: "find lib -name '*.dart'" } // gunakan Glob
 ## Sumber Evaluasi
 
 - Berkas sumber (commit `19177b4`): `prompt/skill/penggunaan-tool-bawaan-kilo.md` — daftar tool bawaan Kilo dan deskripsi.
-- Aturan prioritas (commit `c85674e`): `.agents/rules/global/prioritas_tool_bawaan.md` — sudah dihapus (sesi 186); isinya diserap oleh skill ini.
+- Aturan prioritas (commit `c85674e`): `.agents/rules/prioritas_tool_bawaan.md` (path historis; berkas dihapus sesi 186) — isinya diserap oleh skill ini.
 - Skill terkait: `.agents/skills/code/konfigurasi-kilo-proyek/SKILL.md`, `.agents/skills/non-code/aturan-pembuatan-commands/SKILL.md`.
 - Dokumen resmi Kilo: https://kilo.ai/docs/customize/skills

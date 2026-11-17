@@ -14,7 +14,7 @@ Folder `prompt/` di root proyek menyimpan rujukan/draft (poin-poin penting) untu
 ## Cakupan yang Di-Cover
 
 - Folder: `prompt/` (root proyek), subfolder `prompt/skill/`, `prompt/rules/`, `prompt/commands/`, dan `prompt/mode/` (bila ada).
-- Berkas target: `.agents/skills/code/<nama>/SKILL.md` atau `.agents/skills/non-code/<nama>/SKILL.md`, `.agents/rules/global/<nama>.md`, `.kilo/commands/<nama>.md`, `.kilo/commands/mode/<nama>.md`.
+- Berkas target: `.agents/skills/code/<nama>/SKILL.md` atau `.agents/skills/non-code/<nama>/SKILL.md`, `.agents/rules/<nama>.md`, `.kilo/commands/<nama>.md`, `.kilo/commands/mode/<nama>.md`.
 - Header wajib pada setiap berkas di `prompt/`: `diperbarui :` (tanggal lengkap + jam) dan `ditimpa ke :` / `file :` (path tujuan).
 
 ## Aturan

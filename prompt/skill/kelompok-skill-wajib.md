@@ -7,7 +7,7 @@ ditimpa ke : `.agents/skills/non-code/kelompok-skill-wajib/SKILL.md`
 4. Jika memperbarui berkas kelompok skill wajib, wajib memuat skill ini terlebih dahulu.
 5. Susun daftar skill berdasarkan abjad A-Z.
 6. Trigger pada setiap skill wajib ditulis detail dan spesifik agar AI dapat memuat skill yang relevan.
-7. Jika ada skill baru atau pembaruan berkas skill, wajib perbarui berkas `.agents/rules/global/kelompok_skill_wajib.md`
+7. Jika ada skill baru atau pembaruan berkas skill, wajib perbarui berkas `.agents/rules/kelompok_skill_wajib.md`
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
