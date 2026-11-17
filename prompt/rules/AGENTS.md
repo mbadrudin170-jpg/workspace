@@ -1,4 +1,4 @@
-diperbarui : Mon Nov 16 2026 17:06 WIB
+diperbarui : Wed Nov 18 2026 00:49 WIB
 ditimpa ke : `AGENTS.md` (root)
 
 1. Baca secara eksplisit (tool Read) seluruh berkas di `.agents/rules/` sebelum bekerja; sesi tidak dilanjutkan bila belum dibaca (fatal bagi kode). Jangan hanya mengandalkan pemuatan via `instructions`.
@@ -12,4 +12,4 @@ ditimpa ke : `AGENTS.md` (root)
    - baca seluruh berkas di `.agents/rules/` (tool Read)
    - buat berkas sesi `memori/sesi/sesi_N.md` (N = tertinggi + 1)
    - muat skill `memori-check` (tool `skill`)
-8. untuk membaca memori wajib jangan pakai offset dan head baca full semua nya.
+8. Membaca `MEMORI.md` wajib tanpa `offset` dan tanpa `limit` — baca seluruh isi berkas.
