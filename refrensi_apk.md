@@ -325,6 +325,7 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Referensi:** [Base Layouts: War & Farm Maps](https://apps.apple.com/us/app/id6804564319), [Cocbases](https://play.google.com/store/apps/details?id=com.coc.cocbases)
 - **Saran:** simpan penghitung lokal per base (jumlah aksi salin dan buka detail) di SQLite, sediakan sortir "paling sering disalin" serta label kurasi manual "Pilihan" pada data katalog.
 - **Prioritas:** Sedang.
+- **Status PRD:** PRD Final (`prd/prd_indikator_popularitas_base.md`, sesi 220); sebagian diimplementasikan (penghitung `statistik_base` + sortir terpopuler C38); badge/kurasi manual "Pilihan" belum diimplementasikan.
 
 #### A37. Laporan tautan base rusak dengan peninjauan ulang
 

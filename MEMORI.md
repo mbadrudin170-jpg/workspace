@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Tue Nov 17 2026 15:53 WIB (sesi 219; command `cari_apk_kompetitor` satu run semua store → 0 listing baru (katalog tetap 129 listing); command `riset_kompetitor` batch 9 (10 listing) → 10 status `Sudah Dianalisa`, `refrensi_apk.md` diperbarui (batch 9, referensi 71–80, A59–A69, B23–B25, C31–C33); commit `bf6e609`; pengecualian pengguna: entri `memori/riwayat_perubahan.md` tidak ditambahkan)
+Diperbarui: Tue Nov 17 2026 16:09 WIB (sesi 221; command `salin_prompt_ke_target` (parameter "semuanya") — verifikasi 23 berkas `prompt/` terhadap target: 20 sudah selaras, 2 sumber diperbaiki (`aturan-pembuatan-commands.md` tambah poin 3, `mode_diskusi.md` tambah 6 poin kunci), 1 dilewati (`analisa_hasil_audit_sesi.md` kosong tanpa target); tidak ada kode Dart; pengecualian pengguna: entri `memori/riwayat_perubahan.md` tidak ditambahkan)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 
