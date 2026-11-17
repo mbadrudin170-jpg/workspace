@@ -262,17 +262,17 @@
 1. .agents/skills/non-code/aturan-folder-prompt/SKILL.md
 
 - Trigger : saat menambah atau memperbarui file di folder prompt/
-- Status : diperbarui : Tue Nov 17 2026 21:55 WIB
+- Status : diperbarui : Wed Nov 18 2026 00:59 WIB
 
 2. .agents/skills/non-code/aturan-pembuatan-commands/SKILL.md
 
 - Trigger : saat membuat command Kilo baru atau memperbarui command Kilo
-- Status : diperbarui : Mon Nov 16 2026 21:31 WIB
+- Status : diperbarui : Wed Nov 18 2026 00:59 WIB
 
 3. .agents/skills/non-code/aturan-pembuatan-rules/SKILL.md
 
 - Trigger : saat membuat atau memperbarui aturan (rules) Kilo
-- Status : diperbarui : Mon Nov 16 2026 13:26 WIB
+- Status : diperbarui : Wed Nov 18 2026 01:03 WIB
 
 4. .agents/skills/non-code/aturan-pembuatan-skill/SKILL.md
 

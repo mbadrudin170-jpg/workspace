@@ -3,8 +3,8 @@ name: aturan-folder-prompt
 description: "Trigger: saat menambah atau memperbarui file di folder prompt/ | Aturan folder prompt/: setiap file wajib memuat tanggal diperbarui (lengkap + jam, zona waktu Asia/Jakarta) dan target 'ditimpa ke'/'file' (path tujuan), karena folder prompt/ hanya mencatat poin-poin penting untuk masing-masing skill, aturan, dan command. Subfolder: prompt/skill/, prompt/rules/, prompt/commands/ (dan prompt/mode/ bila ada). Setiap skill wajib memiliki berkas poin di prompt/skill/ dengan nama yang sama."
 metadata:
   kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Tue Nov 17 2026 21:55 WIB"
+  versi: "1.3.0"
+  diperbarui: "Wed Nov 18 2026 00:59 WIB"
 ---
 
 # Aturan Folder Prompt
@@ -26,6 +26,7 @@ Folder `prompt/` di root proyek menyimpan rujukan/draft (poin-poin penting) untu
 5. Berkas di `prompt/` **wajib** hanya berisi poin-poin penting (ringkas); **dilarang** memuat isi final/lengkap. Isi final tetap berada di target (`.agents/`, `.kilo/`).
 6. Subfolder `prompt/` mengikuti jenis target: `prompt/skill/` (skill), `prompt/rules/` (aturan), `prompt/commands/` (command), `prompt/mode/` (mode command).
 7. Catatan "hanya untuk penulis prompt, bukan untuk skill" (beserta link referensi) **wajib** ditempatkan di akhir berkas sumber dan **tidak boleh** dimasukkan ke target (`.agents/skills/`, `.agents/rules/`, `.kilo/commands/`).
+8. Setiap butir poin wajib dipisahkan oleh satu baris kosong.
 
 ## Larangan
 
@@ -78,4 +79,5 @@ Link referensi ini jangan dimasukkan ke skill.
 
 - Permintaan eksplisit pengguna (sesi 183, 2026-11-16): aturan yang berisi saat menambah dan memperbarui semua file yang ada di folder prompt.
 - Pola nyata: `prompt/skill/aturan-pembuatan-skill.md`, `prompt/skill/aturan-pembuatan-rules.md`, `prompt/rules/AGENTS.md`, `prompt/commands/mode_diskusi.md`, `prompt/commands/commit_file_sesi_ini.md`.
+- Aturan 8 (pemisahan satu baris kosong antar butir poin) — berasal dari poin 7 pada `prompt/skill/aturan-folder-prompt.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18).
 - Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` (Aturan 13).
