@@ -1,7 +1,7 @@
 # Sesi 4
 
 ## Status
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-17 (WIB)
 - Command: /salin_prompt_ke_target
 - Topik: Periksa dan selaraskan seluruh berkas di folder `prompt/` ke target masing-masing.
@@ -24,4 +24,6 @@
 | .agents/rules/kelompok_skill_wajib.md | Diubah | Status diperbarui entri `aturan-folder-prompt` → 21:55 WIB |
 
 ## Sinkronisasi ke MEMORI.md
-Belum disinkronkan
+- `MEMORI.md` (sesi 5, catch-up): `Status` — sesi terakhir `sesi_4.md` (Sudah Sinkron) dengan ringkasan penyelarasan `aturan-folder-prompt` v1.2.0 (zona waktu Asia/Jakarta).
+- `memori/riwayat_perubahan.md` (sesi 5, catch-up): entri sesi 4 ditambahkan.
+- Status: `Belum Sinkron` → `Sudah Sinkron` (catch-up, sesi 5).

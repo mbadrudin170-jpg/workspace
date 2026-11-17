@@ -1,7 +1,7 @@
 # Sesi 3
 
 ## Status
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-17 (WIB)
 - Command: interaksi langsung (tanpa command)
 - Topik: Memeriksa ketersediaan skill dan command untuk memperbarui skill dari riwayat commit; menyisakan satu command evaluasi commit → skill tanpa perubahan otomatis
@@ -45,4 +45,6 @@
 | prompt/commands/salin_prompt_ke_target.md | Diubah | Rapikan poin 9 (satu folder dulu → laporan → lanjut), perbaiki typo ("commnads", "folderprompt.commands", "seslesai"), perbarui tanggal |
 
 ## Sinkronisasi ke MEMORI.md
-Belum disinkronkan
+- `MEMORI.md` (sesi 5, catch-up): `Catatan Teknis` — sesi 3 dicatat (penghapusan `analisa_commit_skill.md` & `evaluasi_code_yang_baru_dicommit.md`, `evaluasi_skill_dari_commit.md` dipertahankan, pipeline L1–L6).
+- `memori/riwayat_perubahan.md` (sesi 5, catch-up): entri sesi 3 ditambahkan.
+- Status: `Belum Sinkron` → `Sudah Sinkron` (catch-up, sesi 5).
