@@ -9,5 +9,6 @@ description: Build APK release via GitHub Actions workflow dan verifikasi artefa
 5. Setelah pengguna mengonfirmasi rencana, jalankan workflow, pantau dengan `gh run watch <RUN_ID> --exit-status`, unduh artefak `app-release-apk`, lalu verifikasi path dan ukuran berkas sebelum melaporkan.
 
 # Skill Terkait
+
 - build-apk-github-workflow
 - memori-check

@@ -22,6 +22,7 @@ description: Mencari aplikasi kompetitor mobile di berbagai store dan mencatat k
 18. Pada batch berikutnya, prioritaskan store dengan riwayat pencarian terendah, meskipun store prioritas tinggi belum selesai.
 
 # Skill Terkait
+
 - riset-kompetitor
 - memori-check
 - penggunaan-tool-bawaan-kilo

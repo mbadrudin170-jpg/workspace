@@ -22,7 +22,7 @@ Folder `prompt/` di root proyek menyimpan rujukan/draft (poin-poin penting) untu
 1. Setiap berkas di `prompt/` **wajib** memuat header: `diperbarui :` (tanggal lengkap + jam) dan `ditimpa ke :` (path tujuan) atau `file :` (link ke berkas target).
 2. Tanggal `diperbarui` **wajib** memakai zona waktu Asia/Jakarta (WIB) dan **wajib** diperbarui setiap kali isi berkas di `prompt/` diperbarui.
 3. Nama berkas di `prompt/<subfolder>/` **wajib** sama dengan nama target agar mudah dievaluasi (mis. `prompt/skill/aturan-folder-prompt.md` ↔ `.agents/skills/non-code/aturan-folder-prompt/SKILL.md`).
-4. Setiap skill wajib memiliki berkas poin di `prompt/skill/<nama-skill>.md` dengan nama yang sama (sesuai skill `aturan-pembuatan-skill` Aturan 13).
+4. Setiap skill wajib memiliki berkas poin di `prompt/skill/<nama-skill>.md` dengan nama yang sama (sesuai skill `aturan-pembuatan-skill` Aturan 11).
 5. Berkas di `prompt/` **wajib** hanya berisi poin-poin penting (ringkas); **dilarang** memuat isi final/lengkap. Isi final tetap berada di target (`.agents/`, `.kilo/`).
 6. Subfolder `prompt/` mengikuti jenis target: `prompt/skill/` (skill), `prompt/rules/` (aturan), `prompt/commands/` (command), `prompt/mode/` (mode command).
 7. Catatan "hanya untuk penulis prompt, bukan untuk skill" (beserta link referensi) **wajib** ditempatkan di akhir berkas sumber dan **tidak boleh** dimasukkan ke target (`.agents/skills/`, `.agents/rules/`, `.kilo/commands/`).
@@ -83,4 +83,4 @@ Link referensi ini jangan dimasukkan ke skill.
 - Pola nyata: `prompt/skill/aturan-pembuatan-skill.md`, `prompt/skill/aturan-pembuatan-rules.md`, `prompt/rules/AGENTS.md`, `prompt/commands/mode_diskusi.md`, `prompt/commands/commit_file_sesi_ini.md`.
 - Aturan 8 (pemisahan satu baris kosong antar butir poin) — berasal dari poin 7 pada `prompt/skill/aturan-folder-prompt.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18).
 - Aturan 9 (langsung perbarui target saat sumber diperbarui, dengan izin pengguna via tool `question`) — berasal dari poin 8 pada `prompt/skill/aturan-folder-prompt.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18).
-- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` (Aturan 13).
+- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` (Aturan 11).

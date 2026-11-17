@@ -35,9 +35,9 @@ Membaca source SDK dan pub-cache terkait menggunakan MCP server Dart agar kode y
 
 ## Format Laporan
 
-| Objek | Sumber yang dibaca | Temuan (signature/perilaku) | Dampak ke kode |
-| --- | --- | --- | --- |
-| `<class/API>` | `<path source>` | `<ringkasan>` | `<penyesuaian>` |
+| Objek         | Sumber yang dibaca | Temuan (signature/perilaku) | Dampak ke kode  |
+| ------------- | ------------------ | --------------------------- | --------------- |
+| `<class/API>` | `<path source>`    | `<ringkasan>`               | `<penyesuaian>` |
 
 ## Larangan
 

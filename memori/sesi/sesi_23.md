@@ -22,25 +22,25 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| `MEMORI.md` | Diubah (catch-up sesi_22) | Header, Status sesi terakhir, Catatan Teknis sesi 22 |
-| `memori/riwayat_perubahan.md` | Diubah (catch-up sesi_22) | Entri 2026-11-18 sesi 22 |
-| `memori/sesi/sesi_22.md` | Diubah (catch-up) | Sinkronisasi diisi; status → Sudah Sinkron (atas persetujuan pengguna) |
-| `.kilo/commands/salin_prompt_ke_target.md` | (tidak diubah) | Target terverifikasi sesuai sumber (langkah AGENTS.md/instructions + Skill Terkait adalah pola target yang disengaja) |
-| `.kilo/commands/tambah_kode_keskill.md` | Diubah | Poin 7: pengecualian berkas poin skill `code/` |
-| `.kilo/commands/fitur/membuat_prd_fitur.md` | Diubah | Baris Analyze: hapus rujukan "aturan 19–20" usang |
-| `.kilo/commands/commit_file_sesi_ini.md` | Diubah | Poin 10 diselaraskan (`memori-check` wajib) |
-| `prompt/commands/tambah_kode_keskill.md` | Diubah | Poin 6: pengecualian berkas poin `code/`; `diperbarui` 02:18 WIB |
-| `prompt/commands/commit_file_sesi_ini.md` | Diubah | Poin 9 diselaraskan; `diperbarui` 02:18 WIB |
-| `prompt/rules/AGENTS.md` | Diubah | Poin 9 ditambahkan (dari target root); `diperbarui` 02:20 WIB |
-| `prompt/rules/kelompok_skill_wajib.md` | (tidak diubah) | Poin-poin sumber sudah tercermin/dipenuhi indeks (A-Z dirapikan sesi ini) |
-| `.agents/rules/lainnya.md` | Diubah | Ditulis ulang baku; poin 5 kosong & tanda hubung kosong dihapus; poin `code/` tetap commit-only (keputusan pengguna) |
-| `.agents/rules/pengelolaan_konflik.md` | Diubah | Typo diperbaiki |
-| `.agents/rules/kelompok_skill_wajib.md` | Diubah | Entri overlay-log-debug dipindah ke posisi A-Z (#52→#23), renumber #23–#52 |
-| `memori/sesi/sesi_23.md` | Dibuat/Diubah | Berkas sesi aktif (Sudah Sinkron) |
-| `.agents/skills/code/navigator-routing/SKILL.md` | Bukan sesi 23 (di luar cakupan) | Dimodifikasi pihak lain (v1.1.1→1.2.0, 02:24 WIB; aturan `Nav` untuk proyek `share_global_saya`); TIDAK disentuh |
-| `memori/sesi/sesi_24.md` | Bukan sesi 23 (sesi paralel) | Sesi paralel `tambah_kode_keskill` (overlay-log-debug v1.1.0); TIDAK disentuh |
+| Lokasi File                                      | Status Perubahan                | Deskripsi                                                                                                             |
+| ------------------------------------------------ | ------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `MEMORI.md`                                      | Diubah (catch-up sesi_22)       | Header, Status sesi terakhir, Catatan Teknis sesi 22                                                                  |
+| `memori/riwayat_perubahan.md`                    | Diubah (catch-up sesi_22)       | Entri 2026-11-18 sesi 22                                                                                              |
+| `memori/sesi/sesi_22.md`                         | Diubah (catch-up)               | Sinkronisasi diisi; status → Sudah Sinkron (atas persetujuan pengguna)                                                |
+| `.kilo/commands/salin_prompt_ke_target.md`       | (tidak diubah)                  | Target terverifikasi sesuai sumber (langkah AGENTS.md/instructions + Skill Terkait adalah pola target yang disengaja) |
+| `.kilo/commands/tambah_kode_keskill.md`          | Diubah                          | Poin 7: pengecualian berkas poin skill `code/`                                                                        |
+| `.kilo/commands/fitur/membuat_prd_fitur.md`      | Diubah                          | Baris Analyze: hapus rujukan "aturan 19–20" usang                                                                     |
+| `.kilo/commands/commit_file_sesi_ini.md`         | Diubah                          | Poin 10 diselaraskan (`memori-check` wajib)                                                                           |
+| `prompt/commands/tambah_kode_keskill.md`         | Diubah                          | Poin 6: pengecualian berkas poin `code/`; `diperbarui` 02:18 WIB                                                      |
+| `prompt/commands/commit_file_sesi_ini.md`        | Diubah                          | Poin 9 diselaraskan; `diperbarui` 02:18 WIB                                                                           |
+| `prompt/rules/AGENTS.md`                         | Diubah                          | Poin 9 ditambahkan (dari target root); `diperbarui` 02:20 WIB                                                         |
+| `prompt/rules/kelompok_skill_wajib.md`           | (tidak diubah)                  | Poin-poin sumber sudah tercermin/dipenuhi indeks (A-Z dirapikan sesi ini)                                             |
+| `.agents/rules/lainnya.md`                       | Diubah                          | Ditulis ulang baku; poin 5 kosong & tanda hubung kosong dihapus; poin `code/` tetap commit-only (keputusan pengguna)  |
+| `.agents/rules/pengelolaan_konflik.md`           | Diubah                          | Typo diperbaiki                                                                                                       |
+| `.agents/rules/kelompok_skill_wajib.md`          | Diubah                          | Entri overlay-log-debug dipindah ke posisi A-Z (#52→#23), renumber #23–#52                                            |
+| `memori/sesi/sesi_23.md`                         | Dibuat/Diubah                   | Berkas sesi aktif (Sudah Sinkron)                                                                                     |
+| `.agents/skills/code/navigator-routing/SKILL.md` | Bukan sesi 23 (di luar cakupan) | Dimodifikasi pihak lain (v1.1.1→1.2.0, 02:24 WIB; aturan `Nav` untuk proyek `share_global_saya`); TIDAK disentuh      |
+| `memori/sesi/sesi_24.md`                         | Bukan sesi 23 (sesi paralel)    | Sesi paralel `tambah_kode_keskill` (overlay-log-debug v1.1.0); TIDAK disentuh                                         |
 
 ## Sinkronisasi ke MEMORI.md
 

@@ -32,9 +32,9 @@ Menyelaraskan seluruh rujukan (path, nama berkas, isi, versi, tanggal) yang terd
 
 ## Format Laporan
 
-| Berkas diperiksa | Perubahan | Alasan |
-| --- | --- | --- |
-| `<path>` | `<ringkasan>` | `<rujukan stale yang diperbaiki>` |
+| Berkas diperiksa | Perubahan     | Alasan                            |
+| ---------------- | ------------- | --------------------------------- |
+| `<path>`         | `<ringkasan>` | `<rujukan stale yang diperbaiki>` |
 
 ## Larangan
 

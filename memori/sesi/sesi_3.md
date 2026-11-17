@@ -1,12 +1,14 @@
 # Sesi 3
 
 ## Status
+
 - Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-17 (WIB)
 - Command: interaksi langsung (tanpa command)
 - Topik: Memeriksa ketersediaan skill dan command untuk memperbarui skill dari riwayat commit; menyisakan satu command evaluasi commit → skill tanpa perubahan otomatis
 
 ## Catatan Sesi
+
 - Awal sesi: membaca `MEMORI.md`, seluruh berkas `.agents/rules/` (`format_hasil_diskusi.md`, `kelompok_skill_wajib.md`, `lainnya.md`, `pengelolaan_konflik.md`), dan memori sesi; memuat skill `memori-check`.
 - Hasil pemeriksaan (read-only, tidak ada perubahan kode/dokumen selain berkas sesi ini):
   - Command `.kilo/commands/analisa/analisa_commit_skill.md` — menganalisa commit terbaru per repo (root + submodule) lalu memperbarui/menambah skill custom dan mencatat commit terakhir yang dievaluasi per repo di `catatan.md`. Ini command yang memperbarui skill langsung dari riwayat commit.
@@ -22,34 +24,36 @@
   - Command commit→skill yang tersisa (tidak langsung memperbarui skill): `.kilo/commands/evaluasi_skill_dari_commit.md` → hasil ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`.
 
 ## Berkas Terdampak
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| memori/sesi/sesi_3.md | Dibuat | Berkas sesi untuk pencatatan sesi ini |
-| .kilo/commands/evaluasi_code_yang_baru_dicommit.md | Dihapus | Command evaluasi kode yang baru di-commit (opsi kedua) |
-| prompt/commands/evaluasi_code_yang_baru_dicommit.md | Dihapus | Berkas poin prompt untuk command yang dihapus |
-| docs/hasil_analisa/hasil_evaluasi_perbaikan_code_commit.md | Dihapus | Berkas hasil kosong yang tidak lagi terpakai |
-| .kilo/commands/analisa/analisa_commit_skill.md | Dihapus | Command yang langsung memperbarui skill dari commit (dihapus atas permintaan pengguna) |
-| alur_kerja.md | Diubah | Judul/teks pipeline L1–L7 → L1–L6; langkah L7 Analisa Commit Skill dihapus; referensi L7 dihapus |
-| .kilo/commands/alur_kerja.md | Diubah | Acuan pipeline L1–L7 → L1–L6; baris L7 pada tabel laporan dihapus; teks terkait L7 dihapus |
-| prompt/commands/evaluasi_skill_dari_commit.md | Dikembalikan | Berkas sempat berubah karena proses penyuntingan; dikembalikan ke kondisi repositori (tidak ada perubahan akhir) |
-| prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Dirapikan: typo ("repositori utama"→"root"), urutan langkah diperbaiki (tulis hasil sebelum perbarui penanda), ditambah poin sumber commit (hash + subjek), larangan ubah skill/kode, dan parameter/referensi `.gitmodules` |
-| prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Tambah poin muat skill `aturan-pembuatan-skill` sebelum menentukan skill/aturan |
-| prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Rapikan penomoran; gabungkan poin output (tulis ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`) menjadi satu, urutan logis: hasil → penanda commit → STOP |
-| .kilo/commands/evaluasi_skill_dari_commit.md | Diubah | Isi final command: "repositori utama"→"root", path skill `custom/`→`non-code/`, muat `aturan-pembuatan-skill` sebelum menentukan skill, tambah kolom "Commit sumber" pada tabel laporan, dan kewajiban mencantumkan hash commit sumber per pola |
-| prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Rapikan poin: perbarui entri yang ada bila kode/pola sama (jangan tambah entri baru), STOP + `question` jadi poin terakhir; terapkan juga ke isi final command (Execute + Larangan) |
-| prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Tambah poin muat skill: `aturan-pembuatan-skill` (menentukan skill) + `aturan-pembuatan-rules` (bila menentukan aturan) |
-| .kilo/commands/evaluasi_skill_dari_commit.md | Diubah | Ketentuan Umum #7: muat `aturan-pembuatan-skill` untuk skill + `aturan-pembuatan-rules` bila menentukan aturan |
-| prompt/skill/aturan-folder-prompt.md | Diubah | Rapikan: gabungkan aturan tanggal (1+8) dan aturan poin ringkas (4+7), seragamkan format header, perbarui tanggal |
-| prompt/skill/aturan-folder-prompt.md | Diubah | Tambah aturan 7: tanggal wajib zona waktu Asia/Jakarta |
-| prompt/commands/memperbarui_file_di_folder_prompt.md | Dibuat | Berkas poin prompt untuk command `memperbarui_file_di_folder_prompt` (sebelumnya hanya ada isi final di `.kilo/commands/`) |
-| prompt/commands/salin_prompt_ke_target.md | Diubah | Rapikan poin 9 (satu folder dulu → laporan → lanjut), perbaiki typo ("commnads", "folderprompt.commands", "seslesai"), perbarui tanggal |
-| prompt/commands/salin_prompt_ke_target.md | Diubah | Rapikan poin 10 (tanya cakupan: tab/file tertentu/semua) + perbarui tanggal |
-| prompt/commands/salin_prompt_ke_target.md | Diubah | Poin 10 diperjelas: jika file tab aktif bukan dari `prompt/`, jangan tanyakan |
-| prompt/skill/aturan-pembuatan-commands.md | Diubah | Perbaiki contoh `description` (blok yaml salah: `~~~` → `---`, `description :contoh` → `description: deskripsi singkat`) + perbarui tanggal |
-| prompt/commands/audit_riwayat_sesi.md | Diubah | Poin 13 dirapikan ("perbarui file sesi ... sebagai seudah di audit" → "Tandai berkas sesi yang sudah diaudit (mis. ledger `audit/riwayat_sesi.md`)"); perbarui tanggal |
-| prompt/commands/audit_riwayat_sesi.md | Diubah | Poin 14 diperjelas: yang dianalisa hanya masalah/pola berulang (kategori B dan C) |
+
+| Lokasi File                                                | Status Perubahan | Deskripsi                                                                                                                                                                                                                                       |
+| ---------------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| memori/sesi/sesi_3.md                                      | Dibuat           | Berkas sesi untuk pencatatan sesi ini                                                                                                                                                                                                           |
+| .kilo/commands/evaluasi_code_yang_baru_dicommit.md         | Dihapus          | Command evaluasi kode yang baru di-commit (opsi kedua)                                                                                                                                                                                          |
+| prompt/commands/evaluasi_code_yang_baru_dicommit.md        | Dihapus          | Berkas poin prompt untuk command yang dihapus                                                                                                                                                                                                   |
+| docs/hasil_analisa/hasil_evaluasi_perbaikan_code_commit.md | Dihapus          | Berkas hasil kosong yang tidak lagi terpakai                                                                                                                                                                                                    |
+| .kilo/commands/analisa/analisa_commit_skill.md             | Dihapus          | Command yang langsung memperbarui skill dari commit (dihapus atas permintaan pengguna)                                                                                                                                                          |
+| alur_kerja.md                                              | Diubah           | Judul/teks pipeline L1–L7 → L1–L6; langkah L7 Analisa Commit Skill dihapus; referensi L7 dihapus                                                                                                                                                |
+| .kilo/commands/alur_kerja.md                               | Diubah           | Acuan pipeline L1–L7 → L1–L6; baris L7 pada tabel laporan dihapus; teks terkait L7 dihapus                                                                                                                                                      |
+| prompt/commands/evaluasi_skill_dari_commit.md              | Dikembalikan     | Berkas sempat berubah karena proses penyuntingan; dikembalikan ke kondisi repositori (tidak ada perubahan akhir)                                                                                                                                |
+| prompt/commands/evaluasi_skill_dari_commit.md              | Diubah           | Dirapikan: typo ("repositori utama"→"root"), urutan langkah diperbaiki (tulis hasil sebelum perbarui penanda), ditambah poin sumber commit (hash + subjek), larangan ubah skill/kode, dan parameter/referensi `.gitmodules`                     |
+| prompt/commands/evaluasi_skill_dari_commit.md              | Diubah           | Tambah poin muat skill `aturan-pembuatan-skill` sebelum menentukan skill/aturan                                                                                                                                                                 |
+| prompt/commands/evaluasi_skill_dari_commit.md              | Diubah           | Rapikan penomoran; gabungkan poin output (tulis ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`) menjadi satu, urutan logis: hasil → penanda commit → STOP                                                                          |
+| .kilo/commands/evaluasi_skill_dari_commit.md               | Diubah           | Isi final command: "repositori utama"→"root", path skill `custom/`→`non-code/`, muat `aturan-pembuatan-skill` sebelum menentukan skill, tambah kolom "Commit sumber" pada tabel laporan, dan kewajiban mencantumkan hash commit sumber per pola |
+| prompt/commands/evaluasi_skill_dari_commit.md              | Diubah           | Rapikan poin: perbarui entri yang ada bila kode/pola sama (jangan tambah entri baru), STOP + `question` jadi poin terakhir; terapkan juga ke isi final command (Execute + Larangan)                                                             |
+| prompt/commands/evaluasi_skill_dari_commit.md              | Diubah           | Tambah poin muat skill: `aturan-pembuatan-skill` (menentukan skill) + `aturan-pembuatan-rules` (bila menentukan aturan)                                                                                                                         |
+| .kilo/commands/evaluasi_skill_dari_commit.md               | Diubah           | Ketentuan Umum #7: muat `aturan-pembuatan-skill` untuk skill + `aturan-pembuatan-rules` bila menentukan aturan                                                                                                                                  |
+| prompt/skill/aturan-folder-prompt.md                       | Diubah           | Rapikan: gabungkan aturan tanggal (1+8) dan aturan poin ringkas (4+7), seragamkan format header, perbarui tanggal                                                                                                                               |
+| prompt/skill/aturan-folder-prompt.md                       | Diubah           | Tambah aturan 7: tanggal wajib zona waktu Asia/Jakarta                                                                                                                                                                                          |
+| prompt/commands/memperbarui_file_di_folder_prompt.md       | Dibuat           | Berkas poin prompt untuk command `memperbarui_file_di_folder_prompt` (sebelumnya hanya ada isi final di `.kilo/commands/`)                                                                                                                      |
+| prompt/commands/salin_prompt_ke_target.md                  | Diubah           | Rapikan poin 9 (satu folder dulu → laporan → lanjut), perbaiki typo ("commnads", "folderprompt.commands", "seslesai"), perbarui tanggal                                                                                                         |
+| prompt/commands/salin_prompt_ke_target.md                  | Diubah           | Rapikan poin 10 (tanya cakupan: tab/file tertentu/semua) + perbarui tanggal                                                                                                                                                                     |
+| prompt/commands/salin_prompt_ke_target.md                  | Diubah           | Poin 10 diperjelas: jika file tab aktif bukan dari `prompt/`, jangan tanyakan                                                                                                                                                                   |
+| prompt/skill/aturan-pembuatan-commands.md                  | Diubah           | Perbaiki contoh `description` (blok yaml salah: `~~~` → `---`, `description :contoh` → `description: deskripsi singkat`) + perbarui tanggal                                                                                                     |
+| prompt/commands/audit_riwayat_sesi.md                      | Diubah           | Poin 13 dirapikan ("perbarui file sesi ... sebagai seudah di audit" → "Tandai berkas sesi yang sudah diaudit (mis. ledger `audit/riwayat_sesi.md`)"); perbarui tanggal                                                                          |
+| prompt/commands/audit_riwayat_sesi.md                      | Diubah           | Poin 14 diperjelas: yang dianalisa hanya masalah/pola berulang (kategori B dan C)                                                                                                                                                               |
 
 ## Sinkronisasi ke MEMORI.md
+
 - `MEMORI.md` (sesi 5, catch-up): `Catatan Teknis` — sesi 3 dicatat (penghapusan `analisa_commit_skill.md` & `evaluasi_code_yang_baru_dicommit.md`, `evaluasi_skill_dari_commit.md` dipertahankan, pipeline L1–L6).
 - `memori/riwayat_perubahan.md` (sesi 5, catch-up): entri sesi 3 ditambahkan.
 - Status: `Belum Sinkron` → `Sudah Sinkron` (catch-up, sesi 5).

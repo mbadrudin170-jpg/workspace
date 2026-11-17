@@ -256,8 +256,6 @@ Tanggal evaluasi: 2026-11-15/2026-11-16 (sesi 157). Parameter `$ARGUMENTS` koson
 - Berkas yang diubah: `task.md` (Kelompok 5–6, Task 10–11) dan `catatan.md` (subbagian ini). Di luar batasan command tersebut, sesuai kewajiban skill `memori-check` yang mengikat pada setiap interaksi, turut diubah/ditambah: `MEMORI.md` (header + entri sesi 157), `memori/riwayat_perubahan.md` (entri sesi 157), dan `memori/sesi/sesi_157.md` (dibuat; status `Belum Sinkron` selama sesi). Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
 - Catatan: pointer `base_coc` root berbeda dari HEAD submodul (`207aa5d` vs `e0c88eb`) — hanya dicatat sebagai informasi; tidak diubah.
 
-
-
 ## Evaluasi Skill dari commit
 
 Tanggal evaluasi: 2026-11-17 (parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus). Commit awal = commit setelah hash tercatat entri lama; commit akhir = HEAD tiap repo yang dicatat saat evaluasi dimulai. Evaluasi hanya perubahan kode Dart; commit baru yang muncul saat evaluasi berjalan diabaikan. Commit yang menyentuh `task.md` di root (`6021041`, `d4c0881`) dibaca: keduanya hanya add/delete seluruh `task.md` tanpa task berstatus `batal` yang dihapus, sehingga tidak ada penyesuaian skill dari situ. Berkas yang diubah: `catatan.md` (bagian ini) dan `.agents/skills/custom/` (5 skill diperbarui). Berkas Dart pada seluruh repo tidak disentuh; pointer submodule, `.gitmodules`, dan isi submodule tidak disentuh; tidak ada commit/push di root maupun submodule.

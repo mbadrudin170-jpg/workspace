@@ -1,4 +1,5 @@
 # Overlay Log Debug pada Root App
 
 1. Setiap proyek Flutter yang bergantung pada `share_global_saya` **WAJIB** membungkus root app (`app.dart`/`main.dart`) dengan `PengelolaOverlayLogDebug` (ikon melayang + panel log debug), dan menginisialisasi logger `L` dengan `ProviderContainer` yang sama (`L.init(container)`) sebelum `runApp`.
-2. Detail teknis (pola inisialisasi, `UncontrolledProviderScope`, pengelolaan `OverlayEntry`) diatur pada skill `overlay-log-debug`.
+2. Root app yang dibungkus **WAJIB berada DI BAWAH sebuah `Overlay`** (mis. `Overlay` root manual dengan `initialEntries`), bukan langsung di atas `MaterialApp`/`Navigator`: `PengelolaOverlayLogDebug` menyisipkan ikon/panel lewat `Overlay.maybeOf(context)` yang hanya menemukan ancestor `Overlay`. Tanpa ancestor `Overlay`, ikon/panel tidak pernah tampil (`overlay` bernilai `null`).
+3. `MaterialApp` `builder` tidak termasuk solusi: widget dari `builder` disisipkan DI ATAS `Navigator`, bukan di bawah `Overlay`. Detail teknis dan contoh (pola inisialisasi, `UncontrolledProviderScope`, pengelolaan `OverlayEntry`, wajibnya Overlay root manual) diatur pada skill `overlay-log-debug`.

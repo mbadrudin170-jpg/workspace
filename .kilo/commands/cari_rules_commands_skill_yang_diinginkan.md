@@ -10,4 +10,5 @@ description: Mencari rules, skill, atau command yang diinginkan pengguna di selu
 6. Tampilkan hasil pencarian sebagai daftar beserta path file yang sesuai.
 
 # Skill Terkait
+
 - memori-check

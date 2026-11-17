@@ -28,17 +28,17 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| `.agents/rules/overlay_log_debug.md` | Dibuat | Aturan baru: proyek Flutter yang bergantung pada `share_global_saya` wajib membungkus root app dengan `PengelolaOverlayLogDebug` + `L.init(container)` |
-| `.agents/skills/code/overlay-log-debug/SKILL.md` | Dibuat | Skill code/ baru v1.0.0 (pola pemasangan overlay log debug); indeks diperbarui |
-| `prompt/skill/overlay-log-debug.md` | Dibuat lalu dihapus | Dihapus atas persetujuan eksplisit pengguna; menyimpang dari `aturan-pembuatan-skill` Aturan 13 (dicatat) |
-| `.agents/rules/kelompok_skill_wajib.md` | Diubah | Indeks code/ #52 `overlay-log-debug` (mengandung juga perubahan paralel pengguna) |
-| 19 berkas (lihat catatan "Insiden prettier") | Diubah (di luar cakupan) | Reformat prettier dari run `npx prettier --write "**/*.md"` yang di-abort pengguna; belum dikembalikan |
-| `memori/sesi/sesi_22.md` | Dibuat/Diubah | Berkas sesi aktif (Belum Sinkron) |
-| `memori/sesi/sesi_21.md` | Diubah (catch-up) | Sinkronisasi diisi; status → Sudah Sinkron (atas keputusan pengguna) |
-| `MEMORI.md` | Diubah (catch-up sesi_21) | Header tanggal, Status sesi terakhir, Catatan Teknis sesi 21 |
-| `memori/riwayat_perubahan.md` | Diubah (catch-up sesi_21) | Entri 2026-11-18 sesi 21 |
+| Lokasi File                                      | Status Perubahan          | Deskripsi                                                                                                                                              |
+| ------------------------------------------------ | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `.agents/rules/overlay_log_debug.md`             | Dibuat                    | Aturan baru: proyek Flutter yang bergantung pada `share_global_saya` wajib membungkus root app dengan `PengelolaOverlayLogDebug` + `L.init(container)` |
+| `.agents/skills/code/overlay-log-debug/SKILL.md` | Dibuat                    | Skill code/ baru v1.0.0 (pola pemasangan overlay log debug); indeks diperbarui                                                                         |
+| `prompt/skill/overlay-log-debug.md`              | Dibuat lalu dihapus       | Dihapus atas persetujuan eksplisit pengguna; menyimpang dari `aturan-pembuatan-skill` Aturan 13 (dicatat)                                              |
+| `.agents/rules/kelompok_skill_wajib.md`          | Diubah                    | Indeks code/ #52 `overlay-log-debug` (mengandung juga perubahan paralel pengguna)                                                                      |
+| 19 berkas (lihat catatan "Insiden prettier")     | Diubah (di luar cakupan)  | Reformat prettier dari run `npx prettier --write "**/*.md"` yang di-abort pengguna; belum dikembalikan                                                 |
+| `memori/sesi/sesi_22.md`                         | Dibuat/Diubah             | Berkas sesi aktif (Belum Sinkron)                                                                                                                      |
+| `memori/sesi/sesi_21.md`                         | Diubah (catch-up)         | Sinkronisasi diisi; status → Sudah Sinkron (atas keputusan pengguna)                                                                                   |
+| `MEMORI.md`                                      | Diubah (catch-up sesi_21) | Header tanggal, Status sesi terakhir, Catatan Teknis sesi 21                                                                                           |
+| `memori/riwayat_perubahan.md`                    | Diubah (catch-up sesi_21) | Entri 2026-11-18 sesi 21                                                                                                                               |
 
 ## Sinkronisasi ke MEMORI.md
 

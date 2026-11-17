@@ -16,6 +16,7 @@ description: Menyalin poin-poin dari berkas di folder prompt/ ke target masing-m
 12. Tanyakan cakupan: salin file yang sedang terbuka di tab, file tertentu, atau semua file di folder `prompt/`. Jika file tab aktif bukan dari folder `prompt/`, jangan tanyakan.
 
 # Skill Terkait
+
 - aturan-pembuatan-commands
 - aturan-pembuatan-rules
 - aturan-pembuatan-skill

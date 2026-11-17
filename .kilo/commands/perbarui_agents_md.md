@@ -58,9 +58,9 @@ Meregenerasi `AGENTS.md` (root proyek) secara in-place: header dan baris di luar
 
 ## Format Laporan
 
-| Blok | Jenis Penanda | Path Sumber | Status | Baris (sebelum → sesudah) |
-| ---- | ------------- | ----------- | ------ | ------------------------- |
-| 1 | `SKILL` | `<path>` | Identik / Berubah / Sumber hilang | `<n>` → `<m>` |
+| Blok | Jenis Penanda | Path Sumber | Status                            | Baris (sebelum → sesudah) |
+| ---- | ------------- | ----------- | --------------------------------- | ------------------------- |
+| 1    | `SKILL`       | `<path>`    | Identik / Berubah / Sumber hilang | `<n>` → `<m>`             |
 
 Di bawah tabel, cantumkan: status penulisan (`Ditulis` / `Tidak ditulis (dibatalkan pengguna)` / `Sudah sinkron` / `STOP`), ringkasan `git diff` bila terjadi penulisan, dan catatan tindak lanjut memori.
 

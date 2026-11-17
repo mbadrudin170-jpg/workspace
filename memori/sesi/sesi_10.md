@@ -25,18 +25,18 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| `.kilo/commands/fitur/diskusi_fitur_baru.md` | Dihapus | Berkas lama (di-rename via `git mv`) |
-| `.kilo/commands/fitur/membuat_prd_fitur.md` | Dibuat | Command dengan nama baru; judul H1 `# Membuat PRD Fitur` |
-| `.kilo/commands/alur_kerja.md` | Diubah | Rujukan L3 pada tabel `## Format Laporan` |
-| `alur_kerja.md` | Diubah | Rujukan command pada bagian L3 |
-| `.agents/skills/non-code/format-prd/SKILL.md` | Diubah | Rujukan command pada Sumber Evaluasi; metadata `diperbarui` |
-| `.agents/skills/code/konfigurasi-kilo-proyek/SKILL.md` | Diubah | Rujukan command baris 41 dan 166; metadata `diperbarui` |
-| `.agents/rules/kelompok_skill_wajib.md` | Diubah | Tanggal `diperbarui` kedua skill diselaraskan |
-| `memori/sesi/sesi_10.md` | Dibuat | Berkas sesi aktif |
-| `MEMORI.md` | Diubah | Sinkronisasi akhir sesi (tanggal + status) |
-| `memori/riwayat_perubahan.md` | Diubah | Entri riwayat perubahan sesi 10 |
+| Lokasi File                                            | Status Perubahan | Deskripsi                                                   |
+| ------------------------------------------------------ | ---------------- | ----------------------------------------------------------- |
+| `.kilo/commands/fitur/diskusi_fitur_baru.md`           | Dihapus          | Berkas lama (di-rename via `git mv`)                        |
+| `.kilo/commands/fitur/membuat_prd_fitur.md`            | Dibuat           | Command dengan nama baru; judul H1 `# Membuat PRD Fitur`    |
+| `.kilo/commands/alur_kerja.md`                         | Diubah           | Rujukan L3 pada tabel `## Format Laporan`                   |
+| `alur_kerja.md`                                        | Diubah           | Rujukan command pada bagian L3                              |
+| `.agents/skills/non-code/format-prd/SKILL.md`          | Diubah           | Rujukan command pada Sumber Evaluasi; metadata `diperbarui` |
+| `.agents/skills/code/konfigurasi-kilo-proyek/SKILL.md` | Diubah           | Rujukan command baris 41 dan 166; metadata `diperbarui`     |
+| `.agents/rules/kelompok_skill_wajib.md`                | Diubah           | Tanggal `diperbarui` kedua skill diselaraskan               |
+| `memori/sesi/sesi_10.md`                               | Dibuat           | Berkas sesi aktif                                           |
+| `MEMORI.md`                                            | Diubah           | Sinkronisasi akhir sesi (tanggal + status)                  |
+| `memori/riwayat_perubahan.md`                          | Diubah           | Entri riwayat perubahan sesi 10                             |
 
 ## Sinkronisasi ke MEMORI.md
 

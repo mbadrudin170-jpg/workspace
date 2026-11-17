@@ -16,5 +16,6 @@ description: Riset kompetitor aplikasi mobile dan analisis fitur ke refrensi_apk
 12. Baca `fitur_khusus.md` dan cari fitur-fitur yang diinginkan pengguna yang terdaftar di sana, lalu masukkan ke `refrensi_apk.md` ditandai sebagai prioritas.
 
 # Skill Terkait
+
 - riset-kompetitor
 - memori-check

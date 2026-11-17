@@ -20,12 +20,12 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| memori/sesi/sesi_6.md | Dibuat/Diubah | Berkas sesi audit (aktif → disinkronkan akhir sesi) |
-| audit/riwayat_sesi.md | Dibuat | Ledger dan laporan Audit 1 (section baru) |
-| memori/riwayat_perubahan.md | Diubah | Entri audit sesi 6 |
-| MEMORI.md | Diubah | Status sesi terakhir dan catatan teknis audit 1 |
+| Lokasi File                 | Status Perubahan | Deskripsi                                           |
+| --------------------------- | ---------------- | --------------------------------------------------- |
+| memori/sesi/sesi_6.md       | Dibuat/Diubah    | Berkas sesi audit (aktif → disinkronkan akhir sesi) |
+| audit/riwayat_sesi.md       | Dibuat           | Ledger dan laporan Audit 1 (section baru)           |
+| memori/riwayat_perubahan.md | Diubah           | Entri audit sesi 6                                  |
+| MEMORI.md                   | Diubah           | Status sesi terakhir dan catatan teknis audit 1     |
 
 ## Sinkronisasi ke MEMORI.md
 

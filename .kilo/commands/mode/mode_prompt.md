@@ -11,4 +11,4 @@ Argumen: `$ARGUMENTS`
 3. Tampilkan saran jika ada yang bisa dirapikan atau diperbaiki.
 4. Jangan ubah file apa pun tanpa persetujuan pengguna; wajib tanyakan file mana yang perlu diperbaiki.
 5. Di sini Anda cukup membantu pengguna menyusun poin-poin penting saja.
-6. 
+6.

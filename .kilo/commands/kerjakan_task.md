@@ -38,9 +38,9 @@ Mengerjakan task yang berstatus `kerjakan` pada `task.md` secara berurutan per k
 
 ## Format Laporan
 
-| Kelompok | Task | Status akhir | Berkas diubah | Catatan |
-| --- | --- | --- | --- | --- |
-| 1 | Task 2 | selesai | `lib/...` | `<ringkasan>` |
+| Kelompok | Task   | Status akhir | Berkas diubah | Catatan       |
+| -------- | ------ | ------------ | ------------- | ------------- |
+| 1        | Task 2 | selesai      | `lib/...`     | `<ringkasan>` |
 
 Sertakan hasil akhir `flutter analyze`.
 

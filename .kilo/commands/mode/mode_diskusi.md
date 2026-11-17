@@ -15,6 +15,7 @@ description: Mendampingi diskusi terfokus dan mendokumentasikan ke hasil_diskusi
 8. Kriteria Selesai: topik selesai didiskusikan + hasil tercatat + memori disinkronkan; STOP jika topik tidak jelas.
 
 # Skill Terkait
+
 - memori-check
 - penggunaan-tool-question
 - aturan-pembuatan-skill (jika dibahas skill)

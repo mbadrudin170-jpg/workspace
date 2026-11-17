@@ -32,19 +32,19 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| `memori/sesi/sesi_26.md` | Dibuat | Berkas sesi aktif (Sudah Sinkron pada akhir sesi) |
-| `MEMORI.md` | Diubah | Header → `(sesi 26)` (header `(sesi 25)` dari sesi_25 ditulis ulang); Konteks Proyek + Status (sesi terakhir, sesi 24, sesi 25) + Catatan Teknis (sesi 24 & 26) dilengkapi |
-| `memori/riwayat_perubahan.md` | Diubah | Entri sesi 24 (dari sesi_25) diverifikasi, tidak digandakan; entri sesi 26 ditambahkan |
-| `memori/sesi/sesi_24.md` | Diubah (catch-up) | Sinkronisasi diisi; ditandai Sudah Sinkron |
-| `memori/sesi/sesi_25.md` | Diubah (catch-up) | Sinkronisasi diisi; ditandai Sudah Sinkron |
-| `.gitmodules` | Diubah (ter-stage) | Entri submodule `admin_wifi` (NAMA `admin_flutter`→`admin_wifi`, path `admin_flutter/`→`admin_wifi/` via `git mv`, URL `admin_wifi.git`); belum di-commit |
-| `admin_wifi/` | Dibuat (gitlink `6bcbcb3`, TER-COMMIT eksternal `7ee3aec`/`40be728`) | Submodule baru — proyek Flutter `admin_wifi` v1.1.0+6, branch `main`; tree bersih di `6bcbcb3` (== `origin/main`); di-commit pengguna |
-| `.git/config` | Diubah | section `submodule.admin_wifi` (dari `admin-flutter` → `admin_flutter` → `admin_wifi`); `url = ...admin_wifi.git`; tidak terlacak git, wajar |
-| `.git/modules/admin_wifi/config` | Diubah | `remote.origin.url` → `...admin_wifi.git`; `worktree` `../../../admin_wifi` (di-update `git mv`) |
-| `.git/modules/admin_wifi/` | Diubah | Gitdir di-rename `admin-flutter` → `admin_flutter` → `admin_wifi`; `admin_wifi/.git` pointer tetap `../.git/modules/admin_wifi` |
-| `admin_wifi/.github/workflows/build-apk.yml` | Dibuat | Workflow Build APK (adaptasi template `base_coc`; artefak `admin_wifi-arm64-v8a-release.apk`); untracked di submodule; belum di-commit |
+| Lokasi File                                  | Status Perubahan                                                     | Deskripsi                                                                                                                                                                  |
+| -------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_26.md`                     | Dibuat                                                               | Berkas sesi aktif (Sudah Sinkron pada akhir sesi)                                                                                                                          |
+| `MEMORI.md`                                  | Diubah                                                               | Header → `(sesi 26)` (header `(sesi 25)` dari sesi_25 ditulis ulang); Konteks Proyek + Status (sesi terakhir, sesi 24, sesi 25) + Catatan Teknis (sesi 24 & 26) dilengkapi |
+| `memori/riwayat_perubahan.md`                | Diubah                                                               | Entri sesi 24 (dari sesi_25) diverifikasi, tidak digandakan; entri sesi 26 ditambahkan                                                                                     |
+| `memori/sesi/sesi_24.md`                     | Diubah (catch-up)                                                    | Sinkronisasi diisi; ditandai Sudah Sinkron                                                                                                                                 |
+| `memori/sesi/sesi_25.md`                     | Diubah (catch-up)                                                    | Sinkronisasi diisi; ditandai Sudah Sinkron                                                                                                                                 |
+| `.gitmodules`                                | Diubah (ter-stage)                                                   | Entri submodule `admin_wifi` (NAMA `admin_flutter`→`admin_wifi`, path `admin_flutter/`→`admin_wifi/` via `git mv`, URL `admin_wifi.git`); belum di-commit                  |
+| `admin_wifi/`                                | Dibuat (gitlink `6bcbcb3`, TER-COMMIT eksternal `7ee3aec`/`40be728`) | Submodule baru — proyek Flutter `admin_wifi` v1.1.0+6, branch `main`; tree bersih di `6bcbcb3` (== `origin/main`); di-commit pengguna                                      |
+| `.git/config`                                | Diubah                                                               | section `submodule.admin_wifi` (dari `admin-flutter` → `admin_flutter` → `admin_wifi`); `url = ...admin_wifi.git`; tidak terlacak git, wajar                               |
+| `.git/modules/admin_wifi/config`             | Diubah                                                               | `remote.origin.url` → `...admin_wifi.git`; `worktree` `../../../admin_wifi` (di-update `git mv`)                                                                           |
+| `.git/modules/admin_wifi/`                   | Diubah                                                               | Gitdir di-rename `admin-flutter` → `admin_flutter` → `admin_wifi`; `admin_wifi/.git` pointer tetap `../.git/modules/admin_wifi`                                            |
+| `admin_wifi/.github/workflows/build-apk.yml` | Dibuat                                                               | Workflow Build APK (adaptasi template `base_coc`; artefak `admin_wifi-arm64-v8a-release.apk`); untracked di submodule; belum di-commit                                     |
 
 ## Sinkronisasi ke MEMORI.md
 

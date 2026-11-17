@@ -3,8 +3,8 @@ name: scaffold-struktur-layar
 description: "Trigger: saat menyusun struktur layar | Panduan Scaffold, AppBar, body, floatingActionButton, bottomNavigationBar, drawer untuk struktur layar standar; feedback sementara memakai `AppToast` dari `share_global_saya` bila tersedia."
 metadata:
   kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Wed Nov 18 2026 02:35 WIB"
+  versi: "1.3.0"
+  diperbarui: "Wed Nov 18 2026 05:26 WIB"
 ---
 
 # Struktur Layar Standar (Scaffold)
@@ -87,6 +87,11 @@ Scaffold(
 AppToast.sukses(context, 'Data tersimpan');
 ```
 
+```dart
+// Feedback peringatan (butuh package `share_global_saya`; import `package:share_global_saya/core_shared.dart`)
+AppToast.warning(context, 'Pesan peringatan untuk pengguna');
+```
+
 ## Contoh Salah
 
 ```dart
@@ -120,3 +125,4 @@ Scaffold(
 - Commit `share_global_saya`: `b79563fc39b0bf79b45c13aac258e148b0f8cf9b` (2026-10-14; `lib/src/widget/toast_widget.dart` — `AppToast` `sukses`/`gagal`/`info`/`warning` memakai `Fluttertoast` `FToast` + logging `L`)
 - File `share_global_saya`: `lib/src/widget/toast_widget.dart`, `lib/core_shared.dart` (export `toast_widget.dart`)
 - Audit `toast_widget.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): section "Detail `AppToast` (share_global_saya)" ditambahkan (tabel varian + catatan inkonsistensi `gagal`); versi 1.1.0 → 1.2.0. Catatan: komentar kode tidak relevan (tidak ada path usang); tidak ada perubahan kode.
+- Commit `admin_wifi` `bfacbca` (2026-11-17; `lib/home.dart` — `AppToast.warning` untuk feedback peringatan, menggantikan `ScaffoldMessenger`/`SnackBar`); ditambahkan atas permintaan eksplisit pengguna (sesi 28). Versi 1.2.0 → 1.3.0.

@@ -32,8 +32,8 @@ Menganalisis ulang PRD yang ditentukan agar tidak menimbulkan kendala saat diimp
 
 ## Format Laporan
 
-| Bagian PRD | Temuan | Perbaikan |
-| --- | --- | --- |
+| Bagian PRD | Temuan      | Perbaikan     |
+| ---------- | ----------- | ------------- |
 | `<bagian>` | `<kendala>` | `<perubahan>` |
 
 Sertakan status akhir dokumen.

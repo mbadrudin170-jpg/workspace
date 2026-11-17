@@ -11,36 +11,36 @@ Repositori induk untuk menghimpun aturan, skill, konfigurasi Kilo, snippet, skri
 
 ## Submodule
 
-| Submodule | Deskripsi | Repositori | README |
-| --- | --- | --- | --- |
-| `base_coc` | Aplikasi Flutter penyedia base/layout Clash of Clans (galeri, detail & salin tautan, pelacakan progres upgrade desa). | `https://github.com/mbadrudin170-jpg/base_coc.git` | [`base_coc/README.md`](base_coc/README.md) |
-| `share_global_saya` | Pustaka Flutter bersama (logging/debug overlay, utilitas, widget input, dialog, toast). | `https://github.com/mbadrudin170-jpg/share_global_saya.git` | [`share_global_saya/README.md`](share_global_saya/README.md) |
+| Submodule           | Deskripsi                                                                                                             | Repositori                                                  | README                                                       |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| `base_coc`          | Aplikasi Flutter penyedia base/layout Clash of Clans (galeri, detail & salin tautan, pelacakan progres upgrade desa). | `https://github.com/mbadrudin170-jpg/base_coc.git`          | [`base_coc/README.md`](base_coc/README.md)                   |
+| `share_global_saya` | Pustaka Flutter bersama (logging/debug overlay, utilitas, widget input, dialog, toast).                               | `https://github.com/mbadrudin170-jpg/share_global_saya.git` | [`share_global_saya/README.md`](share_global_saya/README.md) |
 
 Daftar submodule bersumber dari `.gitmodules`. Submodule tidak memiliki `.gitmodules` bertingkat.
 
 ## Struktur Repositori
 
-| Lokasi | Isi |
-| --- | --- |
-| `AGENTS.md` | Gabungan aturan yang dibaca agen AI. |
-| `.agents/rules/` | Aturan proyek (format hasil diskusi, indeks skill, dan aturan pendukung). |
-| `.agents/skills/code/` | Skill kustom terkait kode (`SKILL.md`) untuk konteks kerja tertentu. |
-| `.agents/skills/non-code/` | Skill kustom non-kode (`SKILL.md`) untuk konteks kerja tertentu. |
-| `.agents/skills/bawaan/` | Skill bawaan (`flutter-dart`). |
-| `.agents/rules/kelompok_skill_wajib.md` | Indeks skill (trigger dan status pembaruan). |
-| `skills-lock.json` | Kunci versi/hash skill yang dipasang. |
-| `.kilo/` | Konfigurasi Kilo proyek (`kilo.jsonc`, command, prompt); diabaikan Git (`.gitignore`). |
-| `.vscode/` | 12 berkas snippet (`*.code-snippets`) serta konfigurasi editor/debug/MCP. |
-| `script/` | Skrip bantu Bash: `bash_aliases.sh`, `build_apk.sh`, `full_clean.sh`, `rename_apk.sh`. |
-| `memori/` | Dokumen memori kerja: `sesi/` (catatan per sesi) dan `riwayat_perubahan.md`. |
-| `hasil_diskusi/` | Berkas hasil diskusi (`diskusi_*.md`). |
-| `prd/` | Dokumen PRD yang tersedia. |
-| `docs/` | Dokumentasi pendukung (mis. `model_agents.md`). |
-| `apk/` | Artefak APK yang disimpan di repositori. |
-| `.config/dart_skills/` | Konfigurasi pemasangan skill Dart. |
-| `.prettierrc` | Konfigurasi pemformatan (Markdown/JSON/JSONC). |
-| `base_coc/` | Submodule aplikasi Flutter (lihat [`base_coc/README.md`](base_coc/README.md)). |
-| `share_global_saya/` | Submodule pustaka Flutter (lihat [`share_global_saya/README.md`](share_global_saya/README.md)). |
+| Lokasi                                  | Isi                                                                                             |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `AGENTS.md`                             | Gabungan aturan yang dibaca agen AI.                                                            |
+| `.agents/rules/`                        | Aturan proyek (format hasil diskusi, indeks skill, dan aturan pendukung).                       |
+| `.agents/skills/code/`                  | Skill kustom terkait kode (`SKILL.md`) untuk konteks kerja tertentu.                            |
+| `.agents/skills/non-code/`              | Skill kustom non-kode (`SKILL.md`) untuk konteks kerja tertentu.                                |
+| `.agents/skills/bawaan/`                | Skill bawaan (`flutter-dart`).                                                                  |
+| `.agents/rules/kelompok_skill_wajib.md` | Indeks skill (trigger dan status pembaruan).                                                    |
+| `skills-lock.json`                      | Kunci versi/hash skill yang dipasang.                                                           |
+| `.kilo/`                                | Konfigurasi Kilo proyek (`kilo.jsonc`, command, prompt); diabaikan Git (`.gitignore`).          |
+| `.vscode/`                              | 12 berkas snippet (`*.code-snippets`) serta konfigurasi editor/debug/MCP.                       |
+| `script/`                               | Skrip bantu Bash: `bash_aliases.sh`, `build_apk.sh`, `full_clean.sh`, `rename_apk.sh`.          |
+| `memori/`                               | Dokumen memori kerja: `sesi/` (catatan per sesi) dan `riwayat_perubahan.md`.                    |
+| `hasil_diskusi/`                        | Berkas hasil diskusi (`diskusi_*.md`).                                                          |
+| `prd/`                                  | Dokumen PRD yang tersedia.                                                                      |
+| `docs/`                                 | Dokumentasi pendukung (mis. `model_agents.md`).                                                 |
+| `apk/`                                  | Artefak APK yang disimpan di repositori.                                                        |
+| `.config/dart_skills/`                  | Konfigurasi pemasangan skill Dart.                                                              |
+| `.prettierrc`                           | Konfigurasi pemformatan (Markdown/JSON/JSONC).                                                  |
+| `base_coc/`                             | Submodule aplikasi Flutter (lihat [`base_coc/README.md`](base_coc/README.md)).                  |
+| `share_global_saya/`                    | Submodule pustaka Flutter (lihat [`share_global_saya/README.md`](share_global_saya/README.md)). |
 
 ## Komponen Utama
 

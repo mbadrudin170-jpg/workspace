@@ -10,6 +10,7 @@ description: Memperbarui berkas di folder prompt/ dengan diskusi dan persetujuan
 6. Setelah mengedit, jalankan `formatmd` (alias: `npx prettier --write "**/*.md"`) untuk merapikan berkas Markdown.
 
 # Skill Terkait
+
 - aturan-folder-prompt
 - memori-check
 - penggunaan-tool-question

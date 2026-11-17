@@ -1,5 +1,3 @@
-
-
 - Gejala: Pada sesi 217 (2026-11-16, ~17:39 WIB), AI kembali tidak menjalankan prosedur awal sesi: tidak membuat berkas sesi di `memori/sesi/`, tidak memuat skill `memori-check`, dan tidak membaca berkas `.agents/rules/global/` melalui tool (hanya mengandalkan aturan global yang diinjeksikan secara otomatis ke konteks). MEMORI.md dan AGENTS.md baru dibaca setelah permintaan pengguna ("baca keluhan.md dan aturan global sebelum menambahkan entri").
 - Terkait: `AGENTS.md` (aturan 1, 2, 6, 7), `.agents/skills/custom/memori-check/SKILL.md`, `.kilo/kilo.jsonc` (bagian `instructions`)
 - Tindak lanjut: Karena `.agents/rules/global/` tidak ditemukan di working tree ini (glob `**/.agents/rules/global/*.md` mengembalikan tidak ada), aturan global yang berlaku saat ini hanya yang diinjeksikan melalui `instructions` pada `.kilo/kilo.jsonc`. Akar masalah: prosedur awal sesi (baca MEMORI.md → buat sesi → baca rules global → muat skill memori-check) masih diabaikan pada interaksi pendek. Pertimbangkan penambahan guard otomatis pada command/agent Kilo.

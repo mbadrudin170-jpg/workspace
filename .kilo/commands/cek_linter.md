@@ -36,9 +36,9 @@ Mengecek hasil linter pada folder `lib` dan `test` lalu melaporkan jumlah temuan
 ## Format Laporan
 
 | Target | Linter rule | Jumlah temuan |
-| --- | --- | --- |
-| `lib` | `<rule>` | `<jumlah>` |
-| `test` | `<rule>` | `<jumlah>` |
+| ------ | ----------- | ------------- |
+| `lib`  | `<rule>`    | `<jumlah>`    |
+| `test` | `<rule>`    | `<jumlah>`    |
 
 Sertakan total temuan dan konfirmasi bahwa kode `.dart` tidak diubah.
 

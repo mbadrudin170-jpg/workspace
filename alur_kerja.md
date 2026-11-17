@@ -26,6 +26,7 @@ Mendefinisikan pipeline berurutan lintas sesi untuk proyek ini, dengan file terd
 ## Pipeline Berurutan L1 → L6
 
 ### L1 — Cari APK Kompetitor
+
 - Tujuan: menambah kandidat listing kompetitor baru dari seluruh store (satu run).
 - Command: `.kilo/commands/cari_apk_kompetitor.md`
 - Prasyarat (STOP bila gagal): dokumen proyek (`README.md`/`AGENTS.md`/PRD) tersedia dan aplikasi sasaran jelas.
@@ -33,6 +34,7 @@ Mendefinisikan pipeline berurutan lintas sesi untuk proyek ini, dengan file terd
 - File terdampak: `apk_kompetitor.md`
 
 ### L2 — Riset Kompetitor
+
 - Tujuan: menganalisis maksimal 10 listing `Belum Dianalisa`.
 - Command: `.kilo/commands/riset_kompetitor.md`
 - Prasyarat: ada listing `Belum Dianalisa` di `apk_kompetitor.md`.
@@ -40,6 +42,7 @@ Mendefinisikan pipeline berurutan lintas sesi untuk proyek ini, dengan file terd
 - File terdampak: `apk_kompetitor.md`, `refrensi_apk.md`
 
 ### L3 — Buat PRD Fitur
+
 - Tujuan: membuat PRD satu item fitur dari `refrensi_apk.md` hingga final.
 - Command: `.kilo/commands/fitur/membuat_prd_fitur.md`
 - Prasyarat: item ada pada `refrensi_apk.md` dan tidak tumpang tindih dengan PRD lain.
@@ -47,6 +50,7 @@ Mendefinisikan pipeline berurutan lintas sesi untuk proyek ini, dengan file terd
 - File terdampak: `prd/<fitur>.md` (baru), `refrensi_apk.md`
 
 ### L4 — Implementasikan PRD
+
 - Tujuan: mengimplementasikan PRD hingga `Sudah Diimplementasikan`.
 - Command: `.kilo/commands/prd/kerjakan_prd.md`
 - Prasyarat: PRD berstatus `Final`.
@@ -54,6 +58,7 @@ Mendefinisikan pipeline berurutan lintas sesi untuk proyek ini, dengan file terd
 - File terdampak: `prd/<fitur>.md` + seluruh berkas "File-File Terdampak" PRD (kode; mungkin di submodule); `refrensi_apk.md` (hapus section, bila ada penanda nama berkas PRD)
 
 ### L5 — Cek Kesehatan Kode (gerbang, read-only)
+
 - Tujuan: pemeriksaan prasyarat berantai, lalu analisa kesehatan kode bila seluruh prasyarat lolos.
 - Command: `.kilo/commands/analisa/analisa_kesehatan_kode_alur.md` → (bila lolos) `.kilo/commands/analisa/analisa_kesehatan_kode.md`
 - Catatan: `analisa_kesehatan_kode_alur.md` baris 78 merujuk path usang `.kilo/commands/analisa_kesehatan_kode.md` (tidak ada); path aktual = `.kilo/commands/analisa/analisa_kesehatan_kode.md` (tercatat pada MEMORI sesi 126; tidak diubah atas alur ini).
@@ -62,6 +67,7 @@ Mendefinisikan pipeline berurutan lintas sesi untuk proyek ini, dengan file terd
 - File terdampak: `catatan.md`, `task.md`
 
 ### L6 — Implementasikan Task
+
 - Tujuan: mengerjakan seluruh task berstatus `kerjakan` pada `task.md`.
 - Command: `.kilo/commands/kerjakan_task.md`
 - Prasyarat: ada task berstatus `kerjakan` pada `task.md`.

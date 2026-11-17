@@ -28,7 +28,7 @@ Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan
 2. **Ekstrak trigger dari description (deterministik).**
    - Baca nilai `description` dari front matter YAML setiap file.
    - Cari literal `Trigger:` di posisi paling awal nilai `description` (konvensi `.agents/rules/global/aturan_skill.md` §8.2).
-   - Segmen trigger adalah teks dari setelah `Trigger:` sampai pemisah ` | ` pertama (spasi-pipe-spasi), atau sampai akhir string bila pemisah tidak ada.
+   - Segmen trigger adalah teks dari setelah `Trigger:` sampai pemisah `|` pertama (spasi-pipe-spasi), atau sampai akhir string bila pemisah tidak ada.
    - Tulis segmen trigger apa adanya; trigger wajib bahasa Indonesia dan tidak boleh memuat cakupan/larangan/workflow/referensi file.
    - Jika `description` tidak diawali `Trigger:`, atau segmen trigger kosong, tulis penanda eksplisit: `perlu dilengkapi trigger` dan catat path file sebagai **anomali ringan** (laporan wajib, tidak menghentikan proses).
 
@@ -43,6 +43,7 @@ Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan
 
 5. **Format entri indeks.**
    Setiap entri menggunakan format:
+
    ```
    1. <path skill>
    - Trigger : <isi trigger>
@@ -57,14 +58,14 @@ Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan
 7. **Validasi anomali (WAJIB).**
    Deteksi dan klasifikasikan anomali menjadi dua tingkat:
 
-    **A. Anomali serius — MENGHENTIKAN (jangan tulis indeks):**
-    - **Di luar kategori standar**: skill tidak berada di `.agents/skills/code/`, `.agents/skills/non-code/`, maupun `.agents/skills/bawaan/` (mis. langsung di `.agents/skills/<nama>/` atau di `.agents/skills/custom/` yang sudah tidak dipakai).
-    - **Konflik kategori**: folder fisik berbeda dengan nilai `metadata.kategori` (mis. folder `bawaan` tetapi `metadata.kategori: "custom"`).
-    - **Fatal**: folder `.agents/skills/` tidak dapat dibaca, atau tidak ada satu pun `SKILL.md` ditemukan.
+   **A. Anomali serius — MENGHENTIKAN (jangan tulis indeks):**
+   - **Di luar kategori standar**: skill tidak berada di `.agents/skills/code/`, `.agents/skills/non-code/`, maupun `.agents/skills/bawaan/` (mis. langsung di `.agents/skills/<nama>/` atau di `.agents/skills/custom/` yang sudah tidak dipakai).
+   - **Konflik kategori**: folder fisik berbeda dengan nilai `metadata.kategori` (mis. folder `bawaan` tetapi `metadata.kategori: "custom"`).
+   - **Fatal**: folder `.agents/skills/` tidak dapat dibaca, atau tidak ada satu pun `SKILL.md` ditemukan.
 
-    **B. Anomali ringan — hanya peringatan (tetap lanjut):**
-    - **Metadata kategori kosong**: skill tidak memiliki field `metadata.kategori`. Ini **wajar** untuk skill bawaan (sebelum migrasi front matter Kelompok 34), jadi tidak menghentikan proses.
-    - **Description tanpa `Trigger:`**: skill tidak diawali penanda literal `Trigger:` pada `description` (konvensi `aturan_skill.md` §8.2), sehingga ekstraksi trigger jatuh ke penanda `perlu dilengkapi trigger`.
+   **B. Anomali ringan — hanya peringatan (tetap lanjut):**
+   - **Metadata kategori kosong**: skill tidak memiliki field `metadata.kategori`. Ini **wajar** untuk skill bawaan (sebelum migrasi front matter Kelompok 34), jadi tidak menghentikan proses.
+   - **Description tanpa `Trigger:`**: skill tidak diawali penanda literal `Trigger:` pada `description` (konvensi `aturan_skill.md` §8.2), sehingga ekstraksi trigger jatuh ke penanda `perlu dilengkapi trigger`.
 
 8. **Ambil keputusan berdasarkan tingkat anomali (WAJIB).**
    - Jika ada anomali serius/fatal: **STOP**. Cetak daftar anomali + ringkasan, **JANGAN menulis `.agents/rules/global/kelompok_skill_wajib.md`**, dan akhiri dengan status gagal.
@@ -113,6 +114,7 @@ Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan
 # Hasil Akhir
 
 Setelah selesai:
+
 1. `.agents/rules/global/kelompok_skill_wajib.md` di root proyek berisi indeks seluruh skill.
 2. Setiap kategori memiliki heading sendiri (`## custom`, `## bawaan`, dll.).
 3. Entri diurutkan alfabetis per kategori.

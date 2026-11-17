@@ -1,12 +1,14 @@
 # Sesi 8
 
 ## Status
+
 - Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-17 (Asia/Jakarta)
 - Command: `.kilo/commands/salin_prompt_ke_target.md` (salin_prompt_ke_target)
 - Topik: Menyalin poin-poin dari folder `prompt/` ke target masing-masing
 
 ## Catatan Sesi
+
 - Checklist awal sesi: membaca `MEMORI.md` (tanpa offset/limit), membaca seluruh berkas `.agents/rules/` (`format_hasil_diskusi.md`, `kelompok_skill_wajib.md`, `lainnya.md`, `pengelolaan_konflik.md`), membuat berkas sesi `sesi_8.md`, memuat skill `memori-check`.
 - Membaca `AGENTS.md`, `.kilo/kilo.jsonc` (instructions), dan inventaris `prompt/` (24 berkas: 13 commands, 1 rules, 10 skill) serta daftar target `.kilo/commands/` dan `.agents/skills/`.
 - Membaca sampel berkas prompt dan target terkait untuk pengecekan awal keselarasan.
@@ -22,13 +24,15 @@
   - Dicek selaras/superset (tidak ditimpa agar poin penting & detail skill tetap utuh): `aturan-folder-prompt`, `aturan-pembuatan-rules`, `aturan-pembuatan-skill`, `build-apk-github-workflow`, `build-runner-codegen`, `memori-check`, `penggunaan-tool-bawaan-kilo`, `riset-kompetitor`, `riverpod-pola`. Berkas prompt `prompt/skill/` pada umumnya berisi ringkasan poin; target skill sudah memuat poin-poin tersebut beserta konteks/contoh/larangan yang lebih lengkap, sehingga penimpa mentah akan menghapus informasi penting (tidak dilakukan). Poin/ambiguitas yang relevan diselaraskan secara terarah.
 
 ## Berkas Terdampak
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| `memori/sesi/sesi_8.md` | Dibuat, diperbarui | Inisialisasi dan pencatatan progres sesi salin prompt |
-| `.kilo/commands/audit_riwayat_sesi.md` | Diubah | Penyelarasan poin (hapus duplikasi baca AGENTS/MEMORI) |
-| `.kilo/commands/mode/mode_diskusi.md` | Diubah | Penyelarasan rujukan aturan/skill terkait |
-| `.agents/skills/non-code/aturan-pembuatan-commands/SKILL.md` | Diubah | Koreksi path indeks skill (`kelompok_skill_wajib.md` lokasi aktual) |
-| `.agents/skills/non-code/kelompok-skill-wajib/SKILL.md` | Diubah | Koreksi path indeks (`.agents/rules/kelompok_skill_wajib.md`) |
+
+| Lokasi File                                                  | Status Perubahan   | Deskripsi                                                           |
+| ------------------------------------------------------------ | ------------------ | ------------------------------------------------------------------- |
+| `memori/sesi/sesi_8.md`                                      | Dibuat, diperbarui | Inisialisasi dan pencatatan progres sesi salin prompt               |
+| `.kilo/commands/audit_riwayat_sesi.md`                       | Diubah             | Penyelarasan poin (hapus duplikasi baca AGENTS/MEMORI)              |
+| `.kilo/commands/mode/mode_diskusi.md`                        | Diubah             | Penyelarasan rujukan aturan/skill terkait                           |
+| `.agents/skills/non-code/aturan-pembuatan-commands/SKILL.md` | Diubah             | Koreksi path indeks skill (`kelompok_skill_wajib.md` lokasi aktual) |
+| `.agents/skills/non-code/kelompok-skill-wajib/SKILL.md`      | Diubah             | Koreksi path indeks (`.agents/rules/kelompok_skill_wajib.md`)       |
 
 ## Sinkronisasi ke MEMORI.md
+
 Disinkronkan: penyelarasan file `prompt/` ke target (`.kilo/commands/audit_riwayat_sesi.md`, `.kilo/commands/mode/mode_diskusi.md`, dan path indeks skill `aturan-pembuatan-commands`/`kelompok-skill-wajib`) dicatat di `memori/riwayat_perubahan.md`; tidak ada perubahan konvensi yang dipromosikan ke `MEMORI.md`.

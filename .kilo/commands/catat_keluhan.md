@@ -12,5 +12,6 @@ description: Mencatat keluhan/kegagalan AI terkait rules/skill/command ke keluha
 8. Sertakan path file aturan, rules, dan command yang dilanggar (mis. `AGENTS.md`, `.agents/rules/*.md`, `.kilo/commands/*.md`, `.agents/skills/code/*/SKILL.md`, `.agents/skills/non-code/*/SKILL.md`) agar bisa diperbaiki.
 
 # Skill Terkait
+
 - memori-check
 - penggunaan-tool-question

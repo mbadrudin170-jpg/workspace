@@ -55,9 +55,9 @@ Sampaikan laporan yang memuat:
 
 Contoh baris temuan:
 
-| No | Aset | Tingkat | Path/Objek | Temuan | Saran |
-| --- | --- | --- | --- | --- | --- |
-| 1 | .agents/rules/global/kelompok_skill_wajib.md | GALAT | `.agents/rules/global/kelompok_skill_wajib.md` | Entri menunjuk `SKILL.md` yang tidak ada | Hapus entri atau buat/restore skill, lalu sinkronkan indeks |
+| No  | Aset                                         | Tingkat | Path/Objek                                     | Temuan                                   | Saran                                                       |
+| --- | -------------------------------------------- | ------- | ---------------------------------------------- | ---------------------------------------- | ----------------------------------------------------------- |
+| 1   | .agents/rules/global/kelompok_skill_wajib.md | GALAT   | `.agents/rules/global/kelompok_skill_wajib.md` | Entri menunjuk `SKILL.md` yang tidak ada | Hapus entri atau buat/restore skill, lalu sinkronkan indeks |
 
 ## Larangan
 

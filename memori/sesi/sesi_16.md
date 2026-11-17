@@ -20,10 +20,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| prd/prd_c3_tombol_aksi_utama_menetap.md | Dihapus | PRD dihapus setelah implementasi diverifikasi |
-| refrensi_apk.md | Diubah | Update status item C3 di tabel Prioritas Gabungan (baris 1154) ke "Sudah Diimplementasikan" |
+| Lokasi File                             | Status Perubahan | Deskripsi                                                                                   |
+| --------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------- |
+| prd/prd_c3_tombol_aksi_utama_menetap.md | Dihapus          | PRD dihapus setelah implementasi diverifikasi                                               |
+| refrensi_apk.md                         | Diubah           | Update status item C3 di tabel Prioritas Gabungan (baris 1154) ke "Sudah Diimplementasikan" |
 
 ## Sinkronisasi ke MEMORI.md
 

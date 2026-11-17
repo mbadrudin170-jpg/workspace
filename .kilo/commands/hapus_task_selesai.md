@@ -33,8 +33,8 @@ Merapikan `task.md` di root proyek dengan menghapus entri yang sudah tidak perlu
 
 ## Format Laporan
 
-| Task | Kelompok | Alasan dihapus | Status |
-| --- | --- | --- | --- |
+| Task          | Kelompok     | Alasan dihapus                           | Status             |
+| ------------- | ------------ | ---------------------------------------- | ------------------ |
 | `<nama task>` | `<kelompok>` | `selesai` / `batal` / `sudah dikerjakan` | Dihapus / Dilewati |
 
 ## Larangan

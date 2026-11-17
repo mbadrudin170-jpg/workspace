@@ -15,4 +15,5 @@ description: Commit berkas yang diubah pada sesi ini per repositori dengan pesan
 11. Larangan: commit jika tugas belum selesai; menyertakan berkas di luar sesi; melewatkan repo; mengarang hasil verifikasi.
 
 # Skill Terkait
+
 - memori-check

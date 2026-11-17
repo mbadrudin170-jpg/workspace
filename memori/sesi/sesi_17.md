@@ -19,12 +19,12 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| `memori/sesi/sesi_17.md` | Dibuat | Berkas sesi aktif (ditandai `Sudah Sinkron` di akhir sesi) |
-| `MEMORI.md` | Diubah | Header `Diperbarui: 2026-11-17 (sesi 18)` (di-set commit `1ae4314` sesi 18; sesi 17 tidak mengubah header); bullet Status sesi 15; marker sesi_16 → Sudah Sinkron; bullet "Sesi terakhir" sesi_17 (penanda final); provenance sesi 17 |
-| `memori/riwayat_perubahan.md` | Diubah | Entri sesi 15 digabung (catch-up sesi 16, dilengkapi sesi 17) |
-| `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md` | Diubah/Diisi | Isi evaluasi perdana 5 commit terakhir per repo + 2 commit susulan selama sesi (root `1ae4314`, `base_coc` `06f74c2`): tabel temuan per repo, prioritas T1–T2/S1–S3/R1–R4, bagian "Sesuai Tanpa Perubahan", "Menunggu Keputusan Pengguna", "Catatan Terpisah", penanda commit terakhir dievaluasi per repo |
+| Lokasi File                                              | Status Perubahan | Deskripsi                                                                                                                                                                                                                                                                                                  |
+| -------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_17.md`                                 | Dibuat           | Berkas sesi aktif (ditandai `Sudah Sinkron` di akhir sesi)                                                                                                                                                                                                                                                 |
+| `MEMORI.md`                                              | Diubah           | Header `Diperbarui: 2026-11-17 (sesi 18)` (di-set commit `1ae4314` sesi 18; sesi 17 tidak mengubah header); bullet Status sesi 15; marker sesi_16 → Sudah Sinkron; bullet "Sesi terakhir" sesi_17 (penanda final); provenance sesi 17                                                                      |
+| `memori/riwayat_perubahan.md`                            | Diubah           | Entri sesi 15 digabung (catch-up sesi 16, dilengkapi sesi 17)                                                                                                                                                                                                                                              |
+| `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md` | Diubah/Diisi     | Isi evaluasi perdana 5 commit terakhir per repo + 2 commit susulan selama sesi (root `1ae4314`, `base_coc` `06f74c2`): tabel temuan per repo, prioritas T1–T2/S1–S3/R1–R4, bagian "Sesuai Tanpa Perubahan", "Menunggu Keputusan Pengguna", "Catatan Terpisah", penanda commit terakhir dievaluasi per repo |
 
 ## Catatan Sesi (lanjutan)
 
