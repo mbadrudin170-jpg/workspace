@@ -318,15 +318,6 @@ Implikasi: seluruh rekomendasi fitur pada bagian A bersifat **fitur baru dari no
 - **Saran:** lapisan kanvas (garis/panah/stiker) di atas preview base pada layar detail, ekspor gambar ke penyimpanan lalu bagikan; sepenuhnya dapat berjalan lokal tanpa backend.
 - **Prioritas:** Sedang.
 
-#### A36. Indikator popularitas base lokal (jumlah disalin/dibuka)
-
-- **Temuan:** `Base Layouts: War & Farm Maps` menampilkan berapa kali sebuah layout pernah disalin sebelum pengguna memilih; `Cocbases` menonjolkan "Editor's Picks" dan sortir "paling banyak diunduh/rating tertinggi".
-- **Tujuan fitur:** membantu pengguna memilih base yang terbukti dipakai, meski katalog dikelola lokal tanpa backend.
-- **Referensi:** [Base Layouts: War & Farm Maps](https://apps.apple.com/us/app/id6804564319), [Cocbases](https://play.google.com/store/apps/details?id=com.coc.cocbases)
-- **Saran:** simpan penghitung lokal per base (jumlah aksi salin dan buka detail) di SQLite, sediakan sortir "paling sering disalin" serta label kurasi manual "Pilihan" pada data katalog.
-- **Prioritas:** Sedang.
-- **Status PRD:** PRD Final (`prd/prd_indikator_popularitas_base.md`, sesi 220); sebagian diimplementasikan (penghitung `statistik_base` + sortir terpopuler C38); badge/kurasi manual "Pilihan" belum diimplementasikan.
-
 #### A37. Laporan tautan base rusak dengan peninjauan ulang
 
 - **Temuan:** `Base Layouts: War & Farm Maps` menyediakan tombol lapor tautan rusak dan menyatakan tautan yang dilaporkan akan diperiksa ulang, guna menekan jumlah tautan mati.
