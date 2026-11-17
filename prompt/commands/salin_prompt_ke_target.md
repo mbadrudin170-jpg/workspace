@@ -1,4 +1,4 @@
-diperbarui : Tue Nov 17 2026 18:32 WIB
+diperbarui : Tue Nov 17 2026 22:02 WIB
 ditimpa ke : `.kilo/commands/salin_prompt_ke_target.md`
 
 1. Cek apakah semua berkas di folder `prompt/` sudah ditimpa ke masing-masing targetnya.
@@ -9,6 +9,7 @@ ditimpa ke : `.kilo/commands/salin_prompt_ke_target.md`
 6. Jika berkas berada di `prompt/skill/`, gunakan skill `aturan-pembuatan-skill`.
 7. Sebelum menimpa target, baca sumber terlebih dahulu dan perbaiki typo, poin ambigu, atau poin yang kurang jelas agar AI tidak salah langkah.
 8. Jangan menghapus poin-poin penting saat menyelaraskan.
+9. Kerjakan satu folder dulu (mis. `prompt/commands/`) hingga tuntas, lalu laporan bahwa folder tersebut selesai sebelum lanjut ke folder berikutnya.
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 

@@ -39,6 +39,10 @@
 | prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Rapikan poin: perbarui entri yang ada bila kode/pola sama (jangan tambah entri baru), STOP + `question` jadi poin terakhir; terapkan juga ke isi final command (Execute + Larangan) |
 | prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Tambah poin muat skill: `aturan-pembuatan-skill` (menentukan skill) + `aturan-pembuatan-rules` (bila menentukan aturan) |
 | .kilo/commands/evaluasi_skill_dari_commit.md | Diubah | Ketentuan Umum #7: muat `aturan-pembuatan-skill` untuk skill + `aturan-pembuatan-rules` bila menentukan aturan |
+| prompt/skill/aturan-folder-prompt.md | Diubah | Rapikan: gabungkan aturan tanggal (1+8) dan aturan poin ringkas (4+7), seragamkan format header, perbarui tanggal |
+| prompt/skill/aturan-folder-prompt.md | Diubah | Tambah aturan 7: tanggal wajib zona waktu Asia/Jakarta |
+| prompt/commands/memperbarui_file_di_folder_prompt.md | Dibuat | Berkas poin prompt untuk command `memperbarui_file_di_folder_prompt` (sebelumnya hanya ada isi final di `.kilo/commands/`) |
+| prompt/commands/salin_prompt_ke_target.md | Diubah | Rapikan poin 9 (satu folder dulu → laporan → lanjut), perbaiki typo ("commnads", "folderprompt.commands", "seslesai"), perbarui tanggal |
 
 ## Sinkronisasi ke MEMORI.md
 Belum disinkronkan

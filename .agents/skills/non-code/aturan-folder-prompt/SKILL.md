@@ -1,10 +1,10 @@
 ---
 name: aturan-folder-prompt
-description: "Trigger: saat menambah atau memperbarui file di folder prompt/ | Aturan folder prompt/: setiap file wajib memuat tanggal diperbarui (lengkap + jam) dan target 'ditimpa ke'/'file' (path tujuan), karena folder prompt/ hanya mencatat poin-poin penting untuk masing-masing skill, aturan, dan command. Subfolder: prompt/skill/, prompt/rules/, prompt/commands/ (dan prompt/mode/ bila ada). Setiap skill wajib memiliki berkas poin di prompt/skill/ dengan nama yang sama."
+description: "Trigger: saat menambah atau memperbarui file di folder prompt/ | Aturan folder prompt/: setiap file wajib memuat tanggal diperbarui (lengkap + jam, zona waktu Asia/Jakarta) dan target 'ditimpa ke'/'file' (path tujuan), karena folder prompt/ hanya mencatat poin-poin penting untuk masing-masing skill, aturan, dan command. Subfolder: prompt/skill/, prompt/rules/, prompt/commands/ (dan prompt/mode/ bila ada). Setiap skill wajib memiliki berkas poin di prompt/skill/ dengan nama yang sama."
 metadata:
   kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Mon Nov 16 2026 07:48 WIB"
+  versi: "1.2.0"
+  diperbarui: "Tue Nov 17 2026 21:55 WIB"
 ---
 
 # Aturan Folder Prompt
@@ -19,15 +19,13 @@ Folder `prompt/` di root proyek menyimpan rujukan/draft (poin-poin penting) untu
 
 ## Aturan
 
-1. Setiap berkas di `prompt/` **wajib** memuat tanggal diperbarui lengkap beserta jam (mis. `diperbarui : Mon Nov 16 2026 07:36 WIB`).
-2. Setiap berkas di `prompt/` **wajib** memuat target "ditimpa ke" (path tujuan) atau "file" (link ke berkas target), karena folder `prompt/` hanya mencatat poin-poin penting untuk masing-masing skill, aturan, dan command.
+1. Setiap berkas di `prompt/` **wajib** memuat header: `diperbarui :` (tanggal lengkap + jam) dan `ditimpa ke :` (path tujuan) atau `file :` (link ke berkas target).
+2. Tanggal `diperbarui` **wajib** memakai zona waktu Asia/Jakarta (WIB) dan **wajib** diperbarui setiap kali isi berkas di `prompt/` diperbarui.
 3. Nama berkas di `prompt/<subfolder>/` **wajib** sama dengan nama target (mis. `prompt/skill/aturan-pembuatan-skill.md` ↔ `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`).
 4. Setiap skill wajib memiliki berkas poin di `prompt/skill/<nama-skill>.md` dengan nama yang sama (sesuai skill `aturan-pembuatan-skill` Aturan 13).
-5. Berkas di `prompt/` hanya berisi poin-poin penting (ringkas); isi final tetap berada di target (`.agents/`, `.kilo/`).
-6. Catatan "hanya untuk penulis prompt, bukan untuk skill" (beserta link referensi) **wajib** ditempatkan di akhir berkas dan **tidak boleh** dimasukkan ke skill target.
-7. Subfolder `prompt/` mengikuti jenis target: `prompt/skill/` (skill), `prompt/rules/` (aturan), `prompt/commands/` (command), `prompt/mode/` (mode command).
-
-8. Berkas di `prompt/` **wajib** hanya mencakup poin-poin penting yang ringkas; DILARANG memuat isi final/lengkap. Isi final tetap berada di target (`.agents/`, `.kilo/`).
+5. Berkas di `prompt/` **wajib** hanya berisi poin-poin penting (ringkas); **dilarang** memuat isi final/lengkap. Isi final tetap berada di target (`.agents/`, `.kilo/`).
+6. Subfolder `prompt/` mengikuti jenis target: `prompt/skill/` (skill), `prompt/rules/` (aturan), `prompt/commands/` (command), `prompt/mode/` (mode command).
+7. Catatan "hanya untuk penulis prompt, bukan untuk skill" (beserta link referensi) **wajib** ditempatkan di akhir berkas sumber dan **tidak boleh** dimasukkan ke target (`.agents/skills/`, `.agents/rules/`, `.kilo/commands/`).
 
 ## Larangan
 
