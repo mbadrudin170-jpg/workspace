@@ -358,3 +358,88 @@ Aurora Store bukan katalog mandiri; ia adalah klien untuk Play Store sehingga ti
 | COC Maps - Base Layouts Links | Mirror Uptodown dari aplikasi Play Store "COC Base Layouts Design links" (`com.srsapps.new_clash_base_layouts_direct_link`): galeri base TH4–TH15 dan BH4–BH10 dengan copy link satu klik ke game; versi 1.2.2 (Jul 2026, 152 unduhan). | Uptodown | [Unduh APK](https://coc-maps-base-layouts-links.en.uptodown.com/android) | Belum Dianalisa |
 
 - IzzyOnDroid, SlideME, Tencent MyApp, APKPure, Aptoide: tidak ada kandidat baru yang dapat diverifikasi pada run ini (keterbatasan akses/rotasi status sama seperti catatan 2026-11-14 dan 2026-11-15; APKPure mengembalikan mirror dari aplikasi yang sudah tercatat di katalog).
+
+# Tambahan Riset (2026-11-17)
+
+Run ini (sesi 219) menambahkan **0 listing baru** ke katalog; seluruh store yang diriset tidak menghasilkan kandidat baru yang dapat diverifikasi (katalog sudah mencakup listing yang muncul pada pencarian). Status `Belum Dianalisa` tidak berubah.
+
+## Google Play Store
+
+Tidak ada listing baru yang dapat diverifikasi. Pencarian `play.google.com/store/search?q=clash+of+clans+base+layouts` (2026-11-17) hanya menampilkan aplikasi yang sudah tercatat di katalog (Base Drop, CoC Base Maps 2026, Clash Base Pedia, Maps of Clash of Clans 2026, Clash of Maps, COC Fanatic, Cockit, Cocbases, dll.). Tidak ada package id baru yang dapat diverifikasi.
+
+## F-Droid
+
+Tidak ada aplikasi mobile relevan (penyedia base/layout Clash of Clans). Pencarian `clash of clans`/`clash` hanya mengembalikan klien VPN/proxy (Clash Meta For Android, ClashFest, Lumine) yang tidak relevan. Kesimpulan sama seperti run 2026-11-14/15/16.
+
+## GitHub
+
+Tidak ada repositori mobile baru yang relevan. Hasil penelusuran hanya repositori yang sudah tercatat (ClashKingApp, Killersparrow1/clash-Trackers, rahulkhatri137/coc-tracker, chitti-a7r4/coc-tracker, mhmdmydn/Coc-Base-Layout) atau webapp/desktop (nschmeller/clash-bases, doryphores/coc-builder, danielholmes/coc-base-analyser, zyllus17/clash_of_clans_ui, Peter537/clash-of-clans-base-validator, JawadAhmadKhan04/COC) yang bukan aplikasi mobile. Tidak ada listing baru yang disertakan.
+
+## Apple App Store
+
+Tidak ada listing baru yang relevan. Lookup iTunes search API (`term=clash of clans base`, `entity=software`, `country=us`, limit 50) mengembalikan 48 hasil; seluruh aplikasi base/layout yang relevan (CoC Fanatic, Map Layout, BaseVault, COC Base Layout Links 2024, Maps Base, Coc War Base Layouts, Clasher Maps, Clash Champs, Clashtasia, Base Layouts Clash of Clans, Pro Maps, ClashMax, House of Clashers, Maps for Clash of Clans, ClashLy, Clash Cookbook, Base Planner, Base Layouts War & Farm) sudah tercatat di katalog. ID lain yang muncul adalah game/strategi generik, klien proxy (Clash Mi), atau pelacak statistik murni (War Report) yang sengaja tidak disertakan sesuai preseden sesi 146/148.
+
+## Samsung Galaxy Store
+
+Tidak ada aplikasi base/layout Clash of Clans yang dapat diverifikasi (etalase dirender JavaScript; pencarian mengembalikan HTTP 404). Kesimpulan sama seperti run sebelumnya.
+
+## Mi/GetApps
+
+Tidak ada halaman aplikasi base/layout Clash of Clans spesifik yang dapat diverifikasi (halaman pencarian dirender JavaScript). Kesimpulan sama seperti run sebelumnya.
+
+## Oppo App Market
+
+Tidak ada halaman aplikasi base/layout Clash of Clans spesifik yang dapat diverifikasi. Kesimpulan sama seperti run sebelumnya.
+
+## Vivo V-Appstore
+
+Tidak ada halaman aplikasi base/layout Clash of Clans spesifik yang dapat diverifikasi (etalase H5 dirender JavaScript). Kesimpulan sama seperti run sebelumnya.
+
+## Amazon Appstore
+
+Dilewati: Amazon Appstore untuk Android dihentikan 2025-08-20 (kini hanya Fire TV/Fire Tablet). Disimpan sebagai rujukan historis.
+
+## Huawei AppGallery
+
+Tidak ada halaman aplikasi base/layout Clash of Clans spesifik yang dapat diverifikasi. Kesimpulan sama seperti run sebelumnya.
+
+## Aurora Store
+
+Bukan katalog mandiri (klien Play Store); tidak memiliki listing aplikasi sendiri.
+
+## APKPure
+
+Tidak ada kandidat baru yang dapat diverifikasi. Pencarian `site:apkpure.com clash of clans base layouts` (2026-11-17) hanya mengembalikan aplikasi yang sudah tercatat (ClashLy, Clash of Maps, COC Base Pro, COC Fanatic, CoC Base Maps 2026, Clash of Mash, Clash Base Designer, COC Base Layouts Clash of Maps, dll.). Tidak ada listing baru.
+
+## Aptoide
+
+Halaman pencarian mengembalikan shell JavaScript tanpa hasil aplikasi yang dapat diverifikasi; tidak ada listing baru.
+
+## Uptodown, IzzyOnDroid, SlideME, Tencent MyApp
+
+Tidak ada kandidat baru yang dapat diverifikasi (keterbatasan akses/rotasi status sama seperti catatan 2026-11-14/15/16).
+
+# Riwayat Pencarian Store
+
+| Store | Jumlah Diriset (≥) | Terakhir Diriset (sesi) | Catatan |
+| --- | --- | --- | --- |
+| Google Play Store | 9 | 219 | Run 2026-11-17: 0 listing baru. |
+| F-Droid | 6 | 219 | Konsisten nihil. |
+| GitHub | 6 | 219 | Konsisten nihil baru. |
+| Apple App Store | 6 | 219 | iTunes lookup: 0 listing baru. |
+| Samsung Galaxy Store | 6 | 219 | Konsisten nihil. |
+| Mi/GetApps | 6 | 219 | Konsisten nihil. |
+| Oppo App Market | 6 | 219 | Konsisten nihil. |
+| Vivo V-Appstore | 5 | 219 | Konsisten nihil. |
+| Amazon Appstore | 5 | 219 | Dilewati (Android dihentikan). |
+| Huawei AppGallery | 5 | 219 | Konsisten nihil. |
+| Aurora Store | 5 | 219 | Bukan katalog mandiri. |
+| APKPure | 6 | 219 | 0 listing baru. |
+| Aptoide | 5 | 219 | Konsisten nihil. |
+| Uptodown | 4 | 219 | 1 listing mirror tercatat (sebelumnya). |
+| IzzyOnDroid | 4 | 219 | Konsisten nihil. |
+| SlideME | 4 | 219 | Konsisten nihil. |
+| Tencent MyApp | 4 | 219 | Konsisten nihil. |
+
+diperbarui: 2026-11-17 (sesi 219)
+
