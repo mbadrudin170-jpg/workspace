@@ -4,6 +4,6 @@
 [submodule "share_global_saya"]
 	path = share_global_saya
 	url = https://github.com/mbadrudin170-jpg/share_global_saya.git
-[submodule "admin_flutter"]
-	path = admin_flutter
+[submodule "admin_wifi"]
+	path = admin_wifi
 	url = https://github.com/mbadrudin170-jpg/admin_wifi.git
