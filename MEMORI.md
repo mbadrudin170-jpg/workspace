@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-17 (sesi 7)
+Diperbarui: 2026-11-17 (sesi 10)
 
 ## Konteks Proyek
 
@@ -18,7 +18,8 @@ Diperbarui: 2026-11-17 (sesi 7)
 
 ## Status
 
-- Sesi terakhir: `memori/sesi/sesi_7.md` (Sudah Sinkron) — implementasi PRD indikator popularitas base; audit riwayat sesi inkremental (Audit 1): 5 sesi diaudit (`sesi_1`–`sesi_5`), 1 dilewati (`sesi_6` aktif), 0 berkas hilang; klasifikasi A=4 B=0 C=0, tidak ada rekomendasi B/C. Ledger: `audit/riwayat_sesi.md`.
+- Sesi terakhir: `memori/sesi/sesi_10.md` (Sudah Sinkron) — rename command `.kilo/commands/fitur/diskusi_fitur_baru.md` → `.kilo/commands/fitur/membuat_prd_fitur.md` (via `git mv`, judul H1 `# Membuat PRD Fitur`) beserta penyelarasan 5 rujukan di `.kilo/commands/alur_kerja.md`, `alur_kerja.md`, `.agents/skills/non-code/format-prd/SKILL.md`, dan `.agents/skills/code/konfigurasi-kilo-proyek/SKILL.md`; metadata `diperbarui` kedua skill dan indeks `kelompok_skill_wajib.md` diselaraskan.
+- Sesi 9: riset kompetitor batch 10 — 10 listing `Belum Dianalisa` pertama (Apple App Store, `apk_kompetitor.md` baris 95–104) diverifikasi via `webfetch`, dianalisa, dan ditandai `Sudah Dianalisa`; `refrensi_apk.md` ditambahkan batch 10 (sumber 81–90, rekomendasi A70–A80, optimasi B26–B27, UI/UX C34–C36, contoh format item A1, dan fitur `fitur_khusus.md` "desa malam" prioritas Tinggi); `memori/sesi/sesi_8.md` disinkronkan lewat catch-up (Sudah Sinkron).
 
 ## Catatan Teknis
 
@@ -27,6 +28,8 @@ Diperbarui: 2026-11-17 (sesi 7)
 - Sesi 4 (2026-11-17): penyelarasan `prompt/skill/aturan-folder-prompt.md` → target (v1.2.0): zona waktu Asia/Jakarta, penggabungan aturan duplikatif, indeks skill diperbarui.
 - Sesi 6 (2026-11-17): audit riwayat sesi pertama (`audit/riwayat_sesi.md`, Audit 1). Sesi 1–5 diaudit; tidak ditemukan pola kategori B/C atau kerusakan arsip; catch-up sync `Belum Sinkron` tercatat sebagai mekanisme normal (kategori A).
 - Sesi 7 (2026-11-17): implementasi PRD `prd/prd_indikator_popularitas_base.md` (indikator popularitas + kurasi manual "Pilihan" pada kartu katalog `base_coc`) — seluruh kebutuhan sudah terimplementasi dalam kode; verifikasi `dart analyze` No issues dan `flutter test` 147 lulus. Status PRD diubah ke `Sudah Diimplementasikan`, berkas PRD dihapus, section A36 di `refrensi_apk.md` dibersihkan.
+- Sesi 10 (2026-11-17): rename command `.kilo/commands/fitur/diskusi_fitur_baru.md` → `.kilo/commands/fitur/membuat_prd_fitur.md`; konflik `.agents/rules/lainnya.md` butir 2–3 vs butir 4 (edit skill `code` vs mismatch rujukan) diselesaikan oleh pengguna: rujukan di skill `code` tetap diperbarui.
+- Sesi 10 — tunggakan terbuka: ±30 rujukan `.agents/skills/custom/...` masih usang (skill kini di `.agents/skills/code/` dan `.agents/skills/non-code/`), termasuk di dalam command `membuat_prd_fitur.md` baris 13, 30, 50; belum diperbaiki karena di luar cakupan sesi ini.
 - Perubahan aturan/skill disertai pembaruan `prompt/` dan indeks `.agents/rules/kelompok_skill_wajib.md` bila status pembaruan berubah.
 
 ## Sumber Kebenaran Lain

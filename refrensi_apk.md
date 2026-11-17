@@ -1619,3 +1619,190 @@ Ringkasan temuan batch 9:
 | ClashKingApp | GitHub | https://github.com/ClashKingInc/ClashKingApp | Profil pemain/klan, Ranked & Legend League, statistik perang/CWL, pelacakan upgrade & kalkulator, widget, multibahasa, tema | Rendah |
 
 Jumlah listing dianalisis batch 9: 10. Berkas yang diperbarui: `apk_kompetitor.md` (status 10 listing → `Sudah Dianalisa`) dan `refrensi_apk.md` (batch 9: referensi 71–80, temuan, rekomendasi A59–A69, B23–B25, C31–C33, dan tabel format laporan).
+
+## Batch 10 — Sumber (sesi 9, 2026-11-17 WIB)
+
+81. [CoC Fanatic for Clash of Clans](https://apps.apple.com/us/app/id1159435157)
+82. [Map Layout for Clash of Clans](https://apps.apple.com/us/app/id1086381870)
+83. [Clasher Maps of Clans](https://apps.apple.com/us/app/id1248667281)
+84. [Clash Champs: Pro Base Layouts](https://apps.apple.com/us/app/id1672169310)
+85. [Base Layouts Clash of Clans](https://apps.apple.com/us/app/id1635937933)
+86. [Coc War Base Layouts](https://apps.apple.com/us/app/id1075897841)
+87. [Pro Maps for Clash of Clans](https://apps.apple.com/us/app/id6749685369)
+88. [COC - Base Layout Links 2024](https://apps.apple.com/us/app/id6479356008)
+89. [Maps Base For Clash of Clans](https://apps.apple.com/us/app/id6738093011)
+90. [Clashtasia - Base Layouts Link](https://apps.apple.com/us/app/id6811312950)
+
+## Batch 10 — Temuan & Rekomendasi (sesi 9, 2026-11-17 WIB)
+
+Verifikasi: 10 listing diverifikasi melalui halaman resmi Apple App Store (halaman toko terbaca penuh via `webfetch`; `curl` tidak digunakan karena dibatasi konfigurasi izin proyek). Seluruh listing dianalisis hanya untuk fitur yang dapat berjalan di mobile Android. Fitur eksklusif iOS (seperti widgetKit/Live Activities/wear-only tanpa padanan Android) dicatat sebagai referensi pola saja, bukan rekomendasi (selaras aturan skill `riset-kompetitor`).
+
+Ringkasan temuan batch 10:
+
+1. **Kalkulator kebutuhan spell dan glosarium istilah** (`CoC Fanatic`): kalkulator ZapQuake (jumlah spell Lightning/Earthquake untuk menghancurkan pertahanan), "Last Seen" (waktu terakhir pemain online), glosarium istilah Clash, dan direktori klan. Kalkulator perhitungan lokal dapat diterapkan tanpa backend.
+2. **Penjelasan kelebihan/kekurangan tipe base** (`Map Layout for Clash of Clans`): 100+ layout, 4 tipe base (war/trophy/hybrid/farming) dengan penjelasan kelebihan dan kekurangan tiap tipe, dukungan 10+ bahasa. Ulasan menyebut iklan berlebihan dan basis yang gagal memuat setelah TH9 — pelajaran anti-pola (hindari iklan agresif dan konten yang gagal dimuat).
+3. **Kalkulator upgrade gabungan + Attack Mapper** (`Clasher Maps of Clans`): Time to Max/Left to Max, kalkulator gem/XP/dinding/ZapQuake, Progress Tracker, Attack Mapper (gambar rencana serangan di atas base), komparasi unit side-by-side, ranking, tema terang/gelap, dan sinkron cloud. Pola all-in-one yang relevan untuk pendukung progres.
+4. **Rekomendasi komposisi pasukan terpopuler** (`Clash Champs`): Army IQ dan daftar pasukan terpopuler per liga/TH dengan AI coaching (model berlangganan). Fitur AI/coaching butuh backend/ML → prioritas rendah; versi lokal dapat berupa daftar komposisi statis per TH.
+5. **Anti-pola model langganan membatasi konten dasar** (`Base Layouts Clash of Clans`): rating 1,8★, ulasan menyatakan "scam" dan langganan $9,99/minggu untuk konten dasar, aplikasi gagal dimuat. Pelajaran: transparansi biaya, jangan kunci konten dasar di balik pembayaran.
+6. **Indikator kualitas base + validasi gambar utuh** (`Coc War Base Layouts`): 5.000+ layout, 6 tipe, TH1–13, unduhan strategi. Ulasan: tidak ada statistik kualitas per base, gambar tidak lengkap, iklan mengganggu.
+7. **Indikator progres unduhan** (`Pro Maps for Clash of Clans`): 1.000+ base TH1–TH17, copy satu ketuk, filter TH/tipe/gaya pertahanan, update mingguan, dialog progres unduhan, dan layar video rekomendasi.
+8. **Notifikasi base baru tersedia** (`COC - Base Layout Links 2024`): notifikasi saat base baru tersedia, strategi serang per TH, detail pemain/klan, dan favorit. Ulasan: iklan setelah setiap klik, konten hanya sampai TH15.
+9. **Pencarian cepat berbasis tag** (`Maps Base For Clash of Clans`): TH3–TH16, BH4–BH10, quick search berbasis tag, layout unggah anggota, dan berbagi. Tema terang/gelap/sistem. Ulasan memuji navigasi namun menyebut langganan untuk konten.
+10. **Dukungan Town Hall terbaru + filter struktur/pertahanan** (`Clashtasia`): TH4–TH19 dan Clan Capital, Builder Base 2.0, pencarian tag cepat, bookmark favorit, 8 bahasa. Versi terbaru (17 jam lalu) menambahkan dukungan TH19.
+
+### Contoh Format Item Referensi
+
+Contoh penulisan item referensi sesuai format yang ditentukan:
+
+A1 Salin komposisi pasukan (Copy Army) — prioritas: Sedang — ringkasan singkat: fitur menyalin komposisi pasukan langsung ke game dari layar detail base.
+
+### A. Rekomendasi Fitur Baru (Batch 10)
+
+#### A70. Kalkulator kebutuhan spell (ZapQuake) lokal
+
+- **Temuan:** `CoC Fanatic` menyediakan kalkulator spell yang menghitung jumlah Lightning/Earthquake diperlukan untuk menghancurkan pertanian berdasarkan TH pengguna.
+- **Tujuan fitur:** alat bantu perencanaan serang yang dihitung sepenuhnya lokal, tanpa backend.
+- **Referensi:** [CoC Fanatic for Clash of Clans](https://apps.apple.com/us/app/id1159435157)
+- **Saran:** tambahkan kalkulator spell sederhana pada layar detail base atau sebagai alat terpisah; input level pertahanan, output jumlah spell.
+- **Prioritas:** Sedang.
+
+#### A71. Glosarium istilah strategi offline
+
+- **Temuan:** `CoC Fanatic` menyediakan "Clash Terms" (glosarium istilah seperti Aggro, Feeder Clan, Kill Squad, War Weight) bagi pemula.
+- **Tujuan fitur:** menurunkan ambang pemahaman pengguna baru terhadap istilah game dan strategi base.
+- **Referensi:** [CoC Fanatic for Clash of Clans](https://apps.apple.com/us/app/id1159435157)
+- **Saran:** bagian "Panduan" statis berisi istilah dan penjelasan singkat dari aset JSON lokal; melengkapi A40.
+- **Prioritas:** Rendah.
+
+#### A72. Penjelasan kelebihan dan kekurangan tipe base pada layar detail
+
+- **Temuan:** `Map Layout for Clash of Clans` menyajikan kelebihan dan kekurangan tiap tipe base (war/trophy/hybrid/farming) untuk membantu pemilihan.
+- **Tujuan fitur:** membantu pengguna memilah base sesuai tujuan tanpa membuka setiap detail terlebih dahulu.
+- **Referensi:** [Map Layout for Clash of Clans](https://apps.apple.com/us/app/id1086381870)
+- **Saran:** catatan singkat "kelebihan/kekurangan" sebagai metadata per base, ditampilkan pada kartu atau layar detail; isi dari data statis lokal.
+- **Prioritas:** Sedang.
+
+#### A73. Kalkulator upgrade gabungan (Time to Max, gem, XP, dinding, ZapQuake)
+
+- **Temuan:** `Clasher Maps of Clans` menyediakan kalkulator upgrade gabungan (waktu ke max, gem, XP, biaya dinding, ZapQuake, Collector Idle) dan Progress Tracker per desa.
+- **Tujuan fitur:** satu kalkulator untuk perencanaan sumber daya dan waktu upgrade, melengkapi A16/A17.
+- **Referensi:** [Clasher Maps of Clans](https://apps.apple.com/us/app/id1248667281)
+- **Saran:** gabungkan kalkulator yang ada pada `progres_calculator.dart` dengan input biaya gem/XP; tampilkan hasil agregat per desa.
+- **Prioritas:** Sedang.
+
+#### A74. Attack Mapper: rencana serangan di atas gambar base
+
+- **Temuan:** `Clasher Maps of Clans` menyediakan Attack Mapper untuk menggambar rencana serangan (garis, panah, stiker) di atas gambar base asli dan mengekspor hasil sebagai gambar.
+- **Tujuan fitur:** membantu pengguna memahami dan merencanakan serang pada base tertentu tanpa berpindah aplikasi; sepenuhnya lokal.
+- **Referensi:** [Clasher Maps of Clans](https://apps.apple.com/us/app/id1248667281)
+- **Saran:** lapisan kanvas pada preview base di layar detail, ekspor gambar ke penyimpanan lalu bagikan; serupa dengan A35 (batch 4).
+- **Prioritas:** Sedang.
+
+#### A75. Daftar komposisi pasukan terpopuler per Town Hall (statis)
+
+- **Temuan:** `Clash Champs` menampilkan "top armies" (komposisi pasukan terpopuler per liga dan TH) dengan 3-star rate, difiturkan Army IQ berbasis AI (berbayar).
+- **Tujuan fitur:** memberikan rekomendasi pasukan yang relevan dengan base yang dipilih tanpa AI.
+- **Referensi:** [Clash Champs: Pro Base Layouts](https://apps.apple.com/us/app/id1672169310)
+- **Saran:** daftar komposisi statis per TH dari data katalog lokal, ditampilkan di layar detail base; jangan klaim AI pada versi awal.
+- **Prioritas:** Rendah.
+
+#### A76. Indikator kualitas/popularitas base per item (lokal)
+
+- **Temuan:** `Coc War Base Layouts` dan sejenisnya memiliki ribuan base tanpa indikator kualitas; ulasan mengakui kesulitan mengetahui base mana yang baik.
+- **Tujuan fitur:** membantu pemilihan base berkualitas dengan data lokal (jumlah salin, penanda editor).
+- **Referensi:** [Coc War Base Layouts](https://apps.apple.com/us/app/id1075897841)
+- **Saran:** tambahkan hitung salin lokal dan badge "Pilihan editor" pada kartu; komunitas/rating butuh backend — tunda.
+- **Prioritas:** Sedang.
+
+#### A77. Notifikasi base baru tersedia
+
+- **Temuan:** `COC - Base Layout Links 2024` mengirim notifikasi saat base baru tersedia, sehingga pengguna tidak perlu memeriksa secara berkala.
+- **Tujuan fitur:** membuka alasan pengguna membuka aplikasi kembali tanpa login.
+- **Referensi:** [COC - Base Layout Links 2024](https://apps.apple.com/us/app/id6479356008)
+- **Saran:** notifikasi lokal saat katalog versi baru tersedia; hormati Do Not Disturb; jangan wajibkan akun.
+- **Prioritas:** Rendah.
+
+#### A78. Pencarian cepat berbasis tag pada katalog base
+
+- **Temuan:** `Maps Base For Clash of Clans` menyediakan quick search berbasis tag (mis. war/farming/trophy) untuk menyaring ribuan layout dengan cepat.
+- **Tujuan fitur:** mempersempit hasil pencarian tanpa meninggalkan halaman daftar.
+- **Referensi:** [Maps Base For Clash of Clans](https://apps.apple.com/us/app/id6738093011)
+- **Saran:** perluas chip filter C4 dengan tag strategi/base; simpan tag favorit lokal.
+- **Prioritas:** Sedang.
+
+#### A79. Dukungan Town Hall terbaru (TH19) dan Builder Base 2.0
+
+- **Temuan:** `Clashtasia` baru saja menambahkan dukungan TH19 (versi 1.3, 17 jam lalu) dan Builder Base 2.0 (BH4–BH10) dengan filter struktur/pertahanan.
+- **Tujuan fitur:** menjaga katalog tetap relevan dengan level TH terbaru dalam game.
+- **Referensi:** [Clashtasia - Base Layouts Link](https://apps.apple.com/us/app/id6811312950)
+- **Saran:** evaluasi cakupan TH tertinggi katalog `base_coc`; tambahkan metadata TH/BH baru saat data katalog tersedia.
+- **Prioritas:** Sedang.
+
+#### A80. Tampilan desa malam (dark theme pratinjau base)
+
+- **Temuan:** `fitur_khusus.md` mencantumkan "desa malam" sebagai fitur yang diinginkan pengguna (diinterpretasikan sebagai tampilan base/desa dengan nuansa malam/dark theme).
+- **Tujuan fitur:** kenyamanan melihat dan membangun base di malam hari, diminta eksplisit pengguna.
+- **Referensi:** `fitur_khusus.md` (baris 1).
+- **Saran:** terapkan sebagai variasi tema gelap pada pratinjau base dan layar detail; tidak memerlukan data eksternal.
+- **Prioritas:** Tinggi (diminta pengguna via `fitur_khusus.md`).
+
+### B. Optimasi & Pra-Implementasi (Batch 10)
+
+#### B26. Transparansi fitur berbayar dan biaya langganan
+
+- **Temuan:** `Base Layouts Clash of Clans` (rating 1,8★) mendapat ulasan "scam" karena langganan $9,99/minggu membuka konten dasar dan aplikasi gagal dimuat — kepercayaan hancur karena klaim tidak terpenuhi.
+- **Tujuan optimasi:** menjaga kepercayaan pengguna dengan klaim fitur yang jujur dan biaya yang transparan.
+- **Referensi:** [Base Layouts Clash of Clans](https://apps.apple.com/us/app/id1635937933)
+- **Saran:** pisahkan fitur gratis dan berbayar di deskripsi toko/README; jangan kunci fitur inti (copy base, katalog lokal) di balik pembayaran; sejalan dengan B12.
+- **Prioritas:** Sedang (prasyarat kepercayaan rilis).
+
+#### B27. Validasi gambar base utuh dan tautan copy sebelum ditampilkan
+
+- **Temuan:** Ulasan `Coc War Base Layouts` menyebut gambar tidak lengkap dan ulasan `COC - Base Layout Links 2024` menyebut iklan mengganggu alur; kualitas pratinjau menentukan kepercayaan pada aksi copy.
+- **Tujuan optimasi:** memastikan pratinjau base menampilkan seluruh layout dan tautan copy valid sebelum disalin ke game.
+- **Referensi:** [Coc War Base Layouts](https://apps.apple.com/us/app/id1075897841), [COC - Base Layout Links 2024](https://apps.apple.com/us/app/id6479356008)
+- **Saran:** validasi format dan ketersediaan gambar saat katalog dimuat, fallback unduhan gambar (A51), dan validasi tautan copy sebelum disalin (B1); hindari iklan pada aksi copy (C9).
+- **Prioritas:** Tinggi (prasyarat kualitas).
+
+### C. UI/UX & Layout (Batch 10)
+
+#### C34. Pencarian global dalam katalog base
+
+- **Temuan:** `Maps Base For Clash of Clans` dan `Clasher Maps of Clans` menonjolkan pencarian cepat/global untuk menemukan base tanpa pindah halaman.
+- **Tujuan UI/UX:** mempersempit hasil sambil mempertahankan konteks daftar.
+- **Referensi:** [Maps Base For Clash of Clans](https://apps.apple.com/us/app/id6738093011), [Clasher Maps of Clans](https://apps.apple.com/us/app/id1248667281)
+- **Saran:** kolom pencarian global di beranda/daftar yang memfilter TH, tipe, dan tag; simpan kata kunci terakhir lokal.
+- **Prioritas:** Rendah.
+
+#### C35. Indikator progres unduhan/muat gambar
+
+- **Temuan:** `Pro Maps for Clash of Clans` menampilkan dialog progres unduhan dan layar video rekomendasi setelah copy.
+- **Tujuan UI/UX:** memberi feedback saat gambar base atau data detail dimuat, mengurangi persepsi aplikasi macet.
+- **Referensi:** [Pro Maps for Clash of Clans](https://apps.apple.com/us/app/id6749685369)
+- **Saran:** indikator progres saat memuat gambar detail/unduhan; tampilkan status berhasil/gagal secara jelas.
+- **Prioritas:** Rendah.
+
+#### C36. Filter struktur dan pertahanan pada kartu base
+
+- **Temuan:** `Clashtasia` menyediakan filter "Structure and Defense" (struktur dan pertahanan) pada koleksi base TH4–TH19.
+- **Tujuan UI/UX:** membantu pengguna memilah base berdasarkan karakteristik pertahanan sebelum menyalin.
+- **Referensi:** [Clashtasia - Base Layouts Link](https://apps.apple.com/us/app/id6811312950)
+- **Saran:** perluas badge kartu dengan tag struktur/pertahanan (anti-E-Drag, anti-Yeti, dll.) sesuai A55; data statis lokal.
+- **Prioritas:** Rendah.
+
+## Format Laporan (Batch 10)
+
+| Listing | Store | Link | Fitur/UI/UX ditemukan | Prioritas |
+|---------|-------|------|-----------------------|-----------|
+| CoC Fanatic for Clash of Clans | Apple App Store | https://apps.apple.com/us/app/id1159435157 | Kalkulator spell (ZapQuake), Last Seen, glosarium istilah, direktori klan | Sedang |
+| Map Layout for Clash of Clans | Apple App Store | https://apps.apple.com/us/app/id1086381870 | 100+ layout, 4 tipe base dengan kelebihan/kekurangan, multi-bahasa | Sedang |
+| Clasher Maps of Clans | Apple App Store | https://apps.apple.com/us/app/id1248667281 | Kalkulator upgrade gabungan, Attack Mapper, komparasi unit, tema terang/gelap | Tinggi |
+| Clash Champs: Pro Base Layouts | Apple App Store | https://apps.apple.com/us/app/id1672169310 | Daftar pasukan terpopuler per TH/liga, AI coaching (berlangganan) | Rendah |
+| Base Layouts Clash of Clans | Apple App Store | https://apps.apple.com/us/app/id1635937933 | Anti-pola: langganan membatasi konten dasar, aplikasi gagal dimuat | Rendah |
+| Coc War Base Layouts | Apple App Store | https://apps.apple.com/us/app/id1075897841 | 5.000+ layout, 6 tipe, TH1–13; indikator kualitas + validasi gambar | Tinggi |
+| Pro Maps for Clash of Clans | Apple App Store | https://apps.apple.com/us/app/id6749685369 | 1.000+ base, copy satu ketuk, filter TH/tipe, indikator progres unduhan | Sedang |
+| COC - Base Layout Links 2024 | Apple App Store | https://apps.apple.com/us/app/id6479356008 | Notifikasi base baru, strategi serang per TH, detail pemain/klan | Rendah |
+| Maps Base For Clash of Clans | Apple App Store | https://apps.apple.com/us/app/id6738093011 | Pencarian cepat berbasis tag, tema terang/gelap/sistem | Sedang |
+| Clashtasia - Base Layouts Link | Apple App Store | https://apps.apple.com/us/app/id6811312950 | Dukungan TH19 + Builder Base 2.0, filter struktur/pertahanan | Sedang |
+
+Jumlah listing dianalisis batch 10: 10. Berkas yang diperbarui: `apk_kompetitor.md` (10 listing Apple App Store ditandai `Sudah Dianalisa`) dan `refrensi_apk.md` (batch 10: sumber 81–90, temuan, rekomendasi A70–A80, B26–B27, C34–C36, section contoh format A1, fitur `fitur_khusus.md` "desa malam" sebagai prioritas, dan tabel format laporan).

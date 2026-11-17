@@ -4,7 +4,7 @@ description: "Trigger: saat membuat atau mengubah konfigurasi Kilo proyek atau c
 metadata:
   kategori: "custom"
   versi: "1.1.0"
-  diperbarui: "Sun Nov 15 2026 05:41 WIB"
+  diperbarui: "Tue Nov 17 2026 23:39 WIB"
 ---
 
 # Konfigurasi Kilo Proyek dan Commands Kilo
@@ -38,7 +38,7 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 
 ### Lokasi dan Struktur
 
-- Commands proyek berada di `.kilo/commands/`; baik direktori bernama `command/` maupun `commands/` didukung, dan pola pemuatan `{command,commands}/**/*.md` bersifat rekursif, sehingga subdirektori di proyek ini ikut dimuat: `.kilo/commands/mode/` (mis. `mode_diskusi.md`), `.kilo/commands/prd/` (mis. `kerjakan_prd.md`), `.kilo/commands/fitur/` (mis. `diskusi_fitur_baru.md`), `.kilo/commands/sinkronisasi/` (mis. `sinkronkan_skill_dengan_aturan.md`).
+- Commands proyek berada di `.kilo/commands/`; baik direktori bernama `command/` maupun `commands/` didukung, dan pola pemuatan `{command,commands}/**/*.md` bersifat rekursif, sehingga subdirektori di proyek ini ikut dimuat: `.kilo/commands/mode/` (mis. `mode_diskusi.md`), `.kilo/commands/prd/` (mis. `kerjakan_prd.md`), `.kilo/commands/fitur/` (mis. `membuat_prd_fitur.md`), `.kilo/commands/sinkronisasi/` (mis. `sinkronkan_skill_dengan_aturan.md`).
 - Nama berkas (minus `.md`) menjadi nama command yang dipanggil (mis. `kerjakan_task.md` → `/kerjakan_task`).
 - Mirror manual `gpt/` (root proyek) sudah tidak ada per 2026-11-14; command `.kilo/commands/sinkronisasi/sinkronkan_commands.md` yang memeliharanya telah dihapus (sesi 47). Sinkronisasi command hanya dilakukan lewat `.kilo/commands/sinkronkan_semua.md` (menyegarkan rujukan antar-dokumen), bukan lewat mirror.
 - Config global `~/.config/kilo/command/*.md` berada di luar cakupan proyek ini; jangan mencampuradukkan.
@@ -163,7 +163,7 @@ Berkas sumber (proyek):
 
 - File: `.kilo/kilo.jsonc` (sumber kebenaran konfigurasi & permission), `AGENTS.md` (aturan 11), `.agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md` (tool bawaan lebih dahulu; aturan lama `prioritas_tool_bawaan.md` sudah dihapus), `docs/kilo/kilo_global.txt` (arsip usang), `MEMORI.md`, `memori/riwayat_perubahan.md`, `.agents/rules/kelompok_skill_wajib.md`
 - File: `.kilo/prompts/code.md`, `.kilo/prompts/ask.md`, `.kilo/prompts/debug.md`
-- File: `.kilo/commands/tambah_log.md`, `.kilo/commands/analisa_log.md`, `.kilo/commands/kerjakan.md`, `.kilo/commands/kerjakan_task.md`, `.kilo/commands/kerjakan_hasil_diskusi.md`, `.kilo/commands/evaluasi_size_ruang_kerja.md`, `.kilo/commands/sinkronkan_semua.md`, `.kilo/commands/mode/mode_diskusi.md`, `.kilo/commands/prd/kerjakan_prd.md`, `.kilo/commands/fitur/diskusi_fitur_baru.md`, `.kilo/commands/sinkronisasi/sinkronkan_skill_dengan_aturan.md`
+- File: `.kilo/commands/tambah_log.md`, `.kilo/commands/analisa_log.md`, `.kilo/commands/kerjakan.md`, `.kilo/commands/kerjakan_task.md`, `.kilo/commands/kerjakan_hasil_diskusi.md`, `.kilo/commands/evaluasi_size_ruang_kerja.md`, `.kilo/commands/sinkronkan_semua.md`, `.kilo/commands/mode/mode_diskusi.md`, `.kilo/commands/prd/kerjakan_prd.md`, `.kilo/commands/fitur/membuat_prd_fitur.md`, `.kilo/commands/sinkronisasi/sinkronkan_skill_dengan_aturan.md`
 - Catatan akurasi: `contoh_menu*.md` dan `.kilo/shared/contoh_bersama.md` yang disebut pada diskusi_6 tidak ditemukan di repository (tidak pernah ter-commit); tutorial merujuk berkas nyata di atas.
 - Skill bawaan: `kilo-config` (builtin, konfigurasi Kilo generik)
 - Diskusi terkait: `hasil_diskusi/diskusi_6.md` (K-1 s.d. K-10, R-1 s.d. R-5, TL-1 s.d. TL-5)

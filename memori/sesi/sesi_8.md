@@ -1,7 +1,7 @@
 # Sesi 8
 
 ## Status
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-17 (Asia/Jakarta)
 - Command: `.kilo/commands/salin_prompt_ke_target.md` (salin_prompt_ke_target)
 - Topik: Menyalin poin-poin dari folder `prompt/` ke target masing-masing
@@ -31,4 +31,4 @@
 | `.agents/skills/non-code/kelompok-skill-wajib/SKILL.md` | Diubah | Koreksi path indeks (`.agents/rules/kelompok_skill_wajib.md`) |
 
 ## Sinkronisasi ke MEMORI.md
-Belum disinkronkan
+Disinkronkan: penyelarasan file `prompt/` ke target (`.kilo/commands/audit_riwayat_sesi.md`, `.kilo/commands/mode/mode_diskusi.md`, dan path indeks skill `aturan-pembuatan-commands`/`kelompok-skill-wajib`) dicatat di `memori/riwayat_perubahan.md`; tidak ada perubahan konvensi yang dipromosikan ke `MEMORI.md`.

@@ -70,7 +70,7 @@
 14. .agents/skills/code/konfigurasi-kilo-proyek/SKILL.md
 
 - Trigger : saat membuat atau mengubah konfigurasi Kilo proyek atau command Kilo
-- Status : diperbarui : Sun Nov 15 2026 05:41 WIB
+- Status : diperbarui : Tue Nov 17 2026 23:39 WIB
 
 15. .agents/skills/code/konfirmasi-sebelum-simpan/SKILL.md
 
@@ -297,7 +297,7 @@
 8. .agents/skills/non-code/format-prd/SKILL.md
 
 - Trigger : saat membuat atau memperbarui PRD
-- Status : diperbarui : Sun Nov 15 2026 02:10 WIB
+- Status : diperbarui : Tue Nov 17 2026 23:39 WIB
 
 9. .agents/skills/non-code/format-task-md/SKILL.md
 

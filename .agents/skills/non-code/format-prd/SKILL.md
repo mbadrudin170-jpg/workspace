@@ -4,7 +4,7 @@ description: "Trigger: saat membuat atau memperbarui PRD | Panduan format PRD pr
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  diperbarui: "Tue Nov 17 2026 23:39 WIB"
   model: "openrouter/thinkingmachines/inkling-2-small:free"
 ---
 
@@ -85,5 +85,5 @@ Digunakan untuk mengidentifikasi produk dan memberikan gambaran umum proyek. ...
 ## Sumber Evaluasi
 
 - File aturan sumber (kini dihapus, digantikan skill ini): `.agents/rules/global/format_PRD.md` — commit `2d96c25` ("a", Sat Nov 14 2026)
-- Berkas terkait: `.agents/rules/global/format_hasil_diskusi.md` (format hasil diskusi), `.agents/skills/non-code/format-task-md/SKILL.md` (format `task.md`), `AGENTS.md` (blok `format_PRD.md` dihapus pada konversi), `.kilo/commands/prd/kerjakan_prd.md`, `.kilo/commands/prd/evaluasi_ulang_prd.md`, `.kilo/commands/fitur/diskusi_fitur_baru.md`
+- Berkas terkait: `.agents/rules/global/format_hasil_diskusi.md` (format hasil diskusi), `.agents/skills/non-code/format-task-md/SKILL.md` (format `task.md`), `AGENTS.md` (blok `format_PRD.md` dihapus pada konversi), `.kilo/commands/prd/kerjakan_prd.md`, `.kilo/commands/prd/evaluasi_ulang_prd.md`, `.kilo/commands/fitur/membuat_prd_fitur.md`
 - Commit rujukan: `2d96c25`

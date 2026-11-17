@@ -2,7 +2,7 @@
 description: Membuat atau memperbarui PRD untuk satu item fitur dari `refrensi_apk.md`, berdiskusi hingga PRD final, tanpa mengubah kode Dart.
 ---
 
-# Diskusi Fitur Baru
+# Membuat PRD Fitur
 
 ## Tujuan
 

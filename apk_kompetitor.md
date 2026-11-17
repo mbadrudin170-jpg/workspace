@@ -92,16 +92,16 @@ Catatan: `apk_serupa.md` tidak ditemukan di root proyek per 2026-11-14; lingkup 
 
 | Nama Aplikasi | Ringkasan Singkat | Store | Link | Status Analisa |
 | --- | --- | --- | --- | --- |
-| CoC Fanatic for Clash of Clans | Katalog base dan map Clash of Clans dengan copy layout ke game, dilengkapi tips serangan dan strategi pertahanan. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1159435157) | Belum Dianalisa |
-| Map Layout for Clash of Clans | Panduan map layout populer beserta kelebihan dan kekurangan tiap tipe layout untuk membantu menyusun base. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1086381870) | Belum Dianalisa |
-| Clasher Maps of Clans | Companion all-in-one berisi ribuan base TH dan BH, komposisi pasukan, kalkulator, data unit, ranking, panduan, dan event. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1248667281) | Belum Dianalisa |
-| Clash Champs: Pro Base Layouts | Platform base layout independen dengan koleksi base pro, copy komposisi pasukan, dan coaching berbasis AI. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1672169310) | Belum Dianalisa |
-| Base Layouts Clash of Clans | Alat dan koleksi layout base untuk menyusun pertahanan desa, lengkap dengan strategi dan tip komunitas. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1635937933) | Belum Dianalisa |
-| Coc War Base Layouts | Katalog map war, defense, dan farming dengan copy layout, zoom, serta berbagi desain ke pemain lain. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1075897841) | Belum Dianalisa |
-| Pro Maps for Clash of Clans | Koleksi base layout pro untuk pertahanan, farming, dan trophy push pada setiap Town Hall. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6749685369) | Belum Dianalisa |
-| COC - Base Layout Links 2024 | Toolkit base layout link dengan katalog layout yang dapat disalin langsung ke Clash of Clans. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6479356008) | Belum Dianalisa |
-| Maps Base For Clash of Clans | Katalog map dan layout terbaru dengan tombol copy link untuk memindahkan base langsung ke game. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6738093011) | Belum Dianalisa |
-| Clashtasia - Base Layouts Link | Koleksi base layout baru dengan copy ke game, pencarian cepat, dan berbagi layout favorit ke komunitas. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6811312950) | Belum Dianalisa |
+| CoC Fanatic for Clash of Clans | Katalog base dan map Clash of Clans dengan copy layout ke game, dilengkapi tips serangan dan strategi pertahanan. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1159435157) | Sudah Dianalisa |
+| Map Layout for Clash of Clans | Panduan map layout populer beserta kelebihan dan kekurangan tiap tipe layout untuk membantu menyusun base. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1086381870) | Sudah Dianalisa |
+| Clasher Maps of Clans | Companion all-in-one berisi ribuan base TH dan BH, komposisi pasukan, kalkulator, data unit, ranking, panduan, dan event. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1248667281) | Sudah Dianalisa |
+| Clash Champs: Pro Base Layouts | Platform base layout independen dengan koleksi base pro, copy komposisi pasukan, dan coaching berbasis AI. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1672169310) | Sudah Dianalisa |
+| Base Layouts Clash of Clans | Alat dan koleksi layout base untuk menyusun pertahanan desa, lengkap dengan strategi dan tip komunitas. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1635937933) | Sudah Dianalisa |
+| Coc War Base Layouts | Katalog map war, defense, dan farming dengan copy layout, zoom, serta berbagi desain ke pemain lain. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id1075897841) | Sudah Dianalisa |
+| Pro Maps for Clash of Clans | Koleksi base layout pro untuk pertahanan, farming, dan trophy push pada setiap Town Hall. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6749685369) | Sudah Dianalisa |
+| COC - Base Layout Links 2024 | Toolkit base layout link dengan katalog layout yang dapat disalin langsung ke Clash of Clans. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6479356008) | Sudah Dianalisa |
+| Maps Base For Clash of Clans | Katalog map dan layout terbaru dengan tombol copy link untuk memindahkan base langsung ke game. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6738093011) | Sudah Dianalisa |
+| Clashtasia - Base Layouts Link | Koleksi base layout baru dengan copy ke game, pencarian cepat, dan berbagi layout favorit ke komunitas. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6811312950) | Sudah Dianalisa |
 | Maps for Clash of Clans · | Katalog map peringkat teratas untuk war dan farming dengan copy satu ketuk ke Clash of Clans. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6762227303) | Belum Dianalisa |
 | ClashLy for Clash of Clans | Katalog base layout komunitas yang dapat disalin langsung ke game dengan satu ketukan. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6740085081) | Belum Dianalisa |
 | Hall Editor: CoC Base Layouts | Koleksi base layout terorganisasi untuk clan war, farming, pertahanan desa, dan trophy push. | Apple App Store | [Buka Aplikasi](https://apps.apple.com/us/app/id6804436527) | Sudah Dianalisa |
@@ -442,4 +442,8 @@ Tidak ada kandidat baru yang dapat diverifikasi (keterbatasan akses/rotasi statu
 | Tencent MyApp | 4 | 219 | Konsisten nihil. |
 
 diperbarui: 2026-11-17 (sesi 219)
+
+## Tambahan Riset (2026-11-17 — lanjutan analisa, sesi 9)
+
+Run ini menganalisa **10 listing `Belum Dianalisa` pertama dalam urutan katalog** (Apple App Store, baris 95–104; tidak ada prioritas aplikasi/store tertentu dari pengguna) dan mengubah statusnya menjadi `Sudah Dianalisa`. Seluruh 10 halaman toko diverifikasi melalui `webfetch` (halaman resmi terbaca penuh, `curl` dibatasi konfigurasi izin); status verifikasi: terverifikasi. Hasil analisa ditulis ke `refrensi_apk.md` (batch 10). Listing `Belum Dianalisa` tersisa di katalog: APKPure (4), Aptoide (5), dan Uptodown (2).
 

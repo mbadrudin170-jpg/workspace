@@ -41,7 +41,7 @@ Mendefinisikan pipeline berurutan lintas sesi untuk proyek ini, dengan file terd
 
 ### L3 — Buat PRD Fitur
 - Tujuan: membuat PRD satu item fitur dari `refrensi_apk.md` hingga final.
-- Command: `.kilo/commands/fitur/diskusi_fitur_baru.md`
+- Command: `.kilo/commands/fitur/membuat_prd_fitur.md`
 - Prasyarat: item ada pada `refrensi_apk.md` dan tidak tumpang tindih dengan PRD lain.
 - Keluaran: `prd/<fitur>.md` (Draft → Final); item ditandai sudah dibuatkan PRD di `refrensi_apk.md`.
 - File terdampak: `prd/<fitur>.md` (baru), `refrensi_apk.md`
