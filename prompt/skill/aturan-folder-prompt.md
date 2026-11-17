@@ -1,4 +1,4 @@
-diperbarui : Wed Nov 18 2026 00:03 WIB
+diperbarui : Wed Nov 18 2026 01:25 WIB
 file : [aturan-folder-prompt](../../.agents/skills/non-code/aturan-folder-prompt/SKILL.md)
 
 1. Setiap berkas di `prompt/` wajib memuat header `diperbarui :` (tanggal lengkap + jam, zona waktu Asia/Jakarta) dan `ditimpa ke :` atau `file :` (path/tautan target).
@@ -14,7 +14,8 @@ file : [aturan-folder-prompt](../../.agents/skills/non-code/aturan-folder-prompt
 6. Catatan "hanya untuk penulis prompt, bukan untuk skill" (beserta tautan referensi) wajib ditempatkan di akhir berkas dan tidak boleh dimasukkan ke berkas target.
 
 7. Setiap butir poin wajib dipisahkan oleh satu baris kosong.
-8. setiap memperbarui isi file yang ada di folder prompt langsung perbarui juga isi file target nya tapi harus lewat izin pengguna juga gunakan question
+8. Setiap kali isi berkas di `prompt/` diperbarui, langsung perbarui juga berkas targetnya — tetapi hanya setelah mendapat izin pengguna (gunakan tool `question`).
+
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
 Link referensi ini jangan dimasukkan ke skill.
