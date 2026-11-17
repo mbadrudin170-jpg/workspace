@@ -1,0 +1,47 @@
+# Sesi 26
+
+- Status Sinkron: Sudah Sinkron
+- Tanggal: 2026-11-18 (Asia/Jakarta)
+- Command: interaksi langsung (tanpa command)
+- Topik: penambahan submodule `admin-flutter.git` sebagai `admin_flutter/` di root workspace + tuntaskan catch-up sesi_24/sesi_25
+
+## Catatan Sesi
+
+- Awal sesi: membaca `MEMORI.md` (seluruh isi), `.agents/rules/` (5 berkas), memuat skill `memori-check` & `penggunaan-tool-question`.
+- Jawaban pengguna (tool question): (1) percakapan ini adalah percakapan/tugas baru → buat `sesi_26.md`; (2) catch-up sesi_24/sesi_25 dituntaskan; (3) submodule ditambahkan di `admin_flutter/` (sejajar `base_coc` & `share_global_saya`); (4) JANGAN commit dulu — perubahan dibiarkan di working tree.
+- Verifikasi URL `https://github.com/mbadrudin170-jpg/admin-flutter.git` via `git ls-remote`: dapat diakses; HEAD = `main` (`6af7ecb561ca534012877e7325d9402294fb4bfe`); branch lain: `menambahsyncstatus` (`61e0c57`).
+- Catch-up sync (disetujui pengguna):
+  - Perubahan sesi_24 terverifikasi nyata & ter-commit di HEAD: 10 skill `code/` versi baru (`overlay-log-debug` 1.1.0, `navigator-routing` 1.2.0, `logging-debug` 1.1.0, `konfirmasi-sebelum-simpan` 1.1.0, `parsing-nullable-int` 1.1.0, `material-app-tema-lokalisasi` 1.1.0, `widget-custom` 1.1.2, `visualisasi-progres-impian` 1.2.0, `scaffold-struktur-layar` 1.2.0, `text-form-field-validasi` 1.1.0); indeks `kelompok_skill_wajib.md` timestamp diperbarui.
+  - `memori/riwayat_perubahan.md`: entri "Sesi 24 (catch-up sesi 25)" sudah ada (dibuat sesi_25, belum di-commit) → tidak digandakan.
+  - `MEMORI.md` header sudah "Diperbarui: 2026-11-18 (sesi 25)" (diubah sesi_25, belum di-commit); bagian Status/Catatan Teknis BELUM memuat sesi 24 → dilengkapi pada sesi ini.
+  - `sesi_24.md` dan `sesi_25.md` masih `Belum Sinkron` → tuntaskan: isi `## Sinkronisasi ke MEMORI.md` + tandai `Sudah Sinkron`.
+  - Catatan: `git status --short` tidak menunjukkan perubahan skill → perubahan sesi_24 sudah ter-commit; hanya MEMORI.md (header), `memori/riwayat_perubahan.md`, dan `sesi_25.md` (untracked) yang belum di-commit.
+- Temuan pre-existing (TIDAK diubah, perlu perhatian pengguna): index & HEAD memuat 2 gitlink tanpa mapping di `.gitmodules`/`.git/config`: `.dart_tool/skills/repos/https%3A%2F%2Fgithub.com%2Fdart-lang%2Fskills.git` (`fa691671`) dan `.dart_tool/skills/repos/https%3A%2F%2Fgithub.com%2Fflutter%2Fagent-plugins.git` (`e5a88d2b`). Akibatnya `git submodule status` gagal: "fatal: no submodule mapping found in .gitmodules for path '.dart_tool/skills/repos/https%3A%2F%2Fgithub.com%2Fdart-lang%2Fskills.git'". Pre-existing, bukan dari sesi ini.
+- `git submodule add` berhasil: branch `main` @ `6af7ecb`; `.gitmodules` memuat entri ketiga; `.gitmodules` + gitlink ter-stage otomatis; TIDAK di-commit (atas permintaan pengguna). Isi proyek: Flutter, package `admin_wifi` v1.1.0+6 — aplikasi pengelola pelanggan WiFi (provider + Firebase Firestore). Tidak digali lebih lanjut (di luar cakupan permintaan). Nama path awal `admin-flutter/` di-rename ke `admin_flutter/` pada pesan berikutnya (lihat poin rename di bawah).
+- Permintaan lanjutan pengguna: "pakai tanda `_` bukan `-`" → diklarifikasi: ruang lingkup path lokal saja (URL remote tetap `admin-flutter.git`). Rename manual karena submodule belum di-commit dan berkas dirty di dalamnya harus dipertahankan: (1) `git restore --staged admin-flutter` (unstage gitlink; tanpa `-f`); (2) `mv admin-flutter admin_flutter`; (3) `mv .git/modules/admin-flutter .git/modules/admin_flutter`; (4) pointer `admin_flutter/.git` → `gitdir: ../.git/modules/admin_flutter`; (5) `worktree` di `.git/modules/admin_flutter/config` → `../../../admin_flutter`; (6) section root `.git/config` di-rename via `git config --rename-section submodule.admin-flutter submodule.admin_flutter`; (7) `.gitmodules`: `[submodule "admin_flutter"] path = admin_flutter`; (8) `git add .gitmodules admin_flutter` → gitlink `160000` mode staged @ `6af7ecb`; `git submodule status admin_flutter` → OK (`6af7ecb (heads/main)`). Warning "adding embedded git repository" saat `git add` bersifat spurious (hasil akhir identik `git submodule add`: gitlink + .gitmodules + .git/config + gitdir), bukan masalah; folder gitdir dan berkas dirty di dalam submodule tetap utuh. TIDAK ada commit.
+- Pasca-penambahan, submodule dianggap `-dirty` oleh superproject: 2 berkas di dalam `admin_flutter` termodifikasi BUKAN oleh sesi ini — `analysis_options.yaml` (tambah `exclude: build/**, android/**`) dan `pubspec.lock` (bump transitive: matcher 0.12.19→0.12.20, meta 1.17.0→1.19.0, test_api 0.7.10→0.7.12, vector_math 2.2.0→2.4.4). mtime keduanya `2026-11-17 20:44:39 UTC` (±30 detik setelah clone); penyebab tidak terverifikasi — kemungkinan proses eksternal/IDE yang berjalan saat folder dibuka. TIDAK dikembalikan/diubah sesi ini (larangan operasi destruktif tanpa konfirmasi); menunggu verifikasi pengguna. `git submodule status admin_flutter` → ` 6af7ecb... admin_flutter (heads/main)`; superproject melihat gitlink sebagai `6af7ecb-dirty`.
+
+## Berkas Terdampak
+
+| Lokasi File | Status Perubahan | Deskripsi |
+| ----------- | ---------------- | --------- |
+| `memori/sesi/sesi_26.md` | Dibuat | Berkas sesi aktif (Sudah Sinkron pada akhir sesi) |
+| `MEMORI.md` | Diubah | Header → `(sesi 26)` (header `(sesi 25)` dari sesi_25 ditulis ulang); Konteks Proyek + Status (sesi terakhir, sesi 24, sesi 25) + Catatan Teknis (sesi 24 & 26) dilengkapi |
+| `memori/riwayat_perubahan.md` | Diubah | Entri sesi 24 (dari sesi_25) diverifikasi, tidak digandakan; entri sesi 26 ditambahkan |
+| `memori/sesi/sesi_24.md` | Diubah (catch-up) | Sinkronisasi diisi; ditandai Sudah Sinkron |
+| `memori/sesi/sesi_25.md` | Diubah (catch-up) | Sinkronisasi diisi; ditandai Sudah Sinkron |
+| `.gitmodules` | Diubah (ter-stage) | Entri submodule `admin_flutter` ditambahkan (awalnya `admin-flutter`, di-rename atas permintaan pengguna); TIDAK di-commit |
+| `admin_flutter/` | Dibuat (gitlink ter-stage) | Submodule baru — proyek Flutter `admin_wifi` v1.1.0+6, branch `main` @ `6af7ecb`; dirty 2 berkas pasca-clone (bukan sesi ini); TIDAK di-commit |
+| `.git/config` | Diubah | `submodule.admin_flutter` (rename dari `submodule.admin-flutter`) ditambahkan (tidak terlacak git, wajar) |
+| `.git/modules/admin_flutter/` | Diubah | Gitdir submodule di-rename dari `.git/modules/admin-flutter`; `worktree` diperbaiki ke `../../../admin_flutter`; `admin_flutter/.git` pointer diperbarui |
+
+## Sinkronisasi ke MEMORI.md
+
+Catch-up sesi_24/sesi_25 dituntaskan (atas persetujuan pengguna):
+
+- `sesi_24.md`: 10 skill `code/` terverifikasi versi baru (`overlay-log-debug` 1.1.0, `navigator-routing` 1.2.0, `logging-debug` 1.1.0, `konfirmasi-sebelum-simpan` 1.1.0, `parsing-nullable-int` 1.1.0, `material-app-tema-lokalisasi` 1.1.0, `widget-custom` 1.1.2, `visualisasi-progres-impian` 1.2.0, `scaffold-struktur-layar` 1.2.0, `text-form-field-validasi` 1.1.0) dan ter-commit di HEAD; indeks timestamp diverifikasi; `MEMORI.md` Status/Catatan Teknis dilengkapi (provenance: sesi 24, catch-up sesi 26); `sesi_24.md` diisi `## Sinkronisasi ke MEMORI.md` dan ditandai Sudah Sinkron.
+- `sesi_25.md`: perubahan sesi ini (header `MEMORI.md` + entri riwayat "Sesi 24 (catch-up sesi 25)") disimpulkan sebagai bagian dari catch-up sesi_24 yang dituntaskan sesi_26; `sesi_25.md` diisi `## Sinkronisasi ke MEMORI.md` dan ditandai Sudah Sinkron; API key tidak ditulis ke memori.
+- `memori/riwayat_perubahan.md`: entri "Sesi 24 (catch-up sesi 25)" dipertahankan; entri "Sesi 26" ditambahkan (tuntaskan catch-up + tambah submodule; tanpa commit).
+- `MEMORI.md`: header `Diperbarui: 2026-11-18 (sesi 26)`; Konteks Proyek (submodule `admin_flutter`); Status (sesi 24, sesi 25, sesi terakhir = sesi 26); Catatan Teknis (entri sesi 24 & 26).
+
+Pekerjaan sesi ini: `git submodule add https://github.com/mbadrudin170-jpg/admin-flutter.git admin-flutter` berhasil — `.gitmodules` memuat entri ketiga; gitlink ter-stage otomatis; TIDAK di-commit (atas permintaan pengguna). Atas permintaan lanjutan pengguna, submodule di-rename ke path lokal `admin_flutter/` (gitlink + `.gitmodules` + section `.git/config` + gitdir `.git/modules/admin_flutter/` + pointer `.git` + `worktree`); URL remote TIDAK diubah; warning embedded repository saat `git add` bersifat spurious; `git submodule status admin_flutter` memverifikasi OK. Proyek: Flutter, package `admin_wifi` v1.1.0+6 (aplikasi pengelola pelanggan WiFi, `provider` + Firebase Firestore). Temuan pre-existing yang TIDAK diubah: 2 gitlink `.dart_tool/skills/repos/https%3A%2F%2Fgithub.com%2F{dart-lang%2Fskills,flutter%2Fagent-plugins}.git` di index/HEAD tanpa mapping `.gitmodules`/`.git/config` — `git submodule status` tanpa argumen gagal (`no submodule mapping found`); dengan argumen path berhasil. Temuan volatil (per 2026-11-18 20:46 UTC, perlu verifikasi pengguna): submodule `admin_flutter` `-dirty` — `analysis_options.yaml` (exclude build/android) & `pubspec.lock` (bump 4 transitive deps) termodifikasi pasca-clone, bukan oleh sesi ini; dibiarkan apa adanya. Verifikasi akhir: `git status --short` = `M .gitmodules`, `Am admin_flutter`, ` M MEMORI.md`, ` M memori/riwayat_perubahan.md`, ` M memori/sesi/sesi_24.md`, `?? memori/sesi/sesi_25.md`, `?? memori/sesi/sesi_26.md`; tidak ada berkas sesi `Sudah Sinkron` milik sesi sebelumnya yang berubah selain `sesi_24.md`/`sesi_25.md` (keduanya `Belum Sinkron` saat catch-up, sesuai aturan). `dart format`/`dart analyze`/`flutter test` tidak relevan (tidak ada kode Dart diubah).
