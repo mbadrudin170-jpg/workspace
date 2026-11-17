@@ -1,10 +1,10 @@
 ---
 name: tipografi
-description: "Trigger: saat mengatur tipografi | Panduan: Theme.of(context).textTheme utama, copyWith untuk kustomisasi, hierarki label/sub-label/nilai, bold terarah, FontFeature.tabularFigures() untuk angka/timer, FittedBox/Flexible secukupnya."
+description: "Trigger: saat mengatur tipografi | Panduan: Theme.of(context).textTheme utama, copyWith untuk kustomisasi, paket `google_fonts` wajib, hierarki label/sub-label/nilai, bold terarah, FontFeature.tabularFigures() untuk angka/timer, FittedBox/Flexible secukupnya."
 metadata:
   kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.0"
+  diperbarui: "Wed Nov 18 2026 06:45 WIB"
 ---
 
 # Panduan Tipografi
@@ -14,6 +14,7 @@ Skill ini mendokumentasikan aturan tipografi berdasarkan `optimasi_ui.md` dan im
 ## Cakupan yang Di-Cover
 
 - Package: `package:flutter` (class `ThemeData`, `TextTheme`, `TextStyle`, `FontFeature`, `TextOverflow`, `FittedBox`, `Flexible`, `Expanded`)
+- Package: `google_fonts` (`GoogleFonts.<namaFont>`, `GoogleFonts.interTextTheme`)
 - Class: `ThemeData`, `TextTheme`, `TextStyle`, `FontFeature`, `FittedBox`, `Flexible`, `Expanded`
 - Properti: `ThemeData.textTheme`, `TextStyle.fontSize`, `TextStyle.fontWeight`, `TextStyle.color`, `TextStyle.fontFeatures`, `TextOverflow.ellipsis`
 - Method: `Theme.of(context)`, `TextStyle.copyWith()`
@@ -29,6 +30,7 @@ Skill ini mendokumentasikan aturan tipografi berdasarkan `optimasi_ui.md` dan im
 7. DILARANG bold pada seluruh teks.
 8. Wajib menggunakan `FontFeature.tabularFigures()` untuk timer, jam, dan angka monetary agar lebar digit sama.
 9. Wajib antisipasi teks panjang yang bisa overflow dengan `FittedBox` atau `Flexible` hanya pada bagian yang benar-benar butuh.
+10. Wajib menggunakan paket `google_fonts` untuk seluruh `TextTheme`/gaya teks (mis. `GoogleFonts.interTextTheme(...)` atau `GoogleFonts.<namaFont>(...)`); DILARANG menambahkan/menggunakan font sebagai aset manual (`assets/fonts/*.ttf`/`.otf`) di `pubspec.yaml`, kecuali proyek sudah mewajibkan font tertentu dengan persetujuan pengguna.
 
 ## Larangan
 
@@ -36,6 +38,7 @@ Skill ini mendokumentasikan aturan tipografi berdasarkan `optimasi_ui.md` dan im
 - DILARANG hierarki visual dengan gaya identik untuk tingkat berbeda.
 - DILARANG bold sembarangan tanpa hierarki jelas.
 - DILARANG `FittedBox`/`Flexible` di seluruh teks tanpa alasan.
+- DILARANG menambahkan font sebagai aset manual (`assets/fonts/`); seluruh font wajib lewat paket `google_fonts`.
 
 ## Contoh Benar
 
@@ -73,6 +76,11 @@ Text('Smoke-free', style: textTheme.bodyMedium), // Label biasa
 
 // Tabular figures untuk timer/angka
 Text('$menit:$detik', style: textTheme.displayMedium?.copyWith(fontWeight: FontWeight.bold, fontFeatures: const [FontFeature.tabularFigures()]))
+
+// BENAR: textTheme dari google_fonts
+theme: ThemeData(
+  textTheme: GoogleFonts.interTextTheme(ThemeData.light().textTheme),
+),
 ```
 
 ## Contoh Salah
@@ -96,8 +104,17 @@ Text('Nilai', style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)
 FittedBox(child: Text(semuaTeks))
 ```
 
+```yaml
+# pubspec.yaml — DILARANG: font aset manual
+flutter:
+  fonts:
+    - family: Inter
+      fonts: [{ asset: assets/fonts/Inter-Regular.ttf }]
+```
+
 ## Sumber Evaluasi
 
 - File: `lib/fitur/impian/screens/detail_impian_screen.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`
 - Class terkait: `ThemeData`, `TextTheme`, `TextStyle`, `FontFeature`, `FittedBox`, `Flexible`
 - Commit rujukan: `c7337d1` — DetailImpianScreen hierarki label/sub-label/nilai; `e659574` — Dashboard kartu motivasi; `3b67d309` — `_TimerCravingView` pakai tabularFigures; `c7337d1` — `VisualTabunganImpian` nilai uang
+- Permintaan eksplisit pengguna (sesi 29, 2026-11-18): aturan wajib `google_fonts` + larangan aset font manual (Aturan 10).
