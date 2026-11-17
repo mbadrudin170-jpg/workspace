@@ -15,11 +15,12 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 10. Batasan `name` — 1–64 karakter; huruf kecil/angka/strip; tidak diawali/diakhiri strip; tidak boleh strip ganda (`--`).
 11. Batasan `description` — 1–1024 karakter, non-kosong; jelaskan apa yang dilakukan dan kapan dipakai.
 12. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi.
-13. Setiap skill wajib memiliki berkas poin di folder `prompt/skill/` dengan nama yang sama dengan nama skill (mis. skill `penggunaan-tool-bawaan-kilo` → `prompt/skill/penggunaan-tool-bawaan-kilo.md`). Pengecualian: skill pada `.agents/skills/code/` (lihat poin 18).
+13. Setiap skill wajib memiliki berkas poin di folder `prompt/skill/` dengan nama yang sama dengan nama skill (mis. skill `penggunaan-tool-bawaan-kilo` → `prompt/skill/penggunaan-tool-bawaan-kilo.md`). Pengecualian: skill pada `.agents/skills/code/` (lihat Aturan 18).
 14. Sumber isi skill wajib berasal dari commit yang berkaitan; bila aturan baru berasal dari permintaan eksplisit pengguna, catat sebagai sumber pada `## Sumber Evaluasi`.
 15. Skill pada `.agents/skills/code/` hanya boleh diubah atau ditambah dari (a) riwayat commit, atau (b) kode yang secara eksplisit diperintahkan pengguna untuk dimasukkan.
 16. Wajib tanyakan dulu kepada pengguna untuk memastikan apakah kode tersebut perlu ditambahkan/diperbarui ke skill yang relevan, atau perlu dibuat berkas skill baru.
 17. Saat bertanya, sertakan path berkas skill yang dimaksud agar pengguna mengetahui target dan dapat menolak bila tidak sesuai.
+18. Skill pada `.agents/skills/code/` tidak boleh memiliki berkas poin di `prompt/skill/`.
 
 ## Sumber Evaluasi
 
@@ -27,3 +28,4 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 - https://kilo.ai/docs/customize/skills?utm_source=chatgpt.com
 - Aturan 15 — berasal dari poin 15 pada `prompt/skill/aturan-pembuatan-skill.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; menegaskan `.agents/rules/lainnya.md` butir 4 dengan pengecualian perintah eksplisit pengguna).
 - Aturan 16 & 17 — berasal dari poin 16–17 pada `prompt/skill/aturan-pembuatan-skill.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; wajib tanya dulu + sertakan path skill saat meminta persetujuan).
+- Aturan 18 — berasal dari poin 18 pada `prompt/skill/aturan-pembuatan-skill.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; skill `code/` tidak boleh memiliki berkas poin; poin 13 diberi pengecualian).

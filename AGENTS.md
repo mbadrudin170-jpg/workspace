@@ -10,3 +10,4 @@
    - buat berkas sesi `memori/sesi/sesi_N.md` (N = tertinggi + 1)
    - muat skill `memori-check` (tool `skill`)
 8. Membaca `MEMORI.md` wajib tanpa `offset` dan tanpa `limit` — baca seluruh isi berkas.
+9. setiap proyek saya yang punya main.dart wajib memakai PengelolaOverlayLogDebug
