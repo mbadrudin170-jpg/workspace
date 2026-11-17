@@ -12,6 +12,7 @@ Digunakan untuk mengidentifikasi produk dan memberikan gambaran umum proyek.
 Isi sesuai kondisi proyek yang sebenarnya; jangan mengarang.
 
 **Informasi:**
+
 - Nama aplikasi: berhenti_merokok (root workspace induk; aplikasi Flutter pada submodule `base_coc`)
 - Deskripsi produk: Aplikasi katalog base Clash of Clans dengan fitur salin base link satu ketuk dan UI/UX pendukung.
 - Platform: Flutter (Android)
@@ -27,6 +28,7 @@ Hasil yang diharapkan dari PRD ini.
 Tujuan jelas dan dapat dievaluasi, berhubungan langsung dengan kebutuhan dokumen.
 
 **Isi:**
+
 - Memastikan layar detail base memiliki tombol aksi utama ("Copy Base") yang selalu terlihat sehingga pengguna dapat menyelesaikan tugas utama tanpa menggulir mencari tombol.
 - Menetapkan penempatan, perilaku, dan respons aplikasi untuk aksi utama pada layar detail.
 
@@ -38,10 +40,10 @@ Satu baris mewakili satu fitur yang dapat diidentifikasi secara terpisah.
 **Aturan pengisian:**
 Prioritas `Must Have`, `Should Have`, atau `Could Have`.
 
-| Fitur | Deskripsi | Prioritas |
-| ----- | --------- | --------- |
-| Tombol "Copy Base" menetap pada layar detail | Tombol aksi utama selalu terlihat di bagian bawah layar detail base (bottomNavigationBar/SafeArea bawah) | Must Have |
-| Gambar base di area utama + metadata ringkas | Preview besar base di area utama dengan metadata ringkas di bawahnya | Should Have |
+| Fitur                                        | Deskripsi                                                                                                | Prioritas   |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------- |
+| Tombol "Copy Base" menetap pada layar detail | Tombol aksi utama selalu terlihat di bagian bawah layar detail base (bottomNavigationBar/SafeArea bawah) | Must Have   |
+| Gambar base di area utama + metadata ringkas | Preview besar base di area utama dengan metadata ringkas di bawahnya                                     | Should Have |
 
 ## 4. Alur Pengguna
 
@@ -52,6 +54,7 @@ Mulai dari kondisi awal pengguna; jelaskan langkah berurutan; sertakan percabang
 Alur sesuai persyaratan fitur; jangan memasukkan proses yang tidak didukung.
 
 **Isi:**
+
 1. Pengguna membuka layar detail sebuah base.
 2. Aplikasi menampilkan gambar base di area utama dan metadata ringkas di bawahnya.
 3. Tombol "Copy Base" tampil menetap di bagian bawah layar (bottomNavigationBar/SafeArea bawah) dan selalu terlihat tanpa menggulir.
@@ -84,10 +87,10 @@ Cantumkan lokasi file spesifik sesuai struktur proyek sebenarnya.
 **Aturan pengisian:**
 Tandai `Dibuat`/`Diubah`/`Dihapus`; jelaskan alasan; hanya file terkait; jika belum dapat ditentukan, tandai belum diketahui.
 
-| Lokasi File | Status Perubahan | Deskripsi Perubahan |
-| ----------- | ---------------- | ------------------- |
-| base_coc/lib/fitur/detail_base/screens/detail_base_screen.dart | Diubah | Tambahkan tombol "Copy Base" menetap pada bottomNavigationBar/SafeArea bawah |
-| base_coc/lib/fitur/detail_base/widgets/ (belum diketahui) | Diubah | Penyesuaian tata letak gambar base dan metadata ringkas |
-| Belum diketahui | Belum diketahui | File tambahan akan ditentukan setelah analisis teknis implementasi |
+| Lokasi File                                                    | Status Perubahan | Deskripsi Perubahan                                                          |
+| -------------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------- |
+| base_coc/lib/fitur/detail_base/screens/detail_base_screen.dart | Diubah           | Tambahkan tombol "Copy Base" menetap pada bottomNavigationBar/SafeArea bawah |
+| base_coc/lib/fitur/detail_base/widgets/ (belum diketahui)      | Diubah           | Penyesuaian tata letak gambar base dan metadata ringkas                      |
+| Belum diketahui                                                | Belum diketahui  | File tambahan akan ditentukan setelah analisis teknis implementasi           |
 
 Referensi sumber: `refrensi_apk.md` baris 712–718 (#### C3. Layar detail dengan tombol aksi utama yang menetap) dan baris 1154 (prioritas gabungan C3).

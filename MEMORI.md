@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-17 (sesi 13)
+Diperbarui: 2026-11-17 (sesi 15)
 
 ## Konteks Proyek
 
@@ -18,7 +18,8 @@ Diperbarui: 2026-11-17 (sesi 13)
 
 ## Status
 
-- Sesi terakhir: `memori/sesi/sesi_13.md` (Sudah Sinkron) — implementasi PRD A2 "Copy base link satu ketuk" untuk `base_coc`: fitur sudah terimplementasikan sepenuhnya (tombol Copy Base, validasi tautan, umpan balik SnackBar, opsi buka game); verifikasi `dart format`, `dart analyze` No issues, `flutter test` 147 lulus; berkas PRD dihapus, referensi di `refrensi_apk.md` dibersihkan.
+- Sesi terakhir: `memori/sesi/sesi_14.md` (catch-up, sesi 15) — pembuatan PRD fitur C3 "Tombol aksi utama menetap" (`prd/prd_c3_tombol_aksi_utama_menetap.md`, Final, Belum Diimplementasikan); `refrensi_apk.md` baris 1154 item C3 ditandai sudah dibuatkan PRD (commit `63d4050`); berkas PRD C3 masih staged (belum di-commit).
+- Sesi 13: `memori/sesi/sesi_13.md` (Sudah Sinkron) — implementasi PRD A2 "Copy base link satu ketuk" untuk `base_coc`: fitur sudah terimplementasikan sepenuhnya (tombol Copy Base, validasi tautan, umpan balik SnackBar, opsi buka game); verifikasi `dart format`, `dart analyze` No issues, `flutter test` 147 lulus; berkas PRD dihapus, referensi di `refrensi_apk.md` dibersihkan.
 - Sesi 10: `memori/sesi/sesi_10.md` (Sudah Sinkron) — rename command `.kilo/commands/fitur/diskusi_fitur_baru.md` → `.kilo/commands/fitur/membuat_prd_fitur.md` (via `git mv`, judul H1 `# Membuat PRD Fitur`) beserta penyelarasan 5 rujukan di `.kilo/commands/alur_kerja.md`, `alur_kerja.md`, `.agents/skills/non-code/format-prd/SKILL.md`, dan `.agents/skills/code/konfigurasi-kilo-proyek/SKILL.md`; metadata `diperbarui` kedua skill dan indeks `kelompok_skill_wajib.md` diselaraskan.
 - Sesi 9: riset kompetitor batch 10 — 10 listing `Belum Dianalisa` pertama (Apple App Store, `apk_kompetitor.md` baris 95–104) diverifikasi via `webfetch`, dianalisa, dan ditandai `Sudah Dianalisa`; `refrensi_apk.md` ditambahkan batch 10 (sumber 81–90, rekomendasi A70–A80, optimasi B26–B27, UI/UX C34–C36, contoh format item A1, dan fitur `fitur_khusus.md` "desa malam" prioritas Tinggi); `memori/sesi/sesi_8.md` disinkronkan lewat catch-up (Sudah Sinkron).
 
