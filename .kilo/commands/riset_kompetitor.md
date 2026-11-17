@@ -1,54 +1,19 @@
----
-description: Meriset maksimal 10 aplikasi kompetitor yang belum dianalisis pada `apk_kompetitor.md`, lalu memperbarui `refrensi_apk.md` dengan referensi fitur, UI, UX, dan layout.
-agent: code
----
+description: Riset kompetitor aplikasi mobile dan analisis fitur ke refrensi_apk.md.
 
 # Riset Kompetitor
 
-## Tujuan
+1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya.
+2. Baca `instructions` pada `.kilo/kilo.jsonc` dan patuhi aturan yang terdaftar.
+3. Baca `README.md`, `AGENTS.md`, `apk_kompetitor.md`, dan skill `riset-kompetitor` sebelum riset.
+4. `$ARGUMENTS` opsional: nama aplikasi atau store yang diprioritaskan; kosong → ambil maksimal 10 listing `Belum Dianalisa` sesuai urutan katalog.
+5. Analisis hanya listing `Belum Dianalisa`; maksimal 10 per run.
+6. Per listing analisis: fitur mobile, optimalisasi fitur yang sudah ada, pola UI/UX/layout; tandai `Sudah Dianalisa` setelah analisa.
+7. Perbarui `refrensi_apk.md`: sertakan link referensi, kelompokkan per fitur dan UI/UX, jelaskan tujuan, susun berdasarkan prioritas.
+8. Larangan: jangan analisis listing `Sudah Dianalisa` tanpa perintah pengguna; jangan rekomendasikan fitur web/desktop; jangan mengarang link/fitur/temuan; jangan ubah kode Dart atau berkas selain `apk_kompetitor.md` dan `refrensi_apk.md`; jangan commit/push.
+9. STOP bila dokumen proyek tidak tersedia, katalog kosong, atau seluruh listing sudah dianalisis.
+10. Format laporan: tabel (Listing, Store, Link, Fitur/UI/UX ditemukan, Prioritas) + jumlah listing yang dianalisis dan berkas yang diperbarui.
+11. Tambahkan section contoh pada `refrensi_apk.md` dengan format: `A1 <fitur> — prioritas: <Tinggi/Sedang/Rendah> — ringkasan singkat: <1 kalimat>` (contoh: `A1 Tambah Kopi — prioritas: Sedang — ringkasan singkat: fitur pencatatan konsumsi kopi harian dengan pengingat`).
 
-Menganalisis aplikasi kompetitor yang belum dianalisis untuk menemukan referensi fitur, optimalisasi fitur, serta pola UI/UX/layout, lalu memperbarui `refrensi_apk.md`.
-
-## Ketentuan Umum
-
-1. Baca `README.md`, `AGENTS.md`, `apk_kompetitor.md`, dan skill `riset-kompetitor` sebelum riset.
-2. Gunakan bahasa Indonesia baku.
-3. Command ini tidak mengubah kode Dart.
-
-## Cakupan
-
-- `apk_kompetitor.md` (sumber listing) dan `refrensi_apk.md` (keluaran).
-
-## Parameter
-
-- `$ARGUMENTS` (opsional): nama aplikasi atau store yang ingin diprioritaskan.
-- Jika `$ARGUMENTS` kosong: ambil maksimal 10 listing berstatus `Belum Dianalisa` sesuai urutan katalog.
-
-## Alur Kerja
-
-1. **Analyze** — tentukan aplikasi sasaran dari dokumen proyek; pilih maksimal 10 listing `Belum Dianalisa`.
-2. **Plan** — kelompokkan target riset per listing; verifikasi setiap tautan aplikasi.
-3. **Execute** — untuk setiap listing, analisis fitur (hanya yang berjalan di mobile), optimalisasi fitur yang sudah ada, serta pola UI/UX/layout; tandai `Sudah Dianalisa` pada `apk_kompetitor.md`.
-4. **Review** — perbarui `refrensi_apk.md`: sertakan link referensi, kelompokkan per fitur dan UI/UX, jelaskan tujuan, dan susun berdasarkan prioritas. Tambahkan section contoh dengan format: `A1 <fitur> — prioritas: <Tinggi/Sedang/Rendah> — ringkasan singkat: <1 kalimat>` (contoh: `A1 Tambah Kopi — prioritas: Sedang — ringkasan singkat: fitur pencatatan konsumsi kopi harian dengan pengingat`).
-5. Bila listing kurang dari permintaan atau store tidak dapat diakses: laporkan keterbatasannya, jangan mengarang data.
-
-## Format Laporan
-
-| Listing | Store | Link | Fitur/UI/UX ditemukan | Prioritas |
-| --- | --- | --- | --- | --- |
-| `<nama>` | `<store>` | `<url>` | `<ringkasan>` | Tinggi/Sedang/Rendah |
-
-Sertakan jumlah listing yang dianalisis dan berkas yang diperbarui.
-
-## Larangan
-
-- DILARANG menganalisis listing berstatus `Sudah Dianalisa` tanpa perintah pengguna.
-- DILARANG merekomendasikan fitur yang hanya berjalan di web/desktop.
-- DILARANG mengarang link, fitur, atau temuan.
-- DILARANG mengubah kode Dart atau berkas selain `apk_kompetitor.md` dan `refrensi_apk.md`.
-- DILARANG commit/push.
-
-## Kriteria Selesai / STOP
-
-- Selesai bila maksimal 10 listing dianalisis, status katalog diperbarui, dan `refrensi_apk.md` diperbarui dengan link serta prioritas.
-- STOP bila dokumen proyek tidak tersedia, katalog kosong, atau seluruh listing sudah dianalisis.
+# Skill Terkait
+- riset-kompetitor
+- memori-check
