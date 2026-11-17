@@ -33,6 +33,10 @@
 | .kilo/commands/alur_kerja.md | Diubah | Acuan pipeline L1–L7 → L1–L6; baris L7 pada tabel laporan dihapus; teks terkait L7 dihapus |
 | prompt/commands/evaluasi_skill_dari_commit.md | Dikembalikan | Berkas sempat berubah karena proses penyuntingan; dikembalikan ke kondisi repositori (tidak ada perubahan akhir) |
 | prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Dirapikan: typo ("repositori utama"→"root"), urutan langkah diperbaiki (tulis hasil sebelum perbarui penanda), ditambah poin sumber commit (hash + subjek), larangan ubah skill/kode, dan parameter/referensi `.gitmodules` |
+| prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Tambah poin muat skill `aturan-pembuatan-skill` sebelum menentukan skill/aturan |
+| prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Rapikan penomoran; gabungkan poin output (tulis ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`) menjadi satu, urutan logis: hasil → penanda commit → STOP |
+| .kilo/commands/evaluasi_skill_dari_commit.md | Diubah | Isi final command: "repositori utama"→"root", path skill `custom/`→`non-code/`, muat `aturan-pembuatan-skill` sebelum menentukan skill, tambah kolom "Commit sumber" pada tabel laporan, dan kewajiban mencantumkan hash commit sumber per pola |
+| prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Rapikan poin: perbarui entri yang ada bila kode/pola sama (jangan tambah entri baru), STOP + `question` jadi poin terakhir; terapkan juga ke isi final command (Execute + Larangan) |
 
 ## Sinkronisasi ke MEMORI.md
 Belum disinkronkan

@@ -1,5 +1,5 @@
 ---
-description: Menganalisis commit terbaru pada repositori utama dan submodule untuk menentukan skill/aturan yang perlu ditambah atau diperbarui, lalu menulis hasil analisa ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md` tanpa mengubah skill secara otomatis.
+description: Menganalisis commit terbaru pada repositori root dan submodule untuk menentukan skill/aturan yang perlu ditambah atau diperbarui, lalu menulis hasil analisa ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md` tanpa mengubah skill secara otomatis.
 agent: code
 ---
 
@@ -7,17 +7,17 @@ agent: code
 
 ## Tujuan
 
-Mengevaluasi perubahan kode Dart yang sudah di-commit pada repositori utama dan seluruh submodule untuk menentukan skill/aturan yang perlu ditambah atau diperbarui, kemudian menulis hasil analisa ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`. Command ini **tidak** mengubah skill secara otomatis.
+Mengevaluasi perubahan kode Dart yang sudah di-commit pada repositori root dan seluruh submodule untuk menentukan skill/aturan yang perlu ditambah atau diperbarui, kemudian menulis hasil analisa ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`. Command ini **tidak** mengubah skill secara otomatis.
 
 ## Ketentuan Umum
 
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya.
 2. Gunakan bahasa Indonesia baku untuk seluruh interaksi dan laporan.
-3. Gunakan tool bawaan Kilo (`read`, `glob`, `grep`) untuk membaca berkas; gunakan perintah Git melalui shell sesuai `.agents/skills/custom/penggunaan-tool-bawaan-kilo/SKILL.md`.
+3. Gunakan tool bawaan Kilo (`read`, `glob`, `grep`) untuk membaca berkas; gunakan perintah Git melalui shell sesuai `.agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md`.
 4. Sumber kebenaran hanya commit yang sudah ada (`git log`, `git show`, `git diff`); dilarang memakai working tree, staging, atau berkas untracked.
 5. Daftar submodule dibaca dari `.gitmodules` (mis. `git config --file .gitmodules --get-regexp '\.path$'`); `git submodule status` dapat gagal karena gitlink yatim di `.dart_tool/`, jangan andalkan perintah tersebut.
 6. Validasi tiap path submodule dengan `git -C <path> rev-parse --git-dir`.
-7. Muat skill `aturan-pembuatan-skill` (`.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`) melalui tool `skill` bila analisa menyentuh pembuatan/pembaruan skill.
+7. Muat skill `aturan-pembuatan-skill` (`.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`) melalui tool `skill` sebelum menentukan skill/aturan.
 
 ## Cakupan
 
@@ -41,20 +41,20 @@ Mengevaluasi perubahan kode Dart yang sudah di-commit pada repositori utama dan 
    - Per repo: jika laporan belum memuat entri untuk repo tersebut (atau file masih kosong), ambil 5 commit terakhir pada branch aktif repo tersebut sebagai data awal.
    - Per repo: commit awal = commit setelah hash tercatat pada entri repo tersebut; commit akhir = `HEAD` repo tersebut yang dicatat di awal.
 2. **Plan** — baca commit tiap repo dari yang terlama ke terbaru; bila dua commit mengubah kode yang sama, gunakan commit terbaru sebagai sumber kebenaran. Evaluasi hanya perubahan kode Dart. Untuk commit yang menyentuh `task.md` (di repo mana pun), baca diff bagian task berstatus `batal` yang dihapus beserta bagian `prompt` untuk memahami alasannya, lalu sesuaikan analisa skill terkait.
-3. **Execute** — tentukan skill/aturan yang perlu ditambah atau diperbarui berdasarkan analisa; tulis hasil analisa ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`. Perbarui penanda commit terakhir yang dievaluasi pada file laporan; jangan menumpuk daftar commit. Jangan mengubah skill secara otomatis.
+3. **Execute** — tentukan skill/aturan yang perlu ditambah atau diperbarui berdasarkan analisa; tulis hasil analisa ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`. Bila berkas hasil sudah memuat entri untuk kode/pola yang sama, perbarui entri tersebut; jangan menambah entri baru. Perbarui penanda commit terakhir yang dievaluasi pada file laporan; jangan menumpuk daftar commit. Jangan mengubah skill secara otomatis.
 4. **Review** — baca ulang berkas target untuk verifikasi; laporkan hasil (lihat Format Laporan).
 
 ## Format Laporan (berkas target)
 
 Tabel per repo:
 
-| Repo | Branch | Rentang dievaluasi | Berkas Dart | Pola/skill yang disarankan | Catatan |
-| --- | --- | --- | --- | --- | --- |
-| `workspace` (root) | `<branch>` | `<hash awal>`..`<hash akhir>` | `<berkas>` | `<skill/aturan>` | `<catatan>` |
-| `base_coc` | `<branch>` | `<hash awal>`..`<hash akhir>` | `<berkas>` | `<skill/aturan>` | `<catatan>` |
-| `share_global_saya` | `<branch>` | `<hash awal>`..`<hash akhir>` | `<berkas>` | `<skill/aturan>` | `<catatan>` |
+| Repo | Branch | Rentang dievaluasi | Berkas Dart | Pola/skill yang disarankan | Commit sumber | Catatan |
+| --- | --- | --- | --- | --- | --- | --- |
+| `workspace` (root) | `<branch>` | `<hash awal>`..`<hash akhir>` | `<berkas>` | `<skill/aturan>` | `<hash>` | `<catatan>` |
+| `base_coc` | `<branch>` | `<hash awal>`..`<hash akhir>` | `<berkas>` | `<skill/aturan>` | `<hash>` | `<catatan>` |
+| `share_global_saya` | `<branch>` | `<hash awal>`..`<hash akhir>` | `<berkas>` | `<skill/aturan>` | `<hash>` | `<catatan>` |
 
-Sertakan hash commit akhir yang dievaluasi per repo dan daftar skill/aturan yang disarankan; susun hasil analisa berdasarkan prioritas tertinggi. Repo yang tidak dapat diakses dicatat `Tidak dievaluasi` (jangan mengarang hash).
+Sertakan hash commit akhir yang dievaluasi per repo dan daftar skill/aturan yang disarankan; setiap pola/temuan wajib mencantumkan hash commit sumber (dan subjek singkat), jangan mengarang hash. Susun hasil analisa berdasarkan prioritas tertinggi. Repo yang tidak dapat diakses dicatat `Tidak dievaluasi`.
 
 ## Larangan
 
@@ -63,6 +63,7 @@ Sertakan hash commit akhir yang dievaluasi per repo dan daftar skill/aturan yang
 - DILARANG mengubah `.gitmodules`, pointer submodule, atau isi submodule.
 - DILARANG commit/push (di root maupun di submodule).
 - DILARANG mengarang hash untuk repo yang tidak dapat diakses; catat `Tidak dievaluasi`.
+- DILARANG menambah entri baru bila laporan sudah memuat entri untuk kode/pola yang sama; perbarui entri yang ada.
 - DILARANG melanjutkan bila rentang commit atau target repositori tidak jelas; tanyakan via tool `question`.
 
 ## Kriteria Selesai / STOP
