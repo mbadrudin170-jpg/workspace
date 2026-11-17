@@ -43,6 +43,7 @@
 | prompt/skill/aturan-folder-prompt.md | Diubah | Tambah aturan 7: tanggal wajib zona waktu Asia/Jakarta |
 | prompt/commands/memperbarui_file_di_folder_prompt.md | Dibuat | Berkas poin prompt untuk command `memperbarui_file_di_folder_prompt` (sebelumnya hanya ada isi final di `.kilo/commands/`) |
 | prompt/commands/salin_prompt_ke_target.md | Diubah | Rapikan poin 9 (satu folder dulu → laporan → lanjut), perbaiki typo ("commnads", "folderprompt.commands", "seslesai"), perbarui tanggal |
+| prompt/commands/audit_riwayat_sesi.md | Diubah | Poin 13 dirapikan ("perbarui file sesi ... sebagai seudah di audit" → "Tandai berkas sesi yang sudah diaudit (mis. ledger `audit/riwayat_sesi.md`)"); perbarui tanggal |
 
 ## Sinkronisasi ke MEMORI.md
 - `MEMORI.md` (sesi 5, catch-up): `Catatan Teknis` — sesi 3 dicatat (penghapusan `analisa_commit_skill.md` & `evaluasi_code_yang_baru_dicommit.md`, `evaluasi_skill_dari_commit.md` dipertahankan, pipeline L1–L6).

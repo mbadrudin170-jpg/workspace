@@ -1,4 +1,4 @@
-diperbarui : Mon Nov 16 2026 13:06 WIB
+diperbarui : Tue Nov 17 2026 22:16 WIB
 file : [audit_riwayat_sesi](../../.kilo/commands/audit_riwayat_sesi.md)
 
 1. Baca `AGENTS.md` dan `MEMORI.md`; muat skill `audit-riwayat-sesi` dan `memori-check` sebelum bekerja.
@@ -13,3 +13,4 @@ file : [audit_riwayat_sesi](../../.kilo/commands/audit_riwayat_sesi.md)
 10. Selesai bila ledger/konteks terbaca, berkas diproses diaudit, section baru ter-append, laporan disampaikan; STOP bila `memori/sesi/` tidak dapat dibaca atau `audit/riwayat_sesi.md` tidak dapat ditulis.
 11. Abaikan (lewati) sesi berstatus `Belum Sinkron` pada audit; catat sebagai dilewati dengan alasan pada laporan.
 12. Setelah semua sesi selesai diaudit, laporkan hasil audit (ringkasan, tabel pola, dan daftar berkas diaudit) kepada pengguna.
+13. Tandai berkas sesi yang sudah diaudit (mis. ledger `audit/riwayat_sesi.md`).
