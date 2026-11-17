@@ -4,9 +4,9 @@ Laporan referensi dari 80 APK kompetitor yang terdaftar di `apk_kompetitor.md` d
 
 ## Informasi Riset
 
-- Tanggal riset: 2026-11-14 (WIB); batch 2 ditambahkan pada pembaruan yang sama; batch 3 (10 APK sesi 93, 2026-11-14), batch 4 (10 APK sesi 103), batch 5 (10 APK sesi 107, 2026-11-15 WIB), batch 6 (10 APK sesi 121, 2026-11-15 WIB), batch 7 (10 APK sesi 125, 2026-11-15 WIB), dan batch 8 (10 APK sesi 128, 2026-11-15 WIB) diverifikasi dan dianalisa pada pembaruan masing-masing.
+- Tanggal riset: 2026-11-14 (WIB); batch 2 ditambahkan pada pembaruan yang sama; batch 3 (10 APK sesi 93, 2026-11-14), batch 4 (10 APK sesi 103), batch 5 (10 APK sesi 107, 2026-11-15 WIB), batch 6 (10 APK sesi 121, 2026-11-15 WIB), batch 7 (10 APK sesi 125, 2026-11-15 WIB), batch 8 (10 APK sesi 128, 2026-11-15 WIB), dan batch 9 (10 APK sesi 219, 2026-11-17 WIB) diverifikasi dan dianalisa pada pembaruan masing-masing.
 - Aplikasi sasaran: `base_coc`, aplikasi penyedia base/layout Clash of Clans (submodule Flutter pada repositori `workspace`).
-- Lingkup: 80 APK dari `apk_kompetitor.md`; 10 APK batch 1 + 10 APK batch 2 + 10 APK batch 3 + 10 APK batch 4 + 10 APK batch 5 + 10 APK batch 6 + 10 APK batch 7 + 10 APK batch 8 (hanya baris `Status Analisa = Belum Dianalisa` saat dianalisa).
+- Lingkup: 90 APK dari `apk_kompetitor.md`; 10 APK batch 1 + 10 APK batch 2 + 10 APK batch 3 + 10 APK batch 4 + 10 APK batch 5 + 10 APK batch 6 + 10 APK batch 7 + 10 APK batch 8 + 10 APK batch 9 (hanya baris `Status Analisa = Belum Dianalisa` saat dianalisa).
 - Alasan pemilihan 10 listing batch 5 (lintas store dan fitur, mengikuti aturan skill `riset-kompetitor` #30): `Fanatic App for Clash of Clans` (copy army + tips), `Clash Base Layouts: Copy Links` (katalog empat mode + personalisasi level), `Maps for Clash - CoC Bases` (Clan Capital + info klan), `ClashAlly` (rush check + builder plan), `Clash Companion: Base Layouts` (berita/event + pengingat hadiah), `Clash-Manager` (GitHub; batas integrasi API), `Clash Command` (GitHub; backup/restore + impor JSON), `Clash Tracker (rahulkhatri137)` (GitHub; next builder + boost), `Clash Cookbook: Armies & Bases` (Apple; resep pasukan + copy army), dan `Base Layout Links for COC` (Apple; pencarian pemain/klan).
 - Alasan pemilihan 10 listing batch 6 (seluruhnya Google Play Store, sesuai urutan katalog dan aturan skill `riset-kompetitor` #30): `Maps of Clash of Clans 2026` (zoom + like/bagikan + unduhan gambar; ulasan "hanya setengah base terlihat"), `Clash of Maps - Base, Layouts` (kategori anti-2/3/ring/troll + notifikasi base baru + favorit), `Map guide for COC` (strategi pasukan dengan copy troop; data 2024, usang), `ClashLy` (New/Hot/Top, Base Insights trending, tema dinamis, komunitas picks mingguan), `Clashtasia` (grafik salin harian, filter Structure/Defense), `COC Base Layouts - TH & BH` (random base, base downloader ke galeri, upgrade tracker, loot calculator), `COC Base Link Finder` (legacy 2021; hearts + Google login), `ClashCodes` (Capital Hall 1–10 + layout distrik; unggah base via login Google/Facebook), `COC Layout` (rating desain pemain; 2023, usang), dan `BaseVault` (counterpart Android dari listing Apple batch 2; 10.000+ base, 100+ baru harian, attack armies dengan video, AI coach + sampel gratis offline, Clan Vault, TH19).
 - Alasan pemilihan 10 listing batch 7 (seluruhnya Google Play Store, sesuai urutan katalog dan aturan skill `riset-kompetitor` #30): `Clan Capital Bases for COC` (100+ layout Clan Capital per distrik/level, copy satu ketuk, laporan tautan kedaluwarsa), `Blueprint CoC` (toko base pro berbayar — dicatat, tidak diadopsi), `ClashVault` (community screen, profil tertaut, image caching "offline reopens are instant", 7 bahasa), `COC Base Pro` (TH2–TH18, Builder Hall, Clan Capital, rating/views komunitas), `House of Clashers` (guide 1000+ halaman + copy link TH/BH; konten 2024, usang), `CCTimer` (papan status builder/lab/pet, pengingat lebih awal, widget hitung mundur per detik; multi-akun), `Keepwatch (Android)` (per kategori HV+BB, jarak ke max, timeline day-by-day, Gold Pass/event/helper; counterpart Android Apple batch 3), `Clash layout - COC base design` (generik), `Base of Clash of Clans 2025` (Builder Base 2.0 + tag search), dan `Pro Clash of Maps Base Layouts` (TH18 + layout World Finals; ulasan meminta sub-kategori anti-E-Drag).
@@ -1455,3 +1455,175 @@ Batch 8 (sesi 128, 2026-11-15 WIB):
 68. [Clash Tracker: Upgrade Planner](https://play.google.com/store/apps/details?id=de.appcombine.app.gry6tm)
 69. [CoC Base Layout Hub](https://play.google.com/store/apps/details?id=com.aarzee.utili.cocbases)
 70. [WarBase Pro CoC Layouts](https://play.google.com/store/apps/details?id=com.moonedgestudio.warbasepro2027)
+
+Batch 9 (sesi 219, 2026-11-17 WIB):
+
+71. [Clash Companion](https://play.google.com/store/apps/details?id=com.clashcompanion.com)
+72. [ClashGrid](https://play.google.com/store/apps/details?id=com.coc_widgets)
+73. [Base for Clash of Clans](https://play.google.com/store/apps/details?id=com.NurievDevStudio.com.unity.template.mobile2D)
+74. [Clash Maps Hub](https://play.google.com/store/apps/details?id=com.ahmedoka.clashmapshub)
+75. [Coc Studio - Base Layout](https://play.google.com/store/apps/details?id=com.fksoft.cocmapstudio)
+76. [Maps of Clash of Clans](https://play.google.com/store/apps/details?id=com.topappstudios.cocmap)
+77. [Clash Trackers](https://github.com/Killersparrow1/clash-Trackers)
+78. [Clash Timers (memehammad)](https://github.com/memehammad/clash-timers)
+79. [Clash Timers (Kuswaa)](https://github.com/Kuswaa/clash-timers)
+80. [ClashKingApp](https://github.com/ClashKingInc/ClashKingApp)
+
+## Batch 9 — Temuan & Rekomendasi (sesi 219, 2026-11-17 WIB)
+
+Verifikasi: 10 listing di atas diverifikasi melalui halaman resmi Google Play Store dan README repositori GitHub (halaman terbaca penuh); tidak ada pembacaan piksel tangkapan layar. Seluruh listing dianalisis hanya untuk fitur yang berjalan di mobile Android/iOS.
+
+Ringkasan temuan batch 9:
+
+1. **Wiki + perencana upgrade matang** (`Clash Companion`): ensiklopedia bangunan/pasukan/spell/hero dengan pencarian cepat, perencana upgrade TH/BH multi-profil dengan estimasi biaya/waktu, koleksi base/army pribadi dengan tautan OpenLayout/CopyArmy, favorit, dan cache lokal untuk browsing offline; tema gelap/terang/sistem, bahasa Prancis/Inggris, tanpa akun. Pola "pendamping progres" yang dapat diterapkan lokal-first.
+2. **Pelacakan upgrade Home Village yang ringan dan bebas iklan** (`ClashGrid`): dashboard upgrade bangunan/pasukan/pet, banyak profil, widget layar utama, impor JSON resmi game, tanpa login/iklan/IAP; 100% lokal. Menegaskan pola offline-first dan tanpa akun.
+3. **Galeri base dengan gambar HD dan tutorial event** (`Base for Clash of Clans`): galeri TH4–TH18 (war anti-3-star, farming, hybrid, defense, trophy) dengan gambar resolusi tinggi, zoom, copy link langsung, serta tutorial event (fullscreen, kontrol langkah, ikon, kecepatan) dan pelacak pemain/klan (profil, riwayat, perang, raid, favorit, import desain). Menunjukkan penggabungan galeri + pelacakan dalam satu aplikasi.
+4. **Katalog ringan tanpa iklan dengan pembaruan meta berkala** (`Clash Maps Hub`): perpustakaan base TH4–TH16/BH4–BH10 (war, farming, trophy, hybrid) dengan copy satu klik, pembaruan meta berkala, UI ringan, tanpa iklan. Menegaskan bahwa kualitas eksekusi copy lebih menentukan reputasi daripada jumlah koleksi.
+5. **Katalog base + komposisi pasukan + panduan strategi** (`Coc Studio - Base Layout`): base TH1–TH17/BH4–BH10 + Clan Capital, copy base satu ketuk, komposisi pasukan, panduan strategi war/farming, pembaruan rutin. Menegaskan pola "satu aplikasi untuk semua kebutuhan CoC".
+6. **Katalog usang tetap populer tetapi menurunkan kepercayaan** (`Maps of Clash of Clans`): koleksi map TH1–TH12/BH1–8 dengan copy link, like/bagikan, unduh map, kalkulator gem/XP; 1M+ unduhan tetapi tidak diperbarui sejak 2018. Menegaskan pentingnya penanda tanggal pembaruan katalog (B11).
+7. **Pelacakan timer upgrade matang dan offline-first** (`Clash Trackers`): aplikasi Android offline + widget layar utama untuk timer upgrade Home Village/Builder Base, potion, event, multi-akun; tanpa iklan, impor JSON resmi game; APK di setiap rilis GitHub. Menegaskan pola offline-first dan multi-akun.
+8. **Widget timer dengan boost planner dan integrasi At a Glance** (`Clash Timers` memehammad): widget Android (builder bebas, hitung mundur upgrade, riset lab, status hero), boost planner (preview efek potion sebelum dipakai), Smartspacer (At a Glance), auto-import dengan Shizuku, notifikasi finish, multi-bahasa. Menunjukkan diferensiasi lewat integrasi sistem (widget + At a Glance).
+9. **Widget timer minimalis dengan prediksi helper** (`Clash Timers` Kuswaa): widget builder/lab/pet, live countdown, potion, helper (apprentice/lab assistant), notifikasi, pengaturan potion/helper/builder count. Menunjukkan prediksi finish dengan helper sebagai nilai tambah.
+10. **Companion all-in-one lintas platform** (`ClashKingApp`): profil pemain/klan, Ranked & Legend League, statistik perang/CWL, pelacakan upgrade & kalkulator, widget layar utama, multibahasa, tema terang/gelap; Expo/React Native; GPL-3.0. Menunjukkan cakupan fitur lintas platform yang dapat menjadi acuan, bukan sumber rekomendasi langsung (bergantung backend).
+
+### A. Rekomendasi Fitur Baru (Batch 9)
+
+#### A59. Ensiklopedia game terstruktur offline (bangunan, pasukan, spell, hero, equipment, pet, siege)
+- **Temuan:** `Clash Companion` menyediakan wiki bangunan/pasukan/spell/hero dengan pencarian cepat dan filter kategori/village/TH/BH; cache lokal untuk browsing offline; tanpa akun.
+- **Tujuan fitur:** memperluas `base_coc` dari galeri base menjadi pendamping pemahaman game yang dapat dibaca offline.
+- **Referensi:** [Clash Companion](https://play.google.com/store/apps/details?id=com.clashcompanion.com)
+- **Saran:** mulai dengan data game yang sudah dibundel (JSON) dan tampilan profil item; jangan memaksakan pembaruan daring pada tahap awal.
+- **Prioritas:** Sedang.
+
+#### A60. Perencana upgrade multi-profil dengan estimasi biaya dan waktu
+- **Temuan:** `Clash Companion` mengubah progres TH/BH menjadi checklist dengan estimasi biaya dan waktu; mendukung banyak profil.
+- **Tujuan fitur:** membantu pengguna merencanakan urutan upgrade tanpa mengetik manual.
+- **Referensi:** [Clash Companion](https://play.google.com/store/apps/details?id=com.clashcompanion.com)
+- **Saran:** padankan dengan A16/A17; simpan profil lokal; tampilkan sisa biaya/waktu agregat.
+- **Prioritas:** Sedang.
+
+#### A61. Koleksi base dan army pribadi dengan tautan OpenLayout/CopyArmy
+- **Temuan:** `Clash Companion` menyimpan layout dan komposisi pasukan pribadi dengan tautan OpenLayout/CopyArmy, favorit, dan cache lokal.
+- **Tujuan fitur:** memungkinkan pengguna menyimpan base/army favorit yang tidak kedaluwarsa (melengkapi A39/A41).
+- **Referensi:** [Clash Companion](https://play.google.com/store/apps/details?id=com.clashcompanion.com)
+- **Saran:** simpan tautan lokal dengan label; sediakan pembukaan tautan satu ketuk; jangan mengandalkan backend.
+- **Prioritas:** Sedang.
+
+#### A62. Tutorial event dalam aplikasi dengan kontrol langkah
+- **Temuan:** `Base for Clash of Clans` menyediakan tutorial event (fullscreen, kontrol langkah, ikon, kecepatan, jeda) dan pelacak pemain/klan (profil, riwayat, perang, raid, favorit).
+- **Tujuan fitur:** membantu pengguna memahami event dan memantau pemain/klan dari dalam aplikasi.
+- **Referensi:** [Base for Clash of Clans](https://play.google.com/store/apps/details?id=com.NurievDevStudio.com.unity.template.mobile2D)
+- **Saran:** mulai dengan tutorial statis (HTML/Markdown) dan pelacak pemain berbasis tautan; hindari bergantung API resmi.
+- **Prioritas:** Rendah.
+
+#### A63. Katalog ringan tanpa iklan dengan pembaruan meta berkala
+- **Temuan:** `Clash Maps Hub` menawarkan perpustakaan base TH4–TH16/BH4–BH10 dengan copy satu klik, pembaruan meta berkala, UI ringan, tanpa iklan.
+- **Tujuan fitur:** memperkuat reputasi dengan eksekusi copy yang andal dan UI ringan.
+- **Referensi:** [Clash Maps Hub](https://play.google.com/store/apps/details?id=com.ahmedoka.clashmapshub)
+- **Saran:** prioritaskan keandalan copy (B1) dan UI ringan; pembaruan meta sebagai batch data, bukan fitur wajib daring.
+- **Prioritas:** Tinggi.
+
+#### A64. Katalog base + komposisi pasukan + panduan strategi dalam satu aplikasi
+- **Temuan:** `Coc Studio - Base Layout` menggabungkan katalog base TH1–TH17/BH4–BH10 + Clan Capital, copy base, komposisi pasukan, dan panduan strategi war/farming.
+- **Tujuan fitur:** mengurangi gesekan pengguna yang mencari base dan army dalam satu tempat.
+- **Referensi:** [Coc Studio - Base Layout](https://play.google.com/store/apps/details?id=com.fksoft.cocmapstudio)
+- **Saran:** tampilkan komposisi pasukan di layar detail base; sediakan Copy Army satu ketuk (A41); jaga fokus galeri agar tugas utama tidak kabur.
+- **Prioritas:** Sedang.
+
+#### A65. Kalkulator gem/XP dalam aplikasi galeri
+- **Temuan:** `Maps of Clash of Clans` menyediakan kalkulator gem/XP dan unduh map; namun tidak diperbarui sejak 2018.
+- **Tujuan fitur:** menambah nilai tambah kecil pada aplikasi galeri.
+- **Referensi:** [Maps of Clash of Clans](https://play.google.com/store/apps/details?id=com.topappstudios.cocmap)
+- **Saran:** implementasikan kalkulator sederhana offline; jangan jadikan fitur utama; cantumkan tanggal pembaruan data (B11).
+- **Prioritas:** Rendah.
+
+#### A66. Pelacakan potion dan event pada timer upgrade
+- **Temuan:** `Clash Trackers` melacak timer upgrade Home Village/Builder Base dengan potion dan event, multi-akun, offline, widget; impor JSON resmi game.
+- **Tujuan fitur:** melengkapi A16 dengan pemodelan potion/event pada sisa waktu (B8).
+- **Referensi:** [Clash Trackers](https://github.com/Killersparrow1/clash-Trackers)
+- **Saran:** modelkan potion aktif dan event pada timer; simpan lokal; sediakan widget per akun.
+- **Prioritas:** Sedang.
+
+#### A67. Boost planner (preview efek potion sebelum dipakai)
+- **Temuan:** `Clash Timers` (memehammad) menyediakan boost planner untuk melihat apa yang akan selesai jika potion digunakan, serta integrasi At a Glance (Smartspacer) dan auto-import dengan Shizuku.
+- **Tujuan fitur:** membantu pengguna memutuskan kapan menggunakan potion.
+- **Referensi:** [Clash Timers (memehammad)](https://github.com/memehammad/clash-timers)
+- **Saran:** implementasikan preview lokal tanpa backend; auto-import Shizuku opsional; integrasi At a Glance sebagai fitur lanjutan.
+- **Prioritas:** Sedang.
+
+#### A68. Prediksi finish dengan helper (apprentice/lab assistant)
+- **Temuan:** `Clash Timers` (Kuswaa) memprediksi finish dengan helper (apprentice/lab assistant) dan menyediakan pengaturan potion/helper/builder count.
+- **Tujuan fitur:** meningkatkan akurasi estimasi finish pada pelacakan upgrade.
+- **Referensi:** [Clash Timers (Kuswaa)](https://github.com/Kuswaa/clash-timers)
+- **Saran:** padankan dengan B6/B8; tampilkan prediksi dengan penanda "best case"; izinkan penyesuaian manual.
+- **Prioritas:** Sedang.
+
+#### A69. Pelacakan Ranked & Legend League
+- **Temuan:** `ClashKingApp` menyediakan profil pemain/klan, Ranked & Legend League, statistik perang/CWL, pelacakan upgrade & kalkulator, widget, multibahasa, tema.
+- **Tujuan fitur:** memperluas pendamping progres ke kompetisi (Ranked/Legend) dan statistik perang.
+- **Referensi:** [ClashKingApp](https://github.com/ClashKingInc/ClashKingApp)
+- **Saran:** mulai dengan tautan profil/klan eksternal; pelacakan lokal tanpa backend; jangan bergantung API resmi.
+- **Prioritas:** Rendah.
+
+### B. Optimasi & Pra-Implementasi (Batch 9)
+
+#### B23. Penanda tanggal pembaruan katalog pada aplikasi galeri usang
+- **Temuan:** `Maps of Clash of Clans` memiliki 1M+ unduhan tetapi tidak diperbarui sejak 2018; pengguna tidak diberi peringatan data usang.
+- **Tujuan optimasi:** menjaga kepercayaan pengguna dengan menampilkan tanggal pembaruan katalog dan peringatan data usang.
+- **Referensi:** [Maps of Clash of Clans](https://play.google.com/store/apps/details?id=com.topappstudios.cocmap)
+- **Saran:** terapkan B11; tampilkan "data diperbarui per <tanggal>"; tandai katalog usang.
+- **Prioritas:** Sedang.
+
+#### B24. Integrasi sistem (widget + At a Glance + auto-import) sebagai diferensiasi
+- **Temuan:** `Clash Timers` (memehammad) mengintegrasikan widget, At a Glance (Smartspacer), dan auto-import Shizuku; `Clash Timers` (Kuswaa) menyediakan widget dengan live countdown dan notifikasi.
+- **Tujuan optimasi:** meningkatkan nilai harian aplikasi pelacakan melalui integrasi sistem.
+- **Referensi:** [Clash Timers (memehammad)](https://github.com/memehammad/clash-timers), [Clash Timers (Kuswaa)](https://github.com/Kuswaa/clash-timers)
+- **Saran:** prioritaskan widget dasar (B3); integrasi At a Glance dan auto-import Shizuku sebagai fitur lanjutan; jaga privasi (tanpa internet).
+- **Prioritas:** Rendah.
+
+#### B25. Konsistensi klaim fitur dan status rilis pada aplikasi all-in-one
+- **Temuan:** `ClashKingApp` adalah companion all-in-one lintas platform (Expo/React Native) dengan cakupan fitur luas; klaim fitur harus sesuai status rilis.
+- **Tujuan optimasi:** menjaga kepercayaan pengguna dengan klaim fitur yang jujur (B12).
+- **Referensi:** [ClashKingApp](https://github.com/ClashKingInc/ClashKingApp)
+- **Saran:** terapkan B12; tandai fitur "direncanakan" secara eksplisit; hindari mengklaim lebih dari yang tersedia.
+- **Prioritas:** Rendah.
+
+### C. UI/UX & Layout (Batch 9)
+
+#### C31. UI ringan tanpa iklan dengan pembaruan meta berkala
+- **Temuan:** `Clash Maps Hub` menawarkan UI ringan, tanpa iklan, dengan pembaruan meta berkala.
+- **Tujuan UI/UX:** meningkatkan kecepatan dan kenyamanan pengguna.
+- **Referensi:** [Clash Maps Hub](https://play.google.com/store/apps/details?id=com.ahmedoka.clashmapshub)
+- **Saran:** terapkan C9 (iklan minimal) dan C25 (token desain + skeleton); jaga UI ringan.
+- **Prioritas:** Sedang.
+
+#### C32. Widget dengan boost planner dan integrasi At a Glance
+- **Temuan:** `Clash Timers` (memehammad) menyediakan widget dengan boost planner dan integrasi At a Glance (Smartspacer); tema widget yang dapat dipilih.
+- **Tujuan UI/UX:** memperkaya widget dengan informasi prediktif tanpa membuka aplikasi.
+- **Referensi:** [Clash Timers (memehammad)](https://github.com/memehammad/clash-timers)
+- **Saran:** terapkan C15 (tema widget per widget) dan C28 (widget grid dengan progress ring); tambahkan boost planner sebagai aksi di widget.
+- **Prioritas:** Rendah.
+
+#### C33. Widget minimalis dengan prediksi helper dan pengaturan potion
+- **Temuan:** `Clash Timers` (Kuswaa) menyediakan widget minimalis dengan prediksi helper dan pengaturan potion/helper/builder count.
+- **Tujuan UI/UX:** memberi kontrol cepat dari widget tanpa membuka aplikasi.
+- **Referensi:** [Clash Timers (Kuswaa)](https://github.com/Kuswaa/clash-timers)
+- **Saran:** terapkan C28 (widget grid) dan C29 (format hitung mundur yang dapat dipilih); sediakan pengaturan cepat dari widget.
+- **Prioritas:** Rendah.
+
+## Format Laporan (Batch 9)
+
+| Listing | Store | Link | Fitur/UI/UX ditemukan | Prioritas |
+| --- | --- | --- | --- | --- |
+| Clash Companion | Google Play Store | https://play.google.com/store/apps/details?id=com.clashcompanion.com | Wiki game offline + perencana upgrade TH/BH multi-profil + koleksi base/army pribadi dengan OpenLayout/CopyArmy + favorit + cache lokal | Sedang |
+| ClashGrid | Google Play Store | https://play.google.com/store/apps/details?id=com.coc_widgets | Pelacakan upgrade Home Village (bangunan/pasukan/pet), dashboard, multi-profil, widget, impor JSON, tanpa login/iklan/IAP | Tinggi |
+| Base for Clash of Clans | Google Play Store | https://play.google.com/store/apps/details?id=com.NurievDevStudio.com.unity.template.mobile2D | Galeri base TH4–TH18 (war anti-3-star, farming, hybrid, defense, trophy) dengan gambar HD, zoom, copy link, tutorial event, pelacak pemain/klan | Sedang |
+| Clash Maps Hub | Google Play Store | https://play.google.com/store/apps/details?id=com.ahmedoka.clashmapshub | Perpustakaan base TH4–TH16/BH4–BH10 (war, farming, trophy, hybrid) dengan copy satu klik, pembaruan meta berkala, UI ringan, tanpa iklan | Tinggi |
+| Coc Studio - Base Layout | Google Play Store | https://play.google.com/store/apps/details?id=com.fksoft.cocmapstudio | Katalog base TH1–TH17/BH4–BH10 + Clan Capital, copy base, komposisi pasukan, panduan strategi war/farming | Sedang |
+| Maps of Clash of Clans | Google Play Store | https://play.google.com/store/apps/details?id=com.topappstudios.cocmap | Koleksi map TH1–TH12/BH1–8 dengan copy link, like/bagikan, unduh map, kalkulator gem/XP; usang (2018) | Rendah |
+| Clash Trackers | GitHub | https://github.com/Killersparrow1/clash-Trackers | Pelacakan timer upgrade Home Village/Builder Base, potion, event, multi-akun, offline, widget; impor JSON resmi game | Tinggi |
+| Clash Timers (memehammad) | GitHub | https://github.com/memehammad/clash-timers | Widget Android (builder bebas, hitung mundur, riset lab, status hero), boost planner, Smartspacer, auto-import Shizuku, notifikasi | Sedang |
+| Clash Timers (Kuswaa) | GitHub | https://github.com/Kuswaa/clash-timers | Widget builder/lab/pet, live countdown, potion, helper, notifikasi, pengaturan potion/helper/builder count | Sedang |
+| ClashKingApp | GitHub | https://github.com/ClashKingInc/ClashKingApp | Profil pemain/klan, Ranked & Legend League, statistik perang/CWL, pelacakan upgrade & kalkulator, widget, multibahasa, tema | Rendah |
+
+Jumlah listing dianalisis batch 9: 10. Berkas yang diperbarui: `apk_kompetitor.md` (status 10 listing → `Sudah Dianalisa`) dan `refrensi_apk.md` (batch 9: referensi 71–80, temuan, rekomendasi A59–A69, B23–B25, C31–C33, dan tabel format laporan).
