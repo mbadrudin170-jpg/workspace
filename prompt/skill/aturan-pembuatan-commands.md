@@ -1,4 +1,4 @@
-diperbarui : Tue Nov 17 2026 18:25 WIB
+diperbarui : Tue Nov 17 2026 22:50 WIB
 file : [aturan-pembuatan-commands](../../.agents/skills/non-code/aturan-pembuatan-commands/SKILL.md)
 
 1. Setiap `command` wajib menyertakan `description` yang ringkas, jelas, dan tidak menyesatkan AI.
@@ -9,6 +9,13 @@ file : [aturan-pembuatan-commands](../../.agents/skills/non-code/aturan-pembuata
 6. Setiap `command` wajib menyertakan skill terkait yang dibutuhkan AI jika skill tersebut tersedia (cek `.agents/rules/kelompok_skill_wajib.md` atau available skill).
 7. Disimpan di `.kilo/commands/` (atau subfolder satu tingkat, mis. `mode/`, `prd/`).
 8. Setiap `command` wajib memerintahkan AI untuk membaca `AGENTS.md` terlebih dahulu dan mematuhi isinya.
+9. Contoh `description` pada frontmatter:
+
+```yaml
+---
+description: deskripsi singkat
+---
+```
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
