@@ -262,7 +262,7 @@
 1. .agents/skills/non-code/aturan-folder-prompt/SKILL.md
 
 - Trigger : saat menambah atau memperbarui file di folder prompt/
-- Status : diperbarui : Wed Nov 18 2026 01:25 WIB
+- Status : diperbarui : Wed Nov 18 2026 01:38 WIB
 
 2. .agents/skills/non-code/aturan-pembuatan-commands/SKILL.md
 

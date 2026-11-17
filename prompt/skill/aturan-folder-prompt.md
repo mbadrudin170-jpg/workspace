@@ -1,9 +1,9 @@
-diperbarui : Wed Nov 18 2026 01:25 WIB
+diperbarui : Wed Nov 18 2026 01:38 WIB
 file : [aturan-folder-prompt](../../.agents/skills/non-code/aturan-folder-prompt/SKILL.md)
 
 1. Setiap berkas di `prompt/` wajib memuat header `diperbarui :` (tanggal lengkap + jam, zona waktu Asia/Jakarta) dan `ditimpa ke :` atau `file :` (path/tautan target).
 
-2. Nama berkas di `prompt/<subfolder>/` wajib sama dengan nama target (mis. `prompt/skill/aturan-folder-prompt.md` ↔ `.agents/skills/non-code/aturan-folder-prompt/SKILL.md`).
+2. Nama berkas di `prompt/<subfolder>/` wajib sama dengan nama target agar mudah dievaluasi (mis. `prompt/skill/aturan-folder-prompt.md` ↔ `.agents/skills/non-code/aturan-folder-prompt/SKILL.md`).
 
 3. Berkas di `prompt/` hanya berisi poin-poin penting (ringkas); dilarang memuat isi final/lengkap. Isi final tetap di berkas target (`.agents/`, `.kilo/`).
 
