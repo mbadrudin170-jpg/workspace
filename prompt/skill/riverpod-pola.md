@@ -1,4 +1,4 @@
-diperbarui : Tue Nov 17 2026 18:18 WIB
+diperbarui : Tue Nov 17 2026 18:25 WIB
 file : [riverpod-pola](../../.agents/skills/custom/riverpod-pola/SKILL.md)
 
 1. Notifier database (CRUD): gunakan `@Riverpod(keepAlive: true)`; `build()` memanggil `_ambilSemua()`; update state setelah DB berhasil; `catch Exception` lalu `rethrow`.

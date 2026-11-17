@@ -1,10 +1,10 @@
 ---
 name: riverpod-pola
-description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD dengan `@Riverpod(keepAlive: true)`, notifier sinkron codegen + `@freezed`, `ref.watch` di build / `ref.read` di callback, `Consumer(Stateful)Widget`, family immutable, `autoDispose`, `ProviderScope` di root, `select` untuk rebuild minimal, penanganan `AsyncValue`, folder `notifier/` vs `provider/`, dan try-catch pada `Future`)."
+description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD dengan `@Riverpod(keepAlive: true)`, notifier sinkron codegen + `@freezed`, `ref.watch` di build / `ref.read` di callback, `Consumer(Stateful)Widget`, family immutable, `autoDispose`, `ProviderScope` di root, `select` untuk rebuild minimal, penanganan `AsyncValue`, folder `notifier/` vs `provider/`, try-catch pada `Future`, dan `await ref.watch(provider.future)` untuk provider Future)."
 metadata:
   kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Mon Nov 16 2026 21:31 WIB"
+  versi: "1.2.0"
+  diperbarui: "Tue Nov 17 2026 18:25 WIB"
 ---
 
 # Riverpod Pola
@@ -30,6 +30,7 @@ Panduan pola Riverpod untuk aplikasi Flutter: notifier CRUD, state notifier sink
 15. Provider CRUD wajib disimpan di folder `notifier/` dan namanya wajib mengandung `Notifier` (mis. `BiodataNotifier`); provider read-only wajib disimpan di folder `provider/` dengan nama tanpa akhiran manual (mis. `biodata` → `biodataProvider`).
 16. Setiap fungsi `Future` wajib dibungkus `try-catch`; setiap operasi database wajib selesai lebih dahulu, baru state diperbarui.
 17. Mutasi state di luar Notifier dilarang; state hanya diubah oleh Notifier.
+18. Di dalam provider/notifier, untuk me-*watch* provider yang bertipe `Future`, gunakan `await ref.watch(provider.future)`.
 
 ## Contoh Benar
 
