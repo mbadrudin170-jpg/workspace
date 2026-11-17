@@ -13,6 +13,7 @@ description: Riset kompetitor aplikasi mobile dan analisis fitur ke refrensi_apk
 9. STOP bila dokumen proyek tidak tersedia, katalog kosong, atau seluruh listing sudah dianalisis.
 10. Format laporan: tabel (Listing, Store, Link, Fitur/UI/UX ditemukan, Prioritas) + jumlah listing yang dianalisis dan berkas yang diperbarui.
 11. Tambahkan section contoh pada `refrensi_apk.md` dengan format: `A1 <fitur> — prioritas: <Tinggi/Sedang/Rendah> — ringkasan singkat: <1 kalimat>` (contoh: `A1 Tambah Kopi — prioritas: Sedang — ringkasan singkat: fitur pencatatan konsumsi kopi harian dengan pengingat`).
+12. Baca `fitur_khusus.md` dan cari fitur-fitur yang diinginkan pengguna yang terdaftar di sana, lalu masukkan ke `refrensi_apk.md` ditandai sebagai prioritas.
 
 # Skill Terkait
 - riset-kompetitor
