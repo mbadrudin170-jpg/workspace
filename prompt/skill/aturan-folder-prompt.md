@@ -14,7 +14,7 @@ file : [aturan-folder-prompt](../../.agents/skills/non-code/aturan-folder-prompt
 6. Catatan "hanya untuk penulis prompt, bukan untuk skill" (beserta tautan referensi) wajib ditempatkan di akhir berkas dan tidak boleh dimasukkan ke berkas target.
 
 7. Setiap butir poin wajib dipisahkan oleh satu baris kosong.
-
+8. setiap memperbarui isi file yang ada di folder prompt langsung perbarui juga isi file target nya tapi harus lewat izin pengguna juga gunakan question
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
 Link referensi ini jangan dimasukkan ke skill.

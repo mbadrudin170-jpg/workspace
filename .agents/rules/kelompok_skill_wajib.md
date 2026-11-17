@@ -277,7 +277,7 @@
 4. .agents/skills/non-code/aturan-pembuatan-skill/SKILL.md
 
 - Trigger : saat membuat skill baru atau memperbarui skill
-- Status : diperbarui : Sun Nov 15 2026 02:10 WIB
+- Status : diperbarui : Wed Nov 18 2026 01:21 WIB
 
 5. .agents/skills/non-code/audit-riwayat-sesi/SKILL.md
 
@@ -332,7 +332,7 @@
 15. .agents/skills/non-code/penggunaan-tool-question/SKILL.md
 
 - Trigger : saat menyusun pertanyaan ke pengguna
-- Status : diperbarui : Sun Nov 15 2026 02:10 WIB
+- Status : diperbarui : Wed Nov 18 2026 01:23 WIB
 
 16. .agents/skills/non-code/riset-kompetitor/SKILL.md
 

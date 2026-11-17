@@ -17,8 +17,10 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 12. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi.
 13. Setiap skill wajib memiliki berkas poin di folder `prompt/skill/` dengan nama yang sama dengan nama skill (mis. skill `penggunaan-tool-bawaan-kilo` → `prompt/skill/penggunaan-tool-bawaan-kilo.md`).
 14. Sumber isi skill wajib berasal dari commit yang berkaitan; bila aturan baru berasal dari permintaan eksplisit pengguna, catat sebagai sumber pada `## Sumber Evaluasi`.
+15. Skill pada `.agents/skills/code/` hanya boleh diubah atau ditambah dari (a) riwayat commit, atau (b) kode yang secara eksplisit diperintahkan pengguna untuk dimasukkan.
 
 ## Sumber Evaluasi
 
 - https://kilo.ai/docs/customize/skills
 - https://kilo.ai/docs/customize/skills?utm_source=chatgpt.com
+- Aturan 15 — berasal dari poin 15 pada `prompt/skill/aturan-pembuatan-skill.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; menegaskan `.agents/rules/lainnya.md` butir 4 dengan pengecualian perintah eksplisit pengguna).

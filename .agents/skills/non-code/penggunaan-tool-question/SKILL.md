@@ -1,10 +1,10 @@
 ---
 name: penggunaan-tool-question
-description: "Trigger: saat menyusun pertanyaan ke pengguna | Panduan tool question Kilo: header maks 30 karakter, label + description, multiple vs single, default, rekomendasi pertama (Recommended), larangan opsi catch-all, kunci i18n."
+description: "Trigger: saat menyusun pertanyaan ke pengguna | Panduan tool question Kilo: header maks 30 karakter, label + description, multiple vs single, default, rekomendasi pertama (Recommended), larangan opsi catch-all, opsi Skip wajib di setiap pertanyaan, kunci i18n."
 metadata:
   kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.0"
+  diperbarui: "Wed Nov 18 2026 01:23 WIB"
 ---
 
 # Penggunaan Tool `question`
@@ -26,8 +26,9 @@ Mengatur cara memanggil tool `question` Kilo agar setiap pertanyaan, permintaan 
 4. `question` WAJIB berupa pertanyaan lengkap dan tidak ambigu.
 5. Jika `multiple` tidak diset atau bernilai `false`, pertanyaan bersifat single-select (satu jawaban); set `multiple: true` hanya bila pengguna memang boleh memilih lebih dari satu opsi.
 6. Bila memberi rekomendasi, letakkan opsi rekomendasi di urutan pertama dan akhiri `label` dengan "(Recommended)".
-7. Jangan membuat opsi catch-all (mis. "Other", "Lainnya") karena opsi "Type your own answer" tersedia otomatis.
+7. Jangan membuat opsi catch-all (mis. "Other", "Lainnya") karena opsi "Type your own answer" tersedia otomatis. Pengecualian: opsi "Skip" wajib di setiap pertanyaan (lihat Aturan 9).
 8. Bila keputusan bergantung pada input pengguna, jangan berikan jawaban/keputusan final sebelum input diterima melalui tool `question`.
+9. Setiap pemanggilan tool `question` wajib menyertakan satu opsi "Skip" agar pengguna dapat melewati pertanyaan bila tidak ingin menjawabnya. (Bukan opsi catch-all; dikecualikan dari Aturan 7.)
 
 ## Steps
 
@@ -57,6 +58,10 @@ Mengatur cara memanggil tool `question` Kilo agar setiap pertanyaan, permintaan 
         {
           "label": "custom (Recommended)",
           "description": "Panduan khusus proyek ini, sesuai konvensi skill kustom."
+        },
+        {
+          "label": "Skip",
+          "description": "Lewati pertanyaan ini tanpa memberikan jawaban."
         }
       ],
       "multiple": false,
@@ -79,10 +84,7 @@ Mengatur cara memanggil tool `question` Kilo agar setiap pertanyaan, permintaan 
 ```jsonc
 // SALAH: opsi tanpa description dan memakai catch-all
 {
-  "options": [
-    { "label": "custom" },
-    { "label": "Lainnya" }
-  ]
+  "options": [{ "label": "custom" }, { "label": "Lainnya" }]
 }
 ```
 
@@ -96,3 +98,4 @@ Mengatur cara memanggil tool `question` Kilo agar setiap pertanyaan, permintaan 
 - File aturan: `.kilo/commands/mode/mode_diskusi.md` §5 (Aturan Penggunaan Tool `question`)
 - Skema tool: parameter `question`, `header` (maks. 30 karakter), `options[].label` (1-5 kata), `options[].description`, `multiple`, `default`, serta varian kunci i18n `questionKey`/`headerKey`/`labelKey`/`descriptionKey`
 - Commit rujukan: `208e3ec` (menambahkan §5 "Aturan Penggunaan Tool `question`" ke `.kilo/commands/mode/mode_diskusi.md`)
+- Aturan 9 — berasal dari poin 11 pada `prompt/skill/penggunaan-tool-question.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; opsi "Skip" wajib, bukan catch-all, dikecualikan dari Aturan 7)

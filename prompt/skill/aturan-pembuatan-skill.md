@@ -1,4 +1,4 @@
-diperbarui : Tue Nov 17 2026 20:58 WIB
+diperbarui : Wed Nov 18 2026 01:21 WIB
 file : [aturan-pembuatan-skill](../../.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md)
 
 1. Setiap skill wajib memiliki frontmatter, dan cukup hanya nama serta description saja; untuk nama, wajib sama seperti nama folder-nya.
@@ -15,6 +15,7 @@ file : [aturan-pembuatan-skill](../../.agents/skills/non-code/aturan-pembuatan-s
 12. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi.
 13. Setiap skill wajib memiliki berkas poin di folder `prompt/skill/` dengan nama yang sama dengan nama skill (mis. skill `penggunaan-tool-bawaan-kilo` → `prompt/skill/penggunaan-tool-bawaan-kilo.md`).
 14. Sumber isi skill wajib berasal dari commit yang berkaitan; bila aturan baru berasal dari permintaan eksplisit pengguna, catat sebagai sumber pada `## Sumber Evaluasi`.
+15. Skill pada `.agents/skills/code/` hanya boleh diubah atau ditambah dari (a) riwayat commit, atau (b) kode yang secara eksplisit diperintahkan pengguna untuk dimasukkan.
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
