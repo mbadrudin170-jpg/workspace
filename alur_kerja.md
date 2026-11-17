@@ -1,6 +1,6 @@
-# Alur Kerja — Pipeline Riset Kompetitor → PRD → Implementasi → Cek Kesehatan Kode → Task → Analisa Commit Skill
+# Alur Kerja — Pipeline Riset Kompetitor → PRD → Implementasi → Cek Kesehatan Kode → Task
 
-> Dokumen pedoman kerja AI proyek ini (bukan dokumen portabel, skill, atau command). Sumber kebenaran pipeline L1–L7. Command eksekutor: `.kilo/commands/alur_kerja.md`.
+> Dokumen pedoman kerja AI proyek ini (bukan dokumen portabel, skill, atau command). Sumber kebenaran pipeline L1–L6. Command eksekutor: `.kilo/commands/alur_kerja.md`.
 
 Diperbarui: 2026-11-15 (sesi 138)
 
@@ -10,7 +10,7 @@ Mendefinisikan pipeline berurutan lintas sesi untuk proyek ini, dengan file terd
 
 ## Prinsip Esensial
 
-**Tidak ada dua sesi yang mengedit file yang sama** (K-13). Cakupannya hanya eksekusi pipeline L1–L7. Mekanismenya tetap cek tabel `## Berkas Terdampak` berkas sesi `Belum Sinkron` + STOP & lapor (berkas meta-memori dikecualikan; tanpa mekanisme registry/lock lintas sesi).
+**Tidak ada dua sesi yang mengedit file yang sama** (K-13). Cakupannya hanya eksekusi pipeline L1–L6. Mekanismenya tetap cek tabel `## Berkas Terdampak` berkas sesi `Belum Sinkron` + STOP & lapor (berkas meta-memori dikecualikan; tanpa mekanisme registry/lock lintas sesi).
 
 ## Aturan Umum
 
@@ -23,7 +23,7 @@ Mendefinisikan pipeline berurutan lintas sesi untuk proyek ini, dengan file terd
 7. Berkas ini netral terhadap model/agent; instruksi per langkah ringkas dan mengacu ke path command aktual (bukan salinan isi command). Bila command berubah, berkas ini yang diperbarui mengikuti (bukan sebaliknya) (K-12).
 8. Laporan per langkah (dijalankan/dilewati + alasan) wajib disampaikan (K-5, K-16).
 
-## Pipeline Berurutan L1 → L7
+## Pipeline Berurutan L1 → L6
 
 ### L1 — Cari APK Kompetitor
 - Tujuan: menambah kandidat listing kompetitor baru dari seluruh store (satu run).
@@ -68,17 +68,10 @@ Mendefinisikan pipeline berurutan lintas sesi untuk proyek ini, dengan file terd
 - Keluaran: task → `selesai`/`dilewati` dengan alasan; cadangan `.backup_task/<nama>.bak`; verifikasi `flutter analyze` bersih.
 - File terdampak: `task.md` + berkas `file bermasalah` tiap task (kode; mungkin di submodule); `.backup_task/<nama>.bak`
 
-### L7 — Analisa Commit Skill
-- Tujuan: mengevaluasi commit baru per repo (root + seluruh submodule) untuk memperbarui/menambah skill custom.
-- Command: `.kilo/commands/analisa/analisa_commit_skill.md`
-- Prasyarat: commit baru belum dievaluasi di `catatan.md` (bagian `# Evaluasi Skill dari commit`).
-- Keluaran: skill custom diperbarui/ditambah (hanya root); `catatan.md` mencatat commit terakhir dievaluasi per repo; pointer submodule tidak diubah; kode Dart tidak diubah. Bersifat opsional sesuai ketersediaan commit — dilaporkan, bukan dipaksa.
-- File terdampak: `.agents/skills/custom/*`, `catatan.md`
-
 ## Urutan Eksekusi dan Ketergantungan
 
-Berurutan L1 → L7. L2 bergantung pada listing `Belum Dianalisa` dari L1; L3 bergantung pada hasil L2; L4 bergantung pada PRD Final dari L3; L5 bergantung pada commit Dart baru sejak terakhir dievaluasi; L6 bergantung pada task `kerjakan` hasil L5; L7 bergantung pada commit baru sejak terakhir dievaluasi (commit hanya atas perintah eksplisit pengguna). Bila prasyarat suatu langkah tidak terpenuhi → laporkan sebagai STOP dengan alasan, bukan menebak.
+Berurutan L1 → L6. L2 bergantung pada listing `Belum Dianalisa` dari L1; L3 bergantung pada hasil L2; L4 bergantung pada PRD Final dari L3; L5 bergantung pada commit Dart baru sejak terakhir dievaluasi; L6 bergantung pada task `kerjakan` hasil L5. Bila prasyarat suatu langkah tidak terpenuhi → laporkan sebagai STOP dengan alasan, bukan menebak.
 
 ## Commit dan Penutup
 
-Tidak ada langkah yang melakukan commit/push otomatis. Setelah implementasi (L4 dan L6), pengguna menentukan apakah perubahan di-commit. Setelah commit tersedia, L7 dapat dijalankan. Setiap sesi yang mengeksekusi alur wajib sinkronisasi memori (`MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_N.md`) — berkas meta-memori dikecualikan dari anti-bentrok (K-6).
+Tidak ada langkah yang melakukan commit/push otomatis. Setelah implementasi (L4 dan L6), pengguna menentukan apakah perubahan di-commit. Setiap sesi yang mengeksekusi alur wajib sinkronisasi memori (`MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_N.md`) — berkas meta-memori dikecualikan dari anti-bentrok (K-6).

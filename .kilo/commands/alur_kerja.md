@@ -1,5 +1,5 @@
 ---
-description: Mengeksekusi pipeline L1–L7 pada berkas alur_kerja.md (riset kompetitor → PRD → kerjakan PRD → cek kesehatan kode → kerjakan task → analisa commit skill) dengan konfirmasi pengguna per langkah.
+description: Mengeksekusi pipeline L1–L6 pada berkas alur_kerja.md (riset kompetitor → PRD → kerjakan PRD → cek kesehatan kode → kerjakan task) dengan konfirmasi pengguna per langkah.
 agent: code
 ---
 
@@ -7,7 +7,7 @@ agent: code
 
 ## Tujuan
 
-Menjalankan pipeline L1–L7 yang didefinisikan di `alur_kerja.md` (root) langkah demi langkah dengan konfirmasi pengguna per langkah. Dokumen root adalah sumber kebenaran pipeline; command ini eksekutornya.
+Menjalankan pipeline L1–L6 yang didefinisikan di `alur_kerja.md` (root) langkah demi langkah dengan konfirmasi pengguna per langkah. Dokumen root adalah sumber kebenaran pipeline; command ini eksekutornya.
 
 ## Ketentuan Umum
 
@@ -19,7 +19,7 @@ Menjalankan pipeline L1–L7 yang didefinisikan di `alur_kerja.md` (root) langka
 
 ## Cakupan
 
-- Pipeline L1–L7 pada `alur_kerja.md` (root) beserta file terdampak per langkah sebagaimana tercantum di dokumen root.
+- Pipeline L1–L6 pada `alur_kerja.md` (root) beserta file terdampak per langkah sebagaimana tercantum di dokumen root.
 
 ## Parameter
 
@@ -27,14 +27,14 @@ Tanpa parameter.
 
 ## Alur Kerja
 
-1. **Analyze** — baca `AGENTS.md`, `alur_kerja.md` (root), dan tabel `## Berkas Terdampak` seluruh berkas sesi `Belum Sinkron` (kecualikan berkas meta-memori: `MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/*.md`); susun daftar langkah L1–L7.
-2. **Plan** — tampilkan rencana L1–L7: per langkah command + path, prasyarat, file terdampak; minta konfirmasi pengguna sebelum eksekusi dimulai.
-3. **Execute** — untuk tiap langkah, urut L1 → L7:
+1. **Analyze** — baca `AGENTS.md`, `alur_kerja.md` (root), dan tabel `## Berkas Terdampak` seluruh berkas sesi `Belum Sinkron` (kecualikan berkas meta-memori: `MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/*.md`); susun daftar langkah L1–L6.
+2. **Plan** — tampilkan rencana L1–L6: per langkah command + path, prasyarat, file terdampak; minta konfirmasi pengguna sebelum eksekusi dimulai.
+3. **Execute** — untuk tiap langkah, urut L1 → L6:
    a. Verifikasi prasyarat langkah; gagal → **STOP & lapor** (alasan + tindakan yang disarankan).
    b. Anti-bentrok: cocokkan file terdampak langkah vs Berkas Terdampak sesi `Belum Sinkron`; beririsan → **STOP seluruh alur & lapor**; jangan lanjut ke langkah yang bergantung padanya; jangan putuskan sepihak.
    c. Minta konfirmasi pengguna per langkah (gunakan tool `question` bila keputusan diperlukan).
    d. Baca command langkah pada path yang tercantum di dokumen root, lalu jalankan alurnya sebagaimana tertulis di dalamnya.
-   e. Verifikasi keluaran langkah sebelum lanjut (mis. status listing berubah di `apk_kompetitor.md`; PRD berstatus `Final` sebelum L4; `catatan.md` mencatat HEAD sebelum L6/L7).
+   e. Verifikasi keluaran langkah sebelum lanjut (mis. status listing berubah di `apk_kompetitor.md`; PRD berstatus `Final` sebelum L4; `catatan.md` mencatat HEAD sebelum L6).
    f. Lapor per langkah: dijalankan/dilewati/dihentikan + alasan.
 4. **Review** — sampaikan laporan akhir (tabel per langkah) dan jalankan sinkronisasi memori (`MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_N.md`).
 
@@ -48,7 +48,6 @@ Tanpa parameter.
 | L4 | `prd/kerjakan_prd.md` | `prd/<fitur>.md` + berkas PRD | dijalankan / dilewati / STOP | `<alasan>` |
 | L5 | `analisa/analisa_kesehatan_kode_alur.md` | `catatan.md`, `task.md` | dijalankan / dilewati / STOP | `<alasan>` |
 | L6 | `kerjakan_task.md` | `task.md` + berkas task | dijalankan / dilewati / STOP | `<alasan>` |
-| L7 | `analisa/analisa_commit_skill.md` | `.agents/skills/custom/*`, `catatan.md` | dijalankan / dilewati / STOP | `<alasan>` |
 
 Tutup laporan dengan status alur: `Selesai penuh` atau `Berhenti di langkah <N> — <alasan>`.
 
@@ -63,5 +62,5 @@ Tutup laporan dengan status alur: `Selesai penuh` atau `Berhenti di langkah <N> 
 
 ## Kriteria Selesai / STOP
 
-- Selesai bila L1–L7 tereksekusi, atau terhenti dengan laporan lengkap per langkah ditambah sinkronisasi memori.
+- Selesai bila L1–L6 tereksekusi, atau terhenti dengan laporan lengkap per langkah ditambah sinkronisasi memori.
 - STOP bila ada bentrok file terdampak, prasyarat langkah gagal, atau pengguna menolak — laporkan langkah, alasan, dan tindakan yang disarankan; tidak commit/push.
