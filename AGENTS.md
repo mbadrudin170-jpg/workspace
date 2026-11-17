@@ -1,6 +1,3 @@
-diperbarui : Mon Nov 16 2026 17:06 WIB
-ditimpa ke : `AGENTS.md` (root)
-
 1. Baca secara eksplisit (tool Read) seluruh berkas di `.agents/rules/global/` sebelum bekerja; sesi tidak dilanjutkan bila belum dibaca (fatal bagi kode). Jangan hanya mengandalkan pemuatan via `instructions`.
 2. Di awal sesi, baca `MEMORI.md`, lalu buat satu berkas sesi `memori/sesi/sesi_N.md` (N = tertinggi + 1) sebelum tindakan yang mengubah proyek.
 3. Setiap `SKILL.md` di `.agents/skills/` wajib diperlakukan sebagai aturan yang mengikat, setara dengan `.agents/rules/`.
@@ -12,4 +9,3 @@ ditimpa ke : `AGENTS.md` (root)
    - baca seluruh berkas di `.agents/rules/global/` (tool Read)
    - buat berkas sesi `memori/sesi/sesi_N.md` (N = tertinggi + 1)
    - muat skill `memori-check` (tool `skill`)
-8. Tulis jawaban final satu kali. Setelah itu berhenti. Dilarang mengulang kata penutup.
