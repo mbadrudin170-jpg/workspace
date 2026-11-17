@@ -14,3 +14,4 @@ file : [audit_riwayat_sesi](../../.kilo/commands/audit_riwayat_sesi.md)
 11. Abaikan (lewati) sesi berstatus `Belum Sinkron` pada audit; catat sebagai dilewati dengan alasan pada laporan.
 12. Setelah semua sesi selesai diaudit, laporkan hasil audit (ringkasan, tabel pola, dan daftar berkas diaudit) kepada pengguna.
 13. Tandai berkas sesi yang sudah diaudit (mis. ledger `audit/riwayat_sesi.md`).
+14. Yang dianalisa hanya masalah/pola berulang (kategori B dan C).
