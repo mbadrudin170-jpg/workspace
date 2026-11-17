@@ -37,6 +37,8 @@
 | prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Rapikan penomoran; gabungkan poin output (tulis ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md`) menjadi satu, urutan logis: hasil → penanda commit → STOP |
 | .kilo/commands/evaluasi_skill_dari_commit.md | Diubah | Isi final command: "repositori utama"→"root", path skill `custom/`→`non-code/`, muat `aturan-pembuatan-skill` sebelum menentukan skill, tambah kolom "Commit sumber" pada tabel laporan, dan kewajiban mencantumkan hash commit sumber per pola |
 | prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Rapikan poin: perbarui entri yang ada bila kode/pola sama (jangan tambah entri baru), STOP + `question` jadi poin terakhir; terapkan juga ke isi final command (Execute + Larangan) |
+| prompt/commands/evaluasi_skill_dari_commit.md | Diubah | Tambah poin muat skill: `aturan-pembuatan-skill` (menentukan skill) + `aturan-pembuatan-rules` (bila menentukan aturan) |
+| .kilo/commands/evaluasi_skill_dari_commit.md | Diubah | Ketentuan Umum #7: muat `aturan-pembuatan-skill` untuk skill + `aturan-pembuatan-rules` bila menentukan aturan |
 
 ## Sinkronisasi ke MEMORI.md
 Belum disinkronkan

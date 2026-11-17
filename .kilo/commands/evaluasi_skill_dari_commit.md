@@ -17,7 +17,7 @@ Mengevaluasi perubahan kode Dart yang sudah di-commit pada repositori root dan s
 4. Sumber kebenaran hanya commit yang sudah ada (`git log`, `git show`, `git diff`); dilarang memakai working tree, staging, atau berkas untracked.
 5. Daftar submodule dibaca dari `.gitmodules` (mis. `git config --file .gitmodules --get-regexp '\.path$'`); `git submodule status` dapat gagal karena gitlink yatim di `.dart_tool/`, jangan andalkan perintah tersebut.
 6. Validasi tiap path submodule dengan `git -C <path> rev-parse --git-dir`.
-7. Muat skill `aturan-pembuatan-skill` (`.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`) melalui tool `skill` sebelum menentukan skill/aturan.
+7. Muat skill `aturan-pembuatan-skill` (`.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`) melalui tool `skill` sebelum menentukan skill; muat `aturan-pembuatan-rules` (`.agents/skills/non-code/aturan-pembuatan-rules/SKILL.md`) bila menentukan aturan.
 
 ## Cakupan
 
