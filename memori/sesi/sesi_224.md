@@ -1,5 +1,5 @@
 ## Status
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-17 (WIB)
 - Command: interaksi langsung (tanpa command)
 - Topik: Diskusi dan perbaikan `prompt/skill/build-runner-codegen.md`
@@ -17,6 +17,7 @@
 - Penambahan contoh kode untuk poin 12 (larangan mengoper `WidgetRef`, alternatif `ConsumerWidget`) dan poin 13 (`UncontrolledProviderScope` + `ProviderContainer.dispose()` oleh pemanggil) disetujui (`ok`, 17:24 WIB).
 - Penambahan contoh kode untuk poin 2 (notifier sinkron codegen `keepAlive`, larangan legacy) dan poin 4 (`ref.watch` di `build()`, `ref.read` di callback) disetujui (`ok`, 17:25 WIB).
 - Penambahan contoh kode untuk poin 6 (family provider, parameter immutable/comparable dengan `Ref`) disetujui (`ok`, 17:28 WIB).
+- Catch-up sinkron (sesi 228): perubahan nyata telah disinkronkan — entri ditambahkan ke `memori/riwayat_perubahan.md` (sesi 224), header `MEMORI.md` diperbarui. Berkas yang terlibat: `prompt/skill/build-runner-codegen.md` (Diubah), `.agents/skills/custom/build-runner-codegen/SKILL.md` (Dibuat/Diubah), `prompt/skill/riverpod-pola.md` (Diubah). Tidak ada kode Dart yang diubah; tidak ada commit/push.
 
 ## Berkas Terdampak
 | Lokasi File | Status Perubahan | Deskripsi |
@@ -27,4 +28,4 @@
 | `prompt/skill/riverpod-pola.md` | Diubah | Penyatuan aturan `asData`/`valueOrNull`, penghapusan duplikat/typo, serta penambahan contoh `AsyncValue` dan contoh poin 2, 4, 6, 9–10, 12–16 |
 
 ## Sinkronisasi ke MEMORI.md
-Belum disinkronkan
+Sinkronisasi selesai (sesi 228): entri riwayat perubahan ditambahkan; header `MEMORI.md` diperbarui (Diperbarui: Tue Nov 17 2026 18:48 WIB). Perubahan dokumentasi/skill tidak dipromosi ke isi inti `MEMORI.md` (belum memenuhi kriteria promosi Aturan 14).

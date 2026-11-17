@@ -1,6 +1,6 @@
 # MEMORI — Proyek workspace
 
-Diperbarui: Tue Nov 17 2026 16:09 WIB (sesi 221; command `salin_prompt_ke_target` (parameter "semuanya") — verifikasi 23 berkas `prompt/` terhadap target: 20 sudah selaras, 2 sumber diperbaiki (`aturan-pembuatan-commands.md` tambah poin 3, `mode_diskusi.md` tambah 6 poin kunci), 1 dilewati (`analisa_hasil_audit_sesi.md` kosong tanpa target); tidak ada kode Dart; pengecualian pengguna: entri `memori/riwayat_perubahan.md` tidak ditambahkan)
+Diperbarui: Tue Nov 17 2026 18:48 WIB (sesi 228; catch-up sync: `sesi_222.md` → `Sudah Sinkron` tanpa perubahan nyata, `sesi_224.md` + `sesi_225.md` disinkronkan ke `MEMORI.md` + `memori/riwayat_perubahan.md`; tidak ada kode Dart; entri `memori/riwayat_perubahan.md` ditambahkan untuk sesi 224 dan 225)
 
 Dokumen hidup proyek. Perbarui bagian yang relevan setiap akhir sesi; perubahan dicatat melalui `memori/sesi/sesi_N.md` (bukan langsung ke file ini) sesuai alur skill `memori-check`.
 

@@ -12,3 +12,4 @@ ditimpa ke : `AGENTS.md` (root)
    - baca seluruh berkas di `.agents/rules/global/` (tool Read)
    - buat berkas sesi `memori/sesi/sesi_N.md` (N = tertinggi + 1)
    - muat skill `memori-check` (tool `skill`)
+8. untuk membaca memori wajib jangan pakai offset dan head baca full semua nya.
