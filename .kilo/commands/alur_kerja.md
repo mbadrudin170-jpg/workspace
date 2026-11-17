@@ -40,14 +40,14 @@ Tanpa parameter.
 
 ## Format Laporan
 
-| Langkah | Command (path) | File Terdampak | Hasil | Alasan (bila STOP/dilewati) |
-| --- | --- | --- | --- | --- |
-| L1 | `cari_apk_kompetitor.md` | `apk_kompetitor.md` | dijalankan / dilewati / STOP | `<alasan>` |
-| L2 | `riset_kompetitor.md` | `apk_kompetitor.md`, `refrensi_apk.md` | dijalankan / dilewati / STOP | `<alasan>` |
-| L3 | `fitur/membuat_prd_fitur.md` | `prd/<fitur>.md`, `refrensi_apk.md` | dijalankan / dilewati / STOP | `<alasan>` |
-| L4 | `prd/kerjakan_prd.md` | `prd/<fitur>.md` + berkas PRD | dijalankan / dilewati / STOP | `<alasan>` |
-| L5 | `analisa/analisa_kesehatan_kode_alur.md` | `catatan.md`, `task.md` | dijalankan / dilewati / STOP | `<alasan>` |
-| L6 | `kerjakan_task.md` | `task.md` + berkas task | dijalankan / dilewati / STOP | `<alasan>` |
+| Langkah | Command (path)                           | File Terdampak                         | Hasil                        | Alasan (bila STOP/dilewati) |
+| ------- | ---------------------------------------- | -------------------------------------- | ---------------------------- | --------------------------- |
+| L1      | `cari_apk_kompetitor.md`                 | `apk_kompetitor.md`                    | dijalankan / dilewati / STOP | `<alasan>`                  |
+| L2      | `riset_kompetitor.md`                    | `apk_kompetitor.md`, `refrensi_apk.md` | dijalankan / dilewati / STOP | `<alasan>`                  |
+| L3      | `fitur/membuat_prd_fitur.md`             | `prd/<fitur>.md`, `refrensi_apk.md`    | dijalankan / dilewati / STOP | `<alasan>`                  |
+| L4      | `prd/kerjakan_prd.md`                    | `prd/<fitur>.md` + berkas PRD          | dijalankan / dilewati / STOP | `<alasan>`                  |
+| L5      | `analisa/analisa_kesehatan_kode_alur.md` | `catatan.md`, `task.md`                | dijalankan / dilewati / STOP | `<alasan>`                  |
+| L6      | `kerjakan_task.md`                       | `task.md` + berkas task                | dijalankan / dilewati / STOP | `<alasan>`                  |
 
 Tutup laporan dengan status alur: `Selesai penuh` atau `Berhenti di langkah <N> — <alasan>`.
 

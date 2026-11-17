@@ -87,12 +87,12 @@ Alur kerja berbentuk **rantai pemeriksaan**: setiap tahap wajib berhenti dan mel
 
 Laporkan ringkas dalam bentuk tabel rantai pemeriksaan:
 
-| Tahap | Berkas atau Folder | Status Ditemukan | Hasil |
-| --- | --- | --- | --- |
-| 1 | `apk_kompetitor.md` | <jumlah listing, jumlah `Sudah Dianalisa`> | Lolos / STOP |
-| 2 | `refrensi_apk.md` | <ada/kosong/tidak ada> | Lolos / STOP |
-| 3 | `prd/` | <jumlah PRD per status> | Lolos / STOP |
-| 4 | `hasil_diskusi/` | <jumlah berkas per status> | Lolos / STOP |
+| Tahap | Berkas atau Folder  | Status Ditemukan                           | Hasil        |
+| ----- | ------------------- | ------------------------------------------ | ------------ |
+| 1     | `apk_kompetitor.md` | <jumlah listing, jumlah `Sudah Dianalisa`> | Lolos / STOP |
+| 2     | `refrensi_apk.md`   | <ada/kosong/tidak ada>                     | Lolos / STOP |
+| 3     | `prd/`              | <jumlah PRD per status>                    | Lolos / STOP |
+| 4     | `hasil_diskusi/`    | <jumlah berkas per status>                 | Lolos / STOP |
 
 Tutup laporan dengan salah satu dari:
 

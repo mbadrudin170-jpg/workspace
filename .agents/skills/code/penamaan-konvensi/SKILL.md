@@ -34,7 +34,7 @@ Skill ini mendokumentasikan konvensi penamaan yang wajib diterapkan di proyek in
 11. Private (underscore prefix): `_camelCase`.
 12. Top-level constant, static const class field: `SCREAMING_SNAKE_CASE`.
 13. Enum values: `lowerCamelCase` (bukan SCREAMING_SNAKE_CASE).
-13a. Nilai enum yang dipersistenkan ke kolom database (`.name` disimpan ke kolom `TEXT`) juga wajib `lowerCamelCase` (mis. `berhasilMenahan`, `timer3Menit`). Perubahan nilai enum yang sudah tersimpan wajib disertai migrasi data di `onUpgrade` (lihat skill `migrasi-skema-sqlite`); nilai `snake_case` lama tidak boleh dipertahankan di enum baru maupun di data baru.
+    13a. Nilai enum yang dipersistenkan ke kolom database (`.name` disimpan ke kolom `TEXT`) juga wajib `lowerCamelCase` (mis. `berhasilMenahan`, `timer3Menit`). Perubahan nilai enum yang sudah tersimpan wajib disertai migrasi data di `onUpgrade` (lihat skill `migrasi-skema-sqlite`); nilai `snake_case` lama tidak boleh dipertahankan di enum baru maupun di data baru.
 14. Nama tabel & kolom database: `snake_case` (lowercase + underscore).
 15. Konstanta `NamaTabel` / `NamaKolom` value harus cocok persis dengan schema SQLite.
 16. Import wajib pakai `package:` prefix, DILARANG relative import (`../`, `./`).

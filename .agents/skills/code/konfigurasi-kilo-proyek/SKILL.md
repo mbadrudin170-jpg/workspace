@@ -64,7 +64,7 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 
 - Command kustom TIDAK dapat mendaftarkan subcommand lewat frontmatter (berbeda dengan command bawaan seperti `/review uncommitted`).
 - Pola (a): satu berkas dengan positional `$1` + percabangan instruksi + fallback tool `question` saat argumen kosong/tidak dikenal. Rujukan nyata pola fallback: `.kilo/commands/kerjakan_hasil_diskusi.md` (meminta input file diskusi bila belum ditentukan) dan `.kilo/commands/sinkronkan_semua.md` (memakai `git status`/`git diff` sebagai sumber saat konteks hilang, lalu `question` bila tetap tidak jelas).
-- Pola (b): satu berkas per subcommand (masing-masing tampil sebagai entri terpisah) dengan logika bersama di-*include*. Catatan akurasi: contoh historis pola ini (`contoh_menu.md`, `contoh_menu_satu.md`, `contoh_menu_dua.md`, `.kilo/shared/contoh_bersama.md`) **tidak ditemukan di repository** (dibuat di working tree pada 2026-11-13, tidak pernah ter-commit, dan kini sudah tidak ada) — jangan dirujuk seolah berkas nyata; gunakan pola (a) atau susun berkas baru sesuai kebutuhan.
+- Pola (b): satu berkas per subcommand (masing-masing tampil sebagai entri terpisah) dengan logika bersama di-_include_. Catatan akurasi: contoh historis pola ini (`contoh_menu.md`, `contoh_menu_satu.md`, `contoh_menu_dua.md`, `.kilo/shared/contoh_bersama.md`) **tidak ditemukan di repository** (dibuat di working tree pada 2026-11-13, tidak pernah ter-commit, dan kini sudah tidak ada) — jangan dirujuk seolah berkas nyata; gunakan pola (a) atau susun berkas baru sesuai kebutuhan.
 
 ### Konvensi Proyek untuk Commands
 
@@ -104,7 +104,9 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 
 ```markdown
 <!-- .kilo/commands/tambah_log.md (contoh nyata — frontmatter minimal + instruksi bahasa Indonesia) -->
+
 ---
+
 description: Menambahkan log debug terstruktur (L.i, L.w, L.e) secara presisi pada variabel dan parameter di file Dart yang ditentukan sesuai standar proyek.
 agent: code
 ---
@@ -116,6 +118,7 @@ Perintahkan AI untuk menambahkan baris log debug ...
 
 ```markdown
 <!-- Pola fallback saat argumen kosong/tidak dikenal (dirujuk dari .kilo/commands/sinkronkan_semua.md) -->
+
 Jika konteks percakapan sesi ini sudah hilang (mis. setelah auto compaction), gunakan `git status` dan `git diff` untuk menentukan pembaruan, dan jangan menebak. Jika tetap tidak jelas, tanyakan dulu ke pengguna dengan tool `question` sebelum mengubah berkas apa pun.
 ```
 
@@ -146,14 +149,17 @@ head -n 20 lib/main.dart                   # DILARANG: gunakan tool `read`
 
 ```markdown
 <!-- Snapshot config ke dalam skill/dokumen -->
+
 Skill ini mencatat bahwa permission proyek berisi `"*": "ask"`, `"git status *": "allow"`, ... // salah: snapshot cepat usang; rujuk .kilo/kilo.jsonc
 ```
 
 ```markdown
 <!-- Frontmatter command mencoba mendaftar subcommand -->
+
 ---
+
 description: Menu utama
-subcommands: [satu, dua]   # salah: field tidak didukung; subcommand via $1 + fallback atau berkas per subcommand
+subcommands: [satu, dua] # salah: field tidak didukung; subcommand via $1 + fallback atau berkas per subcommand
 ---
 ```
 

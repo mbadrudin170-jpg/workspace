@@ -25,7 +25,7 @@ Panduan menyusun file `README.md` yang informatif, terstruktur, dan memudahkan p
 1. **Judul proyek** (H1) wajib ada dan deskriptif — menggambarkan tujuan utama proyek dalam satu baris.
 2. **Deskripsi** wajib menjawab: apa yang dilakukan aplikasi, mengapa teknologi tersebut dipilih, tantangan & rencana fitur.
 3. **Table of Contents** ditambahkan jika README panjang (> 5 section) agar navigasi mudah; gunakan bitdowntoc atau manual.
-4. **Instalasi & Menjalankan** wajib berisi langkah-langkah *step-by-step* (dependencies, environment, perintah build/run, contoh: `git clone` → `npm install` → `cp .env.example .env` → `db push` → `run dev`).
+4. **Instalasi & Menjalankan** wajib berisi langkah-langkah _step-by-step_ (dependencies, environment, perintah build/run, contoh: `git clone` → `npm install` → `cp .env.example .env` → `db push` → `run dev`).
 5. **Penggunaan** wajib berisi instruksi & contoh (screenshot opsional), termasuk kredensial jika butuh auth.
 6. **Demo Visual** (GIF/screenshot) **sangat direkomendasikan** — "show, don't just tell"; gunakan GIF untuk fitur interaktif.
 7. **Kredit** mencantumkan kolaborator (link GitHub/sosmed) serta referensi/tutorial yang dipakai.
@@ -72,7 +72,7 @@ Panduan menyusun file `README.md` yang informatif, terstruktur, dan memudahkan p
 
 ## Contoh Benar
 
-```markdown
+````markdown
 # Nama Proyek
 
 Deskripsi singkat: apa, mengapa, dan bagaimana proyek ini bekerja.
@@ -97,6 +97,7 @@ flutter pub get
 # 3. Jalankan
 flutter run
 ```
+````
 
 ## Penggunaan
 
@@ -124,7 +125,8 @@ Screenshot: ![Demo](assets/demo.png)
 
 ![Build](https://img.shields.io/github/actions/workflow/status/user/repo/ci.yml)
 ![License](https://img.shields.io/github/license/user/repo)
-```
+
+````
 
 ## Contoh Salah
 
@@ -140,7 +142,7 @@ Ini project saya. (DILARANG: deskripsi terlalu singkat, tidak menjawab what/why/
 ## License
 
 Tidak ada lisensi. (DILARANG: hak penggunaan tidak jelas)
-```
+````
 
 ```markdown
 # My App

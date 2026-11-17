@@ -26,7 +26,7 @@ Skill ini mendokumentasikan aturan styling warna dan tema berdasarkan implementa
 3. Wajib menggunakan warna dari `Theme.of(context).colorScheme` untuk teks dan komponen UI agar menyesuaikan mode terang/gelap.
 4. Hardcode warna (HEX/RGBA) hanya diperbolehkan jika warna harus tetap sama di kedua mode tema (mis. brand color, status semantic: hijau sukses, merah error, kuning warning).
 5. DILARANG mengubah nilai HEX/RGBA yang sudah ada menjadi referensi `ColorScheme` jika warna memang harus tetap.
-5a. Hardcode status semantic sudah dikonfirmasi pengguna boleh dipertahankan — task yang menandai `const Color(0xFFFF9800)` (dashboard, warning), `const Color(0xFF4CAF50)` (dashboard, sukses), dan `const Color(0xFFEF5350)` (konsumsi_rokok_screen, error) sebagai pelanggaran ditandai `batal` oleh pengguna (commit `ceb9536cc50304149be139dc8c5a36addb9c0774`, `task.md`). Kode di atas sudah sesuai aturan #4; jangan "diperbaiki" dengan mengganti ke `ColorScheme`.
+   5a. Hardcode status semantic sudah dikonfirmasi pengguna boleh dipertahankan — task yang menandai `const Color(0xFFFF9800)` (dashboard, warning), `const Color(0xFF4CAF50)` (dashboard, sukses), dan `const Color(0xFFEF5350)` (konsumsi_rokok_screen, error) sebagai pelanggaran ditandai `batal` oleh pengguna (commit `ceb9536cc50304149be139dc8c5a36addb9c0774`, `task.md`). Kode di atas sudah sesuai aturan #4; jangan "diperbaiki" dengan mengganti ke `ColorScheme`.
 6. `EasyLoading.show()` dan `EasyLoading.dismiss()` yang dipanggil dengan `unawaited()` wajib dilengkapi `.catchError(...)` untuk menangani error.
 7. Mask type untuk operasi blocking wajib menggunakan `EasyLoadingMaskType.black`.
 8. Konsisten menggunakan `withValues` di seluruh widget, tidak boleh bercampur dengan `withOpacity`.

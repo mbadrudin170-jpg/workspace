@@ -257,6 +257,11 @@
 - Trigger : saat menjadwalkan pengingat berbasis zona waktu
 - Status : diperbarui : Sun Nov 15 2026 02:10 WIB
 
+52. .agents/skills/code/overlay-log-debug/SKILL.md
+
+- Trigger : saat menyusun root aplikasi Flutter (app.dart/main.dart)
+- Status : diperbarui : Wed Nov 18 2026 02:05 WIB
+
 ## non-code
 
 1. .agents/skills/non-code/aturan-folder-prompt/SKILL.md
@@ -272,7 +277,7 @@
 3. .agents/skills/non-code/aturan-pembuatan-rules/SKILL.md
 
 - Trigger : saat membuat atau memperbarui aturan (rules) Kilo
-- Status : diperbarui : Wed Nov 18 2026 01:03 WIB
+- Status : diperbarui : Wed Nov 18 2026 01:50 WIB
 
 4. .agents/skills/non-code/aturan-pembuatan-skill/SKILL.md
 

@@ -6,6 +6,7 @@ metadata:
   versi: "1.0.0"
   diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
+
 # Struktur Folder `lib/` Flutter
 
 Menata `lib/` dengan pola feature-first + `lib/core/` lintas-fitur. Akar `lib/` menyimpan `main.dart`, `app.dart`, dan shell utama (mis. `home.dart`); kode per fitur berada di `lib/fitur/<nama_fitur>/` dengan sub-folder lapisan.

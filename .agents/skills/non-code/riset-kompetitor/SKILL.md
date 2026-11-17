@@ -102,10 +102,10 @@ Hasil riset disimpan dalam tabel standar di `apk_kompetitor.md`. Analisa lanjuta
 Katalog generik untuk proyek apa pun (nama aplikasi dan fitur mengikuti dokumen proyek):
 
 ```markdown
-| Nama Aplikasi | Ringkasan Singkat | Store | Link | Status Analisa |
-| ------------- | ----------------- | ----- | ---- | -------------- |
-| Aplikasi A | Menyediakan fitur inti yang relevan dengan aplikasi sasaran, termasuk alur utama dan pengaturan lokal. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.contoh.appa) | Belum Dianalisa |
-| Aplikasi B | Menawarkan fitur pembanding pada kategori yang sama dengan pendekatan UI yang berbeda. | F-Droid | [Buka Aplikasi](https://f-droid.org/packages/com.contoh.appb/) | Belum Dianalisa |
+| Nama Aplikasi | Ringkasan Singkat                                                                                      | Store             | Link                                                                           | Status Analisa  |
+| ------------- | ------------------------------------------------------------------------------------------------------ | ----------------- | ------------------------------------------------------------------------------ | --------------- |
+| Aplikasi A    | Menyediakan fitur inti yang relevan dengan aplikasi sasaran, termasuk alur utama dan pengaturan lokal. | Google Play Store | [Buka Aplikasi](https://play.google.com/store/apps/details?id=com.contoh.appa) | Belum Dianalisa |
+| Aplikasi B    | Menawarkan fitur pembanding pada kategori yang sama dengan pendekatan UI yang berbeda.                 | F-Droid           | [Buka Aplikasi](https://f-droid.org/packages/com.contoh.appb/)                 | Belum Dianalisa |
 ```
 
 Item referensi generik:
@@ -124,19 +124,23 @@ Item referensi generik:
 
 ```markdown
 # DILARANG: skill mengunci satu aplikasi/domain tertentu
+
 # Riset Kompetitor Aplikasi NamaAplikasiTertentu
+
 Skill ini hanya untuk aplikasi NamaAplikasiTertentu dengan fitur X, Y, dan Z.
 ```
 
 ```markdown
 # DILARANG: katalog tanpa status analisa
-| Nama Aplikasi | Ringkasan Singkat | Store | Link |
-| ------------- | ----------------- | ----- | ---- |
-| Aplikasi A | Aplikasi sejenis. | Google Play Store | [Buka](https://play.google.com/store/apps/details?id=com.contoh.appa) |
+
+| Nama Aplikasi | Ringkasan Singkat | Store             | Link                                                                  |
+| ------------- | ----------------- | ----------------- | --------------------------------------------------------------------- |
+| Aplikasi A    | Aplikasi sejenis. | Google Play Store | [Buka](https://play.google.com/store/apps/details?id=com.contoh.appa) |
 ```
 
 ```markdown
 # DILARANG: menandai Sudah Dianalisa tanpa analisa
+
 | Aplikasi A | ... | Google Play Store | [Buka](https://play.google.com/store/apps/details?id=com.contoh.appa) | Sudah Dianalisa |
 ```
 

@@ -14,6 +14,7 @@ Skill ini mendokumentasikan pola testing yang wajib diterapkan di proyek ini.
 ## 1. Unit Test (package:test)
 
 ### Aturan
+
 - File test diletakkan flat di `test/*_test.dart` (bukan di subfolder).
 - Gunakan `package:test` dengan `test()`, `group()`, `setUp()`, `tearDown()`.
 - Test fungsi murni, helper, extension, logic bisnis (bukan widget).
@@ -41,11 +42,13 @@ void main() {
 ```
 
 ### Referensi
+
 - `dart-add-unit-test` skill untuk detail
 
 ## 2. Widget Test (WidgetTester)
 
 ### Aturan
+
 - Gunakan `WidgetTester` dari `package:flutter_test`.
 - Test rendering, tap, scroll, input text, navigasi.
 - Bungkus widget dengan `ProviderScope` + `MaterialApp` + override provider.
@@ -67,7 +70,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    
+
     expect(find.text('Isi Biodata'), findsOneWidget);
     expect(find.byType(TextFormField), findsNWidgets(4));
   });
@@ -75,11 +78,13 @@ void main() {
 ```
 
 ### Referensi
+
 - `flutter-add-widget-test` skill untuk detail
 
 ## 3. Integration Test
 
 ### Aturan
+
 - Gunakan `integration_test` package.
 - Test flow utuh: onboarding → home → fitur spesifik.
 - Hanya jalan di device/emulator (bukan web-only).
@@ -97,12 +102,12 @@ void main() {
   testWidgets('complete onboarding flow', (tester) async {
     app.main();
     await tester.pumpAndSettle();
-    
+
     // Isi biodata
     await tester.enterText(find.byKey(Key('namaField')), 'Test User');
     await tester.tap(find.byKey(Key('simpanBtn')));
     await tester.pumpAndSettle();
-    
+
     // Verify home screen
     expect(find.text('Dashboard'), findsOneWidget);
   });
@@ -110,11 +115,13 @@ void main() {
 ```
 
 ### Referensi
+
 - `flutter-add-integration-test` skill untuk detail
 
 ## 4. Mocktail Mock Manual (tanpa codegen)
 
 ### Aturan
+
 - Jika kode bergantung pada repository/service eksternal, **WAJIB** gunakan `package:mocktail` dengan kelas mock manual `class MockX extends Mock implements X {}`; jangan lewati hanya karena override provider.
 - **JANGAN** gunakan mockito (`@GenerateMocks` + build_runner) untuk proyek ini; mocktail tidak memerlukan codegen.
 - `package:mocktail` wajib tercantum pada `dev_dependencies` (`mocktail: ^1.0.5` per 2026-11-16) sebelum file mock dibuat; tambahkan memakai skill `pengurutan-paket-pubspec` bila belum ada.
@@ -175,6 +182,7 @@ void main() {
 ```
 
 ### Checklist
+
 - [ ] `mocktail` tercantum di `dev_dependencies` submodule yang bersangkutan.
 - [ ] Kelas mock manual ada di `test/mocks.dart`, bukan di dalam `*_test.dart`.
 - [ ] Tidak ada import `package:mockito` maupun `@GenerateMocks`.
@@ -182,12 +190,14 @@ void main() {
 - [ ] Stub default ditetapkan (`when`) agar tidak ada `NoSuchMethodError` dari pemanggilan tak ter-stub.
 
 ### Referensi
+
 - `hasil_diskusi/diskusi_5.md` (K-5, R-1; sesi 158)
 - `package:mocktail` (https://pub.dev/packages/mocktail)
 
 ## 5. Test Organization & Dummy Data
 
 ### Aturan
+
 - Dummy data di `lib/fitur/<fitur>/dummy_data/` (bukan di test/).
 - Import dummy data di test: `import 'package:berhenti_merokok/fitur/biodata/dummy_data/biodata_dummy.dart';`
 - Satu file test per unit/widget yang diuji.
@@ -196,6 +206,7 @@ void main() {
 ## 6. Build Runner untuk Codegen
 
 ### Aturan
+
 - **WAJIB** jalankan `dart run build_runner build --delete-conflicting-outputs` setelah:
   - Ubah model Freezed (`.freezed.dart`)
   - Ubah Riverpod Notifier (`.g.dart`)
@@ -211,21 +222,25 @@ dart run build_runner watch --delete-conflicting-outputs
 ```
 
 ### Referensi Commit
+
 - `3b67d309` — Freezed models + Riverpod generator
 
 ## 7. Coverage
 
 ### Aturan
+
 - Target coverage minimal 80% untuk logic bisnis.
 - Gunakan `flutter test --coverage` lalu `genhtml coverage/lcov.info -o coverage/html`.
 - Exclude generated files, main.dart, dummy data dari coverage.
 
 ### Referensi
+
 - `dart-collect-coverage` skill untuk detail
 
 ## 8. Static Analysis
 
 ### Aturan
+
 - **WAJIB** `flutter analyze` clean (no warnings/errors) sebelum commit.
 - Jalankan `dart fix --apply` untuk fix otomatis lint mechanical.
 - Config di `analysis_options.yaml`.
@@ -236,6 +251,7 @@ dart fix --apply
 ```
 
 ### Referensi
+
 - `dart-run-static-analysis` skill untuk detail
 
 ## 9. Larangan Testing

@@ -13,7 +13,7 @@ Setiap kali model (AI) memulai percakapan atau tugas dengan proyek apa pun yang 
 
 Bila proyek belum memiliki `MEMORI.md` di root, jangan mengarang konteks proyek dan jangan menulis memori sembarangan: tanyakan kepada pengguna apakah ingin menginisialisasi `MEMORI.md` dan folder `memori/sesi/` terlebih dahulu.
 
-Memori bersifat **per root proyek** (per repositori); fakta, konvensi, dan status satu proyek tidak menular secara implisit ke proyek lain (mencegah *context collapse* lintas domain). Klasifikasi memori yang dipakai:
+Memori bersifat **per root proyek** (per repositori); fakta, konvensi, dan status satu proyek tidak menular secara implisit ke proyek lain (mencegah _context collapse_ lintas domain). Klasifikasi memori yang dipakai:
 
 - **Semantic memory** = `MEMORI.md` — fakta durable (konvensi, keputusan, status, konteks proyek). Cukup kecil untuk diinjeksikan utuh ke konteks agen; diringkas, bukan arsip kronologi.
 - **Episodic memory** = `memori/riwayat_perubahan.md` dan `memori/sesi/sesi_N.md` — catatan peristiwa ber-timestamp; dicari/dirujuk saat perlu, tidak diinjeksikan utuh ke konteks.
@@ -71,7 +71,7 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
 17. **Entri volatil wajib bertanggal dan ditinjau.** Status yang dapat basi (mis. "`pub get` dijalankan per 2026-11-14", daftar berkas belum di-commit, versi yang terpasang) wajib memuat tanggal. Pada setiap sinkronisasi, entri volatil yang sudah lewat verifikasi wajib diperbarui, atau ditandai usang secara eksplisit (mis. "usang per \<tanggal\>, menunggu verifikasi") — bukan dibiarkan tampak mutlak.
 18. **Pinning fakta eksplisit pengguna.** Fakta/keputusan yang pengguna eksplisit minta diingat/dicatat ditandai `dipatok pengguna` di `MEMORI.md`; entri tersebut DILARANG dikonsolidasi, dipersingkat, ditandai usang, atau dihapus tanpa perintah eksplisit pengguna.
 19. **Decay = demote, bukan hapus.** Entri `MEMORI.md` yang tidak lagi relevan DILARANG dihapus begitu saja; tandai usang secara eksplisit atau pindahkan ringkasan historisnya ke `memori/riwayat_perubahan.md`, lalu rapikan bagian `MEMORI.md`. Kebijakan demote ini sejalan dengan larangan penghapusan berkas sesi.
-20. **Batas ukuran `MEMORI.md`.** `MEMORI.md` wajib cukup kecil untuk diinjeksikan utuh ke konteks; bila mendekati ±200 baris (atau bagian status membengkak tanpa terkendali), lakukan **konsolidasi** (gabung entri usang, pindahkan detail ke `riwayat_perubahan.md`, ringkas) — bukan membiarkannya membesar tanpa batas (*fading memory*: sinyal tenggelam di kebisingan).
+20. **Batas ukuran `MEMORI.md`.** `MEMORI.md` wajib cukup kecil untuk diinjeksikan utuh ke konteks; bila mendekati ±200 baris (atau bagian status membengkak tanpa terkendali), lakukan **konsolidasi** (gabung entri usang, pindahkan detail ke `riwayat_perubahan.md`, ringkas) — bukan membiarkannya membesar tanpa batas (_fading memory_: sinyal tenggelam di kebisingan).
 21. **Klasifikasi memori.** Gunakan klasifikasi semantic/episodic/procedural sebagaimana dijelaskan di bagian intro: `MEMORI.md` (semantic, ringkas, diinjeksikan), `memori/sesi/*.md` dan `memori/riwayat_perubahan.md` (episodic, diarsipkan/dirujuk), skills + rules (procedural, dimuat sesuai trigger). Jangan menulis kronologi sesi ke `MEMORI.md`; jangan memasukkan detail duplikatif episodic ke `MEMORI.md`.
 22. **Kelengkapan tabel `## Berkas Terdampak`.** Tabel `## Berkas Terdampak` pada berkas sesi WAJIB mencantumkan **seluruh** berkas yang dibuat/diubah/dihapus selama sesi — termasuk perubahan di dalam submodule — dengan path relatif terhadap root repositori tempat sesi berjalan (mis. `base_coc/lib/fitur/cadangan/service/cadangan_service.dart`). Tabel DILARANG hanya memuat berkas sesi bila ada perubahan lain; perubahan yang tidak tercantum pada tabel dianggap tidak tercatat dan melanggar alur sinkronisasi ini.
 23. **Penandaan hanya oleh sesi pembuat.** Penandaan `Sudah Sinkron` hanya boleh dilakukan oleh sesi pembuat berkas tersebut; sesi lain dilarang mengubah berkas sesi milik sesi lain.
@@ -124,6 +124,7 @@ Sebelum memulai percakapan/tugas ini, lakukan langkah berikut:
 4. Mulai pekerjaan setelah konteks tercerna
 
 Setelah selesai dan bila ada perubahan proyek:
+
 - Perbarui bagian yang relevan di MEMORI.md (mis. status, riwayat, catatan teknis) sesuai kondisi terkini
 - Tambah entri memori/riwayat_perubahan.md
 - Isi bagian "Sinkronisasi ke MEMORI.md" di memori/sesi/sesi_9.md, lalu ubah Status Sinkron menjadi "Sudah Sinkron"
@@ -183,7 +184,7 @@ Contoh promosi ke `MEMORI.md` dengan kriteria, provenance, dan pinning:
 // Salah: "Aja langsung aja buat UI-nya, nggak usah baca file2 aneh"
 
 MaterialApp(
-  home: Center(child: Text('Contoh Salah')),
+home: Center(child: Text('Contoh Salah')),
 ); // DILARANG: implementasi tanpa konteks MEMORI.md
 ```
 

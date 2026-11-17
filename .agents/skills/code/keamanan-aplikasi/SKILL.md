@@ -14,6 +14,7 @@ Skill ini mendokumentasikan aturan keamanan yang wajib diterapkan di proyek ini.
 ## 1. Validasi Input (Input Validation)
 
 ### Aturan
+
 - **WAJIB** validasi semua input pengguna (form, query param, deep link, notifikasi payload).
 - Validasi di sisi client (UI) DAN server-side (repository/notifier) - defense in depth.
 - Gunakan `Form` + `GlobalKey<FormState>` + `validator` untuk form.
@@ -35,18 +36,21 @@ validator: (value) {
 ## 2. Penyimpanan Data Sensitif
 
 ### Aturan
+
 - **DILARANG** simpan password, token, PIN, kunci enkripsi di `SharedPreferences` / SQLite plaintext.
 - Data sensitif **WAJIB** dienkripsi (mis. `flutter_secure_storage` untuk keychain/keystore).
 - Database SQLite lokal **TIDAK** dienkripsi (offline-first, data tidak sensitif: biodata, craving, impian).
 - Jika butuh enkripsi DB, gunakan `sqflite_sqlcipher` (native dependency).
 
 ### Data yang BOLEH plaintext SQLite:
+
 - Biodata (nama, tanggal, jumlah rokok, harga)
 - Craving diary (trigger, feeling, durasi)
 - Impian (nama, target, deskripsi)
 - Badge, milestone, preferensi UI
 
 ### Data yang WAJIB enkripsi (pakai flutter_secure_storage):
+
 - API keys (kalau ada)
 - Auth tokens (kalau ada backend)
 - Biometric keys
@@ -54,6 +58,7 @@ validator: (value) {
 ## 3. Platform Validation & Permission
 
 ### Aturan
+
 - **WAJIB** cek dukungan platform sebelum pakai API (lihat `validasi-platform-izin`, `flutter-local-notifications-22-3-3`).
 - **WAJIB** minta izin runtime sesuai kebijakan OS (Android 13+ POST_NOTIFICATIONS, iOS UNUserNotificationCenter).
 - **DILARANG** asumsikan izin granted → cek hasil request izin.
@@ -74,6 +79,7 @@ if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
 ## 4. Error Handling - Tidak Bocor Info Sensitif
 
 ### Aturan
+
 - **DILARANG** tampilkan stack trace, SQL query, path file, detail internal ke user.
 - Log error detail (`L.e`) untuk debugging, tampilkan user-friendly message (`AppToast.error`).
 - Exception khusus (`class implements Exception`) untuk deteksi via `is`, bukan string matching.
@@ -92,6 +98,7 @@ catch (e, s) {
 ```
 
 ### Referensi
+
 - `exception-khusus-deteksi-error` skill
 - `penanganan-error-unawaited` skill
 - `logging-debug` skill
@@ -99,6 +106,7 @@ catch (e, s) {
 ## 5. Dependency Security
 
 ### Aturan
+
 - **WAJIB** `flutter pub outdated` berkala untuk cek vulnerability.
 - **WAJIB** review `pubspec.lock` saat upgrade dependency major.
 - Gunakan `dart pub deps --style=compact` untuk audit dependency tree.
@@ -107,6 +115,7 @@ catch (e, s) {
 ## 6. Network Security (Jika Ada Backend)
 
 ### Aturan
+
 - **WAJIB** HTTPS (TLS 1.2+) untuk semua network call.
 - **DILARANG** `http://` production (kecuali localhost development dengan `usesCleartextTraffic=true` di Android manifest).
 - Certificate pinning untuk API kritikal (opsional tapi direkomendasikan).
@@ -115,6 +124,7 @@ catch (e, s) {
 ## 7. Data Export/Backup Security
 
 ### Aturan
+
 - File backup **WAJIB** validasi struktur sebelum restore (lihat `ekspor-pemulihan-cadangan`).
 - **DILARANG** restore file backup tanpa validasi signature/checksum.
 - **DILARANG** overwrite data tanpa konfirmasi destruktif (lihat `konfirmasi-sebelum-simpan`).
@@ -123,6 +133,7 @@ catch (e, s) {
 ## 8. Local Authentication (Biometric/PIN)
 
 ### Aturan
+
 - Gunakan `local_auth` package untuk biometric/PIN.
 - **DILARANG** fallback ke PIN aplikasi custom (pakai OS lockscreen).
 - Hanya aktifkan fitur sensitif (hapus data, export) setelah auth berhasil.
@@ -130,6 +141,7 @@ catch (e, s) {
 ## 9. Logging Security
 
 ### Aturan
+
 - **DILARANG** log data sensitif (password, token, PII lengkap) ke `L.i`/`L.w`/`L.e`.
 - Log metadata saja: `L.i('userId=$id, action=login')`, bukan `L.i('password=$pass')`.
 - Production: matikan debug log verbose, hanya error/warning.

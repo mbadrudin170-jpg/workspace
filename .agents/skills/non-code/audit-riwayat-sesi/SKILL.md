@@ -44,12 +44,13 @@ Prosedur audit portabel lintas proyek dengan `MEMORI.md` untuk mendeteksi kesala
 `audit/riwayat_sesi.md` memuat: (1) H1 + pengantar singkat; (2) format header/konvensi; (3) section-section audit (satu per run); di dalam section terdapat ledger tabel:
 
 ```markdown
-| Sesi | Tanggal audit | mtime | Jumlah baris |
-|------|---------------|-------|--------------|
-| sesi_81 | 2026-11-15 | Sun Nov 14 2026 09:12:33 WIB | 128 |
+| Sesi    | Tanggal audit | mtime                        | Jumlah baris |
+| ------- | ------------- | ---------------------------- | ------------ |
+| sesi_81 | 2026-11-15    | Sun Nov 14 2026 09:12:33 WIB | 128          |
 ```
 
 Kolom wajib:
+
 - `Sesi` — nama berkas tanpa `.md` (mis. `sesi_81`).
 - `Tanggal audit` — tanggal Jakarta audit dijalankan (`YYYY-MM-DD`).
 - `mtime` — waktu modifikasi berkas sesi (atau `tidak tersedia`).
@@ -63,17 +64,20 @@ Contoh section append:
 ## Audit 2026-11-15 (sesi 117)
 
 ### Ringkasan
+
 - Berkas diproses: 2; dilewati: 115; berkas hilang: 0.
 
 ### Tabel Pola
-| Masalah | Sesi kemunculan | Frekuensi | Klasifikasi | Rekomendasi |
-|---------|-----------------|-----------|-------------|-------------|
-| Tabrakan penomoran sesi paralel (sesi_81) | sesi 87, 89, 90, … | ≥3 sesi | B | Usulkan aturan eskalasi + keputusan pengguna di sesi terpisah |
+
+| Masalah                                   | Sesi kemunculan    | Frekuensi | Klasifikasi | Rekomendasi                                                   |
+| ----------------------------------------- | ------------------ | --------- | ----------- | ------------------------------------------------------------- |
+| Tabrakan penomoran sesi paralel (sesi_81) | sesi 87, 89, 90, … | ≥3 sesi   | B           | Usulkan aturan eskalasi + keputusan pengguna di sesi terpisah |
 
 ### Daftar Berkas yang Diaudit
-| Sesi | Tanggal audit | mtime | Jumlah baris |
-|------|---------------|-------|--------------|
-| sesi_81 | 2026-11-15 | … | … |
+
+| Sesi    | Tanggal audit | mtime | Jumlah baris |
+| ------- | ------------- | ----- | ------------ |
+| sesi_81 | 2026-11-15    | …     | …            |
 ```
 
 ## Steps

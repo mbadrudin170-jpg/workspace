@@ -3,8 +3,8 @@ name: aturan-pembuatan-rules
 description: Trigger: saat membuat atau memperbarui aturan (rules) Kilo | Panduan pembuatan aturan global/portabel: aturan wajib bersifat global, izin deny dan pembatasan platform ditulis generik, berkas rules tidak didaftarkan di instructions, dan berkas AGENTS.md wajib memuat perintah membaca seluruh berkas .agents/rules/.
 metadata:
   kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Wed Nov 18 2026 01:03 WIB"
+  versi: "1.2.0"
+  diperbarui: "Wed Nov 18 2026 01:50 WIB"
 ---
 
 # Aturan Pembuatan Rules
@@ -23,6 +23,7 @@ Panduan pembuatan aturan (rules) Kilo yang bersifat global dan portabel lintas r
 2. Izin `deny` dan pembatasan platform harus ditulis secara generik (tanpa menyebut path repo tertentu) agar portabel.
 3. Yang terdaftar pada `instructions` hanya berkas `AGENTS.md`; berkas rules (`.agents/rules/`) **tidak** didaftarkan satu per satu di `instructions`.
 4. Berkas `AGENTS.md` wajib menyertakan perintah membaca seluruh berkas di folder `.agents/rules/` dan mematuhi seluruh aturan yang ada di sana (sebelum pemuatan apa pun via `instructions`).
+5. Setiap rules hanya memuat informasi/panduan ringkas; detail teknis wajib ditambahkan ke skill yang sudah ada, atau dibuatkan skill baru bila belum ada yang relevan.
 
 ## Larangan
 
@@ -66,6 +67,7 @@ Panduan pembuatan aturan (rules) Kilo yang bersifat global dan portabel lintas r
 
 - Berkas sumber (commit `de0cff5`): `prompt/skill/aturan-pembuatan-rules.md` — 3 aturan pembuatan rules.
 - Permintaan eksplisit pengguna (sesi 21, 2026-11-18): resolusi konflik — poin 3–4 sumber disesuaikan dengan `.kilo/kilo.jsonc` (hanya `AGENTS.md` terdaftar di `instructions`) dan Aturan 3–4 target direvisi mengikuti praktik yang berlaku (jalur baca rules via `AGENTS.md`).
+- Aturan 5 — berasal dari poin 5 pada `prompt/skill/aturan-pembuatan-rules.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; rules = ringkas, detail → skill yang ada/baru).
 - Dokumen resmi Kilo:
   - https://kilo.ai/docs/customize/custom-rules
   - https://kilo.ai/docs/customize/custom-instructions

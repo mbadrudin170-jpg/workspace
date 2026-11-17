@@ -10,7 +10,7 @@ metadata:
 
 # Format PRD
 
-Mengatur bentuk dan isi dokumen PRD (*Product Requirements Document*) agar konsisten di seluruh proyek: header status, enam bagian wajib, konteks penggunaan dan aturan pengisian per bagian. Skill ini menggantikan berkas aturan `format_PRD.md` (dahulu `.agents/rules/global/format_PRD.md`, konversi penuh, sesi 66; berkas sumber kini dihapus); aturan format PRD kini mengikat melalui skill ini.
+Mengatur bentuk dan isi dokumen PRD (_Product Requirements Document_) agar konsisten di seluruh proyek: header status, enam bagian wajib, konteks penggunaan dan aturan pengisian per bagian. Skill ini menggantikan berkas aturan `format_PRD.md` (dahulu `.agents/rules/global/format_PRD.md`, konversi penuh, sesi 66; berkas sumber kini dihapus); aturan format PRD kini mengikat melalui skill ini.
 
 ## Cakupan yang Di-Cover
 
@@ -65,6 +65,7 @@ Digunakan untuk mengidentifikasi produk dan memberikan gambaran umum proyek. ...
 **Aturan pengisian:**
 ...
 **Informasi:**
+
 - Nama aplikasi: <nama aktual proyek>
 - Deskripsi produk: <deskripsi aktual>
 - Platform: <platform target>
@@ -77,9 +78,9 @@ Digunakan untuk mengidentifikasi produk dan memberikan gambaran umum proyek. ...
 ```markdown
 **Status Implementasi:** Sudah Diimplementasikan // salah: dikarang; sesi hanya membuat dokumen
 
-| Fitur | Deskripsi | Prioritas   |
-| ----- | --------- | ----------- |
-| Fitur A dan Fitur B sekaligus | ... | Must Have | // salah: satu baris dua fitur
+| Fitur                         | Deskripsi | Prioritas |
+| ----------------------------- | --------- | --------- |
+| Fitur A dan Fitur B sekaligus | ...       | Must Have | // salah: satu baris dua fitur |
 ```
 
 ## Sumber Evaluasi

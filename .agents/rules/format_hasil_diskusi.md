@@ -16,13 +16,13 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
 2. `.agents/skills/non-code/format-prd/SKILL.md` hanya berlaku untuk dokumen PRD dan **tidak** menjadi acuan struktur berkas hasil diskusi.
 3. Perbedaan utama:
 
-| Aspek | PRD (`format-prd`) | Hasil Diskusi (aturan ini) |
-| ----- | --------------------- | -------------------------- |
-| Sifat | Spesifikasi produk | Catatan proses/keputusan |
-| Pembuka | H1 PRD, metadata status, pemisah `---` | H1 topik + metadata ringkas pada `## Status` |
-| Bagian | 6 bagian PRD (Informasi Produk, Tujuan PRD, Daftar Fitur, Alur Pengguna, Steps, File-File Terdampak) | Latar Belakang, Poin Diskusi, Keputusan, Rekomendasi, Tindak Lanjut, File Terdampak, Pertanyaan Terbuka, Riwayat Perubahan |
-| Pengulangan aturan | Tiap bagian memuat "Konteks penggunaan" dan "Aturan pengisian" | Tidak ada pengulangan; langsung isi |
-| Kata kunci wajib | — | `## Status`, `## Keputusan`, `## Tindak Lanjut` (dipakai `kerjakan_hasil_diskusi.md`) |
+| Aspek              | PRD (`format-prd`)                                                                                   | Hasil Diskusi (aturan ini)                                                                                                 |
+| ------------------ | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Sifat              | Spesifikasi produk                                                                                   | Catatan proses/keputusan                                                                                                   |
+| Pembuka            | H1 PRD, metadata status, pemisah `---`                                                               | H1 topik + metadata ringkas pada `## Status`                                                                               |
+| Bagian             | 6 bagian PRD (Informasi Produk, Tujuan PRD, Daftar Fitur, Alur Pengguna, Steps, File-File Terdampak) | Latar Belakang, Poin Diskusi, Keputusan, Rekomendasi, Tindak Lanjut, File Terdampak, Pertanyaan Terbuka, Riwayat Perubahan |
+| Pengulangan aturan | Tiap bagian memuat "Konteks penggunaan" dan "Aturan pengisian"                                       | Tidak ada pengulangan; langsung isi                                                                                        |
+| Kata kunci wajib   | —                                                                                                    | `## Status`, `## Keputusan`, `## Tindak Lanjut` (dipakai `kerjakan_hasil_diskusi.md`)                                      |
 
 ## 4. Aturan Lokasi dan Penamaan
 
@@ -106,41 +106,51 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
 # Hasil Diskusi <N> — <judul topik>
 
 ## Status
+
 - Dokumen: Draft | Final | Batal
 - Implementasi: Belum Diimplementasikan | Sedang Diimplementasikan | Sudah Diimplementasikan
 - Tanggal: YYYY-MM-DD
 - Topik: <ringkasan topik>
 
 ## Latar Belakang
+
 <masalah, pemicu, atau konteks diskusi>
 
 ## Poin Diskusi
+
 ### 1. <poin>
+
 - Tanya: <pertanyaan>
 - Kesimpulan: <kesimpulan singkat>
 
 ## Keputusan
+
 - K-1: <keputusan>
 
 ## Rekomendasi
+
 - R-1: <rekomendasi>
 
 ## Tindak Lanjut
-| No | Tindakan | File Terdampak | Status |
-|----|----------|----------------|--------|
-| 1  | <tindakan> | <file> | belum |
+
+| No  | Tindakan   | File Terdampak | Status |
+| --- | ---------- | -------------- | ------ |
+| 1   | <tindakan> | <file>         | belum  |
 
 ## File Terdampak
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| <file> | Dibuat / Diubah / Dihapus | <deskripsi> |
+
+| Lokasi File | Status Perubahan          | Deskripsi   |
+| ----------- | ------------------------- | ----------- |
+| <file>      | Dibuat / Diubah / Dihapus | <deskripsi> |
 
 ## Pertanyaan Terbuka
+
 - <pertanyaan> / Belum ada
 
 ## Riwayat Perubahan
-| Tanggal | Perubahan |
-|---------|-----------|
+
+| Tanggal    | Perubahan   |
+| ---------- | ----------- |
 | YYYY-MM-DD | <perubahan> |
 ```
 

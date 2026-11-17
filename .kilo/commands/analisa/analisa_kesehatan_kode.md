@@ -41,9 +41,9 @@ Menilai kesehatan kode pada commit Dart terbaru — pada repositori root dan pad
 
 ## Format Laporan
 
-| Repositori | Commit | Berkas | Ketidaksesuaian | Aturan/Skill | Status |
-| --- | --- | --- | --- | --- | --- |
-| `<path root/submodul>` | `<hash>` | `<berkas>` | `<masalah>` | `<rujukan>` | Masuk `task.md` / Tidak |
+| Repositori             | Commit   | Berkas     | Ketidaksesuaian | Aturan/Skill | Status                  |
+| ---------------------- | -------- | ---------- | --------------- | ------------ | ----------------------- |
+| `<path root/submodul>` | `<hash>` | `<berkas>` | `<masalah>`     | `<rujukan>`  | Masuk `task.md` / Tidak |
 
 Sertakan hash commit terakhir yang dicatat per repositori; setiap entri `catatan.md` memuat nama repo/path, branch, commit terakhir yang dievaluasi (atau `Belum pernah dievaluasi`), tanggal evaluasi, dan catatan pointer submodul yang berbeda, bila ada.
 

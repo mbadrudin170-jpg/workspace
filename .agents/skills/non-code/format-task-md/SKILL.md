@@ -86,27 +86,36 @@ Mengatur gaya penulisan dan pemformatan isi file `task.md` di root proyek agar s
 
 ```markdown
 // DILARANG: task B (hanya file A) dipisah ke kelompok lain padahal task A juga menyentuh file A
+
 # Kelompok 2
+
 ## file terdampak
+
 - (file B)[../FileB.md]
+
 #### Task 1 (task B) ... // salah: task B seharusnya bergabung dengan Kelompok 1 (file A yang sama)
 ```
 
 ```markdown
 // DILARANG: AI mengisi kolom prompt
+
 #### Task 1
+
 - prompt : kerjakan sekarang juga // salah: prompt hanya diisi oleh pengguna
 ```
 
 ```markdown
 // DILARANG: kolom wajib kelompok Tinggi dihilangkan
+
 #### Task 1
+
 - Status : kerjakan
 - Masalah : Bug. // salah: Solusi, aturan dilanggar, file bermasalah, prompt tidak boleh dihilangkan
 ```
 
 ```markdown
 // DILARANG: aturan dilanggar dikosongkan padahal skill terkait terpenuhi
+
 - aturan dilanggar : // salah: skill terkait wajib dicatat bila relevan
 ```
 
