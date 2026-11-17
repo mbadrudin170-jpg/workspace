@@ -1,7 +1,7 @@
 # Sesi 1
 
 ## Status
-- **Status Sinkron:** Belum Sinkron
+- **Status Sinkron:** Sudah Sinkron
 - **Tanggal:** 2026-11-17 (WIB)
 - **Command:** interaksi langsung (tanpa command)
 - **Topik:** Mencari skill khusus untuk code
@@ -36,4 +36,5 @@
 | `prompt/skill/kelompok-skill-wajib.md` | Diubah | Target indeks skill diselaraskan. |
 
 ## Sinkronisasi ke MEMORI.md
-Belum disinkronkan.
+- Catch-up sync pada sesi 2: perubahan nyata dari sesi 1 (pemisahan skill code/non-code, pemindahan `rules/global/` → `rules/`, penyelarasan referensi, konflik aturan) dicatat ke `MEMORI.md` (bagian Konteks Proyek, Konvensi dan Aturan, Status, Catatan Teknis) dan `memori/riwayat_perubahan.md`.
+- Sesi 1 ditandai `Sudah Sinkron` (2026-11-17, sesi 2).
