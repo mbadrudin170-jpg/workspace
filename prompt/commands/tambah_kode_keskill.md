@@ -1,4 +1,4 @@
-diperbarui : Wed Nov 18 2026 02:18 WIB
+diperbarui : Wed Nov 18 2026 02:49 WIB
 ditimpa ke : `.kilo/commands/tambah_kode_keskill.md`
 
 1. `$ARGUMENTS`: potongan kode yang diberikan pengguna; jika kosong, tanyakan kode yang dimaksud.
@@ -16,3 +16,7 @@ ditimpa ke : `.kilo/commands/tambah_kode_keskill.md`
 7. Skill di `.agents/skills/code/` hanya boleh diubah dari riwayat commit (aturan `.agents/rules/lainnya.md`); jangan mengedit skill `code/` di luar alur tersebut.
 
 8. Setelah mengedit, jalankan `formatmd` untuk merapikan berkas Markdown.
+9. Setelah memperbarui atau menambah ke berkas skill yang ada, wajib cek kedua item berikut:
+
+   - Nama folder skill: wajib cek apakah nama folder sudah sesuai dengan isi berkas yang baru.
+   - Description: wajib cek apakah description dapat memicu (trigger) kode atau baris yang baru saja diperbarui.

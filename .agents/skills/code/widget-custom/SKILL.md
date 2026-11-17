@@ -3,8 +3,8 @@ name: widget-custom
 description: "Trigger: saat membuat widget custom reusable | Indeks: visualisasi-progres-impian, isolasi-widget-timer, empty-state-daftar. Wajib StatelessWidget, pure, aman tema (ColorScheme), Column.spacing."
 metadata:
   kategori: "custom"
-  versi: "1.1.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.2"
+  diperbarui: "Wed Nov 18 2026 02:35 WIB"
 ---
 
 # Indeks Widget Custom Reusable
@@ -98,7 +98,7 @@ class VisualTabunganImpian extends StatelessWidget {
             Text(
               sudahTercapai
                   ? 'Target tercapai! 🎉'
-                  : 'Terkumpul: ${FormatUang.format(saldo)}',
+                  : 'Terkumpul: ${FormatUang.formatRupiah(saldo)}',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 color: sudahTercapai
                     ? const Color(0xFF4CAF50)
@@ -108,7 +108,7 @@ class VisualTabunganImpian extends StatelessWidget {
             ),
             if (!sudahTercapai)
               Text(
-                'Sisa: ${FormatUang.format(ImpianProgresHelper.sisa(saldo, target))}',
+                'Sisa: ${FormatUang.formatRupiah(ImpianProgresHelper.sisa(saldo, target))}',
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                   fontFeatures: const [FontFeature.tabularFigures()],
@@ -154,4 +154,6 @@ FractionallySizedBox(widthFactor: rasioTanpaClamp)
 
 - File: `lib/fitur/impian/widget/visual_tabungan_impian.dart`
 - Class terkait: `VisualTabunganImpian`, `EmptyStateView`, `TimerCravingView` (dan sibling teknik SOS), `_HeaderPemulihan`, `ImpianProgresHelper`
+- Berkas sumber format: `share_global_saya/lib/src/utils/format_utils.dart` (`FormatUang.formatRupiah`, commit rujukan belum diverifikasi spesifik pada sesi 24)
+- Audit `format_utils.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): contoh di skill memakai method yang tidak ada (`FormatUang.format`) → dikoreksi menjadi `FormatUang.formatRupiah`; versi 1.1.1 → 1.1.2.
 - Commit rujukan: `c7337d1` — `VisualTabunganImpian`, `ImpianProgresHelper`, `DetailImpianScreen`; `3b67d309` — `_TimerCravingView` (kini publik: `TimerCravingView` di `timer_craving_view.dart`), empty state diary craving (kini `EmptyStateView` bersama), `_ErrorRetry`/`_LoadingView` (sudah tidak ada di `lib/`); `02aa6b29` — `_HeaderPemulihan`; `e659574` — kartu SOS Craving & Alasan Berhenti di dashboard; `65abc0104fc8eec90cde9906c52d3f65cba13ba3` — `EmptyStateView` (menggantikan empty state custom per layar, lihat `empty-state-daftar`); `fbbb0906d08d2590caa8c7829595ea7fa4e513a5` — widget teknik SOS (`napas_478_view.dart`, dll.) sebagai `ConsumerStatefulWidget`

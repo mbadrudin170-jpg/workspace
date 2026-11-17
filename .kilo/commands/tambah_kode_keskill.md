@@ -11,6 +11,9 @@ description: Menambahkan atau memperbarui skill yang relevan dengan potongan kod
 7. Perubahan/pembuatan skill wajib mengikuti `aturan-pembuatan-skill` (nama folder = `name`, frontmatter `name` + `description`, bahasa Indonesia, berkas poin `prompt/skill/<nama>.md` (kecuali skill di `.agents/skills/code/`)) dan memperbarui `.agents/rules/kelompok_skill_wajib.md` bila ada skill baru atau skill yang berubah.
 8. Skill di `.agents/skills/code/` hanya boleh diubah dari riwayat commit (aturan `.agents/rules/lainnya.md`); jangan mengedit skill `code/` di luar alur tersebut.
 9. Setelah mengedit, jalankan `formatmd` untuk merapikan berkas Markdown.
+10. Setelah memperbarui atau menambah ke berkas skill yang ada, wajib cek kedua item berikut:
+    - Nama folder skill: wajib cek apakah nama folder sudah sesuai dengan isi berkas yang baru.
+    - Description: wajib cek apakah description dapat memicu (trigger) kode atau baris yang baru saja diperbarui.
 
 # Skill Terkait
 

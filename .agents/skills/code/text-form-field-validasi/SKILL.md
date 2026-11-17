@@ -3,8 +3,8 @@ name: text-form-field-validasi
 description: "Trigger: saat membuat input teks dengan validasi | Panduan TextFormField, TextEditingController, Form, GlobalKey, dan validasi sebelum penyimpanan."
 metadata:
   kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.0"
+  diperbarui: "Wed Nov 18 2026 02:35 WIB"
 ---
 
 # TextFormField dan Validasi Form
@@ -27,7 +27,7 @@ Menggunakan `TextFormField` dengan `TextEditingController`, `Form`, `GlobalKey<F
 4. `Form` dengan `GlobalKey<FormState>` untuk memvalidasi seluruh field sekaligus sebelum penyimpanan.
 5. Panggil `formKey.currentState?.validate()` sebelum menyimpan; jika false, jangan lanjutkan penyimpanan.
 6. Jangan gunakan `?? 0` atau nilai default untuk menyembunyikan input yang tidak valid; validasi harus gagal dan memberikan feedback.
-7. `autovalidateMode = AutovalidateMode.onUserInteraction` untuk validasi real-time saat user mengetik; `disabled` untuk validasi hanya saat tombol simpan ditekan.
+7. `autovalidateMode = AutovalidateMode.onUserInteraction` untuk validasi real-time saat user mengetik; `disabled` untuk validasi hanya saat tombol simpan ditekan; `onUserInteractionIfError` (dipakai default `InputTeks`) memvalidasi saat user berinteraksi jika sebelumnya sudah error.
 8. `keyboardType = TextInputType.number` untuk input angka; gabungkan dengan `inputFormatters` (FilteringTextInputFormatter.digitsOnly) untuk mencegah input non-angka.
 9. `obscureText = true` untuk input sandi; sertakan `suffixIcon` untuk toggle tampilan sandi.
 10. `FocusNode` untuk pindah fokus antar field (mis. `nextFocus` atau manual `requestFocus`).
@@ -128,7 +128,24 @@ void dispose() {
 }
 ```
 
+## `InputTeks` (share_global_saya)
+
+`InputTeks` (`lib/src/widget/input/input_teks.dart`) adalah pembungkus terstandar `TextFormField` untuk proyek yang bergantung pada `share_global_saya`. Pakai widget ini bila ingin satu gaya field; untuk kebutuhan di luar cakupannya (lihat catatan) tetap gunakan `TextFormField` mentah.
+
+API utama:
+
+- `controller` (wajib), `label`, `wajib` (default `true`), `validator` opsional (default `'$label wajib diisi'` — cacat bila `label` null: pesan "null wajib diisi"; sediakan `validator` sendiri bila `label` null).
+- `autovalidateMode` (default `AutovalidateMode.onUserInteractionIfError`), `textInputAction` (default `next`), `focusNode`/`nextFocusNode` (auto-advance fokus pada `onFieldSubmitted`; `done` → unfocus), `enabled`, `onSubmitted`, `maxLength`.
+- `minLines`/`maxLines` (default 1/1), `maxHeight`/`minHeight` (membungkus `ConstrainedBox`), `isDense`, `expands`, `contentPadding`, `textCapitalization`, `autofocus`.
+- `prefixIcon`/`suffixIcon` (`IconButton` + `onSuffixIconPressed`), `suffixIconColor`, `suffixText`/`suffixStyle`, `hintText`/`hintStyle`, `helperText`/`helperStyle`, `style`.
+- Warna: `borderColor`, `focusedBorderColor` (default `colorScheme.primary`, width 2), `iconColor`, `cursorColor`, `labelColor`, `filled`/`fillColor`.
+- Border radius 8; `onTapOutside` → `FocusScope.unfocus()`.
+
+Catatan: TIDAK mengekspos `keyboardType`, `obscureText`, `inputFormatters`, `readOnly` — untuk input sandi/angka murni gunakan `TextFormField` mentah (atau perluasan widget, di luar cakupan skill ini).
+
 ## Sumber Evaluasi
 
 - File: `/google/flutter/packages/flutter/lib/src/material/text_form_field.dart`, `/google/flutter/packages/flutter/lib/src/material/form.dart`
 - Class terkait: `TextFormField`, `TextEditingController`, `Form`, `GlobalKey<FormState>`
+- Berkas sumber: `share_global_saya/lib/src/widget/input/input_teks.dart` (commit rujukan belum diverifikasi spesifik pada sesi 24)
+- Audit `input_teks.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): Aturan 7 diperjelas (`onUserInteractionIfError`); section "`InputTeks` (share_global_saya)" ditambahkan; versi 1.0.1 → 1.1.0. Catatan: `InputTeks` TIDAK mengekspos `keyboardType`/`obscureText`/`inputFormatters`/`readOnly`; komentar header tidak relevan (tidak ada path usang).

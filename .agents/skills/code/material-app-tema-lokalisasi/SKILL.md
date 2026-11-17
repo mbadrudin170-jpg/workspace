@@ -3,8 +3,8 @@ name: material-app-tema-lokalisasi
 description: "Trigger: saat mengonfigurasi MaterialApp dan WidgetsApp | Panduan tema (theme, darkTheme, themeMode), lokalisasi (locale, supportedLocales, localizationsDelegates), dan ScrollBehavior."
 metadata:
   kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.0"
+  diperbarui: "Wed Nov 18 2026 02:35 WIB"
 ---
 
 # Konfigurasi MaterialApp, Tema, dan Lokalisasi
@@ -14,9 +14,9 @@ Mengatur `MaterialApp` / `WidgetsApp` dengan tema gelap/terang, locale, supporte
 ## Cakupan yang Di-Cover
 
 - Package: `package:flutter` (file `lib/src/widgets/material/app.dart`, `lib/src/widgets/app.dart`)
-- Class: `MaterialApp`, `WidgetsApp`, `ThemeMode`, `ThemeData`, `MaterialScrollBehavior`, `ScrollBehavior`, `Localizations`, `LocalizationsDelegate`
+- Class: `MaterialApp`, `WidgetsApp`, `ThemeMode`, `ThemeData`, `MaterialScrollBehavior`, `ScrollBehavior`, `Localizations`, `LocalizationsDelegate`, `GlobalKey`
 - Enum: `ThemeMode.system`, `ThemeMode.light`, `ThemeMode.dark`
-- Properti: `theme`, `darkTheme`, `highContrastTheme`, `highContrastDarkTheme`, `themeMode`, `themeAnimationDuration`, `themeAnimationCurve`, `locale`, `supportedLocales`, `localizationsDelegates`, `localeResolutionCallback`, `localeListResolutionCallback`, `color`, `debugShowCheckedModeBanner`
+- Properti: `theme`, `darkTheme`, `highContrastTheme`, `highContrastDarkTheme`, `themeMode`, `themeAnimationDuration`, `themeAnimationCurve`, `locale`, `supportedLocales`, `localizationsDelegates`, `localeResolutionCallback`, `localeListResolutionCallback`, `color`, `debugShowCheckedModeBanner`, `navigatorKey`, `scaffoldMessengerKey`
 - Method: `basicLocaleListResolution`, `Theme.of`, `MediaQuery.platformBrightnessOf`
 
 ## Aturan
@@ -32,6 +32,7 @@ Mengatur `MaterialApp` / `WidgetsApp` dengan tema gelap/terang, locale, supporte
 9. `color` digunakan untuk warna app switcher di Android lama, diambil dari light theme meski dark mode aktif.
 10. `debugShowCheckedModeBanner = true` default di debug mode; setel `false` untuk menyembunyikan banner DEBUG.
 11. `themeAnimationDuration` default `kThemeAnimationDuration`; setel `Duration.zero` untuk transisi tema instan.
+12. `navigatorKey` (`GlobalKey<NavigatorState>`) dan `scaffoldMessengerKey` (`GlobalKey<ScaffoldMessengerState>`) — dideklarasikan top-level final di berkas khusus (mis. `share_global_saya/lib/src/utils/app_keys.dart`: `navigatorKey` untuk navigasi dari widget overlay global di luar pohon halaman aktif, `scaffoldMessengerKey` untuk akses `ScaffoldMessenger` global), didaftarkan SEKALI di `MaterialApp(navigatorKey: ..., scaffoldMessengerKey: ...)`, dan TIDAK boleh dibuat di dalam `build()`.
 
 ## Larangan
 
@@ -86,3 +87,5 @@ supportedLocales: [], // assert error
 
 - File: `/google/flutter/packages/flutter/lib/src/widgets/material/app.dart`, `/google/flutter/packages/flutter/lib/src/widgets/app.dart`
 - Class terkait: `MaterialApp`, `WidgetsApp`, `ThemeMode`, `ThemeData`, `MaterialScrollBehavior`
+- Berkas sumber keys: `share_global_saya/lib/src/utils/app_keys.dart` (commit rujukan belum diverifikasi spesifik pada sesi 24)
+- Audit `app_keys.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): properti `navigatorKey`/`scaffoldMessengerKey` ditambahkan ke Cakupan; Aturan 12 ditambahkan; versi 1.0.1 → 1.1.0.

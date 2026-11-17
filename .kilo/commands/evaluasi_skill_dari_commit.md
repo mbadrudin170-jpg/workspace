@@ -14,8 +14,10 @@ description: Evaluasi commit terakhir per repo untuk menentukan skill/aturan yan
 10. Tulis output ke `docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md` (tabel per repo), urut prioritas tertinggi.
 11. Bila berkas hasil sudah memuat entri untuk kode/pola yang sama, perbarui entri tersebut; jangan menambah entri baru.
 12. STOP bila rentang commit atau target repositori tidak jelas; tanyakan via tool `question`.
+13. Wajib menyertakan potongan kode yang dievaluasi pada hasil, agar pengguna dapat meninjau.
 
 # Skill Terkait
+
 - aturan-pembuatan-skill
 - aturan-pembuatan-rules
 - memori-check
