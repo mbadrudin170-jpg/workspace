@@ -3,8 +3,8 @@ name: model-state-freezed-abstract
 description: "Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '*.freezed.dart' + '*.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan untuk String/koleksi), pengosongan field nullable via `copyWith(field: null)` sentinel codegen (tanpa bendera `clearField` manual), integrasi notifier Riverpod, serta model database (fromSqflite/toSqflite, ParserUtil, konversi UTC). Termasuk larangan mengedit berkas hasil generate."
 metadata:
   kategori: "custom"
-  versi: "2.1.0"
-  diperbarui: "Sun Nov 15 2026 19:03 WIB"
+  versi: "2.2.0"
+  diperbarui: "Tue Nov 17 2026 11:52 WIB"
 ---
 
 # Membuat Model dan State dengan Freezed
@@ -152,6 +152,89 @@ abstract class DiaryCravingModel with _$DiaryCravingModel {
 }
 ```
 
+Model database non-Freezed `StatistikDao` dengan `fromSqflite`/`toSqflite`, `ParserUtil`, konstanta kolom snake_case, dan transaksi (pola dari commit `5265490` di `base_coc`):
+
+```dart
+import 'package:sqflite/sqflite.dart';
+
+import 'package:base_coc/core/util/parser_util.dart';
+import 'package:base_coc/fitur/galeri_base/model/nama_tabel_statistik.dart';
+
+class StatistikBase {
+  const StatistikBase({
+    required this.idBase,
+    required this.jumlahSalin,
+    required this.jumlahDibuka,
+    required this.diperbarui,
+  });
+
+  final String idBase;
+  final int jumlahSalin;
+  final int jumlahDibuka;
+  final String diperbarui;
+
+  factory StatistikBase.fromSqflite(Map<String, Object?> row) {
+    return StatistikBase(
+      idBase: ParserUtil.parseStringOrNull(row[NamaKolomStatistik.idBase]) ?? '',
+      jumlahSalin: ParserUtil.parseInt(
+        row[NamaKolomStatistik.jumlahSalin],
+        defaultValue: 0,
+      ),
+      jumlahDibuka: ParserUtil.parseInt(
+        row[NamaKolomStatistik.jumlahDibuka],
+        defaultValue: 0,
+      ),
+      diperbarui:
+          ParserUtil.parseStringOrNull(row[NamaKolomStatistik.diperbarui]) ??
+          '',
+    );
+  }
+
+  Map<String, Object?> toSqflite() {
+    return <String, Object?>{
+      NamaKolomStatistik.idBase: idBase,
+      NamaKolomStatistik.jumlahSalin: jumlahSalin,
+      NamaKolomStatistik.jumlahDibuka: jumlahDibuka,
+      NamaKolomStatistik.diperbarui: diperbarui,
+    };
+  }
+}
+```
+
+Model Freezed dengan field enum baru (`SortirMode`) dan `@Default` koleksi (pola dari commit `5265490` di `base_coc`):
+
+```dart
+@freezed
+abstract class FilterState with _$FilterState {
+  const FilterState._();
+
+  const factory FilterState({
+    TownHallLevel? townHall,
+    TipeBase? tipe,
+    @Default(SortirMode.terbaru) SortirMode sortir,
+    @Default('') String query,
+    @Default(<TagStrategi>{}) Set<TagStrategi> tags,
+  }) = _FilterState;
+
+  /// Status sortir tidak dihitung sebagai filter.
+  bool get hasFilter =>
+      townHall != null || tipe != null || query.isNotEmpty || tags.isNotEmpty;
+}
+```
+
+Model database `TautanStatus` dengan `toSqflite()` ditambahkan setelah `fromSqflite` (pola dari commit `45ae356` di `base_coc`):
+
+```dart
+Map<String, Object?> toSqflite() {
+  return <String, Object?>{
+    NamaKolomTautan.idBase: idBase,
+    NamaKolomTautan.jumlahLaporan: jumlahLaporan,
+    NamaKolomTautan.terakhirDilaporkan: terakhirDilaporkan,
+    NamaKolomTautan.diperbarui: diperbarui,
+  };
+}
+```
+
 ## Contoh Salah
 
 ```dart
@@ -188,4 +271,4 @@ class DiaryCravingModel with _$DiaryCravingModel { ... } // salah: class biasa, 
 - Dependensi (commit): `share_global_saya/pubspec.yaml` (`freezed_annotation ^3.1.0`, `freezed ^4.0.2`, `build_runner ^2.16.2`, `riverpod_generator ^4.0.9`)
 - Commit rujukan (state): `b70ffda33ce6473e6309af8acd0c64b48c2d0404`, `acf4bb6dddc17ca633d551b2e9f5f62f39020d78`, `804b307506389b678f09e7c2cb7bfb8f2aa94112`, `cacca30b128aadb43e839d31eb1e944a10101b61` (konversi `FilterState` ke `@freezed`; penghapusan bendera manual `clearTownHall`/`clearTipe`/`clearTags`; pengosongan field nullable via `copyWith(field: null)`), `c0ed41e4ff2bd8a1e4cc169630b9301f15f9e17c` (`ProgresDesaState` `@freezed`; `@Default(<AkunDesa>[])`)
 - File filter (commit `cacca30`): `base_coc/lib/fitur/galeri_base/model/filter_state.dart`, `base_coc/lib/fitur/galeri_base/provider/filter_provider.dart`
-- Commit rujukan (model DB): `3b67d3095dacc4e5c7ea78d7eb251809e3e9d981`, `a15acd9603fe5d1251afa4acc3817e7e9c1607b1`, `a5beae01b86a4d9753963380818bc437c2b4741a`, `2462af81050e12b2933717f457a33a5b05d3719f`
+- Commit rujukan (model DB): `3b67d3095dacc4e5c7ea78d7eb251809e3e9d981`, `a15acd9603fe5d1251afa4acc3817e7e9c1607b1`, `a5beae01b86a4d9753963380818bc437c2b4741a`, `2462af81050e12b2933717f457a33a5b05d3719f`, `52654906d276c2bab6110fe01dea9452a11773b5` (`StatistikDao` dengan `fromSqflite`/`toSqflite`, `ParserUtil`, konstanta `NamaKolomStatistik`; `FilterState` dengan `SortirMode` dan `@Default`), `45ae356d29dd0bbed8b52567eff5615dc379ddec` (`TautanStatus.toSqflite()`)

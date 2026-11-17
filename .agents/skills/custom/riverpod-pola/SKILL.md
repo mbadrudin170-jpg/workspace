@@ -3,8 +3,8 @@ name: riverpod-pola
 description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD dengan `@Riverpod(keepAlive: true)`, notifier sinkron codegen + `@freezed`, `ref.watch` di build / `ref.read` di callback, `Consumer(Stateful)Widget`, family immutable, `autoDispose`, `ProviderScope` di root, `select` untuk rebuild minimal, penanganan `AsyncValue`, folder `notifier/` vs `provider/`, try-catch pada `Future`, dan `await ref.watch(provider.future)` untuk provider Future)."
 metadata:
   kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Tue Nov 17 2026 18:25 WIB"
+  versi: "1.3.0"
+  diperbarui: "Tue Nov 17 2026 11:52 WIB"
 ---
 
 # Riverpod Pola
@@ -51,6 +51,32 @@ class BiodataNotifier extends _$BiodataNotifier {
 }
 ```
 
+Notifier Async dengan database dulu, baru update state (pola dari commit `5265490` di `base_coc`):
+
+```dart
+@Riverpod(keepAlive: true)
+class StatistikNotifier extends _$StatistikNotifier {
+  @override
+  Future<Map<String, StatistikBase>> build() => _ambilSemua();
+
+  Future<Map<String, StatistikBase>> _ambilSemua() async {
+    final dao = await ref.read(statistikDaoProvider.future);
+    return dao.ambilSemua();
+  }
+
+  Future<void> catatSalin(String idBase) async {
+    try {
+      final dao = await ref.read(statistikDaoProvider.future);
+      await dao.catatSalin(idBase);
+      state = AsyncValue<Map<String, StatistikBase>>.data(await _ambilSemua());
+    } on Exception catch (e, s) {
+      debugPrint('Gagal mencatat salin: idBase=$idBase, error=$e, stack=$s');
+      rethrow;
+    }
+  }
+}
+```
+
 ```dart
 final biodataAsync = ref.watch(biodataProvider);
 
@@ -79,3 +105,4 @@ class BiodataNotifier extends StateNotifier<AsyncValue<BiodataModel?>> { /* ... 
 
 - Berkas sumber: `prompt/skill/riverpod-pola.md`.
 - Dokumen resmi Riverpod: `riverpod.dev` dan contoh paket `flutter_riverpod` / `riverpod_generator`.
+- Commit rujukan: `52654906d276c2bab6110fe01dea9452a11773b5` (`StatistikNotifier` `@Riverpod(keepAlive: true)`, `build() => _ambilSemua()`, DB dulu baru state, `on Exception catch` + `debugPrint` + `rethrow`)

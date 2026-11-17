@@ -3,8 +3,8 @@ name: validasi-json-katalog-ketat
 description: "Trigger: saat memuat atau memvalidasi data JSON katalog lokal | Panduan validasi ketat katalog JSON: field enum lewat `values.firstWhere(..., orElse: () => throw ...)`, array bertipe string dicek per elemen, objek bersarang dicek `is! Map<String, dynamic>` lalu didelegasikan ke `fromJson` bersarang, exception khusus per domain dengan pesan memuat `id` entri dan nama field, string kosong dianggap `null`, `toJson` kondisional (field `null` tidak ditulis), getter `hasIsi` minimal satu field terisi. Hindari cast langsung, `byName` tanpa konteks, dan fallback diam-diam. Sumber pola: commit `base_coc` `71a69f0` dan `149fe81`."
 metadata:
   kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Sun Nov 15 2026 19:03 WIB"
+  versi: "1.1.0"
+  diperbarui: "Tue Nov 17 2026 11:52 WIB"
 ---
 
 # Validasi Ketat JSON Katalog
@@ -123,6 +123,27 @@ if (tagsRaw != null) {
 }
 ```
 
+Field boolean opsional dengan validasi tipe ketat (pola dari commit `c6be80a` di `base_coc`, field `pilihanEditor`):
+
+```dart
+bool pilihanEditor = false;
+final pilihanRaw = json['pilihanEditor'];
+if (pilihanRaw != null) {
+  if (pilihanRaw is! bool) {
+    throw KatalogGagalException(
+      'Field "pilihanEditor" pada id "$id" harus berupa boolean.',
+    );
+  }
+  pilihanEditor = pilihanRaw;
+}
+```
+
+`toJson` kondisional untuk field boolean (hanya ditulis bila `true`):
+
+```dart
+if (pilihanEditor) 'pilihanEditor': pilihanEditor,
+```
+
 Objek bersarang pada model induk (validasi tipe dulu, lalu delegasi):
 
 ```dart
@@ -163,7 +184,7 @@ if (base.tags.isNotEmpty) { /* parsing ulang string di UI */ }
 
 ## Sumber Evaluasi
 
-- Commit rujukan: `71a69f0fb9cc9fd993865a8726e333144152fdc2` (validasi array `tags`, `firstWhere` + `orElse` throw `KatalogGagalException`, pesan memuat `id`), `149fe8186b10311336d9a913cb1be59a3ffb2359` (model bersarang `PanduanBase`, `toJson` kondisional, `hasIsi`, validasi `is! Map<String, dynamic>` pada `BaseLayout.fromJson`)
+- Commit rujukan: `71a69f0fb9cc9fd993865a8726e333144152fdc2` (validasi array `tags`, `firstWhere` + `orElse` throw `KatalogGagalException`, pesan memuat `id`), `149fe8186b10311336d9a913cb1be59a3ffb2359` (model bersarang `PanduanBase`, `toJson` kondisional, `hasIsi`, validasi `is! Map<String, dynamic>` pada `BaseLayout.fromJson`), `c6be80a989e9029f765d9778d1a157046d30bd93` (field boolean `pilihanEditor` dengan validasi `is! bool` + `KatalogGagalException`, `toJson` kondisional `if (pilihanEditor)`)
 - File: `base_coc/lib/fitur/galeri_base/model/base_layout.dart`, `base_coc/lib/fitur/galeri_base/model/panduan_base.dart`, `base_coc/lib/fitur/galeri_base/model/katalog_exception.dart`
 - Klasifikasi: exception khusus (`KatalogGagalException implements Exception`, field `pesan`); deteksi lewat type check — lihat skill `exception-khusus-deteksi-error`
 - Batas cakupan: parsing `dynamic` dari database SQLite (fallback default valid) memakai `ParserUtil` — lihat skill `model-state-freezed-abstract` dan `parsing-nullable-int`; jangan mencampuradukkan pola katalog dengan pola database

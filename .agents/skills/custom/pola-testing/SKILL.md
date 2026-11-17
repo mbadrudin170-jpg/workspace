@@ -3,8 +3,8 @@ name: pola-testing
 description: "Trigger: saat menulis test | Pola testing standar: package:test untuk unit test, WidgetTester untuk widget test, integration test, mocktail mock manual (tanpa codegen), dummy data, build_runner."
 metadata:
   kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Mon Nov 16 2026 03:04 WIB"
+  versi: "1.2.0"
+  diperbarui: "Tue Nov 17 2026 11:52 WIB"
 ---
 
 # Pola Testing Standar
@@ -131,6 +131,29 @@ import 'package:mocktail/mocktail.dart';
 class MockX extends Mock implements X {}
 ```
 
+Implementasi nyata `test/mocks.dart` di `share_global_saya` (pola dari commit `e43255b`):
+
+```dart
+// Template mock manual memakai `package:mocktail` (tanpa codegen).
+// Berkas ini BUKAN file test (bukan `*_test.dart`) sehingga tidak dijalankan
+// oleh `flutter test`; import dari file test dengan `import 'mocks.dart';`.
+//
+// Cara pakai:
+//   1. Pastikan `mocktail` ada di `dev_dependencies`.
+//   2. Buat kelas mock manual untuk repository/service yang ingin di-mock:
+//
+//        import 'package:mocktail/mocktail.dart';
+//
+//        class MockXxx extends Mock implements Xxx {}
+//
+//   3. Stub dengan `when(() => mock.metode()).thenAnswer((_) async => ...);`
+//      dan verifikasi dengan `verify(() => mock.metode()).called(1);`.
+//
+// Catatan: kelas dengan hanya static method (mis. `SharedPrefService`,
+// `ParserUtil`, `L`) TIDAK bisa di-mock dengan mocktail; abstraksikan ke
+// kelas/instance eksternal bila perlu di-mock.
+```
+
 ```dart
 // test/contoh_repository_test.dart
 import 'package:flutter_test/flutter_test.dart';
@@ -233,3 +256,4 @@ dart fix --apply
 - `dart-collect-coverage` skill
 - `dart-run-static-analysis` skill
 - `hasil_diskusi/diskusi_5.md` (K-5, R-1; sesi 158) — mocktail menggantikan mockito; `dart-generate-test-mocks` (mockito) tidak diikuti untuk proyek ini
+- Commit `share_global_saya` `e43255bd56b4eaba6b7629d749582be96dcd2527` (`test/mocks.dart` template mock manual mocktail, `mocktail: ^1.0.5` pada `dev_dependencies`, `pubspec.lock` diperbarui)

@@ -124,7 +124,7 @@
 
 31. .agents/skills/custom/model-state-freezed-abstract/SKILL.md
 - Trigger : saat membuat model atau state Freezed
-- Status : diperbarui : Sun Nov 15 2026 02:10 WIB
+- Status : diperbarui : Tue Nov 17 2026 11:52 WIB
 
 32. .agents/skills/custom/navigator-routing/SKILL.md
 - Trigger : saat navigasi atau routing Flutter
@@ -152,7 +152,7 @@
 
 38. .agents/skills/custom/penanganan-async-data-kosong/SKILL.md
 - Trigger : saat layar menangani state async atau data kosong
-- Status : diperbarui : Mon Nov 16 2026 02:05 WIB
+- Status : diperbarui : Tue Nov 17 2026 11:52 WIB
 
 39. .agents/skills/custom/penanganan-asyncvalue-berkali/SKILL.md
 - Trigger : saat layar menangani beberapa AsyncValue
@@ -188,7 +188,7 @@
 
 47. .agents/skills/custom/pola-testing/SKILL.md
 - Trigger : saat menulis test
-- Status : diperbarui : Mon Nov 16 2026 03:04 WIB
+- Status : diperbarui : Tue Nov 17 2026 11:52 WIB
 
 48. .agents/skills/custom/pola-ui/SKILL.md
 - Trigger : saat menerapkan pola UI Flutter
@@ -204,7 +204,7 @@
 
 51. .agents/skills/custom/riverpod-pola/SKILL.md
 - Trigger : saat memakai Riverpod
-- Status : diperbarui : Mon Nov 16 2026 21:31 WIB
+- Status : diperbarui : Tue Nov 17 2026 11:52 WIB
 
 52. .agents/skills/custom/scaffold-struktur-layar/SKILL.md
 - Trigger : saat menyusun struktur layar
@@ -240,7 +240,7 @@
 
 60. .agents/skills/custom/validasi-json-katalog-ketat/SKILL.md
 - Trigger : saat memuat atau memvalidasi data JSON katalog lokal
-- Status : diperbarui : Sun Nov 15 2026 19:03 WIB
+- Status : diperbarui : Tue Nov 17 2026 11:52 WIB
 
 61. .agents/skills/custom/validasi-platform-izin/SKILL.md
 - Trigger : saat fitur memerlukan platform atau izin

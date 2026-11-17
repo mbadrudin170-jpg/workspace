@@ -3,8 +3,8 @@ name: penanganan-async-data-kosong
 description: "Trigger: saat layar menangani state async atau data kosong | Panduan isLoading, hasError, requireValue, empty state, data tidak lengkap, early return, mounted check, penanganan wajib cache provider (provider sinkron turunan dan keepAlive)."
 metadata:
   kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Mon Nov 16 2026 02:05 WIB"
+  versi: "1.3.0"
+  diperbarui: "Tue Nov 17 2026 11:52 WIB"
 ---
 
 # Penanganan State Asynchronous dan Data Kosong pada Layar
@@ -84,6 +84,18 @@ if (serupaAsync.hasError) {
 final serupa = serupaAsync.asData?.value ?? const <BaseLayout>[];
 ```
 
+Bagian opsional tanpa logger `L` (pakai `debugPrint`, pola dari commit `45ae356` di `base_coc`):
+
+```dart
+final serupaAsync = ref.watch(baseSerupaProvider(widget.base));
+if (serupaAsync.hasError) {
+  debugPrint(
+    'DetailBaseScreen: gagal memuat base serupa: ${serupaAsync.error}',
+  );
+}
+final kandidatSerupa = serupaAsync.asData?.value ?? const <BaseLayout>[];
+```
+
 ## Contoh Salah
 
 ```dart
@@ -103,3 +115,4 @@ return GridBase(bases: bases, ...);
 - File: `lib/fitur/diary_craving/screens/diary_craving_screen.dart`, `lib/fitur/pemulihan_kesehatan/screens/pemulihan_kesehatan_screen.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`
 - Commit `base_coc` `b8fbdbb`, `71a69f0`, `6272b61` (pola cache provider sinkron turunan: `katalog_provider.dart` — `filteredBasesProvider` via `.whenData(...)`; `base_serupa_provider.dart` — `baseSerupaProvider`)
 - Diskusi/sesi 153 (2026-11-16): aturan cache provider — konten utama wajib pesan error + retry; section opsional minimal `L.w`/`L.e` (keputusan pengguna via tool `question`)
+- Commit `base_coc` `45ae356d29dd0bbed8b52567eff5615dc379ddec` (`detail_base_screen.dart`: `serupaAsync.hasError` → `debugPrint` + `asData?.value ?? const <BaseLayout>[]`; section disembunyikan bila kosong, tidak `requireValue`)
