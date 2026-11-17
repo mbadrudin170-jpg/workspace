@@ -1,5 +1,5 @@
 diperbarui : Tue Nov 17 2026 16:59 WIB
-file : [build-runner-codegen](../../.agents/skills/custom/build-runner-codegen/SKILL.md)
+file : [build-runner-codegen](../../.agents/skills/code/build-runner-codegen/SKILL.md)
 
 1. Jalankan dari direktori proyek/paket yang memiliki `pubspec.yaml` (mis. `cd <direktori-proyek>`).
 2. Setelah ubah/menambah sumber codegen (Freezed, Riverpod `@riverpod`/`@Riverpod`, `@GenerateMocks`, `@JsonSerializable`) atau setelah pull yang mengubah berkas hasil generate, jalankan `dart run build_runner build --delete-conflicting-outputs`.

@@ -13,7 +13,7 @@ Aturan ini menetapkan format, lokasi, penamaan, status, dan kewajiban pencatatan
 ## 3. Perbedaan dengan Format PRD
 
 1. Berkas hasil diskusi **BUKAN** dokumen PRD. Sifatnya catatan proses: latar belakang, poin diskusi, keputusan, rekomendasi, dan tindak lanjut.
-2. `.agents/skills/custom/format-prd/SKILL.md` hanya berlaku untuk dokumen PRD dan **tidak** menjadi acuan struktur berkas hasil diskusi.
+2. `.agents/skills/non-code/format-prd/SKILL.md` hanya berlaku untuk dokumen PRD dan **tidak** menjadi acuan struktur berkas hasil diskusi.
 3. Perbedaan utama:
 
 | Aspek | PRD (`format-prd`) | Hasil Diskusi (aturan ini) |

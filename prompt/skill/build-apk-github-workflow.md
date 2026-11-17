@@ -1,5 +1,5 @@
 diperbarui : Mon Nov 16 2026 21:31 WIB
-file : [build-apk-github-workflow](../../.agents/skills/custom/build-apk-github-workflow/SKILL.md)
+file : [build-apk-github-workflow](../../.agents/skills/non-code/build-apk-github-workflow/SKILL.md)
 
 1. Sebelum build, periksa `gh` terpasang dan terautentikasi dengan scope `workflow`.
 2. Proyek target wajib memiliki `pubspec.yaml`, folder `android/`, dan `.github/workflows/build-apk.yml`; jika tidak ada, STOP dan laporkan.
@@ -13,4 +13,4 @@ file : [build-apk-github-workflow](../../.agents/skills/custom/build-apk-github-
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
-- Sumber: `.agents/skills/custom/build-apk-github-workflow/SKILL.md`, `.kilo/commands/build_apk.md` (aturan lama `build_apk_github_workflow.md` sudah dihapus).
+- Sumber: `.agents/skills/non-code/build-apk-github-workflow/SKILL.md`, `.kilo/commands/build_apk.md` (aturan lama `build_apk_github_workflow.md` sudah dihapus).

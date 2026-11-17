@@ -58,4 +58,4 @@ dart run build_runner /lib/kopi.dart
 
 - Sumber poin: `prompt/skill/build-runner-codegen.md` (diselaraskan sesi 224, 2026-11-17).
 - Rujukan paket: `build_runner` (Dart) — perintah build/watch dan opsi `--build-filter`.
-- Skill terkait: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`, `.agents/skills/custom/aturan-folder-prompt/SKILL.md`.
+- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`, `.agents/skills/non-code/aturan-folder-prompt/SKILL.md`.

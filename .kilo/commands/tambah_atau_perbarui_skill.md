@@ -1,12 +1,12 @@
 ---
-description: Menambahkan skill baru atau memperbarui skill yang sudah ada di `.agents/skills/custom/` berdasarkan sumber yang diberikan pengguna, mengikuti pola skill yang sudah ada.
+description: Menambahkan skill baru atau memperbarui skill yang sudah ada di `.agents/skills/code/` atau `.agents/skills/non-code/` berdasarkan sumber yang diberikan pengguna, mengikuti pola skill yang sudah ada.
 ---
 
 # Tambah atau Perbarui Skill
 
 ## Tujuan
 
-Menambahkan skill baru atau memperbarui skill yang sudah ada di `.agents/skills/custom/` berdasarkan sumber yang diberikan pengguna, dengan format dan pola yang konsisten.
+Menambahkan skill baru atau memperbarui skill yang sudah ada di `.agents/skills/code/` atau `.agents/skills/non-code/` berdasarkan sumber yang diberikan pengguna, dengan format dan pola yang konsisten.
 
 ## Ketentuan Umum
 
@@ -16,7 +16,7 @@ Menambahkan skill baru atau memperbarui skill yang sudah ada di `.agents/skills/
 
 ## Cakupan
 
-- Hanya `.agents/skills/custom/` (dan `.agents/rules/global/kelompok_skill_wajib.md` untuk sinkronisasi indeks).
+- Hanya `.agents/skills/code/`, `.agents/skills/non-code/` (dan `.agents/rules/global/kelompok_skill_wajib.md` untuk sinkronisasi indeks).
 
 ## Parameter
 
@@ -39,7 +39,7 @@ Menambahkan skill baru atau memperbarui skill yang sudah ada di `.agents/skills/
 
 ## Larangan
 
-- DILARANG mengubah berkas di luar `.agents/skills/custom/` dan `.agents/rules/global/kelompok_skill_wajib.md`.
+- DILARANG mengubah berkas di luar `.agents/skills/code/`, `.agents/skills/non-code/`, dan `.agents/rules/global/kelompok_skill_wajib.md`.
 - DILARANG membuat skill duplikat atau tumpang tindih tujuan.
 - DILARANG mengarang isi skill tanpa sumber/commit yang relevan.
 - DILARANG mengubah kode Dart.

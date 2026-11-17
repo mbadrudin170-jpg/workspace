@@ -1,6 +1,6 @@
 diperbarui : Mon Nov 16 2026 07:45 WIB
 
-file : [aturan-pembuatan-skill](../../.agents/skills/custom/aturan-pembuatan-skill/SKILL.md)
+file : [aturan-pembuatan-skill](../../.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md)
 
 1. Setiap skill wajib memiliki frontmatter dengan `name` dan `description`; field `name` harus sama persis dengan nama folder (Name Matching Rule).
 2. Untuk nama folder, gunakan nama-nama Indonesia, kecuali yang spesifik dan yang sudah umum (misalnya jangan ubah `build` menjadi `bangun` dan lainnya); serta untuk penghubung antar kata wajib menggunakan `-` bukan `_`.

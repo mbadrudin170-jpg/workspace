@@ -144,6 +144,6 @@ Skill ini hanya untuk aplikasi NamaAplikasiTertentu dengan fitur X, Y, dan Z.
 
 - File: `README.md`, `AGENTS.md`, `apk_kompetitor.md`, `refrensi_apk.md`
 - Perintah terkait: `.kilo/commands/cari_apk_kompetitor.md`, `.kilo/commands/riset_kompetitor.md` (bila tersedia)
-- Aturan rujukan: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` (aturan 1, 7, 8, 9 — skill portabel, front matter, trigger-only, section wajib)
+- Aturan rujukan: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` (aturan 1, 7, 8, 9 — skill portabel, front matter, trigger-only, section wajib)
 - Perintah pengguna 2026-11-14: menjadikan skill global dan portabel, bukan spesifik satu aplikasi
 - Riwayat: v1.5.0 memuat konteks satu aplikasi; v1.6.0 menghapus ketergantungan tersebut dan memindahkan konteks proyek ke dokumen proyek; v1.6.1 menyelaraskan aturan satu run mencakup semua store (Aturan #5 dan #10, Deskripsi, Larangan) dengan command `cari_apk_kompetitor.md`

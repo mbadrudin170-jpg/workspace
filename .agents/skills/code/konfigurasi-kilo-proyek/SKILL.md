@@ -29,7 +29,7 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 7. Config tidak boleh di-commit, di-push, atau diubah "sekalian" tanpa perintah pengguna; perubahan config yang berdampak (permission, `external_directory`, model) menunggu keputusan eksplisit pengguna.
 8. `.kilo/kilo.jsonc` tervalidasi otomatis oleh harness Kilo saat diedit; bila edit gagal validasi, perbaiki berkas sebelum melanjutkan, jangan mengabaikan galat validasi.
 9. Prompt agent disimpan sebagai berkas di `.kilo/prompts/` dan dirujuk dari config dengan `{file:./prompts/<nama>.md}` (diterapkan 2026-11-12/13: `code.md` dipindahkan dari root `prompts/`, `ask.md` dan `debug.md` dibuat). Prompt inline panjang tidak ditulis langsung di config.
-10. `skills.paths` memakai path relatif (`.agents/skills/custom`, `.agents/skills`, `.agents/skills/bawaan`) yang portabel lintas mesin; jangan memakai path absolut spesifik mesin.
+10. `skills.paths` memakai path relatif (mis. `.agents/skills/code`, `.agents/skills/non-code`, `.agents/skills`, `.agents/skills/bawaan`) yang portabel lintas mesin; jangan memakai path absolut spesifik mesin.
 11. Untuk konfigurasi Kilo generik (paths, fields, providers, TUI, Agent Manager, dll.), rujuk skill bawaan `kilo-config`; skill ini hanya memuat prosedur & larangan khusus proyek berhenti_merokok.
 12. Perubahan pada config yang belum diputuskan pengguna (mis. `external_directory` yang menunjuk path usang dan `kilo_memory_recall: "*": "allow"`) DILARANG dilakukan sepihak; catat sebagai pertanyaan terbuka pada `diskusi_N.md`.
 13. Isi tutorial commands pada skill ini bersumber dari berkas nyata di `.kilo/commands/` proyek dan riwayat commit; jangan menambah contoh fiktif.
@@ -168,7 +168,7 @@ Berkas sumber (proyek):
 - Skill bawaan: `kilo-config` (builtin, konfigurasi Kilo generik)
 - Diskusi terkait: `hasil_diskusi/diskusi_6.md` (K-1 s.d. K-10, R-1 s.d. R-5, TL-1 s.d. TL-5)
 
-Commit rujukan (menyentuh `.kilo/kilo.jsonc` dan/atau `.kilo/prompts/`; sumber isi disusun dari commit yang berkaitan sesuai `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` aturan 5):
+Commit rujukan (menyentuh `.kilo/kilo.jsonc` dan/atau `.kilo/prompts/`; sumber isi disusun dari commit yang berkaitan sesuai `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` aturan 5):
 
 - `26362be` (terbaru relevan — menyentuh `.kilo/kilo.jsonc` dan `.kilo/prompts/ask.md`, `.kilo/prompts/debug.md`)
 - `50ee3c7` (penerapan config proyek `.kilo/kilo.jsonc` dan pemindahan `prompts/code.md` → `.kilo/prompts/code.md`)

@@ -14,14 +14,14 @@ Folder `prompt/` di root proyek menyimpan rujukan/draft (poin-poin penting) untu
 ## Cakupan yang Di-Cover
 
 - Folder: `prompt/` (root proyek), subfolder `prompt/skill/`, `prompt/rules/`, `prompt/commands/`, dan `prompt/mode/` (bila ada).
-- Berkas target: `.agents/skills/custom/<nama>/SKILL.md`, `.agents/rules/global/<nama>.md`, `.kilo/commands/<nama>.md`, `.kilo/commands/mode/<nama>.md`.
+- Berkas target: `.agents/skills/code/<nama>/SKILL.md` atau `.agents/skills/non-code/<nama>/SKILL.md`, `.agents/rules/global/<nama>.md`, `.kilo/commands/<nama>.md`, `.kilo/commands/mode/<nama>.md`.
 - Header wajib pada setiap berkas di `prompt/`: `diperbarui :` (tanggal lengkap + jam) dan `ditimpa ke :` / `file :` (path tujuan).
 
 ## Aturan
 
 1. Setiap berkas di `prompt/` **wajib** memuat tanggal diperbarui lengkap beserta jam (mis. `diperbarui : Mon Nov 16 2026 07:36 WIB`).
 2. Setiap berkas di `prompt/` **wajib** memuat target "ditimpa ke" (path tujuan) atau "file" (link ke berkas target), karena folder `prompt/` hanya mencatat poin-poin penting untuk masing-masing skill, aturan, dan command.
-3. Nama berkas di `prompt/<subfolder>/` **wajib** sama dengan nama target (mis. `prompt/skill/aturan-pembuatan-skill.md` ↔ `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`).
+3. Nama berkas di `prompt/<subfolder>/` **wajib** sama dengan nama target (mis. `prompt/skill/aturan-pembuatan-skill.md` ↔ `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`).
 4. Setiap skill wajib memiliki berkas poin di `prompt/skill/<nama-skill>.md` dengan nama yang sama (sesuai skill `aturan-pembuatan-skill` Aturan 13).
 5. Berkas di `prompt/` hanya berisi poin-poin penting (ringkas); isi final tetap berada di target (`.agents/`, `.kilo/`).
 6. Catatan "hanya untuk penulis prompt, bukan untuk skill" (beserta link referensi) **wajib** ditempatkan di akhir berkas dan **tidak boleh** dimasukkan ke skill target.
@@ -55,7 +55,7 @@ Link referensi ini jangan dimasukkan ke skill.
 ```
 
 ```markdown
-file : [nama-skill](../../.agents/skills/custom/nama-skill/SKILL.md)
+file : [nama-skill](../../.agents/skills/non-code/nama-skill/SKILL.md)
 
 1. Poin penting 1
 2. Poin penting 2
@@ -80,4 +80,4 @@ Link referensi ini jangan dimasukkan ke skill.
 
 - Permintaan eksplisit pengguna (sesi 183, 2026-11-16): aturan yang berisi saat menambah dan memperbarui semua file yang ada di folder prompt.
 - Pola nyata: `prompt/skill/aturan-pembuatan-skill.md`, `prompt/skill/aturan-pembuatan-rules.md`, `prompt/rules/AGENTS.md`, `prompt/commands/mode_diskusi.md`, `prompt/commands/commit_file_sesi_ini.md`.
-- Skill terkait: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` (Aturan 13).
+- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` (Aturan 13).

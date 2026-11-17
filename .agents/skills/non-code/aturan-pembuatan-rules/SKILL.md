@@ -61,4 +61,4 @@ Panduan pembuatan aturan (rules) Kilo yang bersifat global dan portabel lintas r
   - https://kilo.ai/docs/customize/custom-rules
   - https://kilo.ai/docs/customize/custom-instructions
   - https://kilo.ai/docs/customize/agents-md
-- Skill terkait: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`.
+- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`.

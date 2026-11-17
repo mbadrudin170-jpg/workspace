@@ -6,11 +6,11 @@ description: Memindai seluruh `SKILL.md` di `.agents/skills/`, memvalidasi penem
 
 ## Parameter
 
-- `$ARGUMENTS` (opsional): kategori skill (`custom` atau `bawaan`) yang ingin diproses.
+- `$ARGUMENTS` (opsional): kategori skill (`code` atau `non-code`, serta `bawaan`/`custom` bila masih ada) yang ingin diproses.
 - Jika `$ARGUMENTS` kosong: pindai seluruh kategori.
-- Jika `$ARGUMENTS` bukan kategori standar: **STOP** dan laporkan sebagai anomali serius.
+- Jika `$ARGUMENTS` bukan kategori yang dikenal: **STOP** dan laporkan sebagai anomali serius.
 
-Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan dan metadata setiap skill, lalu menulis indeks ke `.agents/rules/global/kelompok_skill_wajib.md` (root proyek) berdasarkan path skill, trigger, dan status diperbarui dari metadata. Perintah wajib memberi tahu pengguna ketika menemukan skill yang tidak berada dalam kategori standar `bawaan`/`custom`, tidak memiliki `metadata.kategori`, atau berkonflik dengan `metadata.kategori`.
+Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan dan metadata setiap skill, lalu menulis indeks ke `.agents/rules/global/kelompok_skill_wajib.md` (root proyek) berdasarkan path skill, trigger, dan status diperbarui dari metadata. Perintah wajib memberi tahu pengguna ketika menemukan skill yang tidak berada dalam kategori standar (`code`, `non-code`, `bawaan`), tidak memiliki `metadata.kategori`, atau berkonflik dengan `metadata.kategori`.
 
 # Sumber Kebenaran Kategori
 
@@ -57,10 +57,10 @@ Memindai seluruh file `SKILL.md` di `.agents/skills/**/`, memvalidasi penempatan
 7. **Validasi anomali (WAJIB).**
    Deteksi dan klasifikasikan anomali menjadi dua tingkat:
 
-   **A. Anomali serius — MENGHENTIKAN (jangan tulis indeks):**
-   - **Di luar kategori standar**: skill tidak berada di `.agents/skills/bawaan/` maupun `.agents/skills/custom/` (mis. langsung di `.agents/skills/<nama>/`).
-   - **Konflik kategori**: folder fisik berbeda dengan nilai `metadata.kategori` (mis. folder `bawaan` tetapi `metadata.kategori: "custom"`).
-   - **Fatal**: folder `.agents/skills/` tidak dapat dibaca, atau tidak ada satu pun `SKILL.md` ditemukan.
+    **A. Anomali serius — MENGHENTIKAN (jangan tulis indeks):**
+    - **Di luar kategori standar**: skill tidak berada di `.agents/skills/code/`, `.agents/skills/non-code/`, maupun `.agents/skills/bawaan/` (mis. langsung di `.agents/skills/<nama>/` atau di `.agents/skills/custom/` yang sudah tidak dipakai).
+    - **Konflik kategori**: folder fisik berbeda dengan nilai `metadata.kategori` (mis. folder `bawaan` tetapi `metadata.kategori: "custom"`).
+    - **Fatal**: folder `.agents/skills/` tidak dapat dibaca, atau tidak ada satu pun `SKILL.md` ditemukan.
 
     **B. Anomali ringan — hanya peringatan (tetap lanjut):**
     - **Metadata kategori kosong**: skill tidak memiliki field `metadata.kategori`. Ini **wajar** untuk skill bawaan (sebelum migrasi front matter Kelompok 34), jadi tidak menghentikan proses.

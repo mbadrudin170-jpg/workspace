@@ -1,5 +1,5 @@
 diperbarui : Tue Nov 17 2026 18:25 WIB
-file : [riverpod-pola](../../.agents/skills/custom/riverpod-pola/SKILL.md)
+file : [riverpod-pola](../../.agents/skills/code/riverpod-pola/SKILL.md)
 
 1. Notifier database (CRUD): gunakan `@Riverpod(keepAlive: true)`; `build()` memanggil `_ambilSemua()`; update state setelah DB berhasil; `catch Exception` lalu `rethrow`.
 2. Notifier state sinkron (non-CRUD) wajib codegen `@Riverpod(keepAlive: true)` dengan `build()` sinkron; larangan `StateNotifier`/`StateNotifierProvider`/`legacy.dart`.

@@ -76,4 +76,4 @@ APK size: 18000000 bytes
 - Commit root `e3e40f4` (rename berkas APK hasil build) — penyesuaian laporan/path pada command.
 - Berkas workflow nyata: `<proyek>/.github/workflows/build-apk.yml`.
 - Command terkait: `.kilo/commands/build_apk.md`.
-- Aturan global terkait: `.agents/rules/global/kelompok_skill_wajib.md`; panduan tool bawaan: `.agents/skills/custom/penggunaan-tool-bawaan-kilo/SKILL.md` (aturan prioritas lama `prioritas_tool_bawaan.md` sudah dihapus sesi 186).
+- Aturan global terkait: `.agents/rules/global/kelompok_skill_wajib.md`; panduan tool bawaan: `.agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md` (aturan prioritas lama `prioritas_tool_bawaan.md` sudah dihapus sesi 186).

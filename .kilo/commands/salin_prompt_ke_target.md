@@ -25,7 +25,7 @@ Memeriksa apakah seluruh berkas di folder `prompt/` sudah ditimpa ke target masi
 ## Cakupan
 
 - Semua berkas di folder `prompt/` dan subfoldernya (`prompt/skill/`, `prompt/rules/`, `prompt/commands/`, `prompt/mode/` bila ada).
-- Target masing-masing berkas: `.agents/skills/custom/<nama>/SKILL.md`, `.agents/rules/global/<nama>.md`, `.kilo/commands/<nama>.md`, `.kilo/commands/mode/<nama>.md`, atau `AGENTS.md` (root) sesuai header target berkas sumber.
+- Target masing-masing berkas: `.agents/skills/code/<nama>/SKILL.md` atau `.agents/skills/non-code/<nama>/SKILL.md`, `.agents/rules/global/<nama>.md`, `.kilo/commands/<nama>.md`, `.kilo/commands/mode/<nama>.md`, atau `AGENTS.md` (root) sesuai header target berkas sumber.
 - Berkas yang boleh diubah: berkas target yang ditentukan oleh header sumber, berkas sumber di `prompt/` (perbaikan typo/poin ambigu), serta berkas memori (`MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_N.md`).
 
 ## Parameter

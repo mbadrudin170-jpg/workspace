@@ -1,6 +1,6 @@
 diperbarui : Mon Nov 16 2026 21:31 WIB
 
-file : [penggunaan-tool-bawaan-kilo](../../.agents/skills/custom/penggunaan-tool-bawaan-kilo/SKILL.md)
+file : [penggunaan-tool-bawaan-kilo](../../.agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md)
 
 # Aturan
 

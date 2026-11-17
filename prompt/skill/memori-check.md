@@ -1,5 +1,5 @@
 diperbarui : Mon Nov 16 2026 13:02 WIB
-file : [memori-check](../../.agents/skills/custom/memori-check/SKILL.md)
+file : [memori-check](../../.agents/skills/non-code/memori-check/SKILL.md)
 
 1. Sebelum interaksi apa pun, baca `MEMORI.md` root proyek; bila belum ada, tanyakan inisialisasi.
 2. Di awal sesi, lakukan catch-up sync: pindai berkas `memori/sesi/*.md` ber-status `Belum Sinkron` dari sesi sebelumnya; yatim/kosong → tandai `Sudah Sinkron` dengan catatan eksplisit; berisi perubahan nyata → sinkronkan; ambigu → laporkan; jangan tandai berkas sesi yang sedang aktif.

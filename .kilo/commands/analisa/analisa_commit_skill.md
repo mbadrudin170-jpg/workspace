@@ -12,7 +12,7 @@ Menentukan pola kode dari riwayat commit yang diinginkan pengguna, lalu memperba
 ## Ketentuan Umum
 
 1. Wajib membaca `AGENTS.md` dan `catatan.md` sebelum bekerja.
-2. Muat skill `aturan-pembuatan-skill` (`.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`) melalui tool `skill` sebelum menulis skill.
+2. Muat skill `aturan-pembuatan-skill` (`.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`) melalui tool `skill` sebelum menulis skill.
 3. Sumber kebenaran hanya commit yang sudah ada (`git log`, `git show`, `git diff`); dilarang memakai working tree/staging/untracked.
 4. Daftar submodule dibaca dari `.gitmodules` (mis. `git config --file .gitmodules --get-regexp '\.path$'`); `git submodule status` dapat gagal karena gitlink yatim di `.dart_tool/`, jangan andalkan perintah tersebut.
 
@@ -22,7 +22,7 @@ Menentukan pola kode dari riwayat commit yang diinginkan pengguna, lalu memperba
   - Root repository (root proyek, path `.`).
   - Satu submodule per entri path pada `.gitmodules` (saat ini: `base_coc`, `share_global_saya`), divalidasi dengan `git -C <path> rev-parse --git-dir`.
 - Submodule yang tidak ter-inisialisasi (path tidak ada / bukan repositori git) dicatat sebagai `Tidak dievaluasi`; jangan diabaikan dan jangan mengarang hash.
-- Berkas yang boleh diubah: folder `.agents/skills/custom/` (di root) dan `catatan.md`.
+- Berkas yang boleh diubah: folder `.agents/skills/code/` dan `.agents/skills/non-code/` (di root) serta `catatan.md`.
 
 ## Parameter
 
@@ -63,7 +63,7 @@ Format entri per repo di `catatan.md` (bagian `# Evaluasi Skill dari commit`), s
 ## Larangan
 
 - DILARANG mencatat seluruh commit yang dievaluasi pada `catatan.md`; catat commit terakhir saja per repo.
-- DILARANG mengubah berkas selain folder skill custom (di root) dan `catatan.md`.
+- DILARANG mengubah berkas selain folder skill (`.agents/skills/code/`, `.agents/skills/non-code/`) dan `catatan.md`.
 - DILARANG memakai isi working tree/staging/untracked sebagai sumber.
 - DILARANG mengubah kode Dart.
 - DILARANG mengubah `.gitmodules`, pointer submodule, atau isi submodule.

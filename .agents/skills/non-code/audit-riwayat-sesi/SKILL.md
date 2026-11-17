@@ -17,7 +17,7 @@ Prosedur audit portabel lintas proyek dengan `MEMORI.md` untuk mendeteksi kesala
 - Konteks agregasi (selalu dibaca): `MEMORI.md`, `memori/riwayat_perubahan.md`.
 - Berkas yang boleh ditulis: `audit/riwayat_sesi.md` (append section baru; section lama dipertahankan).
 - Sumber data: hanya berkas memori; git log **tidak** digunakan.
-- Referensi: `.kilo/commands/audit_riwayat_sesi.md`, `hasil_diskusi/diskusi_10.md` (K-1 s.d. K-13, R-1 s.d. R-6), `.agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md` (pola skill read-only), `.agents/skills/custom/memori-check/SKILL.md` (alur sesi).
+- Referensi: `.kilo/commands/audit_riwayat_sesi.md`, `hasil_diskusi/diskusi_10.md` (K-1 s.d. K-13, R-1 s.d. R-6), `.agents/skills/non-code/cek-kesehatan-sistem-kerja/SKILL.md` (pola skill read-only), `.agents/skills/non-code/memori-check/SKILL.md` (alur sesi).
 - Sumber perencanaan: `hasil_diskusi/diskusi_10.md`.
 
 ## Aturan
@@ -139,8 +139,8 @@ Saya perbaiki rujukan yatim di MEMORI.md dan skill memori-check saat audit.
 ## Sumber Evaluasi
 
 - Hasil diskusi: `hasil_diskusi/diskusi_10.md` (K-1 s.d. K-13, R-1 s.d. R-6; alur audit inkremental; format ledger; append per audit; ambang ≥3 sesi; read-only).
-- Aturan skill: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` (aturan 1–18, frontmatter, segmen trigger, section wajib).
-- Pola skill read-only: `.agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md` dan command `.kilo/commands/cek_kesehatan_sistem_kerja.md`.
+- Aturan skill: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` (aturan 1–18, frontmatter, segmen trigger, section wajib).
+- Pola skill read-only: `.agents/skills/non-code/cek-kesehatan-sistem-kerja/SKILL.md` dan command `.kilo/commands/cek_kesehatan_sistem_kerja.md`.
 - Command: `.kilo/commands/audit_riwayat_sesi.md`.
-- Skill terkait: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`, `.agents/skills/custom/memori-check/SKILL.md`, `.agents/skills/custom/cek-kesehatan-sistem-kerja/SKILL.md`.
+- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`, `.agents/skills/non-code/memori-check/SKILL.md`, `.agents/skills/non-code/cek-kesehatan-sistem-kerja/SKILL.md`.
 - Riwayat commit: tidak ada commit yang secara langsung menyentuh folder skill `audit-riwayat-sesi` sebelum pembuatan ini; isi disusun dari `hasil_diskusi/diskusi_10.md` yang disepakati pengguna (bukan dari working directory/staging/untracked), mengikuti preseden skill `cek-kesehatan-sistem-kerja`.

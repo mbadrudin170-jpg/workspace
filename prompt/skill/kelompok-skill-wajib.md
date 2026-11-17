@@ -1,5 +1,5 @@
 diperbarui : Mon Nov 16 2026 10:51 WIB
-ditimpa ke : `.agents/skills/custom/kelompok-skill-wajib/SKILL.md`
+ditimpa ke : `.agents/skills/non-code/kelompok-skill-wajib/SKILL.md`
 
 1. Setiap skill pada kelompok skill wajib memiliki path file yang valid, trigger yang jelas, dan tanggal diperbarui lengkap beserta jam.
 2. Jika skill tidak tersedia, laporkan; jangan mengarang.

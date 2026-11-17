@@ -253,4 +253,4 @@ MaterialApp(
   - Microsoft multi-agent-reference-architecture — Memory-Architecture-Patterns: https://github.com/microsoft/multi-agent-reference-architecture/blob/main/docs/memory/Memory-Architecture-Patterns.md
   - JetBrains — Memory in AI Agents: Types and Implementation: https://www.jetbrains.com/pages/ai-agents/architecture/ai-agent-memory/
   - Microsoft Learn — Agent Memory in Azure Cosmos DB for NoSQL: https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/agentic-memories
-- Catatan: skill ini memuat alur sesi (bukan hanya struktur `MEMORI.md`); pembaruan berikutnya untuk perubahan alur sesi mengikuti `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`.
+- Catatan: skill ini memuat alur sesi (bukan hanya struktur `MEMORI.md`); pembaruan berikutnya untuk perubahan alur sesi mengikuti `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`.

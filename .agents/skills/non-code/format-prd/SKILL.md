@@ -47,7 +47,7 @@ Mengatur bentuk dan isi dokumen PRD (*Product Requirements Document*) agar konsi
 - DILARANG menulis status `Sudah Diimplementasikan` (atau `Sedang Diimplementasikan`) tanpa implementasi kode yang faktual.
 - DILARANG mengarang lokasi, nama, atau keberadaan file pada bagian File-File Terdampak.
 - DILARANG menggabungkan beberapa fitur dalam satu baris tabel Daftar Fitur.
-- DILARANG memakai struktur PRD untuk berkas hasil diskusi (`hasil_diskusi/diskusi_N.md`) — gunakan `.agents/rules/global/format_hasil_diskusi.md`; untuk `task.md` gunakan skill `.agents/skills/custom/format-task-md/SKILL.md`.
+- DILARANG memakai struktur PRD untuk berkas hasil diskusi (`hasil_diskusi/diskusi_N.md`) — gunakan `.agents/rules/global/format_hasil_diskusi.md`; untuk `task.md` gunakan skill `.agents/skills/non-code/format-task-md/SKILL.md`.
 - DILARANG mengosongkan bagian tanpa keterangan eksplisit (`Belum dibahas` / `Belum diketahui`).
 
 ## Contoh Benar
@@ -85,5 +85,5 @@ Digunakan untuk mengidentifikasi produk dan memberikan gambaran umum proyek. ...
 ## Sumber Evaluasi
 
 - File aturan sumber (kini dihapus, digantikan skill ini): `.agents/rules/global/format_PRD.md` — commit `2d96c25` ("a", Sat Nov 14 2026)
-- Berkas terkait: `.agents/rules/global/format_hasil_diskusi.md` (format hasil diskusi), `.agents/skills/custom/format-task-md/SKILL.md` (format `task.md`), `AGENTS.md` (blok `format_PRD.md` dihapus pada konversi), `.kilo/commands/prd/kerjakan_prd.md`, `.kilo/commands/prd/evaluasi_ulang_prd.md`, `.kilo/commands/fitur/diskusi_fitur_baru.md`
+- Berkas terkait: `.agents/rules/global/format_hasil_diskusi.md` (format hasil diskusi), `.agents/skills/non-code/format-task-md/SKILL.md` (format `task.md`), `AGENTS.md` (blok `format_PRD.md` dihapus pada konversi), `.kilo/commands/prd/kerjakan_prd.md`, `.kilo/commands/prd/evaluasi_ulang_prd.md`, `.kilo/commands/fitur/diskusi_fitur_baru.md`
 - Commit rujukan: `2d96c25`

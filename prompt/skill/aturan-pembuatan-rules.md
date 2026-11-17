@@ -1,5 +1,5 @@
 diperbarui : Mon Nov 16 2026 07:45 WIB
-ditimpa ke : `.agents/skills/custom/aturan-pembuatan-rules/SKILL.md` 
+ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-rules/SKILL.md` 
 
 # Aturan Pembuatan Rules
 

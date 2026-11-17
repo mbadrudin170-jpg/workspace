@@ -15,7 +15,7 @@ Prosedur audit portabel untuk memeriksa kesehatan sistem kerja proyek (aset pend
 
 - Aset: struktur folder/berkas wajib, `.agents/rules/global/kelompok_skill_wajib.md`, metadata frontmatter `SKILL.md`, berkas command `.kilo/commands/**.md`, berkas sesi `memori/sesi/sesi_N.md`, kondisi repositori teramati (submodule, pointer, `.gitignore` vs working tree), dan penomoran/pencatatan `hasil_diskusi/diskusi_N.md`.
 - Keluaran: laporan temuan di sesi dengan tingkat `GALAT` dan `PERINGATAN`, tanpa berkas laporan baru.
-- Referensi: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`, `.agents/rules/global/format_hasil_diskusi.md`, skill `aturan-pembuatan-commands`, skill `aturan-pembuatan-skill`, skill `memori-check`.
+- Referensi: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`, `.agents/rules/global/format_hasil_diskusi.md`, skill `aturan-pembuatan-commands`, skill `aturan-pembuatan-skill`, skill `memori-check`.
 - Sumber perencanaan: `hasil_diskusi/diskusi_8.md`.
 
 ## Aturan
@@ -61,7 +61,7 @@ Ringkasan: 1 GALAT, 1 PERINGATAN (7 aset diperiksa).
 
 | No | Aset | Tingkat | Path/Objek | Temuan | Saran |
 | --- | --- | --- | --- | --- | --- |
-| 1 | .agents/rules/global/kelompok_skill_wajib.md | GALAT | `.agents/rules/global/kelompok_skill_wajib.md` | Entri menunjuk `.agents/skills/custom/contoh/SKILL.md` tetapi berkas tidak ada | Hapus entri atau pulihkan skill, lalu sinkronkan indeks |
+| 1 | .agents/rules/global/kelompok_skill_wajib.md | GALAT | `.agents/rules/global/kelompok_skill_wajib.md` | Entri menunjuk `.agents/skills/non-code/contoh/SKILL.md` tetapi berkas tidak ada | Hapus entri atau pulihkan skill, lalu sinkronkan indeks |
 | 2 | Command | PERINGATAN | `.kilo/commands/contoh.md` | Tidak ada frontmatter `description` | Tambahkan frontmatter `description` sesuai konvensi command |
 
 Catatan keterbatasan: tidak ada.
@@ -88,7 +88,7 @@ Menjalankan git add/reset/commit untuk merapikan temuan audit.
 ## Sumber Evaluasi
 
 - Hasil diskusi: `hasil_diskusi/diskusi_8.md` (K-1 s.d. K-6, R-1, R-2, R-5; audit read-only, tujuh aset, laporan di sesi).
-- Aturan skill: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md` (aturan 1–18, frontmatter, segmen trigger, section wajib).
+- Aturan skill: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` (aturan 1–18, frontmatter, segmen trigger, section wajib).
 - Format hasil diskusi: `.agents/rules/global/format_hasil_diskusi.md` (konteks status/penomoran `hasil_diskusi/`).
-- Skill terkait: `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`, `.agents/skills/custom/aturan-pembuatan-commands/SKILL.md`, `.agents/skills/custom/memori-check/SKILL.md`.
+- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`, `.agents/skills/non-code/aturan-pembuatan-commands/SKILL.md`, `.agents/skills/non-code/memori-check/SKILL.md`.
 - Riwayat commit: tidak ada commit yang secara langsung menyentuh folder skill `cek-kesehatan-sistem-kerja` sebelum pembuatan ini; isi disusun dari `hasil_diskusi/diskusi_8.md` yang disepakati pengguna (bukan dari working directory/staging/untracked).

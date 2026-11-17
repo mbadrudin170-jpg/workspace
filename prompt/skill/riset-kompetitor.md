@@ -1,5 +1,5 @@
 diperbarui : Mon Nov 16 2026 12:52 WIB
-file : [riset-kompetitor](../../.agents/skills/custom/riset-kompetitor/SKILL.md)
+file : [riset-kompetitor](../../.agents/skills/non-code/riset-kompetitor/SKILL.md)
 
 1. Tentukan aplikasi sasaran dan fitur intinya dari `README.md`, `AGENTS.md`, PRD, atau dokumen produk proyek; jangan menebak dari nama repositori.
 2. Katalog default `apk_kompetitor.md` (kolom: Nama Aplikasi, Ringkasan Singkat, Store, Link, Status Analisa); analisa lanjutan ditulis ke `refrensi_apk.md` (bagian A–G).
