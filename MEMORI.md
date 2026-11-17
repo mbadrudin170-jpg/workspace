@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-17 (sesi 15)
+Diperbarui: 2026-11-17 (sesi 18)
 
 ## Konteks Proyek
 
@@ -18,7 +18,8 @@ Diperbarui: 2026-11-17 (sesi 15)
 
 ## Status
 
-- Sesi terakhir: `memori/sesi/sesi_14.md` (catch-up, sesi 15) — pembuatan PRD fitur C3 "Tombol aksi utama menetap" (`prd/prd_c3_tombol_aksi_utama_menetap.md`, Final, Belum Diimplementasikan); `refrensi_apk.md` baris 1154 item C3 ditandai sudah dibuatkan PRD (commit `63d4050`); berkas PRD C3 masih staged (belum di-commit).
+- Sesi terakhir: `memori/sesi/sesi_16.md` (Sudah Sinkron) — implementasi PRD C3 "Tombol aksi utama menetap" untuk `base_coc`: fitur sudah terimplementasikan sepenuhnya dalam kode (tombol Copy Base di `bottomNavigationBar`/SafeArea bawah, `FilledButton.icon`, terhubung ke `ClipboardService`, umpan balik `tampilkanKonfirmasiSalin`, gambar base + metadata ringkas di area utama); verifikasi `dart format` (0 changed), `dart analyze` No issues, `flutter test` All tests passed; berkas PRD dihapus, referensi di `refrensi_apk.md` baris 1154 diperbarui ke "Sudah Diimplementasikan".
+- Sesi 15: `memori/sesi/sesi_15.md` (Sudah Sinkron; sinkronisasi MEMORI/riwayat dilengkapi sesi 17) — penyelarasan folder `prompt/` ke target: 3 command diperbarui (`memperbarui_file_di_folder_prompt`, `prd/kerjakan_prd`, `fitur/membuat_prd_fitur`), `prompt/rules/` dan `prompt/skill/` terverifikasi sesuai; berkas kosong `prompt/commands/analisa_hasil_audit_sesi.md` dihapus atas persetujuan pengguna (koreksi provenance, sesi 18).
 - Sesi 13: `memori/sesi/sesi_13.md` (Sudah Sinkron) — implementasi PRD A2 "Copy base link satu ketuk" untuk `base_coc`: fitur sudah terimplementasikan sepenuhnya (tombol Copy Base, validasi tautan, umpan balik SnackBar, opsi buka game); verifikasi `dart format`, `dart analyze` No issues, `flutter test` 147 lulus; berkas PRD dihapus, referensi di `refrensi_apk.md` dibersihkan.
 - Sesi 10: `memori/sesi/sesi_10.md` (Sudah Sinkron) — rename command `.kilo/commands/fitur/diskusi_fitur_baru.md` → `.kilo/commands/fitur/membuat_prd_fitur.md` (via `git mv`, judul H1 `# Membuat PRD Fitur`) beserta penyelarasan 5 rujukan di `.kilo/commands/alur_kerja.md`, `alur_kerja.md`, `.agents/skills/non-code/format-prd/SKILL.md`, dan `.agents/skills/code/konfigurasi-kilo-proyek/SKILL.md`; metadata `diperbarui` kedua skill dan indeks `kelompok_skill_wajib.md` diselaraskan.
 - Sesi 9: riset kompetitor batch 10 — 10 listing `Belum Dianalisa` pertama (Apple App Store, `apk_kompetitor.md` baris 95–104) diverifikasi via `webfetch`, dianalisa, dan ditandai `Sudah Dianalisa`; `refrensi_apk.md` ditambahkan batch 10 (sumber 81–90, rekomendasi A70–A80, optimasi B26–B27, UI/UX C34–C36, contoh format item A1, dan fitur `fitur_khusus.md` "desa malam" prioritas Tinggi); `memori/sesi/sesi_8.md` disinkronkan lewat catch-up (Sudah Sinkron).
@@ -33,6 +34,8 @@ Diperbarui: 2026-11-17 (sesi 15)
 - Sesi 10 (2026-11-17): rename command `.kilo/commands/fitur/diskusi_fitur_baru.md` → `.kilo/commands/fitur/membuat_prd_fitur.md`; konflik `.agents/rules/lainnya.md` butir 2–3 vs butir 4 (edit skill `code` vs mismatch rujukan) diselesaikan oleh pengguna: rujukan di skill `code` tetap diperbarui.
 - Sesi 10 — tunggakan terbuka: ±30 rujukan `.agents/skills/custom/...` masih usang (skill kini di `.agents/skills/code/` dan `.agents/skills/non-code/`), termasuk di dalam command `membuat_prd_fitur.md` baris 13, 30, 50; belum diperbaiki karena di luar cakupan sesi ini.
 - Sesi 13 (2026-11-17): implementasi PRD A2 "Copy base link satu ketuk" — fitur sudah lengkap di kode, tidak perlu implementasi baru; hanya verifikasi dan cleanup PRD.
+- Sesi 15 (2026-11-17): menyalin poin-poin folder `prompt/` ke target masing-masing — 3 command diperbarui (`.kilo/commands/memperbarui_file_di_folder_prompt.md`, `.kilo/commands/prd/kerjakan_prd.md`, `.kilo/commands/fitur/membuat_prd_fitur.md`): menambahkan instruksi baca `AGENTS.md` + `instructions` `.kilo/kilo.jsonc`, perbaikan path usang (`custom/format-prd` → `non-code/format-prd`), penambahan bagian "Skill Terkait"; `prompt/rules/AGENTS.md` sudah match; 12 berkas poin skill sudah match dengannya. Berkas bermasalah: `prompt/commands/analisa_hasil_audit_sesi.md` kosong (0 baris), tanpa target — **dihapus atas persetujuan pengguna** (koreksi provenance, sesi 18). Perubahan masih staged (belum di-commit).
+- Sesi 16 (2026-11-17): implementasi PRD C3 "Tombol aksi utama menetap" — fitur sudah lengkap di kode (tombol Copy Base di bottomNavigationBar), tidak perlu implementasi baru; hanya verifikasi dan cleanup PRD.
 - Perubahan aturan/skill disertai pembaruan `prompt/` dan indeks `.agents/rules/kelompok_skill_wajib.md` bila status pembaruan berubah.
 
 ## Sumber Kebenaran Lain

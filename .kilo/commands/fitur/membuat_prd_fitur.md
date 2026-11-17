@@ -10,9 +10,11 @@ Membuatkan PRD untuk satu item fitur yang belum memiliki PRD, lalu berdiskusi de
 
 ## Ketentuan Umum
 
-1. Baca `AGENTS.md` dan `.agents/skills/non-code/format-prd/SKILL.md`; patuhi keduanya.
-2. Gunakan bahasa Indonesia baku.
-3. Command ini hanya menghasilkan/memperbarui dokumen PRD; tidak mengubah kode.
+1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya.
+2. Baca `instructions` pada `.kilo/kilo.jsonc` dan patuhi aturan yang terdaftar.
+3. Baca `.agents/skills/non-code/format-prd/SKILL.md`; patuhi keduanya.
+4. Gunakan bahasa Indonesia baku.
+5. Command ini hanya menghasilkan/memperbarui dokumen PRD; tidak mengubah kode.
 
 ## Cakupan
 
@@ -47,5 +49,10 @@ Membuatkan PRD untuk satu item fitur yang belum memiliki PRD, lalu berdiskusi de
 
 ## Kriteria Selesai / STOP
 
-- Selesai bila PRD tersusun sesuai `.agents/skills/custom/format-prd/SKILL.md` dan pengguna menyatakan final.
+- Selesai bila PRD tersusun sesuai `.agents/skills/non-code/format-prd/SKILL.md` dan pengguna menyatakan final.
 - STOP bila item tidak ditemukan, seluruh item bertumpang tindih, atau informasi fitur tidak cukup.
+
+# Skill Terkait
+
+- format-prd
+- memori-check
