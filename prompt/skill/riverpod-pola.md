@@ -18,3 +18,4 @@ file : [riverpod-pola](../../.agents/skills/custom/riverpod-pola/SKILL.md)
 15. Provider CRUD wajib di folder `notifier/` dan namanya wajib mengandung `Notifier` (mis. `BiodataNotifier`); provider read-only wajib di folder `provider/` tanpa akhiran manual (mis. `biodata`).
 16. Setiap fungsi `Future` wajib dibungkus `try-catch`; setiap operasi database wajib selesai lebih dahulu, baru memperbarui state.
 17. Mutasi state di luar Notifier dilarang; state hanya diubah oleh Notifier.
+18. dilarang menggunakan asData
