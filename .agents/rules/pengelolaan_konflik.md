@@ -1,3 +1,5 @@
-1. jika terdapat konflik baik baik itu dari aturan, commands dan skill, wajib stop dan laporan ke pengguna.
-2. jika terdapat ketidak jelasan baik itu dari file aturan, commands dan skill wajib stop dan lapor ke pengguna.
-3. setiap laporan wajib menyertakan alasannya, serta path file file nya susun perkategori.
+1. Bila terdapat konflik, baik dari aturan, commands, maupun skill, wajib stop dan lapor ke pengguna.
+
+2. Bila terdapat ketidakjelasan pada berkas aturan, commands, maupun skill, wajib stop dan lapor ke pengguna.
+
+3. Setiap laporan wajib menyertakan alasan dan path berkas yang terlibat, disusun per kategori.

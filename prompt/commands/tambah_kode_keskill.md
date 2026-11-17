@@ -1,4 +1,4 @@
-diperbarui : Wed Nov 18 2026 01:16 WIB
+diperbarui : Wed Nov 18 2026 02:18 WIB
 ditimpa ke : `.kilo/commands/tambah_kode_keskill.md`
 
 1. `$ARGUMENTS`: potongan kode yang diberikan pengguna; jika kosong, tanyakan kode yang dimaksud.
@@ -11,7 +11,7 @@ ditimpa ke : `.kilo/commands/tambah_kode_keskill.md`
 
 5. Jika tidak ditemukan skill yang relevan: tanyakan kepada pengguna apakah perlu membuat skill baru; tanpa persetujuan, berhenti dan jangan mengubah apa pun.
 
-6. Perubahan/pembuatan skill wajib mengikuti `aturan-pembuatan-skill` (nama folder = `name`, frontmatter `name` + `description`, bahasa Indonesia, berkas poin `prompt/skill/<nama>.md`) dan memperbarui `.agents/rules/kelompok_skill_wajib.md` bila ada skill baru atau skill yang berubah.
+6. Perubahan/pembuatan skill wajib mengikuti `aturan-pembuatan-skill` (nama folder = `name`, frontmatter `name` + `description`, bahasa Indonesia, berkas poin `prompt/skill/<nama>.md` (kecuali skill di `.agents/skills/code/`)) dan memperbarui `.agents/rules/kelompok_skill_wajib.md` bila ada skill baru atau skill yang berubah.
 
 7. Skill di `.agents/skills/code/` hanya boleh diubah dari riwayat commit (aturan `.agents/rules/lainnya.md`); jangan mengedit skill `code/` di luar alur tersebut.
 

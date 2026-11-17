@@ -27,7 +27,7 @@ Membuatkan PRD untuk satu item fitur yang belum memiliki PRD, lalu berdiskusi de
 
 ## Alur Kerja
 
-1. **Analyze** — ambil satu item dari `refrensi_apk.md`; periksa apakah fitur sudah diimplementasikan dan catat hasilnya sesuai aturan 19–20 (status implementasi tetap `Belum Diimplementasikan`).
+1. **Analyze** — ambil satu item dari `refrensi_apk.md`; periksa apakah fitur sudah diimplementasikan dan catat hasilnya (status implementasi tetap `Belum Diimplementasikan`).
 2. **Plan** — identifikasi `file terdampak`; jika bertumpang tindih dengan PRD lain, pilih item lain. Periksa tautan APK referensi untuk gambaran fitur.
 3. **Execute** — susun PRD sesuai `.agents/skills/non-code/format-prd/SKILL.md`, sertakan path dan baris `refrensi_apk.md`, serta contoh potongan kode singkat. Tandai item pada `refrensi_apk.md` sebagai sudah dibuatkan PRD.
 4. **Review** — perbarui PRD sambil berdiskusi; gunakan tool `question` sampai pengguna menyatakan PRD final.
