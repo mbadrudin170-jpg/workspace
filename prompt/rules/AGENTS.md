@@ -12,3 +12,4 @@ ditimpa ke : `AGENTS.md` (root)
    - baca seluruh berkas di `.agents/rules/global/` (tool Read)
    - buat berkas sesi `memori/sesi/sesi_N.md` (N = tertinggi + 1)
    - muat skill `memori-check` (tool `skill`)
+8. Tulis jawaban final satu kali. Setelah itu berhenti. Dilarang mengulang kata penutup.
