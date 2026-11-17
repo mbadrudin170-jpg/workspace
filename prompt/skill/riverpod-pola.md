@@ -1,4 +1,4 @@
-diperbarui : Tue Nov 17 2026 17:28 WIB
+diperbarui : Tue Nov 17 2026 18:18 WIB
 file : [riverpod-pola](../../.agents/skills/custom/riverpod-pola/SKILL.md)
 
 1. Notifier database (CRUD): gunakan `@Riverpod(keepAlive: true)`; `build()` memanggil `_ambilSemua()`; update state setelah DB berhasil; `catch Exception` lalu `rethrow`.
@@ -32,17 +32,37 @@ file : [riverpod-pola](../../.agents/skills/custom/riverpod-pola/SKILL.md)
    ```
 5. Gunakan `ConsumerWidget`/`ConsumerStatefulWidget` untuk akses `ref`; `Consumer` granular untuk optimasi; jangan bungkus seluruh halaman besar.
 6. Family provider (`.family`) hanya untuk parameter immutable dan comparable; key stabil untuk caching; family parameter mutable dilarang.
-   Contoh:
-   ```dart
-   // Benar: parameter immutable & comparable (key stabil)
-   @riverpod
-   Future<User> user(Ref ref, int id) => fetchUser(id);
-   final u = ref.watch(userProvider(42));
+    Contoh:
+    ```dart
+    // Benar: parameter immutable & comparable (key stabil)
+    @riverpod
+    Future<User> user(Ref ref, int id) => fetchUser(id);
+    final u = ref.watch(userProvider(42));
 
-   // Salah: parameter mutable (identitas/== tidak stabil untuk cache)
-   final ids = <int>[1, 2, 3];
-   ref.watch(itemsProvider(ids)); // DILARANG: argumen mutable
-   ```
+    // Salah: parameter mutable (identitas/== tidak stabil untuk cache)
+    final ids = <int>[1, 2, 3];
+    ref.watch(itemsProvider(ids)); // DILARANG: argumen mutable
+
+    // --- Tambahan: Family Notifier (class-based) ---
+    // Benar: family notifier dengan parameter immutable
+    @Riverpod(keepAlive: true)
+    class DetailTransaksiNotifier extends _$DetailTransaksiNotifier {
+      @override
+      Future<List<Transaksi>> build(int impianId) async {
+        return _repository.ambilByImpian(impianId);
+      }
+
+      Future<void> tambah(Transaksi t) async {
+        try {
+          await _repository.tambah(t);
+          state = AsyncValue.data([...state.requireValue, t]);
+        } catch (e) {
+          state = AsyncValue.error(e, StackTrace.current);
+        }
+      }
+    }
+    // Pakai: ref.watch(detailTransaksiNotifierProvider(impianId))
+    ```
 7. `autoDispose` untuk provider sementara (form, filter, pencarian) yang hanya dibutuhkan saat layar aktif.
 8. `ProviderScope` wajib di root widget tree (`main.dart`/`app.dart`); `overrides` hanya untuk scope itu dan keturunannya; `ProviderScope` nested dilarang.
 9. Provider overrides untuk testing via `ProviderScope(overrides: [...])` dengan `overrideWithValue`/`overrideWithProvider`.
@@ -63,6 +83,14 @@ file : [riverpod-pola](../../.agents/skills/custom/riverpod-pola/SKILL.md)
     final nama = ref.watch(userProvider.select((s) => s.nama));
     ```
 11. Di dalam `build()`, `AsyncValue` wajib ditangani `isLoading` → `hasError` → `requireValue`. `asData?.value`/`valueOrNull` hanya untuk akses opsional (bukan konten utama) dengan penanganan kegagalan eksplisit; dilarang untuk konten utama atau menelan error secara senyap (rujuk `penanganan-async-data-kosong`).
+    Contoh:
+    ```dart
+    final async = ref.watch(provider);
+    if (async.isLoading) return const LoadingView();
+    if (async.hasError) return ErrorView(error: async.error);
+    final data = async.requireValue;
+    return DataView(data: data);
+    ```
 12. Dilarang mengoper `WidgetRef` ke widget anak via konstruktor/field `State`; widget anak yang butuh `ref` wajib `Consumer(Stateful)Widget`.
     Contoh:
     ```dart
@@ -143,13 +171,12 @@ file : [riverpod-pola](../../.agents/skills/custom/riverpod-pola/SKILL.md)
     }
     ```
 17. Mutasi state di luar Notifier dilarang; state hanya diubah oleh Notifier.
-
-Contoh (AsyncValue di `build()`):
-
-```dart
-final async = ref.watch(provider);
-if (async.isLoading) return const LoadingView();
-if (async.hasError) return ErrorView(error: async.error);
-final data = async.requireValue;
-return DataView(data: data);
-```
+18. Di dalam provider/notifier, untuk me-*watch* provider yang bertipe `Future`, gunakan `await ref.watch(provider.future)`.
+    Contoh:
+    ```dart
+    @riverpod
+    Future<Profil> profil(Ref ref) async {
+      final user = await ref.watch(userProvider.future); // tunggu Future selesai
+      return Profil.fromUser(user);
+    }
+    ```
