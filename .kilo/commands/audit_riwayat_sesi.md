@@ -4,7 +4,7 @@ description: Audit inkremental riwayat sesi ke audit/riwayat_sesi.md (read-only,
 
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya.
 2. Baca `instructions` pada `.kilo/kilo.jsonc` dan patuhi aturan yang terdaftar.
-3. Baca `AGENTS.md` dan `MEMORI.md`; muat skill `audit-riwayat-sesi` dan `memori-check` sebelum bekerja.
+3. Baca `MEMORI.md`; muat skill `audit-riwayat-sesi` dan `memori-check` sebelum bekerja.
 4. Audit bersifat read-only; satu-satunya berkas yang boleh ditulis: `audit/riwayat_sesi.md` (append section baru).
 5. Inkremental: baca ledger `audit/riwayat_sesi.md`; proses hanya berkas baru/berubah (mtime + jumlah baris); dilewati penuh jika cocok dengan ledger.
 6. Ekstraksi sinyal via `grep` (`ambigu`, `tabrakan`, `tidak disentuh`, `dilaporkan`, `Belum Sinkron`, `belum di-commit`, `melanggar`, `menunggu keputusan`); verifikasi manual tiap temuan.
