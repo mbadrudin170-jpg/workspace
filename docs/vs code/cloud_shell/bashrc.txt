@@ -121,7 +121,7 @@ source /google/devshell/bashrc.google
 # DEFAULT WORKSPACE
 # ==========================================
 
-WORKSPACE="$HOME/workspace/base_coc"
+WORKSPACE="$HOME/workspace/admin_wifi"
 
 if [ -d "$WORKSPACE" ]; then
     cd "$WORKSPACE"
