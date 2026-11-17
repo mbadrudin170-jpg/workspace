@@ -740,6 +740,7 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 - **Referensi:** [Base Drop](https://play.google.com/store/apps/details?id=com.cocbasedrop), [ClasherPro - Base Layout Map](https://play.google.com/store/apps/details?id=qtstudio.clashofclans.mapsmaster)
 - **Saran:** tampilkan `SnackBar` atau dialog singkat berisi status salin, tombol "Buka Clash of Clans", dan petunjuk satu langkah.
 - **Prioritas:** Tinggi.
+- **Status PRD:** Sudah dibuatkan PRD (`prd/prd_umpan_balik_setelah_menyalin.md`; status Final, 2026-11-17, sesi 20).
 
 ### Prioritas Sedang
 
@@ -1152,7 +1153,7 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 | --- | --- | --- | --- |
 | 2 | A2 Copy base link satu ketuk | Fitur | Inti nilai aplikasi dan alasan utama pengguna memasang aplikasi sejenis. | Status: Sudah Diimplementasikan. |
 | 3 | C3 Tombol aksi utama menetap | UI/UX | Menjamin fitur inti dapat diselesaikan tanpa hambatan navigasi. | Status: Sudah Diimplementasikan. |
-| 4 | C6 Umpan balik setelah menyalin | UI/UX | Mengurangi persepsi gagal copy yang dikeluhkan pada kompetitor. |
+| 4 | C6 Umpan balik setelah menyalin | UI/UX | Mengurangi persepsi gagal copy yang dikeluhkan pada kompetitor. | Status: PRD Final (sesi 20). |
 | 5 | A3 Preview HD dan zoom | Fitur | Meningkatkan keyakinan sebelum menyalin layout. |
 | 6 | A4 Katalog lokal/offline-first | Fitur | Menjaga aplikasi tetap berguna dan menunda kebutuhan backend. |
 | 7 | C2 Grid thumbnail dengan badge | UI/UX | Mempercepat pemindaian koleksi base. |
@@ -1196,7 +1197,7 @@ Kondisi aktual proyek: **belum ada fitur inti** (hanya halaman counter bawaan). 
 | 45 | A11 Base lucu/progress | Fitur | Variasi konten pelengkap. |
 | 46 | C1 Beranda berbasis kartu kategori | UI/UX | Orientasi cepat. |
 | 47 | C3 Tombol aksi utama menetap | UI/UX | Menjamin fitur inti tanpa hambatan. |
-| 48 | C6 Umpan balik setelah menyalin | UI/UX | Mengurangi persepsi gagal copy. |
+| 48 | C6 Umpan balik setelah menyalin | UI/UX | Mengurangi persepsi gagal copy. | Status: PRD Final (sesi 20). |
 | 49 | C7 Navigasi bawah | UI/UX | Struktur navigasi jangka menengah. |
 | 50 | C8 Mode gelap/terang | UI/UX | Kenyamanan membaca. |
 | 51 | C9 Iklan minimal | UI/UX | Menjaga kualitas pengalaman. |

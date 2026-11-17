@@ -15,3 +15,4 @@ file : [memori-check](../../.agents/skills/non-code/memori-check/SKILL.md)
 12. Penandaan `Sudah Sinkron` hanya boleh dilakukan oleh sesi pembuat berkas tersebut; sesi lain dilarang mengubah berkas sesi milik sesi lain.
 13. Pengecualian pengguna: entri `memori/riwayat_perubahan.md` tidak ditambahkan (preferensi pengguna); nyatakan eksplisit pada sesi yang bersangkutan.
 14. Selama satu percakapan/task belum ditutup, gunakan berkas sesi aktif yang sama; jangan buat berkas sesi baru untuk pesan/tindakan kecil.
+15. sebelum menyinkronkan sesi ke memori wajib cek dulu sesi yang masih berjalan agar sesi yang masih berjalan jangan dulu di sinkronkan.
