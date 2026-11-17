@@ -19,10 +19,22 @@
 
 - Skill relevan yang dimuat atas permintaan pengguna (sesi ini, 2026-11-18 01:52 WIB): `aturan-pembuatan-rules`, `aturan-pembuatan-skill`, `aturan-folder-prompt` (selain `memori-check` & `penggunaan-tool-question` yang sudah dimuat). Berkas aktif: `prompt/skill/aturan-pembuatan-rules.md`.
 
+- Keputusan pengguna: wujud kewajiban → "Aturan baru di `.agents/rules/` (Recommended)"; draf "Setuju, buat semua (Recommended)".
+- Dibuat: `.agents/rules/overlay_log_debug.md` (aturan ringkas: proyek Flutter yang bergantung pada `share_global_saya` wajib membungkus root app dengan `PengelolaOverlayLogDebug` + `L.init(container)`; detail → skill); `.agents/skills/code/overlay-log-debug/SKILL.md` (skill code/ baru, v1.0.0; atas perintah eksplisit pengguna — `aturan-pembuatan-skill` Aturan 15(b)); `.agents/rules/kelompok_skill_wajib.md` (indeks #52 overlay-log-debug, diperbarui 02:05 WIB; berkas sudah memuat perubahan paralel pengguna 01:50 WIB — tidak disentuh).
+- `prompt/skill/overlay-log-debug.md` (poin) dibuat lalu **DIHAPUS atas persetujuan eksplisit pengguna** ("Hapus berkas poin") — menyimpang dari `aturan-pembuatan-skill` Aturan 13 (wajib poin padanan untuk setiap skill); dicatat sebagai perkecualian yang diperintahkan pengguna.
+- **Insiden prettier**: perintah command langkah 9 (`formatmd`) menghasilkan `npx prettier --write "**/*.md"` yang oleh pengguna **di-abort di tengah jalan**; 19 berkas di luar cakupan tugas ikut berubah karena run tersebut (format_hasil_diskusi.md; 9 SKILL.md code/ — ekspor-pemulihan-cadangan, gaya, keamanan-aplikasi, konfigurasi-kilo-proyek, model-state-freezed-abstract, penamaan-konvensi, penjadwalan-frame-dan-pemantauan-performa-flutter, pola-testing, struktur-folder-lib; 6 SKILL.md non-code/ — audit-riwayat-sesi, format-prd, format-task-md, membuat-readme-yang-baik, memori-check, riset-kompetitor; .kilo/commands/alur_kerja.md, analisa/analisa_kesehatan_kode.md, analisa/analisa_kesehatan_kode_alur.md). Perubahan tersebut TIDAK dikembalikan (pertanyaan revert di-dismiss pengguna; tidak ada konfirmasi). Berkas hasil buatan sesi ini semuanya "unchanged" oleh prettier kecuali tidak diproses.
+- Perubahan paralel pengguna 01:50 WIB yang TIDAK disentuh sesi ini: `.agents/skills/non-code/aturan-pembuatan-rules/SKILL.md` (v1.2.0), `prompt/skill/aturan-pembuatan-rules.md`, `.agents/rules/kelompok_skill_wajib.md` (baris aturan-pembuatan-rules 01:50 WIB).
+- Tidak ada kode Dart diubah.
+
 ## Berkas Terdampak
 
 | Lokasi File | Status Perubahan | Deskripsi |
 |-------------|------------------|-----------|
+| `.agents/rules/overlay_log_debug.md` | Dibuat | Aturan baru: proyek Flutter yang bergantung pada `share_global_saya` wajib membungkus root app dengan `PengelolaOverlayLogDebug` + `L.init(container)` |
+| `.agents/skills/code/overlay-log-debug/SKILL.md` | Dibuat | Skill code/ baru v1.0.0 (pola pemasangan overlay log debug); indeks diperbarui |
+| `prompt/skill/overlay-log-debug.md` | Dibuat lalu dihapus | Dihapus atas persetujuan eksplisit pengguna; menyimpang dari `aturan-pembuatan-skill` Aturan 13 (dicatat) |
+| `.agents/rules/kelompok_skill_wajib.md` | Diubah | Indeks code/ #52 `overlay-log-debug` (mengandung juga perubahan paralel pengguna) |
+| 19 berkas (lihat catatan "Insiden prettier") | Diubah (di luar cakupan) | Reformat prettier dari run `npx prettier --write "**/*.md"` yang di-abort pengguna; belum dikembalikan |
 | `memori/sesi/sesi_22.md` | Dibuat/Diubah | Berkas sesi aktif (Belum Sinkron) |
 | `memori/sesi/sesi_21.md` | Diubah (catch-up) | Sinkronisasi diisi; status → Sudah Sinkron (atas keputusan pengguna) |
 | `MEMORI.md` | Diubah (catch-up sesi_21) | Header tanggal, Status sesi terakhir, Catatan Teknis sesi 21 |
