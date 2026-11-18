@@ -1,10 +1,10 @@
 ---
 name: riverpod-pola
-description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD dengan `@Riverpod(keepAlive: true)`, notifier sinkron codegen + `@freezed`, `ref.watch` di build / `ref.read` di callback, `Consumer(Stateful)Widget`, family immutable, `autoDispose`, `ProviderScope` di root, `select` untuk rebuild minimal, penanganan `AsyncValue`, folder `notifier/` vs `provider/`, try-catch pada `Future`, dan `await ref.watch(provider.future)` untuk provider Future)."
+description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD dengan `@Riverpod(keepAlive: true)`, notifier sinkron codegen + `@freezed`, `ref.watch` di build / `ref.read` di callback, `Consumer(Stateful)Widget`, family immutable, `autoDispose`, `ProviderScope` di root, `select` untuk rebuild minimal, penanganan `AsyncValue`, folder `notifier/` vs `provider/`, try-catch pada `Future`, `await ref.watch(provider.future)` untuk provider Future, reload `AsyncValue.guard` via method `muatUlang()`, dan penamaan provider codegen tanpa akhiran `Notifier`)."
 metadata:
   kategori: "custom"
-  versi: "1.3.0"
-  diperbarui: "Tue Nov 17 2026 11:52 WIB"
+  versi: "1.4.0"
+  diperbarui: "Wed Nov 18 2026 09:58 WIB"
 ---
 
 1. Notifier database (CRUD): gunakan `@Riverpod(keepAlive: true)`; `build()` memanggil `_ambilSemua()`; update state setelah DB berhasil; `catch Exception` lalu `rethrow`.
@@ -198,3 +198,51 @@ metadata:
       return Profil.fromUser(user);
     }
     ```
+19. Method reload (mis. `muatUlang()`) pada notifier wajib: `state = const AsyncValue.loading();` lalu `state = await AsyncValue.guard(_ambilSemua);` — jangan gunakan `setState`, jangan duplikasi panggilan data tanpa `AsyncValue.guard`.
+    Contoh:
+    ```dart
+    Future<void> muatUlang() async {
+      state = const AsyncValue.loading();
+      state = await AsyncValue.guard(_ambilSemua);
+    }
+    ```
+20. Nama provider hasil codegen = nama class tanpa akhiran `Notifier` dalam camelCase (mis. `PenggunaAktifNotifier` → `penggunaAktifProvider`); jangan membuat provider manual yang menduplikasi provider codegen.
+
+## Contoh Benar (lengkap)
+
+Notifier codegen dengan state Freezed dan method reload (proyek `admin_wifi`, commit `f9568a1`):
+
+```dart
+@Riverpod(keepAlive: true)
+class PenggunaAktifNotifier extends _$PenggunaAktifNotifier {
+  final PelangganAktifOperasi _operasi = PelangganAktifOperasi();
+
+  @override
+  Future<PelangganAktifState> build() async {
+    Log.info('Memuat daftar pelanggan aktif dari database');
+    return _ambilSemua();
+  }
+
+  Future<void> muatUlang() async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(_ambilSemua);
+  }
+
+  Future<PelangganAktifState> _ambilSemua() async {
+    final daftar = await _operasi.ambilSemuaPelangganAktif();
+    return PelangganAktifState(
+      listPelangganAktif: daftar,
+      jumlahPelangganAktif: daftar.length,
+    );
+  }
+}
+// Akses dari UI: `ref.watch(penggunaAktifProvider)`; reload lewat
+// `ref.read(penggunaAktifProvider.notifier).muatUlang();`.
+```
+
+## Sumber Evaluasi
+
+- File: `admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart` (proyek `admin_wifi`, sesi 35)
+- File state: `admin_wifi/lib/fitur/state/pelanggan_aktif_state.dart`
+- Commit rujukan: `f9568a11173bab474012db81f7c6d066e80f15c5` — Notifier codegen + `PelangganAktifState` (proyek `admin_wifi`)
+- Aturan terkait: `.agents/rules/code.md` (reload `AsyncValue.guard` & codegen provider; lazy IndexedStack)

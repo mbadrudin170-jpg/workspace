@@ -100,7 +100,7 @@
 20. .agents/skills/code/model-state-freezed-abstract/SKILL.md
 
 - Trigger : saat membuat model atau state Freezed
-- Status : diperbarui : Tue Nov 17 2026 11:52 WIB
+- Status : diperbarui : Wed Nov 18 2026 09:58 WIB
 
 21. .agents/skills/code/navigator-routing/SKILL.md
 
@@ -165,7 +165,7 @@
 33. .agents/skills/code/performa-aplikasi/SKILL.md
 
 - Trigger : saat mengoptimasi performa aplikasi (termasuk lazy IndexedStack tab BottomNavigationBar)
-- Status : diperbarui : Wed Nov 18 2026 09:23 WIB
+- Status : diperbarui : Wed Nov 18 2026 09:58 WIB
 
 34. .agents/skills/code/platform-dispatcher-locale/SKILL.md
 
@@ -189,8 +189,8 @@
 
 38. .agents/skills/code/riverpod-pola/SKILL.md
 
-- Trigger : saat memakai Riverpod
-- Status : diperbarui : Tue Nov 17 2026 11:52 WIB
+- Trigger : saat memakai Riverpod (termasuk reload AsyncValue.guard via muatUlang dan penamaan provider codegen)
+- Status : diperbarui : Wed Nov 18 2026 09:58 WIB
 
 39. .agents/skills/code/scaffold-struktur-layar/SKILL.md
 

@@ -3,8 +3,8 @@ name: model-state-freezed-abstract
 description: "Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '*.freezed.dart' + '*.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan untuk String/koleksi), pengosongan field nullable via `copyWith(field: null)` sentinel codegen (tanpa bendera `clearField` manual), integrasi notifier Riverpod, serta model database (fromSqflite/toSqflite, ParserUtil, konversi UTC). Termasuk larangan mengedit berkas hasil generate."
 metadata:
   kategori: "custom"
-  versi: "2.2.0"
-  diperbarui: "Tue Nov 17 2026 11:52 WIB"
+  versi: "2.3.0"
+  diperbarui: "Wed Nov 18 2026 09:58 WIB"
 ---
 
 # Membuat Model dan State dengan Freezed
@@ -117,6 +117,20 @@ abstract class FilterState with _$FilterState {
 state = state.copyWith(townHall: null);
 // Menghapus seluruh tag: assign koleksi kosong, bukan bendera manual.
 state = state.copyWith(tags: const <TagStrategi>{});
+```
+
+State Freezed dua field — list + counter sederhana (pola dari proyek `admin_wifi`, commit `f9568a1`):
+
+```dart
+@freezed
+abstract class PelangganAktifState with _$PelangganAktifState {
+  const PelangganAktifState._();
+
+  const factory PelangganAktifState({
+    @Default([]) List<PelangganAktifModel> listPelangganAktif,
+    @Default(0) int jumlahPelangganAktif,
+  }) = _PelangganAktifState;
+}
 ```
 
 Model Freezed dengan serialisasi JSON (pola SDK resmi package:freezed):
@@ -265,10 +279,11 @@ class DiaryCravingModel with _$DiaryCravingModel { ... } // salah: class biasa, 
 ## Sumber Evaluasi
 
 - File state (commit): `share_global_saya/lib/log_debug/log_debug_notifier.dart`, `share_global_saya/lib/log_debug/log_debug_notifier.freezed.dart`, `share_global_saya/lib/log_debug/log_debug_notifier.g.dart`
+- File state (sesi 35, commit `f9568a1`): `admin_wifi/lib/fitur/state/pelanggan_aktif_state.dart`, `admin_wifi/lib/fitur/state/pelanggan_aktif_state.freezed.dart`, `admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart` (pola notifier codegen + state Freezed)
 - File model DB (commit): `lib/fitur/diary_craving/model/diary_craving_model.dart`, `lib/fitur/diary_craving/state/diary_craving_state.dart`, `lib/fitur/sos_craving/model/sos_intervensi_model.dart`, `lib/fitur/rencana_darurat/model/rencana_darurat_model.dart` (proyek `berhenti_merokok`)
 - File model JSON (SDK resmi package:freezed): contoh `produk.freezed.dart` / `produk.g.dart` (dokumentasi resmi Freezed, bukan dari commit repo)
-- Kelas terkait: `LogDebugState`, `_LogDebugState`, `_$LogDebugState`, `LogDebugNotifier`, `_$LogDebugNotifier`, `DiaryCravingModel`, `SosIntervensiModel`, `RencanaDaruratModel`
+- Kelas terkait: `LogDebugState`, `_LogDebugState`, `_$LogDebugState`, `LogDebugNotifier`, `_$LogDebugNotifier`, `DiaryCravingModel`, `SosIntervensiModel`, `RencanaDaruratModel`, `PelangganAktifState`
 - Dependensi (commit): `share_global_saya/pubspec.yaml` (`freezed_annotation ^3.1.0`, `freezed ^4.0.2`, `build_runner ^2.16.2`, `riverpod_generator ^4.0.9`)
-- Commit rujukan (state): `b70ffda33ce6473e6309af8acd0c64b48c2d0404`, `acf4bb6dddc17ca633d551b2e9f5f62f39020d78`, `804b307506389b678f09e7c2cb7bfb8f2aa94112`, `cacca30b128aadb43e839d31eb1e944a10101b61` (konversi `FilterState` ke `@freezed`; penghapusan bendera manual `clearTownHall`/`clearTipe`/`clearTags`; pengosongan field nullable via `copyWith(field: null)`), `c0ed41e4ff2bd8a1e4cc169630b9301f15f9e17c` (`ProgresDesaState` `@freezed`; `@Default(<AkunDesa>[])`)
+- Commit rujukan (state): `b70ffda33ce6473e6309af8acd0c64b48c2d0404`, `acf4bb6dddc17ca633d551b2e9f5f62f39020d78`, `804b307506389b678f09e7c2cb7bfb8f2aa94112`, `cacca30b128aadb43e839d31eb1e944a10101b61` (konversi `FilterState` ke `@freezed`; penghapusan bendera manual `clearTownHall`/`clearTipe`/`clearTags`; pengosongan field nullable via `copyWith(field: null)`), `c0ed41e4ff2bd8a1e4cc169630b9301f15f9e17c` (`ProgresDesaState` `@freezed`; `@Default(<AkunDesa>[])`), `f9568a11173bab474012db81f7c6d066e80f15c5` (`PelangganAktifState`, proyek `admin_wifi`)
 - File filter (commit `cacca30`): `base_coc/lib/fitur/galeri_base/model/filter_state.dart`, `base_coc/lib/fitur/galeri_base/provider/filter_provider.dart`
 - Commit rujukan (model DB): `3b67d3095dacc4e5c7ea78d7eb251809e3e9d981`, `a15acd9603fe5d1251afa4acc3817e7e9c1607b1`, `a5beae01b86a4d9753963380818bc437c2b4741a`, `2462af81050e12b2933717f457a33a5b05d3719f`, `52654906d276c2bab6110fe01dea9452a11773b5` (`StatistikDao` dengan `fromSqflite`/`toSqflite`, `ParserUtil`, konstanta `NamaKolomStatistik`; `FilterState` dengan `SortirMode` dan `@Default`), `45ae356d29dd0bbed8b52567eff5615dc379ddec` (`TautanStatus.toSqflite()`)

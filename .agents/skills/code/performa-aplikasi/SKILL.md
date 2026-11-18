@@ -3,8 +3,8 @@ name: performa-aplikasi
 description: "Trigger: saat mengoptimasi performa aplikasi | Aturan performa Flutter: rebuild minimal, const constructor, builder list (lazy), lazy IndexedStack tab BottomNavigationBar, image caching, async gap yielding, memory leak, query DB optimization, profiling."
 metadata:
   kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Wed Nov 18 2026 09:23 WIB"
+  versi: "1.1.1"
+  diperbarui: "Wed Nov 18 2026 09:58 WIB"
 ---
 
 # Aturan Performa Aplikasi
@@ -188,6 +188,6 @@ body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
 
 ## Sumber Evaluasi
 
-- File: `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/impian/screens/impian_screen.dart`, `admin_wifi/lib/home.dart` (lazy keep-alive IndexedStack pada BottomNavigationBar — sesi 35, belum di-commit saat ditulis)
+- File: `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/impian/screens/impian_screen.dart`, `admin_wifi/lib/home.dart` (lazy keep-alive IndexedStack pada BottomNavigationBar — sesi 35; ter-commit di `f9568a1`)
 - Class terkait: `ListView`, `GridView`, `Image`, `CachedNetworkImage`, `Timer`, `StreamSubscription`, `IndexedStack`, `SizedBox`
-- Commit rujukan: `3b67d309` — Timer isolation, select optimization; `e659574` — Dashboard multiple provider select; `02aa6b29` — Lazy IndexedStack di Home
+- Commit rujukan: `3b67d309` — Timer isolation, select optimization; `e659574` — Dashboard multiple provider select; `02aa6b29` — Lazy IndexedStack di Home; `f9568a11173bab474012db81f7c6d066e80f15c5` — Lazy keep-alive IndexedStack `lib/home.dart` (proyek `admin_wifi`)
