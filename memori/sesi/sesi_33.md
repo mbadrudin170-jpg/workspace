@@ -1,6 +1,6 @@
 # Sesi 33
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-18 (Asia/Jakarta)
 - Command: interaksi langsung (tanpa command)
 - Topik: konversi `PelangganAktifModel` ke Freezed (submodule `admin_wifi`)
@@ -30,24 +30,24 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| `memori/sesi/sesi_33.md` | Dibuat | Berkas sesi aktif |
-| `memori/sesi/sesi_32.md` | Diubah | `## Sinkronisasi ke MEMORI.md` diisi; status → Sudah Sinkron (catch-up sesi 33) |
-| `MEMORI.md` | Diubah | Header `(sesi 33; catch-up sesi 32)`; entri Catatan Teknis sesi 32 |
-| `memori/riwayat_perubahan.md` | Diubah | Entri catch-up sesi_32 ditambahkan |
-| `admin_wifi/lib/fitur/pelanggan_aktif/model/pelanggan_aktif_model.dart` | Diubah | Konversi ke Freezed (`@freezed`, `@Default(false)` isDeleted, method manual dipertahankan, `copyWith` manual dihapus); `id` kemudian dijadikan **required** atas permintaan pengguna; perubahan `required` masih unstaged di atas staged rename |
-| `admin_wifi/lib/fitur/pelanggan_aktif/model/pelanggan_aktif_model.freezed.dart` | Dibuat | Berkas hasil generate `build_runner` (untracked) |
-| `admin_wifi/test/data/operasi/pelanggan_aktif_operasi_test.dart` | Diubah | `buatModel` meneruskan `id: ''` (koreksi `id` required); 2-line impor oleh pelaku restrukturisasi tetap ter-stage |
-| `admin_wifi/test/data/operasi/pelanggan_aktif_operasi_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
-| `admin_wifi/test/data/operasi/versi_apk_user_operasi_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
-| `admin_wifi/test/data/sync/unggah_data_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
-| `admin_wifi/test/halaman/form/form_paket_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
-| `admin_wifi/test/halaman/form/form_pelanggan_aktif_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged; beda staged/unstaged) |
-| `admin_wifi/test/halaman/form/form_versi_apk_user_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
-| `admin_wifi/test/halaman/lainnya/versi_apk_user_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
-| `admin_wifi/test/halaman/tab/transaksi_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
+| Lokasi File                                                                     | Status Perubahan | Deskripsi                                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_33.md`                                                        | Dibuat           | Berkas sesi aktif                                                                                                                                                                                                                               |
+| `memori/sesi/sesi_32.md`                                                        | Diubah           | `## Sinkronisasi ke MEMORI.md` diisi; status → Sudah Sinkron (catch-up sesi 33)                                                                                                                                                                 |
+| `MEMORI.md`                                                                     | Diubah           | Header `(sesi 33; catch-up sesi 32)`; entri Catatan Teknis sesi 32                                                                                                                                                                              |
+| `memori/riwayat_perubahan.md`                                                   | Diubah           | Entri catch-up sesi_32 ditambahkan                                                                                                                                                                                                              |
+| `admin_wifi/lib/fitur/pelanggan_aktif/model/pelanggan_aktif_model.dart`         | Diubah           | Konversi ke Freezed (`@freezed`, `@Default(false)` isDeleted, method manual dipertahankan, `copyWith` manual dihapus); `id` kemudian dijadikan **required** atas permintaan pengguna; perubahan `required` masih unstaged di atas staged rename |
+| `admin_wifi/lib/fitur/pelanggan_aktif/model/pelanggan_aktif_model.freezed.dart` | Dibuat           | Berkas hasil generate `build_runner` (untracked)                                                                                                                                                                                                |
+| `admin_wifi/test/data/operasi/pelanggan_aktif_operasi_test.dart`                | Diubah           | `buatModel` meneruskan `id: ''` (koreksi `id` required); 2-line impor oleh pelaku restrukturisasi tetap ter-stage                                                                                                                               |
+| `admin_wifi/test/data/operasi/pelanggan_aktif_operasi_test.mocks.dart`          | Diubah           | Regenerate `build_runner` (unstaged)                                                                                                                                                                                                            |
+| `admin_wifi/test/data/operasi/versi_apk_user_operasi_test.mocks.dart`           | Diubah           | Regenerate `build_runner` (unstaged)                                                                                                                                                                                                            |
+| `admin_wifi/test/data/sync/unggah_data_test.mocks.dart`                         | Diubah           | Regenerate `build_runner` (unstaged)                                                                                                                                                                                                            |
+| `admin_wifi/test/halaman/form/form_paket_test.mocks.dart`                       | Diubah           | Regenerate `build_runner` (unstaged)                                                                                                                                                                                                            |
+| `admin_wifi/test/halaman/form/form_pelanggan_aktif_test.mocks.dart`             | Diubah           | Regenerate `build_runner` (unstaged; beda staged/unstaged)                                                                                                                                                                                      |
+| `admin_wifi/test/halaman/form/form_versi_apk_user_test.mocks.dart`              | Diubah           | Regenerate `build_runner` (unstaged)                                                                                                                                                                                                            |
+| `admin_wifi/test/halaman/lainnya/versi_apk_user_test.mocks.dart`                | Diubah           | Regenerate `build_runner` (unstaged)                                                                                                                                                                                                            |
+| `admin_wifi/test/halaman/tab/transaksi_test.mocks.dart`                         | Diubah           | Regenerate `build_runner` (unstaged)                                                                                                                                                                                                            |
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan.
+Disinkronkan lewat catch-up sesi 34 (2026-11-18): seluruh perubahan sesi 33 diverifikasi ter-commit oleh pengguna — submodule `admin_wifi` di `8f8941c` ("a", 2026-11-18 01:58 UTC; berisi persis pekerjaan sesi 33: konversi Freezed `PelangganAktifModel`, `id` required, test `buatModel` meneruskan `id: ''`, regenerate `.mocks.dart`, beserta restrukturisasi `lib/fitur/` yang dilakukan di luar sesi) dan root di `0f9a566` ("a", 2026-11-18 01:58 UTC; berisi `sesi_33.md` + gitlink `admin_wifi`; commit yang sama menghapus isi `.agents/rules/code.md` — berkas kini 0 byte — dan menghapus `prompt/rules/code.md`). `MEMORI.md`: header → `(sesi 34; catch-up sesi 33)`; entri Status "Sesi terakhir" → sesi_33 (entri sesi_31 penutupan diubah label menjadi "Sesi 31 (penutupan)"); entri Catatan Teknis sesi 33 ditambah; entri Catatan Teknis sesi 32 diberi catatan "Usang per 2026-11-18 (sesi 34)" terkait penghapusan `.agents/rules/code.md`/`prompt/rules/code.md` oleh `0f9a566`. `memori/riwayat_perubahan.md`: entri catch-up sesi_33 ditambahkan di atas entri sesi 32. Tidak ada pekerjaan baru yang tertinggal; berkas ini ditandai `Sudah Sinkron` oleh sesi 34 (catch-up), bukan oleh pembuatnya — tercatat eksplisit untuk jejak (preseden sesi 31→32→33).

@@ -29,16 +29,16 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                   | Status Perubahan | Deskripsi                                                                              |
-| ----------------------------- | ---------------- | -------------------------------------------------------------------------------------- |
-| `memori/sesi/sesi_32.md`      | Dibuat           | Berkas sesi aktif                                                                      |
-| `memori/sesi/sesi_31.md`      | Diubah           | `## Sinkronisasi ke MEMORI.md` diisi; status → Sudah Sinkron (catch-up sesi 32)        |
-| `MEMORI.md`                   | Diubah           | Header sesi 32; entri Status & Catatan Teknis sesi 31 (catch-up)                       |
-| `memori/riwayat_perubahan.md` | Diubah           | Entri catch-up sesi_32 ditambahkan                                                     |
-| `prompt/rules/code.md` | Diubah | Ditulis ulang: header wajib (`diperbarui`, `ditimpa ke`), rumusan baku, poin 2 dihapus |
-| `.agents/rules/code.md` | Dibuat | Aturan baru 1 butir (target `ditimpa ke`; persetujuan pengguna) |
-| `memori/sesi/sesi_29.md` | Diubah | Hanya realign kolom tabel oleh `formatmd` global (tanpa perubahan isi); arsip `Sudah Sinkron` — persetujuan pengguna atas risiko yang diperingatkan |
-| `memori/sesi/sesi_30.md` | Diubah | Hanya realign kolom tabel oleh `formatmd` global (tanpa perubahan isi); arsip `Sudah Sinkron` — persetujuan pengguna atas risiko yang diperingatkan |
+| Lokasi File                   | Status Perubahan | Deskripsi                                                                                                                                           |
+| ----------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_32.md`      | Dibuat           | Berkas sesi aktif                                                                                                                                   |
+| `memori/sesi/sesi_31.md`      | Diubah           | `## Sinkronisasi ke MEMORI.md` diisi; status → Sudah Sinkron (catch-up sesi 32)                                                                     |
+| `MEMORI.md`                   | Diubah           | Header sesi 32; entri Status & Catatan Teknis sesi 31 (catch-up)                                                                                    |
+| `memori/riwayat_perubahan.md` | Diubah           | Entri catch-up sesi_32 ditambahkan                                                                                                                  |
+| `prompt/rules/code.md`        | Diubah           | Ditulis ulang: header wajib (`diperbarui`, `ditimpa ke`), rumusan baku, poin 2 dihapus                                                              |
+| `.agents/rules/code.md`       | Dibuat           | Aturan baru 1 butir (target `ditimpa ke`; persetujuan pengguna)                                                                                     |
+| `memori/sesi/sesi_29.md`      | Diubah           | Hanya realign kolom tabel oleh `formatmd` global (tanpa perubahan isi); arsip `Sudah Sinkron` — persetujuan pengguna atas risiko yang diperingatkan |
+| `memori/sesi/sesi_30.md`      | Diubah           | Hanya realign kolom tabel oleh `formatmd` global (tanpa perubahan isi); arsip `Sudah Sinkron` — persetujuan pengguna atas risiko yang diperingatkan |
 
 ## Sinkronisasi ke MEMORI.md
 
