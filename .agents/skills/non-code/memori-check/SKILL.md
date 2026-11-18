@@ -17,7 +17,7 @@ Memori bersifat **per root proyek** (per repositori); fakta, konvensi, dan statu
 
 - **Semantic memory** = `MEMORI.md` — fakta durable (konvensi, keputusan, status, konteks proyek). Cukup kecil untuk diinjeksikan utuh ke konteks agen; diringkas, bukan arsip kronologi.
 - **Episodic memory** = `memori/riwayat_perubahan.md` dan `memori/sesi/sesi_N.md` — catatan peristiwa ber-timestamp; dicari/dirujuk saat perlu, tidak diinjeksikan utuh ke konteks.
-- **Procedural memory** = skills (`.agents/rules/global/kelompok_skill_wajib.md`) dan aturan (`.agents/rules/`) — pola kerja yang mengikat; dimuat sesuai trigger.
+- **Procedural memory** = skills (`.agents/rules/kelompok_skill_wajib_non_code.md`) dan aturan (`.agents/rules/`) — pola kerja yang mengikat; dimuat sesuai trigger.
 
 Kronologi mentah termasuk episodic memory, bukan semantic memory: `MEMORI.md` hanya memuat ringkasan durable, bukan transkrip sesi.
 

@@ -1,4 +1,4 @@
-diperbarui : Wed Nov 18 2026 21:41 WIB
+diperbarui : Wed Nov 18 2026 21:44 WIB
 ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
 
 1. Setiap skill wajib memiliki frontmatter, dan cukup hanya `name` serta `description`; `name` wajib sama dengan nama folder (Name Matching Rule).
@@ -13,7 +13,7 @@ ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
 
 6. `description` wajib diawali segmen trigger-only (`Trigger:` ... `|`), agar skill terpanggil saat tepat. (Trigger-only description.)
 
-7. Setiap skill sebaiknya menyertakan contoh; utamakan contoh benar, contoh salah opsional.
+7. Setiap skill wajib menyertakan contoh; utamakan contoh benar, **contoh salah wajib**.
 
 8. Tambahkan section di akhir skill untuk sumber, misalnya dari commit, web, source SDK, atau karena pengguna minta secara eksplisit.
 
@@ -34,7 +34,7 @@ ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
 16. Setiap poin dan contoh pada skill tidak boleh terlalu spesifik untuk satu repo; jadikan global. Rujukan ke repo tertentu hanya boleh sebagai sumber pada `## Sumber Evaluasi` bila aturan memang berasal dari repo tersebut.
 
 17. Frontmatter wajib YAML valid: `name:` dan `description:` wajib sejajar pada kolom yang sama (tanpa spasi/indentasi di depan salah satunya); frontmatter yang rusak membuat Kilo gagal memuat skill (mis. error "bad indentation of a mapping entry").
-18. wajib tambahkan contoh kode salahnya juga
+
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
 Link referensi ini jangan dimasukkan ke skill.

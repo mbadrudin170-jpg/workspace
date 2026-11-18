@@ -128,10 +128,10 @@
     "AGENTS.md",
     ".agents/rules/global/alur_git_commit.md",
     ".agents/rules/global/format_hasil_diskusi.md",
-    ".agents/rules/global/kelompok_skill_wajib.md",
+    ".agents/rules/kelompok_skill_wajib_non_code.md",
     ".agents/rules/global/instructions_lengkap.md",
     ".agents/rules/global/prioritas_tool_bawaan.md",
-    "kelompok_skill_wajib.md"
+    "kelompok_skill_wajib_non_code.md"
   ],
   "auto_collapse_reasoning": true,
   "terminal_command_display": "collapsed",

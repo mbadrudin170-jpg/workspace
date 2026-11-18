@@ -13,7 +13,7 @@ Prosedur audit portabel untuk memeriksa kesehatan sistem kerja proyek (aset pend
 
 ## Cakupan yang Di-Cover
 
-- Aset: struktur folder/berkas wajib, `.agents/rules/global/kelompok_skill_wajib.md`, metadata frontmatter `SKILL.md`, berkas command `.kilo/commands/**.md`, berkas sesi `memori/sesi/sesi_N.md`, kondisi repositori teramati (submodule, pointer, `.gitignore` vs working tree), dan penomoran/pencatatan `hasil_diskusi/diskusi_N.md`.
+- Aset: struktur folder/berkas wajib, `.agents/rules/kelompok_skill_wajib_non_code.md`, metadata frontmatter `SKILL.md`, berkas command `.kilo/commands/**.md`, berkas sesi `memori/sesi/sesi_N.md`, kondisi repositori teramati (submodule, pointer, `.gitignore` vs working tree), dan penomoran/pencatatan `hasil_diskusi/diskusi_N.md`.
 - Keluaran: laporan temuan di sesi dengan tingkat `GALAT` dan `PERINGATAN`, tanpa berkas laporan baru.
 - Referensi: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`, `.agents/rules/global/format_hasil_diskusi.md`, skill `aturan-pembuatan-commands`, skill `aturan-pembuatan-skill`, skill `memori-check`.
 - Sumber perencanaan: `hasil_diskusi/diskusi_8.md`.
@@ -22,7 +22,7 @@ Prosedur audit portabel untuk memeriksa kesehatan sistem kerja proyek (aset pend
 
 1. Perlakukan audit sebagai pemeriksaan **read-only**: kumpulkan bukti dari berkas/struktur aktual, jangan membuat, mengubah, atau menghapus berkas apa pun.
 2. Sesuaikan pemeriksaan dengan struktur aktual proyek (portabel lintas proyek); jangan mengasumsikan nama proyek, daftar skill, atau tata letak tertentu yang tidak terverifikasi.
-3. Periksa tujuh aset secara berurutan: (1) struktur folder/berkas wajib, (2) konsistensi `.agents/rules/global/kelompok_skill_wajib.md`, (3) metadata frontmatter skill, (4) validasi command, (5) kesehatan memori sesi, (6) kesehatan repositori, (7) penomoran `hasil_diskusi/`.
+3. Periksa tujuh aset secara berurutan: (1) struktur folder/berkas wajib, (2) konsistensi `.agents/rules/kelompok_skill_wajib_non_code.md`, (3) metadata frontmatter skill, (4) validasi command, (5) kesehatan memori sesi, (6) kesehatan repositori, (7) penomoran `hasil_diskusi/`.
 4. Untuk setiap temuan, catat aset, tingkat, path/objek, bukti singkat, dan saran perbaikan; jangan mengarang temuan tanpa bukti.
 5. Klasifikasikan temuan sebagai `GALAT` bila melanggar aturan/konsistensi dan berpotensi menyebabkan perilaku salah atau data tidak dapat dipercaya; sebagai `PERINGATAN` bila berupa potensi masalah, inkonsistensi minor, atau hal yang memerlukan konfirmasi.
 6. Laporkan hasil hanya di sesi (ringkasan + tabel/daftar temuan + catatan keterbatasan); jangan menulis temuan ke `task.md` dan jangan membuat berkas laporan.
@@ -35,7 +35,7 @@ Prosedur audit portabel untuk memeriksa kesehatan sistem kerja proyek (aset pend
 2. **Inventarisasi**: kumpulkan daftar berkas/folder untuk tujuh aset (struktur, indeks skill, folder skill, command, sesi memori, `.gitignore`/status git teramati, folder `hasil_diskusi/`).
 3. **Periksa aset 1–7** berurutan:
    - Aset 1 (struktur): verifikasi keberadaan/keterbacaan berkas dan folder kunci yang dirujuk proyek.
-   - Aset 2 (`.agents/rules/global/kelompok_skill_wajib.md`): cocokkan entri dengan `SKILL.md` aktual dan deteksi entri yatim atau folder skill tak terindeks.
+   - Aset 2 (`.agents/rules/kelompok_skill_wajib_non_code.md`): cocokkan entri dengan `SKILL.md` aktual dan deteksi entri yatim atau folder skill tak terindeks.
    - Aset 3 (frontmatter skill): validasi field wajib, segmen `Trigger:` pada `description`, dan kecocokan `name` dengan folder.
    - Aset 4 (command): validasi penamaan, frontmatter `description`, tautan markdown lokal yang keliru, dan rujukan target yang tidak ada.
    - Aset 5 (memori sesi): temukan sesi `Belum Sinkron` (di luar sesi aktif bila teridentifikasi), penomoran/penamaan tidak konsisten, atau status tidak jelas.
@@ -51,7 +51,7 @@ Prosedur audit portabel untuk memeriksa kesehatan sistem kerja proyek (aset pend
 - DILARANG menulis temuan ke `task.md` atau membuat berkas laporan di root proyek.
 - DILARANG menjalankan operasi git yang mengubah state (commit, push, checkout, reset, stash, add, restore tulis, dsb.).
 - DILARANG mengarang hasil pemeriksaan; temuan tanpa bukti aktual tidak boleh dilaporkan sebagai fakta.
-- DILARANG mengubah `MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/*.md`, `.agents/rules/global/kelompok_skill_wajib.md`, skill, command, aturan, atau kode sumber.
+- DILARANG mengubah `MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/*.md`, `.agents/rules/kelompok_skill_wajib_non_code.md`, skill, command, aturan, atau kode sumber.
 - DILARANG memperbaiki temuan yang ditemukan tanpa instruksi/konfirmasi pengguna pada sesi terpisah.
 
 ## Contoh Benar
@@ -61,7 +61,7 @@ Ringkasan: 1 GALAT, 1 PERINGATAN (7 aset diperiksa).
 
 | No | Aset | Tingkat | Path/Objek | Temuan | Saran |
 | --- | --- | --- | --- | --- | --- |
-| 1 | .agents/rules/global/kelompok_skill_wajib.md | GALAT | `.agents/rules/global/kelompok_skill_wajib.md` | Entri menunjuk `.agents/skills/non-code/contoh/SKILL.md` tetapi berkas tidak ada | Hapus entri atau pulihkan skill, lalu sinkronkan indeks |
+| 1 | .agents/rules/kelompok_skill_wajib_non_code.md | GALAT | `.agents/rules/kelompok_skill_wajib_non_code.md` | Entri menunjuk `.agents/skills/non-code/contoh/SKILL.md` tetapi berkas tidak ada | Hapus entri atau pulihkan skill, lalu sinkronkan indeks |
 | 2 | Command | PERINGATAN | `.kilo/commands/contoh.md` | Tidak ada frontmatter `description` | Tambahkan frontmatter `description` sesuai konvensi command |
 
 Catatan keterbatasan: tidak ada.

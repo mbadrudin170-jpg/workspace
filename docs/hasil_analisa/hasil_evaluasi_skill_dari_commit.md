@@ -100,7 +100,7 @@ Catatan susulan `06f74c2d8058273ea744d71236eb101287c9df01` (`n`): (1) memublikas
 
 ## Menunggu Keputusan Pengguna
 
-1. **Bentuk pembaruan untuk T1**: perluas `notifier-crud-database` (varian "Notifier penghitung") vs skill kode baru (`dao-transaksi-upsert`). Implikasi: skill baru wajib frontmatter lengkap + `prompt/skill/<nama>.md` + indeks `kelompok_skill_wajib.md` (skill `aturan-pembuatan-skill`); perluasan skill cukup `SKILL.md` + metadata.
+1. **Bentuk pembaruan untuk T1**: perluas `notifier-crud-database` (varian "Notifier penghitung") vs skill kode baru (`dao-transaksi-upsert`). Implikasi: skill baru wajib frontmatter lengkap + `prompt/skill/<nama>.md` + indeks `.agents/rules/kelompok_skill_wajib_code.md` (skill `aturan-pembuatan-skill`); perluasan skill cukup `SKILL.md` + metadata.
 2. **Arah S1**: tambah pengecualian di `riverpod-pola` aturan 14, atau ubah kode `detail_base_screen.dart`. Keduanya membutuhkan perintah eksplisit pengguna.
 3. **Pembaruan S2/S3** pada `penanganan-async-data-kosong` (dan opsional `migrasi-skema-sqlite`, R1) — boleh dikerjakan bila pengguna menyetujui; perubahan `.agents/skills/code/` hanya dari riwayat commit (`.agents/rules/lainnya.md` butir 4) — seluruh sumber commit tersedia.
 

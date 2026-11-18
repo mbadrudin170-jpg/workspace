@@ -1,7 +1,7 @@
-diperbarui : Wed Nov 18 2026 02:09 WIB
-ditimpa ke : `.agents/rules/kelompok_skill_wajib.md`
+diperbarui : Wed Nov 18 2026 21:55 WIB
+ditimpa ke : `.agents/rules/kelompok_skill_wajib_non_code.md`
 
-1. Berkas `.agents/rules/kelompok_skill_wajib.md` adalah indeks skill custom proyek: daftar `SKILL.md` di bawah section `## code` (`.agents/skills/code/<nama>/SKILL.md`) dan `## non-code` (`.agents/skills/non-code/<nama>/SKILL.md`).
+1. Berkas `.agents/rules/kelompok_skill_wajib_non_code.md` adalah indeks skill non-code custom proyek: daftar `SKILL.md` di bawah section `## non-code` (`.agents/skills/non-code/<nama>/SKILL.md`).
 
 2. Setiap skill pada indeks wajib memiliki path file yang valid, trigger yang jelas, dan tanggal diperbarui lengkap beserta jam.
 

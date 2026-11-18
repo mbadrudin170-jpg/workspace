@@ -15,7 +15,7 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 
 6. `description` wajib diawali segmen trigger-only (`Trigger:` ... `|`), agar skill terpanggil saat tepat. (Trigger-only description.)
 
-7. Setiap skill sebaiknya menyertakan contoh; utamakan contoh benar, contoh salah opsional.
+7. Setiap skill wajib menyertakan contoh; utamakan contoh benar, **contoh salah wajib**.
 
 8. Tambahkan section di akhir skill untuk sumber, misalnya dari commit, web, source SDK, atau karena pengguna minta secara eksplisit.
 
@@ -47,3 +47,4 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 - Aturan 17 — berasal dari poin 17 pada `prompt/skill/aturan-pembuatan-skill.md` (2026-11-18; dirumuskan baku dari poin yang ditambahkan pengguna, sesi 29).
 - Aturan 1 & 5 — penggabungan poin 1↔6 dan poin 5↔11 serta penomoran ulang poin/Aturan 7–19 menjadi 6–17 (2026-11-18, sesi 29, atas persetujuan pengguna).
 - Aturan 18 — berasal dari insiden frontmatter rusak pada skill `code/performa-aplikasi` (`description:` berindentasi 2 spasi di commit `a7ecbf3`; diperbaiki pengguna di `9a7962b`, 2026-11-18; error Kilo "bad indentation of a mapping entry at line 3, column 14"); sinkronisasi prompt → target, sesi 34, 2026-11-18.
+- Aturan 7 — diubah dari "contoh salah opsional" menjadi "**contoh salah wajib**" atas permintaan eksplisit pengguna (sesi 42, 2026-11-18 21:44 WIB).
