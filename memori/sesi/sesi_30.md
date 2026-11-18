@@ -35,22 +35,22 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| `memori/sesi/sesi_30.md` | Dibuat | Berkas sesi aktif (versi awal ter-commit di `b0d5b45`; diperbarui setelah pekerjaan) |
-| `memori/sesi/sesi_29.md` | Diubah | Catch-up sesi 30: Status → Sudah Sinkron; `## Sinkronisasi ke MEMORI.md` diisi (ter-commit `b0d5b45`) |
-| `MEMORI.md` | Diubah | Header `(sesi 30)`; Status "Sesi terakhir" → sesi 30 (ter-commit `b0d5b45`) |
-| `memori/riwayat_perubahan.md` | Diubah | Entri catch-up sesi 30 (sesi_29 → Sudah Sinkron; ter-commit `b0d5b45`) |
-| `admin_wifi/pubspec.yaml` | Diubah | `mocktail: ^1.0.5` dev_dependencies (ter-commit `ea39344`) |
-| `admin_wifi/pubspec.lock` | Diubah | Resolusi pub (ter-commit `ea39344`) |
-| `admin_wifi/test/mocks.dart` | Dibuat | Mock manual mocktail `MockFlutterLocalNotificationsPlugin` (ter-commit `ea39344`) |
-| `admin_wifi/test/services/notifikasi_servis_test.dart` | Diubah | Konversi Mockito → Mocktail (ter-commit `ea39344`) |
-| `admin_wifi/test/services/notifikasi_servis_test.mocks.dart` | Dihapus | Stale hasil generate mockito (ter-commit `ea39344`) |
+| Lokasi File                                                             | Status Perubahan                        | Deskripsi                                                                                             |
+| ----------------------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_30.md`                                                | Dibuat                                  | Berkas sesi aktif (versi awal ter-commit di `b0d5b45`; diperbarui setelah pekerjaan)                  |
+| `memori/sesi/sesi_29.md`                                                | Diubah                                  | Catch-up sesi 30: Status → Sudah Sinkron; `## Sinkronisasi ke MEMORI.md` diisi (ter-commit `b0d5b45`) |
+| `MEMORI.md`                                                             | Diubah                                  | Header `(sesi 30)`; Status "Sesi terakhir" → sesi 30 (ter-commit `b0d5b45`)                           |
+| `memori/riwayat_perubahan.md`                                           | Diubah                                  | Entri catch-up sesi 30 (sesi_29 → Sudah Sinkron; ter-commit `b0d5b45`)                                |
+| `admin_wifi/pubspec.yaml`                                               | Diubah                                  | `mocktail: ^1.0.5` dev_dependencies (ter-commit `ea39344`)                                            |
+| `admin_wifi/pubspec.lock`                                               | Diubah                                  | Resolusi pub (ter-commit `ea39344`)                                                                   |
+| `admin_wifi/test/mocks.dart`                                            | Dibuat                                  | Mock manual mocktail `MockFlutterLocalNotificationsPlugin` (ter-commit `ea39344`)                     |
+| `admin_wifi/test/services/notifikasi_servis_test.dart`                  | Diubah                                  | Konversi Mockito → Mocktail (ter-commit `ea39344`)                                                    |
+| `admin_wifi/test/services/notifikasi_servis_test.mocks.dart`            | Dihapus                                 | Stale hasil generate mockito (ter-commit `ea39344`)                                                   |
 | `admin_wifi/test/helpers/test_helpers.dart` & `test_helpers.mocks.dart` | Dihapus (oleh pengguna, bukan sesi ini) | Ter-commit `ea39344`; sesi ini tidak menyentuh berkas ini; disebut agar tabel akurat terhadap histori |
-| gitlink `admin_wifi` | Diubah (oleh pengguna) | `b0d5b45`: gitlink → `ea39344` |
-| `.agents/skills/code/pola-testing/SKILL.md` | Diubah | v1.2.0 → 1.3.0; wajib mocktail di semua proyek + larangan artefak `*.mocks.dart` (07:19 WIB) |
-| `.agents/rules/kelompok_skill_wajib.md` | Diubah | Entri code #34 `pola-testing` Status → `Wed Nov 18 2026 07:19 WIB` |
-| `memori/sesi/sesi_30.md` | Diubah | Catatan permintaan lanjutan (command tambah_kode_keskill) + Berkas Terdampak diperbarui |
+| gitlink `admin_wifi`                                                    | Diubah (oleh pengguna)                  | `b0d5b45`: gitlink → `ea39344`                                                                        |
+| `.agents/skills/code/pola-testing/SKILL.md`                             | Diubah                                  | v1.2.0 → 1.3.0; wajib mocktail di semua proyek + larangan artefak `*.mocks.dart` (07:19 WIB)          |
+| `.agents/rules/kelompok_skill_wajib.md`                                 | Diubah                                  | Entri code #34 `pola-testing` Status → `Wed Nov 18 2026 07:19 WIB`                                    |
+| `memori/sesi/sesi_30.md`                                                | Diubah                                  | Catatan permintaan lanjutan (command tambah_kode_keskill) + Berkas Terdampak diperbarui               |
 
 ## Sinkronisasi ke MEMORI.md
 
