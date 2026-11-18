@@ -26,6 +26,8 @@ description: Menambahkan atau memperbarui skill yang relevan dengan potongan kod
 
 11. Jika sudah memiliki gambaran (overview), gunakan tool `question` dengan parameter `multiple: true` untuk menanyakan kepada pengguna potongan kode apa saja yang ingin dimasukkan; setiap opsi wajib memuat satu potongan kode saja, jangan menggabungkan beberapa kode (mis. "A+B") dalam satu opsi.
 
+12. Tampilkan dulu kode yang akan ditambahkan, baru setelah itu berikan opsi pilihan kepada pengguna (selaras poin 11).
+
 # Skill Terkait
 
 - aturan-pembuatan-skill

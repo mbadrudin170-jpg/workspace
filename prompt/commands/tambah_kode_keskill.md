@@ -1,4 +1,4 @@
-diperbarui : Wed Nov 18 2026 09:52 WIB
+diperbarui : Wed Nov 18 2026 09:57 WIB
 ditimpa ke : `.kilo/commands/tambah_kode_keskill.md`
 
 1. `$ARGUMENTS`: potongan kode yang diberikan pengguna; jika kosong, tanyakan kode yang dimaksud.
@@ -24,4 +24,6 @@ ditimpa ke : `.kilo/commands/tambah_kode_keskill.md`
 10. Tambahkan juga aturan (rule) terkait ke `.agents/rules/code.md`; setiap aturan wajib menyertakan skill terkaitnya (rujuk skill yang baru diperbarui/dibuat); dilarang menambah aturan tanpa skill terkait.
 
 11. Jika sudah memiliki gambaran (overview), gunakan tool `question` dengan parameter `multiple: true` untuk menanyakan kepada pengguna potongan kode apa saja yang ingin dimasukkan; setiap opsi wajib memuat satu potongan kode saja, jangan menggabungkan beberapa kode (mis. "A+B") dalam satu opsi.
-12. gunakan tool parameter multiple: true untuk menanyakan ke pengguna apa saja yang ingin di masukkan jika sudah tau gambarannya, lalu tiap opsi cukup satu code jangan A+B
+
+12. Tampilkan dulu kode yang akan ditambahkan, baru setelah itu berikan opsi pilihan kepada pengguna (selaras poin 11).
+13. gunakan tool parameter multiple: true untuk menanyakan ke pengguna apa saja yang ingin di masukkan jika sudah tau gambarannya, lalu tiap opsi cukup satu code jangan A+B
