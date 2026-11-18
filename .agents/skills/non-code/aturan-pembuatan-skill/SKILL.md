@@ -20,6 +20,7 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 15. Saat bertanya, sertakan path berkas skill yang dimaksud agar pengguna mengetahui target dan dapat menolak bila tidak sesuai.
 16. Skill pada `.agents/skills/code/` tidak boleh memiliki berkas poin di `prompt/skill/`.
 17. Setiap poin dan contoh pada skill tidak boleh terlalu spesifik untuk satu repo; jadikan global. Rujukan ke repo tertentu hanya boleh sebagai sumber pada `## Sumber Evaluasi` bila aturan memang berasal dari repo tersebut.
+18. Frontmatter wajib YAML valid: `name:` dan `description:` wajib sejajar pada kolom yang sama (tanpa spasi/indentasi di depan salah satunya); frontmatter yang rusak membuat Kilo gagal memuat skill (mis. error "bad indentation of a mapping entry").
 
 ## Sumber Evaluasi
 
@@ -30,3 +31,4 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 - Aturan 16 — berasal dari poin 16 pada `prompt/skill/aturan-pembuatan-skill.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; skill `code/` tidak boleh memiliki berkas poin; poin 11 diberi pengecualian).
 - Aturan 17 — berasal dari poin 17 pada `prompt/skill/aturan-pembuatan-skill.md` (2026-11-18; dirumuskan baku dari poin yang ditambahkan pengguna, sesi 29).
 - Aturan 1 & 5 — penggabungan poin 1↔6 dan poin 5↔11 serta penomoran ulang poin/Aturan 7–19 menjadi 6–17 (2026-11-18, sesi 29, atas persetujuan pengguna).
+- Aturan 18 — berasal dari insiden frontmatter rusak pada skill `code/performa-aplikasi` (`description:` berindentasi 2 spasi di commit `a7ecbf3`; diperbaiki pengguna di `9a7962b`, 2026-11-18; error Kilo "bad indentation of a mapping entry at line 3, column 14"); sinkronisasi prompt → target, sesi 34, 2026-11-18.

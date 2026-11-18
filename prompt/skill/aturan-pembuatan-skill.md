@@ -1,4 +1,4 @@
-diperbarui : Wed Nov 18 2026 05:55 WIB
+diperbarui : Wed Nov 18 2026 09:33 WIB
 file : [aturan-pembuatan-skill](../../.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md)
 
 1. Setiap skill wajib memiliki frontmatter, dan cukup hanya `name` serta `description`; `name` wajib sama dengan nama folder (Name Matching Rule).
@@ -18,6 +18,7 @@ file : [aturan-pembuatan-skill](../../.agents/skills/non-code/aturan-pembuatan-s
 15. Saat bertanya, sertakan path berkas skill yang dimaksud agar pengguna mengetahui target dan dapat menolak bila tidak sesuai.
 16. Skill pada `.agents/skills/code/` tidak boleh memiliki berkas poin di `prompt/skill/`.
 17. Setiap poin dan contoh pada skill tidak boleh terlalu spesifik untuk satu repo; jadikan global. Rujukan ke repo tertentu hanya boleh sebagai sumber pada `## Sumber Evaluasi` bila aturan memang berasal dari repo tersebut.
+18. Frontmatter wajib YAML valid: `name:` dan `description:` wajib sejajar pada kolom yang sama (tanpa spasi/indentasi di depan salah satunya); frontmatter yang rusak membuat Kilo gagal memuat skill (mis. error "bad indentation of a mapping entry").
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 

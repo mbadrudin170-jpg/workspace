@@ -24,6 +24,8 @@ description: Menambahkan atau memperbarui skill yang relevan dengan potongan kod
 
 10. Tambahkan juga aturan (rule) terkait ke `.agents/rules/code.md`; setiap aturan wajib menyertakan skill terkaitnya (rujuk skill yang baru diperbarui/dibuat); dilarang menambah aturan tanpa skill terkait.
 
+11. Jika sudah memiliki gambaran (overview), gunakan tool `question` dengan parameter `multiple: true` untuk menanyakan kepada pengguna potongan kode apa saja yang ingin dimasukkan; setiap opsi wajib memuat satu potongan kode saja, jangan menggabungkan beberapa kode (mis. "A+B") dalam satu opsi.
+
 # Skill Terkait
 
 - aturan-pembuatan-skill
