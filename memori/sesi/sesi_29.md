@@ -1,6 +1,6 @@
 # Sesi 29
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-18 (Asia/Jakarta)
 - Command: `memperbarui_file_di_folder_prompt` (command Kilo; path: `.kilo/commands/memperbarui_file_di_folder_prompt.md`)
 - Topik: memperbarui berkas di folder `prompt/` yang ditunjuk pengguna (`prompt/skill/aturan-pembuatan-skill.md`, `prompt/skill/aturan-pubscl.md` → `aturan-pubspec.md`)
@@ -70,4 +70,4 @@
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan
+Disinkronkan via catch-up sesi 30 (2026-11-18): isi `MEMORI.md` (header `Diperbarui: ... (sesi 30)`, Status "Sesi terakhir", Catatan Teknis Sesi 29) dan entri `memori/riwayat_perubahan.md` sesi 29 terverifikasi sudah memuat seluruh perubahan sesi 29 (catch-up sesi_28; skill `aturan-pubspec` #5 + rename `aturan-pubscl.md`; penggabungan `aturan-pembuatan-skill` + renumber + sinkron rujukan lintas berkas; formatmd global ±70 berkas; skill `tipografi` v1.1.0). Tidak ada perubahan tambahan saat catch-up; entri riwayat sesi 30 ditambahkan sebagai jejak penutup.
