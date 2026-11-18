@@ -11,7 +11,7 @@ ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-commands/SKILL.md`
 
 5. Untuk nama berkas, wajib menggunakan bahasa Indonesia, kecuali istilah bahasa Inggris yang sudah umum (mis. `command`, `description`).
 
-6. Setiap `command` wajib menyertakan skill terkait yang dibutuhkan AI jika skill tersebut tersedia (cek `.agents/rules/kelompok_skill_wajib_non_code.md` atau available skill).
+6. Setiap `command` wajib menyertakan skill terkait yang dibutuhkan AI jika skill tersebut tersedia (cek indeks skill `.agents/rules/kelompok_skill_wajib_*.md` atau available skill).
 
 7. Disimpan di `.kilo/commands/` (atau subfolder satu tingkat, mis. `mode/`, `prd/`).
 

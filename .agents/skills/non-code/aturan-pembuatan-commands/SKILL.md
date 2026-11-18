@@ -10,7 +10,7 @@ description: "Trigger: saat membuat command Kilo baru atau memperbarui command K
 3. Setiap `command` harus singkat, namun jangan sampai membuat AI salah langkah.
 4. Wajib menggunakan bahasa Indonesia.
 5. Untuk nama berkas, wajib menggunakan bahasa Indonesia, kecuali istilah bahasa Inggris yang sudah umum (mis. `command`, `description`).
-6. Setiap `command` wajib menyertakan skill terkait yang dibutuhkan AI jika skill tersebut tersedia (cek `.agents/rules/kelompok_skill_wajib_non_code.md` atau daftar skill yang tersedia).
+6. Setiap `command` wajib menyertakan skill terkait yang dibutuhkan AI jika skill tersebut tersedia (cek indeks skill `.agents/rules/kelompok_skill_wajib_*.md` atau daftar skill yang tersedia).
 7. Disimpan di `.kilo/commands/` (atau subfolder satu tingkat, mis. `mode/`, `prd/`).
 8. Setiap `command` wajib memerintahkan AI untuk membaca `AGENTS.md` terlebih dahulu dan mematuhi isinya.
 

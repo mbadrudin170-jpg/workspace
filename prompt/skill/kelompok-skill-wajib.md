@@ -13,7 +13,9 @@ ditimpa ke : `.agents/skills/non-code/kelompok-skill-wajib/SKILL.md`
 
 6. Trigger pada setiap skill wajib ditulis detail dan spesifik agar AI dapat memuat skill yang relevan.
 
-7. Jika ada skill baru atau pembaruan berkas skill, wajib perbarui berkas `.agents/rules/kelompok_skill_wajib_non_code.md`.
+7. Jika ada skill baru atau pembaruan berkas skill, wajib perbarui indeks skill `.agents/rules/kelompok_skill_wajib_*.md`.
+
+8. **Indeks non-code (`.agents/rules/kelompok_skill_wajib_non_code.md`) HANYA berisi skill dari `.agents/skills/non-code/`. DILARANG memasukkan skill code ke indeks non-code.**
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 

@@ -4,4 +4,4 @@
 
 - Gejala: AI tidak memuat skill tertentu (skill `aturan-pembuatan-skill` / file `.agents/skills/custom/aturan-pembuatan-skill/SKILL.md`) saat trigger terpenuhi.
 - Terkait: `.agents/skills/custom/*/SKILL.md` (khususnya `aturan-pembuatan-skill`)
-- Tindak lanjut: Periksa apakah skill terdaftar di `.agents/rules/kelompok_skill_wajib_non_code.md`, validasi deskripsi skill (format trigger-only), dan cek `instructions` di `.kilo/kilo.jsonc`. Perbaiki definisi skill agar AI memuatnya otomatis.
+- Tindak lanjut: Periksa apakah skill terdaftar di indeks skill (`.agents/rules/kelompok_skill_wajib_*.md`), validasi deskripsi skill (format trigger-only), dan cek `instructions` di `.kilo/kilo.jsonc`. Perbaiki definisi skill agar AI memuatnya otomatis.

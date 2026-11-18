@@ -20,28 +20,26 @@ Daftar submodule bersumber dari `.gitmodules`. Submodule tidak memiliki `.gitmod
 
 ## Struktur Repositori
 
-| Lokasi                                           | Isi                                                                                             |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
-| `AGENTS.md`                                      | Gabungan aturan yang dibaca agen AI.                                                            |
-| `.agents/rules/`                                 | Aturan proyek (format hasil diskusi, indeks skill, dan aturan pendukung).                       |
-| `.agents/skills/code/`                           | Skill kustom terkait kode (`SKILL.md`) untuk konteks kerja tertentu.                            |
-| `.agents/skills/non-code/`                       | Skill kustom non-kode (`SKILL.md`) untuk konteks kerja tertentu.                                |
-| `.agents/skills/bawaan/`                         | Skill bawaan (`flutter-dart`).                                                                  |
-| `.agents/rules/kelompok_skill_wajib_code.md`     | Indeks skill code (trigger dan status pembaruan).                                               |
-| `.agents/rules/kelompok_skill_wajib_non_code.md` | Indeks skill non-code (trigger dan status pembaruan).                                           |
-| `skills-lock.json`                               | Kunci versi/hash skill yang dipasang.                                                           |
-| `.kilo/`                                         | Konfigurasi Kilo proyek (`kilo.jsonc`, command, prompt); diabaikan Git (`.gitignore`).          |
-| `.vscode/`                                       | 12 berkas snippet (`*.code-snippets`) serta konfigurasi editor/debug/MCP.                       |
-| `script/`                                        | Skrip bantu Bash: `bash_aliases.sh`, `build_apk.sh`, `full_clean.sh`, `rename_apk.sh`.          |
-| `memori/`                                        | Dokumen memori kerja: `sesi/` (catatan per sesi) dan `riwayat_perubahan.md`.                    |
-| `hasil_diskusi/`                                 | Berkas hasil diskusi (`diskusi_*.md`).                                                          |
-| `prd/`                                           | Dokumen PRD yang tersedia.                                                                      |
-| `docs/`                                          | Dokumentasi pendukung (mis. `model_agents.md`).                                                 |
-| `apk/`                                           | Artefak APK yang disimpan di repositori.                                                        |
-| `.config/dart_skills/`                           | Konfigurasi pemasangan skill Dart.                                                              |
-| `.prettierrc`                                    | Konfigurasi pemformatan (Markdown/JSON/JSONC).                                                  |
-| `base_coc/`                                      | Submodule aplikasi Flutter (lihat [`base_coc/README.md`](base_coc/README.md)).                  |
-| `share_global_saya/`                             | Submodule pustaka Flutter (lihat [`share_global_saya/README.md`](share_global_saya/README.md)). |
+| Lokasi                     | Isi                                                                                             |
+| -------------------------- | ----------------------------------------------------------------------------------------------- |
+| `AGENTS.md`                | Gabungan aturan yang dibaca agen AI.                                                            |
+| `.agents/rules/`           | Aturan proyek (format hasil diskusi, indeks skill, dan aturan pendukung).                       |
+| `.agents/skills/code/`     | Skill kustom terkait kode (`SKILL.md`) untuk konteks kerja tertentu.                            |
+| `.agents/skills/non-code/` | Skill kustom non-kode (`SKILL.md`) untuk konteks kerja tertentu.                                |
+| `.agents/skills/bawaan/`   | Skill bawaan (`flutter-dart`).                                                                  |
+| `skills-lock.json`         | Kunci versi/hash skill yang dipasang.                                                           |
+| `.kilo/`                   | Konfigurasi Kilo proyek (`kilo.jsonc`, command, prompt); diabaikan Git (`.gitignore`).          |
+| `.vscode/`                 | 12 berkas snippet (`*.code-snippets`) serta konfigurasi editor/debug/MCP.                       |
+| `script/`                  | Skrip bantu Bash: `bash_aliases.sh`, `build_apk.sh`, `full_clean.sh`, `rename_apk.sh`.          |
+| `memori/`                  | Dokumen memori kerja: `sesi/` (catatan per sesi) dan `riwayat_perubahan.md`.                    |
+| `hasil_diskusi/`           | Berkas hasil diskusi (`diskusi_*.md`).                                                          |
+| `prd/`                     | Dokumen PRD yang tersedia.                                                                      |
+| `docs/`                    | Dokumentasi pendukung (mis. `model_agents.md`).                                                 |
+| `apk/`                     | Artefak APK yang disimpan di repositori.                                                        |
+| `.config/dart_skills/`     | Konfigurasi pemasangan skill Dart.                                                              |
+| `.prettierrc`              | Konfigurasi pemformatan (Markdown/JSON/JSONC).                                                  |
+| `base_coc/`                | Submodule aplikasi Flutter (lihat [`base_coc/README.md`](base_coc/README.md)).                  |
+| `share_global_saya/`       | Submodule pustaka Flutter (lihat [`share_global_saya/README.md`](share_global_saya/README.md)). |
 
 ## Komponen Utama
 
@@ -49,7 +47,7 @@ Daftar submodule bersumber dari `.gitmodules`. Submodule tidak memiliki `.gitmod
 
 - Aturan pada `.agents/rules/` mencakup format hasil diskusi, indeks skill, dan aturan pendukung lainnya.
 - `AGENTS.md` menjadi rujukan aturan gabungan bagi agen AI.
-- Skill dimuat sesuai trigger; `.agents/rules/kelompok_skill_wajib_code.md`, `.agents/rules/kelompok_skill_wajib_non_code.md`, dan `skills-lock.json` menjaga keterlacakan serta konsistensi skill.
+- Skill dimuat sesuai trigger; indeks skill (`.agents/rules/kelompok_skill_wajib_*.md`) dan `skills-lock.json` menjaga keterlacakan serta konsistensi skill.
 
 ### Konfigurasi Kilo
 
@@ -68,7 +66,7 @@ Daftar submodule bersumber dari `.gitmodules`. Submodule tidak memiliki `.gitmod
 ## Kelebihan Repositori
 
 - **Konfigurasi terpusat**: aturan, skill, snippet, dan skrip dihimpun dalam satu repositori induk.
-- **Skill terindeks**: trigger dan status pembaruan terdokumentasi di `.agents/rules/kelompok_skill_wajib_code.md` dan `.agents/rules/kelompok_skill_wajib_non_code.md` dengan penguncian versi di `skills-lock.json`.
+- **Skill terindeks**: trigger dan status pembaruan terdokumentasi di indeks skill (`.agents/rules/kelompok_skill_wajib_*.md`) dengan penguncian versi di `skills-lock.json`.
 - **Keterlacakan kerja**: memori sesi, riwayat perubahan, hasil diskusi, dan PRD mendukung kontinuitas pengerjaan.
 - **Pemisahan riwayat kode**: submodule menjaga aplikasi (`base_coc`) dan pustaka bersama (`share_global_saya`) tetap independen.
 
@@ -96,7 +94,7 @@ git submodule update --init --recursive
 ### Penggunaan Singkat
 
 - Muat alias shell (opsional): `source script/bash_aliases.sh`
-- Baca `AGENTS.md`, `.agents/rules/kelompok_skill_wajib_code.md`, dan `.agents/rules/kelompok_skill_wajib_non_code.md` sebelum bekerja dengan agen AI.
+- Baca `AGENTS.md`, indeks skill (`.agents/rules/kelompok_skill_wajib_*.md`) sebelum bekerja dengan agen AI.
 - Jalankan perintah Flutter/Dart dari root submodule yang relevan (`base_coc/` atau `share_global_saya/`), bukan dari root `workspace`.
 
 ## Status Proyek

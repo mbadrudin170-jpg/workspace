@@ -53,6 +53,21 @@
 - FK `pelanggan_aktif → pelanggan/paket/transaksi` terdeklarasi tetapi PRAGMA `foreign_keys` tidak diaktifkan di `DatabaseHelper` (diperiksa), sehingga insert dummy tanpa baris pelanggan/paket berhasil.
 - Data pengguna biasa tidak tersentuh: penghapusan hanya pada ID dummy yang dikenal.
 
+## Lanjutan 3 (migrasi Log → L)
+
+- Permintaan pengguna: `lib/debug/log.dart` (kelas `Log` dengan `_formatData` pretty printer) dihapus; seluruh pemakaian dialihkan ke `package:share_global_saya/src/utils/l.dart` (`L.i/L.w/L.e/L.api`) yang sudah dibaca sesi ini.
+- 70+ berkas dimigrasi (99 berkas berubah total termasuk lanjutan 1–3) lewat 3 skrip migrasi (`/tmp/kilo/admin_wifi_log_migrasi.dart` → v4/v5) + perbaikan manual:
+  - Skrip 1: hapus import `debug/log.dart`/`../debug/log.dart`; sisipkan & urutkan ulang import `l.dart`; `Log.info/warning/error/api` → `L.i/L.w/L.e/L.api`.
+  - Skrip 2 (perbaiki quoting): suffix "Error: $e $s"/"Data: ..." yang keluar dari string literal dipindah ke dalam literal (varian multiline & implicit concatenation ditangani dalam 3 tahap).
+  - Skrip 3/4 (dotted ident `snapshot.error` dll.): merge argumen bernama `error:`/`stackTrace:` ke dalam string pesan (nilai `error:` berupa ident bertitik maupun string `'Data RAW: ...'`).
+  - Skrip 5: hapus 27 import l.dart yang menjadi tidak terpakai + `lib/main.dart` (unnecessary_import — `L` sudah disediakan `core_shared.dart`).
+  - Perbaikan manual: `operasi_dasar.dart` (6 situs `Data: {...}` map-literal + 4 L.e berargumen `data:`); `form_kategori.dart` (L.e dengan pesan ternary bersarang); `unduh_data.dart` (`error: 'Data RAW: ...'`); `status_pembayaran_enum.dart` (tanpa import apa pun — import l.dart disisipkan manual).
+- **PERHATIAN PENTING**: penggabungan `Data: {...}` map-literal ke dalam string dilakukan dengan interpolasi `${{...}}` (map di dalam interpolasi); pemakaian L.i/L.e dengan `$e $s` memenuhi skill `logging-debug` (L.e wajib `$s`).
+- `lib/debug/log.dart` DIHAPUS (`rm`); tidak ada referensi `debug/log.dart` maupun `Log.` tersisa di `lib/` (grep bersih).
+- `README.md` masih memuat referensi dokumen `lib/debug/log.dart` (dokumentasi sistem pelacakan kasar) — dibiarkan; menunggu keputusan pengguna apakah ikut diperbarui.
+- Verifikasi: `dart format lib` 0 changed; `dart analyze` — **No issues found**; `flutter test` **+105/−24 identik baseline** (24 kegagalan pra-eksisting: form_paket, form_pelanggan_aktif, versi_apk_user, transaksi ×2, dompet ×4, sqlite ffi `no such table: transaksi`, pelanggan_aktif ×2/ops, notifikasi_test — sama dengan baseline, tidak ada regresi baru).
+- Skrip migrasi bersifat satu arah (destruktif terhadap teks asli); hasil diff 99 berkas belum di-review baris per baris; disarankan review sebelum commit.
+
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan (sesi 42): `MEMORI.md` header → `(sesi 42)`; Status "Sesi terakhir" → entri sesi 42; Catatan Teknis sesi 42 ditambahkan di paling atas. `memori/riwayat_perubahan.md` entri sesi 42 ditambahkan. Tidak ada perubahan kontrak/konvensi lintas proyek.
