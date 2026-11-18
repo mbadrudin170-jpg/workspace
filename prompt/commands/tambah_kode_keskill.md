@@ -1,4 +1,4 @@
-diperbarui : Wed Nov 18 2026 21:04 WIB
+diperbarui : Thu Nov 19 2026 00:36 WIB
 ditimpa ke : `.kilo/commands/tambah_kode_keskill.md`
 
 1. `$ARGUMENTS`: potongan kode dan/atau daftar berkas yang diberikan pengguna; jika kosong, tanyakan kode/berkas yang dimaksud.
@@ -22,3 +22,5 @@ ditimpa ke : `.kilo/commands/tambah_kode_keskill.md`
 10. Jika perubahan/pembuatan menyentuh skill `code/` atau berdampak pada pola/aturan kode: tambahkan atau perbarui aturan terkait di `.agents/rules/code.md` dan setiap aturan wajib menyertakan skill terkaitnya (rujuk skill yang diperbarui/dibuat); dilarang menambah aturan tanpa skill terkait. Jika hanya menyentuh skill `non-code/` tanpa dampak aturan kode, jangan ubah `.agents/rules/code.md`.
 
 11. Setelah mengedit (bila disetujui): verifikasi (a) nama folder skill sesuai `name`/isi berkas, (b) `description` memicu (trigger) kode/baris yang diperbarui, lalu jalankan `formatmd` (alias: `npx prettier --write "**/*.md"`) untuk merapikan berkas Markdown.
+
+12. Tujuannya agar sebuah AI tidak mengulang kesalahan yang sama di masa mendatang.

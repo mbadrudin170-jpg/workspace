@@ -77,6 +77,18 @@ Wrap(
   children: chips.map((c) => FilterChip(...)).toList(),
 )
 
+// BENAR: Jarak seragam 4px antar anak di Column subtitle
+Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  spacing: 4,
+  children: [
+    NamaPaketWidget(idPaket: pelanggan.idPaket),
+    Text('Pembayaran: ${status.label}'),
+    Text('Status: ...'),
+    Text('Berakhir: ...'),
+  ],
+)
+
 // BENAR: Halaman bertanggung jawab padding tepi layar
 Scaffold(
   body: SafeArea(
@@ -151,3 +163,4 @@ Scaffold(
 - File: `lib/fitur/impian/widget/visual_tabungan_impian.dart`, `lib/fitur/impian/screens/impian_screen.dart`
 - Class terkait: `Row`, `Column`, `Wrap`, `SizedBox`, `Padding`, `EdgeInsets`, `Card`, `Scaffold`, `SafeArea`
 - Commit rujukan: `3b67d309` — `Column(spacing: 8)` di `_EmptyDiaryCraving`, `VisualTabunganImpian`; `c7337d1` — `Column(spacing: 12)` di card impian; `e659574` — `Column(spacing: 8)` di kartu motivasi dashboard
+- Commit `a372187` (admin_wifi, 2026-11-18): `pelanggan_aktif_screen.dart` — 3 `SizedBox(height: 4)` di subtitle `Column` diganti `Column(spacing: 4)`.

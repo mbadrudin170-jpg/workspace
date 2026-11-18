@@ -3,8 +3,8 @@ name: penamaan-konvensi
 description: "Trigger: saat menamai identifier, file, atau class | Konvensi proyek Flutter: identifier bahasa Indonesia, file snake_case, variable camelCase, class PascalCase, konstanta SCREAMING_SNAKE_CASE, import package:, tabel/kolom snake_case."
 metadata:
   kategori: "custom"
-  versi: "1.1.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.2.0"
+  diperbarui: "Wed Nov 18 2026 23:30 WIB"
 ---
 
 # Konvensi Penamaan Proyek
@@ -40,10 +40,12 @@ Skill ini mendokumentasikan konvensi penamaan yang wajib diterapkan di proyek in
 16. Import wajib pakai `package:` prefix, DILARANG relative import (`../`, `./`).
 17. Urutkan import alfabetis berdasarkan path package lengkap.
 18. Group: `dart:`, `package:` (external), `package:` (internal/project), lalu `export`.
+19. Enum yang perlu ditampilkan ke pengguna WAJIB menyediakan getter `label` berupa `switch` exhaustive atas seluruh nilai enum (teks tampilan baku untuk pengguna, Bahasa Indonesia); UI wajib memanggil `<enum>.label` dan DILARANG menulis teks tampilan enum secara manual di layar (ternary/if/string literal). Getter `label` tidak menggantikan `.name` untuk persistensi database maupun `toString()`. Contoh: `TipeDurasi.label` ('Menit'/'Jam'/'Hari'/'Bulan'), `StatusPembayaranEnum.label` ('Lunas'/'Belum Lunas').
 
 ## Larangan
 
 - DILARANG campur bahasa Indonesia dan Inggris dalam satu identifier.
+- DILARANG teks tampilan enum tulis manual di layar (ternary/if/string literal); wajib lewat getter `<enum>.label` dengan `switch` exhaustive.
 - DILARANG nama file dengan huruf besar (mis. `BiodataScreen.dart`).
 - DILARANG single letter variable (kecuali loop index `i`, `j`, atau generic `T`).
 - DILARANG abbreviation tidak standar (`btn` → `button`, `ctx` → `context`).
@@ -145,3 +147,5 @@ import './biodata_model.dart'; // DILARANG
 - File: `lib/fitur/biodata/model/biodata_model.dart`, `lib/shared/konstanta/nama_tabel.dart`, `lib/shared/konstanta/nama_kolom.dart`
 - Class terkait: `BiodataModel`, `ModeBerhenti`, `NamaTabel`, `NamaKolom`
 - Commit rujukan: `1e7b71e` — Import ordering enforcement; `adc85b5` — NamaKolom snake_case constants; `3b67d309` — Indonesian identifiers throughout; `a5beae01b86a4d9753963380818bc437c2b4741a` — enum lowerCamelCase + migrasi data v12 untuk nilai tersimpan
+- Commit `a57b6bb` (admin_wifi, 2026-11-18): getter `displayName` → `label` pada `TipeDurasi` (paket_model) dan `StatusPembayaranEnum`; seluruh pemakaian di layar disesuaikan — dasar kaidah 19.
+- Permintaan eksplisit pengguna (2026-11-18, sesi 45): setiap enum yang perlu terlihat pengguna wajib memakai `switch` getter `label`; dilarang menulis teks tampilan enum manual.

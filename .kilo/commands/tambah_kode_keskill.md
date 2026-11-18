@@ -24,6 +24,8 @@ description: Menambahkan atau memperbarui skill yang relevan dengan potongan kod
 
 11. Setelah mengedit (bila disetujui): verifikasi (a) nama folder skill sesuai `name`/isi berkas, (b) `description` memicu (trigger) kode/baris yang diperbarui, lalu jalankan `formatmd` (alias: `npx prettier --write "**/*.md"`) untuk merapikan berkas Markdown.
 
+12. Tujuannya agar sebuah AI tidak mengulang kesalahan yang sama di masa mendatang.
+
 # Skill Terkait
 
 - aturan-pembuatan-skill

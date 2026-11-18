@@ -37,6 +37,11 @@ Membuat model dan state immutable dengan paket Freezed (`freezed` 4.0.2, `freeze
 14. Field nullable pada state Freezed yang perlu bisa dikosongkan (mis. filter Town Hall/tipe) wajib mengandalkan sentinel `copyWith` dari codegen: panggil `copyWith(field: null)` untuk menghapus nilai. Jangan membuat bendera manual `clearField`/`clearTags` pada state Freezed.
 15. Jalankan `build_runner` untuk menghasilkan berkas `*.freezed.dart` dan `*.g.dart` setelah menulis/mengubah sumber. Workflow: `dart pub get` → `dart run build_runner build --delete-conflicting-outputs` → `dart format .` → `dart analyze`.
 16. Verifikasi kebenaran dengan `dart format`, `dart analyze`, dan `flutter test` bila relevan.
+17. Model yang belum Freezed dan memiliki pasangan `fromSqlite`/`toSqlite` (dan/atau `fromFirebase`/`toFirebase`) wajib dikonversi ke struktur Freezed (`abstract class` + `part '<model>.freezed.dart'` + `const factory X({...}) = _X;`, serta `const X._();` bila ada factory/method); manual `copyWith` WAJIB dihapus (di-generate); `id` wajib `required String` non-nullable — DILARANG auto-UUID di dalam model (UUID wajib disuplai oleh pemanggil); field bernilai default lama memakai `@Default`.
+18. Seluruh parsing nilai dari database WAJIB lewat `ParserUtil`: `parseString`/`parseStringOrNull` (DILARANG cast `as String`/`as num`), `parseBool`, `parseInt`/`parseIntOrNull`, `parseDouble`; enum lewat `safeParseEnum` + `parseStringOrNull` (DILARANG `firstWhere`/`byName` langsung pada nilai DB).
+19. Nilai `Timestamp` dari Firestore (atau tipe setara `cloud_firestore`) wajib dinormalisasi lewat helper private (mis. `_parseTanggal`): `value is Timestamp` → `value.toDate().toLocal()`; selain itu `ParserUtil.parseDateTime(value)?.toLocal()`. Paket bersama yang bersifat generik dan dipakai lintas proyek tidak boleh mengimpor `cloud_firestore` hanya untuk parsing tanggal.
+20. Kolom/field tanggal yang wajib non-null wajib divalidasi eksplisit; bila gagal parse, lemparkan `ArgumentError` khusus — DILARANG fallback `DateTime.now()`.
+21. Nama field Firestore WAJIB sama persis dengan kolom SQLite (umumnya snake_case); TIDAK ADA konstanta khusus Firestore dengan nama berbeda — memakai konstanta Skema yang sama (lihat skill `konstanta-skema-tabel`).
 
 ## Steps
 
@@ -60,6 +65,10 @@ Membuat model dan state immutable dengan paket Freezed (`freezed` 4.0.2, `freeze
 - DILARANG memparse enum dari database dengan cast/string matching langsung tanpa `ParserUtil.safeParseEnum`.
 - DILARANG persistenkan nilai enum `snake_case` ke kolom database.
 - DILARANG membuat bendera manual `clearField`/`clearTags` pada state Freezed untuk mengosongkan field nullable; gunakan `copyWith(field: null)` dari codegen.
+- DILARANG cast `as String[?]`/`as num` pada nilai dari database; pakai `ParserUtil.parseString[OrNull]`/`parseInt`/`parseDouble`.
+- DILARANG fallback `DateTime.now()` saat parse tanggal wajib gagal; lemparkan `ArgumentError`.
+- DILARANG nama field Firestore yang berbeda dari kolom SQLite (mis. camelCase terpisah); samakan dengan kolom SQLite.
+- DILARANG auto-UUID dari dalam model; `id` wajib non-nullable dan disuplai pemanggil.
 
 ## Contoh Benar
 
@@ -287,3 +296,5 @@ class DiaryCravingModel with _$DiaryCravingModel { ... } // salah: class biasa, 
 - Commit rujukan (state): `b70ffda33ce6473e6309af8acd0c64b48c2d0404`, `acf4bb6dddc17ca633d551b2e9f5f62f39020d78`, `804b307506389b678f09e7c2cb7bfb8f2aa94112`, `cacca30b128aadb43e839d31eb1e944a10101b61` (konversi `FilterState` ke `@freezed`; penghapusan bendera manual `clearTownHall`/`clearTipe`/`clearTags`; pengosongan field nullable via `copyWith(field: null)`), `c0ed41e4ff2bd8a1e4cc169630b9301f15f9e17c` (`ProgresDesaState` `@freezed`; `@Default(<AkunDesa>[])`), `f9568a11173bab474012db81f7c6d066e80f15c5` (`PelangganAktifState`, proyek `admin_wifi`)
 - File filter (commit `cacca30`): `base_coc/lib/fitur/galeri_base/model/filter_state.dart`, `base_coc/lib/fitur/galeri_base/provider/filter_provider.dart`
 - Commit rujukan (model DB): `3b67d3095dacc4e5c7ea78d7eb251809e3e9d981`, `a15acd9603fe5d1251afa4acc3817e7e9c1607b1`, `a5beae01b86a4d9753963380818bc437c2b4741a`, `2462af81050e12b2933717f457a33a5b05d3719f`, `52654906d276c2bab6110fe01dea9452a11773b5` (`StatistikDao` dengan `fromSqflite`/`toSqflite`, `ParserUtil`, konstanta `NamaKolomStatistik`; `FilterState` dengan `SortirMode` dan `@Default`), `45ae356d29dd0bbed8b52567eff5615dc379ddec` (`TautanStatus.toSqflite()`)
+- Commit `ea08f25` (admin_wifi, 2026-11-18): seluruh model DB non-Freezed dikonversi ke Freezed (`abstract class` + `const factory`, manual `copyWith` dihapus, `id` `required String` disuplai pemanggil, auto-UUID model dihapus); parsing seluruh model didelegasikan ke `ParserUtil` (`parseString`/`parseStringOrNull`/`parseBool`/`parseInt`/`parseIntOrNull`/`parseDouble`/`safeParseEnum`); adapter `_parseTanggal` untuk `Timestamp`; tanggal wajib melempar `ArgumentError`; field Firestore disamakan snake_case dengan kolom SQLite; tulis UTC / baca lokal; test diperbarui (`id` eksplisit).
+- Permintaan eksplisit pengguna (2026-11-18, sesi 45): "nama kolom samakan saja setiap db" dan "ubah semua model yang mempunyai from dan to agar seperti ini" (sehingga kaidah 17–21 di atas).
