@@ -14,13 +14,14 @@ description: Menganalisis paket pub.dev dan memperbarui docs/paket_favorit.md.
    - versi terbaru dan status pemeliharaan,
    - tautan halaman paket pub.dev (`https://pub.dev/packages/<nama_paket>`),
    - tautan dokumentasi API paket (contoh format: `https://pub.dev/documentation/<nama_paket>/latest/`),
-   - metrik pub.dev: Pub Points, Likes, Popularity/Downloads (bila tersedia),
+   - metrik pub.dev: Pub Points, Likes, Popularity/Downloads (bila tersedia) — wajib dibaca dari halaman skor paket `https://pub.dev/packages/<nama_paket>/score` (contoh: `https://pub.dev/packages/stack_trace/score`),
    - kelebihan/keterbatasan singkat yang relevan.
 5. Jangan mengarang data, angka, atau tautan. Jika informasi tidak dapat diverifikasi, tulis "tidak diketahui" atau "tidak tersedia".
 6. Sampaikan ringkasan hasil analisis kepada pengguna, lalu minta izin eksplisit apakah paket perlu ditambahkan atau diperbarui di `docs/paket_favorit.md` (gunakan tool `question` bila sesuai). Jangan mengubah `docs/paket_favorit.md` sebelum ada persetujuan.
 7. Jika pengguna menyetujui, perbarui `docs/paket_favorit.md`:
    - jika berkas kosong, buat tabel dengan kolom: `| Nama Paket | Link pub.dev | Link Dokumentasi | Pub Points | Likes | Popularity | Ringkasan Cakupan | Catatan |` beserta baris pemisah,
-   - jika entri paket sudah ada, perbarui barisnya; jika belum, tambahkan baris baru.
+   - jika entri paket sudah ada, perbarui barisnya; jika belum, tambahkan baris baru,
+   - susun baris tabel berdasarkan Popularity tertinggi ke terendah; entri yang Popularity-nya tidak tersedia/tidak dapat diverifikasi ditempatkan di bagian bawah.
 8. Laporkan ringkasan analisis dan sebutkan apakah `docs/paket_favorit.md` diperbarui.
 
 # Skill Terkait
