@@ -3,8 +3,8 @@ name: penggunaan-tool-bawaan-kilo
 description: Trigger: saat memilih atau memakai tool bawaan Kilo (read, edit, glob, grep, bash, webfetch, dll.) | Panduan pemilihan tool bawaan Kilo: pemetaan kebutuhan ke tool yang tepat, contoh pemanggilan, aturan prioritas tool bawaan atas shell, dan izin deny yang mutlak.
 metadata:
   kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Mon Nov 16 2026 21:31 WIB"
+  versi: "1.2.0"
+  diperbarui: "Thu Nov 19 2026 02:38 WIB"
 ---
 
 # Penggunaan Tool Bawaan Kilo
@@ -50,6 +50,7 @@ Panduan memilih dan memakai tool bawaan Kilo sesuai kebutuhan, beserta contoh pe
    - Papan bersama sesi task → `Board_post`, `Board_read`.
    - Grafik → `Chart`.
 7. Skill dan command wajib menginstruksikan tool bawaan lebih dahulu. DILARANG menulis instruksi yang menyuruh `rg`, `grep`, `find`, `ls`, `cat`, `head`, atau `tail` untuk operasi yang dapat dilakukan tool bawaan.
+8. Sebelum menyunting berkas, baca ulang (Read) bila ada indikasi berkas berubah di luar sesi (mis. `oldString` tidak cocok atau hasil Grep berbeda dari yang terbaca); DILARANG menebak isi berkas — sunting hanya dengan isi terkini yang sudah dibaca ulang.
 
 ## Daftar Tool (ringkas)
 
@@ -134,4 +135,5 @@ bash: { command: "find lib -name '*.dart'" } // gunakan Glob
 - Berkas sumber (commit `19177b4`): `prompt/skill/penggunaan-tool-bawaan-kilo.md` — daftar tool bawaan Kilo dan deskripsi.
 - Aturan prioritas (commit `c85674e`): `.agents/rules/prioritas_tool_bawaan.md` (path historis; berkas dihapus sesi 186) — isinya diserap oleh skill ini.
 - Skill terkait: `.agents/skills/code/konfigurasi-kilo-proyek/SKILL.md`, `.agents/skills/non-code/aturan-pembuatan-commands/SKILL.md`.
+- Aturan 8 (baca ulang berkas sebelum sunting bila `oldString` tidak cocok/ada perubahan di luar sesi) — ditambahkan 2026-11-19 (sesi 47), insiden pengeditan berkas yang sedang diubah proses lain di luar sesi (import menunjuk path tidak ada/ketidakcocokan `oldString`); skill diperbarui atas permintaan pengguna (perintah `/tambah_kode_keskill`, 2026-11-18).
 - Dokumen resmi Kilo: https://kilo.ai/docs/customize/skills

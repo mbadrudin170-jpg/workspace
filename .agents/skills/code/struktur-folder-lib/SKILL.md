@@ -3,8 +3,8 @@ name: struktur-folder-lib
 description: Trigger: saat menata atau membuat struktur folder lib/ Flutter | Panduan feature-first + core/ untuk proyek Flutter: sub-folder lapisan di dalam folder fitur (screens/, notifier/, provider/, widgets/ bila dibutuhkan), pembeda state Riverpod yang bisa diubah (notifier/ + nama_notifier.dart) vs provider read-only (provider/ + nama_provider.dart), main.dart/app.dart/home.dart (shell) tetap di akar, dan berkas hasil generate (*.g.dart) tidak dipindah/diedit manual (build_runner). Larangan: jangan membuat folder core/ kosong; desain blueprint harus dieksekusi beserta build_runner, bukan sekadar rename. Workflow: pindahkan sumber → build_runner → perbarui impor → dart format, dart analyze, flutter test. Referensi: hasil_diskusi/diskusi_4.md, lib/main.dart, lib/app.dart, lib/home.dart, lib/fitur/.
 metadata:
   kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.0"
+  diperbarui: "Thu Nov 19 2026 02:56 WIB"
 ---
 
 # Struktur Folder `lib/` Flutter
@@ -37,13 +37,15 @@ Status referensi: konvensi `notifier/` vs `provider/` berasal dari hasil diskusi
 8. Impor memakai path package (`package:<nama_aplikasi>/...`), bukan path relatif.
 9. Nama berkas `snake_case`, class `PascalCase`, konstanta `SCREAMING_SNAKE_CASE` (lihat skill `penamaan-konvensi`); tabel/kolom/field database `snake_case`.
 10. Provider hasil generate dinamai dari nama class minus akhiran `Notifier` (mis. `TemaNotifier` → `temaProvider`); merename berkas tidak mengubah nama provider, hanya jalur impor dan `part` yang berubah.
+11. Berkas yang dipindah/rename dengan header `// path:` WAJIB memperbarui header tersebut seiring pemindahan (menunjuk lokasi baru); `grep` path lama WAJIB bersih sebelum tugas dinyatakan selesai (termasuk berkas yang dipindah oleh `git mv`).
 
 ## Steps
 
 1. Pindahkan/rename berkas sumber (mis. `tema_provider.dart` → `notifier/tema_notifier.dart`); sesuaikan `part` ke `<sumber>.g.dart` dengan nama berkas baru.
 2. Hapus `*.g.dart` lama yang tertinggal; jalankan `dart run build_runner build --delete-conflicting-outputs`.
 3. Perbarui semua impor pemakai ke lokasi baru.
-4. Verifikasi `dart format`, `dart analyze`, `flutter test`.
+4. Perbarui header `// path:` (bila ada) ke lokasi baru; `grep` path lama wajib bersih.
+5. Verifikasi `dart format`, `dart analyze`, `flutter test`.
 
 ## Larangan
 
@@ -125,4 +127,5 @@ lib/core/                                        // salah: buat saat ada isi nya
 - Dokumen: `hasil_diskusi/diskusi_4.md` (K-1 s.d. K-9; blueprint target `lib/`)
 - Commit rujukan struktur: `c30a4ec` (struktur file utama + navigasi tab), `f0f437d` (migrasi tema ke Riverpod) — contoh aktual feature-first dan Riverpod di proyek ini
 - Catatan: konvensi `notifier/` vs `provider/` (aturan 3–4 dan 10) berasal dari diskusi_4 atas perintah pengguna; belum ada di commit mana pun hingga blueprint dieksekusi
+- Berkas sumber (sesi 47, 2026-11-19; di luar alur commit-history atas persetujuan eksplisit pengguna): migrasi model `admin_wifi` (commit `89834ea`) memindahkan 13 berkas model ke `lib/fitur/<fitur>/model/` tetapi header `// path:` masih menunjuk lokasi lama; terdeteksi manual (`dart analyze` tidak memflag header komentar), diperbaiki atas persetujuan pengguna. Skill diperbarui: Aturan 11 (header `// path:` wajib diperbarui + `grep` path lama bersih) dan Steps ditambah langkah perbarui header; versi 1.0.0 → 1.1.0. Provenance: sesi.
 - Skill terkait: `penamaan-konvensi`, `build-runner-codegen`, `riverpod-pola`

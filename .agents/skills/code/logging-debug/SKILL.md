@@ -1,10 +1,10 @@
 ---
 name: logging-debug
-description: "Trigger: saat menambahkan log debug | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten; L.e wajib menyertakan stack trace ($e $s); dilarang membuat wrapper log manual per proyek — cukup gunakan L dari share_global_saya."
+description: "Trigger: saat menambahkan log debug; saat membersihkan/mengurangi log berlebihan (narasi langkah, banner separator) | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten; log narasi langkah tanpa nilai aktual dan banner/separator DILARANG; L.e wajib menyertakan stack trace ($e $s); dilarang membuat wrapper log manual per proyek — cukup gunakan L dari share_global_saya."
 metadata:
   kategori: "custom"
-  versi: "1.1.2"
-  diperbarui: "Wed Nov 18 2026 22:43 WIB"
+  versi: "1.2.0"
+  diperbarui: "Thu Nov 19 2026 02:38 WIB"
 ---
 
 # Logging Debug pada Variabel dan Parameter
@@ -44,6 +44,7 @@ Gunakan sistem logging yang sudah tersedia di proyek (`L.*` dari `share_global_s
 10. Pada `catch`, catat error dengan konteks proses yang gagal dan **wajib** sertakan stack trace: `L.e('Gagal ...: $e $s')`. Jangan gunakan `L.e` tanpa `$s`.
 11. Log pada `initState` dan `dispose` diperbolehkan karena hanya dipanggil sekali. Log pada `build()` dihindari apabila memungkinkan karena `build()` dapat dipanggil berulang dan menambah noise; prioritaskan log pada titik yang tidak berfrekuensi tinggi (initState, dispose, method helper, perhitungan). Log pada getter/properti turunan yang dapat dipanggil berulang saat `build()` (mis. `targetRokokHariIni`, label Enum) juga dihindari.
 12. Log debug satu-kali (mis. untuk verifikasi sementara di layar/helper) wajib dihapus saat commit cleanup (`chore(logging): hapus pernyataan log debug ...`); jangan biarkan log debug-sementara ikut ter-commit permanen. Log bermakna jangka panjang (initState, dispose, catch, ringkasan perhitungan) boleh dipertahankan.
+13. Jangan menulis log yang hanya menarasikan langkah eksekusi tanpa nilai aktual (mis. `L.i('Membuat instance ...')`, `L.i('Memanggil ...')`, `L.i('Memeriksa ...')`) atau banner/separator (mis. `L.i('========================================')`, `L.i('LIFECYCLE: ...')`); saat membersihkan log, hapus log semacam itu dan pertahankan hanya log nilai aktual, titik penting (initState, dispose, catch `$e $s`), dan ringkasan bermakna.
 
 ## Larangan
 
@@ -90,6 +91,15 @@ print('data=$data'); // menggunakan print() alih-alih L.*
 class Log {
   static void info(String message) => debugPrint('... $message'); // wrapper manual
 }
+
+// DILARANG: log narasi langkah tanpa nilai aktual
+L.i('Membuat instance PelangganOperasi');
+L.i('Memeriksa apakah perangkat dapat membuka URI WhatsApp');
+L.i('Memanggil _loadDetails() untuk mengambil data');
+
+// DILARANG: banner/separator
+L.i('========================================');
+L.i('LIFECYCLE: build() - Membangun UI');
 ```
 
 ## Sumber Evaluasi
@@ -99,3 +109,4 @@ class Log {
 - Audit `l.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): rujukan path diperbaiki (`lib/shared/utils/l.dart` → `lib/src/utils/l.dart`); API lengkap `L` didokumentasikan (`i`, `s`, `w`, `e`, `json`, `list`, `api`); infrastruktur overlay (`L.init`, `L.buffer`, `hapusBuffer`, `Future.delayed(50ms)`, `try/catch`) dan default `showLocation`/`useTerse` dicatat; `p(...)` dibedakan dari `L`; Contoh Benar ditambah; versi 1.0.1 → 1.1.0. Catatan: komentar header `l.dart` sendiri juga merujuk path usang (`lib/shared/utils/l.dart`) — di submodule, TIDAK diubah sesi ini.
 - Berkas sumber: migrasi `lib/debug/log.dart` (kelas `Log` + `_formatData`) → `L` di `admin_wifi` — `admin_wifi` commit `ef883f2` ("m", 15:24 WIB+7, dibuat pengguna/harness): 99 berkas memigrasikan `Log.info/warning/error/api` ke `L.i/L.w/L.e/L.api`; `lib/debug/log.dart` dihapus; `dart analyze` bersih; `flutter test` +105/−24 identik baseline. Skill diperbarui atas permintaan eksplisit pengguna (sesi 42, 2026-11-18) — versi 1.1.1 → 1.1.2.
 - File: `lib/fitur/dummy/helper/dummy_helper.dart`, `lib/fitur/dummy/screens/dummy_screen.dart`, `lib/fitur/impian/screens/impian_screen.dart`, `lib/fitur/impian/screens/form_impian.dart`, `lib/fitur/biodata/notifier/biodata_notifier.dart`, `lib/fitur/biodata/screens/biodata_screen.dart`, `lib/fitur/impian/notifier/impian_notifier.dart`, `lib/fitur/pengaturan/screens/pengaturan_screen.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`, `.kilo/commands/tambah_log.md`
+- Berkas sumber: `admin_wifi/lib/fitur/pelanggan_aktif/screens/detail_pelanggan_aktif.dart` (sesi 47, 2026-11-19 — pemangkasan ~60 baris log narasi/banner yang berlebihan; perubahan pada saat penulisan **belum ter-commit**, diterapkan di luar alur commit-history atas persetujuan eksplisit pengguna). Skill diperbarui atas permintaan eksplisit pengguna (sesi 47, 2026-11-19) — versi 1.1.2 → 1.2.0; Aturan 13 (larangan log narasi langkah tanpa nilai aktual dan banner/separator) dan Contoh Salah ditambahkan. Provenance: sesi, bukan commit.

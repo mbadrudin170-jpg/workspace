@@ -1,10 +1,10 @@
 ---
 name: overlay-log-debug
-description: "Trigger: saat menyusun root aplikasi Flutter (app.dart/main.dart); saat ikon/panel overlay debug tidak muncul (`_tampilkanIkon: overlay null? true` / `Overlay.maybeOf` null); saat error `No Directionality widget found` pada Overlay | Panduan membungkus root app dengan `PengelolaOverlayLogDebug` dari share_global_saya: inisialisasi `L.init(container)` dengan ProviderContainer yang sama, `UncontrolledProviderScope`, wajib Overlay root manual sebagai ancestor (agar `Overlay.maybeOf` non-null) **dibungkus `Directionality`** (agar `_Theater` menemukan ancestor), pola OverlayEntry (postFrameCallback + mounted check), dan `overlayLogDebugTampilProvider`."
+description: "Trigger: saat menyusun root aplikasi Flutter (app.dart/main.dart); saat ikon/panel overlay debug tidak muncul (`_tampilkanIkon: overlay null? true` / `Overlay.maybeOf` null); saat error `No Directionality widget found` pada Overlay; saat error `No MaterialLocalizations found` pada SelectionArea | Panduan membungkus root app dengan `PengelolaOverlayLogDebug` dari share_global_saya: inisialisasi `L.init(container)` dengan ProviderContainer yang sama, `UncontrolledProviderScope`, wajib Overlay root manual sebagai ancestor (agar `Overlay.maybeOf` non-null), dibungkus `Directionality` **dan `Localizations`** (di ATAS `Directionality`), pola OverlayEntry (postFrameCallback + mounted check), dan `overlayLogDebugTampilProvider`."
 metadata:
   kategori: "custom"
-  versi: "1.3.0"
-  diperbarui: "Wed Nov 18 2026 07:38 WIB"
+  versi: "1.4.0"
+  diperbarui: "Thu Nov 19 2026 02:56 WIB"
 ---
 
 # Overlay Log Debug pada Root Aplikasi
@@ -28,20 +28,27 @@ Fitur debug log (ikon melayang + panel log) dari `share_global_saya` harus dipas
      UncontrolledProviderScope(
        container: container,
        // Overlay root manual berada DI ATAS MaterialApp (satu-satunya penyedia
-       // Directionality di tree), jadi Directionality dipasang manual di sini:
-       // `_Theater` (bagian internal Overlay) mewajibkan ancestor Directionality.
-       child: Directionality(
-         textDirection: TextDirection.ltr,
-         child: Overlay(
-           initialEntries: [
-             OverlayEntry(
-               // PengelolaOverlayLogDebug menyisipkan ikon/panel ke Overlay.maybeOf(context);
-               // Overlay root dibuat manual agar pemanggilan itu menemukan ancestor.
-               builder: (context) => const PengelolaOverlayLogDebug(
-                 child: AplikasiSaya(),
+       // Directionality/Localizations di tree), jadi keduanya dipasang manual:
+       // Localizations di ATAS Directionality, Directionality di ATAS Overlay.
+       child: Localizations(
+         locale: const Locale('en'),
+         delegates: const [
+           DefaultWidgetsLocalizations.delegate,
+           DefaultMaterialLocalizations.delegate,
+         ],
+         child: Directionality(
+           textDirection: TextDirection.ltr,
+           child: Overlay(
+             initialEntries: [
+               OverlayEntry(
+                 // PengelolaOverlayLogDebug menyisipkan ikon/panel ke Overlay.maybeOf(context);
+                 // Overlay root dibuat manual agar pemanggilan itu menemukan ancestor.
+                 builder: (context) => const PengelolaOverlayLogDebug(
+                   child: AplikasiSaya(),
+                 ),
                ),
-             ),
-           ],
+             ],
+           ),
          ),
        ),
      ),
@@ -60,6 +67,8 @@ Fitur debug log (ikon melayang + panel log) dari `share_global_saya` harus dipas
 
    **Mengapa `Overlay` root manual wajib dibungkus `Directionality`** (verifikasi runtime, 2026-11-18, `flutter run -d chrome`, proyek `admin_wifi`): Overlay root manual berada **DI ATAS** `MaterialApp` — satu-satunya penyedia `Directionality` di tree — sehingga tidak ada ancestor `Directionality` untuknya. `_Theater` (bagian internal `Overlay`) mewajibkan `Directionality`; root view hanya menyediakan `MediaQuery`. Tanpa `Directionality`, aplikasi melempar `No Directionality widget found. _Theater widgets require a Directionality widget ancestor` secara berulang (widget pemicu: `Overlay` di `main.dart`). Perbaikan: bungkus `Overlay` dengan `Directionality(textDirection: TextDirection.ltr, ...)` (`MediaQuery` **tidak** cukup). Verifikasi setelah perbaikan: `dart format` bersih, `dart analyze` — **No issues found!**, `flutter test` penuh → **+105/−24, identik baseline**; verifikasi runtime `flutter run -d chrome` (hot restart) terkonfirmasi lewat log pengguna (2026-11-18): tidak ada `No Directionality widget found`, dan `_tampilkanIkon: overlay null? false` serta `_tampilkanIkon: ikon di-insert ke overlay`.
 
+   **Mengapa `Overlay` root manual wajib dibungkus `Localizations` (DI ATAS `Directionality`)** (verifikasi runtime, 2026-11-18, proyek `admin_wifi`; ter-commit `93d649c`): panel `share_global_saya` memakai `SelectionArea` yang membutuhkan `MaterialLocalizations`; Overlay root manual berada DI ATAS `MaterialApp` (penyedia Localizations), jadi root view hanya menyediakan `MediaQuery`. Tanpa `Localizations`, pembukaan panel melempar `No MaterialLocalizations found` secara berulang. Perbaikan: bungkus `Overlay` dengan `Localizations` berisi delegasi default framework (`DefaultWidgetsLocalizations` + `DefaultMaterialLocalizations`, locale `'en'`; proyek tidak memuat `flutter_localizations`). Verifikasi: `dart analyze` bersih; runtime log pengguna mengonfirmasi error hilang.
+
 4. `PengelolaOverlayLogDebug` adalah `ConsumerStatefulWidget` yang menyisipkan `OverlayEntry` ke `Overlay.maybeOf(context)`. Insert entry dilakukan di `addPostFrameCallback` dengan cek `mounted`, bukan di `build` langsung; `build` hanya membandingkan nilai `overlayLogDebugTampilProvider` dengan `_terakhirTampilIkon`.
 5. `_entryIkon`/`_entryLog` di-remove secara eksplisit di `dispose`; jangan dibiarkan menumpuk saat root app di-rebuild.
 6. Provider `overlayLogDebugTampilProvider` (bool, default `true`) mengendalikan tampil/sembunyi ikon dan panel; gunakan `ref.read(overlayLogDebugTampilProvider.notifier).tampilkan()` / `.sembunyikan()`.
@@ -69,6 +78,7 @@ Fitur debug log (ikon melayang + panel log) dari `share_global_saya` harus dipas
 10. Bottom sheet kustom (mis. `_SheetSalinLog`) di-insert sebagai `OverlayEntry` dengan `Overlay.of(context, rootOverlay: true)` SETELAH `_entryLog` di-insert, agar selalu tampil di atas panel (Material milik `OverlayLogDebug`), bukan di bawahnya; area gelap di belakang sheet di-tap untuk menutup. Sebaliknya: overlay ikon/panel memakai `Overlay.maybeOf(context)` (bukan `rootOverlay: true`).
 11. `_copyAllLogs` menyalin daftar log ke clipboard (`Clipboard.setData`), lalu LANGSUNG memanggil `logDebugProvider.notifier.hapusSemua()` (seluruh log DB terhapus setelah disalin) dan menampilkan `AppToast.sukses`; salinan per-tipe lewat `_SheetSalinLog` (`onPilih`) memakai alur yang sama — salinan bersifat konsumtif, bukan sekadar pratinjau.
 12. Panel menggabungkan dua sumber log: log DB (`logDebugProvider`) dan buffer `L` (`L.buffer`), men-dedup berdasarkan `id` (`semuaList` di `build`, `...?logState?.listLogDebug` + `...L.buffer.where((b) => !...any((s) => s.id == b.id))`). Filter tampilan memakai `ModeTampilanLog` (semua/error/warning/info) lewat `_filterByMode`; badge warna per `TipeLog` (error=merah, warning=oranye, info=biru, sukses=hijau, api=ungu).
+13. `Overlay` root manual berada DI ATAS `MaterialApp` — satu-satunya penyedia `Localizations`/`Directionality` di tree — sehingga root view hanya menyediakan `MediaQuery`. Panel `share_global_saya` memakai `SelectionArea` yang membutuhkan `MaterialLocalizations`; proyek tanpa `flutter_localizations` boleh memakai delegasi default framework (`DefaultWidgetsLocalizations` + `DefaultMaterialLocalizations`, locale `'en'`). Bungkus `Overlay` dengan `Localizations` **DI ATAS** `Directionality`; tanpa itu, setiap pembukaan panel melempar `No MaterialLocalizations found` (`SelectionArea`). Verifikasi runtime 2026-11-18 (sesi induk "kode", diperbaiki di `admin_wifi/lib/main.dart`, ter-commit `93d649c`): error `No MaterialLocalizations found` hilang setelah bungkus ganda; `dart analyze` — No issues found!.
 
 Gotcha: `_ItemLogDebug` menyalin `widget.terlihatSemua` ke field lokal pada `initState` dan tidak menerapkan `didUpdateWidget`; toggle "lihat semua" di parent bersifat per-item dan tidak retroaktif ke `_ItemLogDebug` yang sudah ter-build.
 
@@ -89,19 +99,27 @@ void main() async {
   runApp(
     UncontrolledProviderScope(
       container: container,
-      // Overlay root manual berada DI ATAS MaterialApp (penyedia Directionality),
-      // jadi Directionality dipasang manual: `_Theater` mewajibkan ancestor-nya.
-      child: Directionality(
-        textDirection: TextDirection.ltr,
-        child: Overlay(
-          initialEntries: [
-            OverlayEntry(
-              // Overlay root manual: ancestor Overlay untuk PengelolaOverlayLogDebug
-              builder: (context) => const PengelolaOverlayLogDebug(
-                child: AplikasiSaya(),
+      // Overlay root manual berada di ATAS MaterialApp (penyedia
+      // Localizations/Directionality), jadi keduanya dipasang manual:
+      // Localizations di ATAS Directionality, Directionality di ATAS Overlay.
+      child: Localizations(
+        locale: const Locale('en'),
+        delegates: const [
+          DefaultWidgetsLocalizations.delegate,
+          DefaultMaterialLocalizations.delegate,
+        ],
+        child: Directionality(
+          textDirection: TextDirection.ltr,
+          child: Overlay(
+            initialEntries: [
+              OverlayEntry(
+                // Overlay root manual: ancestor Overlay untuk PengelolaOverlayLogDebug
+                builder: (context) => const PengelolaOverlayLogDebug(
+                  child: AplikasiSaya(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     ),
@@ -146,6 +164,26 @@ runApp(
     ),
   ),
 );
+
+// Salah: Overlay root manual TANPA Localizations — panel (`SelectionArea`)
+//   membutuhkan MaterialLocalizations; runtime melempar "No MaterialLocalizations
+//   found" secara berulang saat panel dibuka (sesi induk, admin_wifi, diperbaiki
+//   di main.dart, commit `93d649c`)
+runApp(
+  UncontrolledProviderScope(
+    container: container,
+    child: Directionality(
+      textDirection: TextDirection.ltr,
+      child: Overlay(
+        initialEntries: [
+          OverlayEntry(
+            builder: (context) => const PengelolaOverlayLogDebug(child: MyApp()),
+          ),
+        ],
+      ),
+    ),
+  ),
+);
 ```
 
 ## File Terkait
@@ -164,3 +202,4 @@ runApp(
 - Temuan runtime (sesi 28, 2026-11-18, atas persetujuan pengguna "Ya, ubah sekarang"): `_tampilkanIkon: overlay null? true` membuktikan `Overlay.maybeOf(context)` mengembalikan null saat `PengelolaOverlayLogDebug` diposisikan di atas `MaterialApp` (ikon tidak pernah tampil); `MaterialApp.builder` terbukti tidak di bawah Overlay (SDK `app.dart`); solusi terverifikasi dipilih: Overlay root manual sebagai ancestor. Aturan 3 ditambahkan penjelasan Overlay root manual; Contoh Benar/Salah diperbarui; File Terkait ditambah rujukan SDK; versi 1.1.0 → 1.2.0.
 - Permintaan pengguna (command `tambah_kode_keskill`, sesi 31, 2026-11-18) atas perbaikan `admin_wifi/lib/main.dart`: `Overlay` root manual (pola v1.2.0) melempar `No Directionality widget found. _Theater widgets require a Directionality widget ancestor` di `flutter run -d chrome` karena berada di atas `MaterialApp` (penyedia `Directionality`). Perbaikan: bungkus `Overlay` dengan `Directionality(textDirection: TextDirection.ltr, ...)`. Aturan 3 ditambah penjelasan + contoh (Aturan 3 kode blok), Contoh Benar/Salah diperbarui; `dart format` bersih; `dart analyze` — No issues found!; `flutter test` +105/−24 identik baseline; runtime `flutter run -d chrome` terkonfirmasi lewat log pengguna (hot restart): error `No Directionality widget found` hilang; `_tampilkanIkon: overlay null? false`; `_tampilkanIkon: ikon di-insert ke overlay`. **Catatan provenance**: pengeditan v1.3.0 dilakukan atas persetujuan eksplisit pengguna ("Terapkan sekarang juga") di luar alur commit-history (aturan `.agents/rules/lainnya.md` butir 3) karena perbaikan `admin_wifi/lib/main.dart` belum ter-commit (HEAD `81b5485`); sumber perubahan adalah diff working tree, bukan riwayat commit.
 - Skill terkait: `logging-debug`, `riverpod-pola`, `widget-lifecycle-state`.
+- Perbaikan `admin_wifi/lib/main.dart` (2026-11-18, ter-commit `93d649c`, sesi induk "kode"; pengguna menegaskan di log runtime 01:20 WIB bahwa panel melempar `No MaterialLocalizations found` dari `overlay_log_debug.dart:688` — `SelectionArea`): root Overlay manual dibungkus `Localizations` (`DefaultWidgetsLocalizations` + `DefaultMaterialLocalizations`, locale `'en'`) DI ATAS `Directionality`; `dart analyze` bersih. Skill diperbarui atas permintaan pengguna (perintah `/tambah_kode_keskill`, sesi 47, 2026-11-19) — versi 1.3.0 → 1.4.0; Aturan 13 (WAJIB Localizations di atas Directionality), penjelasan "Mengapa Overlay root manual wajib dibungkus Localizations", Contoh Benar/Salah, trigger description diperbarui. Provenance: sesi (aplikasi perbaikan ada di commit `93d649c`)

@@ -3,8 +3,8 @@ name: penanganan-error-unawaited
 description: "Trigger: saat memanggil Future tanpa await (unawaited) | Panduan wajib catchError dengan logging L.e pada Future yang dilepas; jangan biarkan unhandled."
 metadata:
   kategori: "custom"
-  versi: "1.1.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.2"
+  diperbarui: "Thu Nov 19 2026 02:38 WIB"
 ---
 
 # Penanganan Error pada Future yang Dilepas (unawaited)
@@ -44,3 +44,4 @@ unawaited(Nav.to(context, const HalamanLain()));
 
 - Commit: `fd6b45afbb4064038b4bc1131aaf6125dae538ec`, `d80e637179ed969c19c97f2cc2ced3d3d5fa2d12`, `db5dd32f28e92346b9a8d3467fa9b2838e013a02` (pembungkus `_navigasi` + `catchError` pada layar terkait), `50c1be708e595449fa2fd18e3491d4418943c565` (catchError pada `_simpan`/`_hapus` di form & layar rencana darurat)
 - File: `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/biodata/screens/form_biodata.dart`, `lib/lainnya_screen.dart`, `lib/fitur/rencana_darurat/screens/form_rencana_darurat.dart`, `lib/fitur/rencana_darurat/screens/rencana_darurat_screen.dart`
+- Berkas sumber: `admin_wifi/lib/fitur/pelanggan_aktif/screens/detail_pelanggan_aktif.dart` (sesi 47, 2026-11-19 — pola `unawaited(_loadDetails().catchError((Object e, StackTrace s) { L.e('...: $e $s'); }))` untuk method async privat pada titik panggilan; perubahan pada saat penulisan **belum ter-commit**, provenance sesi bukan commit). Skill diberi provenance sesi tanpa mengubah aturan — versi 1.1.1 → 1.1.2.

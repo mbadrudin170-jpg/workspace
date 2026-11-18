@@ -1,10 +1,10 @@
 ---
 name: data-dummy
-description: "Trigger: saat menambahkan atau memperbarui data dummy untuk pratinjau UI atau pengembangan | Pola data dummy: kelas `abstract final class <Model>Dummy` di `lib/fitur/<fitur>/dummy/<model>_dummy.dart`; daftar `dummyList` (`static final List`); setiap id wajib konstanta `static const` SCREAMING_SNAKE_CASE berformat UUID 8-4-4-4-12; tanggal entri relatif terhadap `DateTime.now()`."
+description: "Trigger: saat menambahkan atau memperbarui data dummy untuk pratinjau UI atau pengembangan | Pola data dummy: kelas `abstract final class <Model>Dummy` di `lib/fitur/<fitur>/dummy/<model>_dummy.dart`; daftar `dummyList` (`static final List`); setiap id wajib konstanta `static const` SCREAMING_SNAKE_CASE berformat UUID 8-4-4-4-12; tanggal entri relatif terhadap `DateTime.now()`; dummy berelasi WAJIB memakai ID dari dummy sumber yang sama (referensi ID valid lintas entitas)."
 metadata:
   kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Wed Nov 18 2026 10:12 WIB"
+  versi: "1.1.0"
+  diperbarui: "Thu Nov 19 2026 02:56 WIB"
 ---
 
 # Data Dummy
@@ -21,6 +21,7 @@ Skill ini menetapkan pola pembuatan data dummy (data sampel) untuk kebutuhan pra
 6. Konstanta id dikelompokkan per field model (mis. id entitas utama, id entitas relasi, id referensi lain) dengan prefiks berbeda; nilai yang sama dipakai ulang lewat konstanta yang sama.
 7. Tanggal pada entri dummy WAJIB relatif terhadap `DateTime.now()` (mis. `DateTime.now().subtract(const Duration(days: 10))`) agar tetap relevan; DILARANG memakai tanggal absolut yang lekas usang.
 8. Untuk kebutuhan test (unit/widget), dummy data tetap dipakai dari `lib/fitur/<fitur>/dummy/` dan diimpor oleh berkas test — lihat skill `pola-testing`.
+9. Dummy yang berelasi WAJIB memakai konstanta ID yang sama dengan ID di kelas dummy sumber (mis. `PelangganAktifDummy.ID_PELANGGAN_001` == `PelangganDummy.ID_PELANGGAN_001`); referensi ke ID yang tidak ada di kelas dummy sumber DILARANG (menyebabkan log peringatan "tidak ditemukan" dari operasi `getXxxById` saat dummy direset).
 
 ## Contoh Benar
 
@@ -79,10 +80,17 @@ tanggalMulai: DateTime(2026, 1, 1),
 class ProdukDummy {
   ...
 }
+
+// DILARANG: referensi lintas entitas ke ID yang TIDAK ADA di kelas dummy
+// sumber (mis. dummy PelangganAktif merujuk ID Pelanggan/Paket dummy yang
+// belum/ tidak pernah di-seed) — memicu peringatan "tidak ditemukan" dari
+// operasi getXxxById saat dummy direset
+static const String ID_PELANGGAN_999 = 'bb000099-0000-4000-8000-000000000099';
 ```
 
 ## Sumber Evaluasi
 
 - Permintaan eksplisit pengguna, sesi 36 (2026-11-18): "setiap id pakai konstanta diatasnya"; "konstanta nya wajib mengikuti format uuid"; klarifikasi: "format nya saja, bukan mengambil dari uuid".
 - Kode: `admin_wifi/lib/fitur/pelanggan_aktif/dummy/pelanggan_aktif_dummy.dart` (dibuat sesi 36) — belum di-commit saat skill dibuat atas izin eksplisit pengguna ("Izinkan, meski belum commit"); pola yang dievaluasi: `abstract final class PelangganAktifDummy`, konstanta `static const` SCREAMING_SNAKE_CASE berformat UUID `8-4-4-4-12` (nibble versi `4`/varian `8`), `static final List<PelangganAktifModel> dummyList`, tanggal relatif `DateTime.now()`.
+- Skill ditambahkan Aturan 9 (dummy berelasi wajib ID dari dummy sumber yang sama), Contoh Salah acuan, dan trigger description diperluas — atas permintaan pengguna (perintah `/tambah_kode_keskill`, sesi 47, 2026-11-19), di luar alur commit-history atas persetujuan pengguna. Insiden rujukan: dummy `pelanggan_aktif` merujuk ID dummy pelanggan/paket yang belum di-seed sehingga log Web berulang menampilkan peringatan "tidak ditemukan" (sesi induk "kode", 2026-11-18; dicek pengguna 02:18 WIB). Provenance: sesi.
 - Catatan: skill `pola-testing` (code/) §5 menyebut folder `lib/fitur/<fitur>/dummy_data/` (dari proyek `berhenti_merokok`); skill ini memakai `dummy/` mengikuti proyek `admin_wifi` — belum diselaraskan, menunggu keputusan pengguna.
