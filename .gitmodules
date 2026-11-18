@@ -4,3 +4,8 @@
 [submodule "admin_wifi"]
 	path = admin_wifi
 	url = https://github.com/mbadrudin170-jpg/admin_wifi.git
+
+# submodule base_coc (dinonaktifkan / dikomentari — dapat diaktifkan kembali dengan menghapus komentar)
+# [submodule "base_coc"]
+# 	path = base_coc
+# 	url = https://github.com/mbadrudin170-jpg/base_coc.git
