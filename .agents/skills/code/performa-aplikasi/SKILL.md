@@ -1,10 +1,10 @@
 ---
 name: performa-aplikasi
-description: "Trigger: saat mengoptimasi performa aplikasi | Aturan performa Flutter: rebuild minimal, const constructor, builder list (lazy), lazy IndexedStack tab BottomNavigationBar, image caching, async gap yielding, memory leak, query DB optimization, profiling."
+description: "Trigger: saat mengoptimasi performa aplikasi | Aturan performa Flutter: rebuild minimal, const constructor, builder list (lazy), lazy IndexedStack tab BottomNavigationBar (termasuk AutomaticKeepAliveClientMixin di IndexedStack), image caching, async gap yielding, memory leak, query DB optimization, profiling."
 metadata:
   kategori: "custom"
-  versi: "1.1.1"
-  diperbarui: "Wed Nov 18 2026 09:58 WIB"
+  versi: "1.2.0"
+  diperbarui: "Wed Nov 18 2026 21:43 WIB"
 ---
 
 # Aturan Performa Aplikasi
@@ -53,6 +53,7 @@ Skill ini mendokumentasikan aturan performa yang wajib diterapkan di proyek ini.
 31. Target: 60fps (16ms/frame), no jank > 50ms, memory stabil tidak naik terus.
 32. Wajib lazy loading untuk tab BottomNavigationBar yang berat: simpan penanda tab yang sudah pernah dibuka (mis. `Set<int>`, default tab pertama), bangun tab hanya saat pertama kali dibuka, dan render dengan `IndexedStack` + placeholder `SizedBox.shrink()` untuk tab yang belum pernah dibuka.
 33. Anak IndexedStack yang sudah dibangun wajib `SizedBox.expand` (Stack memberi loose constraints ke anak); placeholder `SizedBox.shrink()` membuat tab yang belum dibuka nol biaya layout.
+34. Anak `IndexedStack`/tab yang state-nya ingin dipertahankan saat tab disembunyikan wajib memakai `AutomaticKeepAliveClientMixin` + `getter `wantKeepAlive => true`, dan `build()` wajib memanggil `super.build(context)` — tanpa pemanggilan itu, keep-alive tidak terdaftar dan analyzer menandai `must_call_super`. Jika keep-alive tidak diperlukan, mixin wajib dihapus sepenuhnya (bukan dibiarkan tanpa `super.build(context)`); tab yang selalu dibangun di `IndexedStack` (subtree tidak di-unmount) tidak wajib mixin.
 
 ## Larangan
 
@@ -153,6 +154,18 @@ IndexedStack(
           : const SizedBox.shrink(),
   ],
 )
+
+// BENAR: anak IndexedStack yang keep-alive
+class _MyTabState extends State<MyTab> with AutomaticKeepAliveClientMixin<MyTab> {
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context); // wajib: mendaftarkan keep-alive
+    return const Placeholder();
+  }
+}
 ```
 
 ## Contoh Salah
@@ -184,10 +197,20 @@ body: IndexedStack(index: _selectedIndex, children: _widgetOptions),
 // DILARANG: elementAt jika state tab wajib terjaga
 // (state tab hilang setiap pindah tab)
 body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
+
+// DILARANG: mixin tanpa super.build(context)
+class _MyTabState extends State<MyTab> with AutomaticKeepAliveClientMixin<MyTab> {
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  Widget build(BuildContext context) => const Placeholder();
+}
+// analyzer: 'must_call_super'; keep-alive tidak pernah terdaftar
 ```
 
 ## Sumber Evaluasi
 
-- File: `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/impian/screens/impian_screen.dart`, `admin_wifi/lib/home.dart` (lazy keep-alive IndexedStack pada BottomNavigationBar — sesi 35; ter-commit di `f9568a1`)
-- Class terkait: `ListView`, `GridView`, `Image`, `CachedNetworkImage`, `Timer`, `StreamSubscription`, `IndexedStack`, `SizedBox`
-- Commit rujukan: `3b67d309` — Timer isolation, select optimization; `e659574` — Dashboard multiple provider select; `02aa6b29` — Lazy IndexedStack di Home; `f9568a11173bab474012db81f7c6d066e80f15c5` — Lazy keep-alive IndexedStack `lib/home.dart` (proyek `admin_wifi`)
+- File: `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/impian/screens/impian_screen.dart`, `admin_wifi/lib/home.dart` (lazy keep-alive IndexedStack pada BottomNavigationBar — sesi 35; ter-commit di `f9568a1`), `admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart` (mixin `AutomaticKeepAliveClientMixin` tidak dipakai karena keep-alive tidak diperlukan — dihapus sesi 42; ter-commit di `18699fe`)
+- Class terkait: `ListView`, `GridView`, `Image`, `CachedNetworkImage`, `Timer`, `StreamSubscription`, `IndexedStack`, `SizedBox`, `AutomaticKeepAliveClientMixin`
+- Commit rujukan: `3b67d309` — Timer isolation, select optimization; `e659574` — Dashboard multiple provider select; `02aa6b29` — Lazy IndexedStack di Home; `f9568a11173bab474012db81f7c6d066e80f15c5` — Lazy keep-alive IndexedStack `lib/home.dart` (proyek `admin_wifi`); `18699fe5ac155c8bfed90e0a13658c3111557822` — Layar pelanggan aktif (sesi 42): mixin dihapus karena keep-alive tidak diperlukan, sebagai kasus kapan keep-alive tidak wajib

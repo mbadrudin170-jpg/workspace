@@ -87,6 +87,7 @@
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan via catch-up sesi 37 (2026-11-18):
+
 - `MEMORI.md` header → `(sesi 37; catch-up sesi 36)`; Status "Sesi terakhir" → sesi 36 (sesi 35 didemosi ke entri biasa); Catatan Teknis entri sesi 36 ditambahkan.
 - `memori/riwayat_perubahan.md` entri catch-up sesi 36 ditambahkan di paling atas.
 - `sesi_36.md` → `Sudah Sinkron` (ditandai catch-up sesi 37, bukan oleh pembuatnya; preseden sama dengan sesi 35).

@@ -1,6 +1,6 @@
 # Sesi 37
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron (catch-up sesi 38)
 - Tanggal: 2026-11-18 (Asia/Jakarta)
 - Command: `/analisa_paket_terbaik` (argumen: `https://pub.dev/packages/decimal`)
 - Topik: analisis paket `decimal` (Dart/Flutter) — presisi desimal tanpa kehilangan akurasi; catch-up sync awal sesi (sesi_36)
@@ -14,17 +14,22 @@
   - `sesi_36.md` — `## Sinkronisasi ke MEMORI.md` diisi; status → `Sudah Sinkron` (catch-up sesi 37, bukan oleh pembuatnya; preseden dicatat).
 - Analisis paket `decimal` (2026-11-18): MEMORI.md diperbarui, `docs/paket_favorit.md` dibaca untuk identifikasi paket sejenis; halaman paket (`pub.dev/packages/decimal`), halaman skor (`/score`), dokumentasi API (`/documentation/decimal/latest/` + `/decimal/` + kelas `Decimal`), changelog, dan paket dependensi `rational` dibaca via webfetch. Metrik terverifikasi: 160/160 pub points, 433 likes, 1.1M downloads, versi 3.2.6 (3 bulan lalu), lisensi Apache-2.0, publisher unverified (uploader tidak terverifikasi), 6/6 platform, WASM-ready. Tidak ada paket sejenis (presisi desimal/rasional) di `docs/paket_favorit.md`.
 - Keputusan pengguna (via tool `question`): "Tambahkan decimal (Recommended)" → `docs/paket_favorit.md` ditambah entri `decimal` di urut Popularity (1.1M downloads, disisipkan antara `font_awesome_flutter` 1.11M dan `sqflite_common_ffi_web` 890k). Kolom tabel mengikuti struktur 8 kolom yang ada (tanpa kolom `Masalah yang Diselesaikan` — info masalah disatukan ke `Ringkasan Cakupan`); `rational` TIDAK ditambahkan.
+- Analisis paket `qr` (2026-11-18): halaman paket/skor/dokumentasi API/changelog dibaca via webfetch. Metrik: 160/160 pub points, 265 likes, 4.89M downloads, versi 4.0.1 (19 hari lalu), BSD-3-Clause, **publisher terverifikasi kevmoo.com**, 6/6 platform, WASM-ready, dependensi `meta` (^1.7.0). Fungsi: **generator (encode) QR** dari data (QR versi 1-40, 4 tingkat koreksi, mode Numeric/Alphanumeric/Byte/ECI, data multi-bagian; QrCode/QrImage/QrPayload/QrValidationResult) — BUKAN pemindai; v4.0.0 breaking (immutable, QrPayload, enum QrErrorCorrectLevel, sdk ^3.13.0). Tidak ada paket QR di `paket_favorit.md` (kategori baru). Setelah klarifikasi fungsi ("tugasnya hanya membuat QR"), pengguna memutuskan menambahkan.
+- Keputusan pengguna: "ok tambah" → `docs/paket_favorit.md` ditambah entri `qr` di urut Popularity (4.89M, disisipkan setelah `file_picker` 4.89M dan sebelum `jiffy` 4.1M).
+- Analisis paket `calendar_date_picker2` (2026-11-18): halaman paket/skor/dokumentasi API/changelog dibaca. Metrik: 160/160 pub points, 700 likes, 260k downloads, versi 4.0.0 (39 hari lalu), Apache-2.0, publisher unverified, 6/6 platform, WASM-ready; dependensi flutter/intl/material_ui. Fungsi: date picker single/multi/range, 4 view (day/month/year/scroll), kustomisasi UI mendalam, dialog bawaan, Material 3. **Keputusan: di-skip** (SDK bawaan `showDatePicker`/`showDateRangePicker` sudah cukup untuk single/range standar; paket hanya relevan untuk multi-select/kalender kustom).
+- Analisis paket `restart_app` (2026-11-18): halaman paket/skor/dokumentasi API/changelog dibaca. Metrik: 160/160 pub points, 531 likes, 195k downloads, versi 1.10.2 (34 hari lalu), MIT, **publisher terverifikasi gabrimatic.info**, 6/6 platform, WASM/SPM/Kotlin-ready; dependensi flutter/flutter_web_plugins/web. Fungsi: restart/relaunch aplikasi lintas platform (`Restart.restartApp()` → RestartResult; RestartMode; opsi webOrigin/forceKill/notifikasi); iOS perlu setup AppDelegate; minimum Dart 3.4/Flutter 3.22. Tidak ada paket sejenis di `paket_favorit.md`.
+- Keputusan pengguna: "Tambahkan (Recommended)" → `docs/paket_favorit.md` ditambah entri `restart_app` sebagai baris paling bawah (195k, di bawah `pin_code_fields` 428k).
 
 ## Berkas Terdampak
 
-| Lokasi File                       | Status Perubahan | Deskripsi                                                                                                                              |
-| --------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `memori/sesi/sesi_36.md`          | Diubah           | `## Sinkronisasi ke MEMORI.md` diisi; status → Sudah Sinkron (catch-up sesi 37)                                                        |
-| `memori/sesi/sesi_37.md`          | Dibuat           | Berkas sesi aktif                                                                                                                      |
-| `MEMORI.md`                       | Diubah           | Header `(sesi 37; catch-up sesi 36)`; Status "Sesi terakhir" → sesi 36; Catatan Teknis sesi 36 ditambah                              |
-| `memori/riwayat_perubahan.md`     | Diubah           | Entri catch-up sesi 36 ditambahkan                                                                                                     |
-| `docs/paket_favorit.md`           | Diubah           | Entri `decimal` ditambahkan (urut Popularity 1.1M, antara font_awesome_flutter 1.11M & sqflite_common_ffi_web 890k)                   |
+| Lokasi File                   | Status Perubahan | Deskripsi                                                                                                                                                                                                                                                       |
+| ----------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_36.md`      | Diubah           | `## Sinkronisasi ke MEMORI.md` diisi; status → Sudah Sinkron (catch-up sesi 37)                                                                                                                                                                                 |
+| `memori/sesi/sesi_37.md`      | Dibuat           | Berkas sesi aktif                                                                                                                                                                                                                                               |
+| `MEMORI.md`                   | Diubah           | Header `(sesi 37; catch-up sesi 36)`; Status "Sesi terakhir" → sesi 36; Catatan Teknis sesi 36 ditambah                                                                                                                                                         |
+| `memori/riwayat_perubahan.md` | Diubah           | Entri catch-up sesi 36 ditambahkan                                                                                                                                                                                                                              |
+| `docs/paket_favorit.md`       | Diubah           | Entri `decimal` (1.1M, antara font_awesome_flutter 1.11M & sqflite_common_ffi_web 890k) + entri `qr` (4.89M, setelah file_picker & sebelum jiffy) + entri `restart_app` (195k, baris paling bawah) ditambahkan; `calendar_date_picker2` dianalisis tapi di-skip |
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan.
+Disinkronkan (catch-up sesi 38): perubahan file sesi 37 (`docs/paket_favorit.md` entri `decimal` dan `qr`; header `MEMORI.md` `(sesi 37; catch-up sesi 36)`) sudah tercermin di HEAD/commit, tidak ada duplikasi entri Catatan Teknis baru. Status → Sudah Sinkron.

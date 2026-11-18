@@ -1,10 +1,10 @@
 ---
 name: logging-debug
-description: "Trigger: saat menambahkan log debug | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten."
+description: "Trigger: saat menambahkan log debug | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten; L.e wajib menyertakan stack trace ($e $s)."
 metadata:
   kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Wed Nov 18 2026 02:27 WIB"
+  versi: "1.1.1"
+  diperbarui: "Wed Nov 18 2026 14:08 WIB"
 ---
 
 # Logging Debug pada Variabel dan Parameter
@@ -41,7 +41,7 @@ Gunakan sistem logging yang sudah tersedia di proyek (`L.*` dari `share_global_s
 7. Jangan menambahkan log sebelum variabel mendapatkan nilai.
 8. Jangan menambahkan log yang tidak memberikan informasi nilai aktual.
 9. Jangan menggunakan `print()` sebagai pengganti logger yang tersedia.
-10. Pada `catch`, catat error dengan konteks proses yang gagal dan sertakan stack trace apabila tersedia: `L.e('Gagal ...: $e $s')`.
+10. Pada `catch`, catat error dengan konteks proses yang gagal dan **wajib** sertakan stack trace: `L.e('Gagal ...: $e $s')`. Jangan gunakan `L.e` tanpa `$s`.
 11. Log pada `initState` dan `dispose` diperbolehkan karena hanya dipanggil sekali. Log pada `build()` dihindari apabila memungkinkan karena `build()` dapat dipanggil berulang dan menambah noise; prioritaskan log pada titik yang tidak berfrekuensi tinggi (initState, dispose, method helper, perhitungan). Log pada getter/properti turunan yang dapat dipanggil berulang saat `build()` (mis. `targetRokokHariIni`, label Enum) juga dihindari.
 12. Log debug satu-kali (mis. untuk verifikasi sementara di layar/helper) wajib dihapus saat commit cleanup (`chore(logging): hapus pernyataan log debug ...`); jangan biarkan log debug-sementara ikut ter-commit permanen. Log bermakna jangka panjang (initState, dispose, catch, ringkasan perhitungan) boleh dipertahankan.
 

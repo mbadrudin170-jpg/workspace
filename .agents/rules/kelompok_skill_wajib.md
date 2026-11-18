@@ -95,7 +95,7 @@
 19. .agents/skills/code/logging-debug/SKILL.md
 
 - Trigger : saat menambahkan log debug
-- Status : diperbarui : Wed Nov 18 2026 02:27 WIB
+- Status : diperbarui : Wed Nov 18 2026 14:08 WIB
 
 20. .agents/skills/code/material-app-tema-lokalisasi/SKILL.md
 
@@ -174,8 +174,8 @@
 
 35. .agents/skills/code/performa-aplikasi/SKILL.md
 
-- Trigger : saat mengoptimasi performa aplikasi (termasuk lazy IndexedStack tab BottomNavigationBar)
-- Status : diperbarui : Wed Nov 18 2026 09:58 WIB
+- Trigger : saat mengoptimasi performa aplikasi (termasuk lazy IndexedStack tab BottomNavigationBar dan AutomaticKeepAliveClientMixin)
+- Status : diperbarui : Wed Nov 18 2026 21:43 WIB
 
 36. .agents/skills/code/platform-dispatcher-locale/SKILL.md
 
@@ -199,8 +199,8 @@
 
 40. .agents/skills/code/riverpod-pola/SKILL.md
 
-- Trigger : saat memakai Riverpod (termasuk reload AsyncValue.guard via muatUlang dan penamaan provider codegen)
-- Status : diperbarui : Wed Nov 18 2026 09:58 WIB
+- Trigger : saat memakai Riverpod (termasuk reload `AsyncValue.data` + `catch`/`rethrow` via `muatUlang` dan penamaan provider codegen)
+- Status : diperbarui : Wed Nov 18 2026 14:05 WIB
 
 41. .agents/skills/code/scaffold-struktur-layar/SKILL.md
 

@@ -1,10 +1,10 @@
 ---
 name: riverpod-pola
-description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD dengan `@Riverpod(keepAlive: true)`, notifier sinkron codegen + `@freezed`, `ref.watch` di build / `ref.read` di callback, `Consumer(Stateful)Widget`, family immutable, `autoDispose`, `ProviderScope` di root, `select` untuk rebuild minimal, penanganan `AsyncValue`, folder `notifier/` vs `provider/`, try-catch pada `Future`, `await ref.watch(provider.future)` untuk provider Future, reload `AsyncValue.guard` via method `muatUlang()`, dan penamaan provider codegen tanpa akhiran `Notifier`)."
+description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD dengan `@Riverpod(keepAlive: true)`, notifier sinkron codegen + `@freezed`, `ref.watch` di build / `ref.read` di callback, `Consumer(Stateful)Widget`, family immutable, `autoDispose`, `ProviderScope` di root, `select` untuk rebuild minimal, penanganan `AsyncValue`, folder `notifier/` vs `provider/`, try-catch pada `Future`, `await ref.watch(provider.future)` untuk provider Future, reload `AsyncValue.data` + `catch`/`rethrow` via method `muatUlang()`, dan penamaan provider codegen tanpa akhiran `Notifier`)."
 metadata:
   kategori: "custom"
   versi: "1.4.0"
-  diperbarui: "Wed Nov 18 2026 09:58 WIB"
+  diperbarui: "Wed Nov 18 2026 14:05 WIB"
 ---
 
 1. Notifier database (CRUD): gunakan `@Riverpod(keepAlive: true)`; `build()` memanggil `_ambilSemua()`; update state setelah DB berhasil; `catch Exception` lalu `rethrow`.
@@ -176,15 +176,16 @@ metadata:
     Future<Biodata> biodata(BiodataRef ref) async { /* ... */ }
     ```
 
-16. Setiap fungsi `Future` wajib dibungkus `try-catch`; setiap operasi database wajib selesai lebih dahulu, baru memperbarui state.
+16. Setiap fungsi `Future` wajib dibungkus `try-catch`; setiap operasi database wajib selesai lebih dahulu, baru memperbarui state; `rethrow` wajib dilakukan agar error diteruskan ke pemanggil/UI (jangan menangkap error tanpa `rethrow` atau `throw`).
     Contoh:
     ```dart
     Future<void> simpan(Item item) async {
       try {
         await db.insert(item); // DB selesai lebih dahulu
         state = [...state, item];
-      } catch (e) {
-        rethrow; // atau tangani sesuai kebutuhan
+      } catch (e, s) {
+        L.e('Gagal simpan item: $e\n$s');
+        rethrow; // wajib: error diteruskan ke pemanggil/UI
       }
     }
     ```
@@ -198,12 +199,16 @@ metadata:
       return Profil.fromUser(user);
     }
     ```
-19. Method reload (mis. `muatUlang()`) pada notifier wajib: `state = const AsyncValue.loading();` lalu `state = await AsyncValue.guard(_ambilSemua);` — jangan gunakan `setState`, jangan duplikasi panggilan data tanpa `AsyncValue.guard`.
+19. Method reload (mis. `muatUlang()`) pada notifier wajib: `state = AsyncValue.data(await _ambilSemua());` lalu `catch (e, s)` dengan logging `L.e(...)` dan **wajib `rethrow;`** agar UI/provider yang memanggil mengetahui terjadi error — jangan gunakan `setState`, jangan gunakan `AsyncValue.loading()` atau `AsyncValue.guard`, dan jangan menangkap error tanpa `rethrow`.
     Contoh:
     ```dart
     Future<void> muatUlang() async {
-      state = const AsyncValue.loading();
-      state = await AsyncValue.guard(_ambilSemua);
+      try {
+        state = AsyncValue.data(await _ambilSemua());
+      } catch (e, s) {
+        L.e('Gagal memuat ulang pelanggan aktif: $e\n$s');
+        rethrow;
+      }
     }
     ```
 20. Nama provider hasil codegen = nama class tanpa akhiran `Notifier` dalam camelCase (mis. `PenggunaAktifNotifier` → `penggunaAktifProvider`); jangan membuat provider manual yang menduplikasi provider codegen.
@@ -224,8 +229,12 @@ class PenggunaAktifNotifier extends _$PenggunaAktifNotifier {
   }
 
   Future<void> muatUlang() async {
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(_ambilSemua);
+    try {
+      state = AsyncValue.data(await _ambilSemua());
+    } catch (e, s) {
+      L.e('Gagal memuat ulang pelanggan aktif: $e\n$s');
+      rethrow;
+    }
   }
 
   Future<PelangganAktifState> _ambilSemua() async {
