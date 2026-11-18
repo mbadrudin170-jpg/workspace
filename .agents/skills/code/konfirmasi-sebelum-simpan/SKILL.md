@@ -1,10 +1,10 @@
 ---
 name: konfirmasi-sebelum-simpan
-description: "Trigger: saat menyimpan data dari form | Panduan dialog konfirmasi sebelum menyimpan, hanya simpan jika OK, flag loading + EasyLoading selama proses."
+description: "Trigger: saat menyimpan data dari form | saat konfirmasi aksi destruktif (hapus/hapus semua) | Panduan dialog konfirmasi sebelum menyimpan/konfirmasi, hanya lanjut jika OK, flag loading + EasyLoading selama proses."
 metadata:
   kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Wed Nov 18 2026 02:29 WIB"
+  versi: "1.1.1"
+  diperbarui: "Wed Nov 18 2026 23:55 WIB"
 ---
 
 # Konfirmasi sebelum Menyimpan pada Form
@@ -48,6 +48,17 @@ API `ConfirmationDialog`:
 - `showInfo({required context, title = 'Informasi', message = '', buttonText = 'OK', buttonColor})` → `Future<void>`; `AlertDialog` satu tombol, `barrierDismissible: false`.
 - Navigasi internal memakai `Nav.pop(context, result)`; warna tombol dari `Theme.of(context).colorScheme` + `withValues(alpha:)`; layout dua tombol Expanded (`OutlinedButton` batalkan + `ElevatedButton` konfirmasi).
 
+Contoh nyata (commit `eb3efc3`): konfirmasi destruktif bulk — `AlertDialog` manual diganti `ConfirmationDialog`:
+
+```dart
+final bool? konfirmasi = await ConfirmationDialog.showDeleteAll(
+  context: context,
+  itemName: 'pelanggan aktif',
+  title: 'Konfirmasi Hapus Semua',
+);
+if (konfirmasi != true) return;
+```
+
 ## Contoh Salah
 
 ```dart
@@ -61,3 +72,4 @@ await ref.read(diaryCravingProvider.notifier).tambah(model);
 - File: `lib/fitur/diary_craving/screens/form_diary_craving.dart`
 - Berkas sumber alternatif: `share_global_saya/lib/src/widget/confirmation_dialog.dart` (commit rujukan belum diverifikasi spesifik pada sesi 24)
 - Audit `confirmation_dialog.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): section "Alternatif: `ConfirmationDialog` (share_global_saya)" ditambahkan; pola utama (adaptive_dialog) dipertahankan; versi 1.0.1 → 1.1.0. Catatan: komentar header kode (`//~/warkop/lib/shared/widget/confirmation_dialog.dart`) merujuk path proyek lama — di submodule, TIDAK diubah sesi ini.
+- Commit `eb3efc3` (admin_wifi, 2026-11-18): `pelanggan_aktif_screen.dart` — `AlertDialog` manual ("Hapus Semua Pelanggan Aktif") diganti `ConfirmationDialog.showDeleteAll(itemName: 'pelanggan aktif', title: 'Konfirmasi Hapus Semua')`; dasar contoh nyata dan perluasan trigger `description` (aksi destruktif/hapus).
