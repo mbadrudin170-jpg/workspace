@@ -24,8 +24,8 @@
 
 5. .agents/skills/non-code/aturan-pubspec/SKILL.md
 
-- Trigger : saat menambah, menghapus, atau meng-upgrade paket pada pubspec.yaml
-- Status : diperbarui : Wed Nov 18 2026 05:50 WIB
+- Trigger : saat menambah, menghapus, atau meng-upgrade paket pada pubspec.yaml, atau mengurutkan dependensi pubspec.yaml secara abjad
+- Status : diperbarui : Thu Nov 19 2026 03:20 WIB
 
 6. .agents/skills/non-code/audit-riwayat-sesi/SKILL.md
 
@@ -44,8 +44,8 @@
 
 9. .agents/skills/non-code/disiplin-scope-kerja/SKILL.md
 
-- Trigger : saat mengerjakan tugas apa pun (kode, dokumen, refactor, pemanggilan command)
-- Status : diperbarui : Thu Nov 19 2026 02:56 WIB
+- Trigger : saat mengerjakan tugas apa pun (kode, dokumen, refactor, pemanggilan command), termasuk migrasi massal via codemod/skrip otomatis
+- Status : diperbarui : Thu Nov 19 2026 03:20 WIB
 
 10. .agents/skills/non-code/format-prd/SKILL.md
 

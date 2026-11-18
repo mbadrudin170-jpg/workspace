@@ -1,10 +1,10 @@
 ---
 name: model-state-freezed-abstract
-description: "Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '*.freezed.dart' + '*.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan untuk String/koleksi), pengosongan field nullable via `copyWith(field: null)` sentinel codegen (tanpa bendera `clearField` manual), integrasi notifier Riverpod, serta model database (fromSqflite/toSqflite, ParserUtil, konversi UTC). Termasuk larangan mengedit berkas hasil generate."
+description: "Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '*.freezed.dart' + '*.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan untuk String/koleksi), pengosongan field nullable via `copyWith(field: null)` sentinel codegen (tanpa bendera `clearField` manual), integrasi notifier Riverpod, serta model database (fromSqflite/toSqflite, ParserUtil, konversi UTC, larangan fallback enum diam-diam yang menandakan sukses). Termasuk larangan mengedit berkas hasil generate."
 metadata:
   kategori: "custom"
-  versi: "2.4.0"
-  diperbarui: "Thu Nov 19 2026 02:56 WIB"
+  versi: "2.5.0"
+  diperbarui: "Thu Nov 19 2026 03:26 WIB"
 ---
 
 # Membuat Model dan State dengan Freezed
@@ -30,7 +30,7 @@ Membuat model dan state immutable dengan paket Freezed (`freezed` 4.0.2, `freeze
 7. Model database wajib menyediakan factory `fromSqflite(Map<String, Object?> row)` dan method `toSqflite()` untuk konversi ke/dari SQLite.
 8. Parsing nilai dari database wajib menggunakan `ParserUtil`.
 9. Konversi tanggal ke UTC wajib dilakukan di `toSqflite()` (`toUtc().toIso8601String()`), dan konversi ke lokal wajib dilakukan di `fromSqflite()` (`parseDateTime(...)?.toLocal()`).
-10. Field bertipe enum wajib diparse dengan `ParserUtil.safeParseEnum(TelEnum.values, ParserUtil.parseStringOrNull(row[NamaKolom.kolom]))`, dengan fallback nilai default yang valid bila tersimpan `null`/tidak dikenal (mis. `JenisIntervensiSos.napas478`), kecuali kolom boleh `null` — untuk kolom nullable cukup kembalikan `null` tanpa fallback.
+10. Field bertipe enum wajib diparse dengan `ParserUtil.safeParseEnum(TelEnum.values, ParserUtil.parseStringOrNull(row[NamaKolom.kolom]))`, dengan fallback nilai default yang valid bila tersimpan `null`/tidak dikenal, kecuali kolom boleh `null` — untuk kolom nullable cukup kembalikan `null` tanpa fallback. **Fallback DILARANG diam-diam memilih nilai yang menandakan sukses/selesai/lunas** (mis. `lunas`, `berhasil`, `selesai`); wajib memilih default konservatif (mis. `belumLunas`, `proses`) atau melempar `ArgumentError` — nilai enum tidak dikenal harus terlihat, bukan tersembunyi di balik nilai sukses.
 11. Nilai enum yang dipersistenkan ke kolom `TEXT` wajib `lowerCamelCase` (`berhasilMenahan`, `timer3Menit`) dan konsisten dengan migrasi data (lihat skill `migrasi-skema-sqlite`); nilai `snake_case` lama tidak boleh muncul di enum baru.
 12. Kolom yang nullable di database wajib dipetakan ke properti nullable di model (`String?`, `HasilIntervensiSos?`) dan diparse dengan `ParserUtil.parseStringOrNull` / `safeParseEnum` tanpa fallback paksa.
 13. Untuk state Riverpod, kombinasikan `@freezed` pada kelas state dengan notifier `@Riverpod(keepAlive: true)`; `build()` mengembalikan instance state default.
@@ -63,6 +63,7 @@ Membuat model dan state immutable dengan paket Freezed (`freezed` 4.0.2, `freeze
 - DILARANG melakukan parsing `dynamic` dari database secara langsung tanpa `ParserUtil`.
 - DILARANG menyimpan waktu lokal seolah-olah UTC.
 - DILARANG memparse enum dari database dengan cast/string matching langsung tanpa `ParserUtil.safeParseEnum`.
+- DILARANG fallback enum non-nullable yang diam-diam memilih nilai sukses/selesai/lunas (mis. `orElse: () => StatusPembayaranEnum.lunas`); wajib default konservatif (mis. `belumLunas`) atau melempar `ArgumentError` (Aturan 10).
 - DILARANG persistenkan nilai enum `snake_case` ke kolom database.
 - DILARANG membuat bendera manual `clearField`/`clearTags` pada state Freezed untuk mengosongkan field nullable; gunakan `copyWith(field: null)` dari codegen.
 - DILARANG cast `as String[?]`/`as num` pada nilai dari database; pakai `ParserUtil.parseString[OrNull]`/`parseInt`/`parseDouble`.
@@ -300,3 +301,4 @@ class DiaryCravingModel with _$DiaryCravingModel { ... } // salah: class biasa, 
 - Berkas sumber (sesi 47, 2026-11-19; di luar alur commit-history atas persetujuan eksplisit pengguna): `share_global_saya/lib/src/utils/parser_util.dart` — percobaan menambah duck-typing `toDate()` untuk mendeteksi `Timestamp` di shared util, lalu dihapus (identik HEAD) atas instruksi pengguna "hapus lagi saja" (sesi induk "kode", tercatat di MEMORI.md). Skill diperbarui: Larangan baru + penegasan Aturan 19; versi 2.3.0 → 2.4.0.
 - Commit `ea08f25` (admin_wifi, 2026-11-18): seluruh model DB non-Freezed dikonversi ke Freezed (`abstract class` + `const factory`, manual `copyWith` dihapus, `id` `required String` disuplai pemanggil, auto-UUID model dihapus); parsing seluruh model didelegasikan ke `ParserUtil` (`parseString`/`parseStringOrNull`/`parseBool`/`parseInt`/`parseIntOrNull`/`parseDouble`/`safeParseEnum`); adapter `_parseTanggal` untuk `Timestamp`; tanggal wajib melempar `ArgumentError`; field Firestore disamakan snake_case dengan kolom SQLite; tulis UTC / baca lokal; test diperbarui (`id` eksplisit).
 - Permintaan eksplisit pengguna (2026-11-18, sesi 45): "nama kolom samakan saja setiap db" dan "ubah semua model yang mempunyai from dan to agar seperti ini" (sehingga kaidah 17–21 di atas).
+- Sesi 48 (2026-11-19; di luar alur commit-history atas persetujuan eksplisit pengguna): Aturan 10 diperketat + Larangan baru + perluasan trigger — fallback enum non-nullable DILARANG diam-diam memilih nilai sukses/selesai/lunas (mis. `orElse: () => StatusPembayaranEnum.lunas` pada `admin_wifi/lib/fitur/pelanggan_aktif/model/pelanggan_aktif_model.dart`, dari hasil konversi sesi 45); temuan dari evaluasi transkrip `ses_e0ff43aabffeZAT9lQX9Ao60Av`. Aturan terkait: `.agents/rules/code.md` #23.
