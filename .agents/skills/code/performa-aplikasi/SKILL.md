@@ -1,6 +1,6 @@
 ---
 name: performa-aplikasi
-  description: "Trigger: saat mengoptimasi performa aplikasi | Aturan performa Flutter: rebuild minimal, const constructor, builder list (lazy), lazy IndexedStack tab BottomNavigationBar, image caching, async gap yielding, memory leak, query DB optimization, profiling."
+description: "Trigger: saat mengoptimasi performa aplikasi | Aturan performa Flutter: rebuild minimal, const constructor, builder list (lazy), lazy IndexedStack tab BottomNavigationBar, image caching, async gap yielding, memory leak, query DB optimization, profiling."
 metadata:
   kategori: "custom"
   versi: "1.1.0"
