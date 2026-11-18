@@ -1,6 +1,6 @@
 # Sesi 30
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-18 (Asia/Jakarta)
 - Command: interaksi langsung (tanpa command)
 - Topik: konversi `admin_wifi/test/services/notifikasi_servis_test.dart` dari Mockito ke Mocktail
@@ -54,4 +54,4 @@
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan
+Sinkronisasi akhir sesi 30 (2026-11-18): header `MEMORI.md` → `Diperbarui: 2026-11-18 (sesi 30)`; Status "Sesi terakhir" → sesi 30 (Sudah Sinkron); Catatan Teknis: entri Sesi 30 baru + catatan eksplisit bahwa klaim "belum di-commit"/"berjalan" pada entri sesi 27/28/29 menjadi **usang per 2026-11-18 (sesi 30)** (commit dilakukan pengguna selama sesi; root & submodule `main` == `origin/main`, tree bersih). `memori/riwayat_perubahan.md`: entri Sesi 30 ditambahkan (tanpa menyebut nama repo, sesuai permintaan eksplisit pengguna). Per instruksi eksplisit pengguna ("dilarang menyebut nama repo di dalam poin"), seluruh poin baru di `MEMORI.md`/`riwayat_perubahan.md` TIDAK menyebut nama repo/proyek; arsip sesi lama dan tabel `Berkas Terdampak` (path wajib, aturan 22 memori-check) dibiarkan apa adanya. Permintaan lanjutan saat penutupan ("tutup sesi ini saja"): tanpa pekerjaan tambahan di luar alur akhir sesi ini.

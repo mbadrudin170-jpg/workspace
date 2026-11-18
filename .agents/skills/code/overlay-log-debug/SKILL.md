@@ -1,10 +1,10 @@
 ---
 name: overlay-log-debug
-description: "Trigger: saat menyusun root aplikasi Flutter (app.dart/main.dart); saat ikon/panel overlay debug tidak muncul (`_tampilkanIkon: overlay null? true` / `Overlay.maybeOf` null) | Panduan membungkus root app dengan `PengelolaOverlayLogDebug` dari share_global_saya: inisialisasi `L.init(container)` dengan ProviderContainer yang sama, `UncontrolledProviderScope`, wajib Overlay root manual sebagai ancestor (agar `Overlay.maybeOf` non-null), pola OverlayEntry (postFrameCallback + mounted check), dan `overlayLogDebugTampilProvider`."
+description: "Trigger: saat menyusun root aplikasi Flutter (app.dart/main.dart); saat ikon/panel overlay debug tidak muncul (`_tampilkanIkon: overlay null? true` / `Overlay.maybeOf` null); saat error `No Directionality widget found` pada Overlay | Panduan membungkus root app dengan `PengelolaOverlayLogDebug` dari share_global_saya: inisialisasi `L.init(container)` dengan ProviderContainer yang sama, `UncontrolledProviderScope`, wajib Overlay root manual sebagai ancestor (agar `Overlay.maybeOf` non-null) **dibungkus `Directionality`** (agar `_Theater` menemukan ancestor), pola OverlayEntry (postFrameCallback + mounted check), dan `overlayLogDebugTampilProvider`."
 metadata:
   kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Wed Nov 18 2026 05:48 WIB"
+  versi: "1.3.0"
+  diperbarui: "Wed Nov 18 2026 07:38 WIB"
 ---
 
 # Overlay Log Debug pada Root Aplikasi
@@ -21,22 +21,28 @@ Fitur debug log (ikon melayang + panel log) dari `share_global_saya` harus dipas
 
 1. Panggil `WidgetsFlutterBinding.ensureInitialized()` pertama, lalu inisialisasi dependensi (mis. `SharedPrefService.init()`) sebelum `runApp`.
 2. Buat `final container = ProviderContainer();` lalu `L.init(container);` — `L` dan widget di dalam app **wajib** memakai container yang sama; jangan buat container kedua.
-3. Root app WAJIB dibungkus `PengelolaOverlayLogDebug` **tepat satu kali**, dan letakkan di root (bukan per layar); tetapi pembungkusan saja **tidak cukup** — tambahkan **Overlay root manual** di luar `PengelolaOverlayLogDebug` (lihat alasan & contoh pada blok di bawah, dan Aturan 4):
+3. Root app WAJIB dibungkus `PengelolaOverlayLogDebug` **tepat satu kali**, dan letakkan di root (bukan per layar); tetapi pembungkusan saja **tidak cukup** — tambahkan **Overlay root manual** di luar `PengelolaOverlayLogDebug`, **dibungkus `Directionality`** (lihat alasan & contoh pada blok di bawah, dan Aturan 4):
 
    ```dart
    runApp(
      UncontrolledProviderScope(
        container: container,
-       child: Overlay(
-         initialEntries: [
-           OverlayEntry(
-             // PengelolaOverlayLogDebug menyisipkan ikon/panel ke Overlay.maybeOf(context);
-             // Overlay root dibuat manual agar pemanggilan itu menemukan ancestor.
-             builder: (context) => const PengelolaOverlayLogDebug(
-               child: AplikasiSaya(),
+       // Overlay root manual berada DI ATAS MaterialApp (satu-satunya penyedia
+       // Directionality di tree), jadi Directionality dipasang manual di sini:
+       // `_Theater` (bagian internal Overlay) mewajibkan ancestor Directionality.
+       child: Directionality(
+         textDirection: TextDirection.ltr,
+         child: Overlay(
+           initialEntries: [
+             OverlayEntry(
+               // PengelolaOverlayLogDebug menyisipkan ikon/panel ke Overlay.maybeOf(context);
+               // Overlay root dibuat manual agar pemanggilan itu menemukan ancestor.
+               builder: (context) => const PengelolaOverlayLogDebug(
+                 child: AplikasiSaya(),
+               ),
              ),
-           ),
-         ],
+           ],
+         ),
        ),
      ),
    );
@@ -51,6 +57,8 @@ Fitur debug log (ikon melayang + panel log) dari `share_global_saya` harus dipas
      // Salah: ikon tidak pernah tampil (Overlay.maybeOf dari context ini == null)
      runApp(const PengelolaOverlayLogDebug(child: MyApp()));
      ```
+
+   **Mengapa `Overlay` root manual wajib dibungkus `Directionality`** (verifikasi runtime, 2026-11-18, `flutter run -d chrome`, proyek `admin_wifi`): Overlay root manual berada **DI ATAS** `MaterialApp` — satu-satunya penyedia `Directionality` di tree — sehingga tidak ada ancestor `Directionality` untuknya. `_Theater` (bagian internal `Overlay`) mewajibkan `Directionality`; root view hanya menyediakan `MediaQuery`. Tanpa `Directionality`, aplikasi melempar `No Directionality widget found. _Theater widgets require a Directionality widget ancestor` secara berulang (widget pemicu: `Overlay` di `main.dart`). Perbaikan: bungkus `Overlay` dengan `Directionality(textDirection: TextDirection.ltr, ...)` (`MediaQuery` **tidak** cukup). Verifikasi setelah perbaikan: `dart format` bersih, `dart analyze` — **No issues found!**, `flutter test` penuh → **+105/−24, identik baseline**; verifikasi runtime `flutter run -d chrome` (hot restart) terkonfirmasi lewat log pengguna (2026-11-18): tidak ada `No Directionality widget found`, dan `_tampilkanIkon: overlay null? false` serta `_tampilkanIkon: ikon di-insert ke overlay`.
 
 4. `PengelolaOverlayLogDebug` adalah `ConsumerStatefulWidget` yang menyisipkan `OverlayEntry` ke `Overlay.maybeOf(context)`. Insert entry dilakukan di `addPostFrameCallback` dengan cek `mounted`, bukan di `build` langsung; `build` hanya membandingkan nilai `overlayLogDebugTampilProvider` dengan `_terakhirTampilIkon`.
 5. `_entryIkon`/`_entryLog` di-remove secara eksplisit di `dispose`; jangan dibiarkan menumpuk saat root app di-rebuild.
@@ -81,15 +89,20 @@ void main() async {
   runApp(
     UncontrolledProviderScope(
       container: container,
-      child: Overlay(
-        initialEntries: [
-          OverlayEntry(
-            // Overlay root manual: ancestor Overlay untuk PengelolaOverlayLogDebug
-            builder: (context) => const PengelolaOverlayLogDebug(
-              child: AplikasiSaya(),
+      // Overlay root manual berada DI ATAS MaterialApp (penyedia Directionality),
+      // jadi Directionality dipasang manual: `_Theater` mewajibkan ancestor-nya.
+      child: Directionality(
+        textDirection: TextDirection.ltr,
+        child: Overlay(
+          initialEntries: [
+            OverlayEntry(
+              // Overlay root manual: ancestor Overlay untuk PengelolaOverlayLogDebug
+              builder: (context) => const PengelolaOverlayLogDebug(
+                child: AplikasiSaya(),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );
@@ -115,6 +128,24 @@ runApp(const PengelolaOverlayLogDebug(child: MyApp()));
 // Salah: MaterialApp.builder tidak berada di bawah Overlay (widget dari builder
 //   disisipkan DI ATAS Navigator — SDK app.dart), ikon tetap tidak tampil
 MaterialApp(builder: (context, child) => PengelolaOverlayLogDebug(child: child));
+
+// Salah: Overlay root manual TANPA Directionality — _Theater (bagian internal
+//   Overlay) mewajibkan ancestor Directionality (MaterialApp di dalam anak Overlay
+//   tidak bisa jadi ancestor-nya; root view hanya menyediakan MediaQuery).
+//   Runtime melempar "No Directionality widget found. _Theater widgets require
+//   a Directionality widget ancestor" secara berulang (sesi 31, admin_wifi)
+runApp(
+  UncontrolledProviderScope(
+    container: container,
+    child: Overlay(
+      initialEntries: [
+        OverlayEntry(
+          builder: (context) => const PengelolaOverlayLogDebug(child: MyApp()),
+        ),
+      ],
+    ),
+  ),
+);
 ```
 
 ## File Terkait
@@ -131,4 +162,5 @@ MaterialApp(builder: (context, child) => PengelolaOverlayLogDebug(child: child))
 - Permintaan eksplisit pengguna (sesi 22, 2026-11-18): "agar setiap proyek wajib menambahkan ini di app.dart nya" — kewajiban pemasangan tercatat pada `.agents/rules/overlay_log_debug.md`.
 - Audit `overlay_log_debug.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): Aturan 7 direvisi (`p(...)`), Aturan 10–12 ditambahkan, gotcha `_ItemLogDebug` ditambahkan, File Terkait ditambah `print_custom.dart`; versi 1.0.0 → 1.1.0.
 - Temuan runtime (sesi 28, 2026-11-18, atas persetujuan pengguna "Ya, ubah sekarang"): `_tampilkanIkon: overlay null? true` membuktikan `Overlay.maybeOf(context)` mengembalikan null saat `PengelolaOverlayLogDebug` diposisikan di atas `MaterialApp` (ikon tidak pernah tampil); `MaterialApp.builder` terbukti tidak di bawah Overlay (SDK `app.dart`); solusi terverifikasi dipilih: Overlay root manual sebagai ancestor. Aturan 3 ditambahkan penjelasan Overlay root manual; Contoh Benar/Salah diperbarui; File Terkait ditambah rujukan SDK; versi 1.1.0 → 1.2.0.
+- Permintaan pengguna (command `tambah_kode_keskill`, sesi 31, 2026-11-18) atas perbaikan `admin_wifi/lib/main.dart`: `Overlay` root manual (pola v1.2.0) melempar `No Directionality widget found. _Theater widgets require a Directionality widget ancestor` di `flutter run -d chrome` karena berada di atas `MaterialApp` (penyedia `Directionality`). Perbaikan: bungkus `Overlay` dengan `Directionality(textDirection: TextDirection.ltr, ...)`. Aturan 3 ditambah penjelasan + contoh (Aturan 3 kode blok), Contoh Benar/Salah diperbarui; `dart format` bersih; `dart analyze` — No issues found!; `flutter test` +105/−24 identik baseline; runtime `flutter run -d chrome` terkonfirmasi lewat log pengguna (hot restart): error `No Directionality widget found` hilang; `_tampilkanIkon: overlay null? false`; `_tampilkanIkon: ikon di-insert ke overlay`. **Catatan provenance**: pengeditan v1.3.0 dilakukan atas persetujuan eksplisit pengguna ("Terapkan sekarang juga") di luar alur commit-history (aturan `.agents/rules/lainnya.md` butir 3) karena perbaikan `admin_wifi/lib/main.dart` belum ter-commit (HEAD `81b5485`); sumber perubahan adalah diff working tree, bukan riwayat commit.
 - Skill terkait: `logging-debug`, `riverpod-pola`, `widget-lifecycle-state`.

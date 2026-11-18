@@ -114,8 +114,8 @@
 
 23. .agents/skills/code/overlay-log-debug/SKILL.md
 
-- Trigger : saat menyusun root aplikasi Flutter (app.dart/main.dart); saat ikon/panel overlay debug tidak muncul (`Overlay.maybeOf` null)
-- Status : diperbarui : Wed Nov 18 2026 05:48 WIB
+- Trigger : saat menyusun root aplikasi Flutter (app.dart/main.dart); saat ikon/panel overlay debug tidak muncul (`_tampilkanIkon: overlay null? true` / `Overlay.maybeOf` null); saat error `No Directionality widget found` pada Overlay
+- Status : diperbarui : Wed Nov 18 2026 07:38 WIB
 
 24. .agents/skills/code/parsing-nullable-int/SKILL.md
 
