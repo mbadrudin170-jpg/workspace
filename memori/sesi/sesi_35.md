@@ -1,6 +1,6 @@
 # Sesi 35
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron (catch-up sesi 36, 2026-11-18)
 - Tanggal: 2026-11-18 (Asia/Jakarta)
 - Command: interaksi langsung (tanpa command)
 - Topik: sapaan pengguna ("hai"); catch-up sync awal sesi (sesi_34); perubahan `admin_wifi/lib/home.dart` (body `Center(child: _widgetOptions.elementAt(_selectedIndex))` → `IndexedStack`)
@@ -68,4 +68,14 @@
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan.
+Disinkronkan via catch-up sesi 36 (2026-11-18). Seluruh pekerjaan sesi 35 terverifikasi ter-commit oleh pengguna: submodule `admin_wifi` `f9568a1` ("a", 2026-11-18 02:48:54 UTC; 7 berkas) dan root `2bc4699` ("m", 2026-11-18 03:01:37 UTC; 6 berkas: `.agents/rules/code.md`, `kelompok_skill_wajib.md`, 3 skill code/, `sesi_35.md`).
+
+Penyesuaian `MEMORI.md`:
+
+- Header → `(sesi 36; catch-up sesi 35)`.
+- Status "Sesi terakhir" → `sesi_35.md` (entri sesi 35 ditambahkan; entri lama sesi 34 didemote menjadi "Sesi 34").
+- Catatan Teknis — entri sesi 35 ditambahkan (provenance `f9568a1`/`2bc4699`; folder `notifer/` typo dicatat; `flutter test` +105/−24 identik baseline).
+
+`memori/riwayat_perubahan.md` — entri catch-up sesi_35 ditambahkan di paling atas.
+
+Tidak ada pekerjaan baru yang tertinggal; working tree root dan submodule bersih pada verifikasi awal sesi 36.
