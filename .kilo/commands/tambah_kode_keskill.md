@@ -19,7 +19,6 @@ description: Menambahkan atau memperbarui skill yang relevan dengan potongan kod
 8. Setelah mengedit, jalankan `formatmd` untuk merapikan berkas Markdown.
 
 9. Setelah memperbarui atau menambah ke berkas skill yang ada, wajib cek kedua item berikut:
-
    - Nama folder skill: wajib cek apakah nama folder sudah sesuai dengan isi berkas yang baru.
    - Description: wajib cek apakah description dapat memicu (trigger) kode atau baris yang baru saja diperbarui.
 

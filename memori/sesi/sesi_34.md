@@ -1,9 +1,9 @@
 # Sesi 34
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-18 (Asia/Jakarta)
 - Command: interaksi langsung (tanpa command)
-- Topik: sapaan pengguna ("hai"); catch-up sync awal sesi (sesi_33); perintah `memperbarui_file_di_folder_prompt` (`prompt/skill/aturan-pembuatan-rules.md`, lalu `prompt/commands/tambah_kode_keskill.md`)
+- Topik: sapaan pengguna ("hai"); catch-up sync awal sesi (sesi_33); perintah `memperbarui_file_di_folder_prompt` (`prompt/skill/aturan-pembuatan-rules.md`, `prompt/commands/tambah_kode_keskill.md`, lalu `prompt/rules/AGENTS.md`)
 
 ## Catatan Sesi
 
@@ -24,6 +24,8 @@
   - `.agents/rules/kelompok_skill_wajib.md` — indeks non-code #3 (aturan-pembuatan-rules) timestamp → `Wed Nov 18 2026 09:05 WIB`.
 - Insiden `formatmd` global (`npx prettier --write "**/*.md"`, disetujui pengguna "Prettier global"): seluruh berkas diubah `unchanged` KECUALI — `memori/riwayat_perubahan.md`, `memori/sesi/sesi_32.md`, `memori/sesi/sesi_33.md`, `memori/sesi/sesi_34.md` — seluruhnya realign padding kolom tabel TANPA perubahan isi (mis. sesi_32.md — arsip `Sudah Sinkron` — hanya padding; diverifikasi via `git diff`). Tidak ada berkas lain yang berubah.
 - Pengguna menunjuk `prompt/commands/tambah_kode_keskill.md` (stub berisi `1` di disk; paste berisi draft lengkap + poin 10 baru). Dikonfirmasi tiga hal via tool question: sasaran "rules/code.md" = `.agents/rules/code.md` (0 byte); rumusan poin 10 selaras Aturan 6–7 `aturan-pembuatan-rules` v1.3.0 (wajib menyertakan skill terkait; dilarang aturan tanpa skill); isi disalin dari paste (sumber diganti; target mengikuti sumber). Target `.kilo/commands/tambah_kode_keskill.md` — `description:` frontmatter dan bagian `# Skill Terkait` dipertahankan. `formatmd` global (`npx prettier --write "**/*.md"`) dijalankan — seluruh berkas `unchanged` (tidak ada berkas yang berubah).
+- Pengguna menunjuk `prompt/rules/AGENTS.md` (poin 10 WIP: "setiap proyek saya harus konsisten dan mengikuti semua aturan yang ada di agent/rules/code.md"). Analisis: path salah ketik (`agent/rules/code.md` → `.agents/rules/code.md`), belum baku, semantik "proyek saya" dipertahankan atas pilihan pengguna ("Setuju seperti draf"); header `diperbarui` usang → 09:21 WIB. Sinkronisasi root `AGENTS.md` (poin 10 ditambah; poin 1–9 tidak diubah). `formatmd` — "Hanya file yang diubah" (prettier: keduanya `unchanged`). Catatan: `.agents/rules/code.md` masih 0 byte — poin 10 sementara vacuous sampai diisi lewat command `tambah_kode_keskill`.
+- Pengguna meminta "jalankan reload". Diverifikasi: tidak ada binary `kilo`/`kilocode`/`code`/`cursor`/`kilo-cli` di PATH (`which` kosong), tidak ada proses latar berjalan (`background_process list` kosong — tidak ada app Flutter untuk hot reload), tidak ada file/perintah `reload` di workspace (grep hanya menemukan penyebutan di XML/test/skill lain). Reload Kilo/VS Code tidak dapat dijalankan dari sesi ini; hanya pengguna yang dapat memicu "Developer: Reload Window" (Ctrl+Shift+P) / restart sesi Kilo — perubahan (`.kilo/commands/tambah_kode_keskill.md`, `AGENTS.md` root poin 10, skill `aturan-pembuatan-rules` v1.3.0) akan terbaca setelahnya.
 - Menunggu persetujuan bila `.agents/rules/code.md` (kini 0 byte) dan/atau `prompt/rules/code.md` (dihapus `0f9a566`) akan dibuat ulang — belum ada instruksi.
 
 ## Berkas Terdampak
@@ -40,7 +42,9 @@
 | `memori/sesi/sesi_32.md`                                  | Diubah           | Hanya realign padding kolom tabel oleh `formatmd` global (TANPA perubahan isi); arsip `Sudah Sinkron` — pengguna memilih "Prettier global"                   |
 | `prompt/commands/tambah_kode_keskill.md`                  | Diubah           | Ditulis ulang dari stub `1`: isi paste pengguna (poin 1–9) + poin 10 (aturan `.agents/rules/code.md` wajib + skill terkait); header `diperbarui` → 09:11 WIB |
 | `.kilo/commands/tambah_kode_keskill.md`                   | Diubah           | Sikronisasi mengikuti sumber: poin 1–10 (urutan paste); `description:` frontmatter dan `# Skill Terkait` dipertahankan                                       |
+| `prompt/rules/AGENTS.md`                                  | Diubah           | Poin 10 diperbaiki (path `.agents/rules/code.md`, bahasa baku, frasa "proyek saya" dipertahankan); header `diperbarui` → 09:21 WIB                           |
+| `AGENTS.md` (root)                                        | Diubah           | Poin 10 disinkronkan dari sumber (poin 1–9 tidak diubah)                                                                                                     |
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan.
+Disinkronkan via catch-up sesi 35 (2026-11-18) — seluruh perubahan sesi 34 terverifikasi ter-commit oleh pengguna di `f3f6cf9` ("a", 2026-11-18 02:13:59 UTC; berisi `kelompok_skill_wajib.md` (non-code #3 timestamp), `aturan-pembuatan-rules/SKILL.md` v1.3.0, `.kilo/commands/tambah_kode_keskill.md`, `MEMORI.md` (header `(sesi 34; catch-up sesi 33)`), `memori/riwayat_perubahan.md`, `sesi_32/33/34.md` (padding tabel — tanpa perubahan isi), `prompt/commands/tambah_kode_keskill.md`, `prompt/skill/aturan-pembuatan-rules.md`). Penyesuaian `MEMORI.md`: header → `(sesi 35; catch-up sesi 34)`; Status — entri "Sesi terakhir" → sesi_34 (entri sesi 33 didemote menjadi "Sesi 33"); Catatan Teknis — entri sesi 34 ditambahkan (item terbuka `.agents/rules/code.md`/`prompt/rules/code.md` masih menunggu persetujuan pengguna). `memori/riwayat_perubahan.md` — entri catch-up sesi_34 ditambahkan di atas entri sesi 33. Berkas ditandai `Sudah Sinkron` oleh catch-up sesi 35 (bukan oleh pembuatnya); preseden sesi 31→32→33→34 dicatat eksplisit.

@@ -164,8 +164,8 @@
 
 33. .agents/skills/code/performa-aplikasi/SKILL.md
 
-- Trigger : saat mengoptimasi performa aplikasi
-- Status : diperbarui : Sun Nov 15 2026 02:10 WIB
+- Trigger : saat mengoptimasi performa aplikasi (termasuk lazy IndexedStack tab BottomNavigationBar)
+- Status : diperbarui : Wed Nov 18 2026 09:23 WIB
 
 34. .agents/skills/code/platform-dispatcher-locale/SKILL.md
 

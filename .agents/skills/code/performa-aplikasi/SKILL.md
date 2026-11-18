@@ -1,10 +1,10 @@
 ---
 name: performa-aplikasi
-description: "Trigger: saat mengoptimasi performa aplikasi | Aturan performa Flutter: rebuild minimal, const constructor, builder list (lazy), image caching, async gap yielding, memory leak, query DB optimization, profiling."
+  description: "Trigger: saat mengoptimasi performa aplikasi | Aturan performa Flutter: rebuild minimal, const constructor, builder list (lazy), lazy IndexedStack tab BottomNavigationBar, image caching, async gap yielding, memory leak, query DB optimization, profiling."
 metadata:
   kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.1.0"
+  diperbarui: "Wed Nov 18 2026 09:23 WIB"
 ---
 
 # Aturan Performa Aplikasi
@@ -51,6 +51,8 @@ Skill ini mendokumentasikan aturan performa yang wajib diterapkan di proyek ini.
 29. Wajib test performa di device fisik (low-end) bukan hanya emulator.
 30. Gunakan `flutter run --profile` + DevTools (Performance, Memory, CPU tabs).
 31. Target: 60fps (16ms/frame), no jank > 50ms, memory stabil tidak naik terus.
+32. Wajib lazy loading untuk tab BottomNavigationBar yang berat: simpan penanda tab yang sudah pernah dibuka (mis. `Set<int>`, default tab pertama), bangun tab hanya saat pertama kali dibuka, dan render dengan `IndexedStack` + placeholder `SizedBox.shrink()` untuk tab yang belum pernah dibuka.
+33. Anak IndexedStack yang sudah dibangun wajib `SizedBox.expand` (Stack memberi loose constraints ke anak); placeholder `SizedBox.shrink()` membuat tab yang belum dibuka nol biaya layout.
 
 ## Larangan
 
@@ -129,6 +131,28 @@ final rows = await db.query(
   orderBy: '${NamaKolom.tanggal} DESC',
   limit: 50,
 )
+
+// BENAR: Lazy + keep-alive IndexedStack (bottom navigation)
+int _selectedIndex = 0;
+final Set<int> _tabDibangun = <int>{0};
+
+void _onItemTapped(int index) {
+  setState(() {
+    _tabDibangun.add(index);
+    _selectedIndex = index;
+  });
+}
+
+// body:
+IndexedStack(
+  index: _selectedIndex,
+  children: <Widget>[
+    for (var i = 0; i < _widgetOptions.length; i++)
+      _tabDibangun.contains(i)
+          ? SizedBox.expand(child: _widgetOptions[i])
+          : const SizedBox.shrink(),
+  ],
+)
 ```
 
 ## Contoh Salah
@@ -153,10 +177,17 @@ Opacity(
 for (final item in items) {
   setState(() {}); // DILARANG tanpa debounce
 }
+
+// DILARANG: semua tab dibangun eager padahal tab berat
+body: IndexedStack(index: _selectedIndex, children: _widgetOptions),
+
+// DILARANG: elementAt jika state tab wajib terjaga
+// (state tab hilang setiap pindah tab)
+body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
 ```
 
 ## Sumber Evaluasi
 
-- File: `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/impian/screens/impian_screen.dart`
-- Class terkait: `ListView`, `GridView`, `Image`, `CachedNetworkImage`, `Timer`, `StreamSubscription`
+- File: `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/impian/screens/impian_screen.dart`, `admin_wifi/lib/home.dart` (lazy keep-alive IndexedStack pada BottomNavigationBar — sesi 35, belum di-commit saat ditulis)
+- Class terkait: `ListView`, `GridView`, `Image`, `CachedNetworkImage`, `Timer`, `StreamSubscription`, `IndexedStack`, `SizedBox`
 - Commit rujukan: `3b67d309` — Timer isolation, select optimization; `e659574` — Dashboard multiple provider select; `02aa6b29` — Lazy IndexedStack di Home

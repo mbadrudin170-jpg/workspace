@@ -11,3 +11,4 @@
    - muat skill `memori-check` (tool `skill`)
 8. Membaca `MEMORI.md` wajib tanpa `offset` dan tanpa `limit` — baca seluruh isi berkas.
 9. setiap proyek saya yang punya main.dart wajib memakai PengelolaOverlayLogDebug
+10. Setiap proyek saya wajib konsisten dan mengikuti seluruh aturan yang ada di `.agents/rules/code.md`.
