@@ -1,6 +1,3 @@
-[submodule "base_coc"]
-	path = base_coc
-	url = https://github.com/mbadrudin170-jpg/base_coc.git
 [submodule "share_global_saya"]
 	path = share_global_saya
 	url = https://github.com/mbadrudin170-jpg/share_global_saya.git
