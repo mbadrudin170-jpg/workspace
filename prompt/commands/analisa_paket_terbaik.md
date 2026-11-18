@@ -12,3 +12,4 @@ file : [analisa_paket_terbaik](../../.kilo/commands/analisa_paket_terbaik.md)
 5. Jika pengguna menyetujui: perbarui `docs/paket_favorit.md` dengan entri paket tersebut (tabel ringkas: Nama Paket, Link pub.dev, Link Dokumentasi, Pub Points, Likes, Popularity, Ringkasan cakupan, Catatan). Jika entri paket sudah ada, perbarui barisnya; jika belum, tambahkan. Buat header tabel bila berkas masih kosong.
 
 6. Laporkan ringkasan hasil analisis dan sebutkan apakah `docs/paket_favorit.md` diperbarui; nyatakan "tidak diketahui/tidak tersedia" bila informasi tidak dapat diverifikasi.
+7. untuk score wajib baca tautan https://pub.dev/packages/stack_trace/score sesuaikan dengan nama paket nya
