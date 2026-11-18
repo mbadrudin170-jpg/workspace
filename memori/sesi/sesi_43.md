@@ -1,6 +1,7 @@
 # Sesi 43
 
-- Status: Berjalan
+- Status: Selesai (catch-up sesi 45)
+- Status Sinkron: Sudah Sinkron (catch-up sesi 45)
 - Tgl: 2026-11-18
 
 ## Checklist Awal Sesi
@@ -40,4 +41,4 @@
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum dilakukan.
+Disinkronkan lewat catch-up sesi 45 (atas persetujuan pengguna, 2026-11-18): `MEMORI.md` header → `Diperbarui: 2026-11-18 (sesi 45)`; Status — entri baru "Sesi terakhir: `memori/sesi/sesi_43.md` (Sudah Sinkron via catch-up sesi 45)" ditambahkan di atas entri sesi 42 (yang diubah labelnya menjadi "Sesi 42:"); Catatan Teknis — entri sesi 43 ditambahkan di paling atas; `memori/riwayat_perubahan.md` — entri "Sesi 43 ditandai Sudah Sinkron via catch-up sesi 45" ditambahkan di paling atas. `MEMORI.md`/`riwayat_perubahan.md` sebelumnya sudah memuat sinkronisasi sesi 42 Lanjutan 4–5 (commit `6f898b8`); tidak ada perubahan tambahan selain yang disebut di atas. Verifikasi: seluruh perubahan sesi ini ter-commit di `6f898b8` (`prompt/commands/muat_skill_terkait.md`, `.kilo/commands/muat_skill_terkait.md`, sesi_43.md) dan `git status --short` bersih pada saat catch-up.
