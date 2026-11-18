@@ -1,0 +1,53 @@
+# Sesi 33
+
+- Status Sinkron: Belum Sinkron
+- Tanggal: 2026-11-18 (Asia/Jakarta)
+- Command: interaksi langsung (tanpa command)
+- Topik: konversi `PelangganAktifModel` ke Freezed (submodule `admin_wifi`)
+
+## Catatan Sesi
+
+- Awal sesi: `MEMORI.md` dibaca; seluruh `.agents/rules/` dibaca (`code.md`, `format_hasil_diskusi.md`, `kelompok_skill_wajib.md`, `lainnya.md`, `overlay_log_debug.md`, `pengelolaan_konflik.md`); skill `memori-check` dimuat.
+- Catch-up sync awal sesi: ditemukan `memori/sesi/sesi_32.md` berstatus `Belum Sinkron` dengan perubahan nyata yang terverifikasi ter-commit oleh pengguna di `1d5b39a` (2026-11-18 08:22 WIB) → disinkronkan:
+  - `MEMORI.md`: header → `(sesi 33; catch-up sesi 32)`; entri Catatan Teknis sesi 32 ditambah.
+  - `memori/riwayat_perubahan.md`: entri catch-up sesi_32 ditambahkan di atas entri sesi 31 penutupan.
+  - `sesi_32.md`: `## Sinkronisasi ke MEMORI.md` diisi; status → `Sudah Sinkron` (dilakukan sesi 33 sebagai catch-up; aturan 23 skill `memori-check` ("penandaan hanya oleh sesi pembuat") tampak bertentangan dengan aturan 2/step 2 yang mewajibkan catch-up; mengikuti preseden sesi 31→32 dan sesi 28→29, serta dicatat eksplisit pada berkas sesi_32).
+- Working tree submodule `admin_wifi` awal sesi memuat perubahan yang BUKAN milik sesi ini (restrukturisasi `lib/fitur/`): `D lib/model/pelanggan_aktif_model.dart`, `?? lib/fitur/`, `M lib/data/operasi/pelanggan_aktif_operasi.dart`, `M lib/data/sync/unduh_data.dart`, `M lib/data/sync/unggah_data.dart`, `M lib/halaman/detail/detail_pelanggan_aktif.dart`, `M lib/halaman/form/form_pelanggan_aktif.dart`, `M lib/halaman/lainnya/pengaturan.dart`, `M lib/model/model.dart`, `M lib/whatsapp/info_paket.dart`, `M test/data/operasi/pelanggan_aktif_operasi_test.dart`, `M test/halaman/form/form_pelanggan_aktif_test.dart`, `M test/halaman/form/form_pelanggan_aktif_test.mocks.dart` — TIDAK diatribusikan ke sesi mana pun; file yang diminta pengguna (`lib/fitur/pelanggan_aktif/model/pelanggan_aktif_model.dart`) adalah berkas hasil pemindahan dari `lib/model/pelanggan_aktif_model.dart` yang dilakukan di luar sesi ini.
+- Root `git status --short`: hanya ` m admin_wifi` (pointer submodule berubah; perubahan di root bersih selain hasil catch-up).
+- Permintaan pengguna: "ubah ke freezed" untuk `admin_wifi/lib/fitur/pelanggan_aktif/model/pelanggan_aktif_model.dart` (berkas hasil pemindahan restrukturisasi `lib/model/` → `lib/fitur/pelanggan_aktif/model/` yang dilakukan di luar sesi ini; seluruh rujukan impor sudah dialihkan oleh pelaku restrukturisasi).
+- Skill `model-state-freezed-abstract` & `build-runner-codegen` dimuat sebelum mengubah kode.
+- Konversi `PelangganAktifModel` ke Freezed (`flutter run build_runner build --delete-conflicting-outputs`; freezed 4.0.2 — pertama kali model Freezed di proyek; belum ada `*.freezed.dart` lain):
+  - `@freezed abstract class PelangganAktifModel with _$PelangganAktifModel`; `part 'pelanggan_aktif_model.freezed.dart';`; `const factory`; `const PelangganAktifModel._();` (untuk method/helper).
+  - `id` memakai `@Default('')` (auto-UUID non-konstan tidak bisa jadi default Freezed); perilaku runtime dipertahankan karena form selalu meneruskan `id` (`''` untuk baru) dan `PelangganAktifOperasi.createPelangganAktif` mengisi UUID saat `id.isEmpty`; test `buatModel` mengandalkan nilai kembalian operasi (sudah berisi UUID).
+  - `isDeleted` memakai `@Default(false)`; field lain nullable/required sesuai semula; `StatusPembayaranEnum status` tetap tanpa `@JsonKey` (tanpa codegen JSON: `toJson()` manual dipertahankan persis; tidak ada `fromJson`).
+  - Method/helper dipertahankan: `toJson()`, `toSqlite()`, `toFirebase()`, `fromSqlite`, `fromFirebase`, static `_parseDateTime`/`_parseBool` (dengan `Log.warning`), komentar `diubah:` dipertahankan.
+  - Method `copyWith` manual DIHAPUS — dihasilkan Freezed (mendukung pengosongan field nullable via `copyWith(field: null)`); import `uuid` dihapus; header `// path:` disesuaikan ke path baru.
+  - `.g.dart` sengaja tidak dibuat (tidak ada `fromJson`/serialisasi JSON codegen yang dipakai).
+- Verifikasi: `dart format` OK (0 changed); `dart analyze` **No issues found!**; `flutter test` **+105/−24 — IDENTIK baseline** (seluruh kegagalan pra-eksisting: `dompet_operasi_test.dart` & `fungsi_menampilkan_notifikasi_test.dart` gagal dimuat — `.mocks.dart` terkait memang tidak ada; widget test tap di luar area; sqflite FFI `no such table: transaksi`; `pelanggan_aktif_operasi_test.dart` expect `called(2)` aktual `3` — deterministik, tidak terkait freezed: `_jadwalkanNotifikasi` menjadwalkan 3 notifikasi dan tidak bergantung isi model); `dart run build_runner build` OK (9 outputs: 1 `.freezed.dart` + 8 `.mocks.dart` diregenerasi).
+- **Anomali state git submodule**: sebagian perubahan (termasuk model hasil rewrite sesi ini) TER-STAGE saat sesi berjalan tanpa perintah `git add` dari sesi ini — dikerjakan paralel oleh pengguna/proses lain; sesi ini TIDAK menjalankan `git add`/`git commit` apa pun (hanya baca + `build_runner`); `pelanggan_aktif_model.freezed.dart` masih untracked; 8 berkas `.mocks.dart` regenerate masih unstaged; berkas `lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart` (staged, kosong, dibuat di luar sesi ini) tidak disentuh.
+- Temuan pra-eksisting (bukan sesi ini): `README.md` contoh `PelangganAktifModel` masih valid (id opsional → lihat koreksi di bawah); `form_pelanggan_aktif_test.mocks.dart` ikut diregenerasi (perubahan urutan impor karena impor sumber berubah di luar sesi ini).
+- Tindak lanjut atas permintaan eksplisit pengguna: `id` dijadikan **required** (sebelumnya `@Default('')`); komentar freezed disesuaikan; pemanggil `buatModel` di `test/data/operasi/pelanggan_aktif_operasi_test.dart` meneruskan `id: ''` (pemanggil operasi mengisi UUID saat kosong, perilaku identik); `build_runner` dijalankan ulang (4 outputs, selebihnya skipped/sama); `dart format` OK; `dart analyze` **No issues found!**; `flutter test` **+105/−24 — IDENTIK baseline & identik run sebelumnya** (3 kegagalan `pelanggan_aktif_operasi_test.dart` tetap, penyebab pra-eksisting). Catatan: contoh `README.md` yang mengonstruksi model tanpa `id` kini tidak valid lagi (docs; tidak diubah — di luar permintaan).
+
+## Berkas Terdampak
+
+| Lokasi File | Status Perubahan | Deskripsi |
+| ----------- | ---------------- | --------- |
+| `memori/sesi/sesi_33.md` | Dibuat | Berkas sesi aktif |
+| `memori/sesi/sesi_32.md` | Diubah | `## Sinkronisasi ke MEMORI.md` diisi; status → Sudah Sinkron (catch-up sesi 33) |
+| `MEMORI.md` | Diubah | Header `(sesi 33; catch-up sesi 32)`; entri Catatan Teknis sesi 32 |
+| `memori/riwayat_perubahan.md` | Diubah | Entri catch-up sesi_32 ditambahkan |
+| `admin_wifi/lib/fitur/pelanggan_aktif/model/pelanggan_aktif_model.dart` | Diubah | Konversi ke Freezed (`@freezed`, `@Default(false)` isDeleted, method manual dipertahankan, `copyWith` manual dihapus); `id` kemudian dijadikan **required** atas permintaan pengguna; perubahan `required` masih unstaged di atas staged rename |
+| `admin_wifi/lib/fitur/pelanggan_aktif/model/pelanggan_aktif_model.freezed.dart` | Dibuat | Berkas hasil generate `build_runner` (untracked) |
+| `admin_wifi/test/data/operasi/pelanggan_aktif_operasi_test.dart` | Diubah | `buatModel` meneruskan `id: ''` (koreksi `id` required); 2-line impor oleh pelaku restrukturisasi tetap ter-stage |
+| `admin_wifi/test/data/operasi/pelanggan_aktif_operasi_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
+| `admin_wifi/test/data/operasi/versi_apk_user_operasi_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
+| `admin_wifi/test/data/sync/unggah_data_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
+| `admin_wifi/test/halaman/form/form_paket_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
+| `admin_wifi/test/halaman/form/form_pelanggan_aktif_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged; beda staged/unstaged) |
+| `admin_wifi/test/halaman/form/form_versi_apk_user_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
+| `admin_wifi/test/halaman/lainnya/versi_apk_user_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
+| `admin_wifi/test/halaman/tab/transaksi_test.mocks.dart` | Diubah | Regenerate `build_runner` (unstaged) |
+
+## Sinkronisasi ke MEMORI.md
+
+Belum disinkronkan.

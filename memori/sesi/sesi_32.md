@@ -1,6 +1,6 @@
 # Sesi 32
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-18 (Asia/Jakarta)
 - Command: memperbarui_file_di_folder_prompt (argumen kosong; pengguna mem-paste isi command tanpa menunjuk berkas `prompt/`; berkas yang ditunjuk: `prompt/rules/code.md`)
 - Topik: pembaruan berkas poin `prompt/rules/code.md` + catch-up sesi_31
@@ -42,4 +42,4 @@
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan.
+Disinkronkan lewat catch-up sesi 33 (2026-11-18): seluruh perubahan sesi 32 terverifikasi ter-commit oleh pengguna di `1d5b39a` (2026-11-18 08:22 WIB; `.agents/rules/code.md` baru, `prompt/rules/code.md` ditulis ulang + header wajib, formatmd global tanpa perubahan isi selain realign tabel `sesi_29.md`/`sesi_30.md`/`sesi_31.md`/`sesi_32.md`, serta perubahan sesi 31 penutupan: skill `code/dukungan-sqlite-web` v1.0.0 + indeks A–Z + MEMORI/riwayat). `MEMORI.md`: header → `(sesi 33; catch-up sesi 32)`; entri Catatan Teknis sesi 32 ditambah. `memori/riwayat_perubahan.md`: entri catch-up sesi_32 ditambahkan di atas entri sesi 31 penutupan. Tidak ada perubahan tambahan; `sesi_32.md` ditandai `Sudah Sinkron` oleh sesi 33 (catch-up), bukan oleh pembuatnya — tercatat eksplisit untuk jejak.

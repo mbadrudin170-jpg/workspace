@@ -8,7 +8,7 @@ ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-rules/SKILL.md`
 3. Yang terdaftar di `instructions` hanya berkas `AGENTS.md`; berkas rules tidak didaftarkan satu per satu di `instructions`.
 4. Berkas `AGENTS.md` wajib menyertakan perintah membaca seluruh berkas di folder `.agents/rules/` dan mematuhi seluruh aturan yang ada di sana.
 5. Setiap rules hanya memuat informasi/panduan ringkas; detail teknis wajib ditambahkan ke skill yang sudah ada, atau dibuatkan skill baru bila belum ada yang relevan.
-
+6. 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
 Link referensi ini jangan dimasukkan ke skill.
