@@ -3,13 +3,13 @@ name: pola-testing
 description: "Trigger: saat menulis test | Pola testing standar: package:test untuk unit test, WidgetTester untuk widget test, integration test, mocktail mock manual (tanpa codegen), dummy data, build_runner."
 metadata:
   kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Tue Nov 17 2026 11:52 WIB"
+  versi: "1.3.0"
+  diperbarui: "Wed Nov 18 2026 07:19 WIB"
 ---
 
 # Pola Testing Standar
 
-Skill ini mendokumentasikan pola testing yang wajib diterapkan di proyek ini.
+Skill ini mendokumentasikan pola testing yang wajib diterapkan di semua proyek pengguna.
 
 ## 1. Unit Test (package:test)
 
@@ -122,9 +122,10 @@ void main() {
 
 ### Aturan
 
+- **Semua test di semua proyek WAJIB menggunakan `package:mocktail`; `package:mockito` (`@GenerateMocks` + `build_runner`) DILARANG digunakan di test mana pun**, bukan hanya bila kode bergantung pada repository/service eksternal (permintaan eksplisit pengguna sesi 30, cakupan semua proyek, berbasis commit `admin_wifi` `ea39344`).
 - Jika kode bergantung pada repository/service eksternal, **WAJIB** gunakan `package:mocktail` dengan kelas mock manual `class MockX extends Mock implements X {}`; jangan lewati hanya karena override provider.
-- **JANGAN** gunakan mockito (`@GenerateMocks` + build_runner) untuk proyek ini; mocktail tidak memerlukan codegen.
-- `package:mocktail` wajib tercantum pada `dev_dependencies` (`mocktail: ^1.0.5` per 2026-11-16) sebelum file mock dibuat; tambahkan memakai skill `pengurutan-paket-pubspec` bila belum ada.
+- **JANGAN** gunakan mockito (`@GenerateMocks` + build_runner) di proyek mana pun; mocktail tidak memerlukan codegen.
+- `package:mocktail` wajib tercantum pada `dev_dependencies` (`mocktail: ^1.0.5`; tercantum di `share_global_saya` sejak 2026-11-16 dan di `admin_wifi` sejak 2026-11-18) sebelum file mock dibuat; tambahkan memakai `flutter pub add --dev mocktail` (skill `aturan-pubspec`) bila belum ada.
 - Mock repository/service, **BUKAN** Notifier/Provider (override provider langsung melalui `ProviderScope`/`ProviderContainer`).
 - `class MockX extends Mock implements X {}` ditulis di `test/mocks.dart` (bukan di file `*_test.dart`); `test/mocks.dart` bukan file test sehingga tidak dijalankan langsung oleh `flutter test`.
 - Dummy data dari `lib/fitur/*/dummy_data/`.
@@ -186,6 +187,7 @@ void main() {
 - [ ] `mocktail` tercantum di `dev_dependencies` submodule yang bersangkutan.
 - [ ] Kelas mock manual ada di `test/mocks.dart`, bukan di dalam `*_test.dart`.
 - [ ] Tidak ada import `package:mockito` maupun `@GenerateMocks`.
+- [ ] Tidak ada artefak `*.mocks.dart` hasil generate mockito yang menjadi sumber mock test (mock dibuat manual via mocktail).
 - [ ] Notifier/Provider di-override langsung, tidak di-mock.
 - [ ] Stub default ditetapkan (`when`) agar tidak ada `NoSuchMethodError` dari pemanggilan tak ter-stub.
 
@@ -261,7 +263,7 @@ dart fix --apply
 - **DILARANG** mock Notifier/Provider → override provider.
 - **DILARANG** test bergantung urutan (gunakan `setUp`/`tearDown`).
 - **DILARANG** hardcode delay (`await Future.delayed`) → gunakan `pumpAndSettle`.
-- **DILARANG** import `package:mockito` / `@GenerateMocks` (proyek ini memakai mocktail; lihat bagian 4).
+- **DILARANG** import `package:mockito` / `@GenerateMocks` / artefak `*.mocks.dart` hasil codegen pada test (semua proyek memakai mocktail; lihat bagian 4).
 
 ## Referensi Aturan Sumber
 
@@ -273,3 +275,4 @@ dart fix --apply
 - `dart-run-static-analysis` skill
 - `hasil_diskusi/diskusi_5.md` (K-5, R-1; sesi 158) — mocktail menggantikan mockito; `dart-generate-test-mocks` (mockito) tidak diikuti untuk proyek ini
 - Commit `share_global_saya` `e43255bd56b4eaba6b7629d749582be96dcd2527` (`test/mocks.dart` template mock manual mocktail, `mocktail: ^1.0.5` pada `dev_dependencies`, `pubspec.lock` diperbarui)
+- Permintaan eksplisit pengguna sesi 30 (2026-11-18; "semua test wajib pakai mocktail, dilarang mockito", cakupan semua proyek); commit submodule `admin_wifi` `ea39344` (2026-11-18, pengguna; konversi `test/services/notifikasi_servis_test.dart` ke mocktail, `test/mocks.dart`, penghapusan `test/services/notifikasi_servis_test.mocks.dart` dan `test/helpers/test_helpers.mocks.dart` yang tidak dikerjakan sesi 30); commit root `b0d5b45` (gitlink `admin_wifi`)

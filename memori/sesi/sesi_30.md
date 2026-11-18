@@ -9,16 +9,48 @@
 
 - Catch-up sync awal sesi: `sesi_29.md` (`Belum Sinkron`, perubahan nyata) **disinkronkan pada sesi ini** — `MEMORI.md` (header `(sesi 30)`, Status "Sesi terakhir" + entri sesi 29) dan `memori/riwayat_perubahan.md` terverifikasi sudah memuat seluruh perubahan sesi 29; `## Sinkronisasi ke MEMORI.md` pada `sesi_29.md` diisi; entri riwayat sesi 30 ditambahkan sebagai jejak; `sesi_29.md` ditandai `Sudah Sinkron`. Tidak ada perubahan tambahan pada catch-up.
 - Permintaan pengguna: berkas `admin_wifi/test/services/notifikasi_servis_test.dart` (test `NotifikasiServis` dengan Mockito: `@GenerateMocks([FlutterLocalNotificationsPlugin])`, `when`/`verify`/`anyNamed`, impor `notifikasi_servis_test.mocks.dart`) diubah agar menggunakan **Mocktail**.
-- Konteks proyek: proyek aplikasi = `admin_wifi` (submodule Flutter, v1.1.0+6); root workspace = memori + aturan. Test berada di submodule.
+- Skill yang dimuat: `memori-check` (awal sesi), `pola-testing` (§4 Mocktail Mock Manual; larangan mockito), `pengurutan-paket-pubspec`, `aturan-pubspec` (pakai `flutter pub add`, bukan edit manual), `penggunaan-tool-question`.
+- **Permintaan lanjutan pengguna (command `tambah_kode_keskill`, pesan 2 dalam sesi yang sama)**: "tambahkan agar semua test wajib pakai mocktail dilarang pakai mockito". Hasil: skill code/ `pola-testing` diperbarui **dengan persetujuan pengguna (tool `question`; jawaban bebas "semua proyek" → cakupan semua proyek, bukan hanya satu proyek)** — lihat poin penerapan di bawah. Sumber: commit submodule `admin_wifi` `ea39344` (basis riwayat commit, sesuai aturan `lainnya.md` butir 3 untuk skill `code/`).
+- Penerapan:
+  1. `flutter pub add --dev mocktail` → `mocktail: ^1.0.5` ditambahkan ke `dev_dependencies` (memenuhi checklist pola-testing: mocktail wajib tercantum). Entri dipindahkan agar berdampingan dengan `mockito` (urutan abjad relatif; `dev_dependencies` `admin_wifi` memang tidak terurut sejak awal — dirapikan sepenuhnya di luar cakupan, tidak dilakukan). `flutter pub get` OK.
+  2. Berkas baru `admin_wifi/test/mocks.dart` (bukan `*_test.dart`): `MockFlutterLocalNotificationsPlugin extends Mock implements FlutterLocalNotificationsPlugin` + komentar header (skill `pola-testing` §4; rujukan `share_global_saya/test/mocks.dart`).
+  3. `admin_wifi/test/services/notifikasi_servis_test.dart` ditulis ulang dengan mocktail: impor `package:mocktail/mocktail.dart` + `../mocks.dart`; `TestWidgetsFlutterBinding.ensureInitialized()` + `tz.initializeTimeZones()` + `setLocalLocation(Asia/Jakarta)` dipertahankan; `setUpAll` mendaftarkan `registerFallbackValue` untuk `InitializationSettings`, `NotificationDetails`, `TZDateTime`, `AndroidScheduleMode` (diperlukan `any(named: ...)` pada tipe non-nullable custom); stub `getNotificationAppLaunchDetails` yang tidak pernah dipakai test **dihapus** (dead stub); seluruh 5 test dipertahankan skenarionya; tidak ada `@GenerateMocks`, `package:mockito`, maupun `build_runner` untuk test ini.
+  4. `admin_wifi/test/services/notifikasi_servis_test.mocks.dart` **dihapus** (berkas hasil generate mockito yang kini stale; tidak ada berkas lain yang merujuknya).
+- Permintaan lanjutan (command `tambah_kode_keskill`) — penerapan pada `.agents/skills/code/pola-testing/SKILL.md` (v1.2.0 → 1.3.0, `diperbarui` `Wed Nov 18 2026 07:19 WIB`), aditif (tidak ada poin penting yang dihapus):
+  - Header: `versi`/`diperbarui`; intro "wajib diterapkan di proyek ini" → "di semua proyek pengguna".
+  - §4: bullet baru di awal — **semua test di semua proyek WAJIB mocktail; mockito (`@GenerateMocks` + `build_runner`) DILARANG di test mana pun** (bukan hanya bersyarat ketergantungan repository/service eksternal; permintaan eksplisit pengguna sesi 30, cakupan semua proyek, berbasis commit `ea39344`). Bullet lama "untuk proyek ini" → "di proyek mana pun"; bullet dev_dependencies → `mocktail: ^1.0.5` tercantum di `share_global_saya` (2026-11-16) dan `admin_wifi` (2026-11-18, via `flutter pub add --dev`).
+  - Checklist: +1 butir "Tidak ada artefak `*.mocks.dart` hasil generate mockito yang menjadi sumber mock test".
+  - §9: larangan diperluas — import mockito / `@GenerateMocks` / artefak `*.mocks.dart` hasil codegen; rumusan "proyek ini" → "semua proyek".
+  - `## Referensi Aturan Sumber`: + provenance permintaan eksplisit pengguna sesi 30 (cakupan semua proyek) + commit `admin_wifi` `ea39344` + gitlink root `b0d5b45`.
+  - Frontmatter `description` tetap ("Trigger: saat menulis test" — tetap memicu konten baru); nama folder = `name` valid; skill code/ tidak mendapat berkas poin `prompt/skill/`.
+  - Indeks `.agents/rules/kelompok_skill_wajib.md` code #34 `pola-testing` → `Wed Nov 18 2026 07:19 WIB`.
+  - `npx prettier --write` pada kedua berkas → `unchanged`. Cek langkah 10 command: nama folder ✔, description trigger ✔.
+- Verifikasi: `dart format` OK; `dart analyze` → **No issues found!** (3 issue pra-eksisting di `test/helpers/test_helpers.mocks.dart` hilang setelah berkas itu dihapus commit pengguna `ea39344`); `flutter test test/services/notifikasi_servis_test.dart` → **5/5 lulus**; `flutter test` penuh → **+105/−24, identik baseline** (MEMORI sesi 27/28: +105/−24; kegagalan seluruhnya pra-eksisting — widget tap di luar area, `no such table: transaksi`, dll.).
+- **Commit dilakukan oleh pengguna selama sesi** (bukan oleh sesi ini; sesi ini tidak menjalankan `git add`/`git commit`):
+  - submodule `admin_wifi` `81b5485` "s" (2026-11-17 23:18 UTC, sebelum sesi dimulai): memuat seluruh perubahan uncommitted sesi 27/28 (`lib/app.dart`, `lib/main.dart`, `lib/data/sqlite.dart`, `lib/splash_screen.dart`, `lib/halaman/tab/pelanggan_aktif.dart`, penghapusan `assets/fonts/*.ttf`, `pubspec.yaml`/`.lock`, `README.md` formatmd) — jejak volatil "belum di-commit" di MEMORI sesi 27/28 menjadi usang.
+  - submodule `admin_wifi` `ea39344` "A" (2026-11-18 00:16:45 UTC): memuat seluruh perubahan konversi mocktail sesi ini **plus penghapusan `test/helpers/test_helpers.dart` dan `test/helpers/test_helpers.mocks.dart` yang BUKAN dikerjakan sesi ini** (dihapus/staged pengguna di luar sesi; sesi ini tidak pernah menyentuh berkas itu; tidak ada referensi tersisa ke `test_helpers` di repo). `main` == `origin/main`.
+  - root `b0d5b45` "m" (2026-11-18 00:17:11 UTC): memuat isi `sesi_30.md` versi awal (pembuatan + catch-up), `sesi_29.md` (status flip), `MEMORI.md` (catch-up), `memori/riwayat_perubahan.md`, dan gitlink `admin_wifi` → `ea39344`. Root `main` == `origin/main`; working tree bersih.
+- Catatan paralel: sesi ini sempat membaca status tengah jalan yang menampilkan staged files (`test/helpers/*` terhapus, `test/mocks.dart` staged) sesaat sebelum commit `ea39344`; keadaan akhir konsisten: tree bersih, HEAD == origin/main pada root dan submodule.
+- Konversi mockito → mocktail **seluruh suite** TIDAK dikerjakan (di luar permintaan): test lain (`pelanggan_aktif_operasi_test.dart`, `unggah_data_test.dart`, `form_*`, `transaksi_test.dart`, `versi_apk_user_*`, `dompet_operasi_test.dart`, dst.) masih memakai mockito + `*.mocks.dart` generated.
 
 ## Berkas Terdampak
 
 | Lokasi File | Status Perubahan | Deskripsi |
 | ----------- | ---------------- | --------- |
-| `memori/sesi/sesi_30.md` | Dibuat | Berkas sesi aktif |
-| `memori/sesi/sesi_29.md` | Diubah | Catch-up sesi 30: Status → Sudah Sinkron; `## Sinkronisasi ke MEMORI.md` diisi |
-| `MEMORI.md` | Diubah | Header `(sesi 30)`; Status "Sesi terakhir" → sesi 30; entri sesi 29 dipertahankan |
-| `memori/riwayat_perubahan.md` | Diubah | Entri catch-up sesi 30 (sesi_29 → Sudah Sinkron) |
+| `memori/sesi/sesi_30.md` | Dibuat | Berkas sesi aktif (versi awal ter-commit di `b0d5b45`; diperbarui setelah pekerjaan) |
+| `memori/sesi/sesi_29.md` | Diubah | Catch-up sesi 30: Status → Sudah Sinkron; `## Sinkronisasi ke MEMORI.md` diisi (ter-commit `b0d5b45`) |
+| `MEMORI.md` | Diubah | Header `(sesi 30)`; Status "Sesi terakhir" → sesi 30 (ter-commit `b0d5b45`) |
+| `memori/riwayat_perubahan.md` | Diubah | Entri catch-up sesi 30 (sesi_29 → Sudah Sinkron; ter-commit `b0d5b45`) |
+| `admin_wifi/pubspec.yaml` | Diubah | `mocktail: ^1.0.5` dev_dependencies (ter-commit `ea39344`) |
+| `admin_wifi/pubspec.lock` | Diubah | Resolusi pub (ter-commit `ea39344`) |
+| `admin_wifi/test/mocks.dart` | Dibuat | Mock manual mocktail `MockFlutterLocalNotificationsPlugin` (ter-commit `ea39344`) |
+| `admin_wifi/test/services/notifikasi_servis_test.dart` | Diubah | Konversi Mockito → Mocktail (ter-commit `ea39344`) |
+| `admin_wifi/test/services/notifikasi_servis_test.mocks.dart` | Dihapus | Stale hasil generate mockito (ter-commit `ea39344`) |
+| `admin_wifi/test/helpers/test_helpers.dart` & `test_helpers.mocks.dart` | Dihapus (oleh pengguna, bukan sesi ini) | Ter-commit `ea39344`; sesi ini tidak menyentuh berkas ini; disebut agar tabel akurat terhadap histori |
+| gitlink `admin_wifi` | Diubah (oleh pengguna) | `b0d5b45`: gitlink → `ea39344` |
+| `.agents/skills/code/pola-testing/SKILL.md` | Diubah | v1.2.0 → 1.3.0; wajib mocktail di semua proyek + larangan artefak `*.mocks.dart` (07:19 WIB) |
+| `.agents/rules/kelompok_skill_wajib.md` | Diubah | Entri code #34 `pola-testing` Status → `Wed Nov 18 2026 07:19 WIB` |
+| `memori/sesi/sesi_30.md` | Diubah | Catatan permintaan lanjutan (command tambah_kode_keskill) + Berkas Terdampak diperbarui |
 
 ## Sinkronisasi ke MEMORI.md
 
