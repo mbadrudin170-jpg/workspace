@@ -1,14 +1,16 @@
-diperbarui : Wed Nov 18 2026 18:49 WIB
+diperbarui : Wed Nov 18 2026 19:07 WIB
 file : [analisa_paket_terbaik](../../.kilo/commands/analisa_paket_terbaik.md)
 
 1. Baca `AGENTS.md` dan `instructions` pada `.kilo/kilo.jsonc`; patuhi aturan yang berlaku.
 
-2. Menganalisis paket Dart/Flutter di pub.dev. Nama paket diambil dari `$ARGUMENTS`; jika kosong atau ambigu, minta pengguna menyebutkan nama paket (jangan menebak).
+2. Menganalisis paket Dart/Flutter di pub.dev. `$ARGUMENTS` dapat berupa nama paket atau tautan paket pub.dev. Jika pengguna memberikan tautan paket, identifikasi nama paket dari tautan tersebut dan lakukan analisis sangat rinci terlebih dahulu. Jika `$ARGUMENTS` kosong atau ambigu, minta pengguna menyebutkan nama paket/tautan yang jelas (jangan menebak).
 
-3. Kumpulkan informasi yang dapat diverifikasi: deskripsi & tujuan, cakupan/fitur utama yang disediakan paket, platform yang didukung, versi terbaru & status pemeliharaan, tautan halaman paket pub.dev (`https://pub.dev/packages/<nama_paket>`), tautan dokumentasi API paket (contoh: `https://pub.dev/documentation/<nama_paket>/latest/`), serta metrik pub.dev (Pub Points, Likes, Popularity/Downloads bila tersedia) yang wajib dibaca dari halaman skor paket `https://pub.dev/packages/<nama_paket>/score` (contoh: `https://pub.dev/packages/stack_trace/score`), dan catatan kelebihan/keterbatasan singkat. Jangan mengarang data, angka, atau tautan.
+3. Untuk analisis, wajib membaca halaman paket pub.dev (`https://pub.dev/packages/<nama_paket>`), halaman skor (`https://pub.dev/packages/<nama_paket>/score`), dan dokumentasi API (`https://pub.dev/documentation/<nama_paket>/latest/`). Kumpulkan informasi yang dapat diverifikasi: deskripsi & tujuan; masalah yang diselesaikan; cakupan paket — jelaskan secara sangat rinci apa saja yang dicakup (fitur utama, API/komponen/kelas utama, kemampuan, kasus penggunaan yang didukung, serta batasan yang tidak dicakup sejauh dapat diverifikasi); platform yang didukung; versi terbaru & status pemeliharaan; metrik pub.dev (Pub Points, Likes, Popularity/Downloads bila tersedia) dari halaman skor; serta catatan kelebihan/keterbatasan singkat. Jangan mengarang data, angka, atau tautan.
 
-4. Sampaikan ringkasan hasil analisis, lalu minta izin eksplisit kepada pengguna apakah paket perlu ditambahkan/diperbarui di `docs/paket_favorit.md`. Jangan mengubah berkas keluaran sebelum ada persetujuan.
+4. Sampaikan hasil analisis sangat rinci kepada pengguna, mencakup minimal: skor/metrik, masalah yang diselesaikan, dan fitur utama. Di bagian akhir, sertakan perbandingan dengan paket-paket sejenis (sejauh dapat diverifikasi). Nyatakan "tidak diketahui/tidak tersedia" bila informasi tidak dapat diverifikasi.
 
-5. Jika pengguna menyetujui: perbarui `docs/paket_favorit.md` dengan entri paket tersebut (tabel ringkas: Nama Paket, Link pub.dev, Link Dokumentasi, Pub Points, Likes, Popularity, Ringkasan cakupan, Catatan). Jika entri paket sudah ada, perbarui barisnya; jika belum, tambahkan. Susun baris tabel berdasarkan Popularity tertinggi ke terendah; entri yang Popularity-nya tidak tersedia/tidak dapat diverifikasi ditempatkan di bagian bawah. Buat header tabel bila berkas masih kosong.
+5. Setelah menyampaikan analisis, minta izin eksplisit kepada pengguna apakah paket perlu ditambahkan/diperbarui di `docs/paket_favorit.md`. Jangan mengubah berkas keluaran sebelum ada persetujuan.
 
-6. Laporkan ringkasan hasil analisis dan sebutkan apakah `docs/paket_favorit.md` diperbarui; nyatakan "tidak diketahui/tidak tersedia" bila informasi tidak dapat diverifikasi.
+6. Jika pengguna menyetujui: perbarui `docs/paket_favorit.md` dengan entri paket tersebut (tabel ringkas: Nama Paket, Link pub.dev, Link Dokumentasi, Pub Points, Likes, Popularity, Ringkasan cakupan, Catatan). Jika entri paket sudah ada, perbarui barisnya; jika belum, tambahkan. Susun baris tabel berdasarkan Popularity tertinggi ke terendah; entri yang Popularity-nya tidak tersedia/tidak dapat diverifikasi ditempatkan di bagian bawah. Buat header tabel bila berkas masih kosong.
+
+7. Laporkan ringkasan hasil analisis dan sebutkan apakah `docs/paket_favorit.md` diperbarui.
