@@ -2,7 +2,7 @@
 
 ## Status
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-19 (Asia/Jakarta)
 - Command: /build_apk
 - Topik: Build APK release admin_wifi via GitHub Actions.
@@ -26,4 +26,4 @@
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan.
+Catch-up sync sesi 93: tidak ada perubahan nyata selain berkas sesi (build APK gagal, tidak ada artefak/berkas diubah).

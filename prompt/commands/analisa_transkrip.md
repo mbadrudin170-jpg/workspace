@@ -1,9 +1,9 @@
-diperbarui : Thu Nov 19 2026 20:51 WIB
+diperbarui : Thu Nov 19 2026 23:46 WIB
 ditimpa ke : `.kilo/commands/analisa_transkrip.md`
 
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya; baca `instructions` pada `.kilo/kilo.jsonc` dan patuhi aturannya.
 
-2. Baca `docs/hasil_analisa/hasil_analisa_transkrip.md`. Jika berkas kosong, atau semua id yang terdaftar sudah dianalisa: baca daftar berkas `ses_*.json` pada `~/.local/share/kilo/storage/session_diff/`; jika folder kosong/tidak ada, lapor ke pengguna dan berhenti. Untuk setiap id, catat tanggal Created At (sumber murah: waktu pembuatan berkas `session_diff/<id>.json` via `stat`/`ls -l --time-style`; bila tidak tersedia, fallback waktu `Updated` dari `kilo_local_recall` mode `search`). Tambahkan semua id tersebut ke `docs/hasil_analisa/hasil_analisa_transkrip.md` beserta tanggal Created At-nya, dengan status "belum dianalisa", agar AI tidak perlu mencari tanggal Created At berulang. Jika folder kosong/tidak ada, lapor ke pengguna dan berhenti.
+2. Baca `docs/hasil_analisa/hasil_analisa_transkrip.md`. Jika berkas kosong, atau semua id yang terdaftar sudah dianalisa: baca daftar berkas `ses_*.json` pada `~/.local/share/kilo/storage/session_diff/`; jika folder kosong/tidak ada, lapor ke pengguna dan berhenti. Untuk setiap id, catat tanggal Created At (sumber murah: waktu pembuatan berkas `session_diff/<id>.json` via `stat`/`ls -l --time-style`; bila tidak tersedia, fallback waktu `Updated` dari `kilo_local_recall` mode `search`). Tambahkan semua id tersebut ke `docs/hasil_analisa/hasil_analisa_transkrip.md` beserta tanggal Created At-nya dan nama topiknya (mis. baris `- Topik: <judul sesi>`), dengan status "belum dianalisa", agar AI tidak perlu mencari tanggal/topik berulang. (Jika folder kosong/tidak ada, lapor ke pengguna dan berhenti.)
 
 3. Dari daftar di `docs/hasil_analisa/hasil_analisa_transkrip.md`, lewati id yang sudah dianalisa; ambil id belum dianalisa yang paling lama berdasarkan Created At yang tersimpan. Jika tidak ada id yang belum dianalisa, lapor ke pengguna dan berhenti.
 
@@ -21,3 +21,4 @@ ditimpa ke : `.kilo/commands/analisa_transkrip.md`
 
 - memori-check
 - penggunaan-tool-bawaan-kilo
+- penggunaan-tool-question
