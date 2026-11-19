@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-19 (sesi 94)
+Diperbarui: 2026-11-19 (sesi 96)
 
 ## Konteks Proyek
 
@@ -53,6 +53,10 @@ Diperbarui: 2026-11-19 (sesi 94)
 - Sesi 9: riset kompetitor batch 10 — 10 listing `Belum Dianalisa` pertama (Apple App Store, `apk_kompetitor.md` baris 95–104) diverifikasi via `webfetch`, dianalisa, dan ditandai `Sudah Dianalisa`; `refrensi_apk.md` ditambahkan batch 10 (sumber 81–90, rekomendasi A70–A80, optimasi B26–B27, UI/UX C34–C36, contoh format item A1, dan fitur `fitur_khusus.md` "desa malam" prioritas Tinggi); `memori/sesi/sesi_8.md` disinkronkan lewat catch-up (Sudah Sinkron).
 
 ## Catatan Teknis
+
+- Sesi 96 (2026-11-19): command baru `diskusi_hasil_analisa_transkrip` dibuat (sumber `prompt/commands/diskusi_hasil_analisa_transkrip.md` header 17:43 WIB + target `.kilo/commands/diskusi_hasil_analisa_transkrip.md`); tujuan diskusi hasil analisa transkrip yang tersimpan. `npx prettier` scoped 2 berkas (`unchanged`). Belum di-commit. Berkas sesi: `sesi_96.md`.
+
+- Sesi 95 (2026-11-19): build APK release via GitHub Actions (proyek `admin_wifi`) — build dibatalkan karena galat `No matching client found for package name 'com.example.adminwifi.dev'` di `google-services.json` (flavor dev suffix). Perubahan yang di-commit & push selama sesi: workflow +setup-java JDK 17 (b08d462), Gradle 8.12→8.14.3 (761e52b), AGP 8.9.1→8.11.1 (508d025), Kotlin 2.2.0→2.2.20 (f7bf022). Run terakhir 44581558762 (gagal, artefak tidak diunduh). Berkas sesi: `sesi_95.md`.
 
 - Sesi 85 (2026-11-19): lanjutan — poin 5 command `analisa_transkrip` diperbarui (prompt + target, sinkron): larangan sub-agent/agen explore untuk membaca transkrip (baca langsung agar tepat; transkrip besar baca bertahap offset/limit; dilarang delegasikan ekstraksi bukti ke sub-agent). Header sumber `diperbarui` → 20:51 WIB. `npx prettier --write` scoped 2 berkas (`unchanged`). Belum di-commit. Berkas sesi: `sesi_85.md`. Detail: `sesi_85.md`.
 - Sesi 89 (2026-11-19; catch-up sesi 93): analisa transkrip `ses_e0c72f74fffeEDk33NtRFd24Cb` ("Greeting") — tidak ditemukan kesalahan AI yang melanggar aturan; celah minor Firebase guard code.md #18 (hanya dilaporkan, tidak memuat `validasi-platform-izin`). Hasil analisa disimpan ke `docs/hasil_analisa/hasil_analisa_transkrip.md` + id ditandai sudah dianalisa. Berkas sesi: `sesi_89.md`. Detail: `sesi_89.md`.
