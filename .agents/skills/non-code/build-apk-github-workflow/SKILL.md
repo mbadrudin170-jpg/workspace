@@ -4,7 +4,7 @@ description: Trigger: saat membangun APK Android release atau memperbarui proses
 metadata:
   kategori: "custom"
   versi: "1.2.0"
-  diperbarui: "Fri Nov 20 2026 03:02 WIB"
+  diperbarui: "Thu Nov 19 2026 23:35 WIB"
 ---
 
 # Build APK via GitHub Actions Workflow
@@ -33,6 +33,7 @@ Membangun APK Android `release` (split per ABI, hanya `android-arm64`) melalui G
 10. Setelah pengunduhan, verifikasi berkas dengan tool `glob` dan laporkan path absolut serta ukuran (`stat -c%s`).
 11. Bila terdapat lebih dari satu proyek Flutter (submodule) yang dapat di-build, tanyakan repo target kepada pengguna sebelum menjalankan workflow.
 12. Sebelum memicu workflow, periksa kompatibilitas versi Java (runner default) dengan Gradle yang dipakai (gradle-wrapper.properties / workflow); peringatkan bila tidak kompatibel.
+13. Saat memeriksa prasyarat berkas (mis. `.github/workflows/build-apk.yml`), verifikasi path secara langsung (tool `read`/`glob` absolut) selain mengandalkan glob relatif; jangan menyimpulkan berkas tidak ada tanpa verifikasi langsung, terutama pada folder hidden (`.github`, `.kilo`, `.agents`).
 
 ## Larangan
 

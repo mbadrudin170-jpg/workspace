@@ -1,4 +1,4 @@
-diperbarui : Fri Nov 20 2026 03:02 WIB
+diperbarui : Thu Nov 19 2026 23:35 WIB
 file : [build-apk-github-workflow](../../.agents/skills/non-code/build-apk-github-workflow/SKILL.md)
 
 1. Sebelum build, periksa `gh` terpasang dan terautentikasi dengan scope `workflow`.
@@ -14,6 +14,8 @@ file : [build-apk-github-workflow](../../.agents/skills/non-code/build-apk-githu
 10. Bila terdapat lebih dari satu proyek Flutter (submodule) yang dapat di-build, tanyakan repo target kepada pengguna sebelum menjalankan workflow.
 
 11. Sebelum memicu workflow, periksa kompatibilitas versi Java (runner default) dengan Gradle yang dipakai; peringatkan bila tidak kompatibel.
+
+12. Saat memeriksa prasyarat berkas (mis. `.github/workflows/build-apk.yml`), verifikasi path secara langsung (tool `read`/`glob` absolut) selain mengandalkan glob relatif; jangan menyimpulkan berkas tidak ada tanpa verifikasi langsung, terutama pada folder hidden (`.github`, `.kilo`, `.agents`).
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 
