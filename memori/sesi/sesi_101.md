@@ -11,7 +11,7 @@
 
 - Sesi dimulai: baca `MEMORI.md` (utuh), seluruh `.agents/rules/`, skill `memori-check`, `aturan-folder-prompt`, `penggunaan-tool-question`. Catch-up: `sesi_100.md` (Belum Sinkron, tanpa perubahan nyata) ditandai `Sudah Sinkron` dengan catatan eksplisit.
 - Target berkas: `prompt/skill/memori-check.md` (aktif di editor), disepakati pengguna.
-- Diskusi: header diperbaiki; poin 10 diperluas (konsolidasi/resolusi konflik, pinning, entri volatil, batas ukuran); poin 15–16 dirapikan; poin 17 dipertahankan atas pilihan pengguna.
+- Diskusi: header diperbaiki; poin 10 diperluas (konsolidasi/resolusi konflik, pinning, entri volatil, batas ukuran) lalu provenance `sesi N` dihapus atas pilihan pengguna agar tidak bentrok dengan poin 17; poin 15–16 dirapikan; poin 17 dipertahankan.
 - Draf ditampilkan dan disetujui; berkas prompt diperbarui dan dirapikan dengan `npx prettier --write` scoped. Target `.agents/skills/non-code/memori-check/SKILL.md` tidak diubah (isi sudah mencakup detail yang diperluas; poin 17 tidak ada di target).
 
 ## Berkas Terdampak

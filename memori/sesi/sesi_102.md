@@ -14,14 +14,14 @@
   - `sesi_97.md` (Belum Sinkron, berisi perubahan nyata: `.agents/rules/lainnya.md` butir 6 + `prompt/rules/lainnya.md`) → **tetap Belum Sinkron**; sesi paralel, penandaan hanya oleh sesi pembuat (memori-check Aturan 23) dan status ambigu → **dilaporkan ke pengguna**, tidak diputuskan sendiri.
   - `sesi_98.md`, `sesi_99.md`, `sesi_100.md` sudah `Sudah Sinkron` (tidak disentuh).
 - Input pengguna: "hai" (greeting, tanpa tugas/permintaan perubahan).
-- Belum ada perubahan kode/dokumen pada sesi ini.
+- Lanjutan: pengguna meminta pembuatan file `~/.bash_aliases` (salinan dari `script/bash_aliases.sh`); file dibuat dan diverifikasi sintaks (`bash -n` tanpa error). Tidak ada perubahan pada repositori workspace.
 
 ## Berkas Terdampak
 
 | Lokasi File | Status Perubahan | Deskripsi |
 | ----------- | ---------------- | --------- |
 | `memori/sesi/sesi_101.md` | Diubah (catch-up) | Status Sinkron `Belum Sinkron` → `Sudah Sinkron` dengan catatan eksplisit (yatim). |
-| `memori/sesi/sesi_102.md` | Dibuat | Berkas sesi aktif (Belum Sinkron). |
+| `~/.bash_aliases` | Dibuat | Salinan dari `script/bash_aliases.sh`; diverifikasi `bash -n` (tanpa error). Berada di luar repositori workspace. |
 
 ## Sinkronisasi ke MEMORI.md
 
