@@ -2,6 +2,7 @@
 
 | Tanggal | Perubahan |
 | ---------- |
+| 2026-11-20 | Sesi 120: perbaiki description seluruh SKILL.md (79 berkas) menjadi 1024 karakter sesuai isi skill. Prettier dijalankan. Berkas sesi: `sesi_120.md`. |
 | 2026-11-20 | Sesi 119: perbaiki description `.agents/skills/code/build-runner-codegen/SKILL.md` menjadi 1024 karakter sesuai isi skill. Berkas sesi: `sesi_119.md`. |
 | 2026-11-20 | Sesi 118: perluas description seluruh SKILL.md (79 berkas) hingga mendekati 1024 karakter. Prettier dijalankan. Berkas sesi: `sesi_118.md`. |
 | 2026-11-20 | Sesi 117: hapus section `## Sumber Evaluasi` dari seluruh `SKILL.md` (74 berkas) dan ubah aturan pembuatan skill (poin/Aturan 8 menjadi larangan, poin 12/16 disesuaikan). Prettier dijalankan. Berkas sesi: `sesi_117.md`. |
