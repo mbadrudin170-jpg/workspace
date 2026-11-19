@@ -1,4 +1,4 @@
-diperbarui : Thu Nov 19 2026 20:39 WIB
+diperbarui : Thu Nov 19 2026 20:51 WIB
 ditimpa ke : `.kilo/commands/analisa_transkrip.md`
 
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya; baca `instructions` pada `.kilo/kilo.jsonc` dan patuhi aturannya.
@@ -9,7 +9,7 @@ ditimpa ke : `.kilo/commands/analisa_transkrip.md`
 
 4. Sebelum menganalisa, tampilkan id transkrip terpilih kepada pengguna dan tanyakan (tool `question`) apakah AI boleh menganalisa transkrip tersebut — khawatir transkrip masih aktif. Jika pengguna menolak atau melewati, berhenti tanpa menganalisa dan tanpa menandai id.
 
-5. Sebelum menganalisa, baca seluruh isi transkrip dengan full dump: jika id sesi, gunakan `kilo_local_recall` mode `read` (untuk transkrip besar, delegasikan ekstraksi bukti — kutipan + lokasi — ke agen explore); jika pengguna memberikan lampiran transkrip, baca seluruhnya sampai tuntas. Dilarang menganalisa dari ringkasan/kutipan sebagian.
+5. Sebelum menganalisa, baca seluruh isi transkrip dengan full dump: jika id sesi, gunakan `kilo_local_recall` mode `read` dan baca seluruhnya sampai tuntas (jangan gunakan sub-agent/agen explore untuk membaca transkrip — baca langsung agar tepat; untuk transkrip besar, baca bertahap dengan offset/limit, jangan delegasikan ekstraksi bukti ke sub-agent); jika pengguna memberikan lampiran transkrip, baca seluruhnya sampai tuntas. Dilarang menganalisa dari ringkasan/kutipan sebagian.
 
 6. Analisa pekerjaan AI di transkrip: identifikasi kesalahan AI — tidak memuat skill yang relevan, tidak memahami command, tidak mengikuti aturan yang berlaku — serta analisa apakah kesalahan berasal dari AI atau dari commands/skills/aturan yang kurang jelas/ambigu/salah.
 
