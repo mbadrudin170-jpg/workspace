@@ -3,8 +3,8 @@ name: type-promotion-null-safety
 description: "Trigger: saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku."
 metadata:
   kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  versi: "1.0.2"
+  diperbarui: "Thu Nov 19 2026 08:30 WIB"
 ---
 
 # Type Promotion untuk Null Safety pada Field Objek
@@ -54,3 +54,6 @@ _buildItem(
 
 - Commit: `1e7b71ed8fd91f0bcd0caafd9b380fcb3a7f73ec`
 - File: `lib/fitur/biodata/screens/biodata_screen.dart`
+- Transkrip sesi `ses_e0f09a7f5ffeYhZ7Bm6b1qJJK6` (sesi 60): pengguna meminta hapus operator `!` pada `transaksi.idDompetTujuan!`, `idSubKategori!`, `idPelanggan!`, `idPaket!`, serta `transaksi.tanggalMulai!`/`tanggalBerakhir!` di `detail_transaksi.dart` dengan pola variabel lokal + null-check.
+- Kode akhir: `admin_wifi/lib/fitur/transaksi/screens/detail_transaksi.dart`.
+- Aturan baru diperbarui di luar alur commit-history atas persetujuan eksplisit pengguna (sesi 60).
