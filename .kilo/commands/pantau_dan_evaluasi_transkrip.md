@@ -6,7 +6,7 @@ description: Memantau transkrip sesi Kilo (ses_...) atau lampiran transkrip yang
 
 2. Baca `AGENTS.md` dan `instructions` pada `.kilo/kilo.jsonc`; patuhi aturan yang terdaftar.
 
-3. Jika pengguna memberikan ID `ses_...`: gunakan `kilo_local_recall` mode `read` untuk mengambil dump penuh transkrip (untuk transkrip besar, delegasikan ekstraksi bukti — kutipan + lokasi — ke agen explore); jika pengguna memberikan lampiran transkrip langsung, gunakan lampiran tersebut.
+3. Jika pengguna memberikan ID `ses_...`: gunakan `kilo_local_recall` mode `read` untuk mengambil dump penuh transkrip dan baca seluruhnya sampai tuntas (untuk transkrip besar, delegasikan ekstraksi bukti — kutipan + lokasi — ke agen explore); jika pengguna memberikan lampiran transkrip langsung, gunakan lampiran tersebut dan baca seluruhnya sampai tuntas.
 
 4. Amati pekerjaan AI di dalam transkrip: identifikasi kesalahan/pelanggaran terhadap aturan dan skill yang berlaku — rujuk `.agents/rules/code.md`, `.agents/rules/lainnya.md`, `.agents/rules/kelompok_skill_wajib_non_code.md`, serta seluruh skill di `.agents/skills/code/` dan `.agents/skills/non-code/`; abaikan temuan yang sudah tercakup aturan/skill yang ada, dan tandai sisanya sebagai celah.
 

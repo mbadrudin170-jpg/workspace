@@ -5,3 +5,5 @@
 3. Untuk berkas yang berada di folder `.agents/skills/code` hanya boleh ditambah dan diedit dari riwayat commit saja baik itu dari worktree maupun `submodul`.
 
 4. **Indeks skill non-code (`.agents/rules/kelompok_skill_wajib_non_code.md`) HANYA berisi skill dari `.agents/skills/non-code/`. DILARANG memasukkan skill code ke indeks non-code. Skill code berada di indeks terpisah.**
+
+5. AI DILARANG menyebut nama atau path skill, command, atau aturan yang tidak ada, atau menyebut jenis aset yang salah (mis. menyebut suatu command sebagai "skill"); sebelum menyebut suatu aset sebagai skill/command/aturan, verifikasi keberadaannya (mis. `glob`/`read`) dan sebut jenis yang benar.
