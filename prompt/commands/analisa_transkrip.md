@@ -1,4 +1,4 @@
-diperbarui : Thu Nov 19 2026 20:29 WIB
+diperbarui : Thu Nov 19 2026 20:39 WIB
 ditimpa ke : `.kilo/commands/analisa_transkrip.md`
 
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya; baca `instructions` pada `.kilo/kilo.jsonc` dan patuhi aturannya.
@@ -13,7 +13,7 @@ ditimpa ke : `.kilo/commands/analisa_transkrip.md`
 
 6. Analisa pekerjaan AI di transkrip: identifikasi kesalahan AI — tidak memuat skill yang relevan, tidak memahami command, tidak mengikuti aturan yang berlaku — serta analisa apakah kesalahan berasal dari AI atau dari commands/skills/aturan yang kurang jelas/ambigu/salah.
 
-7. Setelah id selesai dianalisa, simpan hasil analisa ke `docs/hasil_analisa/hasil_analisa_transkrip.md` (format seperti entri yang sudah ada: ringkasan transkrip; kesalahan AI yang diidentifikasi beserta bukti/lokasi; analisa sumber kesalahan (AI vs commands/skills/aturan); saran agar AI di masa mendatang lebih pintar dan sesuai keinginan pengguna), lalu tandai id tersebut sudah dianalisa (perbarui status entri yang ada).
+7. Setelah id selesai dianalisa, simpan hasil analisa ke `docs/hasil_analisa/hasil_analisa_transkrip.md` (format seperti entri yang sudah ada: ringkasan transkrip (apa yang dilakukan pengguna dengan AI); kesalahan AI yang diidentifikasi beserta bukti/lokasi; analisa sumber kesalahan (AI vs commands/skills/aturan); saran agar AI di masa mendatang lebih pintar dan sesuai keinginan pengguna), lalu tandai id tersebut sudah dianalisa (perbarui status entri yang ada).
 
 8. Setelah analisa transkrip selesai, laporkan kepada pengguna apakah ada saran agar AI di masa mendatang lebih pintar dan sesuai dengan keinginan pengguna.
 
