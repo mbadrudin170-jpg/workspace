@@ -7,4 +7,5 @@ description: Membaca seluruh isi berkas di folder tool-output Kilo dan melaporka
 3. Baca seluruh isi berkas di folder tersebut (gunakan tool Read/Glob; jangan `cat` massal via shell). Catat nama berkas, ukuran, dan ringkasan isi.
 4. Identifikasi kesalahan yang dilakukan agen AI berdasarkan isi berkas (mis. perintah yang gagal, path salah, output error). Jangan mengarang.
 5. Laporkan hasil ke pengguna: daftar berkas dibaca, ringkasan temuan, dan kesimpulan kesalahan (jika ada).
-6. Jangan mengubah berkas apa pun; hanya laporan. Dilarang commit/push.
+6. Berikan saran apakah ada yang perlu ditambahkan ke rules, command, atau skill berdasarkan temuan.
+7. Jangan mengubah berkas apa pun; hanya laporan. Dilarang commit/push.
