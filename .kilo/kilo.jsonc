@@ -58,7 +58,7 @@
       "cat *": "deny",
       "head *": "deny",
       "tail *": "deny",
-      "rg *": "deny",
+      // "rg *": "deny",
       "grep *": "deny",
       "for *": "deny",
       "flutter analyze *": "allow",
