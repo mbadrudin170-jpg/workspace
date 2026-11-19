@@ -118,11 +118,3 @@ dependency_overrides:
   alfa: ^1.0.0
 # DILARANG: dependency_overrides di luar cakupan skill ini
 ```
-
-## Sumber Evaluasi
-
-- File: `pubspec.yaml`
-- File aturan sumber: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
-- Hasil diskusi: `hasil_diskusi/diskusi_5.md` (K-1..K-10; keputusan disusun atas pertanyaan pengguna melalui tool `question`)
-- Skill referensi format non-UI: `.agents/skills/code/bug-runtime/SKILL.md`
-- Catatan: tidak ada commit yang berkaitan dengan pengurutan paket `pubspec.yaml`; isi skill disusun dari kondisi proyek aktual atas persetujuan pengguna. Bagian `Contoh Benar` memakai versi dan komentar paket sebagaimana tercatat di `pubspec.yaml` proyek pada saat penulisan.

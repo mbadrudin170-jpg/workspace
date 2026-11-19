@@ -208,9 +208,3 @@ class _MyTabState extends State<MyTab> with AutomaticKeepAliveClientMixin<MyTab>
 }
 // analyzer: 'must_call_super'; keep-alive tidak pernah terdaftar
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/impian/screens/impian_screen.dart`, `admin_wifi/lib/home.dart` (lazy keep-alive IndexedStack pada BottomNavigationBar — sesi 35; ter-commit di `f9568a1`), `admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart` (mixin `AutomaticKeepAliveClientMixin` tidak dipakai karena keep-alive tidak diperlukan — dihapus sesi 42; ter-commit di `18699fe`)
-- Class terkait: `ListView`, `GridView`, `Image`, `CachedNetworkImage`, `Timer`, `StreamSubscription`, `IndexedStack`, `SizedBox`, `AutomaticKeepAliveClientMixin`
-- Commit rujukan: `3b67d309` — Timer isolation, select optimization; `e659574` — Dashboard multiple provider select; `02aa6b29` — Lazy IndexedStack di Home; `f9568a11173bab474012db81f7c6d066e80f15c5` — Lazy keep-alive IndexedStack `lib/home.dart` (proyek `admin_wifi`); `18699fe5ac155c8bfed90e0a13658c3111557822` — Layar pelanggan aktif (sesi 42): mixin dihapus karena keep-alive tidak diperlukan, sebagai kasus kapan keep-alive tidak wajib

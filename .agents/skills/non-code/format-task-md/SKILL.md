@@ -118,11 +118,3 @@ Mengatur gaya penulisan dan pemformatan isi file `task.md` di root proyek agar s
 
 - aturan dilanggar : // salah: skill terkait wajib dicatat bila relevan
 ```
-
-## Sumber Evaluasi
-
-- File sumber (dipindahkan ke skill ini): `.agents/rules/global/format_task.md` (dihapus pada konversi penuh, sesi 64)
-- Commit rujukan: `2d96c25` (commit yang menambahkan `.agents/rules/global/format_task.md`)
-- AGENTS.md: blok `// FILE: .agents/rules/global/format_task.md` beserta catatan penekanan sesi 57 (dibuang pada konversi penuh, sesi 64)
-- Rujukan perintah pengguna: sesi 64 (2026-11-15; konversi penuh rule `format_task.md` menjadi skill)
-- Skill terkait: `aturan-pembuatan-skill`, `larangan-backup-task`

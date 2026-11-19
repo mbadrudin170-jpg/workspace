@@ -66,15 +66,3 @@ Panduan pembuatan aturan (rules) Kilo yang bersifat global dan portabel lintas r
 
 // DILARANG: terikat pada repo tertentu
 ```
-
-## Sumber Evaluasi
-
-- Berkas sumber (commit `de0cff5`): `prompt/skill/aturan-pembuatan-rules.md` — 3 aturan pembuatan rules.
-- Permintaan eksplisit pengguna (sesi 21, 2026-11-18): resolusi konflik — poin 3–4 sumber disesuaikan dengan `.kilo/kilo.jsonc` (hanya `AGENTS.md` terdaftar di `instructions`) dan Aturan 3–4 target direvisi mengikuti praktik yang berlaku (jalur baca rules via `AGENTS.md`).
-- Aturan 5 — berasal dari poin 5 pada `prompt/skill/aturan-pembuatan-rules.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; rules = ringkas, detail → skill yang ada/baru).
-- Aturan 6–7 — berasal dari poin 6–7 pada `prompt/skill/aturan-pembuatan-rules.md` (sinkronisasi prompt → target, sesi 34, 2026-11-18; berkas aturan khusus kode — contoh `.agents/rules/code.md` — hanya boleh diubah berdasarkan commit dan kode yang eksplisit ditambahkan pengguna; setiap aturan wajib menyertakan skill terkaitnya; di luar alur commit-history).
-- Dokumen resmi Kilo:
-  - https://kilo.ai/docs/customize/custom-rules
-  - https://kilo.ai/docs/customize/custom-instructions
-  - https://kilo.ai/docs/customize/agents-md
-- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`.

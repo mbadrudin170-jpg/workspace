@@ -112,9 +112,3 @@ Timer.periodic(const Duration(seconds: 1), (_) {
 // DILARANG: withOpacity deprecated
 warna.withOpacity(0.2) // SALAH! Gunakan withValues(alpha:)
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/fitur/impian/widget/visual_tabungan_impian.dart`, `lib/fitur/sos_craving/screens/sos_craving_screen.dart`, `lib/fitur/kalender_smokefree/screens/kalender_smokefree_screen.dart`
-- Class terkait: `ImpianProgresHelper`, `VisualTabunganImpian`, `_TimerCravingView`, `_HeaderPemulihan`, `Timer`, `DateTime`
-- Commit rujukan: `c7337d1` — `ImpianProgresHelper`, `VisualTabunganImpian`, `DetailImpianScreen`; `3b67d309` — `_TimerCravingView` di `SosCravingScreen`, `warna.withValues(alpha: 0.2)`; `02aa6b29` — `_HeaderPemulihan` di `PemulihanKesehatanScreen`; `6fd979fd` — `_SelHari`, `_GridKalender` di `KalenderSmokeFreeScreen`

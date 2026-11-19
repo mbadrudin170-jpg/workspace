@@ -70,12 +70,3 @@ flutter build apk --release --split-per-abi --target-platform android-arm64
 # DILARANG: mengarang path/ukuran APK tanpa verifikasi glob/stat
 APK size: 18000000 bytes
 ```
-
-## Sumber Evaluasi
-
-- Commit `007b854` (ci(build): bangun APK release arm64 dengan split-per-abi) — menetapkan flag build dan path artefak `app-arm64-v8a-release.apk`.
-- Commit `7295cda` (ci(build): ganti nama artefak APK menjadi `<nama_proyek>-arm64-v8a-release.apk`) — menetapkan langkah `mv` dan path artefak upload.
-- Commit root `e3e40f4` (rename berkas APK hasil build) — penyesuaian laporan/path pada command.
-- Berkas workflow nyata: `<proyek>/.github/workflows/build-apk.yml`.
-- Command terkait: `.kilo/commands/build_apk.md`.
-- Aturan global terkait: indeks skill (`.agents/rules/kelompok_skill_wajib_*.md`); panduan tool bawaan: `.agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md` (aturan prioritas lama `prioritas_tool_bawaan.md` sudah dihapus sesi 186).

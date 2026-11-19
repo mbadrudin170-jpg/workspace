@@ -37,8 +37,3 @@ git commit -m "task: tandai tugas selesai"
 git add task.md .backup\ task/task.md.bak
 git commit -m "task: tandai tugas selesai"
 ```
-
-## Sumber Evaluasi
-
-- Commit: `0b0b564f3f2a9b4342facd6a318b7a5c16edb9c0`
-- File: `.backup task/lib/fitur/impian/screens/detail_impian_screen.dart.bak`, `.backup task/task.md.bak`

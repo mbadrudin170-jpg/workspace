@@ -60,9 +60,3 @@ final state = ref.watch(provider).requireValue;
 // SALAH: Tanggal tanpa normalisasi
 final totalHari = DateTime.now().difference(tanggalBerhenti).inDays + 1;
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/fitur/biodata/screens/biodata_screen.dart`, `lib/fitur/kalender_smoke_free/screens/kalender_smoke_free_screen.dart`, `lib/fitur/pemulihan_kesehatan/screens/pemulihan_kesehatan_screen.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/badge/screens/badge_screen.dart`
-- Class terkait: `AsyncValue`, `DateTime`, `Timer`, `ImpianProgresHelper`
-- Commit rujukan: `1e7b71e` — Type promotion di `biodata_screen.dart`; `6fd979fd` — Normalisasi tanggal di `KalenderSmokeFreeScreen`; `02aa6b29` — Normalisasi tanggal di `PemulihanKesehatanScreen`, `DashboardScreen`; `19f43e5` — Multiple AsyncValue di `BadgeScreen`; `3b67d309` — Async data handling di `DiaryCravingScreen`, `PemulihanKesehatanScreen`; `c7337d1` — Guard pembagian di `ImpianProgresHelper`

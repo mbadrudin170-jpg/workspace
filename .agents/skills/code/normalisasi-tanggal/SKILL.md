@@ -52,8 +52,3 @@ final aman = durasi.isNegative ? Duration.zero : durasi;
 final totalHari = DateTime.now().difference(tanggalBerhenti).inDays + 1;
 // Bisa salah satu hari karena komponen waktu.
 ```
-
-## Sumber Evaluasi
-
-- Commit: `6fd979fd9e8296bc7d9c40e9037870faef9c846a`, `02aa6b29b0669a4f5bf21651b09b43552f65d6f8`, `db5dd32f28e92346b9a8d3467fa9b2838e013a02` (rentang UTC batas hari lokal untuk kueri diary harian di `sheet_hasil_intervensi.dart`), `9c5dafbfac409c0f7405fe453101d86e2eb223d3` (`_kunciTanggal` lokal)
-- File: `lib/fitur/kalender_smoke_free/screens/kalender_smoke_free_screen.dart`, `lib/fitur/pemulihan_kesehatan/screens/pemulihan_kesehatan_screen.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/sos_craving/widgets/sheet_hasil_intervensi.dart`, `lib/fitur/konsumsi_rokok/helper/konsumsi_hitung_helper.dart`

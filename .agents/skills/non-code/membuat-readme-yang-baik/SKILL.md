@@ -153,10 +153,3 @@ Aplikasi keren. (DILARANG: bahasa campur, tidak informatif)
 
 Buka app lalu klik tombol. (DILARANG: tidak ada contoh kode/screenshot)
 ```
-
-## Sumber Evaluasi
-
-- Referensi utama 1: https://www.freecodecamp.org/news/how-to-write-a-good-readme-file (freeCodeCamp, Hillary Nyakundi, Dec 2021) — struktur what/why/how, bagian wajib/tambahan, tools generator
-- Referensi utama 2: https://dev.to/mfts/how-to-write-a-perfect-readme-for-your-github-project-59f2 (DEV Community, Marc Seitz, Jun 2023) — visual GIF/screenshot, contributors via contrib.rocks, badges shields.io, perbedaan tipe proyek, VS Code Markdown All in One, readme.so
-- Referensi tambahan: https://choosealicense.com/ (pilih lisensi), https://shields.io/ (badges), https://www.contributor-covenant.org/ (kode etik), https://contrib.rocks/ (daftar kontributor), https://derlin.github.io/bitdowntoc (TOC generator)
-- Konvensi GitHub: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes

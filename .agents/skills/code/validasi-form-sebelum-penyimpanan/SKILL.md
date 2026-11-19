@@ -60,8 +60,3 @@ penurunanPerMinggu: int.tryParse(_penurunanPerMingguController.text.trim()) ?? 0
 // Menyimpan langsung tanpa validasi.
 await ref.read(biodataProvider.notifier).simpan(model);
 ```
-
-## Sumber Evaluasi
-
-- Commit: `ceacc6a1c388b24b7647a37ccde411d6c85ee01c`
-- File: `lib/fitur/biodata/screens/form_biodata.dart`

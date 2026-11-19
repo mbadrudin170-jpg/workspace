@@ -1,4 +1,4 @@
-diperbarui : Wed Nov 18 2026 21:44 WIB
+diperbarui : Fri Nov 20 2026 05:10 WIB
 ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
 
 1. Setiap skill wajib memiliki frontmatter, dan cukup hanya `name` serta `description`; `name` wajib sama dengan nama folder (Name Matching Rule).
@@ -15,7 +15,7 @@ ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
 
 7. Setiap skill wajib menyertakan contoh; utamakan contoh benar, **contoh salah wajib**.
 
-8. Tambahkan section di akhir skill untuk sumber, misalnya dari commit, web, source SDK, atau karena pengguna minta secara eksplisit.
+8. DILARANG menyertakan section `## Sumber Evaluasi` pada skill; skill hanya memuat aturan/panduan, bukan riwayat sumber.
 
 9. Batasan `name` — 1–64 karakter; huruf kecil/angka/strip; tidak diawali/diakhiri strip; tidak boleh strip ganda (`--`).
 
@@ -23,7 +23,7 @@ ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
 
 11. Setiap skill wajib memiliki berkas poin di folder `prompt/skill/` dengan nama yang sama dengan nama skill (mis. skill `penggunaan-tool-bawaan-kilo` → `prompt/skill/penggunaan-tool-bawaan-kilo.md`). Pengecualian: skill pada `.agents/skills/code/`.
 
-12. Sumber isi skill wajib berasal dari commit yang berkaitan; bila aturan baru berasal dari permintaan eksplisit pengguna, catat sebagai sumber pada `## Sumber Evaluasi`.
+12. Sumber isi skill wajib berasal dari commit yang berkaitan; bila aturan baru berasal dari permintaan eksplisit pengguna, catat provenansinya pada berkas sesi, bukan pada skill.
 
 13. Skill pada `.agents/skills/code/` hanya boleh diubah atau ditambah dari (a) riwayat commit, atau (b) kode yang secara eksplisit diperintahkan pengguna untuk dimasukkan.
 
@@ -31,9 +31,11 @@ ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
 
 15. Saat bertanya, sertakan path berkas skill yang dimaksud agar pengguna mengetahui target dan dapat menolak bila tidak sesuai.
 
-16. Setiap poin dan contoh pada skill tidak boleh terlalu spesifik untuk satu repo; jadikan global. Rujukan ke repo tertentu hanya boleh sebagai sumber pada `## Sumber Evaluasi` bila aturan memang berasal dari repo tersebut.
+16. Setiap poin dan contoh pada skill tidak boleh terlalu spesifik untuk satu repo; jadikan global. Rujukan ke repo tertentu hanya boleh sebagai catatan provenance pada berkas sesi bila aturan memang berasal dari repo tersebut.
 
 17. Frontmatter wajib YAML valid: `name:` dan `description:` wajib sejajar pada kolom yang sama (tanpa spasi/indentasi di depan salah satunya); frontmatter yang rusak membuat Kilo gagal memuat skill (mis. error "bad indentation of a mapping entry").
+
+18. Untuk `description`, wajib sangat detail (menjelaskan fungsi dan kapan skill dipakai); jika belum menyentuh 1024 karakter, upayakan memenuhinya hingga mendekati 1024 karakter.
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 

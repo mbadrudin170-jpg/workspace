@@ -17,7 +17,7 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 
 7. Setiap skill wajib menyertakan contoh; utamakan contoh benar, **contoh salah wajib**.
 
-8. Tambahkan section di akhir skill untuk sumber, misalnya dari commit, web, source SDK, atau karena pengguna minta secara eksplisit.
+8. DILARANG menyertakan section `## Sumber Evaluasi` pada skill; skill hanya memuat aturan/panduan, bukan riwayat sumber.
 
 9. Batasan `name` — 1–64 karakter; huruf kecil/angka/strip; tidak diawali/diakhiri strip; tidak boleh strip ganda (`--`).
 
@@ -25,7 +25,7 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 
 11. Setiap skill wajib memiliki berkas poin di folder `prompt/skill/` dengan nama yang sama dengan nama skill (mis. skill `penggunaan-tool-bawaan-kilo` → `prompt/skill/penggunaan-tool-bawaan-kilo.md`). Pengecualian: skill pada `.agents/skills/code/`.
 
-12. Sumber isi skill wajib berasal dari commit yang berkaitan; bila aturan baru berasal dari permintaan eksplisit pengguna, catat sebagai sumber pada `## Sumber Evaluasi`.
+12. Sumber isi skill wajib berasal dari commit yang berkaitan; bila aturan baru berasal dari permintaan eksplisit pengguna, catat provenansinya pada berkas sesi, bukan pada skill.
 
 13. Skill pada `.agents/skills/code/` hanya boleh diubah atau ditambah dari (a) riwayat commit, atau (b) kode yang secara eksplisit diperintahkan pengguna untuk dimasukkan.
 
@@ -33,18 +33,8 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 
 15. Saat bertanya, sertakan path berkas skill yang dimaksud agar pengguna mengetahui target dan dapat menolak bila tidak sesuai.
 
-16. Setiap poin dan contoh pada skill tidak boleh terlalu spesifik untuk satu repo; jadikan global. Rujukan ke repo tertentu hanya boleh sebagai sumber pada `## Sumber Evaluasi` bila aturan memang berasal dari repo tersebut.
+16. Setiap poin dan contoh pada skill tidak boleh terlalu spesifik untuk satu repo; jadikan global. Rujukan ke repo tertentu hanya boleh sebagai catatan provenance pada berkas sesi bila aturan memang berasal dari repo tersebut.
 
 17. Frontmatter wajib YAML valid: `name:` dan `description:` wajib sejajar pada kolom yang sama (tanpa spasi/indentasi di depan salah satunya); frontmatter yang rusak membuat Kilo gagal memuat skill (mis. error "bad indentation of a mapping entry").
 
-## Sumber Evaluasi
-
-- https://kilo.ai/docs/customize/skills
-- https://kilo.ai/docs/customize/skills?utm_source=chatgpt.com
-- Aturan 13 — berasal dari poin 13 pada `prompt/skill/aturan-pembuatan-skill.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; menegaskan `.agents/rules/lainnya.md` butir 4 dengan pengecualian perintah eksplisit pengguna).
-- Aturan 14 & 15 — berasal dari poin 14–15 pada `prompt/skill/aturan-pembuatan-skill.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; wajib tanya dulu + sertakan path skill saat meminta persetujuan).
-- Aturan 16 — berasal dari poin 16 pada `prompt/skill/aturan-pembuatan-skill.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; skill `code/` tidak boleh memiliki berkas poin; poin 11 diberi pengecualian).
-- Aturan 17 — berasal dari poin 17 pada `prompt/skill/aturan-pembuatan-skill.md` (2026-11-18; dirumuskan baku dari poin yang ditambahkan pengguna, sesi 29).
-- Aturan 1 & 5 — penggabungan poin 1↔6 dan poin 5↔11 serta penomoran ulang poin/Aturan 7–19 menjadi 6–17 (2026-11-18, sesi 29, atas persetujuan pengguna).
-- Aturan 18 — berasal dari insiden frontmatter rusak pada skill `code/performa-aplikasi` (`description:` berindentasi 2 spasi di commit `a7ecbf3`; diperbaiki pengguna di `9a7962b`, 2026-11-18; error Kilo "bad indentation of a mapping entry at line 3, column 14"); sinkronisasi prompt → target, sesi 34, 2026-11-18.
-- Aturan 7 — diubah dari "contoh salah opsional" menjadi "**contoh salah wajib**" atas permintaan eksplisit pengguna (sesi 42, 2026-11-18 21:44 WIB).
+18. Untuk `description`, wajib sangat detail (menjelaskan fungsi dan kapan skill dipakai); jika belum menyentuh 1024 karakter, upayakan memenuhinya hingga mendekati 1024 karakter.

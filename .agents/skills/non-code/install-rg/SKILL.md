@@ -60,9 +60,3 @@ rg --version
 # SALAH: install tanpa konfirmasi/verifikasi
 sudo apt-get install -y ripgrep
 ```
-
-## Sumber Evaluasi
-
-- Alias shell sumber: `install_rg="sudo apt-get update && sudo apt-get install -y ripgrep"` pada `script/bash_aliases.sh`.
-- Permintaan eksplisit pengguna: sesi 114 (buat file poin baru untuk install_rg).
-- Aturan penamaan: `.agents/skills/non-code/aturan-pembuatan-skill` (penghubung kata wajib `-`).

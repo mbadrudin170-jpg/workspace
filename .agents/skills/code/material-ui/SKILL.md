@@ -58,8 +58,3 @@ MaterialApp(
   home: const Beranda(),
 );
 ```
-
-## Sumber Evaluasi
-
-- Transkrip sesi Kilo `ses_e0e8c862dffeZX10v07226tjSk` (sesi 63–65): AI menambahkan `localizationsDelegates` manual dari flutter/material untuk error `No MaterialLocalizations found`; pengguna mengoreksi "ini mah gak ngaruh ternyata material sudah deprecated jadi harus gunakan material ui" dan memerintahkan blok itu dihapus; `MaterialApp` material_ui menyediakan delegasi bawaan (diverifikasi via pub-cache material_ui 1.11.1 pada sesi 63).
-- Provenance: di luar alur commit-history atas persetujuan eksplisit pengguna (sesi 65) — selaras `.agents/rules/lainnya.md` butir 3 dan skill `aturan-pembuatan-skill` Aturan 13.

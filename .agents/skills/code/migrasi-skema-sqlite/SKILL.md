@@ -123,8 +123,3 @@ static const int _versiDatabase = 14;
 // onUpgrade: if (oldVersion < 14) { ALTER TABLE konsumsi_rokok ADD COLUMN pemicu TEXT; }
 // Instalasi baru versi 14 tidak pernah melewati cabang onUpgrade → kolom pemicu absen.
 ```
-
-## Sumber Evaluasi
-
-- Commit: `3b67d3095dacc4e5c7ea78d7eb251809e3e9d981`, `a15acd9603fe5d1251afa4acc3817e7e9c1607b1` (DDL ganda v9/v11), `a5beae01b86a4d9753963380818bc437c2b4741a` (migrasi enum v12), `db5dd32f28e92346b9a8d3467fa9b2838e013a02` (v13 rencana_darurat), `2462af81050e12b2933717f457a33a5b05d3719f` (hapus duplikasi v11), `50c1be708e595449fa2fd18e3491d4418943c565` (hapus DDL ganda dari v9), `230f0b1e12c4eae186bb6aa424bc6cc0b8d4fe41` (v14 bug onCreate tanpa kolom `pemicu` → v15 kondisional `PRAGMA table_info`)
-- File: `lib/shared/db/sqflite/sqflite.dart`, `lib/shared/konstanta/nama_tabel.dart`, `lib/shared/konstanta/nama_kolom.dart`

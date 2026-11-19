@@ -84,11 +84,3 @@ GALAT: command rusak. (tanpa path, tanpa bukti, tanpa saran)
 ```text
 Menjalankan git add/reset/commit untuk merapikan temuan audit.
 ```
-
-## Sumber Evaluasi
-
-- Hasil diskusi: `hasil_diskusi/diskusi_8.md` (K-1 s.d. K-6, R-1, R-2, R-5; audit read-only, tujuh aset, laporan di sesi).
-- Aturan skill: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` (aturan 1–17, frontmatter, segmen trigger, section wajib).
-- Format hasil diskusi: `.agents/rules/global/format_hasil_diskusi.md` (konteks status/penomoran `hasil_diskusi/`).
-- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`, `.agents/skills/non-code/aturan-pembuatan-commands/SKILL.md`, `.agents/skills/non-code/memori-check/SKILL.md`.
-- Riwayat commit: tidak ada commit yang secara langsung menyentuh folder skill `cek-kesehatan-sistem-kerja` sebelum pembuatan ini; isi disusun dari `hasil_diskusi/diskusi_8.md` yang disepakati pengguna (bukan dari working directory/staging/untracked).

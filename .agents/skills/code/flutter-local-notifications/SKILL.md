@@ -237,9 +237,3 @@ await plugin.cancelAllPendingNotifications(); // UnimplementedError di Web
 // DILARANG: openAppNotificationSettings di Web
 await plugin.openAppNotificationSettings(); // UnimplementedError di Web
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/shared/notifikasi/notifikasi_service.dart`, `lib/main.dart`, `lib/app.dart`, `lib/fitur/pengaturan/screens/pengaturan_screen.dart`, `android/app/src/main/AndroidManifest.xml`
-- Class terkait: `FlutterLocalNotificationsPlugin`, `InitializationSettings`, `NotificationDetails`, `NotificationResponse`, `AndroidNotificationDetails`, `DarwinNotificationDetails`
-- Commit rujukan: `774431dbf61bb330d548785e8d47597c5bdcd123`, `0cb0e52f48f6d6f95f2bfc9e8b82a092bb5f9e4f`, `07fc8df6cf5ea28fe7133b1aee5dae7b05b96590`, `6e1a7672d58c7575f195e27dd5921d3d6a3c44af`

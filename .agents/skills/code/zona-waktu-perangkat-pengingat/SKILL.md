@@ -85,9 +85,3 @@ tz.setLocalLocation(tz.getLocation('Asia/Jakarta'));
 // DILARANG: Gunakan singkatan WIB tanpa validasi
 tz.setLocalLocation(tz.getLocation('WIB')); // Tidak valid identifier
 ```
-
-## Sumber Evaluasi
-
-- File: `pubspec.yaml`, `pubspec.lock`, `lib/shared/notifikasi/notifikasi_service.dart`, `saran.md`
-- Class terkait: `tz`, `TZDateTime`, `Location`, `FlutterTimezone`
-- Commit rujukan: `d42422ba65a0f3c90b46a0736a197af572b62c33` — Zona waktu perangkat dengan fallback Asia/Jakarta

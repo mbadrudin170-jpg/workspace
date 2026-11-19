@@ -91,8 +91,3 @@ class _MyState extends State<MyWidget> {
   }
 }
 ```
-
-## Sumber Evaluasi
-
-- File: `/google/flutter/packages/flutter/lib/src/widgets/framework.dart`
-- Class terkait: `BuildContext`, `Element`, `InheritedElement`, `Theme`, `MediaQuery`

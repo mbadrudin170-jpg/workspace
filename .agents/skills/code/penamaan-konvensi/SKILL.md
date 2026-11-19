@@ -141,11 +141,3 @@ final List lstItem; // DILARANG
 import '../model/biodata_model.dart'; // DILARANG
 import './biodata_model.dart'; // DILARANG
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/fitur/biodata/model/biodata_model.dart`, `lib/shared/konstanta/nama_tabel.dart`, `lib/shared/konstanta/nama_kolom.dart`
-- Class terkait: `BiodataModel`, `ModeBerhenti`, `NamaTabel`, `NamaKolom`
-- Commit rujukan: `1e7b71e` — Import ordering enforcement; `adc85b5` — NamaKolom snake_case constants; `3b67d309` — Indonesian identifiers throughout; `a5beae01b86a4d9753963380818bc437c2b4741a` — enum lowerCamelCase + migrasi data v12 untuk nilai tersimpan
-- Commit `a57b6bb` (admin_wifi, 2026-11-18): getter `displayName` → `label` pada `TipeDurasi` (paket_model) dan `StatusPembayaranEnum`; seluruh pemakaian di layar disesuaikan — dasar kaidah 19.
-- Permintaan eksplisit pengguna (2026-11-18, sesi 45): setiap enum yang perlu terlihat pengguna wajib memakai `switch` getter `label`; dilarang menulis teks tampilan enum manual.

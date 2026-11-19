@@ -241,17 +241,3 @@ home: Center(child: Text('Contoh Salah')),
 // DILARANG: menganggap skill ini menetapkan bagian tertentu di MEMORI.md
 // Salah: "MEMORI.md harus punya bagian X, Y, Z" lalu menghapus/menata ulang bagian lain tanpa alasan dari isi proyek
 ```
-
-## Sumber Evaluasi
-
-- File: `MEMORI.md` di root proyek mana pun (`<root-proyek>/MEMORI.md`); `memori/sesi/sesi_N.md`
-- Commit rujukan: `1823940` (chore(agents): perluas kewajiban pemeriksaan MEMORI.md ke seluruh interaksi proyek), `5e2a55d` (docs(agents): perbarui path hasil diskusi ke prd/hasil_diskusi), `b7f2b05` (docs(memori): lengkapi catatan proyek dan tata ulang arsip diskusi)
-- Skill terkait: `aturan-pembuatan-skill`, `validasi-platform-izin`, `gaya`, `penamaan-konvensi`
-- Keputusan rujukan: `hasil_diskusi/diskusi_8.md` (K-1..K-11; alur sesi, larangan penghapusan berkas sesi), `hasil_diskusi/diskusi_1.md` (K-1..K-9, R-1..R-4; catch-up sync awal sesi)
-- Rujukan perintah pengguna: sesi_18 (2026-11-14; berkas sesi `Sudah Sinkron` bersifat arsip — koreksi/tindak lanjut dicatat di berkas sesi baru); sesi_64 (2026-11-15; skill dijadikan global lintas proyek — tidak terikat satu repo/path/jenis proyek; selanjutnya seluruh rekomendasi analisis tautan arsitektur memori diterapkan — klasifikasi semantic/episodic/procedural, kriteria promosi, provenance, konsolidasi, entri volatil, pinning, demote, batas ukuran); sesi_181 (2026-11-16; satu berkas sesi per percakapan/tugas, bukan per pesan — v1.11.0).
-- Rujukan arsitektur memori agen (adaptasi konsep ke memori berkas Markdown, bukan implementasi arsitektur):
-  - Microsoft multi-agent-reference-architecture — Long-Term-Memory: https://github.com/microsoft/multi-agent-reference-architecture/blob/main/docs/memory/Long-Term-Memory.md
-  - Microsoft multi-agent-reference-architecture — Memory-Architecture-Patterns: https://github.com/microsoft/multi-agent-reference-architecture/blob/main/docs/memory/Memory-Architecture-Patterns.md
-  - JetBrains — Memory in AI Agents: Types and Implementation: https://www.jetbrains.com/pages/ai-agents/architecture/ai-agent-memory/
-  - Microsoft Learn — Agent Memory in Azure Cosmos DB for NoSQL: https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/agentic-memories
-- Catatan: skill ini memuat alur sesi (bukan hanya struktur `MEMORI.md`); pembaruan berikutnya untuk perubahan alur sesi mengikuti `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`.

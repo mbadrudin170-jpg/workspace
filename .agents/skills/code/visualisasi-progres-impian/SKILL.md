@@ -110,11 +110,3 @@ class ImpianProgresHelperSalah {
 // DILARANG: Toast berulang tanpa penandaan SharedPreferences
 AppToast.sukses(context, 'Tercapai!'); // Muncul setiap build
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/fitur/impian/helper/impian_progres_helper.dart`, `lib/fitur/impian/screens/detail_impian_screen.dart`, `lib/fitur/impian/screens/impian_screen.dart`, `lib/fitur/impian/widget/visual_tabungan_impian.dart`
-- Class terkait: `ImpianProgresHelper`, `VisualTabunganImpian`, `LinearProgressIndicator`, `SharedPreferences`
-- Commit rujukan: `c7337d1519d495d0ccd022fb18d63f72d443866a` — `ImpianProgresHelper`, `VisualTabunganImpian`, `DetailImpianScreen`; `f6d1fa2f63e367ee147e7f4cb9ded6c6707533cb` — saldo impian aktual/estimasi (`saldoUntukImpian`) di dashboard & badge; `db5dd32f28e92346b9a8d3467fa9b2838e013a02` — CTA `EmptyStateView` memakai `catchError` + indentasi `unawaited` pada FAB
-- Berkas sumber SharedPref: `share_global_saya/lib/src/utils/shared_pref_service.dart` (commit rujukan belum diverifikasi spesifik pada sesi 24)
-- Audit `shared_pref_service.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): contoh `_tandaiDanRaiikan` diperbarui ke `SharedPrefService` (`getStringList`/`setStringList`); Cakupan/Method diperbarui; `SharedPrefService.init()` wajib di `main()` dicatat; versi 1.1.1 → 1.2.0. Catatan: `SharedPrefKeys` kosong (placeholder), `_instance` melempar raw `Exception` (bukan exception khusus), `pola-testing` mencatat kelas static-only tidak dapat di-mock — TIDAK diubah sesi ini.

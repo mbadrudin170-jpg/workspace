@@ -63,10 +63,3 @@ dart run build_runner /lib/kopi.dart
 # (berkas di luar filter dianggap "conflicting" dan DIHAPUS)
 dart run build_runner build --build-filter="lib/model/kopi_model.freezed.dart"
 ```
-
-## Sumber Evaluasi
-
-- Sumber poin: `prompt/skill/build-runner-codegen.md` (diselaraskan sesi 224, 2026-11-17).
-- Rujukan paket: `build_runner` (Dart) — perintah build/watch dan opsi `--build-filter`.
-- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`, `.agents/skills/non-code/aturan-folder-prompt/SKILL.md`.
-- Insiden 2026-11-18 (sesi 45): build_runner dengan `--build-filter` untuk 11 `lib/model/*.freezed.dart` di proyek `admin_wifi` MENGHAPUS berkas generated terlacak git di luar filter (`pelanggan_aktif_state.freezed.dart`, `pengguna_aktif_notifier.g.dart`, 8 `*_test.mocks.dart`); dipulihkan identik via `git checkout --` — dasar kaidah 7–8.

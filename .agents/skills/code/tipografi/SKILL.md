@@ -111,10 +111,3 @@ flutter:
     - family: Inter
       fonts: [{ asset: assets/fonts/Inter-Regular.ttf }]
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/fitur/impian/screens/detail_impian_screen.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`
-- Class terkait: `ThemeData`, `TextTheme`, `TextStyle`, `FontFeature`, `FittedBox`, `Flexible`
-- Commit rujukan: `c7337d1` — DetailImpianScreen hierarki label/sub-label/nilai; `e659574` — Dashboard kartu motivasi; `3b67d309` — `_TimerCravingView` pakai tabularFigures; `c7337d1` — `VisualTabunganImpian` nilai uang
-- Permintaan eksplisit pengguna (sesi 29, 2026-11-18): aturan wajib `google_fonts` + larangan aset font manual (Aturan 10).

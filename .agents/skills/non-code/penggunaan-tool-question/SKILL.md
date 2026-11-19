@@ -92,10 +92,3 @@ Mengatur cara memanggil tool `question` Kilo agar setiap pertanyaan, permintaan 
 // SALAH: bertanya lewat teks biasa tanpa tool question
 "Pertanyaannya: skill ini mau ditaruh di mana ya, custom atau bawaan?"
 ```
-
-## Sumber Evaluasi
-
-- File aturan: `.kilo/commands/mode/mode_diskusi.md` §5 (Aturan Penggunaan Tool `question`)
-- Skema tool: parameter `question`, `header` (maks. 30 karakter), `options[].label` (1-5 kata), `options[].description`, `multiple`, `default`, serta varian kunci i18n `questionKey`/`headerKey`/`labelKey`/`descriptionKey`
-- Commit rujukan: `208e3ec` (menambahkan §5 "Aturan Penggunaan Tool `question`" ke `.kilo/commands/mode/mode_diskusi.md`)
-- Aturan 9 — berasal dari poin 11 pada `prompt/skill/penggunaan-tool-question.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18; opsi "Skip" wajib, bukan catch-all, dikecualikan dari Aturan 7)

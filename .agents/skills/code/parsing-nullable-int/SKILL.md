@@ -78,10 +78,3 @@ targetSmokeFreeHari: ParserUtil.parseInt(
 // SALAH: ?? defaultValue pada parseIntOrNull untuk field nullable → null tidak tetap null
 jumlah: ParserUtil.parseIntOrNull(row[NamaKolom.jumlah]) ?? 0,
 ```
-
-## Sumber Evaluasi
-
-- Commit: `c9f96b2debb9e678513229c5a4a68a062e3a8afc`
-- File: `lib/fitur/biodata/model/biodata_model.dart`, `lib/fitur/konsumsi_rokok/model/konsumsi_rokok_model.dart`
-- Berkas sumber: `share_global_saya/lib/src/utils/parser_util.dart` (commit rujukan belum diverifikasi spesifik pada sesi 24)
-- Audit `parser_util.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): Aturan 4 diperbaiki (`bool?` tidak bisa dipertahankan lewat `parseBool`); section "Referensi API `ParserUtil`" ditambahkan; Larangan ditambah 2 butir; contoh ditambah; versi 1.0.4 → 1.1.0. Catatan: komentar header kode (`// lib/shared/utils/parser_util.dart`) merujuk path usang — di submodule, TIDAK diubah sesi ini.

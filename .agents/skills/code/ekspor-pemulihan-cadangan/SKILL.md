@@ -118,9 +118,3 @@ Navigator.pop(context);
 
 // DILARANG: Tidak refresh provider setelah sukses
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/fitur/cadangan/helper/cadangan_helper.dart`, `lib/fitur/cadangan/screens/cadangan_screen.dart`, `lib/fitur/pengaturan/screens/pengaturan_screen.dart`
-- Class terkait: `SqfliteOp`, `BerkasCadanganTidakValidException`, `EasyLoading`, `AppToast`, `L`, `Nav`
-- Commit rujukan: `338a0216257bb9f75617f144fd2fae0d7faf63d2` — Konfirmasi pemulihan cadangan (destruktif); `2462af81050e12b2933717f457a33a5b05d3719f` — ekspor seluruh tabel (konsumsi_rokok, sos_intervensi, rencana_darurat); `50c1be708e595449fa2fd18e3491d4418943c565` — refresh provider konsumsiRokok/sosIntervensi/rencanaDarurat setelah restore

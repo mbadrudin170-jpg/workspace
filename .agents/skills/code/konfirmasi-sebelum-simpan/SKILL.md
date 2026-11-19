@@ -65,11 +65,3 @@ if (konfirmasi != true) return;
 // Menyimpan langsung tanpa konfirmasi.
 await ref.read(diaryCravingProvider.notifier).tambah(model);
 ```
-
-## Sumber Evaluasi
-
-- Commit: `3b67d3095dacc4e5c7ea78d7eb251809e3e9d981`
-- File: `lib/fitur/diary_craving/screens/form_diary_craving.dart`
-- Berkas sumber alternatif: `share_global_saya/lib/src/widget/confirmation_dialog.dart` (commit rujukan belum diverifikasi spesifik pada sesi 24)
-- Audit `confirmation_dialog.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): section "Alternatif: `ConfirmationDialog` (share_global_saya)" ditambahkan; pola utama (adaptive_dialog) dipertahankan; versi 1.0.1 → 1.1.0. Catatan: komentar header kode (`//~/warkop/lib/shared/widget/confirmation_dialog.dart`) merujuk path proyek lama — di submodule, TIDAK diubah sesi ini.
-- Commit `eb3efc3` (admin_wifi, 2026-11-18): `pelanggan_aktif_screen.dart` — `AlertDialog` manual ("Hapus Semua Pelanggan Aktif") diganti `ConfirmationDialog.showDeleteAll(itemName: 'pelanggan aktif', title: 'Konfirmasi Hapus Semua')`; dasar contoh nyata dan perluasan trigger `description` (aksi destruktif/hapus).

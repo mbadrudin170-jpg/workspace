@@ -84,8 +84,3 @@ class DiaryCravingNotifier extends _$DiaryCravingNotifier {
 state = AsyncValue.data(DiaryCravingState(listCraving: [craving, ...list]));
 await op.tambah(NamaTabel.diaryCraving, craving.toSqflite()); // jika gagal, state sudah berubah
 ```
-
-## Sumber Evaluasi
-
-- Commit: `3b67d3095dacc4e5c7ea78d7eb251809e3e9d981`, `a15acd9603fe5d1251afa4acc3817e7e9c1607b1` (SosIntervensiNotifier: simpan + ubahDiaryCravingId), `2462af81050e12b2933717f457a33a5b05d3719f` (RencanaDaruratNotifier)
-- File: `lib/fitur/diary_craving/notifier/diary_craving_notifier.dart`, `lib/fitur/impian/notifier/impian_notifier.dart`, `lib/fitur/sos_craving/notifier/sos_intervensi_notifier.dart`, `lib/fitur/rencana_darurat/notifier/rencana_darurat_notifier.dart`

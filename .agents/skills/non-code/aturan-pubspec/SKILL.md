@@ -26,8 +26,3 @@ flutter pub upgrade
 dependencies:
   http: ^1.2.0
 ```
-
-## Sumber Evaluasi
-
-- Permintaan eksplisit pengguna (sesi 29, 2026-11-18): 5 poin aturan pengelolaan paket pubspec.
-- Sesi 48 (2026-11-19): revisi Butir 3 + perluasan trigger `description` — pengecualian eksplisit penyuntingan manual `pubspec.yaml` untuk reorder urutan abjad (temuan transkrip `ses_e0ff43aabffeZAT9lQX9Ao60Av`: ambiguitas antara larangan penyuntingan manual dan kewajiban `pengurutan-paket-pubspec`; `flutter pub add` tidak menghasilkan urutan abjad). Atas persetujuan pengguna.

@@ -95,8 +95,3 @@ void initState() {
   final warna = Theme.of(context).colorScheme.primary; // BISA error, konteks belum siap
 }
 ```
-
-## Sumber Evaluasi
-
-- File: `/google/flutter/packages/flutter/lib/src/widgets/framework.dart`
-- Class terkait: `State`, `StatefulElement`, `StatelessElement`, `Element`, `BuildContext`

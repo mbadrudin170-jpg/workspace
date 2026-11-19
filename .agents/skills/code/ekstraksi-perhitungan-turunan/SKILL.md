@@ -56,8 +56,3 @@ double _hitungUangDihemat(BiodataModel? biodata) {
   // ... logika duplikat
 }
 ```
-
-## Sumber Evaluasi
-
-- Commit: `19f43e510b1478a43c5f0594efeef6f83b6c0299`, `9c5dafbfac409c0f7405fe453101d86e2eb223d3` (sentralisasi `MetrikBerhentiHelper`/`KonsumsiHitungHelper`, `rataRataKalender`, hari diary dikecualikan), `f6d1fa2f63e367ee147e7f4cb9ded6c6707533cb` (badge + impian pakai metrik aktual), `4dd0cdb5d101413a839c37c3dfb8c594aeef60c2` (hapus duplikat `_streakSaatIni` di kalender)
-- File: `lib/fitur/biodata/model/biodata_model.dart`, `lib/fitur/konsumsi_rokok/helper/metrik_berhenti_helper.dart`, `lib/fitur/konsumsi_rokok/helper/konsumsi_hitung_helper.dart`, `lib/fitur/badge/helper/badge_helper.dart`, `lib/fitur/badge/screens/badge_screen.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/impian/screens/impian_screen.dart`, `lib/fitur/kalender_smoke_free/screens/kalender_smoke_free_screen.dart`, `lib/fitur/toxin_pelacakan/screens/toxin_pelacakan_screen.dart`

@@ -142,10 +142,3 @@ API utama:
 - Border radius 8; `onTapOutside` → `FocusScope.unfocus()`.
 
 Catatan: TIDAK mengekspos `keyboardType`, `obscureText`, `inputFormatters`, `readOnly` — untuk input sandi/angka murni gunakan `TextFormField` mentah (atau perluasan widget, di luar cakupan skill ini).
-
-## Sumber Evaluasi
-
-- File: `/google/flutter/packages/flutter/lib/src/material/text_form_field.dart`, `/google/flutter/packages/flutter/lib/src/material/form.dart`
-- Class terkait: `TextFormField`, `TextEditingController`, `Form`, `GlobalKey<FormState>`
-- Berkas sumber: `share_global_saya/lib/src/widget/input/input_teks.dart` (commit rujukan belum diverifikasi spesifik pada sesi 24)
-- Audit `input_teks.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): Aturan 7 diperjelas (`onUserInteractionIfError`); section "`InputTeks` (share_global_saya)" ditambahkan; versi 1.0.1 → 1.1.0. Catatan: `InputTeks` TIDAK mengekspos `keyboardType`/`obscureText`/`inputFormatters`/`readOnly`; komentar header tidak relevan (tidak ada path usang).

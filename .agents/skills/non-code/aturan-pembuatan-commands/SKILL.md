@@ -21,9 +21,3 @@ description: "Trigger: saat membuat command Kilo baru atau memperbarui command K
 description: deskripsi singkat
 ---
 ```
-
-## Sumber Evaluasi
-
-- Berkas sumber: `prompt/skill/aturan-pembuatan-commands.md`.
-- Permintaan eksplisit pengguna: pemeliharaan pembuatan command Kilo.
-- Contoh frontmatter — berasal dari poin 9 pada `prompt/skill/aturan-pembuatan-commands.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18).

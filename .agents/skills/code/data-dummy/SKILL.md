@@ -87,10 +87,3 @@ class ProdukDummy {
 // operasi getXxxById saat dummy direset
 static const String ID_PELANGGAN_999 = 'bb000099-0000-4000-8000-000000000099';
 ```
-
-## Sumber Evaluasi
-
-- Permintaan eksplisit pengguna, sesi 36 (2026-11-18): "setiap id pakai konstanta diatasnya"; "konstanta nya wajib mengikuti format uuid"; klarifikasi: "format nya saja, bukan mengambil dari uuid".
-- Kode: `admin_wifi/lib/fitur/pelanggan_aktif/dummy/pelanggan_aktif_dummy.dart` (dibuat sesi 36) — belum di-commit saat skill dibuat atas izin eksplisit pengguna ("Izinkan, meski belum commit"); pola yang dievaluasi: `abstract final class PelangganAktifDummy`, konstanta `static const` SCREAMING_SNAKE_CASE berformat UUID `8-4-4-4-12` (nibble versi `4`/varian `8`), `static final List<PelangganAktifModel> dummyList`, tanggal relatif `DateTime.now()`.
-- Skill ditambahkan Aturan 9 (dummy berelasi wajib ID dari dummy sumber yang sama), Contoh Salah acuan, dan trigger description diperluas — atas permintaan pengguna (perintah `/tambah_kode_keskill`, sesi 47, 2026-11-19), di luar alur commit-history atas persetujuan pengguna. Insiden rujukan: dummy `pelanggan_aktif` merujuk ID dummy pelanggan/paket yang belum di-seed sehingga log Web berulang menampilkan peringatan "tidak ditemukan" (sesi induk "kode", 2026-11-18; dicek pengguna 02:18 WIB). Provenance: sesi.
-- Catatan: skill `pola-testing` (code/) §5 menyebut folder `lib/fitur/<fitur>/dummy_data/` (dari proyek `berhenti_merokok`); skill ini memakai `dummy/` mengikuti proyek `admin_wifi` — belum diselaraskan, menunggu keputusan pengguna.

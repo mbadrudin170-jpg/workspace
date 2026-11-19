@@ -83,9 +83,3 @@ if (kIsWeb) {
 
 // Salah: singleInstance: false pada database persisten → ArgumentError
 ```
-
-## Sumber Evaluasi
-
-- Permintaan eksplisit pengguna (command `tambah_kode_keskill`, sesi 31, 2026-11-18) atas implementasi dukungan Web SQLite (`sqflite_common_ffi_web`); diverifikasi `dart analyze` bersih + `flutter test` +105/−24 identik baseline; konfirmasi runtime menunggu pengguna di Chrome. **Catatan provenance**: dibuat di luar alur commit-history atas persetujuan eksplisit pengguna ("Buat skill baru sekarang") — sumber adalah implementasi sesi berjalan, bukan riwayat commit (aturan `.agents/rules/lainnya.md` butir 4; `aturan-pembuatan-skill` Aturan 13(b)).
-- Dokumentasi resmi paket (diverifikasi webfetch, 2026-11-18): https://pub.dev/packages/sqflite_common_ffi_web (v1.2.2, verified publisher tekartik.com, experimental) — § Getting started, § Which factory, § Limitations, § Common mistakes.
-- Skill terkait: `migrasi-skema-sqlite`, `validasi-platform-izin`.

@@ -165,12 +165,3 @@ final handle = SchedulerBinding.instance.requestPerformanceMode(DartPerformanceM
 // ...
 handle.dispose();
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/src/scheduler/binding.dart` (class `SchedulerBinding`, enum `SchedulerPhase`, `defaultSchedulingStrategy`)
-- File: `dart:developer` / `developer/timeline.dart` (class `Timeline`, `TimelineTask`, `Flow`)
-- File: `dart:ui` / `ui/platform_dispatcher.dart` (class `PlatformDispatcher`, `FrameTiming`, enum `FramePhase`, `DartPerformanceMode`)
-- Class terkait: `SchedulerBinding`, `PlatformDispatcher`, `Timeline`, `TimelineTask`, `Flow`, `FrameTiming`, `PerformanceModeRequestHandle`
-- Commit rujukan: `f6d1fa2f63e367ee147e7f4cb9ded6c6707533cb` (pendaftaran post-frame callback di `build()` tanpa dedup), `4dd0cdb5d101413a839c37c3dfb8c594aeef60c2` (perbaikan dengan flag `_simpanTerjadwal` di `badge_screen.dart`)
-- File proyek: `lib/fitur/badge/screens/badge_screen.dart`

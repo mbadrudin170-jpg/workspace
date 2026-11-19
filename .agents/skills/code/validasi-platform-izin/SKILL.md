@@ -54,9 +54,3 @@ await plugin.requestNotificationsPermission();
 // Menyimpan status aktif tanpa memeriksa hasil izin.
 await setAktif(true);
 ```
-
-## Sumber Evaluasi
-
-- Commit: `774431dbf61bb330d548785e8d47597c5bdcd123`, `0cb0e52f48f6d6f95f2bfc9e8b82a092bb5f9e4f`
-- File: `lib/shared/notifikasi/notifikasi_service.dart`, `lib/fitur/pengaturan/screens/pengaturan_screen.dart`, `saran.md`
-- Berkas sumber: `admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart` (`_loadData(forceRefresh: true)` → `[core/not-initialized] Firebase has not been correctly initialized`), `admin_wifi/lib/halaman/form/form_kategori.dart` (baris ~32), `admin_wifi/lib/main.dart` (guard `kIsWeb` + log mode offline) — temuan runtime Web 2026-11-18 (sesi induk "kode"), tercatat di MEMORI.md proyek. Skill diperbarui atas permintaan pengguna (perintah `/tambah_kode_keskill`, sesi 47, 2026-11-19), di luar alur commit-history atas persetujuan pengguna — versi 1.0.1 → 1.1.0; Aturan 7 (guard Firebase/kIsWeb) dan Larangan terkait ditambahkan. Provenance: sesi; proyek menunjukkan pola guard `kIsWeb` eksplisit di `main.dart` (bukan edit skill dari commit baru untuk aturan ini).

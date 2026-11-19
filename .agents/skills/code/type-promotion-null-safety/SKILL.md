@@ -49,11 +49,3 @@ _buildItem(
       : FormatTanggal.formatDasar(biodata.tanggalLahir!),
 );
 ```
-
-## Sumber Evaluasi
-
-- Commit: `1e7b71ed8fd91f0bcd0caafd9b380fcb3a7f73ec`
-- File: `lib/fitur/biodata/screens/biodata_screen.dart`
-- Transkrip sesi `ses_e0f09a7f5ffeYhZ7Bm6b1qJJK6` (sesi 60): pengguna meminta hapus operator `!` pada `transaksi.idDompetTujuan!`, `idSubKategori!`, `idPelanggan!`, `idPaket!`, serta `transaksi.tanggalMulai!`/`tanggalBerakhir!` di `detail_transaksi.dart` dengan pola variabel lokal + null-check.
-- Kode akhir: `admin_wifi/lib/fitur/transaksi/screens/detail_transaksi.dart`.
-- Aturan baru diperbarui di luar alur commit-history atas persetujuan eksplisit pengguna (sesi 60).

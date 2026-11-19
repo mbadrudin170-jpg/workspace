@@ -48,9 +48,3 @@ final kategori = state.listKategori
       orElse: () => null,
     );
 ```
-
-## Sumber Evaluasi
-
-- Transkrip sesi `ses_e0f09a7f5ffeYhZ7Bm6b1qJJK6` (sesi 56): pengguna meminta ganti `cast<KategoriModel?>().firstWhere(..., orElse: () => null)` menjadi `firstWhereOrNull` pada `form_transaksi.dart`.
-- Kode akhir: `admin_wifi/lib/fitur/transaksi/screens/detail_transaksi.dart` (pemakaian `firstWhereOrNull` via `package:collection/collection.dart`).
-- Aturan baru dibuat di luar alur commit-history atas persetujuan eksplisit pengguna (sesi 59).

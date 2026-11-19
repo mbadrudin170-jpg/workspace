@@ -90,14 +90,3 @@ Navigator.of(context).push(...); // melempar FlutterError
 // routes dengan '/' dan home sekaligus
 MaterialApp(home: HomeScreen(), routes: {'/': (context) => HomeScreen()}); // assert error
 ```
-
-## Sumber Evaluasi
-
-- File: `/google/flutter/packages/flutter/lib/src/widgets/navigator.dart`, `/google/flutter/packages/flutter/lib/src/widgets/app.dart`
-- File proyek: `lib/lainnya_screen.dart` (`_navigasi`), `lib/fitur/impian/screens/impian_screen.dart` (indentasi `unawaited` pada FAB)
-- Class terkait: `Navigator`, `NavigatorState`, `Route`, `Page`, `MaterialApp`, `WidgetsApp`
-- Berkas sumber Nav: `share_global_saya/lib/src/utils/navigator_helper.dart` (commit rujukan Nav belum diverifikasi secara spesifik pada sesi 24)
-- Commit rujukan: `db5dd32f28e92346b9a8d3467fa9b2838e013a02` (pembungkus `_navigasi`), `50c1be708e595449fa2fd18e3491d4418943c565` (perapian indentasi `unawaited` pada FAB impian)
-- Audit `navigator_helper.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): Aturan 1 diberi konteks proyek `share_global_saya`; Aturan 12 diperluas ke seluruh permukaan `Nav` (`to`, `toReplacement`, `pop`, `pushAndRemoveUntil` + default predicate); Aturan 16 ditambahkan (wajib-Nav, tolak di code review); Larangan ditambah 1 butir; versi 1.1.1 → 1.2.0.
-
-Catatan koreksi (sesi 24): komentar header pada `navigator_helper.dart` (`//lib/shared/utils/navigator_helper.dart`) merujuk path usang — lokasi aktual adalah `lib/src/utils/navigator_helper.dart`. Komentar tersebut berada di berkas kode (submodule `share_global_saya`) dan TIDAK diubah sesi ini.

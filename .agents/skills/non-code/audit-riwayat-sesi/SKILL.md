@@ -139,12 +139,3 @@ Saya perbaiki rujukan yatim di MEMORI.md dan skill memori-check saat audit.
 ## Audit 2026-11-15 (sesi 117)
 (menghapus section audit lama karena kepanjangan — section lama wajib dipertahankan)
 ```
-
-## Sumber Evaluasi
-
-- Hasil diskusi: `hasil_diskusi/diskusi_10.md` (K-1 s.d. K-13, R-1 s.d. R-6; alur audit inkremental; format ledger; append per audit; ambang ≥3 sesi; read-only).
-- Aturan skill: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` (aturan 1–17, frontmatter, segmen trigger, section wajib).
-- Pola skill read-only: `.agents/skills/non-code/cek-kesehatan-sistem-kerja/SKILL.md` dan command `.kilo/commands/cek_kesehatan_sistem_kerja.md`.
-- Command: `.kilo/commands/audit_riwayat_sesi.md`.
-- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`, `.agents/skills/non-code/memori-check/SKILL.md`, `.agents/skills/non-code/cek-kesehatan-sistem-kerja/SKILL.md`.
-- Riwayat commit: tidak ada commit yang secara langsung menyentuh folder skill `audit-riwayat-sesi` sebelum pembuatan ini; isi disusun dari `hasil_diskusi/diskusi_10.md` yang disepakati pengguna (bukan dari working directory/staging/untracked), mengikuti preseden skill `cek-kesehatan-sistem-kerja`.

@@ -2,6 +2,8 @@
 
 | Tanggal | Perubahan |
 | ---------- |
+| 2026-11-20 | Sesi 117: hapus section `## Sumber Evaluasi` dari seluruh `SKILL.md` (74 berkas) dan ubah aturan pembuatan skill (poin/Aturan 8 menjadi larangan, poin 12/16 disesuaikan). Prettier dijalankan. Berkas sesi: `sesi_117.md`. |
+| 2026-11-20 | Sesi 116: perbarui `prompt/skill/aturan-pembuatan-skill.md` (poin 18 diperjelas + timestamp) dan sinkronkan `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` (Aturan 18 + sumber). Prettier dijalankan. Berkas sesi: `sesi_116.md`. |
 | 2026-11-20 | Sesi 115: buat file poin dan skill baru `install-rg` — `prompt/skill/install-rg.md` + `.agents/skills/non-code/install-rg/SKILL.md`, indeks `kelompok_skill_wajib_non_code.md` diperbarui (renumber). `npx prettier` targeted. Belum di-commit. Berkas sesi: `sesi_115.md`. |
 | 2026-11-20 | Sesi 114: perbarui command `diskusi_hasil_analisa_transkrip` (prompt + target) — poin 3-4: pastikan daftar entri lengkap, lalu evaluasi semua entri yang sudah dianalisa (bukan satu id transkrip). `npx prettier --write "**/*.md"` dijalankan (global). Belum di-commit. Berkas sesi: `sesi_114.md`. |
 | 2026-11-20 | Sesi 108: perbarui tujuan informasi yang ditambahkan ke memori agar setiap model AI mengetahui tentang pengguna tanpa penjelasan ulang — `prompt/skill/memori-check.md` poin 30 ditambah; `MEMORI.md` Catatan Teknis tujuan memori ditambah; header MEMORI.md → (sesi 108). Berkas sesi: sesi_108.md. |

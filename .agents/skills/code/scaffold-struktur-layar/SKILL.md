@@ -117,12 +117,3 @@ Scaffold(
   ),
 );
 ```
-
-## Sumber Evaluasi
-
-- File: `/google/flutter/packages/flutter/lib/src/material/scaffold.dart`
-- Class terkait: `Scaffold`, `AppBar`, `BottomNavigationBar`, `FloatingActionButton`, `AppToast`
-- Commit `share_global_saya`: `b79563fc39b0bf79b45c13aac258e148b0f8cf9b` (2026-10-14; `lib/src/widget/toast_widget.dart` — `AppToast` `sukses`/`gagal`/`info`/`warning` memakai `Fluttertoast` `FToast` + logging `L`)
-- File `share_global_saya`: `lib/src/widget/toast_widget.dart`, `lib/core_shared.dart` (export `toast_widget.dart`)
-- Audit `toast_widget.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): section "Detail `AppToast` (share_global_saya)" ditambahkan (tabel varian + catatan inkonsistensi `gagal`); versi 1.1.0 → 1.2.0. Catatan: komentar kode tidak relevan (tidak ada path usang); tidak ada perubahan kode.
-- Commit `admin_wifi` `bfacbca` (2026-11-17; `lib/home.dart` — `AppToast.warning` untuk feedback peringatan, menggantikan `ScaffoldMessenger`/`SnackBar`); ditambahkan atas permintaan eksplisit pengguna (sesi 28). Versi 1.2.0 → 1.3.0.

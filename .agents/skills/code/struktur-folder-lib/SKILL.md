@@ -120,12 +120,3 @@ import '../notifier/tema_notifier.dart';           // salah: pakai package:spekt
 // DILARANG: folder core kosong sebagai "persiapan"
 lib/core/                                        // salah: buat saat ada isi nyata
 ```
-
-## Sumber Evaluasi
-
-- File target: `lib/main.dart`, `lib/app.dart`, `lib/home.dart`, `lib/fitur/pengaturan/screens/pengaturan_screen.dart`, `lib/fitur/pengaturan/tema/tema_provider.dart` (kondisi awal sebelum pemindahan)
-- Dokumen: `hasil_diskusi/diskusi_4.md` (K-1 s.d. K-9; blueprint target `lib/`)
-- Commit rujukan struktur: `c30a4ec` (struktur file utama + navigasi tab), `f0f437d` (migrasi tema ke Riverpod) — contoh aktual feature-first dan Riverpod di proyek ini
-- Catatan: konvensi `notifier/` vs `provider/` (aturan 3–4 dan 10) berasal dari diskusi_4 atas perintah pengguna; belum ada di commit mana pun hingga blueprint dieksekusi
-- Berkas sumber (sesi 47, 2026-11-19; di luar alur commit-history atas persetujuan eksplisit pengguna): migrasi model `admin_wifi` (commit `89834ea`) memindahkan 13 berkas model ke `lib/fitur/<fitur>/model/` tetapi header `// path:` masih menunjuk lokasi lama; terdeteksi manual (`dart analyze` tidak memflag header komentar), diperbaiki atas persetujuan pengguna. Skill diperbarui: Aturan 11 (header `// path:` wajib diperbarui + `grep` path lama bersih) dan Steps ditambah langkah perbarui header; versi 1.0.0 → 1.1.0. Provenance: sesi.
-- Skill terkait: `penamaan-konvensi`, `build-runner-codegen`, `riverpod-pola`

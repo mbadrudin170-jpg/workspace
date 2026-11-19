@@ -34,8 +34,3 @@ static const String targetSmokeFreeHari = 'target_smoke_free_hari';
 ```dart
 static const String tanggalMulaiTapering = 'Tanggal_mulai_tapering';
 ```
-
-## Sumber Evaluasi
-
-- Commit: `c9f96b2debb9e678513229c5a4a68a062e3a8afc`
-- File: `lib/shared/konstanta/nama_kolom.dart`

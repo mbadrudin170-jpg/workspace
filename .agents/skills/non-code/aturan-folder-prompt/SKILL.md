@@ -76,11 +76,3 @@ Link referensi ini jangan dimasukkan ke skill.
 ```
 
 (Tanpa tanggal diperbarui dan tanpa target "ditimpa ke"/"file".)
-
-## Sumber Evaluasi
-
-- Permintaan eksplisit pengguna (sesi 183, 2026-11-16): aturan yang berisi saat menambah dan memperbarui semua file yang ada di folder prompt.
-- Pola nyata: `prompt/skill/aturan-pembuatan-skill.md`, `prompt/skill/aturan-pembuatan-rules.md`, `prompt/rules/AGENTS.md`, `prompt/commands/mode_diskusi.md`, `prompt/commands/commit_file_sesi_ini.md`.
-- Aturan 8 (pemisahan satu baris kosong antar butir poin) — berasal dari poin 7 pada `prompt/skill/aturan-folder-prompt.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18).
-- Aturan 9 (langsung perbarui target saat sumber diperbarui, dengan izin pengguna via tool `question`) — berasal dari poin 8 pada `prompt/skill/aturan-folder-prompt.md` (sinkronisasi prompt → target, sesi 21, 2026-11-18).
-- Skill terkait: `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md` (Aturan 11).

@@ -82,9 +82,3 @@ Digunakan untuk mengidentifikasi produk dan memberikan gambaran umum proyek. ...
 | ----------------------------- | --------- | --------- |
 | Fitur A dan Fitur B sekaligus | ...       | Must Have | // salah: satu baris dua fitur |
 ```
-
-## Sumber Evaluasi
-
-- File aturan sumber (kini dihapus, digantikan skill ini): `.agents/rules/global/format_PRD.md` — commit `2d96c25` ("a", Sat Nov 14 2026)
-- Berkas terkait: `.agents/rules/global/format_hasil_diskusi.md` (format hasil diskusi), `.agents/skills/non-code/format-task-md/SKILL.md` (format `task.md`), `AGENTS.md` (blok `format_PRD.md` dihapus pada konversi), `.kilo/commands/prd/kerjakan_prd.md`, `.kilo/commands/prd/evaluasi_ulang_prd.md`, `.kilo/commands/fitur/membuat_prd_fitur.md`
-- Commit rujukan: `2d96c25`

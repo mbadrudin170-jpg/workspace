@@ -94,8 +94,3 @@ darkTheme: ThemeData(
   brightness: Brightness.light, // salah untuk dark theme
 );
 ```
-
-## Sumber Evaluasi
-
-- File: `/google/flutter/packages/flutter/lib/src/material/theme_data.dart`, `/google/flutter/packages/flutter/lib/src/material/color_scheme.dart`
-- Class terkait: `ThemeData`, `ColorScheme`, `TextTheme`

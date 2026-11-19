@@ -53,10 +53,3 @@ warna.withOpacity(0.2)
 Container(color: warnaA.withValues(alpha: 0.1))
 Container(color: warnaB.withOpacity(0.2)) // SALAH! Bercampur dengan withValues di atas
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/fitur/sos_craving/screens/sos_craving_screen.dart`, `lib/fitur/impian/widget/visual_tabungan_impian.dart`
-- Class terkait: `Color`, `ThemeData`, `ColorScheme`, `AlwaysStoppedAnimation`
-- Commit rujukan: `3b67d309` — `warna.withValues(alpha: 0.2)` di `SosCravingScreen`; `c7337d1` — `VisualTabunganImpian` warna semantic
-- Skill lengkap: `gaya`

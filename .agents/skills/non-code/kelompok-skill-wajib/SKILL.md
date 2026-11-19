@@ -25,8 +25,3 @@ Panduan pemeliharaan kelompok skill wajib pada indeks skill (`.agents/rules/kelo
 - DILARANG mengubah berkas kelompok skill wajib tanpa memuat skill ini terlebih dahulu.
 - DILARANG tidak memperbarui indeks skill (`.agents/rules/kelompok_skill_wajib_*.md`) saat ada skill baru atau pembaruan skill.
 - DILARANG memasukkan skill code ke `.agents/rules/kelompok_skill_wajib_non_code.md`.
-
-## Sumber Evaluasi
-
-- Berkas sumber: `prompt/skill/kelompok-skill-wajib.md` (poin 1–7).
-- Permintaan eksplisit pengguna: pemeliharaan kelompok skill wajib.

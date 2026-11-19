@@ -86,9 +86,3 @@ Container(color: Colors.blue, child: Text('...', style: TextStyle(color: Colors.
 // DILARANG: EasyLoading tanpa catchError
 unawaited(EasyLoading.show(status: 'Memproses...'));
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/fitur/sos_craving/screens/sos_craving_screen.dart`, `lib/fitur/impian/widget/visual_tabungan_impian.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/konsumsi_rokok/screens/konsumsi_rokok_screen.dart`
-- Class terkait: `Color`, `ThemeData`, `ColorScheme`, `Brightness`, `EasyLoading`, `EasyLoadingMaskType`, `AlwaysStoppedAnimation`
-- Commit rujukan: `3b67d309` — `warna.withValues(alpha: 0.2)` di `SosCravingScreen`; `c7337d1` — `VisualTabunganImpian` warna semantic; `ceb9536cc50304149be139dc8c5a36addb9c0774` — task.md: temuan warna hardcode semantic ditandai `batal` (pengguna memutuskan boleh dipertahankan)

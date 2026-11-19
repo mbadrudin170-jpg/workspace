@@ -93,9 +93,3 @@ AppToast.sukses('Berhasil!'); // SALAH! Tidak ada penandaan, bisa muncul berulan
 // DILARANG: Empty state tanpa CTA
 return Center(child: Text('Kosong')); // SALAH! Tidak ada ikon, deskripsi, CTA
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/fitur/diary_craving/screens/diary_craving_screen.dart`, `lib/fitur/pemulihan_cadangan/screens/pemulihan_cadangan_screen.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`
-- Class terkait: `Form`, `GlobalKey<FormState>`, `AsyncValue`, `SharedPreferences`, `AppToast`, `L`, `Nav`
-- Commit rujukan: `3b67d309` — Konfirmasi simpan diary craving, Empty state diary craving; `338a021` — Konfirmasi pemulihan cadangan (destruktif); `1e7b71e` — Konfirmasi masukkan data dummy (mengganti biodata); `e659574` — Kartu SOS Craving dan Alasan Berhenti di dashboard; `c7337d1` — Perayaan pencapaian impian dengan SharedPreferences; `ceacc6a` — Validasi penurunan mingguan mode tapering; `19f43e5` — BadgeScreen multiple provider handling; `02aa6b29` — DashboardScreen async data handling; `65abc0104fc8eec90cde9906c52d3f65cba13ba3` — `EmptyStateView` sebagai empty state bersama (OutlinedButton, bukan FAB)

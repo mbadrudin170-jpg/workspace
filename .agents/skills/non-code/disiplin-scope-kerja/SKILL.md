@@ -51,9 +51,3 @@ dart format lib/
 ```text
 # DILARANG: melapor "selesai" tanpa mengecek git diff — berkas asing ikut terklaim
 ```
-
-## Sumber Evaluasi
-
-- Sesi 47 (2026-11-19): dua insiden — (a) whitespace churn di berkas test di luar cakupan tugas (`fungsi_menampilkan_notifikasi_test.dart`) sempat masuk dan dikembalikan ke HEAD; (b) berkas yang sedang diedit oleh sesi/agent lain berubah di tengah jalan (impor menunjuk path tidak ada, bagian belum selesai) sehingga suntingan pertama gagal (`oldString` tidak cocok). Atas persetujuan pengguna (perintah `/tambah_kode_keskill`). Provenance: sesi; bukan commit.
-- Skill terkait: `penggunaan-tool-bawaan-kilo` (baca ulang sebelum sunting), `memori-check` (tabel Berkas Terdampak wajib mencakup seluruh perubahan).
-- Sesi 48 (2026-11-19): Butir 6 baru — aturan migrasi massal via codemod/skrip otomatis (temuan transkrip `ses_e0ff43aabffeZAT9lQX9Ao60Av`: codemod `migrasi_nav.dart` mengubah ~30 berkas `Navigator.*` → `Nav.*`; scope massal sudah disetujui pengguna secara eksplisit, tetapi metode codemod dan kewajiban verifikasi setelahnya belum diatur). Atas persetujuan pengguna.

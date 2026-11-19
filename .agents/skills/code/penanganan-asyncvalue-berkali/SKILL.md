@@ -67,10 +67,3 @@ Widget _buildCardRingkasanImpian(
   // ...
 }
 ```
-
-## Sumber Evaluasi
-
-- Commit: `c9f96b2debb9e678513229c5a4a68a062e3a8afc`
-- File: `lib/fitur/dashboard/screens/dashboard_screen.dart`
-- Sesi 54 (2026-11-19): perintah eksplisit pengguna "harusnya refresh bukan invalidate" — retry pada `hasError` wajib `ref.refresh(provider)`, bukan `ref.invalidate(provider)` (di luar alur commit-history atas persetujuan pengguna).
-- Sesi 54 lanjutan (2026-11-19): pola SDK Riverpod 3.5.0 — `ref.refresh` dianotasi `@useResult` (mengembalikan nilai provider); hasil WAJIB dipakai. Single provider → `() => ref.refresh(provider)`; beberapa provider sekaligus → list literal `() => [ref.refresh(p1), ...]`; DILARANG statement yang mengabaikan hasil dan `// ignore: unused_result`. (di luar alur commit-history atas persetujuan pengguna).

@@ -73,8 +73,3 @@ class _HalamanState extends State<Halaman> {
   }
 }
 ```
-
-## Sumber Evaluasi
-
-- Commit: `02aa6b29b0669a4f5bf21651b09b43552f65d6f8`, `3b67d3095dacc4e5c7ea78d7eb251809e3e9d981`, `fbbb0906d08d2590caa8c7829595ea7fa4e513a5` (ekstraksi widget teknik SOS ke `widgets/*_view.dart` sebagai `ConsumerStatefulWidget`)
-- File: `lib/fitur/pemulihan_kesehatan/screens/pemulihan_kesehatan_screen.dart`, `lib/fitur/sos_craving/screens/sos_craving_screen.dart`, `lib/fitur/sos_craving/widgets/napas_478_view.dart`, `lib/fitur/sos_craving/widgets/napas_90_detik_view.dart`, `lib/fitur/sos_craving/widgets/box_breathing_view.dart`, `lib/fitur/sos_craving/widgets/grounding_54321_view.dart`, `lib/fitur/sos_craving/widgets/urge_surfing_view.dart`, `lib/fitur/sos_craving/widgets/timer_craving_view.dart`, `lib/fitur/sos_craving/widgets/distraksi_view.dart`

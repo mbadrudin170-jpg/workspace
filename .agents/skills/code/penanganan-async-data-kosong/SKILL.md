@@ -108,13 +108,3 @@ return Scaffold(body: ListView(...));
 final bases = ref.watch(filteredBasesProvider).asData?.value ?? [];
 return GridBase(bases: bases, ...);
 ```
-
-## Sumber Evaluasi
-
-- Commit: `3b67d3095dacc4e5c7ea78d7eb251809e3e9d981`, `02aa6b29b0669a4f5bf21651b09b43552f65d6f8`, `65abc0104fc8eec90cde9906c52d3f65cba13ba3` (`EmptyStateView` sebagai empty state bersama)
-- File: `lib/fitur/diary_craving/screens/diary_craving_screen.dart`, `lib/fitur/pemulihan_kesehatan/screens/pemulihan_kesehatan_screen.dart`, `lib/fitur/dashboard/screens/dashboard_screen.dart`
-- Commit `base_coc` `b8fbdbb`, `71a69f0`, `6272b61` (pola cache provider sinkron turunan: `katalog_provider.dart` — `filteredBasesProvider` via `.whenData(...)`; `base_serupa_provider.dart` — `baseSerupaProvider`)
-- Diskusi/sesi 153 (2026-11-16): aturan cache provider — konten utama wajib pesan error + retry; section opsional minimal `L.w`/`L.e` (keputusan pengguna via tool `question`)
-- Commit `base_coc` `45ae356d29dd0bbed8b52567eff5615dc379ddec` (`detail_base_screen.dart`: `serupaAsync.hasError` → `debugPrint` + `asData?.value ?? const <BaseLayout>[]`; section disembunyikan bila kosong, tidak `requireValue`)
-- Sesi 54 (2026-11-19): perintah eksplisit pengguna "harusnya refresh bukan invalidate" — retry pada `hasError` wajib `ref.refresh(provider)`, bukan `ref.invalidate(provider)` (di luar alur commit-history atas persetujuan pengguna).
-- Sesi 54 lanjutan (2026-11-19): pola SDK Riverpod 3.5.0 — `ref.refresh` dianotasi `@useResult`; hasil WAJIB dipakai (single → `() => ref.refresh(provider)`; beberapa → list literal `() => [ref.refresh(p1), ...]`); DILARANG statement yang mengabaikan hasil dan `// ignore: unused_result`. (di luar alur commit-history atas persetujuan pengguna).

@@ -48,10 +48,3 @@ final String _tabelDompet = '''
   )
 ''';
 ```
-
-## Sumber Evaluasi
-
-- Commit: (belum di-commit) admin_wifi oncreate_sqflite.dart refactor
-- File: admin_wifi/lib/db/oncreate_sqflite.dart, admin_wifi/lib/model/*_model.dart
-- Commit `ea08f25` (admin_wifi, 2026-11-18): seluruh method from/to (`fromSqlite`/`fromFirebase`/`toSqlite`/`toFirebase`) pada `pelanggan_aktif_model` dan seluruh model di `lib/model/` di-refactor memakai konstanta Skema; nama field Firestore disamakan dengan kolom SQLite (snake_case) atas perintah eksplisit pengguna ("nama kolom samakan saja setiap db"); konstanta Firestore khusus (`tanggalMulaiFirestore`/`tanggalBerakhirFirestore`) ditambahkan lalu dihapus dalam sesi yang sama.
-- Permintaan eksplisit pengguna (2026-11-18, sesi 45): key from/to wajib memakai konstanta ("disini juga gunakan constanta").

@@ -87,9 +87,3 @@ return FilterChip(label: Text(snippet), selected: terpilih);
 // DILARANG: Data kosong tanpa SizedBox.shrink / L.w
 if (list.isEmpty) return const SizedBox.shrink(); // Tanpa L.w
 ```
-
-## Sumber Evaluasi
-
-- File: `lib/fitur/dashboard/screens/dashboard_screen.dart`, `lib/fitur/sos_craving/screens/sos_craving_screen.dart`, `lib/fitur/alasan_berhenti/screens/form_alasan_berhenti.dart`
-- Class terkait: `AsyncValue`, `FilterChip`, `ConsumerWidget`, `L`, `Nav`
-- Commit rujukan: `e6595744b3840998d840e398ca1782e7be7d50b4` — Kartu SOS Craving dan Alasan Berhenti di dashboard; `fbcfadac74a271a2425334916171adbea4439d11` — penyederhanaan tata letak dashboard (pola C1); `db5dd32f28e92346b9a8d3467fa9b2838e013a02` — caption "Dari catatan" dibungkus `Padding(vertical: 8)`; `117293d38f0aa2f139aefe5dc4412bd57473b90e` — `IntrinsicHeight` untuk menyamakan tinggi 3 kartu ringkasan

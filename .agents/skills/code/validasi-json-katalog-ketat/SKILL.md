@@ -181,10 +181,3 @@ throw KatalogGagalException('tags tidak valid');
 // DILARANG: validasi ulang di widget (dua sumber kebenaran)
 if (base.tags.isNotEmpty) { /* parsing ulang string di UI */ }
 ```
-
-## Sumber Evaluasi
-
-- Commit rujukan: `71a69f0fb9cc9fd993865a8726e333144152fdc2` (validasi array `tags`, `firstWhere` + `orElse` throw `KatalogGagalException`, pesan memuat `id`), `149fe8186b10311336d9a913cb1be59a3ffb2359` (model bersarang `PanduanBase`, `toJson` kondisional, `hasIsi`, validasi `is! Map<String, dynamic>` pada `BaseLayout.fromJson`), `c6be80a989e9029f765d9778d1a157046d30bd93` (field boolean `pilihanEditor` dengan validasi `is! bool` + `KatalogGagalException`, `toJson` kondisional `if (pilihanEditor)`)
-- File: `base_coc/lib/fitur/galeri_base/model/base_layout.dart`, `base_coc/lib/fitur/galeri_base/model/panduan_base.dart`, `base_coc/lib/fitur/galeri_base/model/katalog_exception.dart`
-- Klasifikasi: exception khusus (`KatalogGagalException implements Exception`, field `pesan`); deteksi lewat type check — lihat skill `exception-khusus-deteksi-error`
-- Batas cakupan: parsing `dynamic` dari database SQLite (fallback default valid) memakai `ParserUtil` — lihat skill `model-state-freezed-abstract` dan `parsing-nullable-int`; jangan mencampuradukkan pola katalog dengan pola database

@@ -58,9 +58,3 @@ final isIzin = e.toString().contains('Izin notifikasi tidak diberikan');
 // Melempar string literal (stack trace hilang)
 throw 'Could not launch $uri';
 ```
-
-## Sumber Evaluasi
-
-- Commit: `07fc8df6cf5ea28fe7133b1aee5dae7b05b96590`
-- File: `lib/shared/notifikasi/notifikasi_service.dart`, `lib/fitur/pengaturan/screens/pengaturan_screen.dart`
-- Berkas sumber: `admin_wifi/lib/fitur/pelanggan_aktif/screens/detail_pelanggan_aktif.dart` (sesi 47, 2026-11-19 — `throw 'Could not launch ...'` diganti `throw StateError(...)`; perubahan pada saat penulisan **belum ter-commit**, diterapkan di luar alur commit-history atas persetujuan eksplisit pengguna). Skill diperbarui atas permintaan eksplisit pengguna (sesi 47, 2026-11-19) — versi 1.0.1 → 1.1.0; Larangan & Contoh ditambahkan. Provenance: sesi, bukan commit.

@@ -315,12 +315,3 @@ class PenggunaAktifNotifier extends _$PenggunaAktifNotifier {
 // Akses dari UI: `ref.watch(penggunaAktifProvider)`; reload lewat
 // `ref.read(penggunaAktifProvider.notifier).muatUlang();`.
 ```
-
-## Sumber Evaluasi
-
-- File: `admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart` (proyek `admin_wifi`, sesi 35)
-- File state: `admin_wifi/lib/fitur/state/pelanggan_aktif_state.dart`
-- Commit rujukan: `f9568a11173bab474012db81f7c6d066e80f15c5` — Notifier codegen + `PelangganAktifState` (proyek `admin_wifi`)
-- Aturan terkait: `.agents/rules/code.md` (reload `AsyncValue.guard` & codegen provider; lazy IndexedStack)
-- Provenance (sesi 65, 2026-11-19; alur commit-based): transkrip sesi Kilo `ses_e0e8c862dffeZX10v07226tjSk` — AI menaruh `ref.watch`/`ref.read` di helper `_buildBody()` yang dipanggil dari `build()` (`pelanggan_aktif_screen.dart`); pengguna mengoreksi "pindahkan ke build lalu build body cukup tambah paramter state" (helper `_buildBody` menerima `PelangganState`, `PaketState`, `PelangganAktifState` sebagai parameter). Aturan 4 dipertajam (ref.watch wajib langsung di `build()`; helper dilarang memanggil ref.watch/ref.read; state diteruskan via parameter) berdasarkan temuan ini; di luar alur commit-history atas persetujuan eksplisit pengguna (sesi 65).
-- Provenance (sesi 56, 2026-11-19; alur commit-based): commit `6864dea` (proyek `admin_wifi`, "m", 2026-11-18 23:24 UTC) — perbaikan `lib/fitur/pelanggan_aktif/screens/form_pelanggan_aktif.dart` `_petakanModeEdit()`: `await (paketProvider.future)` → `await ref.read(paketProvider.future)` (error `getById` tidak ditemukan pada `Refreshable<Future<PaketState>>`). Aturan 22 baru ditambahkan berdasarkan temuan ini.

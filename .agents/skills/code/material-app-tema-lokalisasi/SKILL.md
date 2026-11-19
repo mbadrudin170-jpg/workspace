@@ -82,10 +82,3 @@ darkTheme: ThemeData(primaryColor: Colors.blue), // salah: brightness default li
 // supportedLocales kosong
 supportedLocales: [], // assert error
 ```
-
-## Sumber Evaluasi
-
-- File: `/google/flutter/packages/flutter/lib/src/widgets/material/app.dart`, `/google/flutter/packages/flutter/lib/src/widgets/app.dart`
-- Class terkait: `MaterialApp`, `WidgetsApp`, `ThemeMode`, `ThemeData`, `MaterialScrollBehavior`
-- Berkas sumber keys: `share_global_saya/lib/src/utils/app_keys.dart` (commit rujukan belum diverifikasi spesifik pada sesi 24)
-- Audit `app_keys.dart` vs skill (sesi 24, 2026-11-18, atas persetujuan pengguna): properti `navigatorKey`/`scaffoldMessengerKey` ditambahkan ke Cakupan; Aturan 12 ditambahkan; versi 1.0.1 → 1.1.0.

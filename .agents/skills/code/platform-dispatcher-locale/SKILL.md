@@ -66,8 +66,3 @@ final locale = PlatformDispatcher.instance.locale; // bisa Locale('und') jika ko
 // scaleFontSize dengan nilai invalid
 dispatcher.scaleFontSize(-1.0); // assert error
 ```
-
-## Sumber Evaluasi
-
-- File: `/google/flutter/packages/flutter/bin/cache/pkg/sky_engine/lib/ui/platform_dispatcher.dart`
-- Class terkait: `PlatformDispatcher`, `Locale`, `ViewPadding`, `AccessibilityFeatures`
