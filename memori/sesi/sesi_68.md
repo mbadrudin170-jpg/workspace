@@ -2,7 +2,7 @@
 
 ## Status
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-19
 - Command: pantau_dan_evaluasi_transkrip (ses_e0e5409c8ffeS7hXAvf8WVpMHJ)
 - Topik: Pantau & evaluasi transkrip "Greeting"; koreksi klaim code.md #26 + celah command `muat_skill_terkait`
@@ -12,7 +12,8 @@
 - Command `muat_skill_terkait` (pengguna menjalankan di sesi ini) — skill relevan dimuat semua: `normalisasi-tanggal` (dimuat langsung; tidak dirujuk code.md), `model-state-freezed-abstract`, `konfirmasi-sebelum-simpan`, `disiplin-scope-kerja`, `memori-check`. Celah pada command **diperbaiki** (potongan A): `prompt/commands/muat_skill_terkait.md` + `.kilo/commands/muat_skill_terkait.md` mendapat poin baru — bila pekerjaan berkaitan kode, pindai `.agents/skills/code/*/SKILL.md` (description/Trigger) dan muat semua yang relevan, termasuk yang tidak dirujuk code.md; poin 3 sumber disesuaikan ("dari berkas pada poin 1–2"). Potongan B (baca `AGENTS.md`/`instructions` = kepatuhan `aturan-pembuatan-commands` Aturan 2/8) TIDAK diterapkan (pilihan pengguna "A saja"). `formatmd` tidak dijalankan. Perubahan command bersifat non-code.
 - Catch-up sync awal sesi: `sesi_67.md` (Belum Sinkron, perubahan nyata: `pelanggan_aktif_state.dart` tambah `getListBelumJatuhTempo()`; `pelanggan_aktif_screen.dart` dialog arsipkan → `ConfirmationDialog.show()` dari `share_global_saya` + hapus import tak terpakai) disinkronkan ke `MEMORI.md` + `memori/riwayat_perubahan.md` dan ditandai `Sudah Sinkron`. `sesi_66.md` sudah `Sudah Sinkron` (tidak disentuh).
 - Command `muat_skill_terkait` dijalankan pengguna di akhir sesi: `.agents/rules/code.md` (v terbaru, #28/#29) dan `kelompok_skill_wajib_non_code.md` dibaca; skill relevan dimuat seluruhnya. Koreksi: klaim awal sesi "normalisasi-tanggal dirujuk code.md #26" SALAH (`#26` = `pencarian-koleksi-null-safe`; `normalisasi-tanggal` TIDAK dirujuk code.md); command tidak menyediakan jalur ke skill code/ → `normalisasi-tanggal` tidak terdeteksi pada transkrip "Greeting" — **celah pada command, diperbaiki** (potongan A, atas persetujuan pengguna).
-- Tugas lanjutan pengguna (`pelanggan_aktif_screen.dart:457` — daftar "Jatuh Tempo" di atas daftar utama): `ListTile` jatuh tempo ditambah `onTap` (navigasi ke `DetailPelangganAktif` + `_loadData(forceRefresh: true)`) dan `onLongPress` (`_arsipkanPelanggan(pelangganAktif)`), meniru perilaku daftar utama (`_buildSliverListUtama`). Interpretasi "juga" = sama seperti daftar utama; tidak ada perilaku berbeda yang diminta. `dart format` (0 changed) + `dart analyze` **No issues found**.
+- Tugas lanjutan pengguna (`pelanggan_aktif_screen.dart`): separator `Divider` (height 1) pada `_buildSliverListUtama` (daftar utama) diganti `const SizedBox(height: 1)`; `Divider` di `_buildSliverListJatuhTempo` tidak disentuh (luar cakupan yang ditunjuk). `dart format` (0 changed) + `dart analyze` **No issues found**.
+- Tugas lanjutan pengguna (`pelanggan_aktif_screen.dart:457` — daftar "Jatuh Tempo" di atas daftar utama): `ListTile` jatuh tempo ditambah `onTap` (navigasi ke `DetailPelangganAktif` + awalnya `_loadData(forceRefresh: true)`) dan `onLongPress` (`_arsipkanPelanggan(pelangganAktif)`). Kemudian atas permintaan "hapus saja" baris tersebut (`_loadData(forceRefresh: true);` pasca-`Nav.to`) dihapus — daftar jatuh tempo kini hanya navigasi ke detail, tanpa unggah/muat ulang otomatis. `dart format` (0 changed) + `dart analyze` **No issues found**.
 - Transkrip yang dipantau: sesi `ses_e0e5409c8ffeS7hXAvf8WVpMHJ` (lampiran pengguna) — sesi interaksi langsung "hai" → tambah method `getListBelumJatuhTempo()` ke `PelangganAktifState` → command `muat_skill_terkait` → ganti dialog arsipkan ke `ConfirmationDialog.show()`.
 - Keterbatasan: transkrip terpotong di bagian tengah (bagian pada sesi akhir); analisis dilakukan pada bagian yang tertampil.
 
@@ -36,8 +37,8 @@
 | memori/sesi/sesi_67.md | Diubah | Status Sinkron → Sudah Sinkron (catch-up) |
 | prompt/commands/muat_skill_terkait.md | Diubah | Potongan A: poin pemindaian skill code/ (header diperbarui 09:56 WIB) |
 | .kilo/commands/muat_skill_terkait.md | Diubah | Potongan A: poin pemindaian skill code/ (sinkron sumber; description diperbarui) |
-| admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart | Diubah | ListTile jatuh tempo ditambah onTap (detail + refresh) dan onLongPress (arsipkan) |
+| admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart | Diubah | ListTile jatuh tempo ditambah onTap (detail) + onLongPress (arsip); baris `_loadData(forceRefresh: true)` pasca-`Nav.to` dihapus; separator daftar utama Divider → `SizedBox(height: 1)` |
 
 ## Sinkronisasi ke MEMORI.md
 
-Disinkronkan: header `MEMORI.md` → `(sesi 68)`; `## Status` diperbarui (Sesi terakhir → sesi_68; entri sesi 67 ditambah); Catatan Teknis entri sesi 67 dan sesi 68 ditambah; `memori/riwayat_perubahan.md` ditambah entri sesi 67 catch-up dan sesi 68.
+Disinkronkan: header `MEMORI.md` → `(sesi 68)`; `## Status` diperbarui (Sesi terakhir → sesi_68, status → Sudah Sinkron; entri sesi 67 ditambah; detail perubahan akhir ditambah: hapus `_loadData(forceRefresh: true)` pasca-`Nav.to` pada `onTap` daftar "Jatuh Tempo", ganti separator `Divider` daftar utama → `const SizedBox(height: 1)`); Catatan Teknis entri sesi 67 dan sesi 68 ditambah; `memori/riwayat_perubahan.md` ditambah entri sesi 67 catch-up dan entri sesi 68 (perubahan command + perubahan kode layar).
