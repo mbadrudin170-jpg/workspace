@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-19 (sesi 96)
+Diperbarui: 2026-11-20 (sesi 104)
 
 ## Konteks Proyek
 
@@ -18,7 +18,7 @@ Diperbarui: 2026-11-19 (sesi 96)
 
 ## Status
 
-- Sesi terakhir: `memori/sesi/sesi_85.md` (Sudah Sinkron) — lanjutan: poin 5 command `analisa_transkrip` diperbarui (prompt + target, sinkron) — larangan sub-agent/agen explore untuk membaca transkrip (baca langsung agar tepat; transkrip besar baca bertahap dengan offset/limit; dilarang delegasikan ekstraksi bukti ke sub-agent). Header sumber `diperbarui` → 20:51 WIB. `npx prettier --write` scoped 2 berkas (`unchanged`). Belum di-commit. Detail: `sesi_85.md`.
+- Sesi terakhir: `memori/sesi/sesi_104.md` (Sudah Sinkron) — diskusi hasil analisa transkrip: terapkan saran yang belum tercakup ke aturan/skill/command (non-code): lainnya.md butir 7–8; skill penggunaan-tool-bawaan-kilo Aturan 9–10 (v1.3.0); skill build-apk-github-workflow Aturan 11–12 (v1.2.0); command analisa_transkrip klausul ketersediaan transkrip; sinkron prompt/ dan indeks. prettier scoped unchanged. Belum di-commit. Detail: `sesi_104.md`.
 - Sesi 66 (Sudah Sinkron) — `admin_wifi`: `PelangganAktifState` ditambah method `getJatuhTempo()` (+ alias) untuk mengambil list pelanggan aktif yang sudah jatuh tempo (`tanggalBerakhir.isBefore(DateTime.now())`); `dart format`/`dart analyze` bersih; belum di-commit. Detail: `sesi_66.md`.
 - Sesi 68: `memori/sesi/sesi_68.md` (Sudah Sinkron) — pantau & evaluasi transkrip `ses_e0e5409c8ffeS7hXAvf8WVpMHJ` ("Greeting"): pelanggaran `normalisasi-tanggal` tercakup skill `code/normalisasi-tanggal` (TIDAK dirujuk `code.md` — klaim awal "code.md #26" SALAH, dikoreksi); celah pada command `muat_skill_terkait` **diperbaiki** (pilihan pengguna "A saja"): sumber `prompt/commands/muat_skill_terkait.md` + target `.kilo/commands/muat_skill_terkait.md` mendapat poin baru pemindaian `.agents/skills/code/*/SKILL.md` (description/Trigger) — muat semua relevan termasuk yang tidak dirujuk code.md. Potongan B (baca `AGENTS.md`/`instructions`) tidak diterapkan atas pilihan pengguna. Tugas lanjutan pengguna pada `pelanggan_aktif_screen.dart`: (1) `ListTile` daftar "Jatuh Tempo" ditambah `onTap` (navigasi ke `DetailPelangganAktif`) + `onLongPress` (`_arsipkanPelanggan`), meniru daftar utama; kemudian baris `_loadData(forceRefresh: true)` pasca-`Nav.to` dihapus atas permintaan "hapus saja" — daftar jatuh tempo kini hanya navigasi ke detail, tanpa unggah/muat ulang otomatis; (2) separator `Divider` (height 1) pada daftar utama (`_buildSliverListUtama`) diganti `const SizedBox(height: 1)` (tinggi 1 px, pilihan pengguna); `Divider` daftar "Jatuh Tempo" tidak diubah. `dart format`+`dart analyze` bersih. Belum di-commit. Berkas sesi: `sesi_68.md`. Detail: `sesi_68.md`.
 - Sesi 67 (Sudah Sinkron via catch-up sesi 68) — `admin_wifi`: `PelangganAktifState` ditambah method `getListBelumJatuhTempo()` (`!tanggalBerakhir.isBefore(DateTime.now())`); `pelanggan_aktif_screen.dart` dialog arsipkan inline → `ConfirmationDialog.show()` dari `share_global_saya` + hapus import tak terpakai; `dart format`/`dart analyze` bersih; belum di-commit. Detail: `sesi_67.md`.
@@ -53,6 +53,8 @@ Diperbarui: 2026-11-19 (sesi 96)
 - Sesi 9: riset kompetitor batch 10 — 10 listing `Belum Dianalisa` pertama (Apple App Store, `apk_kompetitor.md` baris 95–104) diverifikasi via `webfetch`, dianalisa, dan ditandai `Sudah Dianalisa`; `refrensi_apk.md` ditambahkan batch 10 (sumber 81–90, rekomendasi A70–A80, optimasi B26–B27, UI/UX C34–C36, contoh format item A1, dan fitur `fitur_khusus.md` "desa malam" prioritas Tinggi); `memori/sesi/sesi_8.md` disinkronkan lewat catch-up (Sudah Sinkron).
 
 ## Catatan Teknis
+
+- Sesi 104 (2026-11-20): diskusi hasil analisa transkrip — terapkan saran yang belum tercakup: `.agents/rules/lainnya.md` butir 7–8; skill `penggunaan-tool-bawaan-kilo` Aturan 9–10 (v1.3.0); skill `build-apk-github-workflow` Aturan 11–12 (v1.2.0); command `analisa_transkrip` klausul ketersediaan transkrip; sinkron `prompt/` dan indeks. `npx prettier` scoped 9 berkas (`unchanged`). Belum di-commit. Berkas sesi: `sesi_104.md`.
 
 - Sesi 96 (2026-11-19): command baru `diskusi_hasil_analisa_transkrip` dibuat (sumber `prompt/commands/diskusi_hasil_analisa_transkrip.md` header 17:43 WIB + target `.kilo/commands/diskusi_hasil_analisa_transkrip.md`); tujuan diskusi hasil analisa transkrip yang tersimpan. `npx prettier` scoped 2 berkas (`unchanged`). Belum di-commit. Berkas sesi: `sesi_96.md`.
 

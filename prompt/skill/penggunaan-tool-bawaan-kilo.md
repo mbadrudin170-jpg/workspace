@@ -1,4 +1,4 @@
-diperbarui : Mon Nov 16 2026 21:31 WIB
+diperbarui : Fri Nov 20 2026 03:02 WIB
 
 file : [penggunaan-tool-bawaan-kilo](../../.agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md)
 
@@ -7,6 +7,10 @@ file : [penggunaan-tool-bawaan-kilo](../../.agents/skills/non-code/penggunaan-to
 1. Wajib gunakan tool bawaan Kilo yang terdaftar di bawah ini bila ada padanan yang setara dengan kebutuhan; shell (`Bash`) hanya dipakai bila tidak ada tool bawaan yang mencukupi.
 2. Izin `deny` pada `.kilo/kilo.jsonc` bersifat mutlak; DILARANG diakali lewat interpreter, alias, atau perintah lain.
 3. Daftar ini mencakup tool yang tersedia pada build Kilo saat ini. Beberapa tool yang dirujuk aturan proyek (`list`, `todoread`, `lsp`) tidak tersedia sebagai tool terpisah pada build ini; gunakan padanannya (`Read` untuk direktori, `Todowrite` untuk daftar tugas) dan catat ketidaksesuaian bila ditemukan.
+
+4. Saat memeriksa prasyarat berkas, terutama folder hidden (`.github`, `.kilo`, `.agents`), verifikasi dengan Read langsung selain Glob, agar tidak salah menyatakan berkas tidak ada.
+
+5. Saat mendelegasikan pembacaan berkas besar ke subagent, muat skill ini terlebih dahulu dan pastikan subagent melaporkan penanda pemotongan secara eksplisit.
 
 # Daftar Tool
 

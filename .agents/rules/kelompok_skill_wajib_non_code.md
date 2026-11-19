@@ -35,7 +35,7 @@
 7. .agents/skills/non-code/build-apk-github-workflow/SKILL.md
 
 - Trigger : saat membangun APK Android release atau memperbarui proses build APK
-- Status : diperbarui : Mon Nov 16 2026 21:31 WIB
+- Status : diperbarui : Fri Nov 20 2026 03:02 WIB
 
 8. .agents/skills/non-code/cek-kesehatan-sistem-kerja/SKILL.md
 
@@ -80,7 +80,7 @@
 16. .agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md
 
 - Trigger : saat memilih atau memakai tool bawaan Kilo (read, edit, glob, grep, bash, webfetch, dll.)
-- Status : diperbarui : Thu Nov 19 2026 02:38 WIB
+- Status : diperbarui : Fri Nov 20 2026 03:02 WIB
 
 17. .agents/skills/non-code/penggunaan-tool-question/SKILL.md
 

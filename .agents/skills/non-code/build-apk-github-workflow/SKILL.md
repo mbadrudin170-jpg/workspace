@@ -3,8 +3,8 @@ name: build-apk-github-workflow
 description: Trigger: saat membangun APK Android release atau memperbarui proses build APK | Panduan build APK release via GitHub Actions workflow (bukan build lokal): prasyarat `gh` terautentikasi dengan scope `workflow`, proyek wajib memiliki `.github/workflows/build-apk.yml`, konfigurasi tetap `--split-per-abi --target-platform android-arm64`, pemicuan `gh workflow run`, pemantauan `gh run watch --exit-status`, pengunduhan artefak `app-release-apk`, dan verifikasi berkas `<proyek>-arm64-v8a-release.apk`. Termasuk larangan build lokal tanpa Android SDK, perubahan flag tanpa perintah pengguna, dan commit direktori `build/`.
 metadata:
   kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Mon Nov 16 2026 21:31 WIB"
+  versi: "1.2.0"
+  diperbarui: "Fri Nov 20 2026 03:02 WIB"
 ---
 
 # Build APK via GitHub Actions Workflow
@@ -31,6 +31,8 @@ Membangun APK Android `release` (split per ABI, hanya `android-arm64`) melalui G
 8. Bila `gh run watch` gagal (exit non-nol), **STOP**, laporkan galat workflow apa adanya, dan jangan mengunduh artefak.
 9. Pengunduhan artefak wajib melalui `gh run download <RUN_ID> --name app-release-apk --dir <proyek>/build/app/outputs/flutter-apk`.
 10. Setelah pengunduhan, verifikasi berkas dengan tool `glob` dan laporkan path absolut serta ukuran (`stat -c%s`).
+11. Bila terdapat lebih dari satu proyek Flutter (submodule) yang dapat di-build, tanyakan repo target kepada pengguna sebelum menjalankan workflow.
+12. Sebelum memicu workflow, periksa kompatibilitas versi Java (runner default) dengan Gradle yang dipakai (gradle-wrapper.properties / workflow); peringatkan bila tidak kompatibel.
 
 ## Larangan
 

@@ -3,8 +3,8 @@ name: penggunaan-tool-bawaan-kilo
 description: Trigger: saat memilih atau memakai tool bawaan Kilo (read, edit, glob, grep, bash, webfetch, dll.) | Panduan pemilihan tool bawaan Kilo: pemetaan kebutuhan ke tool yang tepat, contoh pemanggilan, aturan prioritas tool bawaan atas shell, dan izin deny yang mutlak.
 metadata:
   kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Thu Nov 19 2026 02:38 WIB"
+  versi: "1.3.0"
+  diperbarui: "Fri Nov 20 2026 03:02 WIB"
 ---
 
 # Penggunaan Tool Bawaan Kilo
@@ -51,6 +51,8 @@ Panduan memilih dan memakai tool bawaan Kilo sesuai kebutuhan, beserta contoh pe
    - Grafik → `Chart`.
 7. Skill dan command wajib menginstruksikan tool bawaan lebih dahulu. DILARANG menulis instruksi yang menyuruh `rg`, `grep`, `find`, `ls`, `cat`, `head`, atau `tail` untuk operasi yang dapat dilakukan tool bawaan.
 8. Sebelum menyunting berkas, baca ulang (Read) bila ada indikasi berkas berubah di luar sesi (mis. `oldString` tidak cocok atau hasil Grep berbeda dari yang terbaca); DILARANG menebak isi berkas — sunting hanya dengan isi terkini yang sudah dibaca ulang.
+9. Saat memeriksa prasyarat berkas, terutama pada folder hidden (`.github`, `.kilo`, `.agents`), verifikasi dengan Read langsung selain Glob, agar tidak salah menyatakan berkas tidak ada.
+10. Saat mendelegasikan pembacaan berkas besar ke subagent, muat skill ini terlebih dahulu dan pastikan subagent melaporkan penanda pemotongan (mis. `[... N characters omitted ...]`) secara eksplisit.
 
 ## Daftar Tool (ringkas)
 

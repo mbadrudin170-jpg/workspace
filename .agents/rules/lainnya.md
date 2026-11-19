@@ -9,3 +9,7 @@
 5. AI DILARANG menyebut nama atau path skill, command, atau aturan yang tidak ada, atau menyebut jenis aset yang salah (mis. menyebut suatu command sebagai "skill"); sebelum menyebut suatu aset sebagai skill/command/aturan, verifikasi keberadaannya (mis. `glob`/`read`) dan sebut jenis yang benar.
 
 6. Saat AI mengidentifikasi pelanggaran aturan yang tercatat di `code.md` atau rules lain (mis. code.md #18 Firebase guard `kIsWeb`), AI wajib memuat skill terkait yang dirujuk pada aturan tersebut (mis. `validasi-platform-izin`) dan menawarkan perbaikan secara eksplisit kepada pengguna, bukan hanya melaporkan "di luar cakupan"; bila perbaikan tidak dilakukan pada sesi itu, catat sebagai tindak lanjut.
+
+7. Saat menerima command Kilo yang mencantumkan bagian `# Skill Terkait`, AI wajib memuat semua skill yang tercantum (via tool `skill`) sebelum melaksanakan langkah command; DILARANG melaksanakan langkah tanpa memuat skill terkait yang tersedia. Skill terkait: `aturan-pembuatan-commands`.
+
+8. Bila tugas tidak dapat dilanjutkan (transkrip terputus, tidak ada respons AI, prasyarat tidak terpenuhi, atau berkas tidak tersedia), AI wajib melaporkan secara eksplisit kepada pengguna alih-alih berhenti diam-diam.
