@@ -1,4 +1,4 @@
-diperbarui : Thu Nov 19 2026 18:58 WIB
+diperbarui : Thu Nov 19 2026 19:14 WIB
 ditimpa ke : `.kilo/commands/pantau_dan_evaluasi_transkrip.md`
 
 1. `$ARGUMENTS`: satu atau lebih ID transkrip Kilo (`ses_...`) atau lampiran transkrip sesi yang diberikan pengguna; jika kosong, tanyakan transkrip/ID yang dimaksud.
@@ -17,15 +17,13 @@ ditimpa ke : `.kilo/commands/pantau_dan_evaluasi_transkrip.md`
 
 8. Skill di `.agents/skills/code/` hanya boleh diubah dari riwayat commit (aturan `.agents/rules/lainnya.md`), kecuali atas persetujuan eksplisit pengguna di luar alur commit-history (dicatat: "di luar alur commit-history atas persetujuan pengguna (sesi N)"). Jika kode relevan ke skill `code/` tetapi tidak berasal dari alur riwayat commit yang sah: jelaskan batasan, tampilkan draf/rekomendasi, dan jangan mengedit skill `code/`; lanjutkan hanya pada bagian yang diizinkan (mis. skill `non-code/` atau aturan relevan) bila disetujui pengguna.
 
-9. Jika sudah memiliki gambaran kandidat perubahan: tampilkan dulu setiap potongan kode/kandidat perubahan yang akan ditambahkan, lalu gunakan tool `question` dengan parameter `multiple: true` untuk menanyakan potongan mana yang ingin dimasukkan. Setiap opsi wajib memuat satu potongan kode/kandidat saja (jangan menggabungkan beberapa kode, mis. "A+B"), sertakan satu opsi "Skip", dan tunggu pilihan sebelum mengedit.
+9. Jika sudah memiliki gambaran kandidat perubahan: tampilkan dulu setiap potongan kode/kandidat perubahan yang akan ditambahkan beserta penjelasan, baru setelah itu tanyakan pilihan pengguna ke mana akan dimasukkan. Gunakan tool `question` dengan parameter `multiple: true` agar pengguna dapat memilih satu atau beberapa opsi. Setiap opsi wajib memuat satu potongan kode/kandidat saja (jangan menggabungkan beberapa kode, mis. "A+B"), sertakan satu opsi "Skip", dan tunggu pilihan sebelum mengedit.
 
 10. Jika perubahan/pembuatan menyentuh skill `code/` atau berdampak pada pola/aturan kode: tambahkan atau perbarui aturan terkait di `.agents/rules/code.md` dan setiap aturan wajib menyertakan skill terkaitnya (rujuk skill yang diperbarui/dibuat); dilarang menambah aturan tanpa skill terkait. Jika hanya menyentuh skill `non-code/` tanpa dampak aturan kode, jangan ubah `.agents/rules/code.md`.
 
 11. Setelah mengedit (bila disetujui): verifikasi (a) nama folder skill sesuai `name`/isi berkas, (b) `description` memicu (trigger) temuan/kode/baris yang diperbarui, lalu jalankan `formatmd` (alias: `npx prettier --write "**/*.md"`) untuk merapikan berkas Markdown.
 
 12. Tujuannya agar sebuah AI tidak mengulang kesalahan yang sama di masa mendatang: pemantauan transkrip menghasilkan aturan/skill yang menjaga kualitas sesi AI setelahnya.
-
-13. Sebelum menetapkan (memilih) kandidat perubahan, tampilkan dulu setiap kandidat beserta penjelasan dan potongan kode; baru tanyakan pilihan pengguna (lihat poin 9).
 
 # Skill Terkait
 
