@@ -13,11 +13,11 @@ Topik: Penyisipan poin 5 (full dump transkrip sebelum analisa) pada command `ana
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/analisa_transkrip.md | Diubah | Header `diperbarui` → 20:29 WIB + poin 5 baru + renumber 6–8 |
-| .kilo/commands/analisa_transkrip.md | Diubah | Poin 5–8 disinkronkan |
-| memori/sesi/sesi_83.md | Dibuat | Berkas sesi aktif |
+| Lokasi File                          | Status Perubahan | Deskripsi                                                    |
+| ------------------------------------ | ---------------- | ------------------------------------------------------------ |
+| prompt/commands/analisa_transkrip.md | Diubah           | Header `diperbarui` → 20:29 WIB + poin 5 baru + renumber 6–8 |
+| .kilo/commands/analisa_transkrip.md  | Diubah           | Poin 5–8 disinkronkan                                        |
+| memori/sesi/sesi_83.md               | Dibuat           | Berkas sesi aktif                                            |
 
 ## Sinkronisasi ke MEMORI.md
 

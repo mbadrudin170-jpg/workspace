@@ -15,10 +15,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| memori/sesi/sesi_69.md | Dibuat | Berkas sesi aktif (Belum Sinkron) |
-| admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart | Diubah | Hapus `_loadData(forceRefresh: true)` dari `onTap` daftar "Jatuh Tempo" |
+| Lokasi File                                                              | Status Perubahan | Deskripsi                                                               |
+| ------------------------------------------------------------------------ | ---------------- | ----------------------------------------------------------------------- |
+| memori/sesi/sesi_69.md                                                   | Dibuat           | Berkas sesi aktif (Belum Sinkron)                                       |
+| admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart | Diubah           | Hapus `_loadData(forceRefresh: true)` dari `onTap` daftar "Jatuh Tempo" |
 
 ## Sinkronisasi ke MEMORI.md
 

@@ -14,8 +14,8 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
+| Lokasi File | Status Perubahan | Deskripsi                                                    |
+| ----------- | ---------------- | ------------------------------------------------------------ |
 | —           | —                | Tidak ada perubahan kode/dokumen (pertanyaan informasional). |
 
 ## Sinkronisasi ke MEMORI.md

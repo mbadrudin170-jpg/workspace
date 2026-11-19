@@ -1,17 +1,17 @@
-diperbarui : Thu Nov 19 2026 17:43 WIB
+diperbarui : Fri Nov 20 2026 04:35 WIB
 ditimpa ke : `.kilo/commands/diskusi_hasil_analisa_transkrip.md`
 
 1. Baca `AGENTS.md` terlebih dahulu dan patuhi aturannya; baca `instructions` pada `.kilo/kilo.jsonc` dan patuhi aturannya.
 
 2. Baca `docs/hasil_analisa/hasil_analisa_transkrip.md`. Jika berkas kosong/tidak ada, lapor ke pengguna dan berhenti.
 
-3. Pilih entri hasil analisa yang akan didiskusikan: jika pengguna memberikan id/topik, gunakan itu; jika tidak, tanyakan (tool `question`) entri mana yang akan didiskusikan. Jika tidak ada entri, lapor dan berhenti.
+3. Pastikan daftar entri lengkap: bila ada id yang belum terdaftar, tambahkan sesuai command `analisa_transkrip` (poin 2) sebelum melanjutkan. Jika ada entri dengan status "belum dianalisa", laporkan dan hentikan (jalankan `analisa_transkrip` terlebih dahulu).
 
-4. Tampilkan ringkasan analisa entri terpilih (ringkasan transkrip, kesalahan AI + bukti/lokasi, sumber kesalahan, saran) kepada pengguna.
+4. Evaluasi **semua** entri yang sudah dianalisa (jangan hanya satu id): tampilkan daftar entri (id, Created At, Topik, Status) dan ringkasan analisa masing-masing (ringkasan transkrip, kesalahan AI + bukti/lokasi, sumber kesalahan, saran).
 
-5. Tanyakan keputusan pengguna (tool `question`): apakah perlu memperbarui/membuat aturan/skill/command berdasarkan saran; jika tidak, berhenti tanpa mengubah apa pun.
+5. Tanyakan keputusan pengguna (tool `question`): apakah perlu memperbarui/membuat aturan/skill/command berdasarkan saran dari seluruh entri; jika tidak, berhenti tanpa mengubah apa pun.
 
-6. Jika disetujui: siapkan draf perubahan (tambah/perbarui aturan/skill/command), tampilkan draf, lalu tunggu persetujuan eksplisit sebelum mengedit; jangan hapus poin penting yang ada.
+6. Jika disetujui: siapkan draf perubahan gabungan (tambah/perbarui aturan/skill/command), tampilkan draf, lalu tunggu persetujuan eksplisit sebelum mengedit; jangan hapus poin penting yang ada.
 
 7. Perubahan skill wajib mengikuti `aturan-pembuatan-skill` (nama folder = `name`, frontmatter, berkas poin `prompt/skill/<nama>.md`) dan memperbarui indeks `kelompok_skill_wajib_non_code.md` bila ada skill baru/berubah.
 

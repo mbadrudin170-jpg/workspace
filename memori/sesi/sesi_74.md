@@ -19,14 +19,14 @@ Topik: Memperbarui berkas di folder prompt/ (memperbarui_file_di_folder_prompt)
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/pantau_dan_evaluasi_transkrip.md | Diubah | Poin 9 → versi multi-select (Opsi A); poin 13 duplikasi dihapus; header `diperbarui` → 19:14 WIB |
-| .kilo/commands/pantau_dan_evaluasi_transkrip.md | Diubah (oleh sesi 75) | Disinkronkan mengikuti sumber (frontmatter + H1 dipertahankan) atas persetujuan "ok" |
-| MEMORI.md | Diubah (oleh sesi 75) | Header → (sesi 75); Status "Sesi terakhir" → sesi_75; Catatan Teknis entri sesi 74+75 |
-| memori/riwayat_perubahan.md | Diubah (oleh sesi 75) | Entri sesi 74+75 ditambah |
-| memori/sesi/sesi_74.md | Dibuat + diubah (sesi 75) | Berkas sesi awal; Sinkronisasi diisi sesi 75 |
-| memori/sesi/sesi_75.md | Dibuat (oleh sesi 75) | Berkas sesi lanjutan |
+| Lokasi File                                      | Status Perubahan          | Deskripsi                                                                                        |
+| ------------------------------------------------ | ------------------------- | ------------------------------------------------------------------------------------------------ |
+| prompt/commands/pantau_dan_evaluasi_transkrip.md | Diubah                    | Poin 9 → versi multi-select (Opsi A); poin 13 duplikasi dihapus; header `diperbarui` → 19:14 WIB |
+| .kilo/commands/pantau_dan_evaluasi_transkrip.md  | Diubah (oleh sesi 75)     | Disinkronkan mengikuti sumber (frontmatter + H1 dipertahankan) atas persetujuan "ok"             |
+| MEMORI.md                                        | Diubah (oleh sesi 75)     | Header → (sesi 75); Status "Sesi terakhir" → sesi_75; Catatan Teknis entri sesi 74+75            |
+| memori/riwayat_perubahan.md                      | Diubah (oleh sesi 75)     | Entri sesi 74+75 ditambah                                                                        |
+| memori/sesi/sesi_74.md                           | Dibuat + diubah (sesi 75) | Berkas sesi awal; Sinkronisasi diisi sesi 75                                                     |
+| memori/sesi/sesi_75.md                           | Dibuat (oleh sesi 75)     | Berkas sesi lanjutan                                                                             |
 
 ## Sinkronisasi ke MEMORI.md
 

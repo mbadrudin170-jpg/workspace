@@ -29,15 +29,15 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| memori/sesi/sesi_68.md | Dibuat | Berkas sesi aktif |
-| MEMORI.md | Diubah | Catch-up sync sesi 67 + sesi 68 |
-| memori/riwayat_perubahan.md | Diubah | Entri catch-up sesi 67 + sesi 68 |
-| memori/sesi/sesi_67.md | Diubah | Status Sinkron → Sudah Sinkron (catch-up) |
-| prompt/commands/muat_skill_terkait.md | Diubah | Potongan A: poin pemindaian skill code/ (header diperbarui 09:56 WIB) |
-| .kilo/commands/muat_skill_terkait.md | Diubah | Potongan A: poin pemindaian skill code/ (sinkron sumber; description diperbarui) |
-| admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart | Diubah | ListTile jatuh tempo ditambah onTap (detail) + onLongPress (arsip); baris `_loadData(forceRefresh: true)` pasca-`Nav.to` dihapus; separator daftar utama Divider → `SizedBox(height: 1)` |
+| Lokasi File                                                              | Status Perubahan | Deskripsi                                                                                                                                                                                |
+| ------------------------------------------------------------------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| memori/sesi/sesi_68.md                                                   | Dibuat           | Berkas sesi aktif                                                                                                                                                                        |
+| MEMORI.md                                                                | Diubah           | Catch-up sync sesi 67 + sesi 68                                                                                                                                                          |
+| memori/riwayat_perubahan.md                                              | Diubah           | Entri catch-up sesi 67 + sesi 68                                                                                                                                                         |
+| memori/sesi/sesi_67.md                                                   | Diubah           | Status Sinkron → Sudah Sinkron (catch-up)                                                                                                                                                |
+| prompt/commands/muat_skill_terkait.md                                    | Diubah           | Potongan A: poin pemindaian skill code/ (header diperbarui 09:56 WIB)                                                                                                                    |
+| .kilo/commands/muat_skill_terkait.md                                     | Diubah           | Potongan A: poin pemindaian skill code/ (sinkron sumber; description diperbarui)                                                                                                         |
+| admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart | Diubah           | ListTile jatuh tempo ditambah onTap (detail) + onLongPress (arsip); baris `_loadData(forceRefresh: true)` pasca-`Nav.to` dihapus; separator daftar utama Divider → `SizedBox(height: 1)` |
 
 ## Sinkronisasi ke MEMORI.md
 

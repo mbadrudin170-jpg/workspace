@@ -17,10 +17,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| `prompt/skill/memori-check.md` | Diubah | Poin 18–25 ditambah; header `diperbarui` diperbarui ke Fri Nov 20 2026 03:33 WIB. |
-| `memori/sesi/sesi_107.md` | Dibuat | Berkas sesi aktif (Belum Sinkron). |
+| Lokasi File                    | Status Perubahan | Deskripsi                                                                         |
+| ------------------------------ | ---------------- | --------------------------------------------------------------------------------- |
+| `prompt/skill/memori-check.md` | Diubah           | Poin 18–25 ditambah; header `diperbarui` diperbarui ke Fri Nov 20 2026 03:33 WIB. |
+| `memori/sesi/sesi_107.md`      | Dibuat           | Berkas sesi aktif (Belum Sinkron).                                                |
 
 ## Sinkronisasi ke MEMORI.md
 

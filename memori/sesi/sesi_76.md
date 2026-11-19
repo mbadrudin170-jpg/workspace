@@ -22,11 +22,11 @@ Topik: Memperbarui berkas di folder prompt/ (target belum ditunjuk — menunggu 
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| memori/sesi/sesi_76.md | Dibuat | Berkas sesi aktif |
-| prompt/commands/analisa_transkrip.md | Dibuat | Draf poin command baru (ditimpa ke `.kilo/commands/analisa_transkrip.md`) |
-| .kilo/commands/analisa_transkrip.md | Dibuat | Command baru `analisa_transkrip` (membuat id transkrip tertua yang belum dianalisa) |
+| Lokasi File                          | Status Perubahan | Deskripsi                                                                           |
+| ------------------------------------ | ---------------- | ----------------------------------------------------------------------------------- |
+| memori/sesi/sesi_76.md               | Dibuat           | Berkas sesi aktif                                                                   |
+| prompt/commands/analisa_transkrip.md | Dibuat           | Draf poin command baru (ditimpa ke `.kilo/commands/analisa_transkrip.md`)           |
+| .kilo/commands/analisa_transkrip.md  | Dibuat           | Command baru `analisa_transkrip` (membuat id transkrip tertua yang belum dianalisa) |
 
 ## Sinkronisasi ke MEMORI.md
 

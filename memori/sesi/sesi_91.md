@@ -13,9 +13,9 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| memori/sesi/sesi_91.md | Dibuat | Berkas sesi aktif (Belum Sinkron) |
+| Lokasi File            | Status Perubahan | Deskripsi                         |
+| ---------------------- | ---------------- | --------------------------------- |
+| memori/sesi/sesi_91.md | Dibuat           | Berkas sesi aktif (Belum Sinkron) |
 
 ## Sinkronisasi ke MEMORI.md
 

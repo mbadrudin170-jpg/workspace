@@ -18,10 +18,10 @@ Topik: Menghapus ketergantungan PelangganAktifOperasi dari pengguna_aktif_notifi
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart | Diubah | Seluruh CRUD via OperasiSqlite; notifikasi di notifier. |
-| memori/sesi/sesi_86.md | Dibuat | Berkas sesi baru. |
+| Lokasi File                                                               | Status Perubahan | Deskripsi                                               |
+| ------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
+| admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart | Diubah           | Seluruh CRUD via OperasiSqlite; notifikasi di notifier. |
+| memori/sesi/sesi_86.md                                                    | Dibuat           | Berkas sesi baru.                                       |
 
 ## Sinkronisasi ke MEMORI.md
 

@@ -20,24 +20,24 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| `memori/sesi/sesi_110.md` | Dibuat | Berkas sesi aktif (Belum Sinkron). |
-| `docs/hasil_analisa/hasil_analisa_transkrip.md` | Diubah | Penambahan 9 id dari `session_diff/` + analisa & penandaan 8 id "sudah dianalisa" (ses_e0a6d48e aktif dilewati). |
+| Lokasi File                                     | Status Perubahan | Deskripsi                                                                                                        |
+| ----------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_110.md`                       | Dibuat           | Berkas sesi aktif (Belum Sinkron).                                                                               |
+| `docs/hasil_analisa/hasil_analisa_transkrip.md` | Diubah           | Penambahan 9 id dari `session_diff/` + analisa & penandaan 8 id "sudah dianalisa" (ses_e0a6d48e aktif dilewati). |
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| `memori/sesi/sesi_110.md` | Dibuat | Berkas sesi aktif (Belum Sinkron). |
-| `docs/hasil_analisa/hasil_analisa_transkrip.md` | Diubah | Penambahan 9 id dari `session_diff/` + analisa & penandaan ses_e0a9bb26 "sudah dianalisa". |
+| Lokasi File                                     | Status Perubahan | Deskripsi                                                                                  |
+| ----------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------ |
+| `memori/sesi/sesi_110.md`                       | Dibuat           | Berkas sesi aktif (Belum Sinkron).                                                         |
+| `docs/hasil_analisa/hasil_analisa_transkrip.md` | Diubah           | Penambahan 9 id dari `session_diff/` + analisa & penandaan ses_e0a9bb26 "sudah dianalisa". |
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| `memori/sesi/sesi_110.md` | Dibuat | Berkas sesi aktif (Belum Sinkron). |
-| `docs/hasil_analisa/hasil_analisa_transkrip.md` | Diubah | Penambahan id belum dianalisa dari `session_diff/` + analisa sesi terpilih. |
+| Lokasi File                                     | Status Perubahan | Deskripsi                                                                   |
+| ----------------------------------------------- | ---------------- | --------------------------------------------------------------------------- |
+| `memori/sesi/sesi_110.md`                       | Dibuat           | Berkas sesi aktif (Belum Sinkron).                                          |
+| `docs/hasil_analisa/hasil_analisa_transkrip.md` | Diubah           | Penambahan id belum dianalisa dari `session_diff/` + analisa sesi terpilih. |
 
 ## Sinkronisasi ke MEMORI.md
 

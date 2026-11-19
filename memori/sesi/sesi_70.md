@@ -20,6 +20,7 @@ Topik: Pemantauan & evaluasi transkrip sesi Kilo
 Bagian transkrip yang dievaluasi: (a) pembuatan `ListTile` jatuh tempo di `pelanggan_aktif_screen.dart` (onTap log + `Nav.to` DetailPelangganAktif + onLongPress `_arsipkanPelanggan`; skill terkait `navigator-routing`/`konfirmasi-sebelum-simpan` tercakup, tanpa pelanggaran); (b) penghapusan `_loadData(forceRefresh: true)` pasca `Nav.to` atas perintah pengguna "hapus saja"; (c) Divider → `const SizedBox(height: 1)` daftar utama atas pilihan pengguna (daftar jatuh tempo tidak diutak-atik); (d) tempel log runtime → diagnosis error `DELETE FROM pengaturan WHERE id = ?` args `[null]`: diverifikasi benar — `pengaturan_operasi.dart:110` memakai `existingData.first['id'].toString()` dan `operasi_dasar.dart:134-143` hardcode `'id = ?'`, tabel pengaturan tanpa kolom `id` (bug pra-eksisting; bukan temuan AI/sesi; AI tidak mengubah kode, menunggu perintah pengguna); (e) perintah "gunakan notifier" untuk `DummyHelper` — AI memuat `notifier-crud-database` + `build-runner-codegen`, membaca notifier/operasi tujuan, tanya cakupan via `question` (disetujui pengguna: semua via notifier, hard delete via `OperasiDasar`), lalu menulis 6 state Freezed baru (`pengaturan`, `kritik_saran`, `sub_kategori` (di `fitur/kategori/state/`), `pesanan`, `status_unggah`, `versi_apk_user`) — bentuk sesuai skill `model-state-freezed-abstract` (`abstract class`, `const factory`, private constructor, `@Default`); belum ada `.freezed.dart` untuk state baru pada saat evaluasi (build_runner belum dijalankan).
 
 Kesimpulan evaluasi: **tidak ada celah baru** yang belum tercakup aturan/skill yang ada.
+
 - Tercakup code.md #12 + skill `logging-debug`: seluruh log narasi/banner di produksi (runtime log) — bukan output AI sesi ini.
 - Tercakup code.md #16: `Colors.grey`/`Colors.white`, `Colors.green`/`red`.
 - Tercakup code.md #26 + `pencarian-koleksi-null-safe`: contoh state `kategori_state.dart` (`firstWhereOrNull`).
@@ -35,9 +36,9 @@ Tidak ada perubahan aturan/skill/kode yang diusulkan atau dibuat pada sesi ini. 
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| memori/sesi/sesi_70.md | Dibuat | Berkas sesi aktif (Belum Sinkron) |
+| Lokasi File            | Status Perubahan | Deskripsi                         |
+| ---------------------- | ---------------- | --------------------------------- |
+| memori/sesi/sesi_70.md | Dibuat           | Berkas sesi aktif (Belum Sinkron) |
 
 ## Sinkronisasi ke MEMORI.md
 

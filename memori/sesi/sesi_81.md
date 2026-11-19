@@ -13,11 +13,11 @@ Topik: Perubahan alur command `analisa_transkrip` — cache daftar id + Created 
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/analisa_transkrip.md | Diubah | Header `diperbarui` → 20:23 WIB + poin 2–8 disusun ulang (cache id + Created At) |
-| .kilo/commands/analisa_transkrip.md | Diubah | Poin 2–8 disinkronkan |
-| memori/sesi/sesi_81.md | Dibuat | Berkas sesi aktif |
+| Lokasi File                          | Status Perubahan | Deskripsi                                                                        |
+| ------------------------------------ | ---------------- | -------------------------------------------------------------------------------- |
+| prompt/commands/analisa_transkrip.md | Diubah           | Header `diperbarui` → 20:23 WIB + poin 2–8 disusun ulang (cache id + Created At) |
+| .kilo/commands/analisa_transkrip.md  | Diubah           | Poin 2–8 disinkronkan                                                            |
+| memori/sesi/sesi_81.md               | Dibuat           | Berkas sesi aktif                                                                |
 
 ## Sinkronisasi ke MEMORI.md
 

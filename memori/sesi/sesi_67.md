@@ -14,14 +14,14 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| memori/sesi/sesi_67.md | Dibuat | Berkas sesi baru untuk percakapan ini |
-| admin_wifi/lib/fitur/pelanggan_aktif/state/pelanggan_aktif_state.dart | Diubah | Tambah method `getListBelumJatuhTempo()` untuk mengambil list pelanggan aktif yang belum jatuh tempo |
-| admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart | Diubah | Ganti dialog arsipkan inline ke `ConfirmationDialog.show()` dari `share_global_saya`; hapus import `nama_pelanggan.dart` yang tidak terpakai; ganti hardcoded string di `_showUrutkanDialog` ke `value.label` dari enum; perbaiki layout `_buildBody` pakai `CustomScrollView` + `SliverList` (fix unbounded height) |
-| admin_wifi/lib/fitur/pelanggan_aktif/enum/opsi_hapus_pilihan.dart | Dibuat | Enum `OpsiHapusPilihan` dipindah dari screen + tambah extension `label` |
-| admin_wifi/lib/fitur/pelanggan_aktif/enum/opsi_urutkan.dart | Dibuat | Enum `OpsiUrutkan` dipindah dari screen + tambah extension `label` |
-| admin_wifi/lib/fitur/pelanggan_aktif/dummy/pelanggan_aktif_dummy.dart | Diubah | Tambah 2 dummy pelanggan aktif yang sudah jatuh tempo (ID_PA_006, ID_PA_007) dengan tanggalBerakhir di masa lalu |
+| Lokasi File                                                              | Status Perubahan | Deskripsi                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------ | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| memori/sesi/sesi_67.md                                                   | Dibuat           | Berkas sesi baru untuk percakapan ini                                                                                                                                                                                                                                                                                |
+| admin_wifi/lib/fitur/pelanggan_aktif/state/pelanggan_aktif_state.dart    | Diubah           | Tambah method `getListBelumJatuhTempo()` untuk mengambil list pelanggan aktif yang belum jatuh tempo                                                                                                                                                                                                                 |
+| admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart | Diubah           | Ganti dialog arsipkan inline ke `ConfirmationDialog.show()` dari `share_global_saya`; hapus import `nama_pelanggan.dart` yang tidak terpakai; ganti hardcoded string di `_showUrutkanDialog` ke `value.label` dari enum; perbaiki layout `_buildBody` pakai `CustomScrollView` + `SliverList` (fix unbounded height) |
+| admin_wifi/lib/fitur/pelanggan_aktif/enum/opsi_hapus_pilihan.dart        | Dibuat           | Enum `OpsiHapusPilihan` dipindah dari screen + tambah extension `label`                                                                                                                                                                                                                                              |
+| admin_wifi/lib/fitur/pelanggan_aktif/enum/opsi_urutkan.dart              | Dibuat           | Enum `OpsiUrutkan` dipindah dari screen + tambah extension `label`                                                                                                                                                                                                                                                   |
+| admin_wifi/lib/fitur/pelanggan_aktif/dummy/pelanggan_aktif_dummy.dart    | Diubah           | Tambah 2 dummy pelanggan aktif yang sudah jatuh tempo (ID_PA_006, ID_PA_007) dengan tanggalBerakhir di masa lalu                                                                                                                                                                                                     |
 
 ## Sinkronisasi ke MEMORI.md
 

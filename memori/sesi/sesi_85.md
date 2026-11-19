@@ -13,11 +13,11 @@ Topik: Poin 5 command `analisa_transkrip` — larangan sub-agent untuk membaca t
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/analisa_transkrip.md | Diubah | Header `diperbarui` → 20:51 WIB + poin 5 diperbarui (larangan sub-agent) |
-| .kilo/commands/analisa_transkrip.md | Diubah | Poin 5 disinkronkan |
-| memori/sesi/sesi_85.md | Dibuat | Berkas sesi aktif |
+| Lokasi File                          | Status Perubahan | Deskripsi                                                                |
+| ------------------------------------ | ---------------- | ------------------------------------------------------------------------ |
+| prompt/commands/analisa_transkrip.md | Diubah           | Header `diperbarui` → 20:51 WIB + poin 5 diperbarui (larangan sub-agent) |
+| .kilo/commands/analisa_transkrip.md  | Diubah           | Poin 5 disinkronkan                                                      |
+| memori/sesi/sesi_85.md               | Dibuat           | Berkas sesi aktif                                                        |
 
 ## Sinkronisasi ke MEMORI.md
 

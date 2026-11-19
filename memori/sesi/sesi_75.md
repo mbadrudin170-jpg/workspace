@@ -17,14 +17,14 @@ Topik: Melanjutkan tugas "Memperbarui berkas prompt dengan persetujuan" (sesi 74
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/pantau_dan_evaluasi_transkrip.md | Diubah (sesi 74) | Poin 9 → versi multi-select (Opsi A), poin 13 duplikasi dihapus, header `diperbarui` → 19:14 WIB |
-| .kilo/commands/pantau_dan_evaluasi_transkrip.md | Diubah | Ditimpa mengikuti draf yang disetujui ("ok"): poin 9 multi-select, tanpa poin 13; frontmatter `description` + H1 dipertahankan |
-| MEMORI.md | Diubah | Header → (sesi 75); Status "Sesi terakhir" → sesi_75; Catatan Teknis entri sesi 74+75 |
-| memori/riwayat_perubahan.md | Diubah | Entri sesi 74+75 ditambah |
-| memori/sesi/sesi_74.md | Diubah (catch-up) | Sinkronisasi diisi; status → Sudah Sinkron; tabel Berkas Terdampak dilengkapi |
-| memori/sesi/sesi_75.md | Dibuat | Berkas sesi aktif untuk kelanjutan tugas sesi 74 |
+| Lokasi File                                      | Status Perubahan  | Deskripsi                                                                                                                      |
+| ------------------------------------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| prompt/commands/pantau_dan_evaluasi_transkrip.md | Diubah (sesi 74)  | Poin 9 → versi multi-select (Opsi A), poin 13 duplikasi dihapus, header `diperbarui` → 19:14 WIB                               |
+| .kilo/commands/pantau_dan_evaluasi_transkrip.md  | Diubah            | Ditimpa mengikuti draf yang disetujui ("ok"): poin 9 multi-select, tanpa poin 13; frontmatter `description` + H1 dipertahankan |
+| MEMORI.md                                        | Diubah            | Header → (sesi 75); Status "Sesi terakhir" → sesi_75; Catatan Teknis entri sesi 74+75                                          |
+| memori/riwayat_perubahan.md                      | Diubah            | Entri sesi 74+75 ditambah                                                                                                      |
+| memori/sesi/sesi_74.md                           | Diubah (catch-up) | Sinkronisasi diisi; status → Sudah Sinkron; tabel Berkas Terdampak dilengkapi                                                  |
+| memori/sesi/sesi_75.md                           | Dibuat            | Berkas sesi aktif untuk kelanjutan tugas sesi 74                                                                               |
 
 ## Sinkronisasi ke MEMORI.md
 

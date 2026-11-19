@@ -17,16 +17,16 @@ Topik: sambutan awal sesi (hai)
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| memori/sesi/sesi_70.md | Diubah | Catch-up: ditandai `Sudah Sinkron` + catatan sinkronisasi (tidak ada perubahan proyek) |
-| memori/sesi/sesi_71.md | Dibuat | Berkas sesi aktif |
-| admin_wifi/lib/fitur/status_unggah/model/status_unggah_model.dart | Diubah | Model diselaraskan ke DDL `status_unggah` (namaTabel/status/ids/diperbarui); skema dibersihkan |
-| admin_wifi/lib/fitur/status_unggah/model/status_unggah_model.freezed.dart | Diubah (generate) | Hasil `build_runner` |
-| admin_wifi/lib/fitur/status_unggah/dummy/status_unggah_dummy.dart | Diubah | Dummy mengikuti model baru (tanpa kolom `id`) |
-| admin_wifi/lib/dummy/dummy_helper.dart | Diubah | Penghapusan dummy `status_unggah` lewat kolom `tabel` (`kolomKunci` berparameter) |
-| admin_wifi/test/model/status_unggah_model_test.dart | Diubah | Test mengikuti model baru |
-| admin_wifi/lib/data/operasi/pengaturan_operasi.dart | Diubah | `simpanAtauPerbaruiPengaturan`: hapus-lalu-insert dalam satu transaksi tanpa membaca kolom `id` (tabel `pengaturan` tanpa kolom `id`) |
+| Lokasi File                                                               | Status Perubahan  | Deskripsi                                                                                                                             |
+| ------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| memori/sesi/sesi_70.md                                                    | Diubah            | Catch-up: ditandai `Sudah Sinkron` + catatan sinkronisasi (tidak ada perubahan proyek)                                                |
+| memori/sesi/sesi_71.md                                                    | Dibuat            | Berkas sesi aktif                                                                                                                     |
+| admin_wifi/lib/fitur/status_unggah/model/status_unggah_model.dart         | Diubah            | Model diselaraskan ke DDL `status_unggah` (namaTabel/status/ids/diperbarui); skema dibersihkan                                        |
+| admin_wifi/lib/fitur/status_unggah/model/status_unggah_model.freezed.dart | Diubah (generate) | Hasil `build_runner`                                                                                                                  |
+| admin_wifi/lib/fitur/status_unggah/dummy/status_unggah_dummy.dart         | Diubah            | Dummy mengikuti model baru (tanpa kolom `id`)                                                                                         |
+| admin_wifi/lib/dummy/dummy_helper.dart                                    | Diubah            | Penghapusan dummy `status_unggah` lewat kolom `tabel` (`kolomKunci` berparameter)                                                     |
+| admin_wifi/test/model/status_unggah_model_test.dart                       | Diubah            | Test mengikuti model baru                                                                                                             |
+| admin_wifi/lib/data/operasi/pengaturan_operasi.dart                       | Diubah            | `simpanAtauPerbaruiPengaturan`: hapus-lalu-insert dalam satu transaksi tanpa membaca kolom `id` (tabel `pengaturan` tanpa kolom `id`) |
 
 ## Sinkronisasi ke MEMORI.md
 

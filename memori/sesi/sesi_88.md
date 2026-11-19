@@ -17,10 +17,10 @@ Topik: Menyederhanakan pembuatan id di pengguna_aktif_notifier.
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart | Diubah | Hapus idBaru dan uuid. |
-| memori/sesi/sesi_88.md | Dibuat | Berkas sesi baru. |
+| Lokasi File                                                               | Status Perubahan | Deskripsi              |
+| ------------------------------------------------------------------------- | ---------------- | ---------------------- |
+| admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart | Diubah           | Hapus idBaru dan uuid. |
+| memori/sesi/sesi_88.md                                                    | Dibuat           | Berkas sesi baru.      |
 
 ## Sinkronisasi ke MEMORI.md
 

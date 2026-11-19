@@ -17,7 +17,7 @@
   - `sesi_69.md`, `sesi_70.md` sudah `Sudah Sinkron` (ditandai sesi 71); tidak disentuh.
 - Command dipanggil tanpa argumen (`$ARGUMENTS` kosong); pengguna kemudian menunjuk berkas `prompt/commands/pantau_dan_evaluasi_transkrip.md` (paste isi berkas).
 - Diskusi isi berkas `prompt/commands/pantau_dan_evaluasi_transkrip.md`:
-  - Temuan: poin 14 (`baca transkrip tersebut dengan utuh atau \`full dump\``) bermasalah — huruf kecil awal, `full dump` ambigu (tidak seragam dengan "dump penuh" di poin 3), redundan dengan poin 3 (namun menambah kewajiban "sampai tuntas"); poin 13 → 14 dan poin 14 → `# Skill Terkait` tidak dipisah baris kosong (melanggar `aturan-folder-prompt` Aturan 8); target `.kilo/commands/pantau_dan_evaluasi_transkrip.md` tidak memuat poin 14 (sumber–target tidak sinkron).
+  - Temuan: poin 14 (`baca transkrip tersebut dengan utuh atau \`full dump\``) bermasalah — huruf kecil awal, `full dump`ambigu (tidak seragam dengan "dump penuh" di poin 3), redundan dengan poin 3 (namun menambah kewajiban "sampai tuntas"); poin 13 → 14 dan poin 14 →`# Skill Terkait`tidak dipisah baris kosong (melanggar`aturan-folder-prompt`Aturan 8); target`.kilo/commands/pantau_dan_evaluasi_transkrip.md` tidak memuat poin 14 (sumber–target tidak sinkron).
   - Pilihan pengguna (tool `question`): poin 14 **digabung ke poin 3** (poin 14 dihapus); perbaikan tambahan: **Format & header** + **Sinkron target**; Kandidat E (poin 13 digabung ke poin 9) TIDAK dipilih — tidak diterapkan. Draf ditampilkan lalu disetujui eksplisit ("Terapkan draf").
   - Penerapan: poin 3 sumber+target ditulis ulang ("...dump penuh transkrip dan baca seluruhnya sampai tuntas ... gunakan lampiran tersebut dan baca seluruhnya sampai tuntas"); poin 14 dihapus; baris kosong sebelum `# Skill Terkait`; header `diperbarui` sumber → `Thu Nov 19 2026 18:58 WIB`; target disinkronkan (poin 3 sama; frontmatter description & `# Pantau dan Evaluasi Transkrip` tetap). `prettier --write` dijalankan HANYA pada 2 berkas yang diedit (keduanya `unchanged`); alias `formatmd` global TIDAK dijalankan agar berkas arsip (`memori/sesi/*.md`) tidak ikut berubah (disiplin-scope-kerja) — deviasi dari alias, dicatat di sini.
   - Catatan: Kandidat A poin 3 (fallback `kilo_local_recall`) dari sesi 72 tetap TIDAK diterapkan (tidak dipilih pengguna). Perubahan ter-stage sebagian (`M `/`MM`) — diasumsikan oleh proses lapisan lain; TIDAK ada commit oleh sesi ini.
@@ -25,13 +25,13 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| memori/sesi/sesi_73.md | Dibuat | Berkas sesi aktif |
-| prompt/commands/pantau_dan_evaluasi_transkrip.md | Diubah | Poin 3 digabung (baca transkrip sampai tuntas untuk ID maupun lampiran), poin 14 dihapus, baris kosong dirapikan, header `diperbarui` → 18:58 WIB |
-| .kilo/commands/pantau_dan_evaluasi_transkrip.md | Diubah | Target disinkronkan: poin 3 mengikuti sumber |
-| MEMORI.md | Diubah | Header → (sesi 73); Status: bullet sesi_73 "Sesi terakhir" ditambah di atas; bullet lama yang berlabel "Sesi terakhir" (sesi_68, sesi_65) diubah menjadi "Sesi 68"/"Sesi 65" (hindari dua "Sesi terakhir" bertentangan); Catatan Teknis entri sesi 73 ditambah di atas |
-| memori/riwayat_perubahan.md | Diubah | Entri sesi 73 ditambah di paling atas tabel |
+| Lokasi File                                      | Status Perubahan | Deskripsi                                                                                                                                                                                                                                                              |
+| ------------------------------------------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| memori/sesi/sesi_73.md                           | Dibuat           | Berkas sesi aktif                                                                                                                                                                                                                                                      |
+| prompt/commands/pantau_dan_evaluasi_transkrip.md | Diubah           | Poin 3 digabung (baca transkrip sampai tuntas untuk ID maupun lampiran), poin 14 dihapus, baris kosong dirapikan, header `diperbarui` → 18:58 WIB                                                                                                                      |
+| .kilo/commands/pantau_dan_evaluasi_transkrip.md  | Diubah           | Target disinkronkan: poin 3 mengikuti sumber                                                                                                                                                                                                                           |
+| MEMORI.md                                        | Diubah           | Header → (sesi 73); Status: bullet sesi_73 "Sesi terakhir" ditambah di atas; bullet lama yang berlabel "Sesi terakhir" (sesi_68, sesi_65) diubah menjadi "Sesi 68"/"Sesi 65" (hindari dua "Sesi terakhir" bertentangan); Catatan Teknis entri sesi 73 ditambah di atas |
+| memori/riwayat_perubahan.md                      | Diubah           | Entri sesi 73 ditambah di paling atas tabel                                                                                                                                                                                                                            |
 
 ## Sinkronisasi ke MEMORI.md
 

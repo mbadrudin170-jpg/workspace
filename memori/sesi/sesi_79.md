@@ -13,11 +13,11 @@ Topik: Penggantian poin 5 placeholder pada command `analisa_transkrip` dengan la
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/analisa_transkrip.md | Diubah | Header `diperbarui` → 20:06 WIB + poin 5 diganti |
-| .kilo/commands/analisa_transkrip.md | Diubah | Poin 5 disinkronkan |
-| memori/sesi/sesi_79.md | Dibuat | Berkas sesi aktif |
+| Lokasi File                          | Status Perubahan | Deskripsi                                        |
+| ------------------------------------ | ---------------- | ------------------------------------------------ |
+| prompt/commands/analisa_transkrip.md | Diubah           | Header `diperbarui` → 20:06 WIB + poin 5 diganti |
+| .kilo/commands/analisa_transkrip.md  | Diubah           | Poin 5 disinkronkan                              |
+| memori/sesi/sesi_79.md               | Dibuat           | Berkas sesi aktif                                |
 
 ## Sinkronisasi ke MEMORI.md
 

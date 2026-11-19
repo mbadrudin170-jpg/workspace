@@ -15,49 +15,49 @@ Topik: Ganti impor `package:flutter/material.dart` → `package:material_ui/mate
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| admin_wifi/lib/data/services/navigasi_servis.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/dummy/dummy_screen.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/widget/nama_pelanggan.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/widget/transaksi_list_widgets.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/widget/info_ringkasan_widget.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/widget/nama_paket.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/widget/nama_dari_id.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/halaman/form/form_pengaturan.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/halaman/pembantu/halaman_poin.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/halaman/tes/detail_pelanggan_uji.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/halaman/lainnya/pengaturan.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/halaman/lainnya/riwayat_aktivasi_paket.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/halaman/lainnya/tentang_aplikasi.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/halaman/tab/lainnya.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/halaman/tab/pesanan.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/halaman/detail/detail_riwayat_langganan.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/main.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/migrasi/halaman_migrasi.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/splash_screen.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/utils/colors.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/utils/perhitungan_util.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/pelanggan_aktif/screens/detail_pelanggan_aktif.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/pelanggan/screens/detail_pelanggan.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/pelanggan/screens/form_pelanggan.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/kritik_saran/screens/detail_kritik_saran.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/kritik_saran/screens/kritik_saran.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/versi_apk_user/screens/detail_versi_apk_user.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/versi_apk_user/screens/versi_apk_user.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/versi_apk_user/screens/form_versi_apk_user.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/dompet/screens/detail_dompet.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/dompet/screens/form_dompet.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/dompet/screens/dompet.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/kategori/screens/kategori.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/lib/fitur/kategori/screens/form_kategori.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/test/halaman/form/form_paket_test.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/test/halaman/form/form_pelanggan_aktif_test.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/test/halaman/form/form_versi_apk_user_test.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/test/halaman/lainnya/versi_apk_user_test.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/test/halaman/tab/transaksi_test.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/test/halaman/detail/detail_dompet_test.dart | Diubah | impor flutter/material → material_ui |
-| admin_wifi/test/utils/perhitungan_util_test.dart | Diubah | impor flutter/material → material_ui |
+| Lokasi File                                                              | Status Perubahan | Deskripsi                            |
+| ------------------------------------------------------------------------ | ---------------- | ------------------------------------ |
+| admin_wifi/lib/data/services/navigasi_servis.dart                        | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/dummy/dummy_screen.dart                                   | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/widget/nama_pelanggan.dart                                | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/widget/transaksi_list_widgets.dart                        | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/widget/info_ringkasan_widget.dart                         | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/widget/nama_paket.dart                                    | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/widget/nama_dari_id.dart                                  | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/halaman/form/form_pengaturan.dart                         | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/halaman/pembantu/halaman_poin.dart                        | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/halaman/tes/detail_pelanggan_uji.dart                     | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/halaman/lainnya/pengaturan.dart                           | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/halaman/lainnya/riwayat_aktivasi_paket.dart               | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/halaman/lainnya/tentang_aplikasi.dart                     | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/halaman/tab/lainnya.dart                                  | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/halaman/tab/pesanan.dart                                  | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/halaman/detail/detail_riwayat_langganan.dart              | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/main.dart                                                 | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/migrasi/halaman_migrasi.dart                              | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/splash_screen.dart                                        | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/utils/colors.dart                                         | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/utils/perhitungan_util.dart                               | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/pelanggan_aktif/screens/detail_pelanggan_aktif.dart | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/pelanggan/screens/detail_pelanggan.dart             | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/pelanggan/screens/form_pelanggan.dart               | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/kritik_saran/screens/detail_kritik_saran.dart       | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/kritik_saran/screens/kritik_saran.dart              | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/versi_apk_user/screens/detail_versi_apk_user.dart   | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/versi_apk_user/screens/versi_apk_user.dart          | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/versi_apk_user/screens/form_versi_apk_user.dart     | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/dompet/screens/detail_dompet.dart                   | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/dompet/screens/form_dompet.dart                     | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/dompet/screens/dompet.dart                          | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/kategori/screens/kategori.dart                      | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/lib/fitur/kategori/screens/form_kategori.dart                 | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/test/halaman/form/form_paket_test.dart                        | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/test/halaman/form/form_pelanggan_aktif_test.dart              | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/test/halaman/form/form_versi_apk_user_test.dart               | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/test/halaman/lainnya/versi_apk_user_test.dart                 | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/test/halaman/tab/transaksi_test.dart                          | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/test/halaman/detail/detail_dompet_test.dart                   | Diubah           | impor flutter/material → material_ui |
+| admin_wifi/test/utils/perhitungan_util_test.dart                         | Diubah           | impor flutter/material → material_ui |
 
 ## Sinkronisasi ke MEMORI.md
 

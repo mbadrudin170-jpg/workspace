@@ -16,9 +16,9 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| `prompt/skill/memori-check.md` | Diubah | Header diperbaiki (backtick tertutup, tanggal WIB terbaru), poin 10 diperluas (konsolidasi/resolusi konflik, pinning, entri volatil, batas ukuran), poin 15–16 dirapikan; poin 17 dipertahankan atas pilihan pengguna; `npx prettier --write` scoped (unchanged isi, penambahan baris kosong antar poin). |
+| Lokasi File                    | Status Perubahan | Deskripsi                                                                                                                                                                                                                                                                                                 |
+| ------------------------------ | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `prompt/skill/memori-check.md` | Diubah           | Header diperbaiki (backtick tertutup, tanggal WIB terbaru), poin 10 diperluas (konsolidasi/resolusi konflik, pinning, entri volatil, batas ukuran), poin 15–16 dirapikan; poin 17 dipertahankan atas pilihan pengguna; `npx prettier --write` scoped (unchanged isi, penambahan baris kosong antar poin). |
 
 ## Sinkronisasi ke MEMORI.md
 

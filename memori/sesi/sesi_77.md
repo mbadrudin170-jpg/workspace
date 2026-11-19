@@ -14,10 +14,10 @@ Topik: Koreksi frontmatter `.kilo/commands/analisa_transkrip.md` menjadi YAML be
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| .kilo/commands/analisa_transkrip.md | Diubah | Frontmatter `description:` kini YAML ber-`---` (koreksi sesi 76) |
-| memori/sesi/sesi_77.md | Dibuat | Berkas sesi koreksi |
+| Lokasi File                         | Status Perubahan | Deskripsi                                                        |
+| ----------------------------------- | ---------------- | ---------------------------------------------------------------- |
+| .kilo/commands/analisa_transkrip.md | Diubah           | Frontmatter `description:` kini YAML ber-`---` (koreksi sesi 76) |
+| memori/sesi/sesi_77.md              | Dibuat           | Berkas sesi koreksi                                              |
 
 ## Sinkronisasi ke MEMORI.md
 

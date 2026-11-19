@@ -14,11 +14,11 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| `memori/sesi/sesi_97.md` | Dibuat | Berkas sesi aktif (Belum Sinkron) |
-| `.agents/rules/lainnya.md` | Diubah | Tambah butir 6 (AI wajib memuat skill terkait dan menawarkan perbaikan eksplisit saat mengidentifikasi pelanggaran aturan) |
-| `prompt/rules/lainnya.md` | Diubah | Tambah butir 5 + perbarui header `diperbarui` ke Fri Nov 20 2026 01:27 WIB |
+| Lokasi File                | Status Perubahan | Deskripsi                                                                                                                  |
+| -------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_97.md`   | Dibuat           | Berkas sesi aktif (Belum Sinkron)                                                                                          |
+| `.agents/rules/lainnya.md` | Diubah           | Tambah butir 6 (AI wajib memuat skill terkait dan menawarkan perbaikan eksplisit saat mengidentifikasi pelanggaran aturan) |
+| `prompt/rules/lainnya.md`  | Diubah           | Tambah butir 5 + perbarui header `diperbarui` ke Fri Nov 20 2026 01:27 WIB                                                 |
 
 ## Sinkronisasi ke MEMORI.md
 

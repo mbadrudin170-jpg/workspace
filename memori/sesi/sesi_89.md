@@ -17,10 +17,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| docs/hasil_analisa/hasil_analisa_transkrip.md | Diubah | Mendaftarkan 11 id + hasil analisa id terpilih + status sudah dianalisa |
-| memori/sesi/sesi_89.md | Dibuat | Berkas sesi ini |
+| Lokasi File                                   | Status Perubahan | Deskripsi                                                               |
+| --------------------------------------------- | ---------------- | ----------------------------------------------------------------------- |
+| docs/hasil_analisa/hasil_analisa_transkrip.md | Diubah           | Mendaftarkan 11 id + hasil analisa id terpilih + status sudah dianalisa |
+| memori/sesi/sesi_89.md                        | Dibuat           | Berkas sesi ini                                                         |
 
 ## Sinkronisasi ke MEMORI.md
 

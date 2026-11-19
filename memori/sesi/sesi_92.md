@@ -15,10 +15,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| memori/sesi/sesi_92.md | Dibuat | Berkas sesi baru |
-| docs/hasil_analisa/hasil_analisa_transkrip.md | Diubah | Hapus id tidak tersedia; analisa id ses_e0b7ebc30ffeHxC90v44OFB45H dan tandai sudah dianalisa |
+| Lokasi File                                   | Status Perubahan | Deskripsi                                                                                     |
+| --------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------------- |
+| memori/sesi/sesi_92.md                        | Dibuat           | Berkas sesi baru                                                                              |
+| docs/hasil_analisa/hasil_analisa_transkrip.md | Diubah           | Hapus id tidak tersedia; analisa id ses_e0b7ebc30ffeHxC90v44OFB45H dan tandai sudah dianalisa |
 
 ## Sinkronisasi ke MEMORI.md
 

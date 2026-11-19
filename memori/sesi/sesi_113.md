@@ -17,11 +17,11 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| `.agents/rules/lainnya.md` | Diubah | Tambah butir 9: pemeriksaan prasyarat sebelum perintah state-changing dan konfirmasi eksplisit untuk aksi destruktif. |
-| `prompt/rules/lainnya.md` | Diubah | Tambah butir 8 (sinkron dengan aturan target) + perbarui header `diperbarui`. |
-| `memori/sesi/sesi_113.md` | Dibuat | Berkas sesi aktif (Sudah Sinkron). |
+| Lokasi File                | Status Perubahan | Deskripsi                                                                                                             |
+| -------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `.agents/rules/lainnya.md` | Diubah           | Tambah butir 9: pemeriksaan prasyarat sebelum perintah state-changing dan konfirmasi eksplisit untuk aksi destruktif. |
+| `prompt/rules/lainnya.md`  | Diubah           | Tambah butir 8 (sinkron dengan aturan target) + perbarui header `diperbarui`.                                         |
+| `memori/sesi/sesi_113.md`  | Dibuat           | Berkas sesi aktif (Sudah Sinkron).                                                                                    |
 
 ## Sinkronisasi ke MEMORI.md
 

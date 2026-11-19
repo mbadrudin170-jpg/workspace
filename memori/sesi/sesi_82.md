@@ -13,11 +13,11 @@ Topik: Poin 6 command `analisa_transkrip` — simpan hasil analisa ke `hasil_ana
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/analisa_transkrip.md | Diubah | Header `diperbarui` → 20:28 WIB + poin 6 diperbarui (simpan hasil analisa) |
-| .kilo/commands/analisa_transkrip.md | Diubah | Poin 6 disinkronkan |
-| memori/sesi/sesi_82.md | Dibuat | Berkas sesi aktif |
+| Lokasi File                          | Status Perubahan | Deskripsi                                                                  |
+| ------------------------------------ | ---------------- | -------------------------------------------------------------------------- |
+| prompt/commands/analisa_transkrip.md | Diubah           | Header `diperbarui` → 20:28 WIB + poin 6 diperbarui (simpan hasil analisa) |
+| .kilo/commands/analisa_transkrip.md  | Diubah           | Poin 6 disinkronkan                                                        |
+| memori/sesi/sesi_82.md               | Dibuat           | Berkas sesi aktif                                                          |
 
 ## Sinkronisasi ke MEMORI.md
 

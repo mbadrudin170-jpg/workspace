@@ -16,10 +16,10 @@ Topik: Menghapus PelangganOperasi dari pengguna_aktif_notifier.
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart | Diubah | Hapus PelangganOperasi; gunakan OperasiSqlite. |
-| memori/sesi/sesi_87.md | Dibuat | Berkas sesi baru. |
+| Lokasi File                                                               | Status Perubahan | Deskripsi                                      |
+| ------------------------------------------------------------------------- | ---------------- | ---------------------------------------------- |
+| admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart | Diubah           | Hapus PelangganOperasi; gunakan OperasiSqlite. |
+| memori/sesi/sesi_87.md                                                    | Dibuat           | Berkas sesi baru.                              |
 
 ## Sinkronisasi ke MEMORI.md
 

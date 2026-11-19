@@ -18,10 +18,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| `memori/sesi/sesi_101.md` | Diubah (catch-up) | Status Sinkron `Belum Sinkron` → `Sudah Sinkron` dengan catatan eksplisit (yatim). |
-| `~/.bash_aliases` | Dibuat | Salinan dari `script/bash_aliases.sh`; diverifikasi `bash -n` (tanpa error). Berada di luar repositori workspace. |
+| Lokasi File               | Status Perubahan  | Deskripsi                                                                                                         |
+| ------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_101.md` | Diubah (catch-up) | Status Sinkron `Belum Sinkron` → `Sudah Sinkron` dengan catatan eksplisit (yatim).                                |
+| `~/.bash_aliases`         | Dibuat            | Salinan dari `script/bash_aliases.sh`; diverifikasi `bash -n` (tanpa error). Berada di luar repositori workspace. |
 
 ## Sinkronisasi ke MEMORI.md
 

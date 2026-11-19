@@ -17,9 +17,9 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| docs/hasil_analisa/hasil_analisa_transkrip.md | Diubah | Perbarui daftar id + hasil analisa sesi ini |
+| Lokasi File                                   | Status Perubahan | Deskripsi                                   |
+| --------------------------------------------- | ---------------- | ------------------------------------------- |
+| docs/hasil_analisa/hasil_analisa_transkrip.md | Diubah           | Perbarui daftar id + hasil analisa sesi ini |
 
 ## Sinkronisasi ke MEMORI.md
 

@@ -15,8 +15,8 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
+| Lokasi File | Status Perubahan | Deskripsi                                                                                  |
+| ----------- | ---------------- | ------------------------------------------------------------------------------------------ |
 | —           | —                | Tidak ada perubahan kode/dokumen (pull gagal karena tidak ada akses jaringan/autentikasi). |
 
 ## Sinkronisasi ke MEMORI.md

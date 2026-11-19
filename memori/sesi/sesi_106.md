@@ -17,10 +17,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| `~/.bash_aliases` | Dibuat | Salinan dari `script/bash_aliases.sh`; diverifikasi `bash -n` (tanpa error). Berada di luar repositori workspace. |
-| `memori/sesi/sesi_106.md` | Dibuat | Berkas sesi aktif (Belum Sinkron). |
+| Lokasi File               | Status Perubahan | Deskripsi                                                                                                         |
+| ------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `~/.bash_aliases`         | Dibuat           | Salinan dari `script/bash_aliases.sh`; diverifikasi `bash -n` (tanpa error). Berada di luar repositori workspace. |
+| `memori/sesi/sesi_106.md` | Dibuat           | Berkas sesi aktif (Belum Sinkron).                                                                                |
 
 ## Sinkronisasi ke MEMORI.md
 

@@ -20,12 +20,12 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| `prompt/skill/memori-check.md` | Diubah | Poin 30 (tujuan informasi memori) ditambah; header `diperbarui` diperbarui. |
-| `MEMORI.md` | Diubah | Catatan teknis tujuan memori ditambah (provenance sesi 108). |
-| `memori/riwayat_perubahan.md` | Diubah | Entri sesi 108 ditambah. |
-| `memori/sesi/sesi_108.md` | Dibuat | Berkas sesi aktif (Belum Sinkron). |
+| Lokasi File                    | Status Perubahan | Deskripsi                                                                   |
+| ------------------------------ | ---------------- | --------------------------------------------------------------------------- |
+| `prompt/skill/memori-check.md` | Diubah           | Poin 30 (tujuan informasi memori) ditambah; header `diperbarui` diperbarui. |
+| `MEMORI.md`                    | Diubah           | Catatan teknis tujuan memori ditambah (provenance sesi 108).                |
+| `memori/riwayat_perubahan.md`  | Diubah           | Entri sesi 108 ditambah.                                                    |
+| `memori/sesi/sesi_108.md`      | Dibuat           | Berkas sesi aktif (Belum Sinkron).                                          |
 
 ## Sinkronisasi ke MEMORI.md
 
