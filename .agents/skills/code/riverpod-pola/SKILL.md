@@ -1,10 +1,10 @@
 ---
 name: riverpod-pola
-description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD dengan `@Riverpod(keepAlive: true)`, notifier sinkron codegen + `@freezed`, `ref.watch` di build / `ref.read` di callback, `Consumer(Stateful)Widget`, family immutable, `autoDispose`, `ProviderScope` di root, `select` untuk rebuild minimal, penanganan `AsyncValue` tanpa `.when` (wajib `isLoading` → `hasError` → `requireValue`), signature `ConsumerState.build(BuildContext)` (`ref` via getter), folder `notifier/` vs `provider/`, try-catch pada `Future`, `await ref.watch(provider.future)` untuk provider Future, akses `.future` provider via `ref.read`/`ref.watch` (bukan langsung pada objek provider), reload `AsyncValue.data` + `catch`/`rethrow` via method `muatUlang()`, dan penamaan provider codegen tanpa akhiran `Notifier`)."
+description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD dengan `@Riverpod(keepAlive: true)`, notifier sinkron codegen + `@freezed`, `ref.watch` wajib langsung di `build()` (dilarang di callback, di luar `build()`, dan di helper yang dipanggil dari `build()` — helper menerima state via parameter) / `ref.read` di callback, `Consumer(Stateful)Widget`, family immutable, `autoDispose`, `ProviderScope` di root, `select` untuk rebuild minimal, penanganan `AsyncValue` tanpa `.when` (wajib `isLoading` → `hasError` → `requireValue`), signature `ConsumerState.build(BuildContext)` (`ref` via getter), folder `notifier/` vs `provider/`, try-catch pada `Future`, `await ref.watch(provider.future)` untuk provider Future, akses `.future` provider via `ref.read`/`ref.watch` (bukan langsung pada objek provider), reload `AsyncValue.data` + `catch`/`rethrow` via method `muatUlang()`, dan penamaan provider codegen tanpa akhiran `Notifier`)."
 metadata:
   kategori: "custom"
-  versi: "1.6.0"
-  diperbarui: "Thu Nov 19 2026 03:00 WIB"
+  versi: "1.7.0"
+  diperbarui: "Thu Nov 19 2026 09:44 WIB"
 ---
 
 1. Notifier database (CRUD): gunakan `@Riverpod(keepAlive: true)`; `build()` memanggil `_ambilSemua()`; update state setelah DB berhasil; `catch Exception` lalu `rethrow`.
@@ -25,18 +25,39 @@ metadata:
    ```
 
 3. State notifier sinkron wajib `@freezed`; field nullable dikosongkan lewat `copyWith(field: null)` (sentinel codegen), tanpa bendera manual.
-4. `ref.watch(provider)` di `build()` untuk rebuild otomatis; `ref.read(provider)` di callback/event handler; dilarang `ref.watch` di callback atau di luar `build()`.
+4. `ref.watch(provider)` WAJIB langsung di dalam `build()` untuk rebuild otomatis; `ref.read(provider)` di callback/event handler; dilarang `ref.watch` di callback atau di luar `build()`. Helper yang dipanggil dari `build()` (mis. `_buildBody()`) DILARANG memanggil `ref.watch`/`ref.read` — state hasil `ref.watch` di `build()` WAJIB diteruskan ke helper sebagai parameter (mis. `_buildBody(pelangganState, paketState, pelangganAktifAsync)`), bukan diakses ulang di dalam helper.
    Contoh:
    ```dart
    @override
-   Widget build(BuildContext context, WidgetRef ref) {
-     final nilai = ref.watch(counterProvider); // rebuild otomatis
-     return ElevatedButton(
-       onPressed: () => ref.read(counterProvider.notifier).increment(), // callback
-       child: Text('$nilai'),
+   Widget build(BuildContext context) {
+     final asyncPelangganAktif = ref.watch(penggunaAktifProvider); // langsung di build()
+     final asyncPelanggan = ref.watch(pelangganProvider);
+     final asyncPaket = ref.watch(paketProvider);
+
+     if (asyncPelangganAktif.isLoading || asyncPelanggan.isLoading || asyncPaket.isLoading) {
+       return const Center(child: CircularProgressIndicator());
+     }
+     if (asyncPelangganAktif.hasError) {
+       return _buildMuatGagal('Gagal memuat data: ${asyncPelangganAktif.error}',
+           () => ref.refresh(penggunaAktifProvider));
+     }
+     // ... hasil ref.watch diteruskan sebagai parameter, bukan di-watch ulang di helper
+     return _buildBody(
+       asyncPelanggan.requireValue,
+       asyncPaket.requireValue,
+       asyncPelangganAktif.requireValue,
      );
    }
-   // Dilarang: ref.watch di callback atau di luar build()
+
+   Widget _buildBody(
+     PelangganState pelangganState,
+     PaketState paketState,
+     PelangganAktifState pelangganAktifAsync,
+   ) {
+     final semuaPelanggan = pelangganAktifAsync.listPelangganAktif;
+     // ... rendering tanpa ref.watch/ref.read di dalam helper
+   }
+   // Dilarang: ref.watch/ref.read di dalam _buildBody() atau helper lain yang dipanggil dari build()
    ```
 5. Gunakan `ConsumerWidget`/`ConsumerStatefulWidget` untuk akses `ref`; `Consumer` granular untuk optimasi; jangan bungkus seluruh halaman besar.
 6. Family provider (`.family`) hanya untuk parameter immutable dan comparable; key stabil untuk caching; family parameter mutable dilarang.
@@ -301,4 +322,5 @@ class PenggunaAktifNotifier extends _$PenggunaAktifNotifier {
 - File state: `admin_wifi/lib/fitur/state/pelanggan_aktif_state.dart`
 - Commit rujukan: `f9568a11173bab474012db81f7c6d066e80f15c5` — Notifier codegen + `PelangganAktifState` (proyek `admin_wifi`)
 - Aturan terkait: `.agents/rules/code.md` (reload `AsyncValue.guard` & codegen provider; lazy IndexedStack)
+- Provenance (sesi 65, 2026-11-19; alur commit-based): transkrip sesi Kilo `ses_e0e8c862dffeZX10v07226tjSk` — AI menaruh `ref.watch`/`ref.read` di helper `_buildBody()` yang dipanggil dari `build()` (`pelanggan_aktif_screen.dart`); pengguna mengoreksi "pindahkan ke build lalu build body cukup tambah paramter state" (helper `_buildBody` menerima `PelangganState`, `PaketState`, `PelangganAktifState` sebagai parameter). Aturan 4 dipertajam (ref.watch wajib langsung di `build()`; helper dilarang memanggil ref.watch/ref.read; state diteruskan via parameter) berdasarkan temuan ini; di luar alur commit-history atas persetujuan eksplisit pengguna (sesi 65).
 - Provenance (sesi 56, 2026-11-19; alur commit-based): commit `6864dea` (proyek `admin_wifi`, "m", 2026-11-18 23:24 UTC) — perbaikan `lib/fitur/pelanggan_aktif/screens/form_pelanggan_aktif.dart` `_petakanModeEdit()`: `await (paketProvider.future)` → `await ref.read(paketProvider.future)` (error `getById` tidak ditemukan pada `Refreshable<Future<PaketState>>`). Aturan 22 baru ditambahkan berdasarkan temuan ini.

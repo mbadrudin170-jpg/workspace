@@ -1,0 +1,43 @@
+# Sesi 68
+
+## Status
+
+- Status Sinkron: Belum Sinkron
+- Tanggal: 2026-11-19
+- Command: pantau_dan_evaluasi_transkrip (ses_e0e5409c8ffeS7hXAvf8WVpMHJ)
+- Topik: Pantau & evaluasi transkrip "Greeting"; koreksi klaim code.md #26 + celah command `muat_skill_terkait`
+
+## Catatan Sesi
+
+- Command `muat_skill_terkait` (pengguna menjalankan di sesi ini) — skill relevan dimuat semua: `normalisasi-tanggal` (dimuat langsung; tidak dirujuk code.md), `model-state-freezed-abstract`, `konfirmasi-sebelum-simpan`, `disiplin-scope-kerja`, `memori-check`. Celah pada command **diperbaiki** (potongan A): `prompt/commands/muat_skill_terkait.md` + `.kilo/commands/muat_skill_terkait.md` mendapat poin baru — bila pekerjaan berkaitan kode, pindai `.agents/skills/code/*/SKILL.md` (description/Trigger) dan muat semua yang relevan, termasuk yang tidak dirujuk code.md; poin 3 sumber disesuaikan ("dari berkas pada poin 1–2"). Potongan B (baca `AGENTS.md`/`instructions` = kepatuhan `aturan-pembuatan-commands` Aturan 2/8) TIDAK diterapkan (pilihan pengguna "A saja"). `formatmd` tidak dijalankan. Perubahan command bersifat non-code.
+- Catch-up sync awal sesi: `sesi_67.md` (Belum Sinkron, perubahan nyata: `pelanggan_aktif_state.dart` tambah `getListBelumJatuhTempo()`; `pelanggan_aktif_screen.dart` dialog arsipkan → `ConfirmationDialog.show()` dari `share_global_saya` + hapus import tak terpakai) disinkronkan ke `MEMORI.md` + `memori/riwayat_perubahan.md` dan ditandai `Sudah Sinkron`. `sesi_66.md` sudah `Sudah Sinkron` (tidak disentuh).
+- Command `muat_skill_terkait` dijalankan pengguna di akhir sesi: `.agents/rules/code.md` (v terbaru, #28/#29) dan `kelompok_skill_wajib_non_code.md` dibaca; skill relevan dimuat seluruhnya. Koreksi: klaim awal sesi "normalisasi-tanggal dirujuk code.md #26" SALAH (`#26` = `pencarian-koleksi-null-safe`; `normalisasi-tanggal` TIDAK dirujuk code.md); command tidak menyediakan jalur ke skill code/ → `normalisasi-tanggal` tidak terdeteksi pada transkrip "Greeting" — **celah pada command, diperbaiki** (potongan A, atas persetujuan pengguna).
+- Tugas lanjutan pengguna (`pelanggan_aktif_screen.dart:457` — daftar "Jatuh Tempo" di atas daftar utama): `ListTile` jatuh tempo ditambah `onTap` (navigasi ke `DetailPelangganAktif` + `_loadData(forceRefresh: true)`) dan `onLongPress` (`_arsipkanPelanggan(pelangganAktif)`), meniru perilaku daftar utama (`_buildSliverListUtama`). Interpretasi "juga" = sama seperti daftar utama; tidak ada perilaku berbeda yang diminta. `dart format` (0 changed) + `dart analyze` **No issues found**.
+- Transkrip yang dipantau: sesi `ses_e0e5409c8ffeS7hXAvf8WVpMHJ` (lampiran pengguna) — sesi interaksi langsung "hai" → tambah method `getListBelumJatuhTempo()` ke `PelangganAktifState` → command `muat_skill_terkait` → ganti dialog arsipkan ke `ConfirmationDialog.show()`.
+- Keterbatasan: transkrip terpotong di bagian tengah (bagian pada sesi akhir); analisis dilakukan pada bagian yang tertampil.
+
+## Temuan
+
+1. **Pelanggaran `normalisasi-tanggal` (skill `code/normalisasi-tanggal`)**: method baru `getListBelumJatuhTempo()` memakai `!item.tanggalBerakhir.isBefore(DateTime.now())` — membandingkan tanggal dengan waktu penuh (jam/menit/detik), bukan normalisasi komponen tahun-bulan-hari. Perbandingan "belum jatuh tempo" berbasis hari wajib normalisasi ke `DateTime(now.year, now.month, now.day)`. Metode `getListJatuhTempo()` (sesi 66) juga memakai pola sama. **Sudah tercakup skill yang ada** — skill `code/normalisasi-tanggal` ada di `.agents/skills/code/normalisasi-tanggal/SKILL.md`. Catatan: skill ini TIDAK dirujuk `.agents/rules/code.md` sama sekali (aturan #26 berbunyi `pencarian-koleksi-null-safe`); klaim awal sesi 68 "dirujuk code.md #26" SALAH dan dikoreksi.
+2. **Mengapa AI tidak memuat skill `normalisasi-tanggal`**: command `muat_skill_terkait` (`.kilo/commands/muat_skill_terkait.md`) meminta AI membaca `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks non-code) + `.agents/rules/code.md` (aturan khusus kode; hanya aturan terpilih) saja; `normalisasi-tanggal` tidak dirujuk keduanya, sehingga AI tidak menemukannya dan melaporkan/memuat hanya `model-state-freezed-abstract` + `disiplin-scope-kerja`. Command tidak menyediakan jalur ke skill code/ yang tidak dirujuk code.md. Ini **celah pada command** (bukan pelanggaran perintah yang ada, dan bukan ketiadaan aturan); AI tetap dapat memuat skill secara manual bila dicari.
+3. **Dialog arsipkan → `ConfirmationDialog.show()`** dari `share_global_saya` — sesuai skill `konfirmasi-sebelum-simpan` (section alternatif ConfirmationDialog) dan permintaan pengguna. **Tidak ada pelanggaran.**
+4. **Freezed state + private constructor untuk getter/method manual** — sesuai skill `model-state-freezed-abstract`; tidak ada edit berkas `*.freezed.dart`. **Tidak ada pelanggaran.**
+5. **Cakupan kerja** — hanya 2 berkas terdampak; format difokuskan pada berkas terdampak. Sesuai `disiplin-scope-kerja`. **Tidak ada pelanggaran.**
+6. **Celah baru?** ADA SATU (pada command, bukan aturan/skill): `muat_skill_terkait` tidak dapat menemukan skill code/ yang relevan bila tidak dirujuk code.md — contoh nyata: `normalisasi-tanggal` terlewat pada pekerjaan perbandingan tanggal. **Diperbaiki (persetujuan pengguna, potongan A saja)**: `prompt/commands/muat_skill_terkait.md` + target `.kilo/commands/muat_skill_terkait.md` — poin 2 baru: bila pekerjaan berkaitan kode, pindai `.agents/skills/code/*/SKILL.md` (cocokkan description/Trigger, muat semua relevan, termasuk yang tidak dirujuk code.md); poin 3 disesuaikan. Potongan B (instruksi baca AGENTS.md/instructions, kepatuhan `aturan-pembuatan-commands` Aturan 2/8) TIDAK diterapkan atas pilihan pengguna ("A saja").
+7. **Catatan**: tidak dilakukan perbaikan kode (`getListBelumJatuhTempo`/`getListJatuhTempo` belum dinormalisasi) — di luar cakupan pantau transkrip; menunggu perintah eksplisit pengguna.
+
+## Berkas Terdampak
+
+| Lokasi File | Status Perubahan | Deskripsi |
+| --- | --- | --- |
+| memori/sesi/sesi_68.md | Dibuat | Berkas sesi aktif |
+| MEMORI.md | Diubah | Catch-up sync sesi 67 + sesi 68 |
+| memori/riwayat_perubahan.md | Diubah | Entri catch-up sesi 67 + sesi 68 |
+| memori/sesi/sesi_67.md | Diubah | Status Sinkron → Sudah Sinkron (catch-up) |
+| prompt/commands/muat_skill_terkait.md | Diubah | Potongan A: poin pemindaian skill code/ (header diperbarui 09:56 WIB) |
+| .kilo/commands/muat_skill_terkait.md | Diubah | Potongan A: poin pemindaian skill code/ (sinkron sumber; description diperbarui) |
+| admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart | Diubah | ListTile jatuh tempo ditambah onTap (detail + refresh) dan onLongPress (arsipkan) |
+
+## Sinkronisasi ke MEMORI.md
+
+Disinkronkan: header `MEMORI.md` → `(sesi 68)`; `## Status` diperbarui (Sesi terakhir → sesi_68; entri sesi 67 ditambah); Catatan Teknis entri sesi 67 dan sesi 68 ditambah; `memori/riwayat_perubahan.md` ditambah entri sesi 67 catch-up dan sesi 68.

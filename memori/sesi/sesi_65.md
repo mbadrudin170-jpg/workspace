@@ -17,6 +17,11 @@
   1. Skill baru `.agents/skills/code/material-ui/SKILL.md` v1.0.0 (Impor material: `package:material_ui/material_ui.dart`; `package:flutter/material.dart` deprecated sejak v3.47.0-0.0.pre dan dilarang; delegasi MaterialLocalizations bawaan MaterialApp; error No MaterialLocalizations tidak diatasi di MaterialApp). Di luar alur commit-history atas persetujuan eksplisit pengguna (sesi 65) — dicatat pada `## Sumber Evaluasi` skill. Berkas poin `prompt/skill/material-ui.md` TIDAK dibuat (pengecualian skill code/, `aturan-pembuatan-skill` Aturan 11).
   2. Aturan baru `.agents/rules/code.md` #28 (skill terkait `material-ui`).
   Verifikasi: folder skill `material-ui` hanya berisi `SKILL.md`; nama folder == `name`; frontmatter YAML valid (`name`/`description` sejajar); description diawali segmen trigger `Trigger:` dan ≤1024 karakter.
+- Evaluasi ulang transkrip (pengguna menempel ulang: `[... 124304 characters omitted ...]`, bagian tengah yang sebelumnya terpotong kini terlihat): temuan baru —
+  1. AI menaruh `ref.watch`/`ref.read` di helper `_buildBody()` yang dipanggil dari `build()` (`pelanggan_aktif_screen.dart`); pengguna mengoreksi "pindahkan ke build lalu build body cukup tambah paramter state" (helper kini menerima `PelangganState`, `PaketState`, `PelangganAktifState` sebagai parameter). Celah potensial → pengguna memilih A+B: skill `code/riverpod-pola` Aturan 4 dipertajam (v1.6.0 → 1.7.0; di luar alur commit-history atas persetujuan eksplisit pengguna, sesi 65) + aturan `.agents/rules/code.md` #29 (skill terkait `riverpod-pola`).
+  2. Hardcode warna `Colors.grey` (prefixIcon/suffixIcon pencarian) dan `Colors.white` (`titleTextStyle` di `AppBarTheme` app.dart) — tercakup code.md #16 (hardcode non-semantik dilarang; hanya semantic hijau/merah/kuning diizinkan). `Colors.green`/`Colors.red` untuk status pembayaran — semantic, diizinkan. **Tercakup, tanpa draf.**
+  3. `nama_dari_id.dart` dihapus setelah grep referensi; 2 pemakaian diganti ke `NamaPelangganWidget` — sesuai `.agents/rules/lainnya.md` butir 2. Catatan: paritas `NamaDariId` ↔ `NamaPelangganWidget` diasumsikan AI tanpa verifikasi isi (bukan pelanggaran aturan; dicatat). **Tercakup.**
+  4. `buildBody()` sebagai widget lokal → dipindah ke metode kelas; `formatTanggalBasic` → `formatTanggalRingkas` (nama hari); AppBar `titleTextStyle` — sesuai permintaan pengguna / tercakup #16. **Bukan celah.**
 
 ## Temuan (Ringkas)
 
@@ -39,6 +44,7 @@ Catatan keterbatasan: transkrip diterima sebagai lampiran sesi ini dan terpotong
 | MEMORI.md | Diubah | Catch-up sync sesi 63 + koreksi sesi 64 + entri sesi 65 |
 | memori/riwayat_perubahan.md | Diubah | Entri catch-up sesi 63 + sesi 65 |
 | .agents/skills/code/material-ui/SKILL.md | Dibuat | Skill baru code/material-ui v1.0.0 |
-| .agents/rules/code.md | Diubah | Aturan #28 baru (skill terkait material-ui) |
+| .agents/rules/code.md | Diubah | Aturan #28 baru (skill terkait material-ui) + #29 baru (skill terkait riverpod-pola) |
+| .agents/skills/code/riverpod-pola/SKILL.md | Diubah | Aturan 4 dipertajam (v1.6.0 → 1.7.0) |
 
-- Berkas sesi ini disinkronkan ke `MEMORI.md` (header `(sesi 65)`; `## Status` → sesi_65 `Sudah Sinkron`; koreksi label sesi 64 `Sudah Sinkron`; Catatan Teknis sesi 63, sesi 65, dan sesi 65 lanjutan "material ui" ditambah) dan `memori/riwayat_perubahan.md` (entri sesi 63 catch-up + sesi 65 + sesi 65 lanjutan). Berkas `Belum Sinkron` ambigu dari sesi sebelumnya (sesi_45–49, 52, 55, 56) tidak disentuh; dilaporkan ke pengguna.
+- Berkas sesi ini disinkronkan ke `MEMORI.md` (header `(sesi 65)`; `## Status` → sesi_65 `Sudah Sinkron`; koreksi label sesi 64 `Sudah Sinkron`; Catatan Teknis sesi 63, sesi 65, sesi 65 lanjutan "material ui", dan sesi 65 lanjutan kedua "ref.watch di helper" ditambah) dan `memori/riwayat_perubahan.md` (entri sesi 63 catch-up + sesi 65 + sesi 65 lanjutan + sesi 65 lanjutan kedua). Berkas `Belum Sinkron` ambigu dari sesi sebelumnya (sesi_45–49, 52, 55, 56) tidak disentuh; dilaporkan ke pengguna.
