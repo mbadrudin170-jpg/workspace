@@ -98,8 +98,7 @@
       "git -C *": "allow",
       "echo *": "deny",
       "jq *": "deny",
-      "printf *": "deny",
-      "ls *": "deny"
+      "printf *": "deny"
     },
     "external_directory": {
       "/home/mbadrudin170/.pub-cache/*": "allow",
