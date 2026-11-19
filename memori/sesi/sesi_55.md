@@ -24,10 +24,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| `memori/sesi/sesi_55.md` | Dibuat | Berkas sesi aktif (Belum Sinkron) |
-| `admin_wifi/lib/fitur/pelanggan_aktif/screens/form_pelanggan_aktif.dart` | Diubah | Penanganan `AsyncValue` empat provider diubah menjadi error terpisah per provider (`ref.refresh(provider)` tunggal) + `_buildMuatGagal(String, VoidCallback)` mengembalikan `Scaffold` dengan `AppBar` |
+| Lokasi File                                                              | Status Perubahan | Deskripsi                                                                                                                                                                                              |
+| ------------------------------------------------------------------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `memori/sesi/sesi_55.md`                                                 | Dibuat           | Berkas sesi aktif (Belum Sinkron)                                                                                                                                                                      |
+| `admin_wifi/lib/fitur/pelanggan_aktif/screens/form_pelanggan_aktif.dart` | Diubah           | Penanganan `AsyncValue` empat provider diubah menjadi error terpisah per provider (`ref.refresh(provider)` tunggal) + `_buildMuatGagal(String, VoidCallback)` mengembalikan `Scaffold` dengan `AppBar` |
 
 ## Sinkronisasi ke MEMORI.md
 

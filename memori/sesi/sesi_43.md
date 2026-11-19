@@ -31,13 +31,13 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                                            | Status Perubahan | Deskripsi                                                                          |
-| ------------------------------------------------------ | ---------------- | --------------------------------------------------------------------------------- |
-| `memori/sesi/sesi_43.md`                               | Dibuat           | Berkas sesi aktif (Berjalan)                                                       |
-| `prompt/commands/muat_skill_terkait.md`                 | Diubah           | Header wajib (`diperbarui`, `ditimpa ke`) + poin 1–2 dibakukan; tujuan: `.kilo/commands/muat_skill_terkait.md` |
-| `.kilo/commands/muat_skill_terkait.md`                  | Dibuat           | Target command baru (`description` + 2 langkah), selaras `aturan-folder-prompt` Aturan 3 |
-| `prompt/commands/memperbarui_file_di_folder_prompt.md`   | Diubah→Dikembalikan | Sempat ditambah langkah "Muat skill terkait"; dikembalikan ke isi semula atas koreksi pengguna |
-| `.kilo/commands/memperbarui_file_di_folder_prompt.md`    | Diubah→Dikembalikan | Sempat ditambah langkah "Muat skill terkait"; dikembalikan ke isi semula atas koreksi pengguna |
+| Lokasi File                                            | Status Perubahan    | Deskripsi                                                                                                      |
+| ------------------------------------------------------ | ------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_43.md`                               | Dibuat              | Berkas sesi aktif (Berjalan)                                                                                   |
+| `prompt/commands/muat_skill_terkait.md`                | Diubah              | Header wajib (`diperbarui`, `ditimpa ke`) + poin 1–2 dibakukan; tujuan: `.kilo/commands/muat_skill_terkait.md` |
+| `.kilo/commands/muat_skill_terkait.md`                 | Dibuat              | Target command baru (`description` + 2 langkah), selaras `aturan-folder-prompt` Aturan 3                       |
+| `prompt/commands/memperbarui_file_di_folder_prompt.md` | Diubah→Dikembalikan | Sempat ditambah langkah "Muat skill terkait"; dikembalikan ke isi semula atas koreksi pengguna                 |
+| `.kilo/commands/memperbarui_file_di_folder_prompt.md`  | Diubah→Dikembalikan | Sempat ditambah langkah "Muat skill terkait"; dikembalikan ke isi semula atas koreksi pengguna                 |
 
 ## Sinkronisasi ke MEMORI.md
 

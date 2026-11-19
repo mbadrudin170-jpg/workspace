@@ -19,13 +19,13 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| `memori/sesi/sesi_56.md` | Dibuat | Berkas sesi aktif (Belum Sinkron) |
-| `admin_wifi/lib/fitur/paket/screens/detail_paket.dart` | Diubah | Konversi `StatefulWidget` → `ConsumerStatefulWidget` |
-| `admin_wifi/lib/fitur/paket/screens/paket.dart` | Diubah | Konversi `StatefulWidget` → `ConsumerStatefulWidget`; konsumsi `paketProvider` |
-| `admin_wifi/lib/fitur/pelanggan/screens/pelanggan.dart` | Diubah | Konversi `StatefulWidget` → `ConsumerStatefulWidget`; konsumsi `pelangganProvider` |
-| `admin_wifi/lib/fitur/pelanggan_aktif/screens/form_pelanggan_aktif.dart` | Diubah | Tambah `ref.read(...)` pada await `paketProvider.future` |
+| Lokasi File                                                              | Status Perubahan | Deskripsi                                                                          |
+| ------------------------------------------------------------------------ | ---------------- | ---------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_56.md`                                                 | Dibuat           | Berkas sesi aktif (Belum Sinkron)                                                  |
+| `admin_wifi/lib/fitur/paket/screens/detail_paket.dart`                   | Diubah           | Konversi `StatefulWidget` → `ConsumerStatefulWidget`                               |
+| `admin_wifi/lib/fitur/paket/screens/paket.dart`                          | Diubah           | Konversi `StatefulWidget` → `ConsumerStatefulWidget`; konsumsi `paketProvider`     |
+| `admin_wifi/lib/fitur/pelanggan/screens/pelanggan.dart`                  | Diubah           | Konversi `StatefulWidget` → `ConsumerStatefulWidget`; konsumsi `pelangganProvider` |
+| `admin_wifi/lib/fitur/pelanggan_aktif/screens/form_pelanggan_aktif.dart` | Diubah           | Tambah `ref.read(...)` pada await `paketProvider.future`                           |
 
 ## Sinkronisasi ke MEMORI.md
 

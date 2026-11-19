@@ -38,13 +38,13 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                                      | Status Perubahan | Deskripsi                                                          |
-| ------------------------------------------------ | ---------------- | ------------------------------------------------------------------ |
-| `memori/sesi/sesi_46.md`                         | Dibuat           | Berkas sesi aktif (Berjalan)                                       |
-| `prompt/commands/lanjut_tugas_selanjutnya.md`    | Dibuat           | Header `diperbarui` Thu Nov 19 2026 00:10 WIB + `ditimpa ke` `.kilo/commands/lanjut_tugas_selanjutnya.md` + H1 + 2 poin (tugas sebelumnya wajib diselesaikan; lalu tugas selanjutnya sesuai `$ARGUMENTS`) |
-| `.kilo/commands/lanjut_tugas_selanjutnya.md`     | Dibuat           | Target command: description + baca `AGENTS.md`/`.kilo/kilo.jsonc` + 2 poin + `# Skill Terkait` (memori-check) |
-| `prompt/commands/tambah_kode_keskill.md`         | Diubah           | Header `diperbarui` → Thu Nov 19 2026 00:36 WIB; poin 12 dibakukan (`Tujuannya agar sebuah AI tidak mengulang kesalahan yang sama di masa mendatang.`); baris kosong antarbutir 11–12 |
-| `.kilo/commands/tambah_kode_keskill.md`          | Diubah           | Poin 12 disalin setelah poin 11 (sebelum `# Skill Terkait`) atas izin pengguna |
+| Lokasi File                                   | Status Perubahan | Deskripsi                                                                                                                                                                                                 |
+| --------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_46.md`                      | Dibuat           | Berkas sesi aktif (Berjalan)                                                                                                                                                                              |
+| `prompt/commands/lanjut_tugas_selanjutnya.md` | Dibuat           | Header `diperbarui` Thu Nov 19 2026 00:10 WIB + `ditimpa ke` `.kilo/commands/lanjut_tugas_selanjutnya.md` + H1 + 2 poin (tugas sebelumnya wajib diselesaikan; lalu tugas selanjutnya sesuai `$ARGUMENTS`) |
+| `.kilo/commands/lanjut_tugas_selanjutnya.md`  | Dibuat           | Target command: description + baca `AGENTS.md`/`.kilo/kilo.jsonc` + 2 poin + `# Skill Terkait` (memori-check)                                                                                             |
+| `prompt/commands/tambah_kode_keskill.md`      | Diubah           | Header `diperbarui` → Thu Nov 19 2026 00:36 WIB; poin 12 dibakukan (`Tujuannya agar sebuah AI tidak mengulang kesalahan yang sama di masa mendatang.`); baris kosong antarbutir 11–12                     |
+| `.kilo/commands/tambah_kode_keskill.md`       | Diubah           | Poin 12 disalin setelah poin 11 (sebelum `# Skill Terkait`) atas izin pengguna                                                                                                                            |
 
 ## Sinkronisasi ke MEMORI.md
 

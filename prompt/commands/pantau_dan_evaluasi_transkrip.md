@@ -1,4 +1,4 @@
-diperbarui : Thu Nov 19 2026 03:15 WIB
+diperbarui : Thu Nov 19 2026 07:52 WIB
 ditimpa ke : `.kilo/commands/pantau_dan_evaluasi_transkrip.md`
 
 1. `$ARGUMENTS`: satu atau lebih ID transkrip Kilo (`ses_...`) atau lampiran transkrip sesi yang diberikan pengguna; jika kosong, tanyakan transkrip/ID yang dimaksud.
@@ -24,6 +24,8 @@ ditimpa ke : `.kilo/commands/pantau_dan_evaluasi_transkrip.md`
 11. Setelah mengedit (bila disetujui): verifikasi (a) nama folder skill sesuai `name`/isi berkas, (b) `description` memicu (trigger) temuan/kode/baris yang diperbarui, lalu jalankan `formatmd` (alias: `npx prettier --write "**/*.md"`) untuk merapikan berkas Markdown.
 
 12. Tujuannya agar sebuah AI tidak mengulang kesalahan yang sama di masa mendatang: pemantauan transkrip menghasilkan aturan/skill yang menjaga kualitas sesi AI setelahnya.
+
+13. Sebelum menetapkan (memilih) kandidat perubahan, tampilkan dulu setiap kandidat beserta penjelasan dan potongan kode; baru tanyakan pilihan pengguna (lihat poin 9).
 
 # Skill Terkait
 

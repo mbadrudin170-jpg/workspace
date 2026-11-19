@@ -15,6 +15,7 @@
 ### Pekerjaan yang dilakukan (submodule `admin_wifi`, belum di-commit)
 
 `lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart`:
+
 - Tambah `ref.watch(pelangganProvider)` dan `ref.watch(paketProvider)` tepat di samping `ref.watch(penggunaAktifProvider)` (→ `asyncPelanggan`, `asyncPaket`).
 - Loading gabungan: `isLoading` penggunaAktif/pelanggan/paket → `Center(child: CircularProgressIndicator())`.
 - Error gabungan: `error` pertama non-null dari ketiganya → `Center(child: Text('Gagal memuat data: $error'))` (gaya error layar dipertahankan; tanpa retry — di luar cakupan).
@@ -28,12 +29,12 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                                                                  | Status Perubahan | Deskripsi                                                                     |
-| ----------------------------------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------- |
-| `admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart`    | Diubah           | `ref.watch` pelanggan+paket di `build()`; gate loading/error; peta nama dari notifier; `muatUlang` saat forceRefresh |
-| `memori/sesi/sesi_51.md`                                                      | Dibuat           | Berkas sesi aktif                                                             |
-| `MEMORI.md`                                                                   | Diubah           | Header → (sesi 51); Status + Catatan Teknis sesi 51                           |
-| `memori/riwayat_perubahan.md`                                                 | Diubah           | Entri sesi 51                                                                 |
+| Lokasi File                                                                | Status Perubahan | Deskripsi                                                                                                            |
+| -------------------------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart` | Diubah           | `ref.watch` pelanggan+paket di `build()`; gate loading/error; peta nama dari notifier; `muatUlang` saat forceRefresh |
+| `memori/sesi/sesi_51.md`                                                   | Dibuat           | Berkas sesi aktif                                                                                                    |
+| `MEMORI.md`                                                                | Diubah           | Header → (sesi 51); Status + Catatan Teknis sesi 51                                                                  |
+| `memori/riwayat_perubahan.md`                                              | Diubah           | Entri sesi 51                                                                                                        |
 
 ## Sinkronisasi ke MEMORI.md
 

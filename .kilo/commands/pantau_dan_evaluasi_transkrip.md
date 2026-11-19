@@ -26,6 +26,8 @@ description: Memantau transkrip sesi Kilo (ses_...) atau lampiran transkrip yang
 
 12. Tujuannya agar sebuah AI tidak mengulang kesalahan yang sama di masa mendatang: pemantauan transkrip menghasilkan aturan/skill yang menjaga kualitas sesi AI setelahnya.
 
+13. Sebelum menetapkan (memilih) kandidat perubahan, tampilkan dulu setiap kandidat beserta penjelasan dan potongan kode; baru tanyakan pilihan pengguna (lihat poin 9).
+
 # Skill Terkait
 
 - memori-check

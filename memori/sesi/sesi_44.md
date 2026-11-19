@@ -30,9 +30,9 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| `memori/sesi/sesi_44.md` | Dibuat | Berkas sesi aktif (Berjalan) |
+| Lokasi File              | Status Perubahan | Deskripsi                    |
+| ------------------------ | ---------------- | ---------------------------- |
+| `memori/sesi/sesi_44.md` | Dibuat           | Berkas sesi aktif (Berjalan) |
 
 ## Sinkronisasi ke MEMORI.md
 

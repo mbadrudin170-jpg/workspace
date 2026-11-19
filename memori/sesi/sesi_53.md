@@ -43,10 +43,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File        | Status Perubahan | Deskripsi        |
-| ------------------ | ---------------- | ---------------- |
-| `memori/sesi/sesi_53.md` | Dibuat       | Berkas sesi aktif |
-| `admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart` | Diubah | Penanganan error per-provider + retry |
+| Lokasi File                                                                | Status Perubahan | Deskripsi                             |
+| -------------------------------------------------------------------------- | ---------------- | ------------------------------------- |
+| `memori/sesi/sesi_53.md`                                                   | Dibuat           | Berkas sesi aktif                     |
+| `admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart` | Diubah           | Penanganan error per-provider + retry |
 
 ## Sinkronisasi ke MEMORI.md
 

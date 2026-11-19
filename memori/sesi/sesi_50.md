@@ -51,19 +51,19 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                                                                    | Status Perubahan | Deskripsi                                                                 |
-| ------------------------------------------------------------------------------ | ---------------- | ------------------------------------------------------------------------- |
-| `admin_wifi/lib/fitur/pelanggan_aktif/screens/form_pelanggan_aktif.dart`       | Diubah           | Hapus field + DI; `ref.watch` di `build()`; loading/error/pemetaan awal  |
-| `admin_wifi/lib/fitur/kategori/state/kategori_state.dart`                      | Dibuat           | `KategoriState` (Freezed) — state kategori baru                          |
-| `admin_wifi/lib/fitur/kategori/state/kategori_state.freezed.dart`              | Dibuat           | Hasil generate Freezed                                                    |
-| `admin_wifi/lib/fitur/kategori/notifier/kategori_notifier.dart`                | Dibuat           | `KategoriNotifier` + `kategoriProvider` (`@Riverpod(keepAlive: true)`)    |
-| `admin_wifi/lib/fitur/kategori/notifier/kategori_notifier.g.dart`              | Dibuat           | Hasil generate riverpod_generator                                         |
-| `admin_wifi/lib/fitur/transaksi/notifier/transaksi_notifier.dart`              | Diubah           | Tambah `hitungTotalPoin(String idPelanggan)`                              |
-| `admin_wifi/lib/fitur/transaksi/notifier/transaksi_notifier.g.dart`            | Diubah           | Regen generate (1 baris)                                                  |
-| `admin_wifi/test/halaman/form/form_pelanggan_aktif_test.dart`                  | Diubah           | mockito → manual fake notifier; override provider; pump 3 dtk pasca Simpan |
-| `memori/sesi/sesi_50.md`                                                       | Dibuat           | Berkas sesi aktif                                                         |
-| `MEMORI.md`                                                                    | Diubah           | Header → (sesi 50); Status + Catatan Teknis sesi 50                       |
-| `memori/riwayat_perubahan.md`                                                  | Diubah           | Entri sesi 50                                                             |
+| Lokasi File                                                              | Status Perubahan | Deskripsi                                                                  |
+| ------------------------------------------------------------------------ | ---------------- | -------------------------------------------------------------------------- |
+| `admin_wifi/lib/fitur/pelanggan_aktif/screens/form_pelanggan_aktif.dart` | Diubah           | Hapus field + DI; `ref.watch` di `build()`; loading/error/pemetaan awal    |
+| `admin_wifi/lib/fitur/kategori/state/kategori_state.dart`                | Dibuat           | `KategoriState` (Freezed) — state kategori baru                            |
+| `admin_wifi/lib/fitur/kategori/state/kategori_state.freezed.dart`        | Dibuat           | Hasil generate Freezed                                                     |
+| `admin_wifi/lib/fitur/kategori/notifier/kategori_notifier.dart`          | Dibuat           | `KategoriNotifier` + `kategoriProvider` (`@Riverpod(keepAlive: true)`)     |
+| `admin_wifi/lib/fitur/kategori/notifier/kategori_notifier.g.dart`        | Dibuat           | Hasil generate riverpod_generator                                          |
+| `admin_wifi/lib/fitur/transaksi/notifier/transaksi_notifier.dart`        | Diubah           | Tambah `hitungTotalPoin(String idPelanggan)`                               |
+| `admin_wifi/lib/fitur/transaksi/notifier/transaksi_notifier.g.dart`      | Diubah           | Regen generate (1 baris)                                                   |
+| `admin_wifi/test/halaman/form/form_pelanggan_aktif_test.dart`            | Diubah           | mockito → manual fake notifier; override provider; pump 3 dtk pasca Simpan |
+| `memori/sesi/sesi_50.md`                                                 | Dibuat           | Berkas sesi aktif                                                          |
+| `MEMORI.md`                                                              | Diubah           | Header → (sesi 50); Status + Catatan Teknis sesi 50                        |
+| `memori/riwayat_perubahan.md`                                            | Diubah           | Entri sesi 50                                                              |
 
 ## Sinkronisasi ke MEMORI.md
 
