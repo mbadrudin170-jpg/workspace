@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-20 (sesi 108)
+Diperbarui: 2026-11-20 (sesi 113)
 
 ## Konteks Proyek
 
@@ -12,6 +12,7 @@ Diperbarui: 2026-11-20 (sesi 108)
 ## Konvensi dan Aturan
 
 - Seluruh respons, dokumen, dan komentar kode memakai bahasa Indonesia baku.
+- Sebelum perintah yang mengubah state repositori (commit, hapus berkas, workflow build), periksa prasyarat (identitas Git, akses jaringan, kompatibilitas versi) dan laporkan; aksi destruktif wajib konfirmasi eksplisit pengguna (sesi 113).
 - Setiap skill wajib memiliki berkas poin di `prompt/skill/<nama>.md` dengan nama sama seperti nama skill.
 - Berkas `prompt/` hanya memuat poin ringkas + header `diperbarui :` dan `file :`/`ditimpa ke :`; isi final di `.agents/`, `.kilo/`.
 - Verifikasi sebelum laporan: `dart format`, `dart analyze`, `flutter test` bila relevan.

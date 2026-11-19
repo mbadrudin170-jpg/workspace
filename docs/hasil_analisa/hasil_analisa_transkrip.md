@@ -170,3 +170,231 @@ Sesi berjudul "Analisis Transkrip" menjalankan command `analisa_transkrip`. AI m
 - Saat menerima command yang mencantumkan `# Skill Terkait`, AI sebaiknya **memuat semua skill tersebut** (via tool `skill`) sebelum melaksanakan langkah, khususnya `penggunaan-tool-bawaan-kilo` sebelum menggunakan glob/read/bash dan `penggunaan-tool-question` sebelum menggunakan tool `question`.
 - Sebelum menambahkan id baru ke daftar analisa, AI sebaiknya memeriksa ketersediaan transkrip (via `kilo_local_recall` mode `read`) agar tidak menambahkan id yang tidak dapat dianalisa; terapkan poin 9 (hapus entri) secara proaktif.
 - Pertahankan praktik baik yang sudah dilakukan: checklist awal sesi, catch-up sync, konfirmasi sebelum analisa, dan penghapusan entri id yang tidak dapat dianalisa atas permintaan pengguna.
+
+## ses_e0a9bb269ffexYMsJBV3ZuuPpB
+
+- Created At: 2026-11-20 03:07:44 WIB (UTC+7)
+- Topik: Diskusi Hasil Analisa Transkrip dan Update Aturan
+- Status: sudah dianalisa
+
+### Ringkasan transkrip
+
+Sesi berjudul "Diskusi Hasil Analisa Transkrip dan Update Aturan" menjalankan command `diskusi_hasil_analisa_transkrip`. AI melakukan checklist awal (baca `AGENTS.md`, `MEMORI.md`, seluruh `.agents/rules/`, memuat skill `memori-check`, catch-up sync, membuat `memori/sesi/sesi_100.md`), lalu membaca `docs/hasil_analisa/hasil_analisa_transkrip.md` dan bertanya (tool `question`) entri mana yang akan didiskusikan. Setelah pengguna memilih entri (hasil analisa transkrip sebelumnya), AI membaca skill `build-apk-github-workflow` dan `penggunaan-tool-bawaan-kilo`, command `analisa_transkrip` (sumber & target), berkas prompt terkait, lalu menyusun draf perubahan (tambah butir 7–8 pada `lainnya.md`, Aturan 9–10 pada skill `penggunaan-tool-bawaan-kilo`, Aturan 11–12 pada skill `build-apk-github-workflow`, klausul ketersediaan transkrip pada command `analisa_transkrip`, serta pembaruan indeks non-code). AI menampilkan draf dan menunggu persetujuan; pengguna menjawab "ok". AI kemudian menerapkan seluruh edit, menjalankan `npx prettier --write` scoped (semua `unchanged`), memperbarui `MEMORI.md` (header sesi 104, Status, Catatan Teknis) dan `memori/riwayat_perubahan.md`, membuat `memori/sesi/sesi_104.md`, dan menandainya `Sudah Sinkron`. Tidak ada perubahan kode Dart; `.agents/skills/code/` tidak disentuh. Belum di-commit.
+
+### Kesalahan AI yang diidentifikasi
+
+1. **Tidak memuat semua skill `# Skill Terkait` command.** Command `diskusi_hasil_analisa_transkrip` mencantumkan 5 skill (`memori-check`, `aturan-pembuatan-skill`, `penggunaan-tool-question`, `penggunaan-tool-bawaan-kilo`, `aturan-folder-prompt`), namun transkrip hanya menunjukkan pemuatan `memori-check` (`[Tool: skill] Loaded skill: memori-check`). Skill lain tidak dimuat meskipun AI menggunakan tool `question` dan membaca/mengedit berkas (`penggunaan-tool-bawaan-kilo`, `aturan-folder-prompt` relevan). (Lokasi: awal transkrip, setelah pembacaan `.agents/rules/`.)
+2. **Kemungkinan kesalahan penomoran berkas sesi.** Transkrip menunjukkan pembuatan `memori/sesi/sesi_100.md` di awal sesi dan `memori/sesi/sesi_104.md` di akhir sesi dalam satu percakapan yang sama (satu id sesi). Aturan memori-check mewajibkan satu berkas sesi per percakapan/tugas dengan nomor tertinggi + 1. (Lokasi: `[Tool: write] memori/sesi/sesi_100.md` dan `[Tool: write] memori/sesi/sesi_104.md`.)
+3. Tidak ditemukan pelanggaran lain: AI menampilkan draf sebelum mengedit, menunggu persetujuan eksplisit ("ok"), tidak menyentuh `.agents/skills/code/`, tidak commit tanpa perintah, menjalankan prettier scoped, dan memperbarui `MEMORI.md`/riwayat.
+
+### Analisa sumber kesalahan
+
+- Kesalahan #1 berasal dari **AI** yang tidak mematuhi pemuatan skill terkait command. Pada saat sesi berjalan, aturan eksplisit "muat semua skill `# Skill Terkait`" (lainnya.md butir 7) **belum ada** — aturan tersebut justru ditambahkan pada sesi ini sebagai bagian dari draf. Sehingga sumber kesalahan adalah **kombinasi**: ketiadaan aturan eksplisit sebelum sesi (commands/skills/aturan kurang jelas) dan ketidakpatuhan AI terhadap daftar skill yang sudah tercantum di command. Setelah sesi ini, aturan butir 7 ditambahkan; sumber kesalahan aturan telah diperbaiki.
+- Kesalahan #2 (minor/ambigu) berasal dari **AI** pada penomoran berkas sesi; aturan memori-check sudah jelas (tertinggi + 1, satu berkas per percakapan). Namun tidak dapat dipastikan apakah sesi paralel lain membuat sesi 101–103 di antara kedua penulisan; bila demikian, lompatan 100 → 104 dapat dijelaskan. Dicatat sebagai area perbaikan prosedural (verifikasi nomor tertinggi sebelum membuat berkas sesi).
+- Tidak ada indikasi bahwa commands/skills/aturan kurang jelas atau salah selain hal di atas; sumber kesalahan utama adalah ketidakpatuhan AI.
+
+### Saran agar AI di masa mendatang lebih pintar dan sesuai keinginan pengguna
+
+- Saat menerima command yang mencantumkan `# Skill Terkait`, AI sebaiknya **memuat semua skill tersebut** (via tool `skill`) sebelum melaksanakan langkah — kini diwajibkan oleh `.agents/rules/lainnya.md` butir 7 (ditambahkan sesi ini).
+- Sebelum membuat berkas sesi `memori/sesi/sesi_N.md`, AI sebaiknya memeriksa nomor tertinggi yang ada (glob) untuk memastikan N = tertinggi + 1, dan menggunakan satu berkas untuk seluruh percakapan (memori-check).
+- Pertahankan praktik baik yang sudah dilakukan: menampilkan draf perubahan, menunggu persetujuan eksplisit ("ok") sebelum mengedit, tidak menyentuh `.agents/skills/code/` tanpa persetujuan, menjalankan prettier scoped, dan memperbarui `MEMORI.md`/riwayat sesuai sinkronisasi.
+
+## ses_e0a9ca088ffeus2uB8fttFY39N
+
+- Created At: 2026-11-20 03:13:37 WIB (UTC+7)
+- Topik: Mengupdate submodule repositori
+- Status: sudah dianalisa
+
+### Ringkasan transkrip
+
+Pengguna bertanya cara pull repo dengan submodule; AI menjelaskan langkah (`git pull --recurse-submodules`, `git submodule update --init --recursive`, dll.). Pengguna lalu meminta "oke kerjakan": AI mencoba `git pull --ff-only` dan `git submodule update --init admin_wifi` yang gagal karena tidak ada akses jaringan/autentikasi ke GitHub di lingkungan tersebut. Setelah pengguna menjalankan `git pull --recurse-submodules` di Cloud Shell (berhasil: `admin_wifi` di-checkout, tetapi fatal karena gitlink `.dart_tool/skills/repos/...` tidak termapping di `.gitmodules`), AI membersihkan indeks dengan `git rm --cached` pada dua path gitlink, mencoba `git submodule update --init share_global_saya` (gagal, akses GitHub), dan melaporkan status. Sesi berlanjut dengan penjelasan langkah, pemeriksaan `git submodule status`, dan diskusi identitas Git (commit gagal karena `user.name`/`user.email` kosong). Tidak ada perubahan kode Dart; working tree berisi perubahan sesi paralel.
+
+### Kesalahan AI yang diidentifikasi
+
+1. **Pembuatan dua berkas sesi dalam satu percakapan.** Transkrip menunjukkan pembuatan `memori/sesi/sesi_99.md` di awal dan `memori/sesi/sesi_100.md` di tengah sesi (setelah "oke kerjakan"), melanggar aturan satu berkas sesi per percakapan/tugas (memori-check). (Lokasi: `[Tool: write] memori/sesi/sesi_99.md` dan `[Tool: write] memori/sesi/sesi_100.md`.)
+2. **Menjalankan `git rm --cached` pada gitlink tanpa konfirmasi eksplisit.** Pembersihan indeks dilakukan setelah pengguna "lanjut", namun tidak ada persetujuan eksplisit untuk perubahan indeks Git; perubahan tersebut masih staged (belum di-commit). (Lokasi: `[Tool: bash] git rm --cached ...`.)
+3. Tidak ditemukan pelanggaran lain: AI membaca `AGENTS.md`, `MEMORI.md`, rules, memuat `memori-check`, membuat berkas sesi, dan melaporkan status secara eksplisit.
+
+### Analisa sumber kesalahan
+
+- Kesalahan #1 berasal dari **AI** pada penomoran/penambahan berkas sesi; aturan memori-check sudah jelas (satu berkas sesi per percakapan, N = tertinggi + 1). Kemungkinan AI membuat berkas baru saat memulai pekerjaan eksekusi alih-alih memakai berkas sesi aktif.
+- Kesalahan #2 berasal dari **AI** yang melakukan perubahan indeks tanpa konfirmasi eksplisit; aturan memerlukan persetujuan untuk operasi Git yang mengubah state. Namun perintah pengguna "oke kerjakan"/"lanjut" dapat ditafsirkan sebagai persetujuan umum, sehingga sumber kesalahan sebagian adalah ambigu.
+- Tidak ada indikasi commands/skills/aturan kurang jelas selain hal di atas.
+
+### Saran agar AI di masa mendatang lebih pintar dan sesuai keinginan pengguna
+
+- Gunakan **satu** berkas sesi untuk seluruh percakapan; jangan membuat berkas sesi baru saat beralih dari penjelasan ke eksekusi (memori-check).
+- Sebelum menjalankan perintah yang mengubah indeks Git (mis. `git rm --cached`), minta konfirmasi eksplisit pengguna.
+- Laporkan secara eksplisit bila lingkungan tidak memiliki akses jaringan/autentikasi (seperti yang dilakukan AI di sini) alih-alih berhenti diam-diam.
+
+## ses_e0a9b2092ffemVkWnZPWRXXZHY
+
+- Created At: 2026-11-20 03:29:13 WIB (UTC+7)
+- Topik: Memperbarui berkas folder prompt
+- Status: sudah dianalisa
+
+### Ringkasan transkrip
+
+Pengguna menjalankan command `memperbarui_file_di_folder_prompt` untuk `prompt/skill/memori-check.md`. AI membaca `AGENTS.md`, `MEMORI.md`, seluruh `.agents/rules/`, `.kilo/kilo.jsonc`, memori sesi, memuat skill `aturan-folder-prompt`, `memori-check`, `penggunaan-tool-question`, melakukan catch-up sync, membuat `memori/sesi/sesi_100.md`/`sesi_101.md`, membaca berkas sumber/target `memori-check`, dan bertanya (tool `question`) beberapa hal (isi berkas, perubahan). Pengguna menjawab "lanjut" dan "jangan ada yang bentrok". AI memperbarui `prompt/skill/memori-check.md` (header WIB, poin 10 diperluas, poin 15–17 dirapikan), menjalankan `npx prettier --write` (unchanged), dan memperbarui `memori/sesi/sesi_101.md`. Target `.agents/skills/non-code/memori-check/SKILL.md` tidak diubah karena sudah mencakup detail yang diperluas. Tidak ada perubahan kode.
+
+### Kesalahan AI yang diidentifikasi
+
+1. **Pembuatan dua berkas sesi dalam satu percakapan.** Transkrip menunjukkan pembuatan `memori/sesi/sesi_100.md` dan `memori/sesi/sesi_101.md` dalam satu sesi (satu id), melanggar aturan satu berkas sesi per percakapan/tugas. (Lokasi: `[Tool: write] memori/sesi/sesi_100.md` dan `[Tool: write] memori/sesi/sesi_101.md`.)
+2. Tidak ditemukan pelanggaran lain: AI memuat **semua** skill `# Skill Terkait` command (`aturan-folder-prompt`, `memori-check`, `penggunaan-tool-question`), menampilkan draf sebelum mengedit, menunggu persetujuan eksplisit ("lanjut"), menjalankan prettier scoped, dan memperbarui berkas sesi.
+
+### Analisa sumber kesalahan
+
+- Kesalahan #1 berasal dari **AI** pada penomoran/penambahan berkas sesi; aturan memori-check sudah jelas. Kemungkinan AI membuat berkas baru saat memulai sub-tugas (catch-up vs eksekusi) alih-alih memakai berkas sesi aktif.
+- Tidak ada indikasi commands/skills/aturan kurang jelas; sumber kesalahan utama adalah ketidakpatuhan AI terhadap aturan satu berkas sesi per percakapan.
+
+### Saran agar AI di masa mendatang lebih pintar dan sesuai keinginan pengguna
+
+- Gunakan satu berkas sesi untuk seluruh percakapan; jangan membuat berkas sesi baru untuk sub-tugas atau pesan berikutnya (memori-check).
+- Pertahankan praktik baik yang sudah dilakukan: memuat semua skill `# Skill Terkait`, menampilkan draf, menunggu persetujuan eksplisit, menjalankan prettier scoped.
+
+## ses_e0a9aa24effeVUYdUPFty1Rk1E
+
+- Created At: 2026-11-20 03:38:22 WIB (UTC+7)
+- Topik: kode
+- Status: sudah dianalisa
+
+### Ringkasan transkrip
+
+Pengguna meminta "buatkan file .bash_aliases di /home/warkopalic35/". AI membaca `script/bash_aliases.sh`, membuat `/home/warkopalic35/.bash_aliases` sebagai salinan, memverifikasi dengan `bash -n` (tanpa error), dan memperbarui berkas sesi. Tidak ada perubahan kode Dart; hanya berkas konfigurasi shell. AI juga melaporkan catch-up sync (`sesi_97.md` tetap `Belum Sinkron`).
+
+### Kesalahan AI yang diidentifikasi
+
+Tidak ditemukan kesalahan signifikan. AI membaca `AGENTS.md`, `MEMORI.md`, rules, memuat skill `memori-check`, membuat satu berkas sesi (`sesi_102.md`), memverifikasi berkas dengan `bash -n`, dan memperbarui berkas sesi. Permintaan pengguna eksplisit dan sederhana; tidak ada command/skill terkait yang perlu dimuat.
+
+### Analisa sumber kesalahan
+
+Tidak ada kesalahan yang teridentifikasi; sumber kesalahan tidak berlaku.
+
+### Saran agar AI di masa mendatang lebih pintar dan sesuai keinginan pengguna
+
+- Pertahankan praktik verifikasi (mis. `bash -n` untuk skrip shell) sebelum melaporkan selesai.
+- Laporkan catch-up sync yang tertunda (berkas `Belum Sinkron` milik sesi lain) secara eksplisit, seperti yang dilakukan AI di sini.
+
+## ses_e0a974a42ffeysPof0Np9NZ6FU
+
+- Created At: 2026-11-20 03:39:57 WIB (UTC+7)
+- Topik: Flutter admin_wifi error handling perbaikan
+- Status: sudah dianalisa
+
+### Ringkasan transkrip
+
+Pengguna melampirkan diagnostik LSP (banyak error `uri_does_not_exist` untuk `package:admin_wifi/db/sqflite.dart` dan `undefined_identifier` `DatabaseHelper`/`operasiSqliteProvider`) pada berkas operasi/notifier/test, lalu meminta "perbaiki". AI membaca `MEMORI.md`, rules, `db/sqflite.dart`, `db/operasi_sqlite.dart`, mencari impor yang salah, mengecek git log/status, lalu memperbaiki impor pada ~20 berkas operasi/notifier/test (`package:admin_wifi/db/sqflite.dart` → path yang benar, `operasi_sqlite.dart`), menghapus penggunaan `DatabaseHelper` yang tidak ada, dan memperbarui berkas sesi. AI juga menambahkan `/google/flutter` ke `safe.directory` Git untuk mengatasi error "dubious ownership" VS Code. Tidak ada perintah verifikasi `dart analyze`/`flutter test` yang ditampilkan di transkrip ini.
+
+### Kesalahan AI yang diidentifikasi
+
+1. **Pemuatan skill `memori-check` terlambat.** Transkrip menunjukkan `[Tool: skill] Loaded skill: memori-check` setelah AI membuat/mengedit berkas sesi (`sesi_102.md`/`sesi_103.md`), bukan di awal sesi. (Lokasi: setelah `[Tool: edit] memori/sesi/sesi_102.md`/`[Tool: write] memori/sesi/sesi_103.md`.)
+2. **Pembuatan berkas sesi di tengah/akhir sesi.** `memori/sesi/sesi_103.md` dibuat setelah pekerjaan perbaikan dilakukan, bukan sebelum tindakan yang mengubah proyek. (Lokasi: `[Tool: write] memori/sesi/sesi_103.md` setelah banyak `[Tool: edit]`.)
+3. **Tidak menjalankan verifikasi setelah perbaikan.** Transkrip tidak menunjukkan `dart analyze`/`flutter test` setelah edit impor masif (verifikasi dilakukan pada sesi berikutnya).
+4. Tidak ditemukan pelanggaran lain: AI membaca `AGENTS.md`, `MEMORI.md`, rules, dan menyelesaikan perbaikan sesuai permintaan "perbaiki".
+
+### Analisa sumber kesalahan
+
+- Kesalahan #1 dan #2 berasal dari **AI** yang tidak mengikuti urutan wajib memori-check (baca `MEMORI.md` → buat berkas sesi → baru bertindak). Aturan memori-check sudah jelas; AI bertindak sebelum membuat berkas sesi.
+- Kesalahan #3 berasal dari **AI** yang tidak menjalankan verifikasi; aturan proyek mewajibkan `dart analyze` bila relevan. Namun verifikasi dilakukan pada sesi berikutnya (`ses_e0a7467e`), sehingga sebagian adalah pemisahan pekerjaan antar sesi.
+- Tidak ada indikasi commands/skills/aturan kurang jelas.
+
+### Saran agar AI di masa mendatang lebih pintar dan sesuai keinginan pengguna
+
+- Ikuti urutan wajib: baca `MEMORI.md` → buat berkas sesi → baru bertindak; muat skill `memori-check` di awal, bukan di tengah (memori-check).
+- Jalankan `dart analyze` (dan `flutter test` bila relevan) setelah perbaikan impor masif sebelum melaporkan selesai.
+- Pertahankan praktik melaporkan status lingkungan (mis. `safe.directory`) secara eksplisit.
+
+## ses_e0a7467e3ffemV6tKeQJCm4ZR9
+
+- Created At: 2026-11-20 03:46:42 WIB (UTC+7)
+- Topik: kode
+- Status: sudah dianalisa
+
+### Ringkasan transkrip
+
+Sesi "kode" melanjutkan perbaikan LSP: AI membaca `MEMORI.md`, rules, `db/sqflite.dart`, `db/operasi_sqlite.dart`, mencari impor yang salah, lalu memperbaiki impor pada seluruh operasi/notifier/test (mengganti `package:admin_wifi/db/sqflite.dart` → path yang benar, `operasi_sqlite.dart`), menghapus referensi `DatabaseHelper`/`operasiSqliteProvider` yang tidak ada, mengedit `versi_apk_user_operasi.dart`, `operasi_dasar.dart`, `kritik_saran_operasi.dart`, `paket_operasi.dart`, `kategori_operasi.dart`, `pesanan_operasi.dart`, `status_unggah_operasi.dart`, `pelanggan_operasi.dart`, `dompet_operasi.dart`, `pengaturan_operasi.dart`, `sub_kategori_operasi.dart`, `pelanggan_aktif_operasi.dart`, `transaksi_operasi.dart`, `unggah_data.dart`, `unduhan_awal.dart`, serta notifier-notifier dan berkas test. AI menjalankan `flutter test` dan `flutter analyze`, menghapus `test/halaman/tab/fungsi_menampilkan_notifikasi_test.dart`, dan memperbarui berkas sesi (`sesi_103.md`). AI juga melaporkan catch-up sync dan identitas Git.
+
+### Kesalahan AI yang diidentifikasi
+
+1. **Pemuatan skill `memori-check` terlambat.** Transkrip menunjukkan `[Tool: skill] Loaded skill: memori-check` setelah pembuatan/penyuntingan berkas sesi (`sesi_103.md`), bukan di awal sesi. (Lokasi: setelah `[Tool: write] memori/sesi/sesi_103.md`.)
+2. **Pembuatan berkas sesi di akhir sesi.** `memori/sesi/sesi_103.md` dibuat setelah pekerjaan perbaikan selesai, bukan sebelum tindakan yang mengubah proyek. (Lokasi: `[Tool: write] memori/sesi/sesi_103.md` setelah banyak `[Tool: edit]`.)
+3. **Penghapusan berkas test tanpa persetujuan eksplisit.** AI menghapus `test/halaman/tab/fungsi_menampilkan_notifikasi_test.dart` sebagai bagian dari perbaikan; penghapusan tidak diminta secara eksplisit oleh pengguna (permintaan "perbaiki"). (Lokasi: `[Tool: bash] cd ... && rm -f test/halaman/tab/fungsi_menampilkan_notifikasi_test.dart`.)
+4. Tidak ditemukan pelanggaran lain: AI membaca `AGENTS.md`, `MEMORI.md`, rules, memverifikasi dengan `flutter test` dan `flutter analyze`.
+
+### Analisa sumber kesalahan
+
+- Kesalahan #1 dan #2 berasal dari **AI** yang tidak mengikuti urutan wajib memori-check; aturan sudah jelas.
+- Kesalahan #3 berasal dari **AI** yang melakukan penghapusan berkas tanpa persetujuan eksplisit; aturan proyek mewajibkan konfirmasi untuk aksi destruktif. Namun penghapusan dapat ditafsirkan sebagai bagian dari "perbaiki" (berkas test rusak), sehingga sumber kesalahan sebagian adalah ambigu.
+- Tidak ada indikasi commands/skills/aturan kurang jelas.
+
+### Saran agar AI di masa mendatang lebih pintar dan sesuai keinginan pengguna
+
+- Ikuti urutan wajib memori-check: baca `MEMORI.md` → buat berkas sesi → baru bertindak; muat skill `memori-check` di awal (memori-check).
+- Sebelum menghapus berkas (bahkan test yang rusak), minta konfirmasi eksplisit pengguna atau laporkan sebagai kandidat (konfirmasi-sebelum-simpan).
+- Pertahankan praktik verifikasi (`flutter test`, `flutter analyze`) setelah perbaikan impor masif.
+
+## ses_e0a71f801ffeIqO0WCD5HRO3od
+
+- Created At: 2026-11-20 03:47:49 WIB (UTC+7)
+- Topik: Greeting
+- Status: sudah dianalisa
+
+### Ringkasan transkrip
+
+Pengguna menyapa "hai". AI membaca `MEMORI.md`, rules, memuat `memori-check`, melakukan catch-up sync yang menemukan 12 berkas sesi `Belum Sinkron` dengan perubahan nyata (sesi 45–49, 52, 55, 56, 71, 72, 80, 97) dan **tidak menyentuhnya** (sesuai aturan, penandaan hanya oleh sesi pembuat), melaporkan status, membuat `memori/sesi/sesi_109.md`. Pengguna lalu meminta "ubah semua test agar menggunakan mocktail". AI melakukan konversi massal test dari Mockito ke Mocktail pada `admin_wifi` (memperbarui `test/mocks.dart`, berkas test operasi/sync/form/halaman/tab), menghapus paket `mockito` dari `pubspec.yaml` (via `flutter pub remove`), menghapus berkas `*.mocks.dart`, menjalankan `flutter test` dan `flutter analyze`, serta menghapus `test/halaman/tab/fungsi_menampilkan_notifikasi_test.dart`. AI juga menambahkan `/google/flutter` ke `safe.directory`. Tidak ada commit.
+
+### Kesalahan AI yang diidentifikasi
+
+1. **Penghapusan berkas test tanpa persetujuan eksplisit.** AI menghapus `test/halaman/tab/fungsi_menampilkan_notifikasi_test.dart` sebagai bagian dari konversi; penghapusan tidak diminta secara eksplisit (permintaan "ubah semua test agar menggunakan mocktail"). (Lokasi: `[Tool: bash] cd ... && rm -f test/halaman/tab/fungsi_menampilkan_notifikasi_test.dart`.)
+2. **Pemuatan skill `memori-check` terlambat.** Transkrip menunjukkan `[Tool: skill] Loaded skill: memori-check` setelah pembuatan/penyuntingan berkas sesi (`sesi_109.md`), bukan di awal sesi. (Lokasi: setelah `[Tool: write] memori/sesi/sesi_109.md`.)
+3. **Tidak memuat skill `pola-testing` di awal.** Skill `code/pola-testing` (yang mewajibkan Mocktail dan melarang Mockito) baru dibaca setelah pekerjaan konversi dimulai, meskipun tugas langsung berkaitan dengan pola testing. (Lokasi: `[Tool: read] .agents/skills/code/pola-testing/SKILL.md` di tengah sesi.)
+4. Tidak ditemukan pelanggaran lain: AI melakukan catch-up sync dengan benar (tidak menyentuh berkas `Belum Sinkron` milik sesi lain), membuat satu berkas sesi (`sesi_109.md`), memverifikasi dengan `flutter test` dan `flutter analyze`, dan melaporkan status.
+
+### Analisa sumber kesalahan
+
+- Kesalahan #1 berasal dari **AI** yang melakukan penghapusan berkas tanpa persetujuan eksplisit; aturan proyek mewajibkan konfirmasi untuk aksi destruktif. Namun berkas tersebut mungkin rusak/tidak dapat dikonversi, sehingga sumber kesalahan sebagian adalah ambigu.
+- Kesalahan #2 dan #3 berasal dari **AI** yang tidak memuat skill relevan di awal sesi; aturan memori-check dan pola-testing sudah tersedia. Tidak ada indikasi commands/skills/aturan kurang jelas.
+- Tidak ada indikasi commands/skills/aturan kurang jelas selain hal di atas.
+
+### Saran agar AI di masa mendatang lebih pintar dan sesuai keinginan pengguna
+
+- Sebelum menghapus berkas (bahkan test yang rusak), minta konfirmasi eksplisit pengguna atau laporkan sebagai kandidat (konfirmasi-sebelum-simpan).
+- Muat skill `pola-testing` (dan skill relevan lainnya) **sebelum** memulai konversi test, bukan di tengah pekerjaan (muat_skill_terkait).
+- Ikuti urutan wajib memori-check: baca `MEMORI.md` → buat berkas sesi → baru bertindak; muat skill `memori-check` di awal (memori-check).
+
+## ses_e0a6ea1a4ffe6BHEbbvNMUFWR4
+
+- Created At: 2026-11-20 03:50:52 WIB (UTC+7)
+- Topik: New session - 2026-11-19T20:48:27.227Z
+- Status: sudah dianalisa
+
+### Ringkasan transkrip
+
+Pengguna meminta "ubah semua test agar menggunakan mocktail lalu hapus paket mockito dari pubscl" (pubspec). AI membaca `MEMORI.md`, rules, `test/mocks.dart` (admin_wifi & share_global_saya), skill `pola-testing`, berkas test, `pubspec.yaml`, lalu melakukan konversi massal seluruh test dari Mockito ke Mocktail (mengedit `test/mocks.dart`, berkas test operasi/sync/form/halaman/tab), menghapus paket `mockito` via `flutter pub remove mockito`, menghapus berkas `*.mocks.dart`, dan menghapus `test/halaman/tab/fungsi_menampilkan_notifikasi_test.dart`. AI menjalankan `flutter test` dan `flutter analyze`. AI juga mencoba `git add -A` + `git commit`, yang gagal karena identitas Git (`user.name`/`user.email`) belum disetel; AI menjelaskan cara menyetel identitas. Tidak ada commit.
+
+### Kesalahan AI yang diidentifikasi
+
+1. **Pemuatan skill `memori-check` terlambat.** Transkrip menunjukkan `[Tool: skill] Loaded skill: memori-check` setelah pembuatan/penyuntingan berkas sesi, bukan di awal sesi. (Lokasi: setelah `[Tool: edit] memori/sesi/sesi_102.md`/`[Tool: write] memori/sesi/sesi_103.md`.)
+2. **Penghapusan berkas test tanpa persetujuan eksplisit.** AI menghapus `test/halaman/tab/fungsi_menampilkan_notifikasi_test.dart` sebagai bagian dari konversi; penghapusan tidak diminta secara eksplisit. (Lokasi: `[Tool: bash] cd ... && rm -f test/halaman/tab/fungsi_menampilkan_notifikasi_test.dart`.)
+3. **Mencoba commit tanpa identitas Git.** AI menjalankan `git add -A` + `git commit` yang gagal karena `user.name`/`user.email` kosong; seharusnya memeriksa prasyarat identitas sebelum mencoba commit. (Lokasi: `[Tool: bash] git -c user.useConfigOnly=true commit ...` → `Author identity unknown`.)
+4. **Tidak memuat skill `pola-testing` di awal.** Skill `code/pola-testing` baru dibaca setelah pekerjaan konversi dimulai, meskipun tugas langsung berkaitan dengan pola testing. (Lokasi: `[Tool: read] .agents/skills/code/pola-testing/SKILL.md` di tengah sesi.)
+5. Tidak ditemukan pelanggaran lain: AI melakukan konversi massal sesuai permintaan, menghapus paket mockito via `flutter pub remove`, menjalankan `flutter test` dan `flutter analyze`.
+
+### Analisa sumber kesalahan
+
+- Kesalahan #1, #2, dan #4 berasal dari **AI** yang tidak mengikuti urutan wajib memori-check dan tidak memuat skill relevan di awal; aturan memori-check dan pola-testing sudah tersedia.
+- Kesalahan #3 berasal dari **AI** yang tidak memeriksa prasyarat identitas Git sebelum mencoba commit; aturan proyek juga mewajibkan persetujuan eksplisit sebelum commit. Tidak ada indikasi commands/skills/aturan kurang jelas.
+- Tidak ada indikasi commands/skills/aturan kurang jelas selain hal di atas.
+
+### Saran agar AI di masa mendatang lebih pintar dan sesuai keinginan pengguna
+
+- Ikuti urutan wajib memori-check: baca `MEMORI.md` → buat berkas sesi → baru bertindak; muat skill `memori-check` di awal (memori-check).
+- Muat skill `pola-testing` **sebelum** memulai konversi test (muat_skill_terkait).
+- Sebelum menghapus berkas atau mencoba commit, minta konfirmasi eksplisit dan periksa prasyarat (identitas Git, izin) terlebih dahulu (konfirmasi-sebelum-simpan).
+- Pertahankan praktik verifikasi (`flutter test`, `flutter analyze`) setelah konversi massal.
+
+## ses_e0a6d48e5ffedaeL233phM2mQ0
+
+- Created At: 2026-11-20 03:51:11 WIB (UTC+7)
+- Topik: New session - 2026-11-19T20:49:55.482Z
+- Status: belum dianalisa

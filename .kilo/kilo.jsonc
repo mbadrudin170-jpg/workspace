@@ -12,9 +12,10 @@
       // "model": "kilo/particle-ai/particle-1:free",
       // "model": "kilo/kilo-auto/free"
       // "model": "openrouter/thinkingmachines/inkling-2-small:free"
-      "model": "kilo/reflection/beam-free"
+      // "model": "kilo/reflection/beam-free"
       // "model": "kilo/particle-ai/particle-1:free",
       // "model": "kilo/nvidia/nemotron-3.5-super-vl:free",
+      "model": "openrouter/openrouter/free"
     },
     "ask": {
       "model": "kilo/kilo-auto/free",
@@ -51,7 +52,6 @@
       "git rev-parse *": "allow",
       "git remote *": "allow",
       "git blame *": "allow",
-      "ls": "deny",
       "pwd": "allow",
       "which *": "allow",
       "find *": "deny",
@@ -59,7 +59,6 @@
       "head *": "deny",
       "tail *": "deny",
       // "rg *": "deny",
-      "grep *": "deny",
       "for *": "deny",
       "flutter analyze *": "allow",
       "flutter analyze": "allow",

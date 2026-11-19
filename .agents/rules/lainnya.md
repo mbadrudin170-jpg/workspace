@@ -1,4 +1,4 @@
-1. Setiap tindakan mengedit, menambah, menghapus, atau memindahkan wajib mengikuti aturan yang berlaku; baca dan patuhi aturan, rules, dan command terkait sebelum bertindak.
+ki1. Setiap tindakan mengedit, menambah, menghapus, atau memindahkan wajib mengikuti aturan yang berlaku; baca dan patuhi aturan, rules, dan command terkait sebelum bertindak.
 
 2. Sebelum melakukan tindakan tersebut, periksa berkas-berkas lain; bila ada berkas yang merujuk ke isi atau berkas yang sedang dikenai tindakan, jangan sampai ada referensi yang rusak atau mismatch setelah tindakan dilakukan, agar seluruh berkas tetap sinkron.
 
@@ -13,3 +13,5 @@
 7. Saat menerima command Kilo yang mencantumkan bagian `# Skill Terkait`, AI wajib memuat semua skill yang tercantum (via tool `skill`) sebelum melaksanakan langkah command; DILARANG melaksanakan langkah tanpa memuat skill terkait yang tersedia. Skill terkait: `aturan-pembuatan-commands`.
 
 8. Bila tugas tidak dapat dilanjutkan (transkrip terputus, tidak ada respons AI, prasyarat tidak terpenuhi, atau berkas tidak tersedia), AI wajib melaporkan secara eksplisit kepada pengguna alih-alih berhenti diam-diam.
+
+9. Sebelum menjalankan perintah yang mengubah state repositori (commit, hapus berkas, jalankan workflow build, dll.), AI wajib memeriksa prasyarat terlebih dahulu: identitas Git (`user.name`/`user.email` terisi), akses jaringan/autentikasi, kompatibilitas versi (Java/Gradle, SDK, dll.), dan ketersediaan berkas/prasyarat workflow. Hasil pemeriksaan wajib dilaporkan kepada pengguna. Untuk aksi destruktif (hapus berkas), wajib konfirmasi eksplisit pengguna melalui tool `question` sebelum dieksekusi.
