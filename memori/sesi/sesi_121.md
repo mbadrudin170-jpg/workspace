@@ -2,7 +2,7 @@
 
 ## Status
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-20 (Asia/Jakarta)
 - Command: interaksi langsung (tanpa command)
 - Topik: Memulai percakapan (sapaan "hai"); belum ada tugas spesifik
@@ -26,4 +26,4 @@
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan.
+Catch-up sync (sesi 133): perubahan episodic (migrasi root app admin_wifi provider→Riverpod); tidak ada fakta durable yang dipromosikan ke MEMORI.md (kriteria promosi tidak terpenuhi); tidak ada entri riwayat_perubahan.md yang ditambahkan.
