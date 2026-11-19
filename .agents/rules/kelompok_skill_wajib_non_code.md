@@ -57,37 +57,42 @@
 - Trigger : saat menambahkan atau memperbarui isi file task.md di root
 - Status : diperbarui : Sun Nov 15 2026 02:10 WIB
 
-12. .agents/skills/non-code/kelompok-skill-wajib/SKILL.md
+12. .agents/skills/non-code/install-rg/SKILL.md
+
+- Trigger : saat perlu memasang atau memverifikasi ripgrep (rg) di lingkungan Linux/WSL/Cloud Shell
+- Status : diperbarui : Fri Nov 20 2026 04:38 WIB
+
+13. .agents/skills/non-code/kelompok-skill-wajib/SKILL.md
 
 - Trigger : saat memperbarui kelompok skill wajib
 - Status : diperbarui : Mon Nov 16 2026 11:45 WIB
 
-13. .agents/skills/non-code/larangan-backup-task/SKILL.md
+14. .agents/skills/non-code/larangan-backup-task/SKILL.md
 
 - Trigger : saat membuat berkas cadangan task
 - Status : diperbarui : Sun Nov 15 2026 02:10 WIB
 
-14. .agents/skills/non-code/membuat-readme-yang-baik/SKILL.md
+15. .agents/skills/non-code/membuat-readme-yang-baik/SKILL.md
 
 - Trigger : saat membuat atau memperbaiki file README proyek
 - Status : diperbarui : Sun Nov 15 2026 02:10 WIB
 
-15. .agents/skills/non-code/memori-check/SKILL.md
+16. .agents/skills/non-code/memori-check/SKILL.md
 
 - Trigger : saat memulai percakapan atau tugas di proyek mana pun
 - Status : diperbarui : Mon Nov 16 2026 22:10 WIB
 
-16. .agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md
+17. .agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md
 
 - Trigger : saat memilih atau memakai tool bawaan Kilo (read, edit, glob, grep, bash, webfetch, dll.)
 - Status : diperbarui : Fri Nov 20 2026 03:02 WIB
 
-17. .agents/skills/non-code/penggunaan-tool-question/SKILL.md
+18. .agents/skills/non-code/penggunaan-tool-question/SKILL.md
 
 - Trigger : saat menyusun pertanyaan ke pengguna
 - Status : diperbarui : Wed Nov 18 2026 01:23 WIB
 
-18. .agents/skills/non-code/riset-kompetitor/SKILL.md
+19. .agents/skills/non-code/riset-kompetitor/SKILL.md
 
 - Trigger : saat membuat atau memperbarui katalog aplikasi kompetitor proyek
 - Status : diperbarui : Wed Nov 18 2026 05:55 WIB
