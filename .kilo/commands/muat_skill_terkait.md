@@ -2,7 +2,7 @@ description: Memuat skill yang relevan sebelum mengerjakan tugas (indeks non-cod
 
 # Muat Skill Terkait
 
-1. Baca terlebih dahulu `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks skill non-code) dan `.agents/rules/code.md` (aturan khusus kode beserta skill terkaitnya).
+1. Baca terlebih dahulu `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks skill non-code) dan `.agents/rules/code.md` (aturan khusus kode beserta skill terkaitnya), atau dari available skill.
 
 2. Bila pekerjaan yang sedang atau akan dikerjakan berkaitan dengan kode, pindai `.agents/skills/code/*/SKILL.md` — cocokkan `description`/Trigger tiap skill dengan pekerjaan tersebut; muat semua yang relevan, termasuk yang tidak dirujuk code.md.
 
