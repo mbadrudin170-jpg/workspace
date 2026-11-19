@@ -18,12 +18,12 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| prompt/skill/aturan-pembuatan-skill.md | Diubah | Poin 8/12/16 disesuaikan + timestamp |
-| .agents/skills/non-code/aturan-pembuatan-skill/SKILL.md | Diubah | Aturan 8/12/16 disesuaikan |
-| .agents/skills/**/SKILL.md (74 berkas) | Diubah | Hapus section `## Sumber Evaluasi` |
-| memori/sesi/sesi_117.md | Dibuat | Berkas sesi aktif |
+| Lokasi File                                             | Status Perubahan | Deskripsi                            |
+| ------------------------------------------------------- | ---------------- | ------------------------------------ |
+| prompt/skill/aturan-pembuatan-skill.md                  | Diubah           | Poin 8/12/16 disesuaikan + timestamp |
+| .agents/skills/non-code/aturan-pembuatan-skill/SKILL.md | Diubah           | Aturan 8/12/16 disesuaikan           |
+| .agents/skills/**/SKILL.md (74 berkas)                  | Diubah           | Hapus section `## Sumber Evaluasi`   |
+| memori/sesi/sesi_117.md                                 | Dibuat           | Berkas sesi aktif                    |
 
 ## Sinkronisasi ke MEMORI.md
 

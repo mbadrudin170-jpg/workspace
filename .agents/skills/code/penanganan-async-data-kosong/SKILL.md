@@ -1,6 +1,6 @@
 ---
 name: penanganan-async-data-kosong
-description: "Trigger: saat layar menangani state async atau data kosong | Panduan isLoading, hasError, requireValue, empty state, data tidak lengkap, early return, mounted check, penanganan wajib cache provider (provider sinkron turunan dan keepAlive)."
+description: "Trigger: saat layar menangani state async atau data kosong | Panduan isLoading, hasError, requireValue, empty state, data tidak lengkap, early return, mounted check, penanganan wajib cache provider (provider sinkron turunan dan keepAlive). Penanganan State Asynchronous dan Data Kosong pada Layar Layar async wajib handle isLoading → hasError → requireValue → empty state → data tidak lengkap, early return, mounted check. Aturan 1. Layar yang memuat data asynchronous wajib menangani status `isLoading` terlebih dahulu (tampilkan indikator loading). 2. Setelah itu, tangani status `hasError` (tampilkan pesan error dan tombol retry yang memanggil `ref.refresh(provider)`). DILARANG memakai `ref.invalidate(provider)` untuk retry pada penanganan `hasError`. Karena `ref.refresh` dianotasi `@useResult` (mengembalikan nilai provider), hasilnya WAJIB dipakai: satu provider → `() => ref.refresh(provider)`; beberapa provider sekaligus → list literal `() => [ref.refresh(p1), ref.refresh(p2), ...]`. Jangan panggil `ref.refresh"
 metadata:
   kategori: "custom"
   versi: "1.3.2"

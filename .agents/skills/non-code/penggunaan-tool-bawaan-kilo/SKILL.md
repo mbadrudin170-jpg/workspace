@@ -1,6 +1,6 @@
 ---
 name: penggunaan-tool-bawaan-kilo
-description: Trigger: saat memilih atau memakai tool bawaan Kilo (read, edit, glob, grep, bash, webfetch, dll.) | Panduan pemilihan tool bawaan Kilo: pemetaan kebutuhan ke tool yang tepat, contoh pemanggilan, aturan prioritas tool bawaan atas shell, dan izin deny yang mutlak.
+description: Trigger: saat memilih atau memakai tool bawaan Kilo (read, edit, glob, grep, bash, webfetch, dll.) | Panduan pemilihan tool bawaan Kilo: pemetaan kebutuhan ke tool yang tepat, contoh pemanggilan, aturan prioritas tool bawaan atas shell, dan izin deny yang mutlak. Penggunaan Tool Bawaan Kilo Panduan memilih dan memakai tool bawaan Kilo sesuai kebutuhan, beserta contoh pemanggilan dan aturan prioritas atas shell. Cakupan yang Di-Cover - Tool bawaan Kilo yang tersedia pada build saat ini: berkas, web, tugas/perencanaan, sesi/memori, interaksi pengguna, orkestrasi/sistem. - Pemetaan kebutuhan ke tool yang tepat. - Aturan prioritas tool bawaan atas shell dan izin `deny` yang mutlak. - Sumber: `prompt/skill/penggunaan-tool-bawaan-kilo.md` (commit `19177b4`); aturan prioritas lama `prioritas_tool_bawaan.md` (commit `c85674e`) sudah dihapus dan isinya diserap oleh skill ini. Aturan 1. Wajib gunakan tool bawaan Kilo bila ada padanan yang setara dengan kebutuhan; shell (`Bash`) hanya dipakai bila tidak ada tool bawaan 
 metadata:
   kategori: "custom"
   versi: "1.3.0"

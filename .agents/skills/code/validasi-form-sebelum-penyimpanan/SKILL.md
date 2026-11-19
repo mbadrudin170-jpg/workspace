@@ -1,6 +1,6 @@
 ---
 name: validasi-form-sebelum-penyimpanan
-description: "Trigger: saat memvalidasi form sebelum simpan | Panduan Form + GlobalKey + validate(); jangan masking input tidak valid dengan ?? 0."
+description: "Trigger: saat memvalidasi form sebelum simpan | Panduan Form + GlobalKey + validate(); jangan masking input tidak valid dengan ?? 0. Validasi Form Sebelum Penyimpanan Form wajib menggunakan `Form` + `GlobalKey<FormState>` + `validate()` sebelum simpan. Jangan masking input tidak valid dengan `?? 0`. Aturan 1. Apabila field menggunakan `TextFormField` atau widget yang menyediakan `validator`, pastikan mekanisme validasinya benar-benar dijalankan sebelum penyimpanan. 2. Jika menggunakan mekanisme `Form`, bungkus field terkait dengan `Form` dan sediakan `GlobalKey<FormState>` atau mekanisme akses form yang sesuai. 3. Panggil `validate()` sebelum menjalankan penyimpanan ke database atau repository. 4. Apabila validasi gagal, hentikan proses penyimpanan. 5. Validasi format angka tidak sama dengan validasi aturan bisnis. 6. Validasi harus mencakup batas nilai sesuai kebutuhan, misalnya nilai wajib lebih besar dari nol. 7. Jangan menganggap `TextInputType.number` atau input formatter sudah menjamin nilai memenuhi at"
 metadata:
   kategori: "custom"
   versi: "1.0.1"

@@ -1,6 +1,6 @@
 ---
 name: aturan-pubspec
-description: Trigger: saat menambah, menghapus, atau meng-upgrade paket pada pubspec.yaml, atau mengurutkan dependensi pubspec.yaml secara abjad | Panduan pengelolaan paket Flutter/Dart: `flutter pub add`/`remove`/`pub upgrade`, larangan penyuntingan manual pubspec.yaml (kecuali kasus `path:`/`git:` dan reorder urutan abjad sesuai `pengurutan-paket-pubspec`), dan kewajiban bertanya ke pengguna saat konflik.
+description: Trigger: saat menambah, menghapus, atau meng-upgrade paket pada pubspec.yaml, atau mengurutkan dependensi pubspec.yaml secara abjad | Panduan pengelolaan paket Flutter/Dart: `flutter pub add`/`remove`/`pub upgrade`, larangan penyuntingan manual pubspec.yaml (kecuali kasus `path:`/`git:` dan reorder urutan abjad sesuai `pengurutan-paket-pubspec`), dan kewajiban bertanya ke pengguna saat konflik. Aturan Pubspec 1. Menambahkan paket wajib memakai `flutter pub add`; dilarang menambahkan paket secara manual ke `pubspec.yaml`. 2. Menghapus paket wajib memakai `flutter pub remove`. 3. `pubspec.yaml` hanya boleh disunting manual bila `flutter pub add`/`flutter pub remove` tidak dapat menangani kasusnya (mis. dependensi `path:`/`git:`), atau bila hanya memindahkan posisi entri demi urutan abjad `dependencies`/`dev_dependencies` sesuai skill `pengurutan-paket-pubspec` (tanpa mengubah nama/versi paket, tidak menambah/menghapus paket); selain itu wajib memakai kedua perintah tersebut. Setelah penyuntingan manual, wajib v
 ---
 
 # Aturan Pubspec

@@ -1,6 +1,6 @@
 ---
 name: normalisasi-tanggal
-description: "Trigger: saat membandingkan atau menghitung tanggal | Panduan normalisasi DateTime ke komponen tanggal saja (tahun-bulan-hari) sebelum perbandingan/perhitungan berbasis hari, plus klamping nilai negatif ke nol."
+description: "Trigger: saat membandingkan atau menghitung tanggal | Panduan normalisasi DateTime ke komponen tanggal saja (tahun-bulan-hari) sebelum perbandingan/perhitungan berbasis hari, plus klamping nilai negatif ke nol. Normalisasi Tanggal untuk Perbandingan dan Perhitungan Berbasis Hari Normalisasi `DateTime` ke komponen tanggal saja sebelum membandingkan atau menghitung selisih hari, dan klamping hasil negatif ke nol. Aturan 1. Sebelum membandingkan atau menghitung selisih hari antara dua tanggal, normalisasi nilai `DateTime` ke komponen tanggal saja (tahun, bulan, hari) dengan membuang komponen waktu. 2. Gunakan `DateTime(tanggal.year, tanggal.month, tanggal.day)` untuk memperoleh representasi tanggal tanpa waktu. 3. Saat menghitung selisih hari dengan `difference(...).inDays`, pastikan kedua operand sudah dinormalisasi agar hasil tidak terpengaruh oleh jam/menit/detik. 4. Hasil perhitungan durasi atau jumlah hari yang dapat bernilai negatif wajib diklem (clamp) ke nol apabila nilai negatif tidak bermakna dalam kon"
 metadata:
   kategori: "custom"
   versi: "1.1.1"

@@ -1,6 +1,6 @@
 ---
 name: validasi-platform-izin
-description: "Trigger: saat fitur memerlukan platform atau izin | Panduan: cek dukungan platform sebelum API, minta izin sesuai kebijakan OS, periksa hasil izin sebelum mengaktifkan fitur."
+description: "Trigger: saat fitur memerlukan platform atau izin | Panduan: cek dukungan platform sebelum API, minta izin sesuai kebijakan OS, periksa hasil izin sebelum mengaktifkan fitur. Validasi Dukungan Platform dan Izin Runtime Periksa dukungan platform sebelum menggunakan API, minta izin sesuai kebijakan OS, periksa hasil izin sebelum mengaktifkan fitur. Aturan 1. Sebelum menggunakan API package, periksa dukungan platform berdasarkan versi package yang terpasang. Jangan mengasumsikan API yang sama tersedia di semua platform. 2. Jangan menampilkan kontrol fitur yang tidak didukung platform (misalnya pengingat terjadwal pada Web/Linux). 3. Permintaan izin harus mengikuti kebijakan sistem operasi dan dilakukan pada konteks yang tepat (setelah interaksi pengguna, bukan saat aplikasi pertama dibuka). 4. Periksa hasil izin sebelum menyatakan fitur berhasil diaktifkan. Jangan menyimpan status aktif jika izin sistem belum tersedia. 5. Pisahkan inisialisasi layanan dari permintaan izin pengguna. Inisialisasi boleh dilakukan s"
 metadata:
   kategori: "custom"
   versi: "1.1.0"

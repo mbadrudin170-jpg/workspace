@@ -1,6 +1,6 @@
 ---
 name: withvalues-opacity-warna
-description: "Trigger: saat mengatur opacity warna | Indeks aturan withValues(alpha:) bukan withOpacity() deprecated; lihat skill gaya untuk panduan lengkap."
+description: "Trigger: saat mengatur opacity warna | Indeks aturan withValues(alpha:) bukan withOpacity() deprecated; lihat skill gaya untuk panduan lengkap. Indeks: withValues Opacity Warna **Skill ini hanyalah indeks.** Gunakan skill **`gaya`** untuk panduan lengkap styling termasuk withValues opacity, warna tema vs hardcode, chip status pencapaian, dan loading overlay EasyLoading. Cakupan yang Di-Cover - Package: `package:flutter` (class `Color`, `ThemeData`, `ColorScheme`, `AlwaysStoppedAnimation`) - Class: `Color`, `ThemeData`, `ColorScheme`, `AlwaysStoppedAnimation` - Method: `Color.withValues(alpha:)`, `Color.withOpacity()`, `Theme.of(context)` Aturan 1. Wajib menggunakan `warna.withValues(alpha: ...)` untuk mengatur opacity warna. 2. DILARANG menggunakan `warna.withOpacity(...)` karena deprecated sejak Flutter 3.47+. 3. Konsisten menggunakan `withValues` di seluruh widget, tidak boleh bercampur dengan `withOpacity`. 4. Untuk panduan lengkap (warna tema vs hardcode, chip status, loading overlay), lihat skill `gaya`."
 metadata:
   kategori: "custom"
   versi: "1.0.1"

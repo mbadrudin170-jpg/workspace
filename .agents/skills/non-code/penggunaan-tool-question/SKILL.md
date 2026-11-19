@@ -1,6 +1,6 @@
 ---
 name: penggunaan-tool-question
-description: "Trigger: saat menyusun pertanyaan ke pengguna | Panduan tool question Kilo: header maks 30 karakter, label + description, multiple vs single, default, rekomendasi pertama (Recommended), larangan opsi catch-all, opsi Skip wajib di setiap pertanyaan, kunci i18n."
+description: 'Trigger: saat menyusun pertanyaan ke pengguna | Panduan tool question Kilo: header maks 30 karakter, label + description, multiple vs single, default, rekomendasi pertama (Recommended), larangan opsi catch-all, opsi Skip wajib di setiap pertanyaan, kunci i18n. Penggunaan Tool `question` Mengatur cara memanggil tool `question` Kilo agar setiap pertanyaan, permintaan klarifikasi, atau permintaan keputusan ke pengguna konsisten, jelas, dan sesuai kontrak tool. Tool ini wajib dipakai alih-alih menyisipkan pertanyaan sebagai teks biasa. Cakupan yang Di-Cover - Tool: `question` (Kilo built-in) - Parameter: `questions` (array), `question`, `header`, `options`, `label`, `description`, `multiple`, `default` - Parameter i18n opsional: `questionKey`, `headerKey`, `labelKey`, `descriptionKey` - Aturan: `header` maksimal 30 karakter, `label` ringkas 1-5 kata, `description` wajib per opsi, `multiple` vs single-select, opsi rekomendasi "(Recommended)", opsi bebas "Type your own answer" otomatis Aturan 1. Gunakan tool `quest'
 metadata:
   kategori: "custom"
   versi: "1.1.0"

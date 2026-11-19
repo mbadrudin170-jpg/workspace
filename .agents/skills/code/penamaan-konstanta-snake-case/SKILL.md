@@ -1,6 +1,6 @@
 ---
 name: penamaan-konstanta-snake-case
-description: "Trigger: saat menamai konstanta kolom database | Panduan konstanta kolom snake_case lowercase yang harus sama persis dengan skema dan migrasi SQLite."
+description: "Trigger: saat menamai konstanta kolom database | Panduan konstanta kolom snake_case lowercase yang harus sama persis dengan skema dan migrasi SQLite. Penamaan Konstanta Kolom Database Menggunakan snake_case Nilai konstanta kolom dalam `NamaKolom` wajib menggunakan huruf kecil dan underscore (`snake_case`) serta harus cocok persis dengan nama kolom pada skema dan migrasi SQLite. Aturan 1. Nilai konstanta nama kolom di `NamaKolom` wajib lowercase + underscore (snake_case). 2. Setiap konstanta wajib cocok persis (case-sensitive) dengan nama kolom pada `onCreate`, `onUpgrade`, dan query database. 3. Saat memperbaiki nama kolom, periksa konsistensi pemetaan model dan skema/migrasi agar aplikasi tidak membaca nama kolom yang berbeda. Larangan - Jangan menggunakan huruf kapital pada nilai konstanta (mis. `'Tanggal_mulai_tapering'` alih-alih `'tanggal_mulai_tapering'`). - Jangan menggunakan nilai konstanta yang berbeda dari nama kolom aktual pada skema atau migrasi. Contoh Benar Contoh Salah Skill ini wajib dibaca se"
 metadata:
   kategori: "custom"
   versi: "1.0.2"

@@ -1,6 +1,6 @@
 ---
 name: pencarian-koleksi-null-safe
-description: "Trigger: saat mencari elemen dalam koleksi (List/Iterable) dengan predikat yang mungkin tidak ditemukan | Panduan pencarian koleksi null-safe: wajib `firstWhereOrNull` dari `package:collection/collection.dart` alih-alih `firstWhere(..., orElse: () => null)` yang digabung dengan `cast<T?>()`; pola cast+firstWhere rentan salah tipe dan verbose."
+description: "Trigger: saat mencari elemen dalam koleksi (List/Iterable) dengan predikat yang mungkin tidak ditemukan | Panduan pencarian koleksi null-safe: wajib `firstWhereOrNull` dari `package:collection/collection.dart` alih-alih `firstWhere(..., orElse: () => null)` yang digabung dengan `cast<T?>()`; pola cast+firstWhere rentan salah tipe dan verbose. Pencarian Koleksi Null-Safe Saat mencari elemen dalam koleksi (`List`/`Iterable`) dengan predikat yang mungkin tidak ditemukan, wajib memakai `firstWhereOrNull` dari `package:collection/collection.dart`. Aturan 1. Pencarian elemen dalam koleksi dengan predikat yang mungkin tidak ditemukan wajib memakai `firstWhereOrNull` dari `package:collection/collection.dart`. 2. Import `package:collection/collection.dart` wajib ditambahkan bila belum ada (urutan alfabetis sesuai skill `import-ordering`). 3. Hasil `firstWhereOrNull` bertipe nullable (`T?`); tangani `null` secara eksplisit (mis. `??` atau `if (result == null)`). 4. Pola `cast<T?>().firstWhere(..., orElse: () => null)` "
 metadata:
   kategori: "custom"
   versi: "1.0.0"

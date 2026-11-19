@@ -1,6 +1,6 @@
 ---
 name: notifier-crud-database
-description: "Trigger: saat membuat Notifier CRUD database | Panduan pola Notifier CRUD Riverpod: keepAlive, build memanggil _ambilSemua, CRUD update state setelah DB berhasil, catch Exception rethrow."
+description: "Trigger: saat membuat Notifier CRUD database | Panduan pola Notifier CRUD Riverpod: keepAlive, build memanggil _ambilSemua, CRUD update state setelah DB berhasil, catch Exception rethrow. Pola Notifier CRUD pada Database Notifier database wajib menggunakan `@Riverpod(keepAlive: true)`, method `build()` memanggil `_ambilSemua()`, CRUD update state setelah operasi DB berhasil. Aturan 1. Notifier database wajib menggunakan `@Riverpod(keepAlive: true)` agar state tidak hilang saat tidak ada listener. 2. Method `build()` wajib memanggil `_ambilSemua()` yang mengambil seluruh data dari database dan memetakan ke model. 3. Setiap method CRUD (`tambah`, `ubah`, `hapus`) wajib: a. Mencatat parameter/log awal dengan `L.i`. b. Mengambil state lama melalui `await future`. c. Menjalankan operasi database terlebih dahulu. d. Memperbarui `state` dengan `AsyncValue.data(...)` setelah operasi database berhasil. e. Mencatat keberhasilan dengan `L.s`. f. Menangkap `Exception` dengan `on Exception catch (e, s)`, mencatat dengan `"
 metadata:
   kategori: "custom"
   versi: "1.1.1"

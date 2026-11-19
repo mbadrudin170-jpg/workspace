@@ -1,6 +1,6 @@
 ---
 name: pola-testing
-description: "Trigger: saat menulis test | Pola testing standar: package:test untuk unit test, WidgetTester untuk widget test, integration test, mocktail mock manual (tanpa codegen), dummy data, build_runner."
+description: "Trigger: saat menulis test | Pola testing standar: package:test untuk unit test, WidgetTester untuk widget test, integration test, mocktail mock manual (tanpa codegen), dummy data, build_runner. Pola Testing Standar Skill ini mendokumentasikan pola testing yang wajib diterapkan di semua proyek pengguna. 1. Unit Test (package:test) Aturan - File test diletakkan flat di `test/*_test.dart` (bukan di subfolder). - Gunakan `package:test` dengan `test()`, `group()`, `setUp()`, `tearDown()`. - Test fungsi murni, helper, extension, logic bisnis (bukan widget). - Nama test: `should <expected behavior> when <condition>`. Referensi - `dart-add-unit-test` skill untuk detail 2. Widget Test (WidgetTester) Aturan - Gunakan `WidgetTester` dari `package:flutter_test`. - Test rendering, tap, scroll, input text, navigasi. - Bungkus widget dengan `ProviderScope` + `MaterialApp` + override provider. - Gunakan `pumpWidget()`, `pumpAndSettle()`, `tap()`, `enterText()`. Referensi - `flutter-add-widget-test` skill untuk detail 3. Int"
 metadata:
   kategori: "custom"
   versi: "1.3.0"

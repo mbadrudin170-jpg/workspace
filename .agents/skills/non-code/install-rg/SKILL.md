@@ -1,6 +1,6 @@
 ---
 name: install-rg
-description: Trigger: saat perlu memasang atau memverifikasi ripgrep (rg) di lingkungan Linux/WSL/Cloud Shell — deteksi ketersediaan, pembaruan indeks paket, pemasangan via apt-get, verifikasi `rg --version`, dan fallback bila apt/sudo tidak tersedia.
+description: Trigger: saat perlu memasang atau memverifikasi ripgrep (rg) di lingkungan Linux/WSL/Cloud Shell — deteksi ketersediaan, pembaruan indeks paket, pemasangan via apt-get, verifikasi `rg --version`, dan fallback bila apt/sudo tidak tersedia. Skill: install-rg Memasang dan Memverifikasi ripgrep (rg) Panduan pemasangan ripgrep (`rg`) pada lingkungan Linux (Debian/Ubuntu, WSL, Cloud Shell) secara aman: deteksi ketersediaan, konfirmasi pengguna, pemasangan via apt-get, dan verifikasi hasil. Cakupan yang Di-Cover - Tool: ripgrep (`rg`) - Lingkungan: Linux Debian/Ubuntu, WSL, Cloud Shell - Perintah: `command -v rg`, `apt-get update`, `apt-get install -y ripgrep`, `rg --version` Aturan 1. Sebelum memasang, periksa ketersediaan `rg` melalui `command -v rg` atau `rg --version`; bila sudah ada, jangan pasang ulang. 2. Pastikan `apt-get` tersedia (distro Debian/Ubuntu) sebelum memakainya; bila tidak, laporkan dan hentikan (jangan paksa). 3. Minta konfirmasi pengguna sebelum menjalankan `apt-get update`/`apt-get install` ka
 ---
 
 # Skill: install-rg

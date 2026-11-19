@@ -1,6 +1,6 @@
 ---
 name: membuat-readme-yang-baik
-description: Trigger: saat membuat atau memperbaiki file README proyek | Panduan struktur README (judul, deskripsi, TOC, instalasi, penggunaan, kredit, lisensi, badge, kontribusi, test), prinsip what/why/how, visual (GIF/screenshot), daftar kontributor, perbedaan tipe proyek, dan referensi eksternal freeCodeCamp & DEV Community.
+description: Trigger: saat membuat atau memperbaiki file README proyek | Panduan struktur README (judul, deskripsi, TOC, instalasi, penggunaan, kredit, lisensi, badge, kontribusi, test), prinsip what/why/how, visual (GIF/screenshot), daftar kontributor, perbedaan tipe proyek, dan referensi eksternal freeCodeCamp & DEV Community. Membuat README yang Baik Panduan menyusun file `README.md` yang informatif, terstruktur, dan memudahkan pengguna/kontributor memahami proyek. Mengacu pada praktik terbaik dari freeCodeCamp (what/why/how) dan DEV Community (visual, kontributor, perbedaan tipe proyek), serta konvensi GitHub umum. Cakupan yang Di-Cover - Bagian wajib: Judul, Deskripsi, Instalasi & Menjalankan, Penggunaan, Kredit, Lisensi - Bagian tambahan: Table of Contents, Badges, Kontribusi, Test, Daftar Kontributor, Demo Visual (GIF/screenshot) - Prinsip penulisan: menjawab what, why, how; bahasa Inggris (global), up-to-date - Perbedaan tipe proyek: aplikasi vs library vs package vs non-code - Tools pendukung: VS Code + Markdown 
 metadata:
   kategori: "custom"
   versi: "1.1.0"

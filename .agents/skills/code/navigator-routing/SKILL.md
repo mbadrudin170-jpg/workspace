@@ -1,6 +1,6 @@
 ---
 name: navigator-routing
-description: "Trigger: saat navigasi atau routing Flutter | Panduan Navigator, Route, Page, MaterialApp.router, pushNamed, pop, onGenerateRoute, onUnknownRoute, restorablePushNamed."
+description: "Trigger: saat navigasi atau routing Flutter | Panduan Navigator, Route, Page, MaterialApp.router, pushNamed, pop, onGenerateRoute, onUnknownRoute, restorablePushNamed. Navigasi dan Routing Flutter Mengelola navigasi antar layar menggunakan `Navigator`, `Route`, `Page`, dan `MaterialApp` baik dengan imperative API maupun declarative (`MaterialApp.router`). Cakupan yang Di-Cover - Package: `package:flutter` (file `lib/src/widgets/navigator.dart`, `lib/src/widgets/app.dart`, `lib/src/widgets/material/app.dart`) - Class: `Navigator`, `NavigatorState`, `Route<T>`, `Page<T>`, `RouteSettings`, `MaterialApp`, `WidgetsApp`, `Router` - Method: `Navigator.push`, `Navigator.pop`, `Navigator.pushNamed`, `Navigator.pushReplacement`, `Navigator.popUntil`, `Navigator.pushNamedAndRemoveUntil`, `Navigator.restorablePushNamed`, `Navigator.maybePop`, `Navigator.of`, `Navigator.maybeOf` - Tipe: `RouteFactory`, `RoutePredicate`, `PageRouteFactory`, `TransitionBuilder` - Properti: `Navigator.pages`, `onGenerateRoute`, `onUnknownRou"
 metadata:
   kategori: "custom"
   versi: "1.2.0"

@@ -1,6 +1,6 @@
 ---
 name: kartu-motivasi-pintasan-dashboard
-description: "Trigger: saat membuat kartu motivasi atau pintasan aksi dashboard | Panduan dashboard dan SOS Craving: unawaited Nav.to dengan catchError, asData?.value bukan requireValue, log L.i/L.w, SizedBox.shrink untuk data kosong."
+description: "Trigger: saat membuat kartu motivasi atau pintasan aksi dashboard | Panduan dashboard dan SOS Craving: unawaited Nav.to dengan catchError, asData?.value bukan requireValue, log L.i/L.w, SizedBox.shrink untuk data kosong. Kartu Motivasi dan Pintasan Aksi Cepat pada Dashboard dan SOS Craving Pintasan Nav.to unawaited catchError, asData?.value untuk data opsional, log variabel UI, FilterChip logging, SizedBox.shrink data kosong. Cakupan yang Di-Cover - Package: `package:flutter` (class `FilterChip`, `Column`, `Text`, `ElevatedButton`, `SizedBox`), `package:flutter_riverpod` (class `AsyncValue`, `ref`, `ConsumerWidget`), `package:berhenti_merokok/shared/utils/l` (class `L`) - Class: `AsyncValue`, `FilterChip`, `ConsumerWidget`, `L`, `Nav` - Properti: `AsyncValue.asData?.value`, `FilterChip.selected`, `FilterChip.onSelected` - Method: `Nav.to()`, `unawaited()`, `catchError()`, `L.i()`, `L.w()`, `L.e()` Aturan 1. Pintasan navigasi (SOS Craving, Alasan Berhenti) pada dashboard wajib `unawaited(Nav.to(...).catchError"
 metadata:
   kategori: "custom"
   versi: "1.1.1"

@@ -1,6 +1,6 @@
 ---
 name: tipografi
-description: "Trigger: saat mengatur tipografi | Panduan: Theme.of(context).textTheme utama, copyWith untuk kustomisasi, paket `google_fonts` wajib, hierarki label/sub-label/nilai, bold terarah, FontFeature.tabularFigures() untuk angka/timer, FittedBox/Flexible secukupnya."
+description: "Trigger: saat mengatur tipografi | Panduan: Theme.of(context).textTheme utama, copyWith untuk kustomisasi, paket `google_fonts` wajib, hierarki label/sub-label/nilai, bold terarah, FontFeature.tabularFigures() untuk angka/timer, FittedBox/Flexible secukupnya. Panduan Tipografi Skill ini mendokumentasikan aturan tipografi berdasarkan `optimasi_ui.md` dan implementasi nyata di proyek Flutter. Cakupan yang Di-Cover - Package: `package:flutter` (class `ThemeData`, `TextTheme`, `TextStyle`, `FontFeature`, `TextOverflow`, `FittedBox`, `Flexible`, `Expanded`) - Package: `google_fonts` (`GoogleFonts.<namaFont>`, `GoogleFonts.interTextTheme`) - Class: `ThemeData`, `TextTheme`, `TextStyle`, `FontFeature`, `FittedBox`, `Flexible`, `Expanded` - Properti: `ThemeData.textTheme`, `TextStyle.fontSize`, `TextStyle.fontWeight`, `TextStyle.color`, `TextStyle.fontFeatures`, `TextOverflow.ellipsis` - Method: `Theme.of(context)`, `TextStyle.copyWith()` Aturan 1. Wajib menggunakan `Theme.of(context).textTheme` sebagai referensi uta"
 metadata:
   kategori: "custom"
   versi: "1.1.0"

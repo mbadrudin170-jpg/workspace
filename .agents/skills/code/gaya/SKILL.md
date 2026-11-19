@@ -1,6 +1,6 @@
 ---
 name: gaya
-description: "Trigger: saat menata warna dan tema UI | Panduan styling Flutter: withValues(alpha:) bukan withOpacity, warna dari ColorScheme/tema, hardcode hanya status semantic (hijau/merah/kuning), EasyLoading dengan catchError."
+description: "Trigger: saat menata warna dan tema UI | Panduan styling Flutter: withValues(alpha:) bukan withOpacity, warna dari ColorScheme/tema, hardcode hanya status semantic (hijau/merah/kuning), EasyLoading dengan catchError. Panduan Styling (Gaya) Skill ini mendokumentasikan aturan styling warna dan tema berdasarkan implementasi nyata di proyek Flutter. Semua aturan wajib diikuti untuk menjaga konsistensi visual antara mode terang dan gelap, serta menghindari API yang sudah deprecated. Cakupan yang Di-Cover - Package: `package:flutter` (class `Color`, `ThemeData`, `ColorScheme`, `Brightness`), `package:flutter_easyloading` (class `EasyLoading`, `EasyLoadingMaskType`) - Class: `Color`, `ThemeData`, `ColorScheme`, `Brightness`, `EasyLoading`, `EasyLoadingMaskType`, `AlwaysStoppedAnimation` - Enum: `Brightness.light`, `Brightness.dark`, `EasyLoadingMaskType.black`, `EasyLoadingMaskType.none` - Properti: `Color.alpha`, `ColorScheme.primary`, `ColorScheme.surface`, `ColorScheme.onSurface`, `ColorScheme.primaryContainer`, "
 metadata:
   kategori: "custom"
   versi: "1.1.1"

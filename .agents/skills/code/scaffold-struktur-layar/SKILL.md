@@ -1,6 +1,6 @@
 ---
 name: scaffold-struktur-layar
-description: "Trigger: saat menyusun struktur layar | Panduan Scaffold, AppBar, body, floatingActionButton, bottomNavigationBar, drawer untuk struktur layar standar; feedback sementara memakai `AppToast` dari `share_global_saya` bila tersedia."
+description: "Trigger: saat menyusun struktur layar | Panduan Scaffold, AppBar, body, floatingActionButton, bottomNavigationBar, drawer untuk struktur layar standar; feedback sementara memakai `AppToast` dari `share_global_saya` bila tersedia. Struktur Layar Standar (Scaffold) Menggunakan `Scaffold` sebagai kerangka layar dengan `AppBar`, `body`, `floatingActionButton`, `bottomNavigationBar`, dan `drawer` sesuai pedoman Material Design. Cakupan yang Di-Cover - Package: `package:flutter` (file `lib/src/material/scaffold.dart`, `lib/src/material/app_bar.dart`, `lib/src/material/bottom_app_bar.dart`, `lib/src/material/floating_action_button.dart`), `package:share_global_saya` (`lib/src/widget/toast_widget.dart`, kelas `AppToast`) - Class: `Scaffold`, `AppBar`, `PreferredSizeWidget`, `BottomNavigationBar`, `BottomNavigationBarItem`, `Drawer`, `FloatingActionButton`, `AppToast`, `PersistentBottomSheet`, `SliverAppBar` - Properti: `Scaffold.appBar`, `Scaffold.body`, `Scaffold.floatingActionButton`, `Scaffold.bottomNavigationBar`"
 metadata:
   kategori: "custom"
   versi: "1.3.0"

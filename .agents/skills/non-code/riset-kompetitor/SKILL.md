@@ -1,6 +1,6 @@
 ---
 name: riset-kompetitor
-description: "Trigger: saat membuat atau memperbarui katalog aplikasi kompetitor proyek | Panduan riset kompetitor portabel lintas proyek: menentukan aplikasi sasaran dari dokumen proyek, format tabel apk_kompetitor.md, status analisa per listing, verifikasi tautan, alur satu run mencakup semua store, dan laporan refrensi_apk.md."
+description: "Trigger: saat membuat atau memperbarui katalog aplikasi kompetitor proyek | Panduan riset kompetitor portabel lintas proyek: menentukan aplikasi sasaran dari dokumen proyek, format tabel apk_kompetitor.md, status analisa per listing, verifikasi tautan, alur satu run mencakup semua store, dan laporan refrensi_apk.md. Riset Kompetitor Aplikasi Mobile (Lintas Proyek) Mengumpulkan dan mendokumentasikan daftar aplikasi mobile kompetitor untuk proyek Flutter atau proyek mobile apa pun. Skill ini **tidak mengasumsikan** nama aplikasi, domain, kategori fitur, atau model bisnis proyek. Konteks aplikasi sasaran wajib dibaca dari dokumen proyek (`README.md`, `AGENTS.md`, PRD, atau dokumen produk lain) sebelum riset dimulai. Hasil riset disimpan dalam tabel standar di `apk_kompetitor.md`. Analisa lanjutan menghasilkan `refrensi_apk.md` yang memuat rekomendasi fitur, optimasi fitur eksisting, serta pola UI/UX/layout. Nama berkas tersebut adalah **default**; bila proyek memakai nama lain, sesuaikan dengan konvensi proyek d"
 metadata:
   kategori: "custom"
   versi: "1.6.1"

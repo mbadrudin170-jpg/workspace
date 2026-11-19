@@ -1,6 +1,6 @@
 ---
 name: format-prd
-description: "Trigger: saat membuat atau memperbarui PRD | Panduan format PRD proyek: header Status Dokumen dan Status Implementasi, enam bagian wajib (Informasi Produk, Tujuan PRD, Daftar Fitur, Alur Pengguna, Steps, File-File Terdampak), konteks penggunaan dan aturan pengisian per bagian, tabel prioritas (Must/Should/Could Have). Jangan digunakan untuk berkas hasil diskusi (`hasil_diskusi/diskusi_N.md`) atau `task.md`."
+description: "Trigger: saat membuat atau memperbarui PRD | Panduan format PRD proyek: header Status Dokumen dan Status Implementasi, enam bagian wajib (Informasi Produk, Tujuan PRD, Daftar Fitur, Alur Pengguna, Steps, File-File Terdampak), konteks penggunaan dan aturan pengisian per bagian, tabel prioritas (Must/Should/Could Have). Jangan digunakan untuk berkas hasil diskusi (`hasil_diskusi/diskusi_N.md`) atau `task.md`. Format PRD Mengatur bentuk dan isi dokumen PRD (_Product Requirements Document_) agar konsisten di seluruh proyek: header status, enam bagian wajib, konteks penggunaan dan aturan pengisian per bagian. Skill ini menggantikan berkas aturan `format_PRD.md` (dahulu `.agents/rules/global/format_PRD.md`, konversi penuh, sesi 66; berkas sumber kini dihapus); aturan format PRD kini mengikat melalui skill ini. Cakupan yang Di-Cover - Dokumen: PRD pada `prd/` di root proyek (mis. `prd/prd_<nama>.md`) - Header wajib: `**Status Dokumen:**` dan `**Status Implementasi:**` - Bagian wajib: Informasi Produk, Tujuan PRD, Da"
 metadata:
   kategori: "custom"
   versi: "1.0.0"

@@ -1,6 +1,6 @@
 ---
 name: penanganan-asyncvalue-berkali
-description: "Trigger: saat layar menangani beberapa AsyncValue | Panduan loading gabungan, error terpisah, requireValue yang aman, tipe generic konkret."
+description: "Trigger: saat layar menangani beberapa AsyncValue | Panduan loading gabungan, error terpisah, requireValue yang aman, tipe generic konkret. Penanganan Beberapa Provider Asynchronous pada Satu Layar Ketika layar memuat lebih dari satu provider asynchronous, tangani loading gabungan dan error secara terpisah. Pertahankan tipe data konkret pada setiap `AsyncValue`. Aturan 1. Ketika layar memuat lebih dari satu provider asynchronous, tangani status `isLoading` gabungan. Tampilkan indikator loading jika salah satu provider masih loading. 2. Tangani status `hasError` untuk setiap provider secara terpisah, dengan pesan error dan tombol retry yang memanggil `ref.refresh(provider)` yang sesuai. DILARANG memakai `ref.invalidate(provider)` untuk retry pada penanganan `hasError`. Karena `ref.refresh` dianotasi `@useResult` (mengembalikan nilai provider), hasilnya WAJIB dipakai: untuk satu provider gunakan `() => ref.refresh(provider)` (hasil menjadi return lambda); untuk beberapa provider sekaligus gunakan list literal `"
 metadata:
   kategori: "custom"
   versi: "1.1.3"

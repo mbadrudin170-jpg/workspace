@@ -1,6 +1,6 @@
 ---
 name: buildcontext-inherited
-description: "Trigger: saat mengakses widget induk dari BuildContext | Panduan Theme.of, MediaQuery.of, dependOnInheritedWidgetOfExactType, findAncestorWidgetOfExactType, findAncestorStateOfType."
+description: "Trigger: saat mengakses widget induk dari BuildContext | Panduan Theme.of, MediaQuery.of, dependOnInheritedWidgetOfExactType, findAncestorWidgetOfExactType, findAncestorStateOfType. BuildContext dan Akses Widget Induk (InheritedWidget) Menggunakan `BuildContext` untuk mengakses `Theme`, `MediaQuery`, `Navigator`, dan widget induk lainnya melalui `InheritedWidget`. Cakupan yang Di-Cover - Package: `package:flutter` (file `lib/src/widgets/framework.dart`) - Class: `BuildContext`, `Element`, `InheritedWidget`, `InheritedElement`, `Theme`, `MediaQuery`, `Navigator`, `Localizations` - Method: `dependOnInheritedWidgetOfExactType`, `getInheritedWidgetOfExactType`, `getElementForInheritedWidgetOfExactType`, `findAncestorWidgetOfExactType`, `findAncestorStateOfType`, `findAncestorRenderObjectOfType`, `visitAncestorElements`, `dispatchNotification` - Getter: `mounted`, `widget`, `size`, `renderObject`, `owner` - Fungsi statis: `Theme.of(context)`, `MediaQuery.of(context)`, `Navigator.of(context)`, `Localizations.of(con"
 metadata:
   kategori: "custom"
   versi: "1.0.1"

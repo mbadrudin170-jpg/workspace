@@ -1,6 +1,6 @@
 ---
 name: parsing-nullable-int
-description: "Trigger: saat membaca field integer nullable dari database | Panduan parseIntOrNull (null tetap null, tidak jadi 0) dan parseInt/parseBool dengan defaultValue untuk field non-nullable."
+description: 'Trigger: saat membaca field integer nullable dari database | Panduan parseIntOrNull (null tetap null, tidak jadi 0) dan parseInt/parseBool dengan defaultValue untuk field non-nullable. Parsing Field Nullable Integer dari Database Menggunakan parseIntOrNull Field `int?` yang dibaca dari database wajib menggunakan `ParserUtil.parseIntOrNull(...)`. Nilai null harus tetap null, bukan berubah menjadi 0. Aturan 1. Field nullable `int?` dari database wajib di-parse menggunakan `ParserUtil.parseIntOrNull(...)`, bukan `ParserUtil.parseInt(...)` yang menggunakan nilai default 0. 2. Pertahankan null dari database di model agar aplikasi dapat membedakan kondisi "belum diatur" dengan nilai nol yang memang ditetapkan. 3. **Field non-nullable di Dart** (`int`, `bool`, dll.) gunakan `ParserUtil.parseInt(...)` atau `ParserUtil.parseBool(...)` dengan `defaultValue`, karena tipe Dart tidak bisa menampung null. Jika DB null, nilai default Dart akan digunakan. 4. **Field nullable di Dart** (`int?`, `double?`, `String?`, dll.) gun'
 metadata:
   kategori: "custom"
   versi: "1.1.0"

@@ -1,6 +1,6 @@
 ---
 name: keamanan-aplikasi
-description: "Trigger: saat menerapkan keamanan aplikasi | Aturan keamanan: validasi input, enkripsi data sensitif, penyimpanan aman, platform validation, error handling tidak bocor info sensitif, dependency scanning."
+description: "Trigger: saat menerapkan keamanan aplikasi | Aturan keamanan: validasi input, enkripsi data sensitif, penyimpanan aman, platform validation, error handling tidak bocor info sensitif, dependency scanning. Aturan Keamanan Aplikasi Skill ini mendokumentasikan aturan keamanan yang wajib diterapkan di proyek ini. 1. Validasi Input (Input Validation) Aturan - **WAJIB** validasi semua input pengguna (form, query param, deep link, notifikasi payload). - Validasi di sisi client (UI) DAN server-side (repository/notifier) - defense in depth. - Gunakan `Form` + `GlobalKey<FormState>` + `validator` untuk form. - **DILARANG** `?? 0` atau `?? ''` masking input tidak valid (lihat `validasi-form-sebelum-penyimpanan`). - Sanitasi input sebelum simpan ke DB (trim, escape, normalisasi). 2. Penyimpanan Data Sensitif Aturan - **DILARANG** simpan password, token, PIN, kunci enkripsi di `SharedPreferences` / SQLite plaintext. - Data sensitif **WAJIB** dienkripsi (mis. `flutter_secure_storage` untuk keychain/keystore). - Database SQL"
 metadata:
   kategori: "custom"
   versi: "1.0.1"

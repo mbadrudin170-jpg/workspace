@@ -1,6 +1,6 @@
 ---
 name: widget-custom
-description: "Trigger: saat membuat widget custom reusable | Indeks: visualisasi-progres-impian, isolasi-widget-timer, empty-state-daftar. Wajib StatelessWidget, pure, aman tema (ColorScheme), Column.spacing."
+description: "Trigger: saat membuat widget custom reusable | Indeks: visualisasi-progres-impian, isolasi-widget-timer, empty-state-daftar. Wajib StatelessWidget, pure, aman tema (ColorScheme), Column.spacing. Indeks Widget Custom Reusable Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap widget custom. Jangan menduplikasi isi skill spesifik di sini. Widget custom yang dicantumkan di bawah ini adalah komponen reusable yang sudah teruji di proyek Flutter. Cakupan yang Di-Cover - Package: `package:flutter` (class `StatelessWidget`, `Card`, `Column`, `Row`, `Stack`, `FractionallySizedBox`, `SizedBox`, `Padding`, `SafeArea`, `CircularProgressIndicator`, `FilledButton`, `Icon`, `Text`, `Chip`, `LinearProgressIndicator`) - Class: `VisualTabunganImpian`, `EmptyStateView`, `TimerCravingView` (dan `Napas478View`, `Napas90DetikView`, `BoxBreathingView`, `Grounding54321View`, `UrgeSurfingView`, `DistraksiView`), `_HeaderPemulihan`, `ImpianProgresHelper` - Properti: `rasio`, `saldo`, `target`, `sp"
 metadata:
   kategori: "custom"
   versi: "1.1.2"
