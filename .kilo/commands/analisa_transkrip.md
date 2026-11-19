@@ -20,6 +20,8 @@ description: Ambil id transkrip Kilo tertua yang belum dianalisa dari storage se
 
 8. Setelah analisa transkrip selesai, laporkan kepada pengguna apakah ada saran agar AI di masa mendatang lebih pintar dan sesuai dengan keinginan pengguna.
 
+9. Jika suatu id tidak dapat dianalisa (transkrip tidak tersedia di `kilo_local_recall` dan tidak ada lampiran transkrip) atau nama topiknya tidak dapat diketahui, hapus entri id tersebut dari `docs/hasil_analisa/hasil_analisa_transkrip.md` agar daftar hanya memuat id yang dapat dianalisa.
+
 # Skill Terkait
 
 - memori-check
