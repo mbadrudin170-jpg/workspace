@@ -21,9 +21,9 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| memori/sesi/sesi_123.md | Dibuat | Berkas sesi aktif |
+| Lokasi File             | Status Perubahan | Deskripsi         |
+| ----------------------- | ---------------- | ----------------- |
+| memori/sesi/sesi_123.md | Dibuat           | Berkas sesi aktif |
 
 ## Sinkronisasi ke MEMORI.md
 

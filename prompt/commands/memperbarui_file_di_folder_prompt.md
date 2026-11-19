@@ -1,7 +1,7 @@
-diperbarui : Wed Nov 18 2026 00:45 WIB
+diperbarui : Fri Nov 20 2026 06:06 WIB
 ditimpa ke : `.kilo/commands/memperbarui_file_di_folder_prompt.md`
 
-1. Baca `AGENTS.md` dan `instructions` pada `.kilo/kilo.jsonc`; patuhi aturan yang berlaku.
+1. Baca `AGENTS.md`; patuhi aturan yang berlaku.
 
 2. Diskusikan isi berkas `prompt/` yang ditunjuk `$ARGUMENTS` agar baik dan benar: usulkan perbaikan bila ambigu/kurang jelas, perbaiki salah ketik/penempatan, dan tampilkan draf sebelum mengedit.
 

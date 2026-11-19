@@ -16,13 +16,13 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| admin_wifi/lib/utils/sync_manager.dart | Diubah | Tambah import flutter_riverpod + syncManagerProvider |
-| admin_wifi/lib/app.dart | Diubah | Ganti MultiProvider → ProviderScope (Riverpod) |
-| admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart | Diubah | Ganti Provider.of → ref.read(syncManagerProvider); hapus import provider |
-| admin_wifi/pubspec.yaml | Diubah | Hapus dependensi provider (flutter pub remove) |
-| memori/sesi/sesi_121.md | Dibuat | Berkas sesi aktif |
+| Lokasi File                                                              | Status Perubahan | Deskripsi                                                                |
+| ------------------------------------------------------------------------ | ---------------- | ------------------------------------------------------------------------ |
+| admin_wifi/lib/utils/sync_manager.dart                                   | Diubah           | Tambah import flutter_riverpod + syncManagerProvider                     |
+| admin_wifi/lib/app.dart                                                  | Diubah           | Ganti MultiProvider → ProviderScope (Riverpod)                           |
+| admin_wifi/lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart | Diubah           | Ganti Provider.of → ref.read(syncManagerProvider); hapus import provider |
+| admin_wifi/pubspec.yaml                                                  | Diubah           | Hapus dependensi provider (flutter pub remove)                           |
+| memori/sesi/sesi_121.md                                                  | Dibuat           | Berkas sesi aktif                                                        |
 
 ## Sinkronisasi ke MEMORI.md
 

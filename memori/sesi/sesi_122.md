@@ -19,10 +19,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| docs/hasil_analisa/hasil_analisa_transkrip.md | Diubah | Tambah entri analisa id ses_e0a6d48e...; status menjadi sudah dianalisa; topik diperbarui |
-| memori/sesi/sesi_122.md | Dibuat | Berkas sesi aktif |
+| Lokasi File                                   | Status Perubahan | Deskripsi                                                                                 |
+| --------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------- |
+| docs/hasil_analisa/hasil_analisa_transkrip.md | Diubah           | Tambah entri analisa id ses_e0a6d48e...; status menjadi sudah dianalisa; topik diperbarui |
+| memori/sesi/sesi_122.md                       | Dibuat           | Berkas sesi aktif                                                                         |
 
 ## Sinkronisasi ke MEMORI.md
 

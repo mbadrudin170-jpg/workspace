@@ -17,10 +17,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| .agents/skills/**/SKILL.md (79 berkas) | Diubah | Description diperbarui (1024 karakter) |
-| memori/sesi/sesi_120.md | Dibuat | Berkas sesi aktif |
+| Lokasi File                            | Status Perubahan | Deskripsi                              |
+| -------------------------------------- | ---------------- | -------------------------------------- |
+| .agents/skills/**/SKILL.md (79 berkas) | Diubah           | Description diperbarui (1024 karakter) |
+| memori/sesi/sesi_120.md                | Dibuat           | Berkas sesi aktif                      |
 
 ## Sinkronisasi ke MEMORI.md
 
