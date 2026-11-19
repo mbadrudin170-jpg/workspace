@@ -256,7 +256,58 @@ Tanggal evaluasi: 2026-11-15/2026-11-16 (sesi 157). Parameter `$ARGUMENTS` koson
 - Berkas yang diubah: `task.md` (Kelompok 5–6, Task 10–11) dan `catatan.md` (subbagian ini). Di luar batasan command tersebut, sesuai kewajiban skill `memori-check` yang mengikat pada setiap interaksi, turut diubah/ditambah: `MEMORI.md` (header + entri sesi 157), `memori/riwayat_perubahan.md` (entri sesi 157), dan `memori/sesi/sesi_157.md` (dibuat; status `Belum Sinkron` selama sesi). Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
 - Catatan: pointer `base_coc` root berbeda dari HEAD submodul (`207aa5d` vs `e0c88eb`) — hanya dicatat sebagai informasi; tidak diubah.
 
-## Evaluasi Skill dari commit
+### Evaluasi ulang 2026-11-19 (root + submodul; sesi 133)
+
+Tanggal evaluasi: 2026-11-19 (sesi 133). Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus. Berkas yang diubah: `catatan.md` (subbagian ini), serta berkas memori (`MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_133.md`) sesuai kewajiban skill `memori-check`. Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul. `task.md` **tidak diperbarui** (tidak ada temuan baru dari commit terbaru).
+
+#### Repositori root (`.`)
+
+- Branch aktif: `main`.
+- Rentang dievaluasi: `cb375ef..7990aa9` (banyak commit, namun `git log cb375ef..HEAD -- '*.dart'` kosong — tidak ada commit Dart di root). Tidak ada temuan untuk root.
+- Pointer submodul: `git ls-tree HEAD admin_wifi share_global_saya` = `9931087` (`admin_wifi`) dan `08507e3` (`share_global_saya`) — keduanya cocok dengan HEAD submodul.
+- Commit terakhir yang dievaluasi: `7990aa9f0aa990521dd41194d5add8b3200fff01` (HEAD; 2026-11-19; pesan `a`).
+- Tanggal evaluasi: 2026-11-19.
+
+#### Submodul `admin_wifi` (`admin_wifi/`)
+
+- Branch aktif: `main` (bukan detached HEAD).
+- Rentang dievaluasi: fallback 5 commit terakhir pada `main` (belum pernah dievaluasi): `8226380` (h), `d366e1e` (m), `6b8a1ee` (a, non-Dart), `acda13b` (a), `9931087` (m), dibaca dari terlama ke terbaru.
+- Commit Dart yang diperiksa:
+  1. `8226380` (2026-11-19; `h`) — migrasi mock ke `test/mocks.dart` (mocktail manual, tanpa codegen); penghapusan `*.mocks.dart`; penambahan `MockSyncManager`, `MockOperasiDasar`, dll. Sesuai skill `pola-testing`.
+  2. `d366e1e` (2026-11-19; `m`) — pembaruan test (hapus `fungsi_menampilkan_notifikasi_test.dart`); tidak ada perubahan kode sumber.
+  3. `acda13b` (2026-11-19; `a`) — penambahan `lib/db/supabase/supabase.dart` (`SupabaseKlien` singleton, inisialisasi dengan `publishableKey`/`anonKey`, guard `url`/key kosong, `L.e(... $e $s)`) dan `lib/db/supabase/operasi_supabase.dart` (`OperasiSupabase` CRUD generik ke Supabase, `Provider<OperasiSupabase>`). Verifikasi paket/SDK: `supabase_flutter 2.18.3` (constraint `^2.18.3`); Flutter 3.50.0 / Dart 3.14.0 memenuhi `environment.sdk ^3.9.0`.
+  4. `9931087` (2026-11-19; `m`) — `lib/main.dart` ganti `MyApp` → `AppMaterial`; `lib/utils/sync_manager.dart` tambah `syncManagerProvider` (`Provider<SyncManager>`) + import `flutter_riverpod`; penghapusan `app.dart`/`home.dart` lama (partial). Root app masih memenuhi skill `overlay-log-debug` (`PengelolaOverlayLogDebug` + `Localizations` di atas `Directionality`).
+- Verifikasi paket/SDK: Flutter 3.50.0 / Dart 3.14.0; `admin_wifi` `environment.sdk ^3.9.0` cocok. Paket ter-lock: `supabase_flutter 2.18.3`, `flutter_riverpod 3.5.0` (constraint `^3.4.2`), `freezed_annotation 3.1.0`, `riverpod_annotation 4.0.8`, `sqflite 2.4.6` (constraint `^2.4.2`). Tidak ada paket baru pada commit terbaru selain yang sudah ada.
+- Temuan: **tidak ada** — perubahan commit terbaru tidak melanggar skill yang terpenuhi (import material sudah `package:material_ui/material_ui.dart` pada file yang disentuh; `L.e` menyertakan `$e $s`; root app memenuhi `overlay-log-debug`; migrasi mock sesuai `pola-testing`). `task.md` tidak ditambah.
+- Pointer: `git ls-tree HEAD admin_wifi` = `9931087` — cocok dengan HEAD submodul.
+- Catatan: working tree `admin_wifi` bersih.
+- Commit terakhir yang dievaluasi: `99310879871ccf5504d8cf8aa38f9fe736f0be71` (HEAD; 2026-11-19 22:29:38 UTC; pesan `m`).
+- Tanggal evaluasi: 2026-11-19.
+
+#### Submodul `share_global_saya` (`share_global_saya/`)
+
+- Branch aktif: `main`.
+- Rentang dievaluasi: `ae78761..08507e3` (8 commit, 6 commit Dart: `e43255b`, `79ecb53`, `0c055ac`, `cde9e7f`, `b691a0e`, `08507e3`), dibaca dari terlama ke terbaru.
+- Commit Dart yang diperiksa:
+  1. `e43255b` (2026-11-15; `a`) — penambahan `test/mocks.dart` (mock manual mocktail) + `mocktail ^1.0.5` pada `dev_dependencies`. Sesuai skill `pola-testing`.
+  2. `79ecb53` (2026-11-19; `m`) — `lib/src/widget/toast_widget.dart`: migrasi import `package:flutter/material.dart` → `package:material_ui/material_ui.dart`.
+  3. `0c055ac` (2026-11-19; `m`) — `lib/src/widget/confirmation_dialog.dart`: migrasi import material → `material_ui`.
+  4. `cde9e7f` (2026-11-19; `a`) — `lib/log_debug/log_debug_page.dart`: migrasi import material → `material_ui`.
+  5. `b691a0e` (2026-11-19; `refactor(widget)`) — migrasi import material → `material_ui` pada 11 berkas widget/utilitas/overlay + penambahan dependensi `material_ui: ^1.11.1` di `pubspec.yaml`. Verifikasi paket: `material_ui 1.11.1` terpasang di `pubspec.lock`.
+  6. `08507e3` (2026-11-19; `a`) — penghapusan `lib/src/utils/async_value_x.dart` (extension `whenDefault` memakai `.when`) dan penghapusan export-nya dari `core_shared.dart`. Sejalan dengan skill `riverpod-pola` (larangan `.when` pada `AsyncValue`).
+- Verifikasi paket/SDK: Flutter 3.50.0 / Dart 3.14.0; `share_global_saya` `environment.sdk ">=3.4.0 <4.0.0"` dan `flutter ">=3.22.0"` cocok. Paket ter-lock: `material_ui 1.11.1`, `flutter_riverpod 3.5.0` (constraint `^3.4.2`), `freezed 4.0.3`, `freezed_annotation 3.1.0`. Seluruh berkas `lib/` kini bebas dari import `package:flutter/material.dart` (terverifikasi dengan grep).
+- Temuan: **tidak ada** — perubahan commit terbaru tidak melanggar skill yang terpenuhi. `task.md` tidak ditambah.
+- Pointer: `git ls-tree HEAD share_global_saya` = `08507e3` — cocok dengan HEAD submodul.
+- Catatan: working tree `share_global_saya` bersih.
+- Commit terakhir yang dievaluasi: `08507e3b61af2d13cc98290eb218145ca2a273f4` (HEAD; 2026-11-19 14:56:38 UTC; pesan `a`).
+- Tanggal evaluasi: 2026-11-19.
+
+#### Catatan pelaksanaan evaluasi 2026-11-19 (sesi 133)
+
+- Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus.
+- Berkas yang diubah: `catatan.md` (subbagian ini). Di luar batasan command tersebut, sesuai kewajiban skill `memori-check` yang mengikat pada setiap interaksi, turut diubah/ditambah: `MEMORI.md` (header + entri sesi 133), `memori/riwayat_perubahan.md` (entri sesi 133), dan `memori/sesi/sesi_133.md` (dibuat; status `Belum Sinkron` selama sesi). Catch-up sync: `sesi_121` dan `sesi_122` (Belum Sinkron, berisi perubahan nyata) ditandai Sudah Sinkron dengan catatan "perubahan episodic; tidak ada fakta durable yang dipromosikan ke MEMORI.md".
+- Verifikasi paket/SDK: Flutter 3.50.0 / Dart 3.14.0; `admin_wifi` `environment.sdk ^3.9.0` dan `share_global_saya` `environment.sdk ">=3.4.0 <4.0.0"` + `flutter ">=3.22.0"` cocok. Paket baru/diverifikasi: `material_ui 1.11.1` (share_global_saya), `supabase_flutter 2.18.3` (admin_wifi, terpasang sebelumnya).
+- Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
 
 Tanggal evaluasi: 2026-11-17 (parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus). Commit awal = commit setelah hash tercatat entri lama; commit akhir = HEAD tiap repo yang dicatat saat evaluasi dimulai. Evaluasi hanya perubahan kode Dart; commit baru yang muncul saat evaluasi berjalan diabaikan. Commit yang menyentuh `task.md` di root (`6021041`, `d4c0881`) dibaca: keduanya hanya add/delete seluruh `task.md` tanpa task berstatus `batal` yang dihapus, sehingga tidak ada penyesuaian skill dari situ. Berkas yang diubah: `catatan.md` (bagian ini) dan `.agents/skills/custom/` (5 skill diperbarui). Berkas Dart pada seluruh repo tidak disentuh; pointer submodule, `.gitmodules`, dan isi submodule tidak disentuh; tidak ada commit/push di root maupun submodule.
 
