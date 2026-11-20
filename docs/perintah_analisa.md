@@ -1,0 +1,7 @@
+# Analisa Hasil Percakapan
+
+1. Analisa hasil percakapan saya dengan sebuah agen AI.
+2. Tujuan: mempersempit kesalahan berulang di kemudian hari.
+3. Tujuan: semua proyek menjadi konsisten, anti error dan bug.
+
+==================================================================

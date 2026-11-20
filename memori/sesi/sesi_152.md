@@ -5,7 +5,7 @@
 - Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-20
 - Command: interaksi langsung (tanpa command)
-- Topik: Migrasi nama kolom database ke snake_case (SQLite + Supabase)
+- Topik: Menambah cat `docs/perintah_analisa.md` paling atas pada output script
 
 ## Checklist Awal Sesi
 
@@ -16,29 +16,22 @@
 
 ## Catch-up Sync Awal Sesi
 
-- Tidak ada berkas `Belum Sinkron` baru (sesi 151 sudah `Sudah Sinkron`). Berkas ambigu/paralel tetap tidak disentuh.
+- Berkas `Belum Sinkron` baru: tidak ada. Berkas ambigu/paralel tetap tidak disentuh.
 
 ## Catatan Sesi
 
-- Nilai konstanta kolom Skema yang camelCase dikonversi ke snake_case (`isDeleted`→`is_deleted`, `namaDompet`→`nama_dompet`, `isPublic`→`is_public`, `jumlahPoin`→`jumlah_poin`, `userId`→`user_id`).
-- Raw SQL/map literal di operasi dan onCreate diperbarui.
-- Versi database dinaikkan ke 44; onUpgrade menambahkan rename kolom camelCase→snake_case.
-- Berkas SQL Supabase (`tabel_supabase.sql`, `rules_supabase.sql`) disesuaikan snake_case.
+- Update `script/salin_tool_output.sh`: setelah truncate, jika `docs/perintah_analisa.md` ada, cat isinya ke DEST terlebih dahulu, lalu gabungan tool-output.
+- Jalankan script: berhasil; output 23412 baris.
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| `memori/sesi/sesi_152.md` | Dibuat | Berkas sesi aktif |
-| Berbagai `lib/fitur/*/model/*_model.dart` | Diubah | Nilai konstanta Skema snake_case |
-| `lib/db/sqlite/oncreate_sqflite.dart` | Diubah | Kolom snake_case + index |
-| `lib/db/sqlite/onupgrade_sqflite.dart` | Diubah | Rename kolom migrasi |
-| `lib/db/sqlite/sqflite.dart` | Diubah | Versi DB 44 |
-| `lib/data/operasi/*.dart` | Diubah | Raw SQL/map snake_case |
-| `lib/sql/tabel/tabel_supabase.sql` | Diubah | Kolom snake_case |
-| `test/...` | Diubah | Referensi kolom snake_case |
+| Lokasi File                                  | Status Perubahan | Deskripsi                                        |
+| ------------------------------------------- | ---------------- | ------------------------------------------------ |
+| `memori/sesi/sesi_152.md`                   | Dibuat           | Berkas sesi aktif (Belum Sinkron)                |
+| `script/salin_tool_output.sh`               | Diubah           | Tambah cat docs/perintah_analisa.md paling atas  |
+| `hasil_output.txt`                          | Diubah           | Output script (23412 baris)                      |
 
 ## Sinkronisasi ke MEMORI.md
 
-- Migrasi snake_case bersifat implementasi, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
+- Perubahan script/output bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.

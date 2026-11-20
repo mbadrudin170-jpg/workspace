@@ -5,7 +5,7 @@
 - Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-20
 - Command: interaksi langsung (tanpa command)
-- Topik: Buat berkas drop tabel Supabase
+- Topik: Menjalankan ulang `script/salin_tool_output.sh`
 
 ## Checklist Awal Sesi
 
@@ -16,20 +16,21 @@
 
 ## Catch-up Sync Awal Sesi
 
-- Tidak ada berkas `Belum Sinkron` baru (sesi 152 sudah `Sudah Sinkron`). Berkas ambigu/paralel tetap tidak disentuh.
+- Berkas `Belum Sinkron` baru: tidak ada. Berkas ambigu/paralel tetap tidak disentuh.
 
 ## Catatan Sesi
 
-- Membuat `admin_wifi/lib/sql/tabel/drop_tabel_supabase.sql` berisi perintah drop tabel (dev/reset).
+- Menjalankan `./script/salin_tool_output.sh` ulang (overwrite).
+- Hasil: `hasil_output.txt` 2.1M.
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| `memori/sesi/sesi_153.md` | Dibuat | Berkas sesi aktif |
-| `admin_wifi/lib/sql/tabel/drop_tabel_supabase.sql` | Dibuat | Drop tabel Supabase |
+| Lokasi File                          | Status Perubahan | Deskripsi                                  |
+| ------------------------------------ | ---------------- | ------------------------------------------ |
+| `memori/sesi/sesi_153.md`            | Dibuat           | Berkas sesi aktif (Belum Sinkron)           |
+| `hasil_output.txt`                   | Diubah           | Output script (overwrite)                  |
 
 ## Sinkronisasi ke MEMORI.md
 
-- Pembuatan berkas drop SQL bersifat implementasi, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
+- Perubahan output bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
