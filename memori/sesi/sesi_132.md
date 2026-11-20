@@ -12,10 +12,10 @@ Menghapus `prompt/commands/pantau_dan_evaluasi_transkrip.md` dan target `.kilo/c
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/pantau_dan_evaluasi_transkrip.md | Dihapus | Prompt dihapus. |
-| .kilo/commands/pantau_dan_evaluasi_transkrip.md | Dihapus | Target command dihapus. |
+| Lokasi File                                      | Status Perubahan | Deskripsi               |
+| ------------------------------------------------ | ---------------- | ----------------------- |
+| prompt/commands/pantau_dan_evaluasi_transkrip.md | Dihapus          | Prompt dihapus.         |
+| .kilo/commands/pantau_dan_evaluasi_transkrip.md  | Dihapus          | Target command dihapus. |
 
 ## Sinkronisasi ke MEMORI.md
 

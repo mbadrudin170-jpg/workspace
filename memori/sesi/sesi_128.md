@@ -12,9 +12,9 @@ Menghapus berkas `.kilo/commands/analisa_transkrip.md` atas permintaan pengguna.
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| .kilo/commands/analisa_transkrip.md | Dihapus | Command dihapus atas permintaan pengguna. |
+| Lokasi File                         | Status Perubahan | Deskripsi                                 |
+| ----------------------------------- | ---------------- | ----------------------------------------- |
+| .kilo/commands/analisa_transkrip.md | Dihapus          | Command dihapus atas permintaan pengguna. |
 
 ## Sinkronisasi ke MEMORI.md
 

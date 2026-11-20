@@ -12,9 +12,9 @@ Menambahkan permission bash `tail *`/`tail` allow pada `.kilo/kilo.jsonc`.
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| .kilo/kilo.jsonc | Diubah | Tambah rule allow untuk tail. |
+| Lokasi File      | Status Perubahan | Deskripsi                     |
+| ---------------- | ---------------- | ----------------------------- |
+| .kilo/kilo.jsonc | Diubah           | Tambah rule allow untuk tail. |
 
 ## Sinkronisasi ke MEMORI.md
 

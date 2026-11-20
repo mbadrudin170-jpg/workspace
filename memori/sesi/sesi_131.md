@@ -12,10 +12,10 @@ Menambahkan frasa "atau dari available skill" pada poin 1 command `muat_skill_te
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/muat_skill_terkait.md | Diubah | Tambah frasa pada poin 1. |
-| .kilo/commands/muat_skill_terkait.md | Diubah | Tambah frasa pada poin 1. |
+| Lokasi File                           | Status Perubahan | Deskripsi                 |
+| ------------------------------------- | ---------------- | ------------------------- |
+| prompt/commands/muat_skill_terkait.md | Diubah           | Tambah frasa pada poin 1. |
+| .kilo/commands/muat_skill_terkait.md  | Diubah           | Tambah frasa pada poin 1. |
 
 ## Sinkronisasi ke MEMORI.md
 

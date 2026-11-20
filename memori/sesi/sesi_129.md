@@ -12,10 +12,10 @@ Menghapus `prompt/commands/diskusi_hasil_analisa_transkrip.md` dan target `.kilo
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/diskusi_hasil_analisa_transkrip.md | Dihapus | Prompt dihapus. |
-| .kilo/commands/diskusi_hasil_analisa_transkrip.md | Dihapus | Target command dihapus. |
+| Lokasi File                                        | Status Perubahan | Deskripsi               |
+| -------------------------------------------------- | ---------------- | ----------------------- |
+| prompt/commands/diskusi_hasil_analisa_transkrip.md | Dihapus          | Prompt dihapus.         |
+| .kilo/commands/diskusi_hasil_analisa_transkrip.md  | Dihapus          | Target command dihapus. |
 
 ## Sinkronisasi ke MEMORI.md
 

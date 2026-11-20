@@ -14,10 +14,10 @@ Memperbarui berkas `prompt/commands/audit_hasil_output.md` dan target `.kilo/com
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/audit_hasil_output.md | Diubah | Tambah header wajib dan poin ringkas. |
-| .kilo/commands/audit_hasil_output.md | Dibuat | Command Kilo target. |
+| Lokasi File                           | Status Perubahan | Deskripsi                             |
+| ------------------------------------- | ---------------- | ------------------------------------- |
+| prompt/commands/audit_hasil_output.md | Diubah           | Tambah header wajib dan poin ringkas. |
+| .kilo/commands/audit_hasil_output.md  | Dibuat           | Command Kilo target.                  |
 
 ## Sinkronisasi ke MEMORI.md
 

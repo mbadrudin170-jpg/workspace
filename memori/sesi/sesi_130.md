@@ -12,10 +12,10 @@ Menambahkan poin saran (rules/command/skill) pada `prompt/commands/audit_hasil_o
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| prompt/commands/audit_hasil_output.md | Diubah | Tambah poin 4. |
-| .kilo/commands/audit_hasil_output.md | Diubah | Tambah langkah 6. |
+| Lokasi File                           | Status Perubahan | Deskripsi         |
+| ------------------------------------- | ---------------- | ----------------- |
+| prompt/commands/audit_hasil_output.md | Diubah           | Tambah poin 4.    |
+| .kilo/commands/audit_hasil_output.md  | Diubah           | Tambah langkah 6. |
 
 ## Sinkronisasi ke MEMORI.md
 

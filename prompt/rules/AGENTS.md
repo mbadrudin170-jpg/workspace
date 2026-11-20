@@ -1,4 +1,4 @@
-diperbarui : Wed Nov 18 2026 09:21 WIB
+diperbarui : Fri Nov 20 2026 07:31 WIB
 ditimpa ke : `AGENTS.md` (root)
 
 1. Baca secara eksplisit (tool Read) seluruh berkas di `.agents/rules/` sebelum bekerja; sesi tidak dilanjutkan bila belum dibaca (fatal bagi kode). Jangan hanya mengandalkan pemuatan via `instructions`.
@@ -15,3 +15,5 @@ ditimpa ke : `AGENTS.md` (root)
 8. Membaca `MEMORI.md` wajib tanpa `offset` dan tanpa `limit` — baca seluruh isi berkas.
 9. setiap proyek saya yang punya main.dart wajib memakai PengelolaOverlayLogDebug
 10. Setiap proyek saya wajib konsisten dan mengikuti seluruh aturan yang ada di `.agents/rules/code.md`.
+11. Setiap command Kilo yang mencantumkan bagian `# Skill Terkait`, AI wajib memuat semua skill yang tercantum (via tool `skill`) sebelum melaksanakan langkah command; dilarang melaksanakan langkah tanpa memuat skill terkait yang tersedia.
+12. Setiap pengguna bertanya atau memerintahkan mengerjakan sesuatu, AI wajib memuat skill yang relevan (via tool `skill`) sebelum bertindak.
