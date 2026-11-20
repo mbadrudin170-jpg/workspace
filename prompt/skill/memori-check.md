@@ -1,4 +1,4 @@
-`diperbarui : Fri Nov 20 2026 03:37 WIB`
+`diperbarui : Fri Nov 20 2026 21:55 WIB`
 `file : [memori-check](../../.agents/skills/non-code/memori-check/SKILL.md)`
 
 1. Sebelum interaksi apa pun, baca `MEMORI.md` root proyek; bila belum ada, tanyakan inisialisasi.
@@ -58,3 +58,5 @@
 28. Root proyek = root repositori/direktori kerja aktif tempat interaksi berlangsung; fakta/konvensi/status satu proyek tidak menular ke proyek lain. Jangan mulai implementasi sebelum konteks dari `MEMORI.md` tercerna dan poin-poin relevan tercatat.
 
 29. Tujuan informasi yang ditambahkan ke memori: agar setiap model AI dapat mengetahui tentang pengguna (preferensi, konteks, konvensi, keputusan) tanpa pengguna harus menjelaskan ulang; informasi yang dicatat wajib cukup jelas dan tahan lama (durable) sehingga model AI mana pun dapat memahami pengguna dari memori.
+
+30. Format isi memori wajib memakai struktur bertingkat: Section (bagian/kelompok dalam dokumen), Category (kategori yang mengelompokkan informasi), Heading (judul bagian), Subsection (bagian di dalam section), Field (satu kolom/atribut informasi). Setiap informasi ditulis pada tingkat yang sesuai agar terarah.
