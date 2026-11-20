@@ -17,11 +17,24 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 - Class: `AsyncValue`, `DateTime`, `Timer`, `Exception`, `ImpianProgresHelper`, `BiodataModel`
 - Method: `AsyncValue.requireValue()`, `AsyncValue.asData?.value`, `ref.watch()`, `ref.refresh()`, `DateTime.normalize()`, `Timer.periodic()`, `Timer.cancel()`
 
+## Pemetaan Topik → Skill Teknis
+
+| Topik bug runtime                                    | Skill teknis yang wajib dimuat   |
+| ---------------------------------------------------- | -------------------------------- |
+| Type promotion / null safety pada field model        | `type-promotion-null-safety`     |
+| Normalisasi tanggal / perhitungan hari               | `normalisasi-tanggal`            |
+| Penanganan state async & data kosong (satu provider) | `penanganan-async-data-kosong`   |
+| Penanganan beberapa AsyncValue pada satu layar       | `penanganan-asyncvalue-berkali`  |
+| Future yang dilepas (unawaited)                      | `penanganan-error-unawaited`     |
+| Dukungan platform & izin runtime                     | `validasi-platform-izin`         |
+| Deteksi tipe error via exception khusus              | `exception-khusus-deteksi-error` |
+
 ## Aturan
 
 1. Untuk implementasi detail, buka skill spesifik yang tercantum di tabel di bawah.
 2. Untuk code review, periksa apakah kode mengikuti aturan dari skill spesifik yang relevan.
 3. Untuk onboarding, gunakan indeks ini untuk memahami lanskap pencegahan bug runtime, lalu pelajari setiap skill spesifik.
+4. Sebelum implementasi atau code review terkait bug runtime, wajib memuat (via tool `skill`) skill teknis yang relevan berdasarkan tabel pemetaan di atas. Indeks ini hanya untuk menemukan skill teknis, bukan pengganti pemuatan isi skill teknis.
 
 ## Larangan
 

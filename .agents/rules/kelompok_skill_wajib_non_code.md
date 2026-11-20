@@ -92,7 +92,11 @@
 - Trigger : saat menyusun pertanyaan ke pengguna
 - Status : diperbarui : Wed Nov 18 2026 01:23 WIB
 
-19. .agents/skills/non-code/riset-kompetitor/SKILL.md
+## Prosedur Aktivasi Skill (berdasarkan Trigger)
 
-- Trigger : saat membuat atau memperbarui katalog aplikasi kompetitor proyek
-- Status : diperbarui : Wed Nov 18 2026 05:55 WIB
+1. Indeks ini **hanya** untuk menemukan skill teknis; **bukan** pengganti pemuatan isi skill teknis. Membaca indeks atau mengetahui nama skill tidak berarti isi skill sudah dimuat.
+2. Sebelum bekerja, cocokkan pemicu (Trigger) pada setiap skill dengan tugas yang sedang/akan dikerjakan.
+3. Wajib memuat (via tool `skill`) **seluruh** skill yang pemicunya cocok, termasuk skill yang sedikit kurang relevan (deskripsi skill belum tentu detail) dan skill yang menyebut satu kata yang sama dengan pekerjaan.
+4. Pemuatan bersifat selektif berdasarkan kategori (non-code di indeks ini; code di `.agents/skills/code/`) dan pemicu tugas.
+5. Sebelum pekerjaan dimulai, verifikasi keberhasilan pemuatan (skill terbaca). Bila skill gagal ditemukan atau dimuat, laporkan ke pengguna dan jangan lanjut seolah skill sudah aktif.
+6. Jangan menduplikasi isi skill teknis di indeks ini; indeks hanya merujuk path skill.

@@ -9,6 +9,8 @@ metadata:
 
 # Konfigurasi Kilo Proyek dan Commands Kilo
 
+Berlaku pada workspace/proyek yang memuat skill ini; bukan terikat pada satu proyek tertentu.
+
 Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beserta tutorial pembuatan commands Kilo di `.kilo/commands/`. Isi bersifat prosedural — bukan snapshot isi config; nilai config (model, daftar permission) sengaja tidak disalin agar skill tidak cepat usang. Sumber kebenaran konfigurasi adalah berkas config proyek itu sendiri; untuk konfigurasi Kilo generik (bukan spesifik proyek), rujuk skill bawaan `kilo-config`.
 
 ## Cakupan yang Di-Cover
@@ -30,7 +32,7 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 8. `.kilo/kilo.jsonc` tervalidasi otomatis oleh harness Kilo saat diedit; bila edit gagal validasi, perbaiki berkas sebelum melanjutkan, jangan mengabaikan galat validasi.
 9. Prompt agent disimpan sebagai berkas di `.kilo/prompts/` dan dirujuk dari config dengan `{file:./prompts/<nama>.md}` (diterapkan 2026-11-12/13: `code.md` dipindahkan dari root `prompts/`, `ask.md` dan `debug.md` dibuat). Prompt inline panjang tidak ditulis langsung di config.
 10. `skills.paths` memakai path relatif (mis. `.agents/skills/code`, `.agents/skills/non-code`, `.agents/skills`, `.agents/skills/bawaan`) yang portabel lintas mesin; jangan memakai path absolut spesifik mesin.
-11. Untuk konfigurasi Kilo generik (paths, fields, providers, TUI, Agent Manager, dll.), rujuk skill bawaan `kilo-config`; skill ini hanya memuat prosedur & larangan khusus proyek berhenti_merokok.
+11. Untuk konfigurasi Kilo generik (paths, fields, providers, TUI, Agent Manager, dll.), rujuk skill bawaan `kilo-config`; skill ini memuat prosedur & larangan khusus proyek/workspace yang memuatnya, bukan terikat pada satu proyek tertentu.
 12. Perubahan pada config yang belum diputuskan pengguna (mis. `external_directory` yang menunjuk path usang dan `kilo_memory_recall: "*": "allow"`) DILARANG dilakukan sepihak; catat sebagai pertanyaan terbuka pada `diskusi_N.md`.
 13. Isi tutorial commands pada skill ini bersumber dari berkas nyata di `.kilo/commands/` proyek dan riwayat commit; jangan menambah contoh fiktif.
 

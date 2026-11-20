@@ -1,4 +1,4 @@
-diperbarui : Fri Nov 20 2026 07:31 WIB
+diperbarui : Fri Nov 20 2026 22:54 WIB
 ditimpa ke : `AGENTS.md` (root)
 
 1. Baca secara eksplisit (tool Read) seluruh berkas di `.agents/rules/` sebelum bekerja; sesi tidak dilanjutkan bila belum dibaca (fatal bagi kode). Jangan hanya mengandalkan pemuatan via `instructions`.
@@ -17,3 +17,5 @@ ditimpa ke : `AGENTS.md` (root)
 10. Setiap proyek saya wajib konsisten dan mengikuti seluruh aturan yang ada di `.agents/rules/code.md`.
 11. Setiap command Kilo yang mencantumkan bagian `# Skill Terkait`, AI wajib memuat semua skill yang tercantum (via tool `skill`) sebelum melaksanakan langkah command; dilarang melaksanakan langkah tanpa memuat skill terkait yang tersedia.
 12. Setiap pengguna bertanya atau memerintahkan mengerjakan sesuatu, AI wajib memuat skill yang relevan (via tool `skill`) sebelum bertindak.
+
+13. Membaca indeks skill (mis. `.agents/rules/kelompok_skill_wajib_*.md`) atau mengetahui nama skill **tidak berarti** isi skill sudah dimuat. AI wajib memuat isi skill yang relevan via tool `skill` sebelum bekerja. Pemuatan bersifat selektif berdasarkan kategori (code/non-code) dan pemicu tugas (Trigger pada description/aturan). Sebelum pekerjaan dimulai, wajib verifikasi keberhasilan pemuatan (skill terbaca); bila gagal dimuat/ditemukan, laporkan ke pengguna dan jangan lanjut seolah skill sudah aktif.
