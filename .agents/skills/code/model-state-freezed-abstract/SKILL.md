@@ -41,7 +41,10 @@ Membuat model dan state immutable dengan paket Freezed (`freezed` 4.0.2, `freeze
 18. Seluruh parsing nilai dari database WAJIB lewat `ParserUtil`: `parseString`/`parseStringOrNull` (DILARANG cast `as String`/`as num`), `parseBool`, `parseInt`/`parseIntOrNull`, `parseDouble`; enum lewat `safeParseEnum` + `parseStringOrNull` (DILARANG `firstWhere`/`byName` langsung pada nilai DB).
 19. Nilai `Timestamp` dari Firestore (atau tipe setara `cloud_firestore`) wajib dinormalisasi lewat helper private (mis. `_parseTanggal`): `value is Timestamp` → `value.toDate().toLocal()`; selain itu `ParserUtil.parseDateTime(value)?.toLocal()`. Paket bersama yang bersifat generik dan dipakai lintas proyek tidak boleh mengimpor `cloud_firestore` hanya untuk parsing tanggal. Shared util lintas proyek juga DILARANG memuat deteksi domain/Firebase (mis. duck-typing `toDate()`, pengecekan `NoSuchMethodError` untuk `Timestamp`); konversi tipe domain hanya berada di adapter model.
 20. Kolom/field tanggal yang wajib non-null wajib divalidasi eksplisit; bila gagal parse, lemparkan `ArgumentError` khusus — DILARANG fallback `DateTime.now()`.
-21. Nama field Firestore WAJIB sama persis dengan kolom SQLite (umumnya snake_case); TIDAK ADA konstanta khusus Firestore dengan nama berbeda — memakai konstanta Skema yang sama (lihat skill `konstanta-skema-tabel`).
+22. Bila model yang sama dipakai lintas backend (SQLite, Firestore, Supabase) dengan **nama kunci skema yang sama**, WAJIB menyediakan satu pintu parsing `_fromMap(String? id, Map<String, dynamic> map)` yang dipakai oleh `fromSqlite`, `fromFirebase`, dan `fromSupabase`; DILARANG menduplikasi body parsing pada tiap factory.
+23. Field boolean dengan `@Default(true)` (atau default non-false) yang dapat bernilai `null` dari backend WAJIB diparse lewat helper privat (mis. `_parseIsPublic`) yang menganggap `null` → nilai default; `ParserUtil.parseBool` (yang default `false`) DILARANG dipakai langsung untuk field dengan default `true`.
+24. Kolom waktu yang ditulis ke Firestore WAJIB memakai `FieldValue.serverTimestamp()` untuk waktu server, dan field nullable (mis. `diarsipkan`) WAJIB ditulis `null` secara eksplisit agar nilai lama ikut terhapus saat `set`/`set(merge)`/`update`. Kolom waktu SQLite/Supabase WAJIB ditulis ISO-8601 UTC non-null (default `DateTime.now()` bila null) agar tidak melanggar aturan non-null.
+25. Enum `label` pada model multi-backend BOLEH memakai **switch expression** (Dart 3) selama tetap exhaustive atas seluruh nilai enum.
 
 ## Steps
 
@@ -256,6 +259,85 @@ Map<String, Object?> toSqflite() {
     NamaKolomTautan.jumlahLaporan: jumlahLaporan,
     NamaKolomTautan.terakhirDilaporkan: terakhirDilaporkan,
     NamaKolomTautan.diperbarui: diperbarui,
+  };
+}
+```
+
+Model Freezed multi-backend (SQLite/Firestore/Supabase) dengan satu pintu `_fromMap`, default null-boolean, dan waktu server (pola dari commit `bd91623`/`05c8d61` di `admin_wifi`):
+
+```dart
+@freezed
+abstract class PaketModel with _$PaketModel {
+  const PaketModel._();
+  const factory PaketModel({
+    required String id,
+    required String nama,
+    @Default(true) bool isPublic,
+    DateTime? diperbarui,
+    DateTime? diarsipkan,
+  }) = _PaketModel;
+
+  static PaketModel _fromMap(String? id, Map<String, dynamic> map) {
+    return PaketModel(
+      id: id ?? ParserUtil.parseString(map[PaketSkema.id]),
+      nama: ParserUtil.parseString(map[PaketSkema.nama]),
+      isPublic: _parseIsPublic(map[PaketSkema.isPublic]),
+      diperbarui: _parseTanggal(map[PaketSkema.diperbarui]),
+      diarsipkan: _parseTanggal(map[PaketSkema.diarsipkan]),
+    );
+  }
+
+  static bool _parseIsPublic(dynamic value) {
+    return value == null ? true : ParserUtil.parseBool(value);
+  }
+
+  static DateTime? _parseTanggal(dynamic value) {
+    if (value is Timestamp) return value.toDate().toLocal();
+    return ParserUtil.parseDateTime(value)?.toLocal();
+  }
+
+  factory PaketModel.fromSqlite(Map<String, dynamic> map) => _fromMap(null, map);
+  factory PaketModel.fromFirebase(String id, Map<String, dynamic> data) =>
+      _fromMap(id, data);
+  factory PaketModel.fromSupabase(Map<String, dynamic> map) => _fromMap(null, map);
+
+  Map<String, dynamic> toSqlite() => <String, dynamic>{
+        PaketSkema.id: id,
+        PaketSkema.isPublic: isPublic ? 1 : 0,
+        PaketSkema.diperbarui: (diperbarui ?? DateTime.now()).toUtc().toIso8601String(),
+        PaketSkema.diarsipkan: diarsipkan?.toUtc().toIso8601String(),
+      };
+
+  Map<String, dynamic> toFirebase() {
+    final arsip = diarsipkan;
+    return <String, dynamic>{
+      PaketSkema.id: id,
+      PaketSkema.isPublic: isPublic,
+      PaketSkema.diperbarui: FieldValue.serverTimestamp(),
+      PaketSkema.diarsipkan: arsip == null ? null : Timestamp.fromDate(arsip.toUtc()),
+    };
+  }
+
+  Map<String, dynamic> toSupabase() => <String, dynamic>{
+        PaketSkema.id: id,
+        PaketSkema.isPublic: isPublic,
+        PaketSkema.diperbarui: (diperbarui ?? DateTime.now()).toUtc().toIso8601String(),
+        PaketSkema.diarsipkan: diarsipkan?.toUtc().toIso8601String(),
+      };
+}
+```
+
+Enum `label` dengan switch expression (Dart 3) pada model multi-backend:
+
+```dart
+enum TipeDurasi {
+  menit, jam, hari, bulan;
+
+  String get label => switch (this) {
+    TipeDurasi.menit => 'Menit',
+    TipeDurasi.jam => 'Jam',
+    TipeDurasi.hari => 'Hari',
+    TipeDurasi.bulan => 'Bulan',
   };
 }
 ```

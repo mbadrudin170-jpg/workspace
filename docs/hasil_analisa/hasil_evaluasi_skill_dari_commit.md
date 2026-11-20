@@ -1,124 +1,211 @@
 # Hasil Evaluasi Skill dari Commit
 
-Diperbarui: 2026-11-17 (Asia/Jakarta) — sesi 17 (termasuk 2 commit susulan yang muncul selama sesi: root `1ae4314e09a0510ee42d278bf2e239dd4162aa2c`, `base_coc` `06f74c2d8058273ea744d71236eb101287c9df01`)
+Diperbarui: 2026-11-20 (Asia/Jakarta) — sesi 139
 
 ## Metodologi
 
-- Sumber kebenaran: riwayat commit (`git log`, `git show`, `git diff`) per repositori. Working tree/staging/untracked **tidak** dievaluasi sebagai sumber pola (lihat "Catatan Terpisah" di akhir berkas).
-- Rentang: berkas ini sebelumnya kosong (0 baris), sehingga tidak ada commit terakhir yang tercatat per repo; rentang awal memakai **fallback 5 commit terakhir per repo** (langkah 5 perintah `evaluasi_skill_dari_commit`): root `52388af...` s.d. `64fdbcd...`, `base_coc` `007b854...` s.d. `c6be80a...`, `share_global_saya` `816ed72...` s.d. `9bde556...`.
-- Selama sesi 17 berjalan, dua commit susulan dibuat (oleh sesi paralel/sesi lain): root `1ae4314e09a0510ee42d278bf2e239dd4162aa2c` (2026-11-17 17:20:47 +0000) dan `base_coc` `06f74c2d8058273ea744d71236eb101287c9df01` (2026-11-17 17:20:54 +0000). Keduanya juga dievaluasi dan ditambahkan ke berkas ini; penanda per repo mengacu ke HEAD terakhir yang dievaluasi.
-- Cakupan: root repositori (`workspace`) + submodule `.gitmodules` (`base_coc`, `share_global_saya`).
-- Yang dievaluasi: perubahan kode Dart (dan konfigurasi yang terkait langsung dengan skill/aturan, mis. workflow APK). Berkas docs/perintah/memori tidak memicu skill kode.
+- Sumber kebenaran: riwayat commit (`git log`, `git show`, `git diff`) per repositori. Working tree/staging/untracked **tidak** dievaluasi sebagai sumber pola.
+- Cakupan: repositori root (`workspace`) + submodule aktif dari `.gitmodules`: `admin_wifi`, `share_global_saya`. `base_coc` dinonaktifkan (dikomentari di `.gitmodules`, folder tidak ada) — **tidak** dievaluasi pada sesi ini; temuan sebelumnya (sesi 17) tetap tercatat di riwayat perubahan.
+- Rentang:
+  - root: `1ae4314e09a0510ee42d278bf2e239dd4162aa2c` (terakhir dievaluasi) s.d. `3d5d7521e8c2e800ef432937243b13d4f372c405` (HEAD).
+  - `admin_wifi`: tidak ada penanda sebelumnya → fallback **5 commit terakhir** (`acda13b`, `9931087`, `8528a41`, `05c8d61`, `bd91623`).
+  - `share_global_saya`: penanda lama `9bde556...` tidak ditemukan di repo (ambigu) → fallback **5 commit terakhir** (`08507e3`, `b691a0e`, `cde9e7f`, `0c055ac`, `79ecb53`).
+- Yang dievaluasi: perubahan kode Dart (dan konfigurasi yang terkait langsung dengan skill/aturan). Berkas docs/perintah/memori tidak memicu skill kode.
 - Perintah ini **tidak mengubah skill/aturan**; seluruh butir adalah rekomendasi untuk dieksekusi lewat keputusan pengguna.
 
 ## Penanda Commit Terakhir yang Dievaluasi (per repo)
 
 | Repo                | Commit terakhir yang dievaluasi            | Subjek                          |
 | ------------------- | ------------------------------------------ | ------------------------------- |
-| root (`workspace`)  | `1ae4314e09a0510ee42d278bf2e239dd4162aa2c` | `m` (2026-11-17 17:20:47 +0000) |
-| `base_coc`          | `06f74c2d8058273ea744d71236eb101287c9df01` | `n` (2026-11-17 17:20:54 +0000) |
-| `share_global_saya` | `9bde556238b94b17271a433b9b88221641cd08f4` | `a` (2026-11-16 13:19:53 +0000) |
+| root (`workspace`)  | `3d5d7521e8c2e800ef432937243b13d4f372c405` | `mn` (2026-11-20)              |
+| `admin_wifi`        | `bd916237f021f170c9f3a84b9fb5a1770976dd14` | `a` (2026-11-20 01:02:13 +0000) |
+| `share_global_saya` | `08507e3b61af2d13cc98290eb218145ca2a273f4` | `a` (2026-11-19 14:56:38 +0000) |
 
 ## Temuan — root (`workspace`)
 
-5 commit terakhir (fallback) + 1 commit susulan selama sesi:
+Rentang `1ae4314..3d5d752` **tidak memuat perubahan kode Dart** (root tidak memiliki `lib/main.dart`; hanya berkas `.agents/`, `docs/`, `.kilo/`, `memori/`, `prompt/`). Seluruh commit menyentuh skill/aturan/command/dokumen, bukan kode sumber.
 
-| Hash                                       | Tanggal    | Subjek                    | Berkas signifikan                                                                                                                                                                                                                                                                                                          |
-| ------------------------------------------ | ---------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `64fdbcddcc7fabf3f79efc8ce06563308414779e` | 2026-11-17 | `a`                       | command/prompt/MEMORI (tidak ada Dart)                                                                                                                                                                                                                                                                                     |
-| `63d40502c94c18be6bc97c9404796d63c62f92b8` | 2026-11-17 | `a`                       | PRD C3, `refrensi_apk.md`, command (tidak ada Dart)                                                                                                                                                                                                                                                                        |
-| `4f7f672d7a998c9c17d6b0f62e9745fac2e04f27` | 2026-11-17 | `a`                       | rename command, `refrensi_apk.md`, `apk_kompetitor.md` (tidak ada Dart)                                                                                                                                                                                                                                                    |
-| `cd075fdc08824bac7c7f9ba7f1fb66396a5d3a2c` | 2026-11-17 | `a`                       | `.kilo/commands/riset_kompetitor.md`, `fitur_khusus.md` (tidak ada Dart)                                                                                                                                                                                                                                                   |
-| `52388af96d2d680e18fd9aba17cb56d647f51133` | 2026-11-17 | `a`                       | `.kilo/commands/`, `memori/sesi/sesi_8.md` (tidak ada Dart)                                                                                                                                                                                                                                                                |
-| `1ae4314e09a0510ee42d278bf2e239dd4162aa2c` | 2026-11-17 | `m` (susulan selama sesi) | `.kilo/commands/`, `MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_15..18.md`, `prd/...` (dihapus), `prompt/commands/`, `refrensi_apk.md`, `.kilo/kilo.jsonc` (swap model agent `code`) — **tidak ada kode Dart**; `prompt/commands/analisa_hasil_audit_sesi.md` dihapus atas persetujuan pengguna (sesi 18) |
+**Tidak ada skill/aturan kode yang perlu ditambah/diperbarui dari kode Dart pada rentang ini.**
 
-**Tidak ada perubahan kode Dart; tidak ada skill/aturan kode yang perlu ditambah/diperbarui.** Seluruh commit hanya menyentuh command, prompt, dokumen, konfigurasi Kilo, dan memori.
+## Temuan — `admin_wifi`
 
-## Temuan — `base_coc`
+5 commit terakhir yang dievaluasi:
 
-5 commit terakhir (fallback) + 1 commit susulan selama sesi:
-
-| Hash                                       | Tanggal    | Subjek                                                                               | Kode Dart                                                                                                                                  |
-| ------------------------------------------ | ---------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `06f74c2d8058273ea744d71236eb101287c9df01` | 2026-11-17 | `n` (susulan selama sesi)                                                            | Ya, tetapi hanya publikasi hasil generate + format (lihat di bawah)                                                                        |
-| `c6be80a989e9029f765d9778d1a157046d30bd93` | 2026-11-17 | `a`                                                                                  | Ya (model, layar, widget, test)                                                                                                            |
-| `1e8826d2034eff924bd400276731bbd0cc81f52d` | 2026-11-16 | `a`                                                                                  | Tidak (`README.md`)                                                                                                                        |
-| `52654906d276c2bab6110fe01dea9452a11773b5` | 2026-11-15 | `feat(galeri-base): tambah sorter terbaru/terpopuler dan penghitung interaksi lokal` | Ya (model, DAO, notifier, layar, test)                                                                                                     |
-| `7295cda80b41e87db33017a51aea88f50e7647b9` | 2026-11-15 | `ci(build): ganti nama artefak APK menjadi base_coc-arm64-v8a-release.apk`           | Tidak (workflow YAML; selaras `build-apk-github-workflow`)                                                                                 |
-| `007b85493b14a4c2e7bd1f9e1eaf737f57675ccc` | 2026-11-15 | `ci(build): bangun APK release arm64 dengan split-per-abi`                           | Tidak (workflow YAML; selaras `build-apk-github-workflow`; keluar dari 5 commit terakhir per 2026-11-17 17:20 WIB karena adanya `06f74c2`) |
-
-Catatan susulan `06f74c2d8058273ea744d71236eb101287c9df01` (`n`): (1) memublikasikan `base_layout.freezed.dart` hasil `build_runner` (sesuai aturan "jangan edit berkas generate; commit hasil generate diizinkan"); (2) menambahkan import `statistik_dao.dart` pada `beranda_galeri_screen.dart` dan `koleksi_favorit_screen.dart` — import **terpakai** (tipe `StatistikBase` pada `asData?.value ?? const <String, StatistikBase>{}` dan parameter `statistik:` `GridBase`); (3) perbaikan format `test/base_layout_test.dart` dan `test/grid_base_test.dart` (termasuk newline di akhir `grid_base_test.dart` — menyelesaikan temuan R4). **Tidak ada pola baru; tidak ada skill/aturan kode yang perlu ditambah/diperbarui.** Perubahan ini justru mengonfirmasi bahwa berkas generate telah diregenerasi dari sumber `base_layout.dart` commit `c6be80a`, bukan diedit manual.
-
-### Prioritas Tinggi
-
-| #   | Temuan / Pola                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Aksi yang Direkomendasikan                                                                                                                                                                                                                                                                                    | Sumber commit (hash + subjek)                                                                                                                                                                      |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| T1  | Notifier penghitung/akumulator + DAO transaksional insert-or-increment belum tercakup skill. `StatistikNotifier` (`@Riverpod(keepAlive: true)`, `build()` → `_ambilSemua()`, state di-update setelah DB berhasil, `on Exception` → `rethrow`) + `StatistikDao` memakai `_db.transaction` dengan query→insert/update untuk mencegah _lost update_. Catatan: `base_coc` tidak punya util `L`; logging memakai `debugPrint` dengan konteks (preseden terdokumentasi di `penanganan-async-data-kosong`).                                                                                                          | Perluas `notifier-crud-database` dengan section varian "Notifier penghitung (counter)" (sumber commit wajib dicatat di `## Sumber Evaluasi` skill), **atau** buat skill kode baru `dao-transaksi-upsert`; keputusan pengguna. Skill `code` hanya boleh diedit/ditambah dari riwayat commit — sumber tersedia. | `52654906d276c2bab6110fe01dea9452a11773b5` (`feat(galeri-base): ... penghitung interaksi lokal`): `lib/fitur/galeri_base/provider/statistik_provider.dart`, `lib/core/database/statistik_dao.dart` |
-| T2  | Pengujian database SQLite belum tercakup `pola-testing`: pola `sqflite_common_ffi` (`sqfliteFfiInit()` di `setUpAll`, `databaseFactoryFfi`, `inMemoryDatabasePath`, `OpenDatabaseOptions(version: SqfliteOpener.versiDatabase, onCreate:, onUpgrade:)`), verifikasi skema via `PRAGMA table_info(<tabel>)` (kolom/tipe/`pk`/`notnull`/`dflt_value`), fixture migrasi chain via berkas sementara di `Directory.systemTemp.createTemp(...)` (seed v3 → buka ulang ke v4), dan uji notifier via `ProviderContainer` + `overrideWith(() => _Fake...())` serta `katalogProvider.overrideWith((ref) async => ...)`. | Tambah section "Test Database SQLite (FFI in-memory)" ke `pola-testing` (unit test `package:flutter_test` + FFI, bukan mocktail). Verifikasi `mocktail` tidak dipakai untuk DAO — selaras larangan mock Notifier/Provider.                                                                                    | `52654906d276c2bab6110fe01dea9452a11773b5`: `test/statistik_dao_test.dart`, `test/sortir_test.dart`                                                                                                |
+| Hash                                       | Tanggal    | Subjek | Berkas signifikan |
+| ------------------------------------------ | ---------- | ------ | ----------------- |
+| `acda13be10266f3ec9f431646ed3ef6c241c3d92` | 2026-11-19 | `a` | `lib/db/supabase/supabase.dart`, `lib/db/supabase/operasi_supabase.dart` (baru) |
+| `99310879871ccf5504d8cf8aa38f9fe736f0be71` | 2026-11-19 | `m` | `lib/app.dart`, `lib/home.dart`, `lib/main.dart`, `lib/utils/sync_manager.dart`, `lib/fitur/pelanggan_aktif/...` |
+| `8528a41219d2e7ab24d0c93c4e1b304ec9432a3b` | 2026-11-20 | `as` | `lib/data/sync/unggah_data.dart`, `lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart` |
+| `05c8d61a2e0bcf0b841df02692c610dfeaca7571` | 2026-11-20 | `a` | `lib/fitur/paket/model/paket_model.dart`, `test/model/paket_model_test.dart` |
+| `bd916237f021f170c9f3a84b9fb5a1770976dd14` | 2026-11-20 | `a` | `lib/fitur/paket/model/paket_model.dart` |
 
 ### Prioritas Sedang
 
-| #   | Temuan / Pola                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Aksi yang Direkomendasikan                                                                                                                                                                                                                                                                                                                                                              | Sumber commit (hash + subjek)                                                                                                                                                       |
-| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| S1  | `detail_base_screen.dart` memanggil `ref.read(statistikProvider.notifier).catatBuka(...)` di `initState` (`unawaited` + `.catchError` + `debugPrint`). Ini **kontradiksi** dengan `riverpod-pola` aturan 14 ("jangan modifikasi provider di `initState`"; contoh skill menunjukkan `increment()` di `initState` sebagai pola salah). Sisi lain: ini side-effect satu arah (pencatatan "layar dibuka"), bukan reaksi interaksi — pengecualian bisa dibenarkan.                                                           | Keputusan pengguna: (a) tambahkan pengecualian eksplisit di `riverpod-pola` aturan 14 untuk side-effect non-interaksi sekali jalan (mis. pencatatan analytics) dengan syarat `unawaited` + `catchError` + log; atau (b) ubah kode agar pemicu tidak ada di `initState`. Skill `code` hanya diedit dari riwayat commit — sumber tersedia.                                                | `52654906d276c2bab6110fe01dea9452a11773b5`: `lib/fitur/detail_base/screen/detail_base_screen.dart` (`initState` + `unawaited(statistikProvider.notifier.catatBuka(...))`)           |
-| S2  | `filteredBasesProvider` (cache provider sinkron turunan) kini mengandung fallback saat statistik gagal: `statistikAsync.hasError` → `debugPrint` + `return hasil` (urutan katalog), serta sort `terpopuler` (total salin+dibuka menurun, _tie-break_ = indeks katalog via `indeks[a.id]!.compareTo(indeks[b.id]!)`; `asData?.value ?? const {}`). Skill `penanganan-async-data-kosong` sudah menyebut `filteredBasesProvider` sebagai contoh cache provider turunan, tetapi belum memuat sumber commit v4/fallback ini. | Tambah baris `## Sumber Evaluasi` di `penanganan-async-data-kosong`: `52654906d...` (fallback statistik gagal → urutan katalog; `hasError` + `debugPrint`) dan `c6be80a989e9029f765d9778d1a157046d30bd93` (statistik opsional di `beranda_galeri_screen.dart` dan `koleksi_favorit_screen.dart`: `hasError` → `debugPrint` + `asData?.value ?? const {}`). Tidak perlu mengubah aturan. | `52654906d276c2bab6110fe01dea9452a11773b5` (`katalog_provider.dart`), `c6be80a989e9029f765d9778d1a157046d30bd93` (`a`): `beranda_galeri_screen.dart`, `koleksi_favorit_screen.dart` |
-| S3  | Sort daftar dengan _tie-break_ indeks katalog (sort stabil berbasis peringkat indeks asli) belum ada di skill mana pun; muncul pada `filteredBasesProvider` mode `terpopuler`.                                                                                                                                                                                                                                                                                                                                          | Jangan skill baru — satu kemunculan. Sertakan sebagai contoh singkat saat `penanganan-async-data-kosong` diperbarui (S2), atau dokumentasikan di `ekstraksi-perhitungan-turunan` bila disetujui pengguna.                                                                                                                                                                               | `52654906d276c2bab6110fe01dea9452a11773b5`: `lib/fitur/galeri_base/provider/katalog_provider.dart`                                                                                  |
+| #   | Temuan / Pola | Aksi yang Direkomendasikan | Sumber commit (hash + subjek) |
+| --- | ------------- | -------------------------- | ----------------------------- |
+| S1  | **Singleton klien Supabase idempotent + operasi CRUD generik** (`SupabaseKlien` dengan `client` melempar `StateError` bila belum diinisialisasi; `inisialisasi()` idempoten; `OperasiSupabase` menyediakan `ambil`/`tambah`/`ubah`/`hapus`/`tambahBatch` dengan filter `match`, `order`, `limit`/`range`, logging `L`, dan `rethrow`). Pola ini **belum tercakup** skill mana pun (tidak ada skill Supabase). | Pertimbangkan skill kode baru `supabase-crud` (singleton init + CRUD generik) atau rujukan pada `ekspor-pemulihan-cadangan` bila disetujui pengguna. Keputusan pengguna wajib sebelum perubahan skill. | `acda13be10266f3ec9f431646ed3ef6c241c3d92` (`a`): `lib/db/supabase/supabase.dart`, `lib/db/supabase/operasi_supabase.dart` |
+| S2  | **Adapter model multi-backend terpadu** pada `PaketModel`: satu pintu `_fromMap(id, map)` dipakai oleh `fromSqlite`, `fromFirebase`, `fromSupabase`; `_parseIsPublic` menganggap `null` → `true` (selaras `@Default(true)`); `toFirebase` memakai `FieldValue.serverTimestamp()` dan menulis `diarsipkan` sebagai `null` eksplisit; `toSqlite` menjamin `diperbarui` non-null (default `now()`); `toSupabase` menyederhanakan penulisan. Pola ini selaras dengan `model-state-freezed-abstract` dan `konstanta-skema-tabel`, tetapi **belum memuat** contoh multi-backend terpadu & default null-boolean. | Perbarui `model-state-freezed-abstract` dengan catatan: satu `_fromMap` bila kunci skema sama lintas backend; default eksplisit untuk field nullable yang memiliki `@Default`; `FieldValue.serverTimestamp()` untuk kolom waktu server. Perlu persetujuan pengguna. | `05c8d61a2e0bcf0b841df02692c610dfeaca7571` (`a`), `bd916237f021f170c9f3a84b9fb5a1770976dd14` (`a`): `lib/fitur/paket/model/paket_model.dart` |
 
-### Prioritas Rendah
+Potongan kode yang dievaluasi (S1):
 
-| #   | Temuan / Pola                                                                                                                                                                                                                                                                                                                                                                           | Aksi yang Direkomendasikan                                                                                                                                               | Sumber commit (hash + subjek)                                                                                                                                                                                                                      |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| R1  | Migrasi v3→v4 `statistik_base` mematuhi `migrasi-skema-sqlite` (naik `versiDatabase`, `onCreate` mencerminkan skema terkini, `onUpgrade` kondisional `if (oldVersion < 4)`, nama tabel/kolom via `NamaTabelStatistik`/`NamaKolomStatistik`, komentar versi, verifikasi PRAGMA lewat test).                                                                                              | Tidak ada perubahan aturan. Pertimbangkan menambah `52654906d...` ke `## Sumber Evaluasi` `migrasi-skema-sqlite` sebagai bukti penerapan lintas proyek (opsional).       | `52654906d276c2bab6110fe01dea9452a11773b5`: `lib/core/database/db_helper.dart`, `lib/fitur/galeri_base/model/nama_tabel_statistik.dart`, `test/statistik_dao_test.dart`                                                                            |
-| R2  | Badge "indikator popularitas" di kartu: maksimal satu badge per kartu dengan prioritas (`Pilihan` `pilihanEditor == true` diutamakan di atas `Sering disalin` `jumlah_salin >= ambang`), tipe `enum TipeBadgeIndikator { pilihan, seringDisalin }` + getter turunan `_badgeIndikator`, ambang publik `ambangSeringDisalinDefault = 5`, warna dari `ColorScheme` (`primary`/`tertiary`). | Pengamatan saja — satu kemunculan, terlalu domain-spesifik untuk skill/aturan baru. Bila pola serupa muncul di layar/kartu lain, pertimbangkan entri di `widget-custom`. | `c6be80a989e9029f765d9778d1a157046d30bd93` (`a`): `lib/fitur/galeri_base/widget/grid_base.dart`, `lib/fitur/galeri_base/screen/beranda_galeri_screen.dart`, `lib/fitur/galeri_base/screen/koleksi_favorit_screen.dart`, `test/grid_base_test.dart` |
-| R3  | `filter_chip_bar.dart`: `Row(spacing: 8, ...)` menggantikan pola `SizedBox(width: 8)` antar chip.                                                                                                                                                                                                                                                                                       | Sesuai `widget-custom` aturan 4 (`Row.spacing`/`Column.spacing`). Tanpa aksi.                                                                                            | `52654906d276c2bab6110fe01dea9452a11773b5`: `lib/fitur/galeri_base/widget/filter_chip_bar.dart`                                                                                                                                                    |
-| R4  | Nit: `test/grid_base_test.dart` (pada commit `c6be80a`) tidak diakhiri newline di akhir berkas (`\ No newline at end of file`).                                                                                                                                                                                                                                                         | **Teratasi oleh commit susulan `06f74c2d8058273ea744d71236eb101287c9df01`** (newline di akhir berkas diperbaiki bersama perbaikan format lain). Tidak perlu aksi.        | `c6be80a989e9029f765d9778d1a157046d30bd93` (`a`), `06f74c2d8058273ea744d71236eb101287c9df01` (`n`): `test/grid_base_test.dart`                                                                                                                     |
+```dart
+// lib/db/supabase/supabase.dart
+SupabaseClient get client {
+  if (!_sudahDiinisialisasi) {
+    throw StateError(
+      'SupabaseKlien belum diinisialisasi. '
+      'Panggil SupabaseKlien.instance.inisialisasi() di main() terlebih dahulu.',
+    );
+  }
+  return Supabase.instance.client;
+}
+
+Future<void> inisialisasi({
+  required String url,
+  String? publishableKey,
+  String? anonKey,
+}) async {
+  if (_sudahDiinisialisasi) {
+    L.w('SupabaseKlien sudah diinisialisasi; pemanggilan dilewati.');
+    return;
+  }
+  // ...
+}
+```
+
+```dart
+// lib/db/supabase/operasi_supabase.dart
+Future<List<Map<String, dynamic>>> ambil(
+  String tabel, {
+  String select = '*',
+  Map<String, dynamic>? filter,
+  String? orderBy,
+  bool ascending = true,
+  int? limit,
+  int? offset,
+}) async {
+  // ...
+  dynamic query = client.from(tabel).select(select);
+  if (filter != null && filter.isNotEmpty) {
+    query = query.match(Map<String, Object>.from(filter));
+  }
+  if (orderBy != null && orderBy.trim().isNotEmpty) {
+    query = query.order(orderBy, ascending: ascending);
+  }
+  if (limit != null) query = query.limit(limit);
+  if (offset != null) {
+    final to = (limit != null) ? offset + limit - 1 : offset + 999;
+    query = query.range(offset, to);
+  }
+  // ...
+}
+```
+
+Potongan kode yang dievaluasi (S2):
+
+```dart
+// lib/fitur/paket/model/paket_model.dart
+static PaketModel _fromMap(String? id, Map<String, dynamic> map) {
+  return PaketModel(
+    id: id ?? ParserUtil.parseString(map[PaketSkema.id]),
+    // ...
+    isPublic: _parseIsPublic(map[PaketSkema.isPublic]),
+    diperbarui: _parseTanggal(map[PaketSkema.diperbarui]),
+    diarsipkan: _parseTanggal(map[PaketSkema.diarsipkan]),
+  );
+}
+
+static bool _parseIsPublic(dynamic value) {
+  return value == null ? true : ParserUtil.parseBool(value);
+}
+
+Map<String, dynamic> toFirebase() {
+  final arsip = diarsipkan;
+  return {
+    // ...
+    PaketSkema.diperbarui: FieldValue.serverTimestamp(),
+    PaketSkema.diarsipkan: arsip == null
+        ? null
+        : Timestamp.fromDate(arsip.toUtc()),
+  };
+}
+```
+
+### Prioritas Rendah (verifikasi / pembersihan)
+
+| #   | Temuan / Pola | Aksi yang Direkomendasikan | Sumber commit (hash + subjek) |
+| --- | ------------- | -------------------------- | ----------------------------- |
+| R1  | Pembersihan log narasi/banner dan migrasi `package:provider` → Riverpod `Provider` pada `SyncManager` (`app.dart` menghapus `MultiProvider`; `sync_manager.dart` menambah `syncManagerProvider`; `unggah_data.dart` menghapus banner/separator dan log langkah, menyisakan `L.i` bernilai + `L.e(... $e $s)`). | Sudah selaras dengan `logging-debug` (aturan #12) dan `riverpod-pola`. Tanpa aksi baru; dicatat sebagai verifikasi positif. | `99310879871ccf5504d8cf8aa38f9fe736f0be71` (`m`), `8528a41219d2e7ab24d0c93c4e1b304ec9432a3b` (`as`): `lib/app.dart`, `lib/utils/sync_manager.dart`, `lib/data/sync/unggah_data.dart` |
+| R2  | Ekstraksi item daftar menjadi `StatelessWidget` (`_ItemPelangganAktif`) dari `pelanggan_aktif_screen.dart`. | Sudah selaras dengan `widget-custom`. Tanpa aksi. | `8528a41219d2e7ab24d0c93c4e1b304ec9432a3b` (`as`): `lib/fitur/pelanggan_aktif/screens/pelanggan_aktif_screen.dart` |
+| R3  | Enum `TipeDurasi.label` memakai **switch expression** (Dart 3) alih-alih `switch` statement. | Sudah memenuhi aturan enum `label` exhaustive (`penamaan-konvensi`). Tanpa aksi. | `bd916237f021f170c9f3a84b9fb5a1770976dd14` (`a`): `lib/fitur/paket/model/paket_model.dart` |
 
 ## Temuan — `share_global_saya`
 
 5 commit terakhir yang dievaluasi:
 
-| Hash                                       | Tanggal    | Subjek | Kode Dart                                                       |
-| ------------------------------------------ | ---------- | ------ | --------------------------------------------------------------- |
-| `9bde556238b94b17271a433b9b88221641cd08f4` | 2026-11-16 | `a`    | Tidak (`README.md`, `aturan_sumber_kode _flutter_dan_paket.md`) |
-| `11620a1b65a38253f2065eff55942a4c8260b059` | 2026-11-16 | `a`    | Tidak (`skills-lock.json` ditambahkan)                          |
-| `efcc3b99db290c2620998cdfaf7f02b6b68428ad` | 2026-11-16 | `a`    | Tidak (`skills-lock.json` dihapus)                              |
-| `bb251bafd8cec02ee8da6b18fe25df759181a641` | 2026-11-15 | `a`    | Tidak (`pubspec.yaml` hanya tambah newline di akhir)            |
-| `816ed7290918aed236bb7acae47a2e2e3cf6c451` | 2026-11-15 | `a`    | Tidak (`pubspec.lock` regenerasi)                               |
+| Hash                                       | Tanggal    | Subjek | Berkas signifikan |
+| ------------------------------------------ | ---------- | ------ | ----------------- |
+| `08507e3b61af2d13cc98290eb218145ca2a273f4` | 2026-11-19 | `a` | `lib/core_shared.dart`, hapus `lib/src/utils/async_value_x.dart` |
+| `b691a0eb91cdab20205924d93f61b57c96d8e7b1` | 2026-11-19 | `refactor(widget): migrasi import material ke material_ui` | 12 berkas widget/util/overlay |
+| `cde9e7f7a81a5e2357823a1f1dfa45d5e3be5c6c` | 2026-11-19 | `a` | `lib/log_debug/log_debug_page.dart` |
+| `0c055ac43a69d44653f73ec7240b795b7304394a` | 2026-11-19 | `m` | `lib/src/widget/confirmation_dialog.dart` |
+| `79ecb536bf74eee54799ea9861dd567291c03a69` | 2026-11-19 | `m` | `lib/src/widget/toast_widget.dart`, `pubspec.lock` |
 
-**Tidak ada perubahan kode Dart; tidak ada skill/aturan kode yang perlu ditambah/diperbarui.**
+### Prioritas Rendah (verifikasi)
+
+| #   | Temuan / Pola | Aksi yang Direkomendasikan | Sumber commit (hash + subjek) |
+| --- | ------------- | -------------------------- | ----------------------------- |
+| R4  | Penghapusan helper `AsyncValueX.whenDefault` yang membungkus `.when` pada `AsyncValue`. | Mendukung aturan: penanganan `AsyncValue` wajib `isLoading` → `hasError` → `requireValue`; `.when` DILARANG. Tanpa aksi baru. | `08507e3b61af2d13cc98290eb218145ca2a273f4` (`a`): `lib/src/utils/async_value_x.dart` (dihapus), `lib/core_shared.dart` |
+| R5  | Migrasi impor `package:flutter/material.dart` → `package:material_ui/material_ui.dart` pada widget input, utilitas, overlay, dan toast. | Sudah selaras dengan skill `material-ui`. Tanpa aksi. | `b691a0eb91cdab20205924d93f61b57c96d8e7b1` (`refactor(widget): ...`), `cde9e7f7a81a5e2357823a1f1dfa45d5e3be5c6c`, `0c055ac43a69d44653f73ec7240b795b7304394a`, `79ecb536bf74eee54799ea9861dd567291c03a69` |
+
+Potongan kode yang dievaluasi (R4):
+
+```dart
+// lib/src/utils/async_value_x.dart (dihapus pada 08507e3)
+extension AsyncValueX<T> on AsyncValue<T> {
+  R whenDefault<R>({
+    required R Function(T data) data,
+    required R Function(Object e, StackTrace s) error,
+    required R Function() loading,
+    bool skipLoadingOnReload = true,
+    bool skipLoadingOnRefresh = true,
+  }) {
+    return when(
+      data: data,
+      error: error,
+      loading: loading,
+      skipLoadingOnReload: skipLoadingOnReload,
+      skipLoadingOnRefresh: skipLoadingOnRefresh,
+    );
+  }
+}
+```
 
 ## Sesuai Tanpa Perubahan (verifikasi positif)
 
-| Skill / Aturan                                                  | Hasil verifikasi                                                                                                                                                                                                                                                                      | Sumber commit                                                                                                                               |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `validasi-json-katalog-ketat`                                   | Sudah memuat contoh field boolean `pilihanEditor` (aturan 9, contoh kode, `## Sumber Evaluasi` menyebut `c6be80a...`): validasi `is! bool` → `KatalogGagalException`, `toJson` kondisional `if (pilihanEditor)`, test `throwsA(isA<KatalogGagalException>())`. Tidak perlu pembaruan. | `c6be80a989e9029f765d9778d1a157046d30bd93` (`a`): `lib/fitur/galeri_base/model/base_layout.dart`, `test/base_layout_test.dart`              |
-| `build-apk-github-workflow`                                     | Workflow `build-apk.yml` persis sesuai skill: flag `--release --split-per-abi --target-platform android-arm64`, langkah `mv` ke `<proyek>-arm64-v8a-release.apk`, artefak `app-release-apk` (retention 14 hari), dan skill sudah mencantumkan kedua commit ini.                       | `007b85493b14a4c2e7bd1f9e1eaf737f57675ccc`, `7295cda80b41e87db33017a51aea88f50e7647b9`                                                      |
-| `penamaan-konstanta-snake-case` / `penamaan-konvensi`           | `nama_tabel_statistik.dart` memakai snake_case (`statistik_base`, `id_base`, `jumlah_salin`, `jumlah_dibuka`, `diperbarui`) dan konstanta SCREAMING/class PascalCase sesuai konvensi.                                                                                                 | `52654906d276c2bab6110fe01dea9452a11773b5`                                                                                                  |
-| `model-state-freezed-abstract`                                  | `FilterState` menambah `@Default(SortirMode.terbaru) SortirMode sortir`; enum `SortirMode` terpisah di berkas sendiri.                                                                                                                                                                | `52654906d276c2bab6110fe01dea9452a11773b5`: `lib/fitur/galeri_base/model/filter_state.dart`, `lib/fitur/galeri_base/model/sortir_mode.dart` |
-| `penanganan-error-unawaited` & `logging-debug` (konteks proyek) | Semua `Future` dilepas memakai `unawaited(...).catchError(...)` dengan `debugPrint` berkonteks; `base_coc` tidak memiliki util `L`, selaras preseden debugPrint yang telah didokumentasikan di `penanganan-async-data-kosong`.                                                        | `52654906d276c2bab6110fe01dea9452a11773b5`: `detail_base_screen.dart`                                                                       |
-| `migrasi-skema-sqlite`                                          | Aturan 2/3/4/7/9/13/14 terpenuhi oleh v3→v4 (lihat R1).                                                                                                                                                                                                                               | `52654906d276c2bab6110fe01dea9452a11773b5`: `db_helper.dart`                                                                                |
+| Skill / Aturan | Hasil verifikasi | Sumber commit |
+| -------------- | ---------------- | ------------- |
+| `material-ui` | Migrasi impor `material_ui` pada `share_global_saya` (widget input, util, overlay, toast) selaras dengan aturan impor. | `b691a0eb91cdab20205924d93f61b57c96d8e7b1` dan kawan-kawan |
+| `logging-debug` | Pembersihan log narasi/banner pada `unggah_data.dart` (commit `8528a41`) selaras aturan #12; `L.e` menyertakan `$e $s`. | `8528a41219d2e7ab24d0c93c4e1b304ec9432a3b` |
+| `riverpod-pola` | `SyncManager` disediakan lewat `Provider<SyncManager>` (commit `9931087`) alih-alih `package:provider`. | `99310879871ccf5504d8cf8aa38f9fe736f0be71` |
+| `model-state-freezed-abstract` / `konstanta-skema-tabel` | `PaketModel` memakai `PaketSkema` (konstanta kolom) untuk SQLite/Firebase/Supabase dan Freezed. | `05c8d61a2e0bcf0b841df02692c610dfeaca7571`, `bd916237f021f170c9f3a84b9fb5a1770976dd14` |
+| `penamaan-konvensi` | `TipeDurasi.label` exhaustive; konstanta skema snake_case. | `bd916237f021f170c9f3a84b9fb5a1770976dd14` |
 
-## Menunggu Keputusan Pengguna
+## Status Implementasi Rekomendasi (sesi 140)
 
-1. **Bentuk pembaruan untuk T1**: perluas `notifier-crud-database` (varian "Notifier penghitung") vs skill kode baru (`dao-transaksi-upsert`). Implikasi: skill baru wajib frontmatter lengkap + `prompt/skill/<nama>.md` (skill `aturan-pembuatan-skill`); perluasan skill cukup `SKILL.md` + metadata.
-2. **Arah S1**: tambah pengecualian di `riverpod-pola` aturan 14, atau ubah kode `detail_base_screen.dart`. Keduanya membutuhkan perintah eksplisit pengguna.
-3. **Pembaruan S2/S3** pada `penanganan-async-data-kosong` (dan opsional `migrasi-skema-sqlite`, R1) — boleh dikerjakan bila pengguna menyetujui; perubahan `.agents/skills/code/` hanya dari riwayat commit (`.agents/rules/lainnya.md` butir 4) — seluruh sumber commit tersedia.
+1. **S1 (Supabase)**: **Sudah Diimplementasikan** — skill kode baru `.agents/skills/code/supabase-crud/SKILL.md` dibuat (singleton idempotent + CRUD generik + contoh benar/salah).
+2. **S2 (`model-state-freezed-abstract`)**: **Sudah Diimplementasikan** — aturan 22–25 dan contoh multi-backend terpadu (`_fromMap`, `_parseIsPublic`, `FieldValue.serverTimestamp()`, switch expression enum) ditambahkan.
+3. **R1–R5**: verifikasi tanpa aksi (sudah selaras dengan skill terkait).
 
-## Catatan Terpisah (kondisi kerja, bukan hasil evaluasi commit)
+## Catatan Terpisah
 
-Pada saat evaluasi dimulai, `base_coc` memuat perubahan **belum di-commit** (kemudian di-commit sebagai `06f74c2d8058273ea744d71236eb101287c9df01`, 2026-11-17 17:20:54 +0000, oleh sesi/commit lain selama sesi 17): `lib/fitur/galeri_base/model/base_layout.freezed.dart` (hasil `build_runner`), `lib/fitur/galeri_base/screen/beranda_galeri_screen.dart` dan `koleksi_favorit_screen.dart` (import `statistik_dao.dart`), `test/base_layout_test.dart`, `test/grid_base_test.dart`. **Kesimpulan lama "import tampak belum dipakai" tidak tepat** — import terpakai oleh tipe `StatistikBase` dan parameter `statistik:` `GridBase` (dikonfirmasi dari commit `06f74c2`).
-
-Berkas lain yang berubah selama sesi (oleh sesi/commit lain; bukan sesi ini):
-
-- Root `1ae4314e09a0510ee42d278bf2e239dd4162aa2c` (2026-11-17 17:20:47 +0000): mem-commit pekerjaan yang sebelumnya staged dan/atau diklaim sesi lain — `.kilo/commands/...`, `prompt/commands/memperbarui_file_di_folder_prompt.md`, `MEMORI.md`, `memori/riwayat_perubahan.md`, `memori/sesi/sesi_15..18.md`, `refrensi_apk.md`, `prd/prd_c3_tombol_aksi_utama_menetap.md` (deleted), `prompt/commands/analisa_hasil_audit_sesi.md` (deleted, atas persetujuan pengguna — sesi 18), `.kilo/kilo.jsonc` (swap model agent `code` ke `openrouter/thinkingmachines/inkling-2-small:free`).
-- `memori/sesi/sesi_19.md` muncul sebagai _untracked_ — sesi paralel baru berjalan; tidak disentuh sesi ini.
-- `base_coc` sekarang berada di `06f74c2...` (gitlink root belum di-commit).
-
-Berkas sesi `Sudah Sinkron` (`sesi_1`–`sesi_18`) tidak diubah oleh sesi ini.
+- `base_coc` dinonaktifkan di `.gitmodules` (dikomentari) dan foldernya tidak ada; tidak dievaluasi pada sesi ini. Temuan sesi 17 untuk `base_coc` (T1, T2, S1–S3, R1–R4) tidak dievaluasi ulang; rujuk riwayat perubahan berkas ini untuk jejaknya.
+- Berkas sesi `Sudah Sinkron` tidak diubah oleh sesi ini.
 
 ## Riwayat Perubahan Berkas Ini
 
-| Tanggal    | Perubahan                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-11-17 | Evaluasi perdana dengan fallback 5 commit terakhir per repo (berkas sebelumnya kosong). Penanda commit terakhir per repo: root `64fdbcd...`, `base_coc` `c6be80a...`, `share_global_saya` `9bde556...`. Sesi 17.                                                                                                                                                                                                                                                        |
-| 2026-11-17 | Pembaruan dalam sesi yang sama: 2 commit susulan dievaluasi dan ditambahkan — root `1ae4314...` (`m`; tanpa kode Dart) dan `base_coc` `06f74c2...` (`n`; publikasi berkas generate + format, tanpa pola skill/aturan baru; mengatasi R4). Penanda per repo diperbarui: root `1ae4314...`, `base_coc` `06f74c2...`, `share_global_saya` `9bde556...`. Bagian "Catatan Terpisah" dikoreksi (perubahan galeri_base kini ter-commit; import `statistik_dao.dart` terpakai). |
+| Tanggal | Perubahan |
+| ------- | --------- |
+| 2026-11-17 | Evaluasi perdana dengan fallback 5 commit terakhir per repo (berkas sebelumnya kosong). Penanda: root `64fdbcd...`, `base_coc` `c6be80a...`, `share_global_saya` `9bde556...`. Sesi 17. |
+| 2026-11-17 | Pembaruan dalam sesi yang sama: 2 commit susulan dievaluasi — root `1ae4314...` (`m`), `base_coc` `06f74c2...` (`n`). Penanda diperbarui: root `1ae4314...`, `base_coc` `06f74c2...`, `share_global_saya` `9bde556...`. |
+| 2026-11-20 | Evaluasi sesi 139: cakupan diperbarui ke root + `admin_wifi` + `share_global_saya` (`base_coc` dinonaktifkan). Penanda diperbarui: root `3d5d752...`, `admin_wifi` `bd91623...`, `share_global_saya` `08507e3...`. Temuan baru: S1 (Supabase singleton+CRUD generik), S2 (adapter model multi-backend terpadu), serta verifikasi pembersihan log/migrasi material_ui/penghapusan helper `.when`. Tidak ada perubahan kode Dart pada root. |

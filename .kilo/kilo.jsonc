@@ -89,8 +89,10 @@
       "cp *": "deny",
       "diff *": "allow",
       "tr *": "allow",
-      "tail *": "allow",
-      "tail": "allow",
+      "tail *": "deny",
+      "tail": "deny",
+      "head *": "deny",
+      "head": "deny",
       "curl *": "deny",
       "cut *": "deny",
       "git submodule *": "allow",
@@ -171,7 +173,7 @@
       "**/*.aab",
       "**/*.ipa",
       ".fvm/**",
-      ".fvmrc"
+      ".fvmrc",
     ]
   },
   "reasoning_display": "headline",
