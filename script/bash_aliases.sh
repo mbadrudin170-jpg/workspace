@@ -8,6 +8,7 @@ alias full_clean="script/full_clean.sh"
 alias salin_tool_output="script/salin_tool_output.sh"
 alias install_rg="sudo apt-get update && sudo apt-get install -y ripgrep"
 
+alias output="salin_tool_output"
 alias download="cloudshell download"
 # Install SKILLS (ke .agents/skills/bawaan)
 # Alias yang benar - jalankan dari root project

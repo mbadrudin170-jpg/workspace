@@ -5,7 +5,7 @@
 - Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-20
 - Command: interaksi langsung (tanpa command)
-- Topik: Buat berkas SQL RLS (rules) Supabase
+- Topik: Mengubah default output script ke `.txt` dan rename `hasil_output` → `hasil_output.txt`
 
 ## Checklist Awal Sesi
 
@@ -16,20 +16,25 @@
 
 ## Catch-up Sync Awal Sesi
 
-- Tidak ada berkas `Belum Sinkron` baru (sesi 150 sudah `Sudah Sinkron`). Berkas ambigu/paralel tetap tidak disentuh.
+- Berkas `Belum Sinkron` baru: tidak ada. Berkas ambigu/paralel tetap tidak disentuh.
 
 ## Catatan Sesi
 
-- Membuat `admin_wifi/lib/sql/tabel/rules_supabase.sql` berisi enable RLS + policy permissive (dev) untuk semua tabel.
+- Rekomendasi format output: `.txt` (plain text) untuk log/output tool.
+- Rename `hasil_output` → `hasil_output.txt` di root.
+- Update `script/salin_tool_output.sh`: default DEST = `<root>/hasil_output.txt`; komentar diperbarui.
+- Jalankan script ulang: berhasil, file 2.1M.
 
 ## Berkas Terdampak
 
-| Lokasi File                                            | Status Perubahan | Deskripsi                          |
-| ------------------------------------------------------ | ---------------- | ---------------------------------- |
-| `memori/sesi/sesi_151.md`                              | Dibuat           | Berkas sesi aktif (Belum Sinkron)  |
-| `admin_wifi/lib/sql/tabel/rules_supabase.sql`          | Dibuat           | RLS/policy Supabase                |
+| Lokasi File                                  | Status Perubahan | Deskripsi                                        |
+| ------------------------------------------- | ---------------- | ------------------------------------------------ |
+| `memori/sesi/sesi_151.md`                   | Dibuat           | Berkas sesi aktif (Belum Sinkron)                |
+| `hasil_output`                              | Dihapus (rename) | Diganti `hasil_output.txt`                      |
+| `hasil_output.txt`                          | Dibuat           | Output script (2.1M)                             |
+| `script/salin_tool_output.sh`               | Diubah           | Default output `.txt` + komentar                |
 
 ## Sinkronisasi ke MEMORI.md
 
-- Pembuatan berkas SQL rules bersifat implementasi, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
+- Perubahan script/output bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.

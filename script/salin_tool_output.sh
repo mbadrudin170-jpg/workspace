@@ -2,7 +2,9 @@
 # Menyalin seluruh isi file yang ada di folder tool-output Kilo ke satu file tujuan.
 #
 # Penggunaan:
-#   ./scripts/salin_tool_output.sh <file-tujuan>
+#   ./script/salin_tool_output.sh [file-tujuan]
+#
+# Jika file-tujuan tidak diberikan, default ke <root-repo>/hasil_output.txt.
 #
 # Variabel lingkungan opsional:
 #   TOOL_OUTPUT_DIR  - folder sumber (default: ~/.local/share/kilo/tool-output)
@@ -10,12 +12,10 @@
 set -euo pipefail
 
 SRC_DIR="${TOOL_OUTPUT_DIR:-${HOME}/.local/share/kilo/tool-output}"
-DEST="${1:-}"
 
-if [[ -z "$DEST" ]]; then
-  echo "Penggunaan: $0 <file-tujuan>" >&2
-  exit 1
-fi
+# Root repositori = parent folder script ini.
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+DEST="${1:-$ROOT_DIR/hasil_output.txt}"
 
 if [[ ! -d "$SRC_DIR" ]]; then
   echo "Folder sumber tidak ditemukan: $SRC_DIR" >&2
