@@ -3,7 +3,7 @@
 1. Analisa hasil percakapan saya dengan sebuah agen AI.
 2. Tujuan: mempersempit kesalahan berulang di kemudian hari.
 3. Tujuan: semua proyek menjadi konsisten, anti error dan bug.
-4. Saran: tentukan apakah untuk mencegah kesalahan di masa mendatang perlu memperbaiki atau menambah command, skill, atau aturan (sertakan alasan dan target yang disarankan).
+4. Saran: tentukan apakah untuk mencegah kesalahan di masa mendatang perlu memperbaiki atau menambah skill, atau aturan (sertakan alasan dan target yang disarankan).
 
 ==================================================================
 

@@ -3,30 +3,33 @@
 ## Status
 
 - Status Sinkron: Sudah Sinkron
-- Tanggal: 2026-11-20 (WIB)
+- Tanggal: 2026-11-20
 - Command: interaksi langsung (tanpa command)
-- Topik: Perbaikan kontrak notifikasi, guardrail file test, dan penambahan aset guardrail (command/skill/aturan)
+- Topik: Memperbarui poin 4 `docs/perintah_analisa.md` (hapus command)
+
+## Checklist Awal Sesi
+
+- [x] Baca `MEMORI.md` (tool Read, tanpa offset/limit)
+- [x] Baca seluruh berkas `.agents/rules/` (6 berkas)
+- [x] Muat skill `memori-check`
+- [x] Buat berkas sesi `memori/sesi/sesi_160.md`
+
+## Catch-up Sync Awal Sesi
+
+- Berkas `Belum Sinkron` baru: tidak ada. Berkas ambigu/paralel tetap tidak disentuh.
 
 ## Catatan Sesi
 
-- Membaca MEMORI.md dan seluruh .agents/rules/.
-- Menganalisis ringkasan analisa dan rekomendasi perbaikan test notifikasi.
-- Rencana: tambahkan konstanta kontrak notifikasi di kode, perbarui test memakai konstanta dan verifikasi ID spesifik, buat tool/check_test_files.dart + tool/verify.sh, tambahkan Kilo command dan skill perbaikan-test-notifikasi, serta perbarui aturan/index bila relevan.
+- Poin 4 diubah: hapus "command," sehingga hanya skill dan aturan (sertakan alasan dan target yang disarankan).
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| admin_wifi/lib/data/operasi/pelanggan_aktif_operasi.dart | Diubah | Menambahkan konstanta kontrak notifikasi `notifikasiPelangganAktif`. |
-| admin_wifi/test/data/operasi/pelanggan_aktif_operasi_test.dart | Diubah | Memakai konstanta kontrak dan verifikasi ID notifikasi spesifik. |
-| admin_wifi/tool/check_test_files.dart | Dibuat | Guardrail file test tanpa `void main(`. |
-| admin_wifi/tool/verify.sh | Dibuat | Gerbang verifikasi terpadu. |
-| .kilo/commands/cek_file_test_tanpa_main.md | Dibuat | Command Kilo guardrail file test. |
-| .kilo/commands/verifikasi_terpadu.md | Dibuat | Command Kilo verifikasi terpadu. |
-| .agents/skills/non-code/perbaikan-test-notifikasi/SKILL.md | Dibuat | Skill prosedur perbaikan test notifikasi. |
-| prompt/skill/perbaikan-test-notifikasi.md | Dibuat | Berkas poin skill. |
-| .agents/rules/kelompok_skill_wajib_non_code.md | Diubah | Menambahkan entri skill baru. |
+| Lokasi File                      | Status Perubahan | Deskripsi                                  |
+| ------------------------------- | ---------------- | ------------------------------------------ |
+| `memori/sesi/sesi_160.md`       | Dibuat           | Berkas sesi aktif (Belum Sinkron)          |
+| `docs/perintah_analisa.md`      | Diubah           | Poin 4: hapus command                      |
 
 ## Sinkronisasi ke MEMORI.md
 
-Perubahan guardrail dan kontrak notifikasi dicatat di berkas sesi ini. Tidak ada fakta durable baru yang perlu dipromosikan ke MEMORI.md (sesi 160).
+- Perubahan docs bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
+- `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.

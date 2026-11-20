@@ -21,3 +21,5 @@ ki1. Setiap tindakan mengedit, menambah, menghapus, atau memindahkan wajib mengi
 11. Setelah setup yang memanggil mock yang sama, interaksi mock WAJIB diisolasi (`clearInteractions`) sebelum verifikasi perilaku tahap yang diuji; hindari `verify(...).called(n)` global yang menghitung call dari setup.
 
 12. Jumlah jadwal notifikasi pelanggan aktif WAJIB mengikuti kontrak domain (`notifikasiPelangganAktif`), bukan asumsi test; kode dan test wajib memakai konstanta yang sama.
+
+13. Sebelum commit, WAJIB menjalankan `flutter test` dan memastikan seluruh berkas test dapat dimuat serta tidak gagal; gunakan guardrail `tool/check_test_files.dart` untuk mendeteksi berkas `_test.dart` tanpa `void main(`.
