@@ -1,6 +1,7 @@
 # Riwayat Perubahan
 
 | Tanggal | Perubahan |
+| 2026-11-20 | Sesi 137: perbarui `prompt/rules/AGENTS.md` (butir 11 diperjelas; tambah butir 12; tanggal diperbarui Fri Nov 20 2026 07:31 WIB) dan sinkronkan `AGENTS.md` root (tambah butir 11 dan 12). `npx prettier --write` dijalankan. Berkas sesi: `sesi_137.md`. |
 | 2026-11-19 | Sesi 133: analisa kesehatan kode (root + submodul admin_wifi, share_global_saya) — commit Dart terbaru dievaluasi; tidak ada temuan baru; `task.md` tidak diperbarui. admin_wifi fallback 5 commit terakhir (8226380, d366e1e, acda13b, 9931087); share_global_saya rentang ae78761..08507e3 (6 commit Dart). Verifikasi SDK/paket: Flutter 3.50.0/Dart 3.14.0 cocok; `material_ui 1.11.1`, `supabase_flutter 2.18.3`. Berkas sesi: `sesi_133.md`. |
 | ---------- |
 | 2026-11-20 | Sesi 120: perbaiki description seluruh SKILL.md (79 berkas) menjadi 1024 karakter sesuai isi skill. Prettier dijalankan. Berkas sesi: `sesi_120.md`. |

@@ -2,7 +2,7 @@
 
 ## Status
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-20
 - Command: `.kilo/commands/memperbarui_file_di_folder_prompt.md` (interaksi langsung)
 - Topik: Memperbarui berkas di folder prompt/
@@ -26,12 +26,14 @@
 
 ## Berkas Terdampak
 
-| Lokasi File               | Status Perubahan | Deskripsi                         |
-| ------------------------- | ---------------- | --------------------------------- |
-| `memori/sesi/sesi_137.md` | Dibuat           | Berkas sesi aktif (Belum Sinkron) |
-| `prompt/rules/AGENTS.md`  | Diubah           | Butir 11 diperjelas; tanggal diperbarui ke Fri Nov 20 2026 07:19 WIB |
+| Lokasi File               | Status Perubahan | Deskripsi                                                                       |
+| ------------------------- | ---------------- | ------------------------------------------------------------------------------- |
+| `memori/sesi/sesi_137.md` | Dibuat           | Berkas sesi aktif (Belum Sinkron)                                               |
+| `prompt/rules/AGENTS.md`  | Diubah           | Butir 11 diperjelas; tanggal diperbarui ke Fri Nov 20 2026 07:19 WIB            |
 | `AGENTS.md`               | Diubah           | Tambah butir 11 (muat skill terkait pada command Kilo dengan `# Skill Terkait`) |
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan
+- Header MEMORI.md diperbarui ke `Diperbarui: 2026-11-20 (sesi 137)`.
+- Entri riwayat perubahan ditambahkan di `memori/riwayat_perubahan.md`.
+- Perubahan `prompt/rules/AGENTS.md` dan `AGENTS.md` dicatat pada tabel Berkas Terdampak.
