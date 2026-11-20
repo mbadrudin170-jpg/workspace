@@ -2,7 +2,7 @@
 
 ## Status
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-20
 - Command: /perbarui_file_di_folder_prompt
 - Topik: Memperbarui berkas di folder prompt/ dengan diskusi dan persetujuan pengguna
@@ -27,4 +27,4 @@
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan
+- Disinkronkan ke `MEMORI.md` (header diperbarui ke sesi 173 + Catatan Teknis command baru) dan `memori/riwayat_perubahan.md` (baris sesi 173).

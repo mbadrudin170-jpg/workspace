@@ -367,3 +367,57 @@ Tanggal evaluasi: 2026-11-20 (sesi 172). Parameter `$ARGUMENTS` kosong; tidak ad
 - Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus.
 - Berkas yang diubah: `task.md` (13 task baru) dan `catatan.md` (subbagian ini). Di luar batasan command tersebut, sesuai kewajiban skill `memori-check` yang mengikat pada setiap interaksi, turut diubah/ditambah: `memori/sesi/sesi_170.md` (catch-up sync, ditandai `Sudah Sinkron`: tidak ada perubahan untuk disinkronkan) dan `memori/sesi/sesi_172.md` (dibuat, `Belum Sinkron`). Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
 - `MEMORI.md` dan `memori/riwayat_perubahan.md` tidak diperbarui pada sesi ini karena cakupan command terbatas pada `catatan.md` dan `task.md` (konflik dengan kewajiban `memori-check` dilaporkan pada catatan evaluasi sesi 96 dan tetap berlaku).
+
+### Evaluasi ulang 2026-11-20 (root + submodul; sesi 174)
+
+Tanggal evaluasi: 2026-11-20. Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus. Berkas yang diubah: `catatan.md` (subbagian ini) dan `task.md` (Ringkasan Evaluasi). Di luar batasan command tersebut, sesuai kewajiban skill `memori-check`, turut diubah: `MEMORI.md` (header + Catatan Teknis), `memori/riwayat_perubahan.md` (baris sesi 173), dan `memori/sesi/sesi_174.md` (dibuat, `Belum Sinkron`). Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
+
+#### Repositori root (`.`)
+
+- Branch aktif: `main`.
+- HEAD saat evaluasi: `61bf4f70aadc6054ae661abc4546cc6acfbed379` (2026-11-20 18:41:00 UTC; pesan `a`).
+- Commit terakhir yang dievaluasi: `61bf4f70aadc6054ae661abc4546cc6acfbed379` (HEAD).
+- Tanggal evaluasi: 2026-11-20.
+- Rentang dievaluasi: `f8142d4..HEAD` — **tidak ada commit Dart** (`git log f8142d4..HEAD -- '*.dart'` kosong). Tidak ada temuan untuk root.
+- Pointer submodul: `git ls-tree HEAD admin_wifi` = `bbf0fd16bfb0b13f4ff9b96d9cf9fc61145a647b` dan `share_global_saya` = `705dbdf1478eb0196962c9a1bdcde1041318b2ff`. `share_global_saya` cocok dengan HEAD submodul; `admin_wifi` **berbeda** dari HEAD submodul `e6fd72d9de243b0a7ca4101f89c27e043052e697` (informasi; `git status` root menampilkan `M admin_wifi`; pointer tidak diubah).
+
+#### Submodul `share_global_saya` (`share_global_saya/`)
+
+- Branch aktif: `main` (bukan detached HEAD).
+- HEAD saat evaluasi: `705dbdf1478eb0196962c9a1bdcde1041318b2ff` (2026-11-20 18:39:34 UTC; pesan `a`).
+- Pointer di root (`git ls-tree HEAD share_global_saya`): `705dbdf` — cocok dengan HEAD submodul.
+- Commit terakhir yang dievaluasi: `705dbdf1478eb0196962c9a1bdcde1041318b2ff` (HEAD).
+- Tanggal evaluasi: 2026-11-20.
+- Rentang dievaluasi: `2810420..HEAD` — 1 commit Dart: `705dbdf` (menambah `lib/src/widget/empty_state_view.dart` baru + ekspor di `lib/core_shared.dart`).
+- Verifikasi paket/SDK: Flutter 3.47.9 / Dart 3.13.7; `environment.sdk ">=3.4.0 <4.0.0"` dan `flutter ">=3.22.0"` terpenuhi. Paket (`material_ui 1.11.1`, `flutter_riverpod 3.5.0`, `freezed 4.0.3`, dst.) telah diverifikasi ke pub.dev pada evaluasi sebelumnya (sesi 133) dan tetap memenuhi constraint.
+- Temuan: **tidak ada** — `EmptyStateView` sesuai skill `empty-state-daftar` (SafeArea + Padding 16 + Center + Column `spacing`, `ctaLabel`/`onCta` berpasangan melalui `assert`, pure `StatelessWidget`, warna `ColorScheme`/`textTheme`); impor `package:material_ui/material_ui.dart`. `task.md` tidak ditambah untuk repositori ini.
+- Commit terakhir yang dievaluasi: `705dbdf1478eb0196962c9a1bdcde1041318b2ff` (HEAD).
+- Tanggal evaluasi: 2026-11-20.
+
+#### Submodul `admin_wifi` (`admin_wifi/`)
+
+- Branch aktif: `main` (bukan detached HEAD).
+- HEAD saat evaluasi: `e6fd72d9de243b0a7ca4101f89c27e043052e697` (2026-11-20 18:43:34 UTC; pesan `mn`).
+- Pointer di root (`git ls-tree HEAD admin_wifi`): `bbf0fd16bfb0b13f4ff9b96d9cf9fc61145a647b` — **berbeda** dengan HEAD submodul `e6fd72d` (informasi; `git status` root menampilkan `M admin_wifi`; pointer tidak diubah).
+- Commit terakhir yang dievaluasi: `e6fd72d9de243b0a7ca4101f89c27e043052e697` (HEAD).
+- Tanggal evaluasi: 2026-11-20.
+- Rentang dievaluasi: `ac65257..HEAD` (4 commit Dart: `dd0faae`, `06a9eb2`, `bbf0fd1`, `e6fd72d`), dibaca dari terlama ke terbaru:
+  1. `dd0faae` (fitur query transaksi poin per pelanggan) — `transaksi_state.dart` (`.sorted` alih-alih `..sort`), `halaman_poin.dart` (`ref.read(transaksiProvider.future)`, log nilai aktual).
+  2. `06a9eb2` (refactor sqlite: bersihkan logging verbose, konversi FormDompet ke ConsumerStatefulWidget) — header path diperbaiki (3 berkas SQLite + main.dart), banner/log narasi dihapus, `onUpgrade` disusun ulang dengan blok `if (oldVersion < N)` per versi.
+  3. `bbf0fd1` (refactor logging + perbaiki UI) — hapus log `L.i` berlebihan, impor ke `core_shared.dart`, dependensi `adaptive_dialog` + `flutter_easyloading`, warna `Theme.colorScheme`/`withValues`, `Column.spacing`, `EmptyStateView`, dialog konfirmasi simpan, `AppToast`, `unawaited`+`catchError`+`L.e($e $s)`, `mounted`, enum `MenuPoin.label` exhaustive.
+  4. `e6fd72d` (mn) — `transaksi_model.dart` (enum `tipe` parsing `throw ArgumentError` alih-alih fallback `?? pengeluaran`), `transaksi_notifier.dart` (hapus log narasi `L.i('Memuat daftar transaksi...')`).
+- Verifikasi paket/SDK: Flutter 3.47.9 / Dart 3.13.7; `environment.sdk ^3.9.0` terpenuhi. `pubspec.yaml` tidak berubah dalam rentang dievaluasi; versi paket terlock sama dengan verifikasi sesi 133 (`supabase_flutter 2.18.3`, `flutter_riverpod 3.5.0`, `freezed_annotation 3.1.0`, `riverpod_annotation 4.0.8`, `build_runner`, `sqflite ^2.4.2`, `material_ui` via path lokal ke `share_global_saya`) — diverifikasi ke pub.dev sebelumnya.
+- Temuan: **tidak ada ketidaksesuaian baru** — semua commit baru patuh skill/SDK dan justru menyelesaikan temuan sebelumnya (Task 1–13 sekarang `selesai` dalam kode; `task.md` ditandai semua `selesai`).
+  - Tidak ada temuan lain: notifier `@Riverpod(keepAlive: true)` + `muatUlang()` + `rethrow` ✓; layar `isLoading → hasError → requireValue` + retry `ref.refresh` ✓; `ref.watch` hanya di `build()` ✓; model `@freezed` + `@Default` + `ParserUtil` + konstanta skema snake_case + UTC tulis/lokal baca ✓; `firstWhereOrNull` ✓; `ref.read(provider.future)` ✓; impor `material_ui` ✓; root app `PengelolaOverlayLogDebug` + `Localizations` di atas `Directionality` ✓; berkas generate tidak diedit manual ✓.
+- Catatan: working tree `admin_wifi` bersih per tanggal evaluasi (perubahan ditemukan pada commit yang sudah di-commit).
+- Commit terakhir yang dievaluasi: `e6fd72d9de243b0a7ca4101f89c27e043052e697` (HEAD).
+- Tanggal evaluasi: 2026-11-20.
+
+#### Submodul `base_coc` (`base_coc/`)
+
+- Tidak dievaluasi: entri `[submodule "base_coc"]` dikomentari dalam `.gitmodules` dan direktori `base_coc/` tidak ada di working tree root. Catat `Tidak dievaluasi (submodul nonaktif dalam .gitmodules; direktori tidak ada)`; bukan dianggap lolos.
+
+#### Catatan pelaksanaan evaluasi 2026-11-20 (sesi 174)
+
+- Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus.
+- Berkas yang diubah: `catatan.md` (subbagian ini) dan `task.md` (Ringkasan Evaluasi). Di luar batasan command tersebut, sesuai kewajiban skill `memori-check`, turut diubah: `MEMORI.md` (header + Catatan Teknis), `memori/riwayat_perubahan.md` (baris sesi 173), dan `memori/sesi/sesi_174.md` (dibuat, `Belum Sinkron`). Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
