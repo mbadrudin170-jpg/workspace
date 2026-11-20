@@ -15,8 +15,9 @@
 - Menjalankan `flutter analyze lib` dan `flutter analyze test` pada `share_global_saya`: tidak ada temuan.
 - Perbaikan minimal: mengganti `dataFromFirebase` menjadi `dataFromSupabase` (2 lokasi) pada `lib/halaman/tab/lainnya.dart`, dan menghapus import `package:supabase_flutter/supabase_flutter.dart` yang tidak dipakai pada `lib/data/operasi/kritik_saran_operasi.dart`.
 - Verifikasi: `dart format` dan `flutter analyze lib` pada `admin_wifi` → tidak ada temuan.
-- Tugas lanjutan: menghapus paket Firebase (`firebase_core`, `cloud_firestore`, `fake_cloud_firestore`) dari `pubspec.yaml` sesuai permintaan pengguna (opsi "hapus paket saja"). Paket berhasil dihapus; sisa kode yang masih merujuk Firebase (main.dart, layanan pengecekan sync, migrasi, kontrol aplikasi, splash screen) menyebabkan error kompilasi dan memerlukan refactor terpisah.
-- Verifikasi: `flutter analyze lib` → 25 error (seluruhnya terkait referensi Firebase yang tersisa). Model-model sudah tidak lagi merujuk `cloud_firestore`.
+- Tugas lanjutan: menghapus paket Firebase (`firebase_core`, `cloud_firestore`, `fake_cloud_firestore`) dari `pubspec.yaml` sesuai permintaan pengguna (opsi "hapus paket saja"), lalu memperbaiki seluruh error kompilasi yang tersisa.
+- Perbaikan: `main.dart` (hapus inisialisasi Firebase), `KontrolAplikasiService` (stub offline), `PengecekanDataBaruService` (hapus Firestore, kembalikan false untuk pengecekan server), `LainnyaPage` (hapus import dan tombol migrasi yang file-nya terhapus), dan model-model (hapus import `cloud_firestore` dan pengecekan `Timestamp`).
+- Verifikasi akhir: `flutter analyze lib` dan `flutter analyze test` → tidak ada temuan.
 
 ## Berkas Terdampak
 
