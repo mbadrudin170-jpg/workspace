@@ -92,6 +92,11 @@
 - Trigger : saat menyusun pertanyaan ke pengguna
 - Status : diperbarui : Wed Nov 18 2026 01:23 WIB
 
+19. .agents/skills/non-code/perbaikan-test-notifikasi/SKILL.md
+
+- Trigger : saat memperbaiki test notifikasi yang gagal karena mismatch jumlah call mock atau mock tidak diisolasi
+- Status : diperbarui : Fri Nov 20 2026 16:05 WIB
+
 ## Prosedur Aktivasi Skill (berdasarkan Trigger)
 
 1. Indeks ini **hanya** untuk menemukan skill teknis; **bukan** pengganti pemuatan isi skill teknis. Membaca indeks atau mengetahui nama skill tidak berarti isi skill sudah dimuat.

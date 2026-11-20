@@ -15,3 +15,9 @@ ki1. Setiap tindakan mengedit, menambah, menghapus, atau memindahkan wajib mengi
 8. Bila tugas tidak dapat dilanjutkan (transkrip terputus, tidak ada respons AI, prasyarat tidak terpenuhi, atau berkas tidak tersedia), AI wajib melaporkan secara eksplisit kepada pengguna alih-alih berhenti diam-diam.
 
 9. Sebelum menjalankan perintah yang mengubah state repositori (commit, hapus berkas, jalankan workflow build, dll.), AI wajib memeriksa prasyarat terlebih dahulu: identitas Git (`user.name`/`user.email` terisi), akses jaringan/autentikasi, kompatibilitas versi (Java/Gradle, SDK, dll.), dan ketersediaan berkas/prasyarat workflow. Hasil pemeriksaan wajib dilaporkan kepada pengguna. Untuk aksi destruktif (hapus berkas), wajib konfirmasi eksplisit pengguna melalui tool `question` sebelum dieksekusi.
+
+10. Setiap berkas `_test.dart` wajib memiliki definisi `void main(`; berkas placeholder tanpa `main` DILARANG di-commit. Gunakan guardrail `tool/check_test_files.dart` sebelum `flutter test`.
+
+11. Setelah setup yang memanggil mock yang sama, interaksi mock WAJIB diisolasi (`clearInteractions`) sebelum verifikasi perilaku tahap yang diuji; hindari `verify(...).called(n)` global yang menghitung call dari setup.
+
+12. Jumlah jadwal notifikasi pelanggan aktif WAJIB mengikuti kontrak domain (`notifikasiPelangganAktif`), bukan asumsi test; kode dan test wajib memakai konstanta yang sama.
