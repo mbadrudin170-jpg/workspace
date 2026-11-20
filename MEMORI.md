@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-20 (sesi 171)
+Diperbarui: 2026-11-20 (sesi 172)
 
 ## Konteks Proyek
 
@@ -30,6 +30,7 @@ Diperbarui: 2026-11-20 (sesi 171)
 - Logging wajib memakai `L` dari `share_global_saya`; wrapper log manual per proyek dilarang.
 - Overlay log debug wajib membungkus root app dengan `PengelolaOverlayLogDebug` + `L.init(container)`; root `Overlay` manual wajib dibungkus `Localizations` di atas `Directionality`.
 - Tujuan informasi yang ditambahkan ke memori: agar setiap model AI dapat mengetahui tentang pengguna (preferensi, konteks, konvensi, keputusan) tanpa pengguna harus menjelaskan ulang; informasi yang dicatat wajib cukup jelas dan tahan lama (durable). (sesi 108)
+- Sesi 172: Mengerjakan 11 task (Kelompok 1-3) pada task.md — perbaikan header path (SQLite, main.dart), logging (hapus narasi/banner separator), migrasi SQLite onUpgrade (blok if oldVersion < N per versi), warna tema (ColorScheme/withValues), spacing (Column.spacing), AppToast ganti SnackBar, konfirmasi simpan (showOkCancelAlertDialog + EasyLoading), enum label getter (MenuPoin), EmptyStateView komponen bersama. Menambahkan EmptyStateView ke share_global_saya; dependency share_global_saya diubah ke path lokal.
 
 ## Sumber Kebenaran Lain
 

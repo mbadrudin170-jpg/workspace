@@ -25,11 +25,11 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                                  | Status Perubahan | Deskripsi                                        |
-| ------------------------------------------- | ---------------- | ------------------------------------------------ |
-| `memori/sesi/sesi_152.md`                   | Dibuat           | Berkas sesi aktif (Belum Sinkron)                |
-| `script/salin_tool_output.sh`               | Diubah           | Tambah cat docs/perintah_analisa.md paling atas  |
-| `hasil_output.txt`                          | Diubah           | Output script (23412 baris)                      |
+| Lokasi File                   | Status Perubahan | Deskripsi                                       |
+| ----------------------------- | ---------------- | ----------------------------------------------- |
+| `memori/sesi/sesi_152.md`     | Dibuat           | Berkas sesi aktif (Belum Sinkron)               |
+| `script/salin_tool_output.sh` | Diubah           | Tambah cat docs/perintah_analisa.md paling atas |
+| `hasil_output.txt`            | Diubah           | Output script (23412 baris)                     |
 
 ## Sinkronisasi ke MEMORI.md
 

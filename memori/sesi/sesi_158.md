@@ -24,10 +24,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                      | Status Perubahan | Deskripsi                                  |
-| ------------------------------- | ---------------- | ------------------------------------------ |
-| `memori/sesi/sesi_158.md`       | Dibuat           | Berkas sesi aktif (Belum Sinkron)          |
-| `docs/perintah_analisa.md`      | Diubah           | Tambah poin 4 saran command/skill/aturan   |
+| Lokasi File                | Status Perubahan | Deskripsi                                |
+| -------------------------- | ---------------- | ---------------------------------------- |
+| `memori/sesi/sesi_158.md`  | Dibuat           | Berkas sesi aktif (Belum Sinkron)        |
+| `docs/perintah_analisa.md` | Diubah           | Tambah poin 4 saran command/skill/aturan |
 
 ## Sinkronisasi ke MEMORI.md
 

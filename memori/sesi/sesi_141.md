@@ -28,14 +28,14 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                               | Status Perubahan | Deskripsi                                                           |
-| ----------------------------------------- | ---------------- | ------------------------------------------------------------------- |
-| `memori/sesi/sesi_141.md`                 | Dibuat           | Berkas sesi aktif (Belum Sinkron)                                   |
-| `memori/sesi/sesi_109.md`                 | Diubah (catch-up) | Status Sinkron Belum Sinkron → Sudah Sinkron (yatim)                |
-| `memori/sesi/sesi_111.md`                 | Diubah (catch-up) | Status Sinkron Belum Sinkron → Sudah Sinkron (yatim)                |
-| `memori/sesi/sesi_138.md`                 | Diubah (catch-up) | Status Sinkron Belum Sinkron → Sudah Sinkron (yatim)                |
-| `prompt/commands/muat_skill_terkait.md`   | Diubah           | Poin 1 diperjelas; tambah poin 4; poin 3 via tool `skill`; tanggal  |
-| `.kilo/commands/muat_skill_terkait.md`    | Diubah           | Sinkron dengan prompt                                               |
+| Lokasi File                             | Status Perubahan  | Deskripsi                                                          |
+| --------------------------------------- | ----------------- | ------------------------------------------------------------------ |
+| `memori/sesi/sesi_141.md`               | Dibuat            | Berkas sesi aktif (Belum Sinkron)                                  |
+| `memori/sesi/sesi_109.md`               | Diubah (catch-up) | Status Sinkron Belum Sinkron → Sudah Sinkron (yatim)               |
+| `memori/sesi/sesi_111.md`               | Diubah (catch-up) | Status Sinkron Belum Sinkron → Sudah Sinkron (yatim)               |
+| `memori/sesi/sesi_138.md`               | Diubah (catch-up) | Status Sinkron Belum Sinkron → Sudah Sinkron (yatim)               |
+| `prompt/commands/muat_skill_terkait.md` | Diubah            | Poin 1 diperjelas; tambah poin 4; poin 3 via tool `skill`; tanggal |
+| `.kilo/commands/muat_skill_terkait.md`  | Diubah            | Sinkron dengan prompt                                              |
 
 ## Sinkronisasi ke MEMORI.md
 

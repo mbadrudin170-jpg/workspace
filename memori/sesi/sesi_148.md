@@ -27,11 +27,11 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                               | Status Perubahan | Deskripsi                                            |
-| ----------------------------------------- | ---------------- | --------------------------------------------------- |
-| `memori/sesi/sesi_148.md`                 | Dibuat           | Berkas sesi aktif (Belum Sinkron)                   |
-| `prompt/commands/muat_skill_terkait.md`    | Diubah           | Tambah poin 5 muat skill terkait topik sekarang     |
-| `.kilo/commands/muat_skill_terkait.md`    | Diubah           | Sinkron dengan prompt                               |
+| Lokasi File                             | Status Perubahan | Deskripsi                                       |
+| --------------------------------------- | ---------------- | ----------------------------------------------- |
+| `memori/sesi/sesi_148.md`               | Dibuat           | Berkas sesi aktif (Belum Sinkron)               |
+| `prompt/commands/muat_skill_terkait.md` | Diubah           | Tambah poin 5 muat skill terkait topik sekarang |
+| `.kilo/commands/muat_skill_terkait.md`  | Diubah           | Sinkron dengan prompt                           |
 
 ## Sinkronisasi ke MEMORI.md
 

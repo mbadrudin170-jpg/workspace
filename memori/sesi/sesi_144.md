@@ -28,11 +28,11 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                                          | Status Perubahan | Deskripsi                                                     |
-| --------------------------------------------------- | ---------------- | ------------------------------------------------------------- |
-| `memori/sesi/sesi_144.md`                           | Dibuat           | Berkas sesi aktif (Belum Sinkron)                             |
-| `prompt/skill/memori-check.md`                      | Diubah           | Tambah poin 30 format isi memori bertingkat                   |
-| `.agents/skills/non-code/memori-check/SKILL.md`     | Diubah           | Tambah kalimat format isi memori pada aturan 21                |
+| Lokasi File                                     | Status Perubahan | Deskripsi                                       |
+| ----------------------------------------------- | ---------------- | ----------------------------------------------- |
+| `memori/sesi/sesi_144.md`                       | Dibuat           | Berkas sesi aktif (Belum Sinkron)               |
+| `prompt/skill/memori-check.md`                  | Diubah           | Tambah poin 30 format isi memori bertingkat     |
+| `.agents/skills/non-code/memori-check/SKILL.md` | Diubah           | Tambah kalimat format isi memori pada aturan 21 |
 
 ## Sinkronisasi ke MEMORI.md
 

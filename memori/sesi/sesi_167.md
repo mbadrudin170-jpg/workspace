@@ -21,10 +21,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ------------------------------------ | ---------------- | ---------- |
-| `admin_wifi/lib/fitur/transaksi/notifier/transaksi_notifier.dart` | Diubah | Kembalikan akses global |
-| `memori/sesi/sesi_167.md` | Dibuat | Berkas sesi |
+| Lokasi File                                                       | Status Perubahan | Deskripsi               |
+| ----------------------------------------------------------------- | ---------------- | ----------------------- |
+| `admin_wifi/lib/fitur/transaksi/notifier/transaksi_notifier.dart` | Diubah           | Kembalikan akses global |
+| `memori/sesi/sesi_167.md`                                         | Dibuat           | Berkas sesi             |
 
 ## Sinkronisasi ke MEMORI.md
 

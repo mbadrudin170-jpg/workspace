@@ -1,0 +1,278 @@
+// path: lib/db/oncreate_sqflite.dart
+
+import 'package:admin_wifi/fitur/pelanggan_aktif/model/pelanggan_aktif_model.dart';
+import 'package:admin_wifi/fitur/dompet/model/dompet_model.dart';
+import 'package:admin_wifi/fitur/kategori/model/kategori_model.dart';
+import 'package:admin_wifi/fitur/kritik_saran/model/kritik_saran_model.dart';
+import 'package:admin_wifi/fitur/paket/model/paket_model.dart';
+import 'package:admin_wifi/fitur/pelanggan/model/pelanggan_model.dart';
+import 'package:admin_wifi/fitur/pengaturan/model/pengaturan_model.dart';
+import 'package:admin_wifi/fitur/pesanan/model/pesanan_model.dart';
+import 'package:admin_wifi/fitur/status_unggah/model/status_unggah_model.dart';
+import 'package:admin_wifi/fitur/kategori/model/sub_kategori_model.dart';
+import 'package:admin_wifi/fitur/transaksi/model/transaksi_model.dart';
+import 'package:admin_wifi/fitur/versi_apk_user/model/versi_apk_user_model.dart';
+import 'package:share_global_saya/src/utils/l.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
+// Skema tabel yang tidak memiliki model khusus.
+abstract final class StatusAplikasiSkema {
+  static const String tabel = 'status_aplikasi';
+  static const String id = 'id';
+  static const String value = 'value';
+}
+
+abstract final class PesanSkema {
+  static const String tabel = 'pesan';
+  static const String id = 'id';
+  static const String isi = 'isi';
+  static const String tanggal = 'tanggal';
+  static const String status = 'status';
+}
+
+// --- DEFINISI SKEMA TABEL ---
+
+final String _tabelVersiApkUser =
+    '''
+    CREATE TABLE ${VersiApkUserSkema.tabel}(
+      ${VersiApkUserSkema.id} TEXT PRIMARY KEY,
+      ${VersiApkUserSkema.catatanRilis} TEXT NOT NULL,
+      ${VersiApkUserSkema.nomorBuildTerbaru} TEXT NOT NULL,
+      ${VersiApkUserSkema.tautanUnduhan} TEXT NOT NULL,
+      ${VersiApkUserSkema.versiTerbaru} TEXT NOT NULL,
+      ${VersiApkUserSkema.wajibUpdate} INTEGER NOT NULL,
+      ${VersiApkUserSkema.youtubeTutorial} TEXT NOT NULL,
+      ${VersiApkUserSkema.isDeleted} INTEGER NOT NULL DEFAULT 0,
+      ${VersiApkUserSkema.diarsipkan} TEXT,
+      ${VersiApkUserSkema.diperbarui} TEXT
+    )
+  ''';
+
+final String _tabelDompet =
+    '''
+    CREATE TABLE ${DompetSkema.tabel}(
+      ${DompetSkema.id} TEXT PRIMARY KEY,
+      ${DompetSkema.namaDompet} TEXT NOT NULL,
+      ${DompetSkema.saldo} REAL NOT NULL,
+      ${DompetSkema.diperbarui} TEXT,
+      ${DompetSkema.isDeleted} INTEGER NOT NULL DEFAULT 0,
+      ${DompetSkema.diarsipkan} TEXT
+    )
+  ''';
+
+final String _tabelTransaksi =
+    '''
+    CREATE TABLE ${TransaksiSkema.tabel}(
+      ${TransaksiSkema.id} TEXT PRIMARY KEY,
+      ${TransaksiSkema.keterangan} TEXT NOT NULL,
+      ${TransaksiSkema.jumlah} REAL NOT NULL,
+      ${TransaksiSkema.tanggal} TEXT NOT NULL,
+      ${TransaksiSkema.tipe} TEXT NOT NULL,
+      ${TransaksiSkema.idDompet} TEXT,
+      ${TransaksiSkema.idKategori} TEXT,
+      ${TransaksiSkema.idSubKategori} TEXT,
+      ${TransaksiSkema.idPelanggan} TEXT,
+      ${TransaksiSkema.idPaket} TEXT,
+      ${TransaksiSkema.diperbarui} TEXT,
+      ${TransaksiSkema.diarsipkan} TEXT,
+      ${TransaksiSkema.isDeleted} INTEGER NOT NULL DEFAULT 0,
+      ${TransaksiSkema.idDompetTujuan} TEXT,
+      ${TransaksiSkema.poinYangDihasilkan} INTEGER NOT NULL DEFAULT 0,
+      ${TransaksiSkema.poinYangDigunakan} INTEGER NOT NULL DEFAULT 0,
+      ${TransaksiSkema.statusPembayaran} TEXT,
+      ${TransaksiSkema.durasiPaket} INTEGER,
+      ${TransaksiSkema.tipeDurasiPaket} TEXT,
+      ${TransaksiSkema.tanggalMulai} TEXT,
+      ${TransaksiSkema.tanggalBerakhir} TEXT,
+      ${TransaksiSkema.aktivasiPaket} INTEGER DEFAULT 0
+    )
+  ''';
+
+final String _tabelStatusUnggah =
+    '''
+  CREATE TABLE ${StatusUnggahSkema.tabel}(
+    ${StatusUnggahSkema.namaTabel} TEXT PRIMARY KEY,
+    ${StatusUnggahSkema.status} INTEGER NOT NULL,
+    ${StatusUnggahSkema.ids} TEXT NOT NULL,
+    ${StatusUnggahSkema.diperbarui} TEXT
+  )
+''';
+
+final String _tabelStatusAplikasi =
+    '''
+  CREATE TABLE ${StatusAplikasiSkema.tabel}(
+    ${StatusAplikasiSkema.id} TEXT PRIMARY KEY,
+    ${StatusAplikasiSkema.value} TEXT NOT NULL
+  )
+''';
+
+final String _tabelPesan =
+    '''
+  CREATE TABLE ${PesanSkema.tabel}(
+    ${PesanSkema.id} TEXT PRIMARY KEY,
+    ${PesanSkema.isi} TEXT NOT NULL,
+    ${PesanSkema.tanggal} TEXT NOT NULL,
+    ${PesanSkema.status} TEXT NOT NULL
+  )
+''';
+
+final String _tabelPengaturan =
+    '''
+  CREATE TABLE ${PengaturanSkema.tabel}(
+    ${PengaturanSkema.intervalSinkronisasiOtomatis} INTEGER NOT NULL DEFAULT 24,
+    ${PengaturanSkema.hapusOtomatisDataArsip} INTEGER NOT NULL DEFAULT 30,
+    ${PengaturanSkema.diperbarui} TEXT,
+    ${PengaturanSkema.modePemeliharaan} INTEGER NOT NULL DEFAULT 0,
+    ${PengaturanSkema.infoPemeliharaan} TEXT
+  )
+''';
+
+final String _tabelKategori =
+    '''
+    CREATE TABLE ${KategoriSkema.tabel}(
+      ${KategoriSkema.id} TEXT PRIMARY KEY,
+      ${KategoriSkema.nama} TEXT NOT NULL,
+      ${KategoriSkema.tipe} TEXT NOT NULL,
+      ${KategoriSkema.idSubKategori} TEXT,
+      ${KategoriSkema.diperbarui} TEXT,
+      ${KategoriSkema.isDeleted} INTEGER NOT NULL DEFAULT 0,
+      ${KategoriSkema.diarsipkan} TEXT
+    )
+  ''';
+
+final String _tabelSubKategori =
+    '''
+    CREATE TABLE ${SubKategoriSkema.tabel}(
+      ${SubKategoriSkema.id} TEXT PRIMARY KEY,
+      ${SubKategoriSkema.nama} TEXT NOT NULL,
+      ${SubKategoriSkema.idKategori} TEXT NOT NULL,
+      ${SubKategoriSkema.diperbarui} TEXT,
+      ${SubKategoriSkema.isDeleted} INTEGER NOT NULL DEFAULT 0,
+      ${SubKategoriSkema.diarsipkan} TEXT,
+      FOREIGN KEY (${SubKategoriSkema.idKategori}) REFERENCES kategori (id) ON DELETE CASCADE
+    )
+  ''';
+
+final String _tabelPaket =
+    '''
+    CREATE TABLE ${PaketSkema.tabel}(
+      ${PaketSkema.id} TEXT PRIMARY KEY,
+      ${PaketSkema.nama} TEXT NOT NULL,
+      ${PaketSkema.harga} INTEGER NOT NULL,
+      ${PaketSkema.durasi} INTEGER NOT NULL,
+      ${PaketSkema.tipe} TEXT NOT NULL,
+      ${PaketSkema.jumlahPoin} INTEGER NOT NULL DEFAULT 0,
+      ${PaketSkema.diperbarui} TEXT,
+      ${PaketSkema.isDeleted} INTEGER NOT NULL DEFAULT 0,
+      ${PaketSkema.diarsipkan} TEXT,
+      ${PaketSkema.poinHadiah} INTEGER NOT NULL DEFAULT 0,
+      ${PaketSkema.poinPenukaran} INTEGER NOT NULL DEFAULT 0,
+      ${PaketSkema.isPublic} INTEGER NOT NULL DEFAULT 1
+    )
+  ''';
+
+final String _tabelPelanggan =
+    '''
+    CREATE TABLE ${PelangganSkema.tabel}(
+      ${PelangganSkema.id} TEXT PRIMARY KEY,
+      ${PelangganSkema.nama} TEXT NOT NULL,
+      ${PelangganSkema.telepon} TEXT NOT NULL,
+      ${PelangganSkema.alamat} TEXT NOT NULL,
+      ${PelangganSkema.password} TEXT NOT NULL,
+      ${PelangganSkema.macAddress} TEXT NOT NULL,
+      ${PelangganSkema.status} TEXT NOT NULL DEFAULT 'aktif',
+      ${PelangganSkema.diperbarui} TEXT,
+      ${PelangganSkema.diarsipkan} TEXT,
+      ${PelangganSkema.isDeleted} INTEGER NOT NULL DEFAULT 0
+    )
+  ''';
+
+final String _tabelPelangganAktif =
+    '''
+    CREATE TABLE ${PelangganAktifSkema.tabel}(
+      ${PelangganAktifSkema.id} TEXT PRIMARY KEY,
+      ${PelangganAktifSkema.idPelanggan} TEXT NOT NULL,
+      ${PelangganAktifSkema.idPaket} TEXT NOT NULL,
+      ${PelangganAktifSkema.idTransaksi} TEXT,
+      ${PelangganAktifSkema.tanggalMulai} TEXT,
+      ${PelangganAktifSkema.tanggalBerakhir} TEXT,
+      ${PelangganAktifSkema.status} TEXT NOT NULL,
+      ${PelangganAktifSkema.diperbarui} TEXT,
+      ${PelangganAktifSkema.isDeleted} INTEGER NOT NULL DEFAULT 0,
+      ${PelangganAktifSkema.diarsipkan} TEXT,
+      FOREIGN KEY (${PelangganAktifSkema.idPelanggan}) REFERENCES pelanggan (id) ON DELETE CASCADE ON UPDATE CASCADE,
+      FOREIGN KEY (${PelangganAktifSkema.idPaket}) REFERENCES paket (id) ON DELETE CASCADE ON UPDATE CASCADE,
+      FOREIGN KEY (${PelangganAktifSkema.idTransaksi}) REFERENCES transaksi (id) ON DELETE SET NULL
+    )
+  ''';
+
+final String _tabelKritikSaran =
+    '''
+    CREATE TABLE ${KritikSaranSkema.tabel}(
+      ${KritikSaranSkema.id} TEXT PRIMARY KEY,
+      ${KritikSaranSkema.isi} TEXT NOT NULL,
+      ${KritikSaranSkema.tanggal} TEXT NOT NULL,
+      ${KritikSaranSkema.userId} TEXT NOT NULL,
+      ${KritikSaranSkema.diperbarui} TEXT,
+      FOREIGN KEY (${KritikSaranSkema.userId}) REFERENCES pelanggan (id) ON DELETE CASCADE
+    )
+  ''';
+
+final String _tabelPesanan =
+    '''
+    CREATE TABLE ${PesananSkema.tabel}(
+      ${PesananSkema.id} TEXT PRIMARY KEY,
+      ${PesananSkema.idPelanggan} TEXT NOT NULL,
+      ${PesananSkema.idPaket} TEXT NOT NULL,
+      ${PesananSkema.tanggal} TEXT NOT NULL,
+      ${PesananSkema.status} TEXT,
+      ${PesananSkema.diperbarui} TEXT,
+      ${PesananSkema.isDeleted} INTEGER NOT NULL DEFAULT 0,
+      ${PesananSkema.diarsipkan} TEXT,
+      FOREIGN KEY (${PesananSkema.idPelanggan}) REFERENCES pelanggan (id) ON DELETE CASCADE,
+      FOREIGN KEY (${PesananSkema.idPaket}) REFERENCES paket (id) ON DELETE CASCADE
+    )
+  ''';
+
+Future<void> onCreateSqflite(Database db, int version) async {
+  L.i('========================================');
+  L.i('MEMULAI PEMBUATAN TABEL DATABASE (onCreate) UNTUK VERSI $version');
+  L.i('========================================');
+
+  try {
+    await db.execute(_tabelKategori);
+    await db.execute(_tabelSubKategori);
+    await db.execute(_tabelPaket);
+    await db.execute(_tabelPelanggan);
+    await db.execute(_tabelPelangganAktif);
+    await db.execute(_tabelTransaksi);
+    await db.execute(_tabelDompet);
+    await db.execute(_tabelKritikSaran);
+    await db.execute(_tabelPesanan);
+    await db.execute(_tabelVersiApkUser);
+    await db.execute(_tabelPengaturan);
+    await db.execute(_tabelStatusUnggah);
+    await db.execute(_tabelStatusAplikasi);
+    await db.execute(_tabelPesan);
+    L.i('Semua 14 tabel utama berhasil dibuat.');
+
+    L.i('Memulai pembuatan index...');
+    await db.execute(
+      'CREATE INDEX idx_transaksi_dompet ON transaksi(id_dompet)',
+    );
+    await db.execute(
+      'CREATE INDEX idx_transaksi_dompet_tujuan ON transaksi(id_dompet_tujuan)',
+    );
+    await db.execute(
+      'CREATE INDEX idx_transaksi_is_deleted ON transaksi(is_deleted)',
+    );
+    L.i('Semua 3 index berhasil dibuat.');
+
+    L.i('========================================');
+    L.i('PROSES PEMBUATAN TABEL & INDEX SELESAI');
+    L.i('========================================');
+  } catch (e, st) {
+    L.e('Gagal total saat membuat tabel atau index. Error: $e $st');
+    rethrow;
+  }
+}

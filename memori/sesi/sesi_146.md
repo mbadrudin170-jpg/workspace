@@ -25,11 +25,11 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                          | Status Perubahan | Deskripsi                               |
-| ------------------------------------ | ---------------- | --------------------------------------- |
-| `memori/sesi/sesi_146.md`            | Dibuat           | Berkas sesi aktif (Belum Sinkron)       |
-| `script/salin_tool_output.sh`        | Dibuat (pindah)  | Dari `scripts/salin_tool_output.sh`     |
-| `scripts/`                           | Dihapus          | Folder kosong setelah pindah            |
+| Lokasi File                   | Status Perubahan | Deskripsi                           |
+| ----------------------------- | ---------------- | ----------------------------------- |
+| `memori/sesi/sesi_146.md`     | Dibuat           | Berkas sesi aktif (Belum Sinkron)   |
+| `script/salin_tool_output.sh` | Dibuat (pindah)  | Dari `scripts/salin_tool_output.sh` |
+| `scripts/`                    | Dihapus          | Folder kosong setelah pindah        |
 
 ## Sinkronisasi ke MEMORI.md
 

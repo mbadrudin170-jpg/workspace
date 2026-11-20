@@ -25,10 +25,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| `memori/sesi/sesi_155.md` | Dibuat | Berkas sesi aktif |
-| `admin_wifi/lib/data/sync/unggah_data.dart` | Diubah | Target Supabase pakai namaKoleksi |
+| Lokasi File                                 | Status Perubahan | Deskripsi                         |
+| ------------------------------------------- | ---------------- | --------------------------------- |
+| `memori/sesi/sesi_155.md`                   | Dibuat           | Berkas sesi aktif                 |
+| `admin_wifi/lib/data/sync/unggah_data.dart` | Diubah           | Target Supabase pakai namaKoleksi |
 
 ## Sinkronisasi ke MEMORI.md
 

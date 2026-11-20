@@ -28,12 +28,12 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| `memori/sesi/sesi_157.md` | Dibuat | Berkas sesi aktif (Belum Sinkron) |
-| `prompt/rules/AGENTS.md` | Diubah | Tambah butir 13 |
-| `prompt/rules/kelompok_skill_wajib.md` | Diubah | Tambah prosedur aktivasi skill |
-| `prompt/skill/aturan-pembuatan-skill.md` | Diubah | Koreksi poin 5 dan 18 |
+| Lokasi File                              | Status Perubahan | Deskripsi                         |
+| ---------------------------------------- | ---------------- | --------------------------------- |
+| `memori/sesi/sesi_157.md`                | Dibuat           | Berkas sesi aktif (Belum Sinkron) |
+| `prompt/rules/AGENTS.md`                 | Diubah           | Tambah butir 13                   |
+| `prompt/rules/kelompok_skill_wajib.md`   | Diubah           | Tambah prosedur aktivasi skill    |
+| `prompt/skill/aturan-pembuatan-skill.md` | Diubah           | Koreksi poin 5 dan 18             |
 
 ## Sinkronisasi ke MEMORI.md
 

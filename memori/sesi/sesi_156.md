@@ -24,10 +24,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| `memori/sesi/sesi_156.md` | Dibuat | Berkas sesi aktif |
-| `admin_wifi/lib/sql/tabel/rules_supabase.sql` | Diubah | Tambah GRANT hak akses |
+| Lokasi File                                   | Status Perubahan | Deskripsi              |
+| --------------------------------------------- | ---------------- | ---------------------- |
+| `memori/sesi/sesi_156.md`                     | Dibuat           | Berkas sesi aktif      |
+| `admin_wifi/lib/sql/tabel/rules_supabase.sql` | Diubah           | Tambah GRANT hak akses |
 
 ## Sinkronisasi ke MEMORI.md
 

@@ -25,10 +25,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                                  | Status Perubahan | Deskripsi                                        |
-| ------------------------------------------- | ---------------- | ------------------------------------------------ |
-| `memori/sesi/sesi_145.md`                   | Dibuat           | Berkas sesi aktif (Belum Sinkron)                |
-| `scripts/salin_tool_output.sh`              | Dibuat           | Script bash salin isi tool-output ke file tujuan |
+| Lokasi File                    | Status Perubahan | Deskripsi                                        |
+| ------------------------------ | ---------------- | ------------------------------------------------ |
+| `memori/sesi/sesi_145.md`      | Dibuat           | Berkas sesi aktif (Belum Sinkron)                |
+| `scripts/salin_tool_output.sh` | Dibuat           | Script bash salin isi tool-output ke file tujuan |
 
 ## Sinkronisasi ke MEMORI.md
 

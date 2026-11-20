@@ -25,10 +25,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                          | Status Perubahan | Deskripsi                                  |
-| ------------------------------------ | ---------------- | ------------------------------------------ |
-| `memori/sesi/sesi_154.md`            | Dibuat           | Berkas sesi aktif (Belum Sinkron)           |
-| `hasil_output.txt`                   | Diubah           | Output script (overwrite)                  |
+| Lokasi File               | Status Perubahan | Deskripsi                         |
+| ------------------------- | ---------------- | --------------------------------- |
+| `memori/sesi/sesi_154.md` | Dibuat           | Berkas sesi aktif (Belum Sinkron) |
+| `hasil_output.txt`        | Diubah           | Output script (overwrite)         |
 
 ## Sinkronisasi ke MEMORI.md
 

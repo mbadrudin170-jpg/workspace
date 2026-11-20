@@ -22,11 +22,11 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ------------------------------------ | ---------------- | ---------- |
-| `admin_wifi/lib/widget/transaksi_list_widgets.dart` | Diubah | TransaksiTile memakai ref |
-| `admin_wifi/lib/fitur/transaksi/screens/transaksi.dart` | Diubah | Hapus parameter TransaksiNotifier |
-| `admin_wifi/lib/fitur/dompet/screens/detail_dompet.dart` | Diubah | Hapus parameter TransaksiNotifier |
+| Lokasi File                                              | Status Perubahan | Deskripsi                         |
+| -------------------------------------------------------- | ---------------- | --------------------------------- |
+| `admin_wifi/lib/widget/transaksi_list_widgets.dart`      | Diubah           | TransaksiTile memakai ref         |
+| `admin_wifi/lib/fitur/transaksi/screens/transaksi.dart`  | Diubah           | Hapus parameter TransaksiNotifier |
+| `admin_wifi/lib/fitur/dompet/screens/detail_dompet.dart` | Diubah           | Hapus parameter TransaksiNotifier |
 
 ## Sinkronisasi ke MEMORI.md
 

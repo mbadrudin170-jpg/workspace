@@ -20,9 +20,9 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ------------------------------------ | ---------------- | ---------- |
-| `admin_wifi/lib/fitur/transaksi/notifier/transaksi_notifier.dart` | Diubah | Menghapus agregat DB yang sudah ada di state |
+| Lokasi File                                                       | Status Perubahan | Deskripsi                                    |
+| ----------------------------------------------------------------- | ---------------- | -------------------------------------------- |
+| `admin_wifi/lib/fitur/transaksi/notifier/transaksi_notifier.dart` | Diubah           | Menghapus agregat DB yang sudah ada di state |
 
 ## Sinkronisasi ke MEMORI.md
 

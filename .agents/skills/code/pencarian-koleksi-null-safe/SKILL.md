@@ -37,7 +37,7 @@ Saat mencari elemen dalam koleksi (`List`/`Iterable`) dengan predikat yang mungk
 
 ## Contoh Benar
 
-```dart
+````dart
 import 'package:collection/collection.dart';
 
 final kategori = state.listKategori.firstWhereOrNull(
@@ -61,7 +61,7 @@ final kategori = state.listKategori
       (k) => k?.id == id,
       orElse: () => null,
     );
-```
+````
 
 ```dart
 // Salah: mutasi in-place dengan ..sort
@@ -69,3 +69,4 @@ final terbaru = (state.listTransaksi
         .where((t) => t.idPelanggan == idPelanggan)
         .toList()
       ..sort((a, b) => b.tanggal.compareTo(a.tanggal)));
+```

@@ -21,12 +21,12 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ------------------------------------ | ---------------- | ---------- |
-| `admin_wifi/lib/halaman/pembantu/halaman_poin.dart` | Diubah | Konversi ke ConsumerStatefulWidget |
-| `admin_wifi/lib/fitur/transaksi/notifier/transaksi_notifier.dart` | Diubah | Hapus agregat poin DB |
-| `admin_wifi/lib/fitur/transaksi/state/transaksi_state.dart` | Diubah | Tambah method poin |
-| `admin_wifi/lib/fitur/pelanggan/screens/detail_pelanggan.dart` | Diubah | Gunakan hitungTotalPoin |
+| Lokasi File                                                       | Status Perubahan | Deskripsi                          |
+| ----------------------------------------------------------------- | ---------------- | ---------------------------------- |
+| `admin_wifi/lib/halaman/pembantu/halaman_poin.dart`               | Diubah           | Konversi ke ConsumerStatefulWidget |
+| `admin_wifi/lib/fitur/transaksi/notifier/transaksi_notifier.dart` | Diubah           | Hapus agregat poin DB              |
+| `admin_wifi/lib/fitur/transaksi/state/transaksi_state.dart`       | Diubah           | Tambah method poin                 |
+| `admin_wifi/lib/fitur/pelanggan/screens/detail_pelanggan.dart`    | Diubah           | Gunakan hitungTotalPoin            |
 
 ## Sinkronisasi ke MEMORI.md
 

@@ -21,10 +21,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ------------------------------------ | ---------------- | ---------- |
-| `admin_wifi` | Diubah (pointer) | Pembaruan ke commit 026bfa0 |
-| `memori/sesi/sesi_166.md` | Dibuat | Berkas sesi |
+| Lokasi File               | Status Perubahan | Deskripsi                   |
+| ------------------------- | ---------------- | --------------------------- |
+| `admin_wifi`              | Diubah (pointer) | Pembaruan ke commit 026bfa0 |
+| `memori/sesi/sesi_166.md` | Dibuat           | Berkas sesi                 |
 
 ## Sinkronisasi ke MEMORI.md
 

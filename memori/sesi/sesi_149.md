@@ -26,11 +26,11 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                                  | Status Perubahan | Deskripsi                                        |
-| ------------------------------------------- | ---------------- | ------------------------------------------------ |
-| `memori/sesi/sesi_149.md`                   | Dibuat           | Berkas sesi aktif (Belum Sinkron)                |
-| `hasil_output`                              | Dibuat           | File output default di root                      |
-| `script/salin_tool_output.sh`               | Diubah (ditulis ulang) | Default DEST + chmod +x                  |
+| Lokasi File                   | Status Perubahan       | Deskripsi                         |
+| ----------------------------- | ---------------------- | --------------------------------- |
+| `memori/sesi/sesi_149.md`     | Dibuat                 | Berkas sesi aktif (Belum Sinkron) |
+| `hasil_output`                | Dibuat                 | File output default di root       |
+| `script/salin_tool_output.sh` | Diubah (ditulis ulang) | Default DEST + chmod +x           |
 
 ## Sinkronisasi ke MEMORI.md
 

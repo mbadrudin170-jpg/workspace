@@ -24,10 +24,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                      | Status Perubahan | Deskripsi                                       |
-| ------------------------------- | ---------------- | ----------------------------------------------- |
-| `memori/sesi/sesi_147.md`       | Dibuat           | Berkas sesi aktif (Belum Sinkron)               |
-| `script/bash_aliases.sh`        | Diubah           | Tambah alias `salin_tool_output`                 |
+| Lokasi File               | Status Perubahan | Deskripsi                         |
+| ------------------------- | ---------------- | --------------------------------- |
+| `memori/sesi/sesi_147.md` | Dibuat           | Berkas sesi aktif (Belum Sinkron) |
+| `script/bash_aliases.sh`  | Diubah           | Tambah alias `salin_tool_output`  |
 
 ## Sinkronisasi ke MEMORI.md
 

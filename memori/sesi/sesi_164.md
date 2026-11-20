@@ -20,9 +20,9 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ------------------------------------ | ---------------- | ---------- |
-| `admin_wifi/lib/widget/transaksi_list_widgets.dart` | Diubah | TransaksiTile menjadi ConsumerStatefulWidget |
+| Lokasi File                                         | Status Perubahan | Deskripsi                                    |
+| --------------------------------------------------- | ---------------- | -------------------------------------------- |
+| `admin_wifi/lib/widget/transaksi_list_widgets.dart` | Diubah           | TransaksiTile menjadi ConsumerStatefulWidget |
 
 ## Sinkronisasi ke MEMORI.md
 

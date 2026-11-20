@@ -1,7 +1,8 @@
 # Sesi 170
 
 - Tanggal: 2026-11-20
-- Status: Belum Sinkron
+- Status: Sudah Sinkron
+- Catatan catch-up: tidak ada perubahan untuk disinkronkan (sesi hanya greeting, tanpa tugas atau perubahan nyata).
 
 ## Konteks
 

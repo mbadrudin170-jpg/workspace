@@ -25,10 +25,10 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                          | Status Perubahan | Deskripsi                                  |
-| ------------------------------------ | ---------------- | ------------------------------------------ |
-| `memori/sesi/sesi_150.md`            | Dibuat           | Berkas sesi aktif (Belum Sinkron)           |
-| `hasil_output`                       | Diubah           | Output script (2.1M, 23410 baris)           |
+| Lokasi File               | Status Perubahan | Deskripsi                         |
+| ------------------------- | ---------------- | --------------------------------- |
+| `memori/sesi/sesi_150.md` | Dibuat           | Berkas sesi aktif (Belum Sinkron) |
+| `hasil_output`            | Diubah           | Output script (2.1M, 23410 baris) |
 
 ## Sinkronisasi ke MEMORI.md
 

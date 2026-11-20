@@ -27,12 +27,12 @@
 
 ## Berkas Terdampak
 
-| Lokasi File                                  | Status Perubahan | Deskripsi                                        |
-| ------------------------------------------- | ---------------- | ------------------------------------------------ |
-| `memori/sesi/sesi_151.md`                   | Dibuat           | Berkas sesi aktif (Belum Sinkron)                |
-| `hasil_output`                              | Dihapus (rename) | Diganti `hasil_output.txt`                      |
-| `hasil_output.txt`                          | Dibuat           | Output script (2.1M)                             |
-| `script/salin_tool_output.sh`               | Diubah           | Default output `.txt` + komentar                |
+| Lokasi File                   | Status Perubahan | Deskripsi                         |
+| ----------------------------- | ---------------- | --------------------------------- |
+| `memori/sesi/sesi_151.md`     | Dibuat           | Berkas sesi aktif (Belum Sinkron) |
+| `hasil_output`                | Dihapus (rename) | Diganti `hasil_output.txt`        |
+| `hasil_output.txt`            | Dibuat           | Output script (2.1M)              |
+| `script/salin_tool_output.sh` | Diubah           | Default output `.txt` + komentar  |
 
 ## Sinkronisasi ke MEMORI.md
 
