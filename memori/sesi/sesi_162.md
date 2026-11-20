@@ -3,9 +3,9 @@
 ## Status
 
 - Status Sinkron: Sudah Sinkron
-- Tanggal: 2026-11-20
+- Tanggal: 2026-11-21
 - Command: interaksi langsung (tanpa command)
-- Topik: Memindahkan seluruh logika dari `TransaksiOperasi` ke `TransaksiNotifier`
+- Topik: Perbarui `muat_skill_terkait` (hapus frasa "yang sedang/akan dikerjakan"; tambah poin 6 lanjutkan pekerjaan)
 
 ## Checklist Awal Sesi
 
@@ -20,17 +20,21 @@
 
 ## Catatan Sesi
 
-- Memindahkan seluruh logika dari `TransaksiOperasi` ke `TransaksiNotifier`: recalc saldo dompet, tambah/update/arsip transaksi, pembacaan (semua, by id, pelanggan, dompet, aktivasi paket, by ids), agregasi (pemasukan/pengeluaran/net, poin), dan batch insert/update.
-- `TransaksiNotifier` tidak lagi bergantung pada `TransaksiOperasi`; menggunakan `OperasiDasar`, `OperasiSqlite`, dan `DatabaseHelper` langsung.
-- `TransaksiOperasi` tetap dipertahankan untuk kompatibilitas pemanggil lama.
+- Perbarui `prompt/commands/muat_skill_terkait.md` dan `.kilo/commands/muat_skill_terkait.md`:
+  - Hapus frasa "yang sedang atau akan dikerjakan" pada poin 2 dan 3.
+  - Tambah poin 6: setelah memuat skill, lanjutkan pekerjaan; jangan bilang "tugas sudah selesai" hanya karena skill dimuat.
+  - Perjelas poin 5: cocokkan topik sekarang dengan Trigger/description.
+- Jalankan prettier (unchanged).
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ------------------------------------ | ---------------- | ---------- |
-| `admin_wifi/lib/fitur/transaksi/notifier/transaksi_notifier.dart` | Diubah | Memindahkan logika dari operasi ke notifier |
+| Lokasi File                               | Status Perubahan | Deskripsi                                            |
+| ----------------------------------------- | ---------------- | --------------------------------------------------- |
+| `memori/sesi/sesi_162.md`                 | Dibuat           | Berkas sesi aktif (Belum Sinkron)                   |
+| `prompt/commands/muat_skill_terkait.md`    | Diubah           | Hapus frasa + tambah poin 6 + perjelas poin 5       |
+| `.kilo/commands/muat_skill_terkait.md`    | Diubah           | Sinkron dengan prompt                               |
 
 ## Sinkronisasi ke MEMORI.md
 
-- Perubahan bersifat episodic; tidak ada fakta durable baru untuk dipromosikan.
+- Perubahan command/prompt bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
