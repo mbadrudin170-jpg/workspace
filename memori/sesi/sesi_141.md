@@ -3,44 +3,47 @@
 ## Status
 
 - Status Sinkron: Sudah Sinkron
-- Tanggal: 2026-11-20 (Asia/Jakarta)
-- Command: interaksi langsung (tanpa command)
-- Topik: cek error (analisis linter) pada proyek Flutter yang tersedia
+- Tanggal: 2026-11-20
+- Command: interaksi langsung (tanpa command) — command `memperbarui_file_di_folder_prompt.md`
+- Topik: Sapaan pengguna ("hai") + memperbarui `prompt/commands/muat_skill_terkait.md`
+
+## Checklist Awal Sesi
+
+- [x] Baca `MEMORI.md` (tool Read, tanpa offset/limit)
+- [x] Baca seluruh berkas `.agents/rules/` (6 berkas)
+- [x] Muat skill `memori-check`
+- [x] Buat berkas sesi `memori/sesi/sesi_141.md`
+
+## Catch-up Sync Awal Sesi
+
+- Berkas `memori/sesi/*.md` berstatus `Belum Sinkron` milik sesi sebelumnya:
+  - Yatim/kosong tanpa perubahan nyata (hanya berkas sesi): `sesi_109.md`, `sesi_111.md`, `sesi_138.md` → ditandai `Sudah Sinkron` dengan catatan eksplisit "tidak ada perubahan untuk disinkronkan" (catch-up sesi 141, 2026-11-20).
+  - Berisi perubahan nyata / ambigu / sesi paralel: `sesi_45.md`, `sesi_46.md`, `sesi_47.md`, `sesi_48.md`, `sesi_49.md`, `sesi_52.md`, `sesi_55.md`, `sesi_56.md`, `sesi_71.md`, `sesi_72.md`, `sesi_80.md`, `sesi_97.md`, `sesi_110.md` → tidak disentuh; dilaporkan ke pengguna, tidak diputuskan sendiri.
+- Berkas sesi yang sedang aktif di sesi ini (`sesi_141.md`) tidak ditandai.
 
 ## Catatan Sesi
 
-- Sesi dimulai. Konteks dari MEMORI.md dibaca.
-- Proyek Flutter yang tersedia di workspace: `admin_wifi` (submodule) dan `share_global_saya` (pustaka bersama). Proyek `berhenti_merokok` tidak ditemukan di workspace.
-- Menjalankan `flutter analyze lib` dan `flutter analyze test` pada `admin_wifi`: ditemukan 2 error (`undefined_identifier` `dataFromFirebase` di `lib/halaman/tab/lainnya.dart:86` dan `:91`) serta 1 warning (`unused_import` `package:supabase_flutter/supabase_flutter.dart` di `lib/data/operasi/kritik_saran_operasi.dart:6`). `test` tidak memiliki temuan.
-- Menjalankan `flutter analyze lib` dan `flutter analyze test` pada `share_global_saya`: tidak ada temuan.
-- Perbaikan minimal: mengganti `dataFromFirebase` menjadi `dataFromSupabase` (2 lokasi) pada `lib/halaman/tab/lainnya.dart`, dan menghapus import `package:supabase_flutter/supabase_flutter.dart` yang tidak dipakai pada `lib/data/operasi/kritik_saran_operasi.dart`.
-- Verifikasi: `dart format` dan `flutter analyze lib` pada `admin_wifi` → tidak ada temuan.
-- Tugas lanjutan: menghapus paket Firebase (`firebase_core`, `cloud_firestore`, `fake_cloud_firestore`) dari `pubspec.yaml` sesuai permintaan pengguna (opsi "hapus paket saja"), lalu memperbaiki seluruh error kompilasi yang tersisa.
-- Perbaikan: `main.dart` (hapus inisialisasi Firebase), `KontrolAplikasiService` (stub offline), `PengecekanDataBaruService` (hapus Firestore, kembalikan false untuk pengecekan server), `LainnyaPage` (hapus import dan tombol migrasi yang file-nya terhapus), dan model-model (hapus import `cloud_firestore` dan pengecekan `Timestamp`).
-- Verifikasi akhir: `flutter analyze lib` dan `flutter analyze test` → tidak ada temuan.
+- Sesi dibuka oleh sapaan pengguna ("hai"). Belum ada perubahan proyek pada sesi ini.
+- Command `memperbarui_file_di_folder_prompt.md`: diskusi & persetujuan pengguna; perbarui `prompt/commands/muat_skill_terkait.md` dan target `.kilo/commands/muat_skill_terkait.md` (poin 1 diperjelas, tambah poin 4 verifikasi keberadaan skill, poin 3 via tool `skill`). Tanggal diperbarui: Fri Nov 20 2026 21:21 WIB. Jalankan `npx prettier --write "**/*.md"`.
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| memori/sesi/sesi_141.md | Dibuat | Berkas sesi aktif |
-| admin_wifi/lib/halaman/tab/lainnya.dart | Diubah | Perbaikan typo `dataFromFirebase` → `dataFromSupabase` (2 lokasi) |
-| admin_wifi/lib/data/operasi/kritik_saran_operasi.dart | Diubah | Hapus import `package:supabase_flutter/supabase_flutter.dart` yang tidak dipakai |
-| admin_wifi/lib/fitur/pesanan/model/pesanan_model.dart | Diubah | Hapus metode `fromFirebase` dan `toFirebase` |
-| admin_wifi/lib/fitur/pelanggan/model/pelanggan_model.dart | Diubah | Hapus metode `fromFirebase` dan `toFirebase` |
-| admin_wifi/lib/fitur/pengaturan/model/pengaturan_model.dart | Diubah | Hapus metode `fromFirebase` dan `toFirebase` |
-| admin_wifi/lib/fitur/pelanggan_aktif/model/pelanggan_aktif_model.dart | Diubah | Hapus metode `fromFirebase` dan `toFirebase` |
-| admin_wifi/lib/fitur/transaksi/model/transaksi_model.dart | Diubah | Hapus metode `fromFirebase` dan `toFirebase` |
-| admin_wifi/lib/fitur/kritik_saran/model/kritik_saran_model.dart | Diubah | Hapus metode `fromFirebase` dan `toFirebase` |
-| admin_wifi/lib/fitur/paket/model/paket_model.dart | Diubah | Hapus metode `fromFirebase` dan `toFirebase` |
-| admin_wifi/lib/fitur/versi_apk_user/model/versi_apk_user_model.dart | Diubah | Hapus metode `fromFirebase` dan `toFirebase` |
-| admin_wifi/lib/fitur/dompet/model/dompet_model.dart | Diubah | Hapus metode `fromFirebase` dan `toFirebase` |
-| admin_wifi/lib/fitur/kategori/model/kategori_model.dart | Diubah | Hapus metode `fromFirebase` |
-| admin_wifi/lib/fitur/kategori/model/sub_kategori_model.dart | Diubah | Hapus metode `fromFirebase` dan `toFirebase`; perbarui komentar |
-| admin_wifi/lib/fitur/riwayat_langganan/model/riwayat_langganan_model.dart | Diubah | Hapus blok komentar `fromFirebase` dan `toFirebase` |
-| admin_wifi/test/data/sync/unggah_data_test.dart | Diubah | Ganti `(m) => m.toFirebase()` menjadi `(m) => m.toSupabase()` |
-| admin_wifi/test/model/paket_model_test.dart | Diubah | Ganti `toFirebase()` menjadi `toSupabase()` |
+| Lokasi File                               | Status Perubahan | Deskripsi                                                           |
+| ----------------------------------------- | ---------------- | ------------------------------------------------------------------- |
+| `memori/sesi/sesi_141.md`                 | Dibuat           | Berkas sesi aktif (Belum Sinkron)                                   |
+| `memori/sesi/sesi_109.md`                 | Diubah (catch-up) | Status Sinkron Belum Sinkron → Sudah Sinkron (yatim)                |
+| `memori/sesi/sesi_111.md`                 | Diubah (catch-up) | Status Sinkron Belum Sinkron → Sudah Sinkron (yatim)                |
+| `memori/sesi/sesi_138.md`                 | Diubah (catch-up) | Status Sinkron Belum Sinkron → Sudah Sinkron (yatim)                |
+| `prompt/commands/muat_skill_terkait.md`   | Diubah           | Poin 1 diperjelas; tambah poin 4; poin 3 via tool `skill`; tanggal  |
+| `.kilo/commands/muat_skill_terkait.md`    | Diubah           | Sinkron dengan prompt                                               |
 
 ## Sinkronisasi ke MEMORI.md
 
-Perubahan bersifat refactor pada submodule `admin_wifi` (penghapusan serialisasi Firebase dari model dan penyesuaian test); tidak ada fakta durable baru untuk MEMORI.md root. Status submodule `admin_wifi` masih memiliki perubahan yang belum di-commit (sesuai kondisi awal).
+- Perubahan `prompt/commands/muat_skill_terkait.md` dan `.kilo/commands/muat_skill_terkait.md` bersifat episodic (command/prompt), bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
+- Catch-up sync: `sesi_109.md`, `sesi_111.md`, `sesi_138.md` ditandai `Sudah Sinkron` (yatim/kosong, tidak ada perubahan untuk disinkronkan).
+- Berkas ambigu/paralel (`sesi_45`–`49`, `52`, `55`, `56`, `71`, `72`, `80`, `97`, `110`) tetap `Belum Sinkron`; dilaporkan ke pengguna, tidak diputuskan sendiri.
+- `MEMORI.md` tidak diperbarui (tidak ada fakta durable baru). Status Sinkron: Sudah Sinkron.
+
+## Pertanyaan Terbuka
+
+- Apakah sesi paralel/ambigu (`sesi_45`–`49`, `52`, `55`, `56`, `71`, `72`, `80`, `97`, `110`) perlu disinkronkan sekarang, atau ditangani oleh sesi pembuat masing-masing? (Lapor pengguna; tidak diputuskan sendiri.)
