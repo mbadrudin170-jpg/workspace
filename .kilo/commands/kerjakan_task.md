@@ -29,9 +29,10 @@ Mengerjakan task yang berstatus `kerjakan` pada `task.md` secara berurutan per k
 1. **Analyze** — inventarisasi task berstatus `kerjakan` per kelompok; catat berkas terdampak tiap task.
 2. **Plan** — tentukan urutan: selesaikan seluruh task dalam satu kelompok sebelum pindah kelompok; lewati task yang berkasnya sedang terbuka di editor.
 3. **Execute** — untuk setiap task:
-   - Buat cadangan berkas ke `.backup_task/<nama>.bak` sebelum mengedit.
-   - Terapkan solusi pada task; tambahkan komentar singkat yang menjelaskan alasan perubahan.
-   - Perbarui status pada `task.md` menjadi `selesai` atau `dilewati` beserta alasannya.
+
+- Terapkan solusi pada task; tambahkan komentar singkat yang menjelaskan alasan perubahan.
+  - Perbarui status pada `task.md` menjadi `selesai` atau `dilewati` beserta alasannya.
+
 4. **Review** — jalankan `flutter analyze` hingga bersih; bila galat tidak kunjung hilang, kembalikan berkas `.dart` ke kondisi semula lalu tandai task `dilewati` beserta alasan.
 5. Setelah semua task satu kelompok selesai, periksa kelompok kosong dan hapus kelompok yang tidak lagi memuat `#### Task N`.
 6. Bila task sudah terimplementasi sebelumnya: tandai `selesai` tanpa mengubah kode.

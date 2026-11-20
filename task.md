@@ -24,7 +24,7 @@
 
 #### Task 12
 
-- Status : belum
+- Status : kerjakan
 - Masalah : `L.i('Memuat daftar transaksi dari database')` di `build()` notifier adalah log narasi langkah tanpa nilai aktual, yang dilarang.
 - Solusi : Ganti dengan log yang memuat nilai aktual atau hapus.
 - aturan dilanggar : (code.md #12)[.agents/rules/code.md:12] (skill `logging-debug`)
