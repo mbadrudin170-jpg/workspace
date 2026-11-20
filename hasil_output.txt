@@ -1,10 +1,12 @@
-1. tolong analisa hasil percakapan saya dengan sebuah agen ai.
-2. agar saya bisa mempersempit kesalahan berulang di kemudian hari.
-3. agar semua proyek saya bisa menjadi konsisten anti error dan bug.
+# Analisa Hasil Percakapan
 
-
+1. Analisa hasil percakapan saya dengan sebuah agen AI.
+2. Tujuan: mempersempit kesalahan berulang di kemudian hari.
+3. Tujuan: semua proyek menjadi konsisten, anti error dan bug.
+4. Saran: tentukan apakah untuk mencegah kesalahan di masa mendatang perlu memperbaiki atau menambah command, skill, atau aturan (sertakan alasan dan target yang disarankan).
 
 ==================================================================
+
 
 Resolving dependencies...
 Downloading packages...
