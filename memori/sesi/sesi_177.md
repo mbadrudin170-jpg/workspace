@@ -17,9 +17,9 @@ Topik: Menghapus FutureBuilder di DompetPage dan memakai state DompetNotifier.
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| lib/fitur/dompet/screens/dompet.dart | Diubah | Hapus FutureBuilder, pakai state provider |
+| Lokasi File                          | Status Perubahan | Deskripsi                                 |
+| ------------------------------------ | ---------------- | ----------------------------------------- |
+| lib/fitur/dompet/screens/dompet.dart | Diubah           | Hapus FutureBuilder, pakai state provider |
 
 ## Sinkronisasi ke MEMORI.md
 

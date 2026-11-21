@@ -19,7 +19,7 @@ Panduan struktur class widget UI reusable yang konsisten, pure, dan aman tema.
 4. Warna dan gaya mengikuti skill `gaya` (ColorScheme/tema, bukan hardcode).
 5. Jarak seragam mengikuti skill `spacing` (Column.spacing/Row.spacing).
 6. Widget WAJIB aman untuk light/dark mode.
-9. Jika UI memakai data dari state Riverpod, ubah class menjadi `ConsumerWidget`/`ConsumerStatefulWidget` (rujuk skill `aturan-riverpod`).
+7. Jika UI memakai data dari state Riverpod, ubah class menjadi `ConsumerWidget`/`ConsumerStatefulWidget` (rujuk skill `aturan-riverpod`).
 
 ```dart
 class KartuInfo extends StatelessWidget {

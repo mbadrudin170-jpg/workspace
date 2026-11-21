@@ -1,4 +1,4 @@
-diperbarui : Fri Nov 20 2026 22:54 WIB
+diperbarui : Sat Nov 21 2026 15:39 WIB
 ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
 
 1. Setiap skill wajib memiliki frontmatter, dan cukup hanya `name` serta `description`; `name` wajib sama dengan nama folder (Name Matching Rule).
@@ -9,7 +9,7 @@ ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
 
 4. Untuk bahasa, wajib Indonesia pada seluruh isi skill, kecuali istilah teknis yang tidak memiliki padanan Indonesia (mis. `frontmatter`, `description`).
 
-5. `description` wajib jelas kapan skill ini dibutuhkan; jangan sampai skill sia-sia karena tidak terpakai; wajib menjelaskan apa yang dilakukan dan kapan dipakai; batasan 1–1024 karakter adalah batas maksimum, bukan target; utamakan description ringkas, spesifik, dan pemicu penggunaan yang jelas; non-kosong.
+5. `description` wajib jelas kapan skill ini dibutuhkan; jangan sampai skill sia-sia karena tidak terpakai; wajib menjelaskan apa yang dilakukan dan kapan dipakai; serta memenuhi batasan 1–1024 karakter, non-kosong.
 
 6. `description` wajib diawali segmen trigger-only (`Trigger:` ... `|`), agar skill terpanggil saat tepat. (Trigger-only description.)
 
@@ -19,7 +19,7 @@ ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
 
 9. Batasan `name` — 1–64 karakter; huruf kecil/angka/strip; tidak diawali/diakhiri strip; tidak boleh strip ganda (`--`).
 
-10. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi.
+10. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi di folder `references/`.
 
 11. Setiap skill wajib memiliki berkas poin di folder `prompt/skill/` dengan nama yang sama dengan nama skill (mis. skill `penggunaan-tool-bawaan-kilo` → `prompt/skill/penggunaan-tool-bawaan-kilo.md`). Pengecualian: skill pada `.agents/skills/code/`.
 
@@ -36,6 +36,8 @@ ditimpa ke : `.agents/skills/non-code/aturan-pembuatan-skill/SKILL.md`
 17. Frontmatter wajib YAML valid: `name:` dan `description:` wajib sejajar pada kolom yang sama (tanpa spasi/indentasi di depan salah satunya); frontmatter yang rusak membuat Kilo gagal memuat skill (mis. error "bad indentation of a mapping entry").
 
 18. Untuk `description`, utamakan ringkas, spesifik, dan pemicu penggunaan yang jelas; batasan 1024 karakter adalah batas maksimum, bukan target; tidak wajib memenuhi hingga 1024 karakter.
+
+19. Setiap skill wajib memiliki folder `references/` di dalam folder skill untuk berkas detail dan referensi (progressive disclosure), meskipun folder masih kosong.
 
 # Catatan (hanya untuk penulis prompt, bukan untuk skill)
 

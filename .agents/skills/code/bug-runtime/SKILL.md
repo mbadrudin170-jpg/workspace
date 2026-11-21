@@ -19,15 +19,15 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 
 ## Pemetaan Topik → Skill Teknis
 
-| Topik bug runtime                                    | Skill teknis yang wajib dimuat   |
-| ---------------------------------------------------- | -------------------------------- |
-| Type promotion / null safety pada field model        | `type-promotion-null-safety`     |
-| Normalisasi tanggal / perhitungan hari               | `normalisasi-tanggal`            |
+| Topik bug runtime                             | Skill teknis yang wajib dimuat |
+| --------------------------------------------- | ------------------------------ |
+| Type promotion / null safety pada field model | `type-promotion-null-safety`   |
+| Normalisasi tanggal / perhitungan hari        | `normalisasi-tanggal`          |
 
-| Penanganan state async & data kosong (satu atau beberapa provider) | `penanganan-async`   |
-| Future yang dilepas (unawaited)                      | `penanganan-error-unawaited`     |
-| Dukungan platform & izin runtime                     | `validasi-platform-izin`         |
-| Deteksi tipe error via exception khusus              | `exception-khusus-deteksi-error` |
+| Penanganan state async & data kosong (satu atau beberapa provider) | `penanganan-async` |
+| Future yang dilepas (unawaited) | `penanganan-error-unawaited` |
+| Dukungan platform & izin runtime | `validasi-platform-izin` |
+| Deteksi tipe error via exception khusus | `exception-khusus-deteksi-error` |
 
 ## Aturan
 

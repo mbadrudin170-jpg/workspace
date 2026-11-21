@@ -21,7 +21,7 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 
 9. Batasan `name` — 1–64 karakter; huruf kecil/angka/strip; tidak diawali/diakhiri strip; tidak boleh strip ganda (`--`).
 
-10. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi.
+10. Progressive disclosure — `SKILL.md` utama di bawah 500 baris; detail pindah ke file referensi di folder `references/`.
 
 11. Setiap skill wajib memiliki berkas poin di folder `prompt/skill/` dengan nama yang sama dengan nama skill (mis. skill `penggunaan-tool-bawaan-kilo` → `prompt/skill/penggunaan-tool-bawaan-kilo.md`). Pengecualian: skill pada `.agents/skills/code/`.
 
@@ -38,3 +38,5 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 17. Frontmatter wajib YAML valid: `name:` dan `description:` wajib sejajar pada kolom yang sama (tanpa spasi/indentasi di depan salah satunya); frontmatter yang rusak membuat Kilo gagal memuat skill (mis. error "bad indentation of a mapping entry").
 
 18. Untuk `description`, utamakan ringkas, spesifik, dan pemicu penggunaan yang jelas; batasan 1024 karakter adalah batas maksimum, bukan target; tidak wajib memenuhi hingga 1024 karakter.
+
+19. Setiap skill wajib memiliki folder `references/` di dalam folder skill untuk berkas detail dan referensi (progressive disclosure), meskipun folder masih kosong.

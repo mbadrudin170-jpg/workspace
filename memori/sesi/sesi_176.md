@@ -24,12 +24,12 @@ Topik: Build APK release `admin_wifi` via GitHub Actions workflow dan verifikasi
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| admin_wifi/.github/workflows/build-apk.yml | Diubah | 4 perbaikan CI |
-| admin_wifi/android/settings.gradle.kts | Diubah | Hapus plugin google-services |
-| admin_wifi/android/app/build.gradle.kts | Diubah | Hapus plugin google-services |
-| admin_wifi/android/app/google-services.json | Dihapus | Berkas rahasia Firebase, tidak digunakan |
+| Lokasi File                                 | Status Perubahan | Deskripsi                                |
+| ------------------------------------------- | ---------------- | ---------------------------------------- |
+| admin_wifi/.github/workflows/build-apk.yml  | Diubah           | 4 perbaikan CI                           |
+| admin_wifi/android/settings.gradle.kts      | Diubah           | Hapus plugin google-services             |
+| admin_wifi/android/app/build.gradle.kts     | Diubah           | Hapus plugin google-services             |
+| admin_wifi/android/app/google-services.json | Dihapus          | Berkas rahasia Firebase, tidak digunakan |
 
 ## Sinkronisasi ke MEMORI.md
 

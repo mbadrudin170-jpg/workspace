@@ -19,20 +19,20 @@ Topik: Memindahkan logika `DompetOperasi` ke `DompetNotifier`.
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| lib/fitur/dompet/notifier/dompet_notifier.dart | Diubah | Logika operasi dompet dipindah ke sini + global accessor |
-| lib/fitur/dompet/notifier/dompet_notifier.g.dart | Diubah (generate) | Hasil build_runner |
-| lib/data/operasi/dompet_operasi.dart | Dihapus | Logika dipindah ke notifier |
-| lib/data/operasi/operasi.dart | Diubah | Hapus export dompet_operasi |
-| lib/data/sync/unduh_data.dart | Diubah | Pakai dompetNotifierGlobal |
-| lib/dummy/dummy_helper.dart | Diubah | Pakai dompetNotifierGlobal |
-| lib/widget/transaksi_list_widgets.dart | Diubah | Pakai dompetNotifierGlobal |
-| lib/fitur/dompet/screens/detail_dompet.dart | Diubah | Pakai DompetNotifier/dompetNotifierGlobal |
-| lib/fitur/dompet/screens/form_dompet.dart | Diubah | Pakai ref.read(dompetProvider.notifier) |
-| lib/fitur/dompet/screens/dompet.dart | Diubah | Pakai dompetNotifierGlobal |
-| lib/fitur/transaksi/notifier/transaksi_notifier.dart | Diubah | Hapus import flutter_riverpod tak perlu |
-| lib/fitur/transaksi/notifier/transaksi_notifier.g.dart | Diubah (generate) | Hasil build_runner |
+| Lokasi File                                            | Status Perubahan  | Deskripsi                                                |
+| ------------------------------------------------------ | ----------------- | -------------------------------------------------------- |
+| lib/fitur/dompet/notifier/dompet_notifier.dart         | Diubah            | Logika operasi dompet dipindah ke sini + global accessor |
+| lib/fitur/dompet/notifier/dompet_notifier.g.dart       | Diubah (generate) | Hasil build_runner                                       |
+| lib/data/operasi/dompet_operasi.dart                   | Dihapus           | Logika dipindah ke notifier                              |
+| lib/data/operasi/operasi.dart                          | Diubah            | Hapus export dompet_operasi                              |
+| lib/data/sync/unduh_data.dart                          | Diubah            | Pakai dompetNotifierGlobal                               |
+| lib/dummy/dummy_helper.dart                            | Diubah            | Pakai dompetNotifierGlobal                               |
+| lib/widget/transaksi_list_widgets.dart                 | Diubah            | Pakai dompetNotifierGlobal                               |
+| lib/fitur/dompet/screens/detail_dompet.dart            | Diubah            | Pakai DompetNotifier/dompetNotifierGlobal                |
+| lib/fitur/dompet/screens/form_dompet.dart              | Diubah            | Pakai ref.read(dompetProvider.notifier)                  |
+| lib/fitur/dompet/screens/dompet.dart                   | Diubah            | Pakai dompetNotifierGlobal                               |
+| lib/fitur/transaksi/notifier/transaksi_notifier.dart   | Diubah            | Hapus import flutter_riverpod tak perlu                  |
+| lib/fitur/transaksi/notifier/transaksi_notifier.g.dart | Diubah (generate) | Hasil build_runner                                       |
 
 ## Sinkronisasi ke MEMORI.md
 

@@ -21,14 +21,14 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| --- | --- | --- |
-| memori/sesi/sesi_173.md | Diubah | Tandai Sudah Sinkron (catch-up) |
-| memori/sesi/sesi_174.md | Dibuat | Berkas sesi ini |
-| MEMORI.md | Diubah | Header diperbarui ke sesi 173 + Catatan Teknis command baru |
-| memori/riwayat_perubahan.md | Diubah | Tambah baris sesi 173 |
-| catatan.md | (rencana) | Perbarui entri terakhir dievaluasi per repositori |
-| task.md | (rencana) | Perbarui Ringkasan Evaluasi; tidak ada task baru (tidak ada ketidaksesuaian) |
+| Lokasi File                 | Status Perubahan | Deskripsi                                                                    |
+| --------------------------- | ---------------- | ---------------------------------------------------------------------------- |
+| memori/sesi/sesi_173.md     | Diubah           | Tandai Sudah Sinkron (catch-up)                                              |
+| memori/sesi/sesi_174.md     | Dibuat           | Berkas sesi ini                                                              |
+| MEMORI.md                   | Diubah           | Header diperbarui ke sesi 173 + Catatan Teknis command baru                  |
+| memori/riwayat_perubahan.md | Diubah           | Tambah baris sesi 173                                                        |
+| catatan.md                  | (rencana)        | Perbarui entri terakhir dievaluasi per repositori                            |
+| task.md                     | (rencana)        | Perbarui Ringkasan Evaluasi; tidak ada task baru (tidak ada ketidaksesuaian) |
 
 ## Sinkronisasi ke MEMORI.md
 
