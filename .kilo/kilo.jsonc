@@ -54,7 +54,7 @@
       "git blame *": "allow",
       "pwd": "allow",
       "which *": "allow",
-      // "cat *": "deny",
+      "cat *": "deny",
       // "rg *": "deny",
       "for *": "deny",
       "flutter analyze *": "allow",
@@ -97,8 +97,8 @@
       "git submodule *": "allow",
       "git -C *": "allow",
       // "echo *": "deny",
-      "jq *": "deny"
-      // "printf *": "deny",
+      "jq *": "deny",
+      "printf *": "deny"
       // "ls -la": "allow",
       // "grep *": "allow",
       // "ls *": "allow",
