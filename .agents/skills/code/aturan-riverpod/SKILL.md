@@ -1,5 +1,5 @@
 ---
-name: aturan_riverpod
+name: aturan-riverpod
 description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD dengan `@Riverpod(keepAlive: true)`, notifier sinkron codegen + `@freezed`, `ref.watch` wajib langsung di `build()` (dilarang di callback, di luar `build()`, dan di helper yang dipanggil dari `build()` — helper menerima state via parameter) / `ref.read` di callback, `Consumer(Stateful)Widget`, family immutable, `autoDispose`, `ProviderScope` di root, `select` untuk rebuild minimal, penanganan `AsyncValue` tanpa `.when` (wajib `isLoading` → `hasError` → `requireValue`), signature `ConsumerState.build(BuildContext)` (`ref` via getter), folder `notifier/` vs `provider/`, try-catch pada `Future`, `await ref.watch(provider.future)` untuk provider Future, akses `.future` provider via `ref.read`/`ref.watch` (bukan langsung pada objek provider), reload `AsyncValue.data` + `catch`/`rethrow` via method `muatUlang()`, dan penamaan provider codegen tanpa akhiran `Notifier`). 1. Notifier database (CRUD): gunakan `@Riverpod(keepAlive: true)`; `build()` m"
 metadata:
   kategori: "custom"

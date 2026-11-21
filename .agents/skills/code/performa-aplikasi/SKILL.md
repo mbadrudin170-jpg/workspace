@@ -22,7 +22,7 @@ Skill ini mendokumentasikan aturan performa yang wajib diterapkan di proyek ini.
 
 1. Wajib gunakan `const` constructor dimana mungkin (widget stateless, immutable data).
 2. Wajib isolasi widget yang rebuild sering (Timer, Animation) ke widget terpisah (lihat `isolasi-widget-timer`).
-3. Wajib gunakan `ref.watch(provider.select(...))` untuk hanya rebuild saat field tertentu berubah (lihat `aturan_riverpod`).
+3. Wajib gunakan `ref.watch(provider.select(...))` untuk hanya rebuild saat field tertentu berubah (lihat `aturan-riverpod`).
 4. DILARANG `setState` di widget parent besar untuk update kecil → extract ke child widget.
 5. Wajib gunakan `ListView.builder` / `GridView.builder` untuk daftar panjang/dinamis.
 6. DILARANG `ListView(children: [...])` dengan list sudah di-materialize semua.

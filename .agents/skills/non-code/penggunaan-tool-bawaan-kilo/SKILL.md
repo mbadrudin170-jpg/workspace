@@ -94,7 +94,7 @@ Panduan memilih dan memakai tool bawaan Kilo sesuai kebutuhan, beserta contoh pe
 
 ### Tool Orkestrasi dan Sistem
 
-- `Skill` — muat skill. Contoh: `skill: { name: "aturan_riverpod" }`
+- `Skill` — muat skill. Contoh: `skill: { name: "aturan-riverpod" }`
 - `Agent_manager` — sesi Agent Manager. Contoh: `agent_manager: { action: "list" }`
 - `Agent_manager_models` — cari model. Contoh: `agent_manager_models: { query: "opus" }`
 - `Background_process` — proses latar belakang. Contoh: `background_process: { action: "monitor", command: "npm run dev" }`
