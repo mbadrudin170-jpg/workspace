@@ -44,3 +44,5 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 20. File-file di folder `references/` berisi detail tentang masing-masing file referensi. SKILL.md utama hanya untuk aturan/panduan; detailnya dipindahkan ke file di `references/`. Jika folder `references/` kosong, tidak masalah — ini progressive disclosure. Catatan: catatan penulis prompt (catatan "hanya untuk penulis prompt", bukan untuk skill) TIDAK dimasukkan ke skill atau target.
 
 21. File-file di folder `references/` wajib memiliki contoh kode jika skill tersebut berkaitan dengan kode (mis. skill Flutter/Dart/SQLite/Riverpod); contoh kode wajib benar dan dapat dikompilasi.
+
+22. **Setiap kali menambah atau memperbarui skill, wajib sinkronkan berkas-berkas yang merujuk ke skill tersebut:** indeks skill (`.agents/rules/kelompok_skill_wajib_*.md`), command yang memuat skill terkait (`.kilo/commands/**/*.md` bagian `# Skill Terkait`), dan berkas poin `prompt/skill/<nama-skill>.md`. Verifikasi konsistensi sebelum menyelesaikan.
