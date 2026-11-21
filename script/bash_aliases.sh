@@ -5,10 +5,10 @@
 # ============================================
 alias rename_apk="script/rename_apk.sh"
 alias full_clean="script/full_clean.sh"
-alias salin_tool_output="script/salin_tool_output.sh"
+alias salin_riwayat_sesi="script/salin_riwayat_sesi.sh"
 alias install_rg="sudo apt-get update && sudo apt-get install -y ripgrep"
 
-alias output="salin_tool_output"
+alias output="salin_riwayat_sesi"
 alias download="cloudshell download"
 # Install SKILLS (ke .agents/skills/bawaan)
 # Alias yang benar - jalankan dari root project

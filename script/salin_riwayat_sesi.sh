@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Menyalin seluruh isi file yang ada di folder tool-output Kilo ke satu file tujuan.
+# Menyalin seluruh isi file yang ada di folder tool-output Kilo (riwayat sesi) ke satu file tujuan.
 #
 # Penggunaan:
-#   ./script/salin_tool_output.sh [file-tujuan]
+#   ./script/salin_riwayat_sesi [file-tujuan]
 #
 # Jika file-tujuan tidak diberikan, default ke <root-repo>/hasil_output.txt.
 #
