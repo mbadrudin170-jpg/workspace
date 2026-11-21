@@ -78,3 +78,7 @@ targetSmokeFreeHari: ParserUtil.parseInt(
 // SALAH: ?? defaultValue pada parseIntOrNull untuk field nullable → null tidak tetap null
 jumlah: ParserUtil.parseIntOrNull(row[NamaKolom.jumlah]) ?? 0,
 ```
+
+## Rujukan
+
+- Rujuk juga skill `penanganan-data-null` (indeks penanganan data null).

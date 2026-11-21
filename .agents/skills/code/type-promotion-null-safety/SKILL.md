@@ -48,4 +48,7 @@ _buildItem(
       ? 'Belum dipilih'
       : FormatTanggal.formatDasar(biodata.tanggalLahir!),
 );
+## Rujukan
+
+- Rujuk juga skill `penanganan-data-null` (indeks penanganan data null).
 ```

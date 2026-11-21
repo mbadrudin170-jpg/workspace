@@ -130,4 +130,6 @@ Widget _buildCardRingkasanImpian(
 ) {
   // ...
 }
-```
+## Rujukan
+
+- Rujuk juga skill `penanganan-data-null` (indeks penanganan data null).

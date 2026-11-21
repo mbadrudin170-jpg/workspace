@@ -60,3 +60,7 @@ penurunanPerMinggu: int.tryParse(_penurunanPerMingguController.text.trim()) ?? 0
 // Menyimpan langsung tanpa validasi.
 await ref.read(biodataProvider.notifier).simpan(model);
 ```
+
+## Rujukan
+
+- Rujuk juga skill `penanganan-data-null` (indeks penanganan data null).
