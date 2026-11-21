@@ -14,7 +14,7 @@ Saat mencari elemen dalam koleksi (`List`/`Iterable`) dengan predikat yang mungk
 ## Aturan
 
 1. Pencarian elemen dalam koleksi dengan predikat yang mungkin tidak ditemukan wajib memakai `firstWhereOrNull` dari `package:collection/collection.dart`.
-2. Import `package:collection/collection.dart` wajib ditambahkan bila belum ada (urutan alfabetis sesuai skill `import-ordering`).
+2. Import `package:collection/collection.dart` wajib ditambahkan bila belum ada (urutan alfabetis sesuai skill `aturan-penamaan`).
 3. Hasil `firstWhereOrNull` bertipe nullable (`T?`); tangani `null` secara eksplisit (mis. `??` atau `if (result == null)`).
 4. Pola `cast<T?>().firstWhere(..., orElse: () => null)` DILARANG karena verbose dan rentan salah tipe.
 5. Pola `firstWhere(..., orElse: () => null)` tanpa `cast` juga DILARANG; gunakan `firstWhereOrNull`.
@@ -24,7 +24,7 @@ Saat mencari elemen dalam koleksi (`List`/`Iterable`) dengan predikat yang mungk
 6. Pengurutan elemen koleksi (`List`/`Iterable`) wajib memakai extension `.sorted(...)`, `.sortedBy(...)`, atau `.sortedByDescending(...)` dari `package:collection/collection.dart`, bukan `..sort(...)` pada list yang dimutasi (cascade).
 7. `.sorted(...)` mengembalikan `List<T>` baru (immutable-friendly); jangan memutasi list sumber secara langsung untuk pengurutan.
 8. Gunakan `.sortedBy((e) => e.field)` bila kunci pengurutan sederhana; gunakan `.sorted((a, b) => ...)` bila perlu pembanding kustom.
-9. Import `package:collection/collection.dart` wajib ditambahkan bila belum ada (urutan alfabetis sesuai skill `import-ordering`).
+9. Import `package:collection/collection.dart` wajib ditambahkan bila belum ada (urutan alfabetis sesuai skill `aturan-penamaan`).
 
 ## Larangan
 

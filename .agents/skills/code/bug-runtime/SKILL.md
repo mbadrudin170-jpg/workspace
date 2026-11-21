@@ -1,6 +1,6 @@
 ---
 name: bug-runtime
-description: "Trigger: saat mencegah bug runtime Flutter | Indeks skill spesifik: type-promotion-null-safety, normalisasi-tanggal, penanganan-async, penanganan-error-unawaited, validasi-platform-izin, exception-khusus-deteksi-error. Indeks Pencegahan Bug Runtime Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap topik pencegahan bug runtime. Jangan menduplikasi isi skill spesifik di sini. Cakupan yang Di-Cover - Package: `package:flutter_riverpod` (class `AsyncValue`, `ref`, `ConsumerWidget`), `package:flutter` (class `DateTime`, `Timer`) - Class: `AsyncValue`, `DateTime`, `Timer`, `Exception`, `ImpianProgresHelper`, `BiodataModel` - Method: `AsyncValue.requireValue()`, `AsyncValue.asData?.value`, `ref.watch()`, `ref.refresh()`, `DateTime.normalize()`, `Timer.periodic()`, `Timer.cancel()` Aturan 1. Untuk implementasi detail, buka skill spesifik yang tercantum di tabel di bawah. 2. Untuk code review, periksa apakah kode mengikuti aturan dari sk"
+description: "Trigger: saat mencegah bug runtime Flutter | Indeks skill spesifik: type-promotion-null-safety, penanganan-async, penanganan-error-unawaited, validasi-platform-izin, exception-khusus-deteksi-error. Indeks Pencegahan Bug Runtime Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap topik pencegahan bug runtime. Jangan menduplikasi isi skill spesifik di sini. Cakupan yang Di-Cover - Package: `package:flutter_riverpod` (class `AsyncValue`, `ref`, `ConsumerWidget`), `package:flutter` (class `DateTime`, `Timer`) - Class: `AsyncValue`, `DateTime`, `Timer`, `Exception`, `ImpianProgresHelper`, `BiodataModel` - Method: `AsyncValue.requireValue()`, `AsyncValue.asData?.value`, `ref.watch()`, `ref.refresh()`, `DateTime.normalize()`, `Timer.periodic()`, `Timer.cancel()` Aturan 1. Untuk implementasi detail, buka skill spesifik yang tercantum di tabel di bawah. 2. Untuk code review, periksa apakah kode mengikuti aturan dari sk"
 metadata:
   kategori: "custom"
   versi: "1.0.1"
@@ -23,6 +23,7 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 | ---------------------------------------------------- | -------------------------------- |
 | Type promotion / null safety pada field model        | `type-promotion-null-safety`     |
 | Normalisasi tanggal / perhitungan hari               | `normalisasi-tanggal`            |
+
 | Penanganan state async & data kosong (satu atau beberapa provider) | `penanganan-async`   |
 | Future yang dilepas (unawaited)                      | `penanganan-error-unawaited`     |
 | Dukungan platform & izin runtime                     | `validasi-platform-izin`         |
@@ -51,7 +52,7 @@ if (tanggalLahir == null) {
   return 'Belum dipilih';
 } // type promotion berlaku di sini
 
-// normalisasi tanggal → lihat skill `normalisasi-tanggal`
+// normalisasi tanggal → dihapus (skill dihapus)
 final hariIniDate = DateTime(hariIni.year, hariIni.month, hariIni.day);
 
 // AsyncValue handling → lihat skill `penanganan-async-data-kosong`

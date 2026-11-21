@@ -30,6 +30,20 @@
 | `.agents/skills/code/aturan-penamaan/` (dari `konstanta-skema-tabel/`) | Diubah (rename) | Folder skill direname; frontmatter `name` diperbarui ke `aturan-penamaan`. |
 | `.agents/skills/code/scaffold-struktur-layar/` | Dihapus | Skill dihapus atas permintaan pengguna. |
 | `.agents/skills/code/struktur-class-ui/` | Dibuat | Skill baru atas permintaan pengguna. |
+| `.agents/skills/code/normalisasi-tanggal/` | Dihapus | Skill dihapus atas permintaan pengguna. |
+| `.agents/skills/code/bug-runtime/SKILL.md` | Diubah | Referensi diperbarui. |
+| `.agents/skills/code/pola-ui/SKILL.md` | Diubah | Referensi diperbarui. |
+| `.kilo/commands/scan.md` | Diubah | Referensi diperbarui. |
+| `.agents/skills/code/notifier-crud-database/` | Dihapus | Digabung ke `aturan_riverpod`. |
+| `.agents/skills/code/aturan_riverpod/SKILL.md` | Diubah | Section Notifier CRUD Database ditambahkan. |
+| `.kilo/commands/scan.md` | Diubah | Referensi diperbarui. |
+| `.agents/skills/code/konfirmasi-sebelum-simpan/` | Dihapus | Skill dihapus atas permintaan pengguna. |
+| `.agents/skills/code/keamanan-aplikasi/SKILL.md` | Diubah | Referensi diperbarui. |
+| `.agents/skills/code/pola-ux/SKILL.md` | Diubah | Referensi diperbarui. |
+| `.agents/skills/code/import-ordering/` | Dihapus | Skill dihapus atas permintaan pengguna. |
+| `.agents/skills/code/pencarian-koleksi-null-safe/SKILL.md` | Diubah | Referensi diperbarui. |
+| `.agents/skills/code/kartu-motivasi-pintasan-dashboard/` | Dihapus | Skill dihapus atas permintaan pengguna. |
+| `.agents/skills/code/pola-ux/SKILL.md` | Diubah | Referensi diperbarui. |
 | `.agents/skills/code/sqlite/` (dari `dukungan-sqlite-web/`) | Diubah (rename) | Folder skill direname; frontmatter `name` diperbarui ke `sqlite`. |
 | `.agents/skills/code/buildcontext-inherited/` | Dihapus | Skill dihapus atas permintaan pengguna. |
 | `.agents/skills/code/penanganan-data-null/` | Dibuat | Skill baru indeks penanganan data null. |

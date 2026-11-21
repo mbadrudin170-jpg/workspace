@@ -1,6 +1,6 @@
 ---
 name: pola-ui
-description: "Trigger: saat menerapkan pola UI Flutter | Indeks: visualisasi-progres-impian, isolasi-widget-timer, gaya, normalisasi-tanggal, widget-custom. Prinsip single responsibility dan textTheme + copyWith. Indeks Pola UI Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UI. Jangan menduplikasi isi skill spesifik di sini. Semua pola UI yang tercantum di bawah ini sudah terimplementasi di proyek Flutter dan dapat digunakan sebagai referensi untuk pola serupa di proyek lain. Cakupan yang Di-Cover - Package: `package:flutter` (class `StatelessWidget`, `StatefulWidget`, `Timer`, `Column`, `Row`, `Card`, `LinearProgressIndicator`, `Stack`, `Icon`, `Text`, `Chip`, `ColorScheme`, `ThemeData`) - Class: `ImpianProgresHelper`, `VisualTabunganImpian`, `_TimerCravingView`, `_HeaderPemulihan`, `DateTime`, `FormatUang` - Properti: `spacing`, `padding`, `rasio`, `saldo`, `target`, `mounted` - Method: `ImpianProgresHelper.rasio()`, `ImpianProgresHelper.tercapai("
+description: "Trigger: saat menerapkan pola UI Flutter | Indeks: visualisasi-progres-impian, isolasi-widget-timer, gaya, widget-custom. Prinsip single responsibility dan textTheme + copyWith. Indeks Pola UI Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UI. Jangan menduplikasi isi skill spesifik di sini. Semua pola UI yang tercantum di bawah ini sudah terimplementasi di proyek Flutter dan dapat digunakan sebagai referensi untuk pola serupa di proyek lain. Cakupan yang Di-Cover - Package: `package:flutter` (class `StatelessWidget`, `StatefulWidget`, `Timer`, `Column`, `Row`, `Card`, `LinearProgressIndicator`, `Stack`, `Icon`, `Text`, `Chip`, `ColorScheme`, `ThemeData`) - Class: `ImpianProgresHelper`, `VisualTabunganImpian`, `_TimerCravingView`, `_HeaderPemulihan`, `DateTime`, `FormatUang` - Properti: `spacing`, `padding`, `rasio`, `saldo`, `target`, `mounted` - Method: `ImpianProgresHelper.rasio()`, `ImpianProgresHelper.tercapai("
 metadata:
   kategori: "custom"
   versi: "1.0.1"
@@ -39,7 +39,7 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 - DILARANG lupa cek `mounted` di callback timer (lihat `isolasi-widget-timer`).
 - DILARANG aset gambar/Lottie untuk visual progres → gunakan `Stack` + `LinearProgressIndicator` + `Icon` (lihat `visualisasi-progres-impian` / `widget-custom`).
 - DILARANG rasio progres tanpa clamp → `LinearProgressIndicator` error jika > 1.0 (lihat `visualisasi-progres-impian`).
-- DILARANG perbandingan tanggal tanpa normalisasi → hasil bisa salah 1 hari (lihat `normalisasi-tanggal`).
+- DILARANG perbandingan tanggal tanpa normalisasi → hasil bisa salah 1 hari.
 
 ## Contoh Benar
 

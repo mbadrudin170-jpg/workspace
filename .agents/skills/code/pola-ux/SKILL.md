@@ -1,6 +1,6 @@
 ---
 name: pola-ux
-description: "Trigger: saat menerapkan pola UX Flutter | Indeks: konfirmasi-sebelum-simpan, empty-state-daftar, kartu-motivasi-pintasan-dashboard, validasi-form-sebelum-penyimpanan, penanganan-async. Indeks Pola UX Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UX. Jangan menduplikasi isi skill spesifik di sini. Semua pola UX yang tercantum di bawah ini sudah terimplementasi di proyek Flutter dan dapat digunakan sebagai referensi untuk pola serupa di proyek lain. Cakupan yang Di-Cover - Package: `package:flutter` (class `Form`, `GlobalKey`, `SafeArea`, `Padding`, `FAB`, `Icon`, `Text`, `FilledButton`, `Scaffold`, `ShowDialog`), `package:flutter_riverpod` (class `AsyncValue`, `ref`, `ConsumerWidget`, `ConsumerState`), `package:shared_preferences` (class `SharedPreferences`) - Class: `Form`, `GlobalKey<FormState>`, `AsyncValue`, `SharedPreferences`, `AppToast`, `L` (logging), `Nav` (navigasi) - Properti: `isLoading`, `hasError`,"
+description: "Trigger: saat menerapkan pola UX Flutter | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async. Indeks Pola UX Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UX. Jangan menduplikasi isi skill spesifik di sini. Semua pola UX yang tercantum di bawah ini sudah terimplementasi di proyek Flutter dan dapat digunakan sebagai referensi untuk pola serupa di proyek lain. Cakupan yang Di-Cover - Package: `package:flutter` (class `Form`, `GlobalKey`, `SafeArea`, `Padding`, `FAB`, `Icon`, `Text`, `FilledButton`, `Scaffold`, `ShowDialog`), `package:flutter_riverpod` (class `AsyncValue`, `ref`, `ConsumerWidget`, `ConsumerState`), `package:shared_preferences` (class `SharedPreferences`) - Class: `Form`, `GlobalKey<FormState>`, `AsyncValue`, `SharedPreferences`, `AppToast`, `L` (logging), `Nav` (navigasi) - Properti: `isLoading`, `hasError`,"
 metadata:
   kategori: "custom"
   versi: "1.1.1"
@@ -34,11 +34,10 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 ## Larangan
 
 - DILARANG menyimpan data tanpa validasi form (lihat `validasi-form-sebelum-penyimpanan`).
-- DILARANG `requireValue` pada data opsional/async tanpa cek loading/error (lihat `penanganan-async-data-kosong`, `penanganan-asyncvalue-berkali`, `kartu-motivasi-pintasan-dashboard`).
-- DILARANG navigasi pintasan tanpa `.catchError()` pada `unawaited()` (lihat `kartu-motivasi-pintasan-dashboard`, `penanganan-error-unawaited`).
+- DILARANG `requireValue` pada data opsional/async tanpa cek loading/error (lihat `penanganan-async`, `penanganan-error-unawaited`).
 - DILARANG toast perayaan tanpa penandaan `SharedPreferences` (lihat `visualisasi-progres-impian`).
 - DILARANG empty state tanpa ikon, judul, deskripsi, CTA (lihat `empty-state-daftar`).
-- DILARANG konfirmasi destruktif tanpa `isDestructiveAction: true` dan penjelasan konsekuensi (lihat `konfirmasi-sebelum-simpan`, `ekspor-pemulihan-cadangan`).
+- DILARANG konfirmasi destruktif tanpa `isDestructiveAction: true` dan penjelasan konsekuensi (lihat `ekspor-pemulihan-cadangan`).
 
 ## Contoh Benar
 

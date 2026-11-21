@@ -127,7 +127,7 @@ catch (e, s) {
 
 - File backup **WAJIB** validasi struktur sebelum restore (lihat `ekspor-pemulihan-cadangan`).
 - **DILARANG** restore file backup tanpa validasi signature/checksum.
-- **DILARANG** overwrite data tanpa konfirmasi destruktif (lihat `konfirmasi-sebelum-simpan`).
+- **DILARANG** overwrite data tanpa konfirmasi destruktif.
 - Hapus file backup parsial gagal setelah operasi.
 
 ## 8. Local Authentication (Biometric/PIN)
