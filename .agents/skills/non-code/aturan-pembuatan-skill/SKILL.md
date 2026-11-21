@@ -42,3 +42,5 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 19. Setiap skill wajib memiliki folder `references/` di dalam folder skill untuk berkas detail dan referensi (progressive disclosure), meskipun folder masih kosong.
 
 20. File-file di folder `references/` berisi detail tentang masing-masing file referensi. SKILL.md utama hanya untuk aturan/panduan; detailnya dipindahkan ke file di `references/`. Jika folder `references/` kosong, tidak masalah — ini progressive disclosure. Catatan: catatan penulis prompt (catatan "hanya untuk penulis prompt", bukan untuk skill) TIDAK dimasukkan ke skill atau target.
+
+21. File-file di folder `references/` wajib memiliki contoh kode jika skill tersebut berkaitan dengan kode (mis. skill Flutter/Dart/SQLite/Riverpod); contoh kode wajib benar dan dapat dikompilasi.

@@ -97,7 +97,7 @@
       "cut *": "deny",
       "git submodule *": "allow",
       "git -C *": "allow",
-      "echo *": "deny",
+      // "echo *": "deny",
       "jq *": "deny",
       "printf *": "deny",
       "ls -la": "allow"

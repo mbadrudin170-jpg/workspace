@@ -41,3 +41,6 @@ while IFS= read -r -d '' f; do
 done < <(find "$SRC_DIR" -maxdepth 1 -type f -print0 | sort -z)
 
 echo "Selesai: isi seluruh file di ${SRC_DIR} disalin ke ${DEST}"
+
+# Hapus seluruh isi folder sumber setelah sukses mensalin
+rm -rf "$SRC_DIR"/*
