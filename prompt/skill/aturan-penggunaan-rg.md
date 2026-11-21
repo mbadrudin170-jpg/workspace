@@ -1,5 +1,5 @@
 diperbarui : Sat Nov 21 2026 17:00 WIB
-file : [aturan-penggunaan-rg](../../.agents/skills/non-code/aturan-penggunaan-rg/SKILL.md)
+file : [aturan-penggunaan-rg](../../.agents/skills/aturan-penggunaan-rg/SKILL.md)
 
 # Aturan Penggunaan rg (ripgrep)
 

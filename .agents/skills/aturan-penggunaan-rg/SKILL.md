@@ -1,8 +1,5 @@
 ---
 name: aturan-penggunaan-rg
-description: Trigger: saat menggunakan rg (ripgrep) untuk pencarian konten di codebase — gunakan via tool Bash, flag standar, fallback ke Grep bawaan, verifikasi ketersediaan. Aturan Penggunaan rg (ripgrep) Skill ini mengatur cara menggunakan rg untuk pencarian konten (regex) di codebase via tool Bash, bukan instalasi. Cakupan: flag umum, pola regex, filter file, output, fallback, verifikasi ketersediaan. Aturan Penggunaan rg (ripgrep) Mengatur penggunaan rg untuk pencarian konten di codebase melalui tool Bash. Berbeda dengan skill install-rg (pemasangan), skill ini berfokus pada aturan pemakaian rg sebagai tool pencarian harian.
----
-name: aturan-penggunaan-rg
 description: Trigger: saat menggunakan rg (ripgrep) untuk pencarian konten di codebase — gunakan via tool Bash, flag standar, fallback ke Grep bawaan, verifikasi ketersediaan.
 metadata:
   kategori: "custom"

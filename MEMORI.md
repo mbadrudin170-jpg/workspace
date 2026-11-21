@@ -6,7 +6,7 @@ Diperbarui: 2026-11-21 (sesi 189)
 
 - Root `workspace` adalah repositori induk (bukan aplikasi Flutter); berisi aturan, skill, konfigurasi Kilo, snippet, skrip, dan submodule (`share_global_saya`, `admin_wifi` — URL `https://github.com/mbadrudin170-jpg/admin_wifi.git`).
 - `lib/main.dart` berada di submodule, bukan root.
-- Aturan dibaca dari `.agents/rules/`; skill dari `.agents/skills/code/` dan `.agents/skills/non-code/` (`skills.paths` di `.kilo/kilo.jsonc`).
+- Aturan dibaca dari `.agents/rules/`; skill dari `.agents/skills/<nama-skill>/SKILL.md` (`skills.paths` di `.kilo/kilo.jsonc`).
 - Berkas sesi `memori/sesi/sesi_N.md` diarsipkan permanen; tidak boleh dihapus (skill `memori-check`).
 
 ## Konvensi dan Aturan

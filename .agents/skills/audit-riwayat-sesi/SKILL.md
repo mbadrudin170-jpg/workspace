@@ -17,7 +17,7 @@ Prosedur audit portabel lintas proyek dengan `MEMORI.md` untuk mendeteksi kesala
 - Konteks agregasi (selalu dibaca): `MEMORI.md`, `memori/riwayat_perubahan.md`.
 - Berkas yang boleh ditulis: `audit/riwayat_sesi.md` (append section baru; section lama dipertahankan).
 - Sumber data: hanya berkas memori; git log **tidak** digunakan.
-- Referensi: `.kilo/commands/audit_riwayat_sesi.md`, `hasil_diskusi/diskusi_10.md` (K-1 s.d. K-13, R-1 s.d. R-6), `.agents/skills/non-code/cek-kesehatan-sistem-kerja/SKILL.md` (pola skill read-only), `.agents/skills/non-code/memori-check/SKILL.md` (alur sesi).
+- Referensi: `.kilo/commands/audit_riwayat_sesi.md`, `hasil_diskusi/diskusi_10.md` (K-1 s.d. K-13, R-1 s.d. R-6), `.agents/skills/cek-kesehatan-sistem-kerja/SKILL.md` (pola skill read-only), `.agents/skills/memori-check/SKILL.md` (alur sesi).
 - Sumber perencanaan: `hasil_diskusi/diskusi_10.md`.
 
 ## Aturan
