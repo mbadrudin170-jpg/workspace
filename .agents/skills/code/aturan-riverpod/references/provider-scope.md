@@ -9,7 +9,37 @@ Referensi detail `ProviderScope` dari skill `aturan-riverpod`.
 - Provider overrides untuk testing via `ProviderScope(overrides: [...])` dengan `overrideWithValue`/`overrideWithProvider`.
 - `UncontrolledProviderScope` tidak mengelola siklus hidup container; dispose adalah tanggung jawab pemanggil.
 
-## Larangan
+## Contoh Benar
 
-- Dilarang `ProviderScope` nested.
-- Dilarang modifikasi provider di lifecycle method widget.
+```dart
+final container = ProviderContainer();
+runApp(
+  UncontrolledProviderScope(
+    container: container,
+    child: const MyApp(),
+  ),
+);
+// Saat container tidak lagi dipakai, pemanggil wajib dispose
+container.dispose();
+
+// Testing
+await tester.pumpWidget(
+  ProviderScope(
+    overrides: [
+      repoProvider.overrideWithValue(FakeRepo()),
+    ],
+    child: const MyApp(),
+  ),
+);
+```
+
+## Contoh Salah
+
+```dart
+// DILARANG: modifikasi provider di lifecycle
+@override
+void initState() {
+  super.initState();
+  ref.read(counterProvider.notifier).increment();
+}
+```
