@@ -4,7 +4,7 @@ Diperbarui: 2026-11-20
 
 ## Status
 
-Status Sinkron: Belum Sinkron
+Status Sinkron: Sudah Sinkron (catch-up sync, sesi 190; durable fact sudah ada di MEMORI.md sejak sesi 176; riwayat_perubahan.md ditambah entri sesi 176 pada catch-up ini)
 Tanggal: 2026-11-20
 Command: interaksi langsung (tanpa command)
 Topik: Build APK release `admin_wifi` via GitHub Actions workflow dan verifikasi artefak.
