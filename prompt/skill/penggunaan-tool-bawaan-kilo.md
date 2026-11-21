@@ -1,4 +1,4 @@
-diperbarui : Sat Nov 21 2026 16:59 WIB
+diperbarui : Sat Nov 21 2026 17:15 WIB
 
 file : [penggunaan-tool-bawaan-kilo](../../.agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md)
 
@@ -13,6 +13,8 @@ file : [penggunaan-tool-bawaan-kilo](../../.agents/skills/non-code/penggunaan-to
 5. Saat mendelegasikan pembacaan berkas besar ke subagent, muat skill ini terlebih dahulu dan pastikan subagent melaporkan penanda pemotongan secara eksplisit.
 
 6. **Khusus untuk `rg` (ripgrep): gunakan tool `Bash` dengan perintah `rg` terlebih dahulu untuk pencarian konten; tool `Grep` bawaan Kilo hanya dipakai bila `rg` tidak tersedia atau tidak memenuhi kebutuhan.**
+
+7. **Setelah memuat skill via tool `skill`, wajib membaca seluruh berkas di folder `references/` di dalam folder skill tersebut (jika ada), agar detail aturan, contoh kode, dan referensi lengkap tersedia.**
 
 # Daftar Tool
 

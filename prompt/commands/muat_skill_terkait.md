@@ -1,4 +1,4 @@
-diperbarui : Sat Nov 21 2026 16:43 WIB
+diperbarui : Sat Nov 21 2026 17:39 WIB
 ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 1. Baca terlebih dahulu `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks skill non-code) dan `.agents/rules/code.md` (aturan khusus kode beserta skill terkaitnya); bila kedua berkas tidak tersedia, gunakan daftar skill yang tersedia (available_skills).
@@ -11,6 +11,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 5. Muat juga skill yang berkaitan dengan topik percakapan saat ini (termasuk skill non-code yang relevan), meskipun tidak muncul dari pemindaian code/ pada poin 2. Cocokkan topik sekarang dengan Trigger/description skill.
 
+6. Setelah memuat skill yang relevan, **wajib memperbaiki/menyesuaikan berkas yang sedang dikerjakan agar sesuai dengan aturan dan panduan pada skill yang dimuat** — jangan biarkan berkas proyek melanggar skill yang sudah dimuat.
 ---
 
 # Daftar Lengkap Skill Tersedia (dengan Deskripsi)
@@ -49,35 +50,33 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 16. **gaya** — Trigger: saat menata warna dan tema UI | Panduan styling Flutter: withValues(alpha:) bukan withOpacity, warna dari ColorScheme/tema, hardcode hanya status semantic (hijau/merah/kuning), EasyLoading dengan catchError.
 
-17. **install-rg** — Trigger: saat perlu memasang atau memverifikasi ripgrep (rg) di lingkungan Linux/WSL/Cloud Shell | Panduan pemasangan ripgrep: deteksi ketersediaan, pembaruan indeks paket, pemasangan via apt-get, verifikasi `rg --version`.
+17. **isolasi-widget-timer** — Trigger: saat widget diperbarui berkala (Timer.periodic) | Panduan isolasi widget timer ke widget terpisah agar hanya widget itu yang rebuild, bukan seluruh halaman.
 
-18. **isolasi-widget-timer** — Trigger: saat widget diperbarui berkala (Timer.periodic) | Panduan isolasi widget timer ke widget terpisah agar hanya widget itu yang rebuild, bukan seluruh halaman.
+18. **keamanan-aplikasi** — Trigger: saat menerapkan keamanan aplikasi | Aturan keamanan: validasi input, enkripsi data sensitif, penyimpanan aman, platform validation, error handling tidak bocor info sensitif, dependency scanning.
 
-19. **keamanan-aplikasi** — Trigger: saat menerapkan keamanan aplikasi | Aturan keamanan: validasi input, enkripsi data sensitif, penyimpanan aman, platform validation, error handling tidak bocor info sensitif, dependency scanning.
+19. **logging-debug** — Trigger: saat menambahkan log debug; saat membersihkan/mengurangi log berlebihan (narasi langkah, banner separator) | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten; log narasi langkah tanpa nilai aktual dan banner/separator DILARANG.
 
-20. **logging-debug** — Trigger: saat menambahkan log debug; saat membersihkan/mengurangi log berlebihan (narasi langkah, banner separator) | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten; log narasi langkah tanpa nilai aktual dan banner/separator DILARANG.
+20. **material-app-tema-lokalisasi** — Trigger: saat mengonfigurasi MaterialApp dan WidgetsApp | Panduan tema (theme, darkTheme, themeMode), lokalisasi (locale, supportedLocales, localizationsDelegates), dan ScrollBehavior.
 
-21. **material-app-tema-lokalisasi** — Trigger: saat mengonfigurasi MaterialApp dan WidgetsApp | Panduan tema (theme, darkTheme, themeMode), lokalisasi (locale, supportedLocales, localizationsDelegates), dan ScrollBehavior.
+21. **material-ui** — Trigger: saat menambah/mengubah impor material Flutter, saat memakai/mengganti MaterialApp, saat migrasi package:flutter/material.dart ke package:material_ui/material_ui.dart | Impor material wajib package:material_ui/material_ui.dart; MaterialApp material_ui menyediakan delegasi MaterialLocalizations bawaan.
 
-22. **material-ui** — Trigger: saat menambah/mengubah impor material Flutter, saat memakai/mengganti MaterialApp, saat migrasi package:flutter/material.dart ke package:material_ui/material_ui.dart | Impor material wajib package:material_ui/material_ui.dart; MaterialApp material_ui menyediakan delegasi MaterialLocalizations bawaan.
+22. **membuat-readme-yang-baik** — Trigger: saat membuat atau memperbaiki file README proyek | Panduan struktur README (judul, deskripsi, TOC, instalasi, penggunaan, kredit, lisensi, badge, kontribusi, test), prinsip what/why/how, visual (GIF/screenshot), daftar kontributor.
 
-23. **membuat-readme-yang-baik** — Trigger: saat membuat atau memperbaiki file README proyek | Panduan struktur README (judul, deskripsi, TOC, instalasi, penggunaan, kredit, lisensi, badge, kontribusi, test), prinsip what/why/how, visual (GIF/screenshot), daftar kontributor.
+23. **memori-check** — Trigger: saat memulai percakapan atau tugas di proyek mana pun | Panduan wajib baca MEMORI.md di root proyek sebelum interaksi dan perbarui bagian relevan setelahnya (kode, dokumen, state). Satu berkas sesi (`memori/sesi/sesi_N.md`) per percakapan/tugas.
 
-24. **memori-check** — Trigger: saat memulai percakapan atau tugas di proyek mana pun | Panduan wajib baca MEMORI.md di root proyek sebelum interaksi dan perbarui bagian relevan setelahnya (kode, dokumen, state). Satu berkas sesi (`memori/sesi/sesi_N.md`) per percakapan/tugas.
+24. **memuat-skill-terkait** — Trigger: saat memulai tugas apa pun (kode, dokumen, refactor, dll.) | Panduan memuat skill yang relevan sebelum mengerjakan tugas: baca indeks non-code + code.md, pindai skill code/ cocokkan Trigger/description, muat via tool skill, verifikasi keberadaan, muat juga skill non-code relevan dengan topik percakapan.
 
-25. **memuat-skill-terkait** — Trigger: saat memulai tugas apa pun (kode, dokumen, refactor, dll.) | Panduan memuat skill yang relevan sebelum mengerjakan tugas: baca indeks non-code + code.md, pindai skill code/ cocokkan Trigger/description, muat via tool skill, verifikasi keberadaan, muat juga skill non-code relevan dengan topik percakapan.
+25. **migrasi-skema-sqlite** — Trigger: saat menambah atau mengubah tabel, kolom, indeks, atau migrasi SQLite | Naikkan versi, update onCreate dan onUpgrade, cerminkan perubahan di onCreate, verifikasi PRAGMA table_info; hindari untuk perubahan non-skema.
 
-26. **migrasi-skema-sqlite** — Trigger: saat menambah atau mengubah tabel, kolom, indeks, atau migrasi SQLite | Naikkan versi, update onCreate dan onUpgrade, cerminkan perubahan di onCreate, verifikasi PRAGMA table_info; hindari untuk perubahan non-skema.
+26. **model-state-freezed-abstract** — Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '*.freezed.dart' + '*.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan), pengosongan field nullable via `copyWith(field: null)` sentinel codegen, integrasi notifier Riverpod, model database (fromSqflite/toSqflite, ParserUtil, konversi UTC).
 
-27. **model-state-freezed-abstract** — Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '*.freezed.dart' + '*.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan), pengosongan field nullable via `copyWith(field: null)` sentinel codegen, integrasi notifier Riverpod, model database (fromSqflite/toSqflite, ParserUtil, konversi UTC).
+27. **navigator-routing** — Trigger: saat navigasi atau routing Flutter | Panduan Navigator, Route, Page, MaterialApp.router, pushNamed, pop, onGenerateRoute, onUnknownRoute, restorablePushNamed.
 
-28. **navigator-routing** — Trigger: saat navigasi atau routing Flutter | Panduan Navigator, Route, Page, MaterialApp.router, pushNamed, pop, onGenerateRoute, onUnknownRoute, restorablePushNamed.
+28. **overlay-log-debug** — Trigger: saat menyusun root aplikasi Flutter (app.dart/main.dart); saat ikon/panel overlay debug tidak muncul; saat error `No Directionality widget found` pada Overlay; saat error `No MaterialLocalizations found` pada SelectionArea | Panduan membungkus root app dengan `PengelolaOverlayLogDebug` dari share_global_saya.
 
-29. **overlay-log-debug** — Trigger: saat menyusun root aplikasi Flutter (app.dart/main.dart); saat ikon/panel overlay debug tidak muncul; saat error `No Directionality widget found` pada Overlay; saat error `No MaterialLocalizations found` pada SelectionArea | Panduan membungkus root app dengan `PengelolaOverlayLogDebug` dari share_global_saya.
+29. **parsing-nullable-int** — Trigger: saat membaca field integer nullable dari database | Panduan parseIntOrNull (null tetap null, tidak jadi 0) dan parseInt/parseBool dengan defaultValue untuk field non-nullable.
 
-30. **parsing-nullable-int** — Trigger: saat membaca field integer nullable dari database | Panduan parseIntOrNull (null tetap null, tidak jadi 0) dan parseInt/parseBool dengan defaultValue untuk field non-nullable.
-
-31. **penamaan-konvensi** — Trigger: saat menamai identifier, file, atau class | Konvensi proyek Flutter: identifier bahasa Indonesia, file snake_case, variable camelCase, class PascalCase, konstanta SCREAMING_SNAKE_CASE, import package:, tabel/kolom snake_case.
+30. **penamaan-konvensi** — Trigger: saat menamai identifier, file, atau class | Konvensi proyek Flutter: identifier bahasa Indonesia, file snake_case, variable camelCase, class PascalCase, konstanta SCREAMING_SNAKE_CASE, import package:, tabel/kolom snake_case.
 
 32. **pengurutan-paket-pubspec** — Trigger: saat menambah atau mengurutkan dependensi pubspec.yaml | Panduan urutan paket pada section `dependencies` dan `dev_dependencies` di `pubspec.yaml`: abjad case-insensitive, entri berbasis SDK (`flutter`, `flutter_test`) tetap di posisi teratas.
 
@@ -99,35 +98,35 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 41. **spacing** — Trigger: saat mengatur jarak antar elemen UI | Panduan spacing pada Row/Column, SizedBox hanya khusus, padding tepi layar tanggung jawab parent, nilai spacing mengikuti skala standar optimasi_ui.md.
 
-42. **sqlite** — Trigger: saat menambahkan atau memperbaiki dukungan SQLite (sqflite) di Flutter Web | Panduan `sqflite_common_ffi_web`: tambah paket via `flutter pub add`, setup `dart run sqflite_common_ffi_web:setup`, set `databaseFactoryFfiWeb` di `main()` untuk `kIsWeb`, path database di web hanya nama (IndexedDB).
+41. **sqlite** — Trigger: saat menambahkan atau memperbaiki dukungan SQLite (sqflite) di Flutter Web | Panduan `sqflite_common_ffi_web`: tambah paket via `flutter pub add`, setup `dart run sqflite_common_ffi_web:setup`, set `databaseFactoryFfiWeb` di `main()` untuk `kIsWeb`, path database di web hanya nama (IndexedDB).
 
-43. **struktur-class-ui** — Trigger: saat membuat widget custom reusable | Panduan struktur class UI reusable: StatelessWidget, parameter final, const constructor, build pure, semua method di atas build, dispose di bawah initState, rujuk skill gaya/spacing/aturan-riverpod.
+42. **struktur-class-ui** — Trigger: saat membuat widget custom reusable | Panduan struktur class UI reusable: StatelessWidget, parameter final, const constructor, build pure, semua method di atas build, dispose di bawah initState, rujuk skill gaya/spacing/aturan-riverpod.
 
-44. **struktur-folder-lib** — Trigger: saat menata atau membuat struktur folder lib/ Flutter | Panduan feature-first + core/ untuk proyek Flutter: sub-folder lapisan di dalam folder fitur (screens/, notifier/, provider/, widgets/), pembeda state Riverpod yang bisa diubah (notifier/) vs provider read-only (provider/), main.dart/app.dart/home.dart (shell) tetap di akar.
+43. **struktur-folder-lib** — Trigger: saat menata atau membuat struktur folder lib/ Flutter | Panduan feature-first + core/ untuk proyek Flutter: sub-folder lapisan di dalam folder fitur (screens/, notifier/, provider/, widgets/), pembeda state Riverpod yang bisa diubah (notifier/) vs provider read-only (provider/), main.dart/app.dart/home.dart (shell) tetap di akar.
 
-45. **supabase** — Trigger: saat mengintegrasikan Supabase (PostgREST) di Flutter | Panduan singleton SupabaseKlien idempotent (StateError bila belum init), OperasiSupabase CRUD generik (ambil/tambah/ubah/hapus/tambahBatch) dengan filter match, order, limit/range, logging L dengan $e $s, rethrow.
+44. **supabase** — Trigger: saat mengintegrasikan Supabase (PostgREST) di Flutter | Panduan singleton SupabaseKlien idempotent (StateError bila belum init), OperasiSupabase CRUD generik (ambil/tambah/ubah/hapus/tambahBatch) dengan filter match, order, limit/range, logging L dengan $e $s, rethrow.
 
-46. **text-form-field-validasi** — Trigger: saat membuat input teks dengan validasi | Panduan TextFormField, TextEditingController, Form, GlobalKey, dan validasi sebelum penyimpanan.
+45. **text-form-field-validasi** — Trigger: saat membuat input teks dengan validasi | Panduan TextFormField, TextEditingController, Form, GlobalKey, dan validasi sebelum penyimpanan.
 
-47. **theme-data-color-schema** — Trigger: saat mengonfigurasi tema aplikasi | Panduan ThemeData, ColorScheme, textTheme, useMaterial3 untuk konsistensi visual.
+46. **theme-data-color-schema** — Trigger: saat mengonfigurasi tema aplikasi | Panduan ThemeData, ColorScheme, textTheme, useMaterial3 untuk konsistensi visual.
 
-48. **tipografi** — Trigger: saat mengatur tipografi | Panduan: Theme.of(context).textTheme utama, copyWith untuk kustomisasi, paket `google_fonts` wajib, hierarki label/sub-label/nilai, bold terarah, FontFeature.tabularFigures() untuk angka/timer, FittedBox/Flexible secukupnya.
+47. **tipografi** — Trigger: saat mengatur tipografi | Panduan: Theme.of(context).textTheme utama, copyWith untuk kustomisasi, paket `google_fonts` wajib, hierarki label/sub-label/nilai, bold terarah, FontFeature.tabularFigures() untuk angka/timer, FittedBox/Flexible secukupnya.
 
-49. **type-promotion-null-safety** — Trigger: saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku.
+48. **type-promotion-null-safety** — Trigger: saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku.
 
-50. **validasi-form-sebelum-penyimpanan** — Trigger: saat memvalidasi form sebelum simpan | Panduan Form + GlobalKey + validate(); jangan masking input tidak valid dengan ?? 0.
+49. **validasi-form-sebelum-penyimpanan** — Trigger: saat memvalidasi form sebelum simpan | Panduan Form + GlobalKey + validate(); jangan masking input tidak valid dengan ?? 0.
 
-51. **validasi-json-katalog-ketat** — Trigger: saat memuat atau memvalidasi data JSON katalog lokal | Panduan validasi ketat katalog JSON: field enum lewat `values.firstWhere(..., orElse: () => throw ...)`, array bertipe string dicek per elemen, objek bersarang dicek `is! Map<String, dynamic>` lalu didelegasikan ke `fromJson` bersarang, exception khusus per domain dengan pesan memuat `id` entri dan nama field.
+50. **validasi-json-katalog-ketat** — Trigger: saat memuat atau memvalidasi data JSON katalog lokal | Panduan validasi ketat katalog JSON: field enum lewat `values.firstWhere(..., orElse: () => throw ...)`, array bertipe string dicek per elemen, objek bersarang dicek `is! Map<String, dynamic>` lalu didelegasikan ke `fromJson` bersarang, exception khusus per domain dengan pesan memuat `id` entri dan nama field.
 
-52. **validasi-platform-izin** — Trigger: saat fitur memerlukan platform atau izin | Panduan: cek dukungan platform sebelum API, minta izin sesuai kebijakan OS, periksa hasil izin sebelum mengaktifkan fitur.
+51. **validasi-platform-izin** — Trigger: saat fitur memerlukan platform atau izin | Panduan: cek dukungan platform sebelum API, minta izin sesuai kebijakan OS, periksa hasil izin sebelum mengaktifkan fitur.
 
-53. **visualisasi-progres-impian** — Trigger: saat memvisualisasikan progres impian atau perayaan | Panduan ImpianProgresHelper, guard divisi nol, SharedPreferences penandaan sekali, AppToast, saldo aktual via MetrikBerhentiHelper, clamp 0-1, VisualTabunganImpian.
+52. **visualisasi-progres-impian** — Trigger: saat memvisualisasikan progres impian atau perayaan | Panduan ImpianProgresHelper, guard divisi nol, SharedPreferences penandaan sekali, AppToast, saldo aktual via MetrikBerhentiHelper, clamp 0-1, VisualTabunganImpian.
 
-54. **widget-custom** — Trigger: saat membuat widget custom reusable | Indeks: visualisasi-progres-impian, isolasi-widget-timer, empty-state-daftar. Wajib StatelessWidget, pure, aman tema (ColorScheme), Column.spacing.
+53. **widget-custom** — Trigger: saat membuat widget custom reusable | Indeks: visualisasi-progres-impian, isolasi-widget-timer, empty-state-daftar. Wajib StatelessWidget, pure, aman tema (ColorScheme), Column.spacing.
 
-55. **widget-lifecycle-state** — Trigger: saat mengelola lifecycle widget | Panduan Widget/State lifecycle: mounted, initState, build, didUpdateWidget, dispose, setState, dependOnInheritedWidgetOfExactType.
+54. **widget-lifecycle-state** — Trigger: saat mengelola lifecycle widget | Panduan Widget/State lifecycle: mounted, initState, build, didUpdateWidget, dispose, setState, dependOnInheritedWidgetOfExactType.
 
-56. **zona-waktu-perangkat-pengingat** — Trigger: saat menjadwalkan pengingat berbasis zona waktu | Panduan flutter_timezone untuk deteksi zona lokal, inisialisasi tz database, fallback Asia/Jakarta, handle error tiap tahap.
+55. **zona-waktu-perangkat-pengingat** — Trigger: saat menjadwalkan pengingat berbasis zona waktu | Panduan flutter_timezone untuk deteksi zona lokal, inisialisasi tz database, fallback Asia/Jakarta, handle error tiap tahap.
 
 ## Non-Code (20 skill)
 
@@ -153,7 +152,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 11. **format-task-md** — Trigger: saat menambahkan atau memperbarui isi file task.md di root | Panduan gaya penulisan format task.md agar setiap orang dan AI yang mengedit task.md menghasilkan isi yang konsisten: pengelompokan task berdasarkan file terdampak, prioritas Tinggi/Rendah, kolom Status/Masalah/Solusi/aturan dilanggar/file bermasalah/prompt, serta catatan kepatuhan terhadap skill yang terpenuhi.
 
-12. **install-rg** — Trigger: saat perlu memasang atau memverifikasi ripgrep (rg) di lingkungan Linux/WSL/Cloud Shell | Panduan pemasangan ripgrep (`rg`) pada lingkungan Linux (Debian/Ubuntu, WSL, Cloud Shell) secara aman: deteksi ketersediaan, konfirmasi pengguna, pemasangan via apt-get, dan verifikasi hasil.
+12. **aturan-penggunaan-rg** — Trigger: saat menggunakan rg (ripgrep) untuk pencarian konten di codebase | Panduan penggunaan rg via tool Bash: flag standar (-n, -i, -t, -g, -e), filter file, fallback ke Grep bawaan, verifikasi ketersediaan `command -v rg`.
 
 13. **kelompok-skill-wajib** — Trigger: saat memperbarui kelompok skill wajib | Panduan kelompok skill wajib: path file valid, trigger jelas, tanggal diperbarui lengkap beserta jam, laporan skill yang tidak tersedia, dan penyusunan A-Z. Indeks non-code HANYA berisi skill non-code.
 
