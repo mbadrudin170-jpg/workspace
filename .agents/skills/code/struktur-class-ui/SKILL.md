@@ -1,6 +1,6 @@
 ---
 name: struktur-class-ui
-description: "Trigger: saat membuat widget custom reusable | Panduan struktur class UI reusable: StatelessWidget, parameter final, const constructor, build pure, aman tema (ColorScheme), Column.spacing, semua method di atas build, dispose di bawah initState. Struktur Class UI Reusable Panduan struktur class widget UI reusable yang konsisten, pure, dan aman tema. Aturan 1. Widget reusable WAJIB `StatelessWidget` bila tidak memerlukan state. 2. Semua parameter WAJIB `final` dan constructor WAJIB `const` bila memungkinkan. 3. Method `build` WAJIB pure (tidak memanggil side-effect, tidak membaca provider langsung). 4. Warna WAJIB dari `ColorScheme`/tema, bukan hardcode (kecuali status semantic). 5. Gunakan `Column.spacing`/`Row.spacing` untuk jarak seragam, bukan `SizedBox` berulang. 6. Widget WAJIB aman untuk light/dark mode."
+description: "Trigger: saat membuat widget custom reusable | Panduan struktur class UI reusable: StatelessWidget, parameter final, const constructor, build pure, aman tema (ColorScheme), Column.spacing, semua method di atas build, dispose di bawah initState, ConsumerWidget bila memakai Riverpod. Struktur Class UI Reusable Panduan struktur class widget UI reusable yang konsisten, pure, dan aman tema. Aturan 1. Widget reusable WAJIB `StatelessWidget` bila tidak memerlukan state. 2. Semua parameter WAJIB `final` dan constructor WAJIB `const` bila memungkinkan. 3. Method `build` WAJIB pure (tidak memanggil side-effect, tidak membaca provider langsung). 4. Warna WAJIB dari `ColorScheme`/tema, bukan hardcode (kecuali status semantic). 5. Gunakan `Column.spacing`/`Row.spacing` untuk jarak seragam, bukan `SizedBox` berulang. 6. Widget WAJIB aman untuk light/dark mode."
 metadata:
   kategori: "custom"
   versi: "1.0.0"
@@ -19,7 +19,7 @@ Panduan struktur class widget UI reusable yang konsisten, pure, dan aman tema.
 4. Warna WAJIB dari `ColorScheme`/tema, bukan hardcode (kecuali status semantic).
 5. Gunakan `Column.spacing`/`Row.spacing` untuk jarak seragam, bukan `SizedBox` berulang.
 6. Widget WAJIB aman untuk light/dark mode.
-8. Pada `StatefulWidget`, `dispose()` WAJIB diletakkan tepat di bawah `initState()` (urutan lifecycle).
+9. Jika UI memakai data dari state Riverpod, ubah class menjadi `ConsumerWidget` atau `ConsumerStatefulWidget` (jangan oper `WidgetRef` via konstruktor).
 
 ```dart
 class KartuInfo extends StatelessWidget {
