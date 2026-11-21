@@ -1,6 +1,6 @@
 ---
 name: pola-ui
-description: "Trigger: saat menerapkan pola UI Flutter | Indeks: visualisasi-progres-impian, isolasi-widget-timer, withvalues-opacity-warna, normalisasi-tanggal, widget-custom. Prinsip single responsibility dan textTheme + copyWith. Indeks Pola UI Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UI. Jangan menduplikasi isi skill spesifik di sini. Semua pola UI yang tercantum di bawah ini sudah terimplementasi di proyek Flutter dan dapat digunakan sebagai referensi untuk pola serupa di proyek lain. Cakupan yang Di-Cover - Package: `package:flutter` (class `StatelessWidget`, `StatefulWidget`, `Timer`, `Column`, `Row`, `Card`, `LinearProgressIndicator`, `Stack`, `Icon`, `Text`, `Chip`, `ColorScheme`, `ThemeData`) - Class: `ImpianProgresHelper`, `VisualTabunganImpian`, `_TimerCravingView`, `_HeaderPemulihan`, `DateTime`, `FormatUang` - Properti: `spacing`, `padding`, `rasio`, `saldo`, `target`, `mounted` - Method: `ImpianProgresHelper.rasio()`, `ImpianProgresHelper.tercapai("
+description: "Trigger: saat menerapkan pola UI Flutter | Indeks: visualisasi-progres-impian, isolasi-widget-timer, gaya, normalisasi-tanggal, widget-custom. Prinsip single responsibility dan textTheme + copyWith. Indeks Pola UI Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UI. Jangan menduplikasi isi skill spesifik di sini. Semua pola UI yang tercantum di bawah ini sudah terimplementasi di proyek Flutter dan dapat digunakan sebagai referensi untuk pola serupa di proyek lain. Cakupan yang Di-Cover - Package: `package:flutter` (class `StatelessWidget`, `StatefulWidget`, `Timer`, `Column`, `Row`, `Card`, `LinearProgressIndicator`, `Stack`, `Icon`, `Text`, `Chip`, `ColorScheme`, `ThemeData`) - Class: `ImpianProgresHelper`, `VisualTabunganImpian`, `_TimerCravingView`, `_HeaderPemulihan`, `DateTime`, `FormatUang` - Properti: `spacing`, `padding`, `rasio`, `saldo`, `target`, `mounted` - Method: `ImpianProgresHelper.rasio()`, `ImpianProgresHelper.tercapai("
 metadata:
   kategori: "custom"
   versi: "1.0.1"
@@ -33,7 +33,7 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 
 ## Larangan
 
-- DILARANG `withOpacity()` → gunakan `withValues(alpha:)` (lihat `withvalues-opacity-warna` / `gaya`).
+- DILARANG `withOpacity()` → gunakan `withValues(alpha:)` (lihat `gaya` / `gaya`).
 - DILARANG timer di widget halaman penuh → isolasi ke widget kecil (lihat `isolasi-widget-timer`).
 - DILARANG lupa `cancel()` di `dispose()` untuk timer (lihat `isolasi-widget-timer`).
 - DILARANG lupa cek `mounted` di callback timer (lihat `isolasi-widget-timer`).
