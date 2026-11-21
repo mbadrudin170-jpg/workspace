@@ -27,6 +27,12 @@
 | `.agents/skills/code/aturan_riverpod/` (dari `riverpod-pola/`) | Diubah (rename) | Folder skill direname; frontmatter `name` diperbarui ke `aturan_riverpod`. |
 | `.agents/skills/code/withvalues-opacity-warna/` | Dihapus | Digabung ke `gaya` (indeks dihapus). |
 | `.agents/skills/code/penamaan-konstanta-snake-case/` | Dihapus | Digabung ke `konstanta-skema-tabel`. |
+| `.agents/skills/code/aturan-penamaan/` (dari `konstanta-skema-tabel/`) | Diubah (rename) | Folder skill direname; frontmatter `name` diperbarui ke `aturan-penamaan`. |
+| `.agents/skills/code/scaffold-struktur-layar/` | Dihapus | Skill dihapus atas permintaan pengguna. |
+| `.agents/skills/code/struktur-class-ui/` | Dibuat | Skill baru atas permintaan pengguna. |
+| `.agents/rules/code.md` | Diubah | Referensi skill dihapus. |
+| `.agents/rules/code.md` | Diubah | Referensi skill diperbarui. |
+| `.kilo/commands/scan.md` | Diubah | Referensi skill diperbarui. |
 | `.agents/skills/code/konstanta-skema-tabel/SKILL.md` | Diubah | Referensi diperbarui. |
 | `.kilo/commands/scan.md` | Diubah | Referensi diperbarui. |
 | `.agents/skills/code/pola-ui/SKILL.md` | Diubah | Referensi diperbarui. |
