@@ -6,10 +6,6 @@
 4. Saran: tentukan apakah untuk mencegah kesalahan di masa mendatang perlu memperbaiki atau menambah skill, atau aturan (sertakan alasan dan target yang disarankan).
 
 ==================================================================
-
-
----
-
 # Sesi 1
 
 ## Status
@@ -54,9 +50,6 @@
 
 - Catch-up sync pada sesi 2: perubahan nyata dari sesi 1 (pemisahan skill code/non-code, pemindahan `rules/global/` → `rules/`, penyelarasan referensi, konflik aturan) dicatat ke `MEMORI.md` (bagian Konteks Proyek, Konvensi dan Aturan, Status, Catatan Teknis) dan `memori/riwayat_perubahan.md`.
 - Sesi 1 ditandai `Sudah Sinkron` (2026-11-17, sesi 2).
-
----
-
 # Sesi 2
 
 ## Status
@@ -93,9 +86,6 @@
 - `memori/riwayat_perubahan.md` dibuat dengan entri sesi 1 dan sesi 2.
 - Catch-up sync: `sesi_1.md` (Belum Sinkron) ditandai `Sudah Sinkron` setelah perubahan nyatanya dicatat di `MEMORI.md` dan `riwayat_perubahan.md`.
 - `sesi_2.md` (sesi aktif) ditandai `Sudah Sinkron` setelah verifikasi akhir.
-
----
-
 # Sesi 3
 
 ## Status
@@ -155,9 +145,6 @@
 - `MEMORI.md` (sesi 5, catch-up): `Catatan Teknis` — sesi 3 dicatat (penghapusan `analisa_commit_skill.md` & `evaluasi_code_yang_baru_dicommit.md`, `evaluasi_skill_dari_commit.md` dipertahankan, pipeline L1–L6).
 - `memori/riwayat_perubahan.md` (sesi 5, catch-up): entri sesi 3 ditambahkan.
 - Status: `Belum Sinkron` → `Sudah Sinkron` (catch-up, sesi 5).
-
----
-
 # Sesi 4
 
 ## Status
@@ -191,9 +178,6 @@
 - `MEMORI.md` (sesi 5, catch-up): `Status` — sesi terakhir `sesi_4.md` (Sudah Sinkron) dengan ringkasan penyelarasan `aturan-folder-prompt` v1.2.0 (zona waktu Asia/Jakarta).
 - `memori/riwayat_perubahan.md` (sesi 5, catch-up): entri sesi 4 ditambahkan.
 - Status: `Belum Sinkron` → `Sudah Sinkron` (catch-up, sesi 5).
-
----
-
 # Sesi 5
 
 ## Status
@@ -236,9 +220,6 @@
 ## Sinkronisasi ke MEMORI.md
 
 - Catch-up sync (sesi 7): `sesi_5.md` berisi perubahan nyata (catch-up sinkronisasi `sesi_3.md` dan `sesi_4.md` yang sudah tercermin di `MEMORI.md` bagian Konteks Proyek/Konvensi dan Aturan/Status/Catatan Teknis, serta sinkronisasi `prompt/`/`commands/`/`AGENTS.md` yang tercermin dalam struktur repositori saat ini). Karena isi durabelnya sudah tertuang dalam `MEMORI.md` terkini (diperbarui pada sesi 6), tidak ada entri baru yang perlu ditambahkan dari sesi 5.
-
----
-
 # Sesi 6
 
 ## Status
@@ -274,9 +255,6 @@
 - `MEMORI.md` diperbarui: status sesi terakhir → `sesi_6.md` (Sudah Sinkron, audit riwayat sesi), catatan teknis audit 1.
 - `memori/riwayat_perubahan.md` diperbarui dengan entri sesi 6.
 - Status berkas sesi diubah menjadi `Sudah Sinkron` pada akhir sesi.
-
----
-
 # Sesi 7
 
 ## Status
@@ -313,9 +291,6 @@
 - `MEMORI.md`: tanggal diperbarui ke `(sesi 7)`; `Sesi terakhir` diarahkan ke `sesi_7.md` (Sudah Sinkron); tambah Catatan Teknis sesi 7 (implementasi PRD indikator popularitas, verifikasi lulus, penghapusan berkas PRD, pembersihan `refrensi_apk.md`).
 - `memori/riwayat_perubahan.md`: entri sesi 7 ditambahkan.
 - Berkas sesi ditandai `Sudah Sinkron` setelah `MEMORI.md` dan `riwayat_perubahan.md` diperbarui, dan tabel `## Berkas Terdampak` divalidasi cocok dengan `git status --short`.
-
----
-
 # Sesi 8
 
 ## Status
@@ -354,9 +329,6 @@
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan: penyelarasan file `prompt/` ke target (`.kilo/commands/audit_riwayat_sesi.md`, `.kilo/commands/mode/mode_diskusi.md`, dan path indeks skill `aturan-pembuatan-commands`/`kelompok-skill-wajib`) dicatat di `memori/riwayat_perubahan.md`; tidak ada perubahan konvensi yang dipromosikan ke `MEMORI.md`.
-
----
-
 # Sesi 9
 
 ## Status
@@ -390,9 +362,6 @@ Disinkronkan: penyelarasan file `prompt/` ke target (`.kilo/commands/audit_riway
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan: `MEMORI.md` (tanggal diperbarui → sesi 9, status sesi terakhir + riset kompetitor batch 10) dan `memori/riwayat_perubahan.md` (entri catch-up sync sesi 8 dan entri analisa sesi 9) diperbarui; `sesi_9.md` ditandai `Sudah Sinkron`.
-
----
-
 # Sesi 10 — Ganti Nama Command `fitur/diskusi_fitur_baru.md`
 
 ## Status
@@ -436,9 +405,6 @@ Disinkronkan: `MEMORI.md` (tanggal diperbarui → sesi 9, status sesi terakhir +
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan: `MEMORI.md` (tanggal diperbarui → `(sesi 10)`, `Status` sesi terakhir diarahkan ke `sesi_10.md`, Catatan Teknis sesi 10 ditambahkan) dan `memori/riwayat_perubahan.md` (entri sesi 10: rename command + penyelarasan rujukan + pembaruan indeks skill). `sesi_10.md` ditandai `Sudah Sinkron`.
-
----
-
 # Sesi 11
 
 ## Status
@@ -476,9 +442,6 @@ Disinkronkan: `MEMORI.md` (tanggal diperbarui → `(sesi 10)`, `Status` sesi ter
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan (sesi belum dinyatakan diakhiri oleh pengguna; sinkronisasi akhir sesi mengikuti skill `memori-check` bila diminta).
-
----
-
 # Sesi 12
 
 ## Status
@@ -507,9 +470,6 @@ Belum disinkronkan (sesi belum dinyatakan diakhiri oleh pengguna; sinkronisasi a
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan (menunggu persetujuan pengguna dan pekerjaan selesai).
-
----
-
 ## Status
 
 - Status Sinkron: Sudah Sinkron
@@ -548,9 +508,6 @@ Belum disinkronkan (menunggu persetujuan pengguna dan pekerjaan selesai).
 - PRD A2 "Copy base link satu ketuk" sudah diimplementasikan dan diverifikasi
 - Berkas PRD dihapus, referensi di refrensi_apk.md dibersihkan
 - Semua test lulus (147/147), dart analyze clean
-
----
-
 # Sesi 14
 
 ## Status
@@ -576,9 +533,6 @@ Belum disinkronkan (menunggu persetujuan pengguna dan pekerjaan selesai).
 ## Sinkronisasi ke MEMORI.md
 
 Sudah disinkronkan (catch-up, sesi 15): PRD C3 Final/Belum Diimplementasikan dicatat di `MEMORI.md` (Status) dan `memori/riwayat_perubahan.md` (entri sesi 14); `refrensi_apk.md` baris 1154 item C3 ditandai sudah dibuatkan PRD (commit `63d4050`); berkas PRD C3 masih staged.
-
----
-
 # Sesi 15
 
 ## Status
@@ -620,9 +574,6 @@ Sudah disinkronkan (catch-up, sesi 15): PRD C3 Final/Belum Diimplementasikan dic
 ## Sinkronisasi ke MEMORI.md
 
 Sudah disinkronkan (catch-up, sesi 16): 3 command yang diperbarui (`.kilo/commands/memperbarui_file_di_folder_prompt.md`, `.kilo/commands/prd/kerjakan_prd.md`, `.kilo/commands/fitur/membuat_prd_fitur.md`) dicatat di `MEMORI.md` (Catatan Teknis sesi 15) dan `memori/riwayat_perubahan.md` (entri sesi 15); `prompt/rules/AGENTS.md` dan 12 berkas poin skill sudah match; berkas `prompt/commands/analisa_hasil_audit_sesi.md` kosong dicatat sebagai menunggu keputusan pengguna; perubahan masih staged (belum di-commit).
-
----
-
 ## Status
 
 - Status Sinkron: Sudah Sinkron
@@ -657,9 +608,6 @@ Sudah disinkronkan (catch-up, sesi 16): 3 command yang diperbarui (`.kilo/comman
 - Berkas PRD dihapus, referensi `refrensi_apk.md` baris 1154 diperbarui ke "Sudah Diimplementasikan".
 - `MEMORI.md` diperbarui: header `Diperbarui: 2026-11-17 (sesi 16)`, entri Status sesi 16, entri Catatan Teknis sesi 16.
 - `memori/riwayat_perubahan.md` ditambahkan entri sesi 16.
-
----
-
 # Sesi 17
 
 ## Status
@@ -706,9 +654,6 @@ Sudah disinkronkan (catch-up, sesi 16): 3 command yang diperbarui (`.kilo/comman
 - Catch-up awal sesi: `sesi_16.md` sudah `Sudah Sinkron` (sesi paralel); `sesi_15.md` sudah ditandai `Sudah Sinkron (catch-up, sesi 16)` oleh sesi paralel namun `MEMORI.md`/`riwayat_perubahan.md` belum memuat entrinya — dilengkapi sesi 17 ini.
 - Temuan ambigu yang dilaporkan (dituntaskan paralel selama sesi): (1) perubahan `base_coc` galeri_base — di-commit `06f74c2` oleh sesi lain; (2) `.kilo/kilo.jsonc` swap model agent `code` ke `openrouter/thinkingmachines/inkling-2-small:free` — di-commit `1ae4314`; (3) klaim klaim sesi_15/sesi_16 di berkasnya tidak sepenuhnya cocok dengan kondisi MEMORI/riwayat saat itu — dilengkapi sesi 17 ini dan dikoreksi sesi 18 (penghapusan `analisa_hasil_audit_sesi.md` atas persetujuan pengguna).
 - Commit susulan `1ae4314` (root) dan `06f74c2` (`base_coc`) berisi pekerjaan sesi lain; berkas hasil evaluasi diperbarui: penanda per repo menjadi root `1ae4314`, `base_coc` `06f74c2`, `share_global_saya` `9bde556`; R4 ditandai teratasi oleh `06f74c2`.
-
----
-
 # Sesi 18
 
 ## Status
@@ -738,9 +683,6 @@ Sudah disinkronkan (catch-up, sesi 16): 3 command yang diperbarui (`.kilo/comman
 ## Sinkronisasi ke MEMORI.md
 
 Sudah disinkronkan: `MEMORI.md` header `(sesi 18)` diperbarui; bullet Status dan Catatan Teknis sesi 15 dikoreksi — berkas kosong `prompt/commands/analisa_hasil_audit_sesi.md` menjadi "dihapus atas persetujuan pengguna (koreksi provenance, sesi 18)"; entri sesi 18 ditambahkan di `memori/riwayat_perubahan.md`. Entri sesi 16/17 dan berkas sesi lain tidak disentuh. Berkas `prompt/commands/analisa_hasil_audit_sesi.md` dihapus atas persetujuan eksplisit pengguna (tool `question`); penghapusan ter-track di git (`deleted`, belum di-stage); tidak ada commit oleh sesi ini.
-
----
-
 # Sesi 19
 
 ## Status
@@ -772,9 +714,6 @@ Sudah disinkronkan: `MEMORI.md` header `(sesi 18)` diperbarui; bullet Status dan
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan untuk disinkronkan (pemeriksaan read-only); ditandai `Sudah Sinkron` pada catch-up sesi 20.
-
----
-
 # Sesi 20
 
 ## Status
@@ -815,9 +754,6 @@ Tidak ada perubahan untuk disinkronkan (pemeriksaan read-only); ditandai `Sudah 
 ## Sinkronisasi ke MEMORI.md
 
 Sudah disinkronkan: `MEMORI.md` header `Diperbarui: 2026-11-17 (sesi 20)`; bullet Status "Sesi terakhir" diganti ke sesi 20 (PRD C6 Final, implementasi parsial, penanda di `refrensi_apk.md`); Catatan Teknis sesi 20 ditambahkan; entri sesi 20 ditambahkan di `memori/riwayat_perubahan.md`. Berkas sesi lain tidak disentuh; `memori/sesi/sesi_17.md` dan `MEMORI.md`/`riwayat_perubahan.md` memuat perubahan sesi paralel yang tidak disentuh oleh sesi ini. Tidak ada commit oleh sesi ini.
-
----
-
 # Sesi 21
 
 - Status Sinkron: Sudah Sinkron
@@ -895,9 +831,6 @@ Disinkronkan via catch-up sinkron sesi 22 (2026-11-18 01:45 WIB), atas persetuju
 - `memori/riwayat_perubahan.md`: entri 2026-11-18 "Sesi 21 (catch-up sesi 22 ...)" ditambahkan di atas entri 2026-11-17.
 - Konsolidasi: tidak ada kontradiksi baru yang ditemukan; tunggakan dicatat eksplisit (rujukan usang `.agents/rules/global/...` di `build-apk-github-workflow` & `format-prd`; penyelarasan `lainnya.md` butir 4 vs poin 15 menunggu keputusan pengguna).
 - Catatan: aturan `memori-check` Aturan 23 (penandaan hanya oleh sesi pembuat) disimpangi atas keputusan eksplisit pengguna yang memilih "Sinkronkan & tandai" pada awal sesi 22.
-
----
-
 # Sesi 22
 
 - Status Sinkron: Sudah Sinkron
@@ -943,9 +876,6 @@ Disinkronkan via catch-up sinkron sesi 22 (2026-11-18 01:45 WIB), atas persetuju
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan pada catch-up sesi 23 (2026-11-18, atas persetujuan pengguna): `MEMORI.md` diperbarui (header `Diperbarui: 2026-11-18 (sesi 23)`; Status sesi terakhir → sesi_22; Catatan Teknis sesi 22 ditambahkan); `memori/riwayat_perubahan.md` ditambah entri 2026-11-18 sesi 22. Berkas sesi ini ditandai `Sudah Sinkron` atas persetujuan pengguna (mengenyampingkan Aturan 23 — penandaan hanya oleh sesi pembuat — sebagaimana preseden catch-up sesi 21 oleh sesi 22).
-
----
-
 # Sesi 23
 
 - Status Sinkron: Sudah Sinkron
@@ -993,9 +923,6 @@ Disinkronkan pada catch-up sesi 23 (2026-11-18, atas persetujuan pengguna): `MEM
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan akhir sesi 23 (2026-11-18, atas persetujuan pengguna): `MEMORI.md` diperbarui (header `(sesi 23)`; Status sesi terakhir → sesi_23; Catatan Teknis sesi 23 ditambahkan; catatan sesi 22 diselaraskan ke #23); `memori/riwayat_perubahan.md` ditambah entri 2026-11-18 sesi 23. Tabel `## Berkas Terdampak` diverifikasi cocok dengan `git status --short` root (berkas `navigator-routing/SKILL.md` & `sesi_24.md` milik pihak/sesi lain, tidak termasuk). Berkas sesi ini ditandai `Sudah Sinkron`.
-
----
-
 # Sesi 24
 
 - Status Sinkron: Sudah Sinkron
@@ -1091,9 +1018,6 @@ Disinkronkan akhir sesi 23 (2026-11-18, atas persetujuan pengguna): `MEMORI.md` 
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sesi 26 (atas persetujuan pengguna): seluruh perubahan sesi ini terverifikasi (10 skill `code/` versi baru sesuai daftar di atas; indeks `kelompok_skill_wajib.md` timestamp #15–#52 diperbarui) dan ter-commit di HEAD (tidak ada modifikasi skill tersisa di working tree selain `MEMORI.md`/`riwayat_perubahan.md`/`sesi_25.md`/`sesi_26.md`). `MEMORI.md` dilengkapi: header `Diperbarui: 2026-11-18 (sesi 26)`, entri Status "Sesi 24" & "Sesi 25", dan Catatan Teknis "Sesi 24" (termasuk temuan pre-existing gitlink `.dart_tool/skills/repos/...` yang tidak diubah). `memori/riwayat_perubahan.md`: entri "Sesi 24 (catch-up sesi 25)" sudah ditambahkan sesi_25 — tidak digandakan. Tidak ada kode Dart diubah; `dart format`/`dart analyze`/`flutter test` tidak relevan.
-
----
-
 # Sesi 25
 
 - Status Sinkron: Sudah Sinkron
@@ -1108,9 +1032,6 @@ Catch-up sesi 26 (atas persetujuan pengguna): seluruh perubahan sesi ini terveri
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sesi 26 (atas persetujuan pengguna): perubahan sesi ini (header `MEMORI.md` → `Diperbarui: 2026-11-18 (sesi 25)`, dan entri `memori/riwayat_perubahan.md` "Sesi 24 (catch-up sesi 25)") merupakan bagian dari catch-up sesi_24 yang pelaksanaannya belum selesai dan dituntaskan sesi_26 (header ditulis ulang menjadi `(sesi 26)`; MEMORI.md Status/Catatan Teknis dilengkapi untuk sesi 24 & 25; sesi_24.md ditandai Sudah Sinkron). Tidak ada perubahan proyek lainnya dari sesi ini. Input awal yang memuat API key TIDAK ditulis ke berkas memori mana pun.
-
----
-
 # Sesi 26
 
 - Status Sinkron: Sudah Sinkron
@@ -1169,9 +1090,6 @@ Catch-up sesi_24/sesi_25 dituntaskan (atas persetujuan pengguna):
 - `MEMORI.md`: header `Diperbarui: 2026-11-18 (sesi 26)`; Konteks Proyek (submodule `admin_wifi` — NAMA & path `admin_wifi/`); Status (sesi 24, sesi 25, sesi terakhir = sesi 26); Catatan Teknis (entri sesi 24 & 26).
 
 Pekerjaan sesi ini: `git submodule add https://github.com/mbadrudin170-jpg/admin-flutter.git admin-flutter` berhasil — `.gitmodules` memuat entri ketiga; gitlink ter-stage otomatis; TIDAK di-commit (atas permintaan pengguna). Atas permintaan lanjutan pengguna, submodule di-rename ke path lokal `admin_flutter/` (gitlink + `.gitmodules` + section `.git/config` + gitdir `.git/modules/admin_flutter/` + pointer `.git` + `worktree`); warning embedded repository saat `git add` bersifat spurious; `git submodule status admin_flutter` memverifikasi OK. Atas permintaan lanjutan kedua ("ubah link nya https://github.com/mbadrudin170-jpg/admin_wifi.git"), URL remote diganti ke `https://github.com/mbadrudin170-jpg/admin_wifi.git` di `.gitmodules` (di-stage), root `.git/config` (`submodule.admin_flutter url`), dan `.git/modules/admin_flutter/config` (`remote.origin.url`); commit lama `6af7ecb` terverifikasi masih ada di remote baru (ancestor `main`); repositori baru `admin_wifi.git` memuat commit `6bcbcb3` ("a", badrudin, 2026-11-17 20:50:46 UTC) yang berisi PERSIS 2 berkas yang semula tampak dirty pasca-clone; submodule secara eksternal berpindah ke `main` @ `6bcbcb3` (tree bersih == `origin/main`); atas keputusan pengguna (tool question), gitlink di-stage ke `6bcbcb3` via `git add admin_flutter` (`M  admin_flutter`). TIDAK di-commit oleh sesi ini. Permintaan lanjutan ketiga (".gitmodules:7-7 ubah jadi admin wifi"): NAMA submodule di `.gitmodules` → `admin_wifi`; konsisten rename section `.git/config` → `submodule.admin_wifi`, gitdir → `.git/modules/admin_wifi/`, pointer diperbarui; `.gitmodules` di-stage. Permintaan lanjutan keempat ("path juga ubah nama nya"): path `admin_flutter/` → `admin_wifi/` via `git mv` (git update `.gitmodules` + `worktree` otomatis); submodule OK; belum di-commit. Commit eksternal oleh pengguna (BUKAN sesi): `7ee3aec` (20:50:33 UTC) memuat penambahan submodule + memori sesi 26; `40be728` (20:59:55 UTC) memuat URL `admin_wifi.git` + gitlink `6bcbcb3` + MEMORI/riwayat/sesi_26. Proyek: Flutter, package `admin_wifi` v1.1.0+6 (aplikasi pengelola pelanggan WiFi, `provider` + Firebase Firestore). Temuan pre-existing yang TIDAK diubah: 2 gitlink `.dart_tool/skills/repos/https%3A%2F%2Fgithub.com%2F{dart-lang%2Fskills,flutter%2Fagent-plugins}.git` di index/HEAD tanpa mapping `.gitmodules`/`.git/config` — `git submodule status` tanpa argumen gagal (`no submodule mapping found`); dengan argumen path berhasil. Verifikasi akhir: `git status --short` = `M  .gitmodules`, `M  admin_flutter` (keduanya ter-stage), ` M MEMORI.md`, ` M memori/riwayat_perubahan.md`, ` M memori/sesi/sesi_24.md`, `?? memori/sesi/sesi_25.md`, `?? memori/sesi/sesi_26.md` — seluruh perubahan submodule belum di-commit (atas permintaan pengguna). `dart format`/`dart analyze`/`flutter test` tidak relevan (tidak ada kode Dart diubah).
-
----
-
 # Sesi 27
 
 - Status Sinkron: Sudah Sinkron
@@ -1227,9 +1145,6 @@ Pekerjaan sesi ini: `git submodule add https://github.com/mbadrudin170-jpg/admin
 - `MEMORI.md`: header `Diperbarui: 2026-11-18 (sesi 27)`; Konteks Proyek dilengkapi fakta ketergantungan `admin_wifi` → `share_global_saya` (path) + `flutter_riverpod`; Status: sesi terakhir → sesi 27 (entri Sesi 26 dipindahkan ke prefix sendiri agar tidak bertumpuk); Catatan Teknis: entri sesi 27 ditambahkan (konversi home.dart, overlay root app, pubspec, verifikasi stash-vs-baseline, catatan app.dart belum dikonversi & overlay runtime belum terverifikasi).
 - `memori/riwayat_perubahan.md`: entri "Sesi 27" ditambahkan di atas tabel (tanpa commit).
 - Berkas sesi_27.md ditandai Sudah Sinkron. Tidak ada berkas `Sudah Sinkron` lain yang diubah; tidak ada kredensial/API key yang ditulis.
-
----
-
 # Sesi 28
 
 - Status Sinkron: Sudah Sinkron
@@ -1361,9 +1276,6 @@ Disinkronkan pada **sesi 29** (catch-up atas persetujuan pengguna, 2026-11-18):
 - `memori/riwayat_perubahan.md`: entri sesi 28 ditambahkan di atas entri sesi 27.
 - Verifikasi tabel `## Berkas Terdampak` terhadap `git status --short` (root + submodule `admin_wifi`): seluruh berkas sesi tercantum; perubahan lain di submodule (`lib/app.dart`, `lib/data/sqlite.dart`, `lib/main.dart`, `pubspec.yaml`/`pubspec.lock`, penghapusan `assets/fonts/Roboto-*.ttf`) TIDAK milik sesi 28 dan tidak dimasukkan ke atribusi sesi 28 (dicatat sebagai temuan pada MEMORI/riwayat sesi 29). `home.dart` sudah ter-commit di `bfacbca` (oleh pengguna).
 - Berkas `Sudah Sinkron` lain tidak disentuh.
-
----
-
 # Sesi 29
 
 - Status Sinkron: Sudah Sinkron
@@ -1437,9 +1349,6 @@ Disinkronkan pada **sesi 29** (catch-up atas persetujuan pengguna, 2026-11-18):
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan via catch-up sesi 30 (2026-11-18): isi `MEMORI.md` (header `Diperbarui: ... (sesi 30)`, Status "Sesi terakhir", Catatan Teknis Sesi 29) dan entri `memori/riwayat_perubahan.md` sesi 29 terverifikasi sudah memuat seluruh perubahan sesi 29 (catch-up sesi_28; skill `aturan-pubspec` #5 + rename `aturan-pubscl.md`; penggabungan `aturan-pembuatan-skill` + renumber + sinkron rujukan lintas berkas; formatmd global ±70 berkas; skill `tipografi` v1.1.0). Tidak ada perubahan tambahan saat catch-up; entri riwayat sesi 30 ditambahkan sebagai jejak penutup.
-
----
-
 # Sesi 30
 
 - Status Sinkron: Sudah Sinkron
@@ -1497,9 +1406,6 @@ Disinkronkan via catch-up sesi 30 (2026-11-18): isi `MEMORI.md` (header `Diperba
 ## Sinkronisasi ke MEMORI.md
 
 Sinkronisasi akhir sesi 30 (2026-11-18): header `MEMORI.md` → `Diperbarui: 2026-11-18 (sesi 30)`; Status "Sesi terakhir" → sesi 30 (Sudah Sinkron); Catatan Teknis: entri Sesi 30 baru + catatan eksplisit bahwa klaim "belum di-commit"/"berjalan" pada entri sesi 27/28/29 menjadi **usang per 2026-11-18 (sesi 30)** (commit dilakukan pengguna selama sesi; root & submodule `main` == `origin/main`, tree bersih). `memori/riwayat_perubahan.md`: entri Sesi 30 ditambahkan (tanpa menyebut nama repo, sesuai permintaan eksplisit pengguna). Per instruksi eksplisit pengguna ("dilarang menyebut nama repo di dalam poin"), seluruh poin baru di `MEMORI.md`/`riwayat_perubahan.md` TIDAK menyebut nama repo/proyek; arsip sesi lama dan tabel `Berkas Terdampak` (path wajib, aturan 22 memori-check) dibiarkan apa adanya. Permintaan lanjutan saat penutupan ("tutup sesi ini saja"): tanpa pekerjaan tambahan di luar alur akhir sesi ini.
-
----
-
 # Sesi 31
 
 - Status Sinkron: Sudah Sinkron
@@ -1567,9 +1473,6 @@ Sinkronisasi akhir sesi 30 (2026-11-18): header `MEMORI.md` → `Diperbarui: 202
 Disinkronkan via catch-up pada awal sesi 32 (2026-11-18): `MEMORI.md` — header `Diperbarui` diubah menjadi `(sesi 32; catch-up sesi_31)`; entri Status ditambahkan ("Sesi terakhir: sesi_31 … ter-commit oleh pengguna di `54911fa`") dengan entri sesi 30 terkoreksi label `(Sudah Sinkron)`; entri Catatan Teknis sesi 31 ditambahkan (detail perbaikan `Directionality`, hasil verifikasi statis & runtime, skill overlay-log-debug v1.3.0 + provenance, indeks code #23, error web `sqflite`/`kIsWeb`, keadaan working tree submodule pada awal sesi 32 termasuk `pubspec.*` `sqflite_common_ffi_web` yang tidak diatribusikan). `memori/riwayat_perubahan.md` — entri baru "Sesi 31 ditandai Sudah Sinkron via catch-up sesi 32 — …" ditambahkan di atas entri sesi 30. Verifikasi `git status`: root bersih kecuali pointer submodule `admin_wifi` (`m`); berkas sesi 31 (`sesi_31.md`, skill, indeks, MEMORI/riwayat sesi 30) telah ter-commit oleh pengguna di `54911fa` sebelum catch-up; tidak ada perubahan diatribusikan ke sesi selain sesuai catatan sesi ini.
 
 **Penutupan sesi 31 oleh sesi pembuat (2026-11-18, perintah pengguna "tutup sesi")**: sesi 32 menandai `sesi_31.md` `Sudah Sinkron` saat sesi 31 masih berjalan (parallel sessions) — pekerjaan berikutnya (dukungan Web SQLite, skill baru `code/dukungan-sqlite-web`, koreksi indeks A–Z) belum tersinkron. Penutupan ini (oleh pembuat berkas): `MEMORI.md` — header → `(sesi 31; penutupan — koreksi lanjutan atas catch-up sesi 32)`; entri Status "Sesi terakhir" ditambah koreksi penutupan (dukungan Web SQLite diimplementasikan atas persetujuan eksplisit; skill code/dukungan-sqlite-web v1.0.0; klaim usang "keputusan Web BELUM diambil"/"indeks code #23" ditandai; `overlay_log_debug.md` belum diubah; perubahan root belum ter-commit); entri Catatan Teknis penutupan sesi 31 ditambahkan (paling atas). `memori/riwayat_perubahan.md` — entri "Sesi 31 — penutupan" ditambahkan di paling atas. Tabel di bawah: baris `MEMORI.md` dan `memori/riwayat_perubahan.md` ditambahkan (perubahan penutupan). Submodule `admin_wifi` telah ter-commit oleh pengguna di `11f7d9e` ("a", 2026-11-18 01:16:15; isi persis implementasi Web SQLite sesi ini + `web/sqflite_sw.js`/`web/sqlite3.wasm`; gitlink root `ea39344` → `11f7d9e`, pointer belum di-commit). Berkas sesi 32 (`sesi_32.md`) TIDAK disentuh (sesi paralel, masih `Belum Sinkron`); arsip sesi 29/30 TIDAK disentuh (formatmd sesi 32 telah merapikan kolom tabel; keputusan pengguna "biarkan/lanjutkan formatmd global" — dicatat di `sesi_32.md`).
-
----
-
 # Sesi 32
 
 - Status Sinkron: Sudah Sinkron
@@ -1615,9 +1518,6 @@ Disinkronkan via catch-up pada awal sesi 32 (2026-11-18): `MEMORI.md` — header
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan lewat catch-up sesi 33 (2026-11-18): seluruh perubahan sesi 32 terverifikasi ter-commit oleh pengguna di `1d5b39a` (2026-11-18 08:22 WIB; `.agents/rules/code.md` baru, `prompt/rules/code.md` ditulis ulang + header wajib, formatmd global tanpa perubahan isi selain realign tabel `sesi_29.md`/`sesi_30.md`/`sesi_31.md`/`sesi_32.md`, serta perubahan sesi 31 penutupan: skill `code/dukungan-sqlite-web` v1.0.0 + indeks A–Z + MEMORI/riwayat). `MEMORI.md`: header → `(sesi 33; catch-up sesi 32)`; entri Catatan Teknis sesi 32 ditambah. `memori/riwayat_perubahan.md`: entri catch-up sesi_32 ditambahkan di atas entri sesi 31 penutupan. Tidak ada perubahan tambahan; `sesi_32.md` ditandai `Sudah Sinkron` oleh sesi 33 (catch-up), bukan oleh pembuatnya — tercatat eksplisit untuk jejak.
-
----
-
 # Sesi 33
 
 - Status Sinkron: Sudah Sinkron
@@ -1671,9 +1571,6 @@ Disinkronkan lewat catch-up sesi 33 (2026-11-18): seluruh perubahan sesi 32 terv
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan lewat catch-up sesi 34 (2026-11-18): seluruh perubahan sesi 33 diverifikasi ter-commit oleh pengguna — submodule `admin_wifi` di `8f8941c` ("a", 2026-11-18 01:58 UTC; berisi persis pekerjaan sesi 33: konversi Freezed `PelangganAktifModel`, `id` required, test `buatModel` meneruskan `id: ''`, regenerate `.mocks.dart`, beserta restrukturisasi `lib/fitur/` yang dilakukan di luar sesi) dan root di `0f9a566` ("a", 2026-11-18 01:58 UTC; berisi `sesi_33.md` + gitlink `admin_wifi`; commit yang sama menghapus isi `.agents/rules/code.md` — berkas kini 0 byte — dan menghapus `prompt/rules/code.md`). `MEMORI.md`: header → `(sesi 34; catch-up sesi 33)`; entri Status "Sesi terakhir" → sesi_33 (entri sesi_31 penutupan diubah label menjadi "Sesi 31 (penutupan)"); entri Catatan Teknis sesi 33 ditambah; entri Catatan Teknis sesi 32 diberi catatan "Usang per 2026-11-18 (sesi 34)" terkait penghapusan `.agents/rules/code.md`/`prompt/rules/code.md` oleh `0f9a566`. `memori/riwayat_perubahan.md`: entri catch-up sesi_33 ditambahkan di atas entri sesi 32. Tidak ada pekerjaan baru yang tertinggal; berkas ini ditandai `Sudah Sinkron` oleh sesi 34 (catch-up), bukan oleh pembuatnya — tercatat eksplisit untuk jejak (preseden sesi 31→32→33).
-
----
-
 # Sesi 34
 
 - Status Sinkron: Sudah Sinkron
@@ -1735,9 +1632,6 @@ Disinkronkan lewat catch-up sesi 34 (2026-11-18): seluruh perubahan sesi 33 dive
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan via catch-up sesi 35 (2026-11-18) — seluruh perubahan sesi 34 terverifikasi ter-commit oleh pengguna di `f3f6cf9` ("a", 2026-11-18 02:13:59 UTC; berisi `kelompok_skill_wajib.md` (non-code #3 timestamp), `aturan-pembuatan-rules/SKILL.md` v1.3.0, `.kilo/commands/tambah_kode_keskill.md`, `MEMORI.md` (header `(sesi 34; catch-up sesi 33)`), `memori/riwayat_perubahan.md`, `sesi_32/33/34.md` (padding tabel — tanpa perubahan isi), `prompt/commands/tambah_kode_keskill.md`, `prompt/skill/aturan-pembuatan-rules.md`). Penyesuaian `MEMORI.md`: header → `(sesi 35; catch-up sesi 34)`; Status — entri "Sesi terakhir" → sesi_34 (entri sesi 33 didemote menjadi "Sesi 33"); Catatan Teknis — entri sesi 34 ditambahkan (item terbuka `.agents/rules/code.md`/`prompt/rules/code.md` masih menunggu persetujuan pengguna). `memori/riwayat_perubahan.md` — entri catch-up sesi_34 ditambahkan di atas entri sesi 33. Berkas ditandai `Sudah Sinkron` oleh catch-up sesi 35 (bukan oleh pembuatnya); preseden sesi 31→32→33→34 dicatat eksplisit.
-
----
-
 # Sesi 35
 
 - Status Sinkron: Sudah Sinkron (catch-up sesi 36, 2026-11-18)
@@ -1819,9 +1713,6 @@ Penyesuaian `MEMORI.md`:
 `memori/riwayat_perubahan.md` — entri catch-up sesi_35 ditambahkan di paling atas.
 
 Tidak ada pekerjaan baru yang tertinggal; working tree root dan submodule bersih pada verifikasi awal sesi 36.
-
----
-
 # Sesi 36
 
 - Status Sinkron: Sudah Sinkron
@@ -1916,9 +1807,6 @@ Disinkronkan via catch-up sesi 37 (2026-11-18):
 - `memori/riwayat_perubahan.md` entri catch-up sesi 36 ditambahkan di paling atas.
 - `sesi_36.md` → `Sudah Sinkron` (ditandai catch-up sesi 37, bukan oleh pembuatnya; preseden sama dengan sesi 35).
 - Catatan tidak diatribusikan: `docs/paket_favorit.md` (penambahan `file_selector` & `pin_code_fields` tidak tercatat di sesi 36) dan `prompt/skill/aturan-pubspec.md` (poin 6 mentah WIP, "penerapan belum dilakukan" — menunggu konfirmasi ulang pengguna).
-
----
-
 # Sesi 37
 
 - Status Sinkron: Sudah Sinkron (catch-up sesi 38)
@@ -1954,9 +1842,6 @@ Disinkronkan via catch-up sesi 37 (2026-11-18):
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan (catch-up sesi 38): perubahan file sesi 37 (`docs/paket_favorit.md` entri `decimal` dan `qr`; header `MEMORI.md` `(sesi 37; catch-up sesi 36)`) sudah tercermin di HEAD/commit, tidak ada duplikasi entri Catatan Teknis baru. Status → Sudah Sinkron.
-
----
-
 # Sesi 38
 
 - Status Sinkron: Sudah Sinkron (sesi 38)
@@ -1987,9 +1872,6 @@ Disinkronkan (catch-up sesi 38): perubahan file sesi 37 (`docs/paket_favorit.md`
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan (sesi 38): `MEMORI.md` header → `(sesi 38)`; Konteks Proyek diperbarui (submodule aktif hanya `share_global_saya` & `admin_wifi`, `base_coc` nonaktif dalam komentar `.gitmodules`); `memori/riwayat_perubahan.md` entri sesi 38 ditambahkan. Status → Sudah Sinkron.
-
----
-
 # Sesi 39
 
 - Status: Berjalan
@@ -2022,9 +1904,6 @@ Command `tambah_kode_kesill`: menambahkan atau memperbarui skill yang relevan de
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan
-
----
-
 # Sesi 40
 
 - Status Sinkron: Sudah Sinkron (sesi 40)
@@ -2053,9 +1932,6 @@ Belum disinkronkan
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan (sesi 40): `MEMORI.md` tidak perlu perubahan struktural (rename file adalah detail organisasi, tidak ada konvensi atau keputusan baru yang perlu dipromosikan). `memori/riwayat_perubahan.md` entri sesi 40 ditambahkan. `dart analyze` No issues. Status → Sudah Sinkron.
-
----
-
 # Sesi 41
 
 - Status Sinkron: Sudah Sinkron (sesi 41)
@@ -2084,9 +1960,6 @@ Disinkronkan (sesi 40): `MEMORI.md` tidak perlu perubahan struktural (rename fil
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan (sesi 41): `MEMORI.md` tidak memerlukan perubahan struktural (perubahan bersifat penyempurnaan command `tambah_kode_keskill`, tidak ada konvensi/keputusan baru yang perlu dipromosikan). `memori/riwayat_perubahan.md` entri sesi 41 ditambahkan. `formatmd` dijalankan; seluruh berkas `unchanged` kecuali perubahan yang disengaja. Status → Sudah Sinkron.
-
----
-
 # Sesi 42
 
 - Status Sinkron: Sudah Sinkron (sesi 42)
@@ -2182,9 +2055,6 @@ Disinkronkan (sesi 41): `MEMORI.md` tidak memerlukan perubahan struktural (perub
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan (sesi 42): `MEMORI.md` header → `(sesi 42)`; Status "Sesi terakhir" → entri sesi 42; Catatan Teknis sesi 42 ditambahkan di paling atas. `memori/riwayat_perubahan.md` entri sesi 42 ditambahkan. Tidak ada perubahan kontrak/konvensi lintas proyek.
-
----
-
 # Sesi 43
 
 - Status: Selesai (catch-up sesi 45)
@@ -2229,9 +2099,6 @@ Disinkronkan (sesi 42): `MEMORI.md` header → `(sesi 42)`; Status "Sesi terakhi
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan lewat catch-up sesi 45 (atas persetujuan pengguna, 2026-11-18): `MEMORI.md` header → `Diperbarui: 2026-11-18 (sesi 45)`; Status — entri baru "Sesi terakhir: `memori/sesi/sesi_43.md` (Sudah Sinkron via catch-up sesi 45)" ditambahkan di atas entri sesi 42 (yang diubah labelnya menjadi "Sesi 42:"); Catatan Teknis — entri sesi 43 ditambahkan di paling atas; `memori/riwayat_perubahan.md` — entri "Sesi 43 ditandai Sudah Sinkron via catch-up sesi 45" ditambahkan di paling atas. `MEMORI.md`/`riwayat_perubahan.md` sebelumnya sudah memuat sinkronisasi sesi 42 Lanjutan 4–5 (commit `6f898b8`); tidak ada perubahan tambahan selain yang disebut di atas. Verifikasi: seluruh perubahan sesi ini ter-commit di `6f898b8` (`prompt/commands/muat_skill_terkait.md`, `.kilo/commands/muat_skill_terkait.md`, sesi_43.md) dan `git status --short` bersih pada saat catch-up.
-
----
-
 # Sesi 44
 
 - Status: Berjalan
@@ -2271,9 +2138,6 @@ Disinkronkan lewat catch-up sesi 45 (atas persetujuan pengguna, 2026-11-18): `ME
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan untuk disinkronkan — sesi ini hanya berisi jawaban informatif atas pertanyaan error API OpenRouter/Thinking Machines; tidak ada berkas proyek yang dibuat/diubah/dihapus selain berkas sesi ini (ter-commit di `f784da7`). Ditandai `Sudah Sinkron` lewat catch-up sesi 45.
-
----
-
 # Sesi 45
 
 - Status: Berjalan
@@ -2488,9 +2352,6 @@ Tidak ada perubahan untuk disinkronkan — sesi ini hanya berisi jawaban informa
 ## Sinkronisasi ke MEMORI.md
 
 Belum dilakukan.
-
----
-
 # Sesi 46
 
 - Status: Berjalan
@@ -2542,9 +2403,6 @@ Belum dilakukan.
 ## Sinkronisasi ke MEMORI.md
 
 Belum dilakukan.
-
----
-
 # Sesi 47
 
 - Status: Berjalan
@@ -2638,9 +2496,6 @@ Belum dilakukan.
 ## Sinkronisasi ke MEMORI.md
 
 Belum dilakukan — menunggu sesi diakhiri atas perintah pengguna.
-
----
-
 # Sesi 48
 
 ## Status
@@ -2725,9 +2580,6 @@ Lampiran awal terpotong ±140 KB; transkrip penuh dibaca via `kilo_local_recall`
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan (sesi masih berjalan).
-
----
-
 # Sesi 49
 
 ## Status
@@ -2771,9 +2623,6 @@ Belum disinkronkan (sesi masih berjalan).
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan.
-
----
-
 # Sesi 50
 
 ## Status
@@ -2846,9 +2695,6 @@ Belum disinkronkan.
 - `MEMORI.md`: header `Diperbarui` → `2026-11-19 (sesi 50)`; Status — `Sesi terakhir` → sesi_50 (entri sesi 43 lama dilabeli ulang "Sesi 43"); Catatan Teknis — entri Sesi 50 ditambahkan paling atas.
 - `memori/riwayat_perubahan.md`: entri `2026-11-19 | Sesi 50 | …` ditambahkan di paling atas.
 - `sesi_50.md` ditandai `Sudah Sinkron`.
-
----
-
 # Sesi 51
 
 ## Status
@@ -2892,9 +2738,6 @@ Belum disinkronkan.
 - `MEMORI.md`: header `Diperbarui` → `2026-11-19 (sesi 51)`; Status — `Sesi terakhir` → sesi_51 (entri sesi 50 dilabeli ulang "Sesi 50"); Catatan Teknis — entri sesi 51 ditambahkan paling atas.
 - `memori/riwayat_perubahan.md`: entri `2026-11-19 | Sesi 51 | …` di paling atas.
 - `sesi_51.md` ditandai `Sudah Sinkron`.
-
----
-
 # Sesi 52 — Memantau dan Mengevaluasi Transkrip Ses_e0f7d76beffet3p0dK8LtOurY5
 
 Diperbarui: 2026-11-19 04:51 WIB
@@ -2926,9 +2769,6 @@ Topik: Evaluasi pekerjaan AI pada transkrip sesi terhadap aturan dan skill yang 
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan (sesi berjalan).
-
----
-
 # Sesi 53
 
 ## Status
@@ -2982,9 +2822,6 @@ Belum disinkronkan (sesi berjalan).
 ## Sinkronisasi ke MEMORI.md
 
 Sudah disinkronkan.
-
----
-
 # Sesi 54
 
 ## Status
@@ -3030,9 +2867,6 @@ Sudah disinkronkan.
 ## Sinkronisasi ke MEMORI.md
 
 Sudah disinkronkan (sesi 54): MEMORI.md header tanggal diperbarui ke `(sesi 54)`; Status "Sesi terakhir" diperbarui ke sesi 54; Catatan Teknis ditambah entri sesi 54.
-
----
-
 # Sesi 55
 
 ## Status
@@ -3067,9 +2901,6 @@ Sudah disinkronkan (sesi 54): MEMORI.md header tanggal diperbarui ke `(sesi 54)`
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan
-
----
-
 # Sesi 56
 
 ## Status
@@ -3102,9 +2933,6 @@ Belum disinkronkan
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan
-
----
-
 # Sesi 57
 
 ## Status
@@ -3134,9 +2962,6 @@ Belum disinkronkan
 ## Sinkronisasi ke MEMORI.md
 
 Sudah disinkronkan (entri singkat di bawah).
-
----
-
 # Sesi 58
 
 ## Status
@@ -3162,9 +2987,6 @@ Sudah disinkronkan (entri singkat di bawah).
 ## Sinkronisasi ke MEMORI.md
 
 Diperbarui: header `Diperbarui: 2026-11-19 (sesi 58)`; Status `Sesi terakhir` → sesi_58; Catatan Teknis entri sesi 58 ditambah; `memori/riwayat_perubahan.md` entri sesi 58 ditambah. Sesi ditandai Sudah Sinkron.
-
----
-
 # Sesi 59
 
 Status: Sudah Sinkron
@@ -3192,9 +3014,6 @@ Pantau dan evaluasi transkrip sesi `ses_e0f09a7f5ffeYhZ7Bm6b1qJJK6` ("Error getB
 ## Sinkronisasi ke MEMORI.md
 
 - Aturan baru #26 pada `.agents/rules/code.md` (skill terkait `pencarian-koleksi-null-safe`) dicatat di sini; tidak ada perubahan status proyek admin_wifi. Penandaan Sudah Sinkron sesi 59.
-
----
-
 # Sesi 60
 
 ## Status
@@ -3232,9 +3051,6 @@ Pantau dan evaluasi transkrip sesi `ses_e0f09a7f5ffeYhZ7Bm6b1qJJK6` ("Error getB
 ## Sinkronisasi ke MEMORI.md
 
 - Aturan baru #27 pada `.agents/rules/code.md` (skill terkait `type-promotion-null-safety`) dicatat di sini; skill `type-promotion-null-safety` v1.0.2; MEMORI.md header → sesi 60; `Sesi terakhir` → sesi_60; Catatan Teknis entri sesi 60 ditambah; `riwayat_perubahan.md` entri sesi 60 ditambah; keputusan pengguna (sesi_59.md dibiarkan apa adanya) tercatat di berkas ini.
-
----
-
 # Sesi 61
 
 ## Status
@@ -3274,9 +3090,6 @@ Pantau dan evaluasi transkrip sesi `ses_e0f09a7f5ffeYhZ7Bm6b1qJJK6` ("Error getB
 ## Sinkronisasi ke MEMORI.md
 
 - Bagian tambahan transkrip dievaluasi; seluruh pelanggaran sudah tercakup (code.md #21 — header `// path:` basi `transaksi.dart`/`kategori.dart` + impor test rusak `test/halaman/tab/transaksi_test.dart`; lainnya.md #2 — `snackbar_util.dart` diunlink sebelum grep). Celah baru TIDAK ADA; tidak ada draf/perubahan aturan-skill; tidak ada perubahan kode. Catch-up `sesi_45`–`sesi_56` tetap `Belum Sinkron` (dilaporkan ke pengguna). MEMORI.md header → sesi 61; `Sesi terakhir` → sesi_61; Catatan Teknis entri sesi 61 ditambah; `riwayat_perubahan.md` entri sesi 61 ditambah.
-
----
-
 # Sesi 62
 
 ## Status
@@ -3308,9 +3121,6 @@ Pantau dan evaluasi transkrip sesi `ses_e0f09a7f5ffeYhZ7Bm6b1qJJK6` ("Error getB
 ## Sinkronisasi ke MEMORI.md
 
 - Bagian terbaru transkrip (`form_kategori.dart` dipindah) dievaluasi; eksekusi sesuai aturan #21/struktur-folder-lib (header diperbarui, grep + impor diperbarui); tidak ada celah baru; tidak ada draf/perubahan aturan-skill/kode. MEMORI.md header → sesi 62; `Sesi terakhir` → sesi_62; `riwayat_perubahan.md` entri sesi 62 ditambah. Catch-up `sesi_45`–`sesi_56` tetap `Belum Sinkron` (dilaporkan ke pengguna).
-
----
-
 # Sesi 63
 
 ## Status
@@ -3369,9 +3179,6 @@ Pantau dan evaluasi transkrip sesi `ses_e0f09a7f5ffeYhZ7Bm6b1qJJK6` ("Error getB
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron
@@ -3436,9 +3243,6 @@ Topik: Ganti impor `package:flutter/material.dart` → `package:material_ui/mate
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan: header `MEMORI.md` → `(sesi 64)`; `## Status` baris "Sesi terakhir" diarahkan ke `sesi_64.md`; `## Catatan Teknis` ditambah entri sesi 64 (disisipkan setelah sesi 62); entri ditambahkan ke `memori/riwayat_perubahan.md`.
-
----
-
 # Sesi 65
 
 ## Status
@@ -3489,9 +3293,6 @@ Catatan keterbatasan: transkrip diterima sebagai lampiran sesi ini dan terpotong
 | .agents/skills/code/riverpod-pola/SKILL.md | Diubah           | Aturan 4 dipertajam (v1.6.0 → 1.7.0)                                                 |
 
 - Berkas sesi ini disinkronkan ke `MEMORI.md` (header `(sesi 65)`; `## Status` → sesi_65 `Sudah Sinkron`; koreksi label sesi 64 `Sudah Sinkron`; Catatan Teknis sesi 63, sesi 65, sesi 65 lanjutan "material ui", dan sesi 65 lanjutan kedua "ref.watch di helper" ditambah) dan `memori/riwayat_perubahan.md` (entri sesi 63 catch-up + sesi 65 + sesi 65 lanjutan + sesi 65 lanjutan kedua). Berkas `Belum Sinkron` ambigu dari sesi sebelumnya (sesi_45–49, 52, 55, 56) tidak disentuh; dilaporkan ke pengguna.
-
----
-
 # Sesi 66
 
 ## Status
@@ -3507,9 +3308,6 @@ Catatan keterbatasan: transkrip diterima sebagai lampiran sesi ini dan terpotong
 - Mengubah `admin_wifi/lib/fitur/pelanggan_aktif/state/pelanggan_aktif_state.dart`: menambahkan method `getJatuhTempo()` yang mengembalikan `List<PelangganAktifModel>` dengan filter `tanggalBerakhir.isBefore(DateTime.now())`, beserta alias getter/method yang umum dipakai.
 - Verifikasi: `dart format` (0 berubah), `dart analyze` No issues found. `build_runner` tidak diperlukan (method manual).
 - Tidak ada commit oleh sesi.
-
----
-
 ## Status
 
 - Status Sinkron: Sudah Sinkron (catch-up sesi 68)
@@ -3542,9 +3340,6 @@ Pantau & evaluasi transkrip (sesi 68): `MEMORI.md` header → `(sesi 68)`; `## S
 ## Temuan (dari evaluasi transkrip di sesi 68)
 
 - `getListBelumJatuhTempo()` memakai `!item.tanggalBerakhir.isBefore(DateTime.now())` tanpa normalisasi tanggal — melanggar code.md #26 (`normalisasi-tanggal`); sudah diperbaiki? Tidak — belum diperbaiki (menunggu perintah pengguna).
-
----
-
 # Sesi 68
 
 ## Status
@@ -3589,9 +3384,6 @@ Pantau & evaluasi transkrip (sesi 68): `MEMORI.md` header → `(sesi 68)`; `## S
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan: header `MEMORI.md` → `(sesi 68)`; `## Status` diperbarui (Sesi terakhir → sesi_68, status → Sudah Sinkron; entri sesi 67 ditambah; detail perubahan akhir ditambah: hapus `_loadData(forceRefresh: true)` pasca-`Nav.to` pada `onTap` daftar "Jatuh Tempo", ganti separator `Divider` daftar utama → `const SizedBox(height: 1)`); Catatan Teknis entri sesi 67 dan sesi 68 ditambah; `memori/riwayat_perubahan.md` ditambah entri sesi 67 catch-up dan entri sesi 68 (perubahan command + perubahan kode layar).
-
----
-
 # Sesi 69
 
 ## Status
@@ -3617,9 +3409,6 @@ Disinkronkan: header `MEMORI.md` → `(sesi 68)`; `## Status` diperbarui (Sesi t
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan untuk disinkronkan — semua perubahan nyata pada percakapan ini telah dicatat pada `sesi_68.md` (perbaikan command `muat_skill_terkait` + perubahan kode `pelanggan_aktif_screen.dart`). Sesi 69 hanya mencatat sambutan awal dan checklist awal sesi.
-
----
-
 # Sesi 70
 
 Tanggal: 2026-11-19
@@ -3665,9 +3454,6 @@ Tidak ada perubahan aturan/skill/kode yang diusulkan atau dibuat pada sesi ini. 
 ## Sinkronisasi ke MEMORI.md
 
 Ditandai `Sudah Sinkron` lewat catch-up sesi 71 (2026-11-19): sesi ini hanya berisi catatan evaluasi transkrip; tidak ada perubahan aturan/skill/kode/dokumen proyek, sehingga tidak ada perubahan untuk disinkronkan ke MEMORI.md (catatan evaluasi tetap terarsip di berkas sesi ini).
-
----
-
 # Sesi 71
 
 Tanggal: 2026-11-19
@@ -3701,9 +3487,6 @@ Topik: sambutan awal sesi (hai)
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan.
-
----
-
 # Sesi 72
 
 Tanggal: 2026-11-19
@@ -3742,9 +3525,6 @@ Topik: Pemantauan & evaluasi transkrip `ses_e0e3cf11dffeiguOEhpcaTraqz` ("Greeti
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan.
-
----
-
 # Sesi 73
 
 ## Status
@@ -3788,9 +3568,6 @@ Belum disinkronkan.
 - `memori/riwayat_perubahan.md`: entri sesi 73 ditambah di paling atas.
 - Berkas `sesi_71.md`/`sesi_72.md` (paralel, berisi perubahan nyata) TIDAK ditandai `Sudah Sinkron` (`memori-check` Aturan 23); `sesi_45`–`sesi_49`, `sesi_52`, `sesi_55`, `sesi_56` tetap `Belum Sinkron` (ambigu, dilaporkan).
 - Verifikasi akhir: yang berubah di `memori/sesi/` hanya `sesi_73.md` (sesi aktif); berkas `Sudah Sinkron` tidak disentuh. `git status --short` menunjukkan `sesi_73.md` (A), `prompt/commands/pantau_dan_evaluasi_transkrip.md` (MM), `.kilo/commands/pantau_dan_evaluasi_transkrip.md` (M) di atas perubahan paralel pra-eksisting.
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron  
@@ -3824,9 +3601,6 @@ Topik: Memperbarui berkas di folder prompt/ (memperbarui_file_di_folder_prompt)
 ## Sinkronisasi ke MEMORI.md
 
 Disinkronkan oleh sesi 75 (kelanjutan tugas; sesi 74 terputus di tengah sebelum target ditulis dan sebelum MEMORI.md diperbarui): draf target yang disetujui pengguna ("ok") ditulis ke `.kilo/commands/pantau_dan_evaluasi_transkrip.md` oleh sesi 75; `npx prettier --write` scoped 2 berkas (keduanya `unchanged`; alias formatmd global TIDAK dijalankan); `memori/riwayat_perubahan.md` ditambah entri sesi 74+75; `MEMORI.md` diperbarui — header `Diperbarui: 2026-11-19 (sesi 75)`, bagian Status (Sesi terakhir → sesi_75) dan Catatan Teknis (entri sesi 74+75). Sesi lain yang Belum Sinkron (sesi_45–49, 52, 55, 56, 71, 72) tidak ditandai (Aturan 23).
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron  
@@ -3858,9 +3632,6 @@ Topik: Melanjutkan tugas "Memperbarui berkas prompt dengan persetujuan" (sesi 74
 ## Sinkronisasi ke MEMORI.md
 
 Dikerjakan di sesi ini (kelanjutan tugas sesi 74): `memori/riwayat_perubahan.md` ditambah entri sesi 74+75 (2026-11-19); `MEMORI.md` diperbarui — header `Diperbarui: 2026-11-19 (sesi 75)`, bagian Status (Sesi terakhir → sesi_75, mencatat poin 9 multi-select Opsi A + target disinkronkan + prettier scoped + catch-up sesi_74) dan Catatan Teknis (entri sesi 74+75). Provenance `sesi 74`/`sesi 75` dicantumkan. Sesi paralel/ambigu (`sesi_45`–`sesi_49`, `sesi_52`, `sesi_55`, `sesi_56`, `sesi_71`, `sesi_72`) tetap `Belum Sinkron` (Aturan 23; tidak ditandai).
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron  
@@ -3894,9 +3665,6 @@ Topik: Memperbarui berkas di folder prompt/ (target belum ditunjuk — menunggu 
 ## Sinkronisasi ke MEMORI.md
 
 Dikerjakan di sesi ini: `memori/riwayat_perubahan.md` ditambah entri sesi 76 (2026-11-19); `MEMORI.md` diperbarui — header `Diperbarui: 2026-11-19 (sesi 76)`, bagian Status (Sesi terakhir → sesi_76) dan Catatan Teknis (entri sesi 76 di paling atas). Provenance `sesi 76` dicantumkan. Sesi paralel/ambigu (`sesi_45`–`sesi_49`, `sesi_52`, `sesi_55`, `sesi_56`, `sesi_71`, `sesi_72`) tetap `Belum Sinkron` (Aturan 23; tidak ditandai). Verifikasi: `git status --short` — berkas berubah/baru = MEMORI.md, memori/riwayat_perubahan.md, .kilo/commands/analisa_transkrip.md, prompt/commands/analisa_transkrip.md, memori/sesi/sesi_76.md (+ docs/hasil_analisa/hasil_analisa_transkrip.md untracked yang memang sudah ada, bukan dibuat sesi ini); `git diff --name-only -- memori/sesi/` kosong (tidak ada berkas sesi arsip yang berubah).
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron  
@@ -3921,9 +3689,6 @@ Topik: Koreksi frontmatter `.kilo/commands/analisa_transkrip.md` menjadi YAML be
 ## Sinkronisasi ke MEMORI.md
 
 Dikerjakan di sesi ini: `MEMORI.md` header → (sesi 77), Status "Sesi terakhir" → sesi_77, Catatan Teknis entri sesi 77; `memori/riwayat_perubahan.md` entri sesi 77 ditambah. Tidak ada klaim durable lain yang berubah; koreksi format tidak mengubah isi/poin command. Sesi paralel/ambigu (`sesi_45`–`sesi_49`, `sesi_52`, `sesi_55`, `sesi_56`, `sesi_71`, `sesi_72`) tetap `Belum Sinkron` (Aturan 23).
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron  
@@ -3948,9 +3713,6 @@ Topik: Penambahan poin 7 pada command `analisa_transkrip` (laporan saran agar AI
 ## Sinkronisasi ke MEMORI.md
 
 Dikerjakan di sesi ini: `MEMORI.md` header → (sesi 78), Status "Sesi terakhir" → sesi_78, Catatan Teknis entri sesi 78; `memori/riwayat_perubahan.md` entri sesi 78 ditambah. Tidak ada klaim durable lain; poin baru hanya melengkapi poin tujuan command (belum ada langkah analisa — menyusul). Sesi paralel/ambigu (`sesi_45`–`sesi_49`, `sesi_52`, `sesi_55`, `sesi_56`, `sesi_71`, `sesi_72`) tetap `Belum Sinkron` (Aturan 23).
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron  
@@ -3975,9 +3737,6 @@ Topik: Penggantian poin 5 placeholder pada command `analisa_transkrip` dengan la
 ## Sinkronisasi ke MEMORI.md
 
 Dikerjakan di sesi ini: `MEMORI.md` header → (sesi 79), Status "Sesi terakhir" → sesi_79, Catatan Teknis entri sesi 79; `memori/riwayat_perubahan.md` entri sesi 79 ditambah. Tidak ada klaim durable lain. Sesi paralel/ambigu (`sesi_45`–`sesi_49`, `sesi_52`, `sesi_55`, `sesi_56`, `sesi_71`, `sesi_72`) tetap `Belum Sinkron` (Aturan 23).
-
----
-
 # Sesi 80
 
 Status: Belum Sinkron
@@ -4013,9 +3772,6 @@ Menjalankan command `analisa_transkrip`: analisa transkrip sesi sesuai instruksi
 - Langkah analisa nyata kini termuat (sebelumnya placeholder).
 - Analisa transkrip `ses_e0c72f74fffeEDk33NtRFd24Cb` selesai; penanda di-append ke `docs/hasil_analisa/hasil_analisa_transkrip.md`.
 - Belum di-commit.
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron  
@@ -4040,9 +3796,6 @@ Topik: Perubahan alur command `analisa_transkrip` — cache daftar id + Created 
 ## Sinkronisasi ke MEMORI.md
 
 Dikerjakan di sesi ini: `MEMORI.md` header → (sesi 81), Status "Sesi terakhir" → sesi_81, Catatan Teknis entri sesi 81; `memori/riwayat_perubahan.md` entri sesi 81 ditambah. Tidak ada klaim durable lain. Sesi paralel/ambigu (`sesi_45`–`sesi_49`, `sesi_52`, `sesi_55`, `sesi_56`, `sesi_71`, `sesi_72`) tetap `Belum Sinkron` (Aturan 23).
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron  
@@ -4067,9 +3820,6 @@ Topik: Poin 6 command `analisa_transkrip` — simpan hasil analisa ke `hasil_ana
 ## Sinkronisasi ke MEMORI.md
 
 Dikerjakan di sesi ini: `MEMORI.md` header → (sesi 82), Status "Sesi terakhir" → sesi_82, Catatan Teknis entri sesi 82; `memori/riwayat_perubahan.md` entri sesi 82 ditambah. Tidak ada klaim durable lain. Sesi paralel/ambigu (`sesi_45`–`sesi_49`, `sesi_52`, `sesi_55`, `sesi_56`, `sesi_71`, `sesi_72`) tetap `Belum Sinkron` (Aturan 23).
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron  
@@ -4094,9 +3844,6 @@ Topik: Penyisipan poin 5 (full dump transkrip sebelum analisa) pada command `ana
 ## Sinkronisasi ke MEMORI.md
 
 Dikerjakan di sesi ini: `MEMORI.md` header → (sesi 83), Status "Sesi terakhir" → sesi_83, Catatan Teknis entri sesi 83; `memori/riwayat_perubahan.md` entri sesi 83 ditambah. Tidak ada klaim durable lain. Sesi paralel/ambigu (`sesi_45`–`sesi_49`, `sesi_52`, `sesi_55`, `sesi_56`, `sesi_71`, `sesi_72`) tetap `Belum Sinkron` (Aturan 23).
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron  
@@ -4121,9 +3868,6 @@ Topik: Penegasan isi ringkasan pada poin 7 command `analisa_transkrip` (apa yang
 ## Sinkronisasi ke MEMORI.md
 
 Dikerjakan di sesi ini: `MEMORI.md` header → (sesi 84), Status "Sesi terakhir" → sesi_84, Catatan Teknis entri sesi 84; `memori/riwayat_perubahan.md` entri sesi 84 ditambah. Tidak ada klaim durable lain. Sesi paralel/ambigu (`sesi_45`–`sesi_49`, `sesi_52`, `sesi_55`, `sesi_56`, `sesi_71`, `sesi_72`) tetap `Belum Sinkron` (Aturan 23).
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron  
@@ -4148,9 +3892,6 @@ Topik: Poin 5 command `analisa_transkrip` — larangan sub-agent untuk membaca t
 ## Sinkronisasi ke MEMORI.md
 
 Dikerjakan di sesi ini: `MEMORI.md` header → (sesi 85), Status "Sesi terakhir" → sesi_85, Catatan Teknis entri sesi 85; `memori/riwayat_perubahan.md` entri sesi 85 ditambah. Tidak ada klaim durable lain. Sesi paralel/ambigu (`sesi_45`–`sesi_49`, `sesi_52`, `sesi_55`, `sesi_56`, `sesi_71`, `sesi_72`) tetap `Belum Sinkron` (Aturan 23).
-
----
-
 # Sesi 86
 
 Status: Sudah Sinkron
@@ -4179,9 +3920,6 @@ Topik: Menghapus ketergantungan PelangganAktifOperasi dari pengguna_aktif_notifi
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan MEMORI.md yang diperlukan.
-
----
-
 # Sesi 87
 
 Status: Sudah Sinkron
@@ -4208,9 +3946,6 @@ Topik: Menghapus PelangganOperasi dari pengguna_aktif_notifier.
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan MEMORI.md yang diperlukan.
-
----
-
 # Sesi 88
 
 Status: Sudah Sinkron
@@ -4238,9 +3973,6 @@ Topik: Menyederhanakan pembuatan id di pengguna_aktif_notifier.
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan MEMORI.md yang diperlukan.
-
----
-
 ## Status
 
 - Status Sinkron: Sudah Sinkron
@@ -4268,9 +4000,6 @@ Tidak ada perubahan MEMORI.md yang diperlukan.
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sync sesi 93: hasil analisa transkrip id terlama dicatat pada docs/hasil_analisa/hasil_analisa_transkrip.md; tidak ada perubahan kode.
-
----
-
 # Sesi 90
 
 ## Status
@@ -4300,9 +4029,6 @@ Catch-up sync sesi 93: hasil analisa transkrip id terlama dicatat pada docs/hasi
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sync sesi 93: tidak ada perubahan nyata selain berkas sesi (build APK gagal, tidak ada artefak/berkas diubah).
-
----
-
 # Sesi 91
 
 ## Status
@@ -4325,9 +4051,6 @@ Catch-up sync sesi 93: tidak ada perubahan nyata selain berkas sesi (build APK g
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sync sesi 93: tidak ada perubahan nyata selain berkas sesi.
-
----
-
 # Sesi 92
 
 ## Status
@@ -4353,9 +4076,6 @@ Catch-up sync sesi 93: tidak ada perubahan nyata selain berkas sesi.
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sync sesi 93: tidak ada perubahan nyata selain berkas sesi.
-
----
-
 # Sesi 93
 
 ## Status
@@ -4386,9 +4106,6 @@ Catch-up sync sesi 93: tidak ada perubahan nyata selain berkas sesi.
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sync (sesi 89–92) + sinkronisasi perubahan prompt/target analisa_transkrip ke MEMORI.md dan riwayat_perubahan.md. Header MEMORI diperbarui ke sesi 93.
-
----
-
 # Sesi 94
 
 ## Status
@@ -4417,9 +4134,6 @@ Catch-up sync (sesi 89–92) + sinkronisasi perubahan prompt/target analisa_tran
 - MEMORI.md diperbarui: catatan teknis sesi 94 (analisa transkrip `ses_e0b7bd242ffenSbDvY33tqPH6W`) + header tanggal.
 - memori/riwayat_perubahan.md: entri sesi 94 ditambahkan.
 - docs/hasil_analisa/hasil_analisa_transkrip.md: id `ses_e0b7bd242ffenSbDvY33tqPH6W` ditandai sudah dianalisa.
-
----
-
 # Sesi 95
 
 ## Status
@@ -4451,9 +4165,6 @@ Catch-up sync (sesi 89–92) + sinkronisasi perubahan prompt/target analisa_tran
 ## Sinkronisasi ke MEMORI.md
 
 Sesi 95 ditambahkan ke Catatan Teknis `MEMORI.md` (aditif, di bawah entri sesi 96). Status build: dibatalkan karena galat `google-services.json` (flavor dev suffix). Perubahan konfigurasi build di-commit & push ke submodule `admin_wifi` (b08d462, 761e52b, 508d025, f7bf022). Artefak tidak diunduh. Berstatus Sudah Sinkron.
-
----
-
 # Sesi 96
 
 ## Status
@@ -4480,9 +4191,6 @@ Sesi 95 ditambahkan ke Catatan Teknis `MEMORI.md` (aditif, di bawah entri sesi 9
 ## Sinkronisasi ke MEMORI.md
 
 MEMORI.md header diperbarui ke sesi 96; Catatan Teknis entri sesi 96 ditambah; riwayat_perubahan.md entri sesi 96 ditambah.
-
----
-
 # Sesi 97
 
 ## Status
@@ -4508,9 +4216,6 @@ MEMORI.md header diperbarui ke sesi 96; Catatan Teknis entri sesi 96 ditambah; r
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan
-
----
-
 # Sesi 98
 
 ## Status
@@ -4535,9 +4240,6 @@ Belum disinkronkan
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan untuk disinkronkan (tugas read-only; tidak ada kode `.dart` yang diubah).
-
----
-
 # Sesi 99
 
 ## Status
@@ -4561,9 +4263,6 @@ Tidak ada perubahan untuk disinkronkan (tugas read-only; tidak ada kode `.dart` 
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan durable; sesi informasional. Ditandai Sudah Sinkron dengan catatan "tidak ada perubahan untuk disinkronkan" (memori-check Aturan 2/9). MEMORI.md tidak diubah.
-
----
-
 # Sesi 100
 
 ## Status
@@ -4588,9 +4287,6 @@ Tidak ada perubahan durable; sesi informasional. Ditandai Sudah Sinkron dengan c
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sync (sesi 101): tidak ada perubahan kode/dokumen nyata (pull submodule tidak mengubah tracked files); ditandai `Sudah Sinkron` dengan catatan "tidak ada perubahan untuk disinkronkan". MEMORI.md tidak diubah.
-
----
-
 # Sesi 101
 
 ## Status
@@ -4616,9 +4312,6 @@ Catch-up sync (sesi 101): tidak ada perubahan kode/dokumen nyata (pull submodule
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan untuk disinkronkan (sesi yatim: target di folder `prompt/` belum ditentukan pengguna; tidak ada perubahan kode/dokumen). Ditandai `Sudah Sinkron` dengan catatan eksplisit pada catch-up sync sesi 102 (memori-check Aturan 2). MEMORI.md tidak diubah.
-
----
-
 # Sesi 102
 
 ## Status
@@ -4647,9 +4340,6 @@ Tidak ada perubahan untuk disinkronkan (sesi yatim: target di folder `prompt/` b
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sync sesi 103: sesi 102 yatim/tanpa perubahan nyata → ditandai `Sudah Sinkron` dengan catatan eksplisit "tidak ada perubahan untuk disinkronkan". Tidak ada perubahan MEMORI.md/riwayat_perubahan.md yang diperlukan.
-
----
-
 # Sesi 103
 
 ## Status
@@ -4678,9 +4368,6 @@ Catch-up sync sesi 103: sesi 102 yatim/tanpa perubahan nyata → ditandai `Sudah
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sync (sesi 105): sesi 103 informasional (error dubious ownership) tanpa perubahan kode/dokumen → ditandai `Sudah Sinkron` dengan catatan eksplisit "tidak ada perubahan untuk disinkronkan". MEMORI.md tidak diubah untuk sesi ini.
-
----
-
 # Sesi 104
 
 ## Status
@@ -4724,9 +4411,6 @@ Catch-up sync (sesi 105): sesi 103 informasional (error dubious ownership) tanpa
 ## Sinkronisasi ke MEMORI.md
 
 Diperbarui header MEMORI.md → (sesi 104); Status "Sesi terakhir" → sesi_104; Catatan Teknis entri sesi 104 ditambah. `memori/riwayat_perubahan.md` entri sesi 104 ditambah. Berkas `Belum Sinkron` ambigu (sesi 45–49, 52, 55, 56, 71, 72, 97, 103) tidak ditandai (Aturan 23).
-
----
-
 # Sesi 105
 
 ## Status
@@ -4756,9 +4440,6 @@ Diperbarui header MEMORI.md → (sesi 104); Status "Sesi terakhir" → sesi_104;
 ## Sinkronisasi ke MEMORI.md
 
 Sesi 105: MEMORI.md header → (sesi 105); Catatan Teknis entri koreksi catch-up sesi 101 ditambah; `memori/riwayat_perubahan.md` entri koreksi ditambah. Sesi 103 ditandai Sudah Sinkron (catch-up). Berkas sesi `Sudah Sinkron` tidak diubah (sesi 101 arsip). Status Sinkron → Sudah Sinkron.
-
----
-
 # Sesi 106
 
 ## Status
@@ -4786,9 +4467,6 @@ Sesi 105: MEMORI.md header → (sesi 105); Catatan Teknis entri koreksi catch-up
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan durable pada repositori workspace (file dibuat di home). MEMORI.md tidak diubah. Sesi ditandai `Sudah Sinkron` dengan catatan eksplisit.
-
----
-
 # Sesi 107
 
 ## Status
@@ -4816,9 +4494,6 @@ Tidak ada perubahan durable pada repositori workspace (file dibuat di home). MEM
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan durable pada repositori yang memerlukan pembaruan MEMORI.md (perubahan hanya pada berkas poin skill). MEMORI.md tidak diubah. Sesi ditandai `Sudah Sinkron` dengan catatan eksplisit.
-
----
-
 # Sesi 108
 
 ## Status
@@ -4851,9 +4526,6 @@ Tidak ada perubahan durable pada repositori yang memerlukan pembaruan MEMORI.md 
 ## Sinkronisasi ke MEMORI.md
 
 Sesi 108: `MEMORI.md` header → (sesi 108); Catatan Teknis tujuan memori ditambah (provenance sesi 108); `memori/riwayat_perubahan.md` entri sesi 108 ditambah; `prompt/skill/memori-check.md` poin 30 ditambah. Berkas `Belum Sinkron` ambigu (`sesi_97`) tidak ditandai (Aturan 23). Status Sinkron → Sudah Sinkron.
-
----
-
 # Sesi 109
 
 ## Status
@@ -4890,9 +4562,6 @@ Sesi 108: `MEMORI.md` header → (sesi 108); Catatan Teknis tujuan memori ditamb
 ## Sinkronisasi ke MEMORI.md
 
 Belum dilakukan.
-
----
-
 # Sesi 110
 
 ## Status
@@ -4937,9 +4606,6 @@ Belum dilakukan.
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan.
-
----
-
 # Sesi 111
 
 ## Status
@@ -4981,18 +4647,12 @@ Belum dilakukan.
 ## Pertanyaan Terbuka
 
 - Apakah sesi paralel/ambigu (`sesi_45`–`49`, `52`, `55`, `56`, `71`, `72`, `80`, `97`, `109`, `110`) perlu disinkronkan sekarang, atau ditangani oleh sesi pembuat masing-masing? (Lapor pengguna; tidak diputuskan sendiri.)
-
----
-
 # Sesi 112
 
 - Tugas: Ubah seluruh test agar menggunakan mocktail dan hapus paket mockito dari pubspec (admin_wifi).
 - Perubahan: konversi test mockito → mocktail (form_paket, form_versi_apk_user, versi_apk_user lainnya, transaksi, versi_apk_user_operasi, unggah_data), hapus berkas *.mocks.dart, hapus mockito dari pubspec.yaml.
 - Verifikasi: dart format, dart analyze (No issues found!).
 - Status: Sudah Sinkron.
-
----
-
 # Sesi 113
 
 ## Status
@@ -5022,9 +4682,6 @@ Belum dilakukan.
 
 - `MEMORI.md` header diperbarui ke `2026-11-20 (sesi 113)`.
 - Catatan Konvensi dan Aturan ditambah: prasyarat perintah state-changing dan konfirmasi aksi destruktif (sesi 113).
-
----
-
 # Sesi 114
 
 ## Status
@@ -5050,9 +4707,6 @@ Belum dilakukan.
 ## Sinkronisasi ke MEMORI.md
 
 Sinkronisasi akhir sesi: perubahan terbatas pada command `diskusi_hasil_analisa_transkrip` (prompt + target); tidak ada perubahan durable pada konvensi/aturan proyek yang perlu dipromosikan ke MEMORI.md. Entri riwayat perubahan ditambahkan ke `memori/riwayat_perubahan.md` (sesi 114).
-
----
-
 # Sesi 115
 
 ## Status
@@ -5082,9 +4736,6 @@ Sinkronisasi akhir sesi: perubahan terbatas pada command `diskusi_hasil_analisa_
 ## Sinkronisasi ke MEMORI.md
 
 Sinkronisasi akhir sesi: skill baru `install-rg` (non-code) ditambahkan; tidak ada perubahan durable pada konvensi/aturan proyek yang perlu dipromosikan ke MEMORI.md (rujukan skill via indeks). Entri riwayat perubahan ditambahkan ke `memori/riwayat_perubahan.md` (sesi 115).
-
----
-
 # Sesi 116
 
 ## Status
@@ -5113,9 +4764,6 @@ Sinkronisasi akhir sesi: skill baru `install-rg` (non-code) ditambahkan; tidak a
 ## Sinkronisasi ke MEMORI.md
 
 Sinkronisasi akhir sesi: tidak ada perubahan durable pada konvensi/aturan proyek yang perlu dipromosikan ke MEMORI.md (rujukan skill via indeks). Entri riwayat perubahan ditambahkan ke `memori/riwayat_perubahan.md` (sesi 116).
-
----
-
 # Sesi 117
 
 ## Status
@@ -5146,9 +4794,6 @@ Sinkronisasi akhir sesi: tidak ada perubahan durable pada konvensi/aturan proyek
 ## Sinkronisasi ke MEMORI.md
 
 Sinkronisasi akhir sesi: tidak ada perubahan durable pada konvensi/aturan proyek yang perlu dipromosikan ke MEMORI.md (rujukan skill via indeks). Entri riwayat perubahan ditambahkan ke `memori/riwayat_perubahan.md` (sesi 117).
-
----
-
 # Sesi 118
 
 ## Status
@@ -5176,9 +4821,6 @@ Sinkronisasi akhir sesi: tidak ada perubahan durable pada konvensi/aturan proyek
 ## Sinkronisasi ke MEMORI.md
 
 Sinkronisasi akhir sesi: tidak ada perubahan durable pada konvensi/aturan proyek yang perlu dipromosikan ke MEMORI.md (rujukan skill via indeks). Entri riwayat perubahan ditambahkan ke `memori/riwayat_perubahan.md` (sesi 118).
-
----
-
 # Sesi 119
 
 ## Status
@@ -5205,9 +4847,6 @@ Sinkronisasi akhir sesi: tidak ada perubahan durable pada konvensi/aturan proyek
 ## Sinkronisasi ke MEMORI.md
 
 Sinkronisasi akhir sesi: tidak ada perubahan durable pada konvensi/aturan proyek yang perlu dipromosikan ke MEMORI.md (rujukan skill via indeks). Entri riwayat perubahan ditambahkan ke `memori/riwayat_perubahan.md` (sesi 119).
-
----
-
 # Sesi 120
 
 ## Status
@@ -5235,9 +4874,6 @@ Sinkronisasi akhir sesi: tidak ada perubahan durable pada konvensi/aturan proyek
 ## Sinkronisasi ke MEMORI.md
 
 Sinkronisasi akhir sesi: tidak ada perubahan durable pada konvensi/aturan proyek yang perlu dipromosikan ke MEMORI.md (rujukan skill via indeks). Entri riwayat perubahan ditambahkan ke `memori/riwayat_perubahan.md` (sesi 120).
-
----
-
 # Sesi 121
 
 ## Status
@@ -5267,9 +4903,6 @@ Sinkronisasi akhir sesi: tidak ada perubahan durable pada konvensi/aturan proyek
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sync (sesi 133): perubahan episodic (migrasi root app admin_wifi provider→Riverpod); tidak ada fakta durable yang dipromosikan ke MEMORI.md (kriteria promosi tidak terpenuhi); tidak ada entri riwayat_perubahan.md yang ditambahkan.
-
----
-
 # Sesi 122
 
 ## Status
@@ -5299,9 +4932,6 @@ Catch-up sync (sesi 133): perubahan episodic (migrasi root app admin_wifi provid
 ## Sinkronisasi ke MEMORI.md
 
 Catch-up sync (sesi 133): perubahan episodic (docs/hasil_analisa); tidak ada fakta durable yang dipromosikan ke MEMORI.md (kriteria promosi tidak terpenuhi); tidak ada entri riwayat_perubahan.md yang ditambahkan.
-
----
-
 # Sesi 123
 
 ## Status
@@ -5332,9 +4962,6 @@ Catch-up sync (sesi 133): perubahan episodic (docs/hasil_analisa); tidak ada fak
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan untuk disinkronkan (sesi ini hanya diskusi/evaluasi; tidak ada edit berkas).
-
----
-
 # Sesi 124
 
 ## Status
@@ -5361,9 +4988,6 @@ Tidak ada perubahan untuk disinkronkan (sesi ini hanya diskusi/evaluasi; tidak a
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan durable; sesi hanya pelaporan. Tidak ada entri MEMORI.md yang diubah.
-
----
-
 # Sesi 125
 
 ## Status
@@ -5390,9 +5014,6 @@ Tidak ada perubahan durable; sesi hanya pelaporan. Tidak ada entri MEMORI.md yan
 ## Sinkronisasi ke MEMORI.md
 
 Entri `ses_e0a08bfa0ffeAIPdzSaMmHx4ta` ditandai "sudah dianalisa" pada `docs/hasil_analisa/hasil_analisa_transkrip.md`. Tidak ada perubahan kode/dokumen lain. Tidak ada entri durable baru untuk MEMORI.md.
-
----
-
 # Sesi 126
 
 Status: Sudah Sinkron
@@ -5417,9 +5038,6 @@ Memperbarui berkas `prompt/commands/audit_hasil_output.md` dan target `.kilo/com
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan durable yang perlu dipromosikan ke MEMORI.md (perubahan terbatas pada prompt/command).
-
----
-
 # Sesi 127
 
 Status: Sudah Sinkron
@@ -5441,9 +5059,6 @@ Menambahkan permission bash `tail *`/`tail` allow pada `.kilo/kilo.jsonc`.
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan durable yang perlu dipromosikan ke MEMORI.md.
-
----
-
 # Sesi 128
 
 Status: Sudah Sinkron
@@ -5465,9 +5080,6 @@ Menghapus berkas `.kilo/commands/analisa_transkrip.md` atas permintaan pengguna.
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan durable yang perlu dipromosikan ke MEMORI.md.
-
----
-
 # Sesi 129
 
 Status: Sudah Sinkron
@@ -5490,9 +5102,6 @@ Menghapus `prompt/commands/diskusi_hasil_analisa_transkrip.md` dan target `.kilo
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan durable yang perlu dipromosikan ke MEMORI.md.
-
----
-
 # Sesi 130
 
 Status: Sudah Sinkron
@@ -5515,9 +5124,6 @@ Menambahkan poin saran (rules/command/skill) pada `prompt/commands/audit_hasil_o
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan durable yang perlu dipromosikan ke MEMORI.md.
-
----
-
 # Sesi 131
 
 Status: Sudah Sinkron
@@ -5540,9 +5146,6 @@ Menambahkan frasa "atau dari available skill" pada poin 1 command `muat_skill_te
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan durable yang perlu dipromosikan ke MEMORI.md.
-
----
-
 # Sesi 132
 
 Status: Sudah Sinkron
@@ -5565,9 +5168,6 @@ Menghapus `prompt/commands/pantau_dan_evaluasi_transkrip.md` dan target `.kilo/c
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada perubahan durable yang perlu dipromosikan ke MEMORI.md.
-
----
-
 # Sesi 133
 
 ## Status
@@ -5595,9 +5195,6 @@ Tidak ada perubahan durable yang perlu dipromosikan ke MEMORI.md.
 ## Sinkronisasi ke MEMORI.md
 
 Perbarui header tanggal MEMORI.md ke sesi 133; tambah entri riwayat_perubahan.md sesi 133. Tidak ada fakta durable yang dipromosikan (kriteria promosi tidak terpenuhi); tidak ada temuan baru, `task.md` tidak diperbarui.
-
----
-
 # Sesi 134
 
 ## Status
@@ -5625,9 +5222,6 @@ Perbarui header tanggal MEMORI.md ke sesi 133; tambah entri riwayat_perubahan.md
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada fakta durable yang dipromosikan (refactor episodic di submodule). `MEMORI.md` tidak diubah. Berkas sesi ditandai `Sudah Sinkron`.
-
----
-
 # Sesi 135
 
 ## Status
@@ -5654,9 +5248,6 @@ Tidak ada fakta durable yang dipromosikan (refactor episodic di submodule). `MEM
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada fakta durable yang dipromosikan (refactor episodic di submodule). `MEMORI.md` tidak diubah.
-
----
-
 # Sesi 136
 
 ## Status
@@ -5683,9 +5274,6 @@ Tidak ada fakta durable yang dipromosikan (refactor episodic di submodule). `MEM
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada fakta durable yang dipromosikan (refactor episodic di submodule). `MEMORI.md` tidak diubah.
-
----
-
 # Sesi 137
 
 ## Status
@@ -5725,9 +5313,6 @@ Tidak ada fakta durable yang dipromosikan (refactor episodic di submodule). `MEM
 - Header MEMORI.md diperbarui ke `Diperbarui: 2026-11-20 (sesi 137)`.
 - Entri riwayat perubahan ditambahkan di `memori/riwayat_perubahan.md`.
 - Perubahan `prompt/rules/AGENTS.md` dan `AGENTS.md` dicatat pada tabel Berkas Terdampak.
-
----
-
 # Sesi 138
 
 ## Status
@@ -5753,9 +5338,6 @@ Tidak ada fakta durable yang dipromosikan (refactor episodic di submodule). `MEM
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan
-
----
-
 # Sesi 139 — Evaluasi skill dari commit
 
 ## Status
@@ -5781,9 +5363,6 @@ Belum disinkronkan
 ## Sinkronisasi ke MEMORI.md
 
 Tidak ada fakta durable yang dipromosikan ke MEMORI.md (hasil evaluasi bersifat episodic; dicatat di docs/hasil_analisa/hasil_evaluasi_skill_dari_commit.md). Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 140 — Implementasi hasil evaluasi skill dari commit
 
 ## Status
@@ -5811,9 +5390,6 @@ Tidak ada fakta durable yang dipromosikan ke MEMORI.md (hasil evaluasi bersifat 
 ## Sinkronisasi ke MEMORI.md
 
 Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pembaruan `model-state-freezed-abstract` (aturan 22–25 + contoh). Berkas episodic; tidak ada fakta durable baru untuk MEMORI.md. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 141
 
 ## Status
@@ -5863,9 +5439,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 ## Pertanyaan Terbuka
 
 - Apakah sesi paralel/ambigu (`sesi_45`–`49`, `52`, `55`, `56`, `71`, `72`, `80`, `97`, `110`) perlu disinkronkan sekarang, atau ditangani oleh sesi pembuat masing-masing? (Lapor pengguna; tidak diputuskan sendiri.)
-
----
-
 # Sesi 142
 
 ## Status
@@ -5905,9 +5478,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan command/prompt bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 143
 
 ## Status
@@ -5947,9 +5517,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan command/prompt bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 144
 
 ## Status
@@ -5990,9 +5557,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan skill/prompt bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 145
 
 ## Status
@@ -6029,9 +5593,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan script bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 146
 
 ## Status
@@ -6069,9 +5630,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan script bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 147
 
 ## Status
@@ -6107,9 +5665,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan alias bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 148
 
 ## Status
@@ -6149,9 +5704,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan command/prompt bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 149
 
 ## Status
@@ -6190,9 +5742,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan script/output bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 150
 
 ## Status
@@ -6229,9 +5778,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan output bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 151
 
 ## Status
@@ -6272,9 +5818,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan script/output bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 152
 
 ## Status
@@ -6312,9 +5855,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan script/output bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 153
 
 ## Status
@@ -6351,9 +5891,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan output bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 154
 
 ## Status
@@ -6390,9 +5927,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan output bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 155
 
 ## Status
@@ -6429,9 +5963,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perbaikan target koleksi Supabase bersifat implementasi, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 156
 
 ## Status
@@ -6467,9 +5998,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Penambahan GRANT bersifat implementasi, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 157
 
 ## Status
@@ -6511,9 +6039,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan prompt bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 158
 
 ## Status
@@ -6549,9 +6074,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan docs bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 159
 
 ## Status
@@ -6588,9 +6110,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan output bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 160
 
 ## Status
@@ -6626,9 +6145,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan docs bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 161
 
 ## Status
@@ -6665,9 +6181,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan output bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 162
 
 ## Status
@@ -6708,9 +6221,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan command/prompt bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 163
 
 ## Status
@@ -6748,9 +6258,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan command/prompt bersifat episodic, bukan fakta durable → tidak dipromosikan ke `MEMORI.md`.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 164
 
 ## Status
@@ -6781,9 +6288,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan bersifat episodic; tidak ada fakta durable baru.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 165
 
 ## Status
@@ -6818,9 +6322,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan bersifat episodic; tidak ada fakta durable baru.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 166
 
 ## Status
@@ -6853,9 +6354,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan bersifat episodic; tidak ada fakta durable baru.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 167
 
 ## Status
@@ -6888,9 +6386,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan bersifat episodic; tidak ada fakta durable baru.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 168
 
 ## Status
@@ -6921,9 +6416,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan bersifat episodic; tidak ada fakta durable baru.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 169
 
 ## Status
@@ -6958,9 +6450,6 @@ Implementasi hasil evaluasi sesi 139 selesai: skill baru `supabase-crud` dan pem
 
 - Perubahan bersifat episodic; tidak ada fakta durable baru.
 - `MEMORI.md` tidak diperbarui. Status Sinkron: Sudah Sinkron.
-
----
-
 # Sesi 170
 
 - Tanggal: 2026-11-20
@@ -6976,9 +6465,6 @@ Sesi dimulai dengan greeting pengguna ("hai"). Belum ada tugas spesifik diberika
 - MEMORI.md terakhir diperbarui: 2026-11-20 (sesi 137).
 - Berkas aktif yang terbuka: `admin_wifi/lib/halaman/pembantu/halaman_poin.dart`.
 - Tunggu instruksi pengguna.
-
----
-
 # Sesi 171
 
 ## Status
@@ -7007,9 +6493,6 @@ Sesi dimulai dengan greeting pengguna ("hai"). Belum ada tugas spesifik diberika
 ## Sinkronisasi ke MEMORI.md
 
 Diperbarui header MEMORI.md (sesi 171); entri riwayat_perubahan.md ditambahkan.
-
----
-
 # Sesi 172
 
 ## Status
@@ -7056,9 +6539,6 @@ Diperbarui header MEMORI.md (sesi 171); entri riwayat_perubahan.md ditambahkan.
 - Semua file lolos `dart analyze` (hanya info: unnecessary_import di transaksi_notifier.dart)
 - Menambahkan EmptyStateView ke share_global_saya (lib/src/widget/empty_state_view.dart)
 - Mengubah dependency share_global_saya dari git ke path lokal di admin_wifi
-
----
-
 # Sesi 173
 
 ## Status
@@ -7089,9 +6569,6 @@ Diperbarui header MEMORI.md (sesi 171); entri riwayat_perubahan.md ditambahkan.
 ## Sinkronisasi ke MEMORI.md
 
 - Disinkronkan ke `MEMORI.md` (header diperbarui ke sesi 173 + Catatan Teknis command baru) dan `memori/riwayat_perubahan.md` (baris sesi 173).
-
----
-
 # Sesi 174
 
 ## Status
@@ -7127,9 +6604,6 @@ Diperbarui header MEMORI.md (sesi 171); entri riwayat_perubahan.md ditambahkan.
 ## Sinkronisasi ke MEMORI.md
 
 - `MEMORI.md` (header diperbarui ke sesi 174 + Catatan Teknis: hasil analisa kesehatan kode), `memori/riwayat_perubahan.md` (baris sesi 174).
-
----
-
 # Sesi 175
 
 Diperbarui: 2026-11-20
@@ -7169,9 +6643,6 @@ Topik: Memindahkan logika `DompetOperasi` ke `DompetNotifier`.
 ## Sinkronisasi ke MEMORI.md
 
 Ditambahkan catatan teknis migrasi DompetOperasi ke DompetNotifier (sesi 175).
-
----
-
 # Sesi 176
 
 Diperbarui: 2026-11-20
@@ -7208,9 +6679,6 @@ Topik: Build APK release `admin_wifi` via GitHub Actions workflow dan verifikasi
 ## Sinkronisasi ke MEMORI.md
 
 Build APK release `admin_wifi` via GitHub Actions workflow (sesi 176).
-
----
-
 # Sesi 177
 
 Diperbarui: 2026-11-20
@@ -7237,9 +6705,6 @@ Topik: Menghapus FutureBuilder di DompetPage dan memakai state DompetNotifier.
 ## Sinkronisasi ke MEMORI.md
 
 Refactor DompetPage ke state provider (sesi 177).
-
----
-
 # Sesi 178
 
 Dibuat: 2026-11-20
@@ -7251,9 +6716,6 @@ Pertanyaan pengguna: apakah bisa ubah workflow pakai secret untuk Supabase.
 ## Status
 
 Sudah Sinkron (catch-up sesi 179: pertanyaan pengguna soal workflow Supabase dengan secret sudah terjawab/diselesaikan — tidak ada perubahan untuk disinkronkan ke MEMORI.md)
-
----
-
 # Sesi 179
 
 Dibuat: 2026-11-21
@@ -7294,9 +6756,6 @@ Topik: Memperbarui berkas di folder prompt/ dengan diskusi dan persetujuan pengg
 - Ditambah entri Catatan Teknis: aturan folder `references/` wajib pada setiap skill (sesi 179, permintaan eksplisit pengguna).
 - `memori/riwayat_perubahan.md`: entri sesi 179 ditambahkan.
 - Berkas sesi ditandai `Sudah Sinkron`.
-
----
-
 # Sesi 180
 
 ## Status
@@ -7368,9 +6827,6 @@ Topik: Memperbarui berkas di folder prompt/ dengan diskusi dan persetujuan pengg
 - Permintaan pengguna: setiap merubah skill, perbarui juga deskripsinya agar sinkron. Catatan dicatat untuk sesi berikutnya.
 
 Belum disinkronkan.
-
----
-
 # Sesi 181
 
 Dibuat: 2026-11-21
@@ -7406,9 +6862,6 @@ Topik: Memperbarui aturan folder references/ di skill aturan-pembuatan-skill (Po
 - Header `Diperbarui` di `MEMORI.md` diupdate ke `2026-11-21 (sesi 181)`.
 - Entri perubahan skill folder references ditambah ke `riwayat_perubahan.md`.
 - Berkas sesi ditandai `Sudah Sinkron`.
-
----
-
 # Sesi 182
 
 Dibuat: 2026-11-21
@@ -7442,9 +6895,6 @@ Topik: Tambah Poin 21 — file references/ wajib contoh kode jika skill berkaita
 - Header `Diperbarui` di `MEMORI.md` diupdate ke `2026-11-21 (sesi 182)`.
 - Entri Poin 21 ditambah ke `riwayat_perubahan.md`.
 - Berkas sesi ditandai `Sudah Sinkron`.
-
----
-
 ## Status
 
 Status Sinkron: Sudah Sinkron
@@ -7477,9 +6927,6 @@ Topik: Perbarui setiap skill agar sesuai dengan aturan yang ada
 - Perbarui header `Diperbarui:` di MEMORI.md ke `2026-11-21 (sesi 183)`.
 - Tambah catatan teknik di `## Catatan Teknis` mengenai kepatuhan skill: semua 70 skill memiliki `references/` dan 5 skill non-code memiliki poin file `prompt/skill/`.
 - Tidak ada kontradiksi antar bagian MEMORI.md; tidak ada kredensial yang ditulis; setiap klaim baru memiliki provenance `sesi 183`.
-
----
-
 # Sesi 184
 
 ## Status
@@ -7501,9 +6948,11 @@ Topik: Perbarui setiap skill agar sesuai dengan aturan yang ada
 | Lokasi File | Status Perubahan | Deskripsi |
 |-------------|------------------|-----------|
 | memori/sesi/sesi_184.md | dibuat | Berkas sesi baru untuk percakapan/tugas ini |
+| script/salin_tool_output.sh → salin_riwayat_sesi.sh | diubah | Rename script + tambah ekstensi .sh |
+| script/bash_aliases.sh | diubah | Perbarui alias salin_tool_output → salin_riwayat_sesi |
+| id_transkrip.txt | dibuat | Catat ID transkrip sesi Kilo |
+| script/salin_riwayat_sesi.sh | diubah | Ganti logika: salin memori/sesi/ + sertakan docs/perintah_analisa.md |
 
 ## Sinkronisasi ke MEMORI.md
 
 Belum disinkronkan
----
-

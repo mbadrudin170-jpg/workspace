@@ -3,8 +3,8 @@ name: memori-check
 description: "Trigger: saat memulai percakapan atau tugas di proyek mana pun | Panduan wajib baca MEMORI.md di root proyek sebelum interaksi dan perbarui bagian relevan setelahnya (kode, dokumen, state). Berlaku lintas repositori; tidak terikat satu proyek/path. Satu berkas sesi (`memori/sesi/sesi_N.md`) per percakapan/tugas, bukan per pesan; berkas sesi baru hanya dibuat bila percakapan/tugas baru dimulai atau ada pekerjaan nyata yang belum tercatat. Sinkronisasi disertai konsolidasi konflik, klasifikasi semantic/episodic/procedural, provenance sesi, dan pinning fakta eksplisit pengguna. Catch-up sync berkas `Belum Sinkron` dari sesi sebelumnya (yatim/kosong → `Sudah Sinkron` + catatan eksplisit; berisi perubahan → prosedur akhir sesi; ambigu → lapor pengguna). Di akhir percakapan/tugas AI wajib memperbarui `MEMORI.md` lalu menandai berkas sesi `Sudah Sinkron`. Berkas `sesi_N.md` tidak boleh dihapus (arsip permanen); berkas `Sudah Sinkron` bersifat arsip — koreksi/klarifikasi WAJIB dicatat pada berkas sesi baru. Memeriksa"
 metadata:
   kategori: "custom"
-  versi: "1.12.0"
-  diperbarui: "Mon Nov 16 2026 22:10 WIB"
+  versi: "1.13.0"
+  diperbarui: "Sat Nov 21 2026 16:27 WIB"
 ---
 
 # Memeriksa File MEMORI.md dan Berkas Sesi
@@ -76,6 +76,8 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
 22. **Kelengkapan tabel `## Berkas Terdampak`.** Tabel `## Berkas Terdampak` pada berkas sesi WAJIB mencantumkan **seluruh** berkas yang dibuat/diubah/dihapus selama sesi — termasuk perubahan di dalam submodule — dengan path relatif terhadap root repositori tempat sesi berjalan (mis. `base_coc/lib/fitur/cadangan/service/cadangan_service.dart`). Tabel DILARANG hanya memuat berkas sesi bila ada perubahan lain; perubahan yang tidak tercantum pada tabel dianggap tidak tercatat dan melanggar alur sinkronisasi ini.
 23. **Penandaan hanya oleh sesi pembuat.** Penandaan `Sudah Sinkron` hanya boleh dilakukan oleh sesi pembuat berkas tersebut; sesi lain dilarang mengubah berkas sesi milik sesi lain.
 24. **Pengecualian pengguna (preferensi eksplisit).** Bila pengguna secara eksplisit meminta agar entri `memori/riwayat_perubahan.md` tidak ditambahkan pada sinkronisasi (preferensi pengguna), patuhi permintaan tersebut dan nyatakan eksplisit pada sesi yang bersangkutan bahwa entri tidak ditambahkan. Pengecualian ini hanya berlaku bila diminta eksplisit oleh pengguna.
+
+25. **Catat ID transkrip Kilo di awal sesi.** Setelah membuat berkas sesi, catat ID transkrip Kilo (dari `~/.local/share/kilo/storage/session_diff/ses_*.json` terbaru) ke `id_transkrip.txt` di root proyek dengan format: `# Created: <tanggal Jakarta>`, `# Sesi: <nomor>`, `# Status: Belum Disalin`/`Sudah Disalin`, lalu ID transkrip di baris baru.
 
 ## Steps
 

@@ -1,4 +1,4 @@
-`diperbarui : Sat Nov 21 2026 16:22 WIB`
+`diperbarui : Sat Nov 21 2026 16:26 WIB`
 `file : [memori-check](../../.agents/skills/non-code/memori-check/SKILL.md)`
 
 1. Sebelum interaksi apa pun, baca `MEMORI.md` root proyek; bila belum ada, tanyakan inisialisasi.
@@ -61,4 +61,4 @@
 
 30. Format isi memori wajib memakai struktur bertingkat: Section (bagian/kelompok dalam dokumen), Category (kategori yang mengelompokkan informasi), Heading (judul bagian), Subsection (bagian di dalam section), Field (satu kolom/atribut informasi). Setiap informasi ditulis pada tingkat yang sesuai agar terarah.
 
-31. Di awal sesi, setelah membuat berkas sesi, catat ID transkrip Kilo (dari `~/.local/share/kilo/storage/session_diff/ses_*.json` terbaru) ke `id_transkrip.txt` di root proyek dengan format: `# Created: <tanggal Jakarta>`, `# Sesi: <nomor>`, lalu ID transkrip di baris baru.
+31. Di awal sesi, setelah membuat berkas sesi, catat ID transkrip Kilo (dari `~/.local/share/kilo/storage/session_diff/ses_*.json` terbaru) ke `id_transkrip.txt` di root proyek dengan format: `# Created: <tanggal Jakarta>`, `# Sesi: <nomor>`, `# Status: Belum Disalin`/`Sudah Disalin`, lalu ID transkrip di baris baru.
