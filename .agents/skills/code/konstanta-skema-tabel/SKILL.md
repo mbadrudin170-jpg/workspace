@@ -28,7 +28,7 @@ Setiap model yang berkaitan dengan database (SQLite, Supabase, Firebase, dll.) w
 - DILARANG string literal nama kolom sebagai key map pada method from/to (fromSqlite/fromFirebase/toSqlite/toFirebase); wajib interpolasi `${XxxSkema.*}`.
 - DILARANG membuat konstanta khusus Firestore dengan nama berbeda dari kolom SQLite; samakan nama field Firestore dengan kolom SQLite.
 - Jangan menempatkan konstanta Skema di dalam kelas model (konflik static/instance).
-- Jangan menamai kolom konstan dengan kata "kolom" (ikuti skill `penamaan-konstanta-snake-case` untuk nilai).
+- Jangan menamai kolom konstan dengan kata "kolom" (ikuti skill `konstanta-skema-tabel` untuk nilai).
 
 ## Contoh Benar
 

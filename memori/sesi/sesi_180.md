@@ -26,6 +26,9 @@
 | `share_global_saya/test/mocks.dart` | Diubah | Komentar referensi skill diperbarui. |
 | `.agents/skills/code/aturan_riverpod/` (dari `riverpod-pola/`) | Diubah (rename) | Folder skill direname; frontmatter `name` diperbarui ke `aturan_riverpod`. |
 | `.agents/skills/code/withvalues-opacity-warna/` | Dihapus | Digabung ke `gaya` (indeks dihapus). |
+| `.agents/skills/code/penamaan-konstanta-snake-case/` | Dihapus | Digabung ke `konstanta-skema-tabel`. |
+| `.agents/skills/code/konstanta-skema-tabel/SKILL.md` | Diubah | Referensi diperbarui. |
+| `.kilo/commands/scan.md` | Diubah | Referensi diperbarui. |
 | `.agents/skills/code/pola-ui/SKILL.md` | Diubah | Referensi diperbarui. |
 | `.kilo/commands/scan.md` | Diubah | Referensi diperbarui. |
 | `.agents/skills/code/penanganan-async/` (gabungan) | Dibuat | Skill baru gabungan dari `penanganan-async-data-kosong` + `penanganan-asyncvalue-berkali`; folder lama dihapus. |
