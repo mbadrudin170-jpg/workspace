@@ -26,6 +26,13 @@ mkdir -p "$(dirname "$DEST")"
 # Kosongkan file tujuan terlebih dahulu.
 : > "$DEST"
 
+# (Opsional) Letakkan docs/perintah_analisa.md paling atas, bila ada.
+ANALISA_FILE="$ROOT_DIR/docs/perintah_analisa.md"
+if [[ -f "$ANALISA_FILE" ]]; then
+  cat "$ANALISA_FILE" >> "$DEST"
+  printf '\n\n---\n\n' >> "$DEST"
+fi
+
 # Gabungkan isi seluruh file sesi_*.md (urut nama/nomer) ke file tujuan.
 # Urutkan berdasarkan nomor sesi (sesi_1.md, sesi_2.md, ...)
 while IFS= read -r -d '' f; do
