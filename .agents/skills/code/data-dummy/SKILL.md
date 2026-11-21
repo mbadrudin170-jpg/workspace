@@ -20,7 +20,7 @@ Skill ini menetapkan pola pembuatan data dummy (data sampel) untuk kebutuhan pra
 5. **Nilai konstanta id WAJIB mengikuti format UUID `8-4-4-4-12`** (nibble versi `4`, varian `8`) — format saja; DILARANG memakai hasil generate UUID sebagai nilai dummy.
 6. Konstanta id dikelompokkan per field model (mis. id entitas utama, id entitas relasi, id referensi lain) dengan prefiks berbeda; nilai yang sama dipakai ulang lewat konstanta yang sama.
 7. Tanggal pada entri dummy WAJIB relatif terhadap `DateTime.now()` (mis. `DateTime.now().subtract(const Duration(days: 10))`) agar tetap relevan; DILARANG memakai tanggal absolut yang lekas usang.
-8. Untuk kebutuhan test (unit/widget), dummy data tetap dipakai dari `lib/fitur/<fitur>/dummy/` dan diimpor oleh berkas test — lihat skill `pola-testing`.
+8. Untuk kebutuhan test (unit/widget), dummy data tetap dipakai dari `lib/fitur/<fitur>/dummy/` dan diimpor oleh berkas test — lihat skill `aturan-testing`.
 9. Dummy yang berelasi WAJIB memakai konstanta ID yang sama dengan ID di kelas dummy sumber (mis. `PelangganAktifDummy.ID_PELANGGAN_001` == `PelangganDummy.ID_PELANGGAN_001`); referensi ke ID yang tidak ada di kelas dummy sumber DILARANG (menyebabkan log peringatan "tidak ditemukan" dari operasi `getXxxById` saat dummy direset).
 
 ## Contoh Benar
