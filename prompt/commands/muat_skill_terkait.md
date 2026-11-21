@@ -1,5 +1,17 @@
-diperbarui : Sat Nov 21 2026 16:40 WIB
+diperbarui : Sat Nov 21 2026 16:41 WIB
 ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
+
+1. Baca terlebih dahulu `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks skill non-code) dan `.agents/rules/code.md` (aturan khusus kode beserta skill terkaitnya); bila kedua berkas tidak tersedia, gunakan daftar skill yang tersedia (available_skills).
+
+2. Bila pekerjaan berkaitan dengan kode, pindai `.agents/skills/code/*/SKILL.md` — cocokkan `description`/Trigger tiap skill dengan pekerjaan tersebut; muat semua yang relevan dan yang sedikit kurang relevan (deskripsi skill belum tentu detail), termasuk yang tidak dirujuk code.md. Jika deskripsi skill menyebut satu kata yang sama dengan pekerjaan yang akan dikerjakan, wajib muat skill itu.
+
+3. Dari berkas pada poin 1–2, cari skill yang relevan (dan yang sedikit kurang relevan) dengan pekerjaan; bila ada, muat semua skill itu via tool `skill`; bila tidak ada, laporkan ke pengguna. Jika deskripsi skill menyebut satu kata yang sama dengan pekerjaan yang akan dikerjakan, wajib muat skill itu.
+
+4. Sebelum menyebut nama/path skill, verifikasi keberadaannya (glob/read); jangan menyebut skill yang tidak ada.
+
+5. Muat juga skill yang berkaitan dengan topik percakapan saat ini (termasuk skill non-code yang relevan), meskipun tidak muncul dari pemindaian code/ pada poin 2. Cocokkan topik sekarang dengan Trigger/description skill.
+
+---
 
 # Daftar Lengkap Skill Tersedia
 
@@ -40,27 +52,27 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 33. penanganan-async — penanganan state async, data kosong, AsyncValue
 34. penanganan-data-null — indeks penanganan data null
 35. penanganan-error-unawaited — catchError wajib pada unawaited
-34. performa-aplikasi — aturan performa Flutter (rebuild minimal, const, lazy, caching)
-35. pencarian-koleksi-null-safe — firstWhereOrNull, sorted dari package:collection
-36. pola-ui — indeks pola UI (visualisasi-progres-impian, isolasi-widget-timer, gaya, widget-custom)
-37. pola-ux — indeks pola UX (empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async)
-38. riset-kompetitor — riset kompetitor aplikasi mobile lintas proyek
-39. spacing — pengaturan jarak antar elemen (Row/Column spacing)
-40. sqlite — dukungan SQLite di Flutter Web (sqflite_common_ffi_web)
-41. struktur-class-ui — struktur class UI reusable (StatelessWidget, const, pure)
-42. struktur-folder-lib — struktur folder lib/ (feature-first + core/)
-43. supabase — integrasi Supabase (singleton, OperasiSupabase CRUD)
-44. text-form-field-validasi — TextFormField, Form, GlobalKey, validasi
-45. theme-data-color-schema — ThemeData, ColorScheme, tipografi
-46. tipografi — panduan tipografi (textTheme, google_fonts, FontFeature)
-47. type-promotion-null-safety — type promotion untuk field nullable objek
-48. validasi-form-sebelum-penyimpanan — Form + GlobalKey + validate() sebelum simpan
-49. validasi-json-katalog-ketat — validasi ketat JSON katalog lokal
-50. validasi-platform-izin — cek dukungan platform & izin runtime
-51. visualisasi-progres-impian — ImpianProgresHelper, VisualTabunganImpian
-52. widget-custom — indeks widget custom reusable
-53. widget-lifecycle-state — lifecycle Widget/State (mounted, initState, dispose)
-54. zona-waktu-perangkat-pengingat — flutter_timezone untuk pengingat harian
+36. performa-aplikasi — aturan performa Flutter (rebuild minimal, const, lazy, caching)
+37. pencarian-koleksi-null-safe — firstWhereOrNull, sorted dari package:collection
+38. pola-ui — indeks pola UI (visualisasi-progres-impian, isolasi-widget-timer, gaya, widget-custom)
+39. pola-ux — indeks pola UX (empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async)
+40. riset-kompetitor — riset kompetitor aplikasi mobile lintas proyek
+41. spacing — pengaturan jarak antar elemen (Row/Column spacing)
+42. sqlite — dukungan SQLite di Flutter Web (sqflite_common_ffi_web)
+43. struktur-class-ui — struktur class UI reusable (StatelessWidget, const, pure)
+44. struktur-folder-lib — struktur folder lib/ (feature-first + core/)
+45. supabase — integrasi Supabase (singleton, OperasiSupabase CRUD)
+46. text-form-field-validasi — TextFormField, Form, GlobalKey, validasi
+47. theme-data-color-schema — ThemeData, ColorScheme, tipografi
+48. tipografi — panduan tipografi (textTheme, google_fonts, FontFeature)
+49. type-promotion-null-safety — type promotion untuk field nullable objek
+50. validasi-form-sebelum-penyimpanan — Form + GlobalKey + validate() sebelum simpan
+51. validasi-json-katalog-ketat — validasi ketat JSON katalog lokal
+52. validasi-platform-izin — cek dukungan platform & izin runtime
+53. visualisasi-progres-impian — ImpianProgresHelper, VisualTabunganImpian
+54. widget-custom — indeks widget custom reusable
+55. widget-lifecycle-state — lifecycle Widget/State (mounted, initState, dispose)
+56. zona-waktu-perangkat-pengingat — flutter_timezone untuk pengingat harian
 
 ## Non-Code (20 skill)
 
@@ -84,15 +96,3 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 18. penggunaan-tool-bawaan-kilo — pemilihan tool bawaan Kilo
 19. penggunaan-tool-question — tool question Kilo
 20. perbaikan-test-notifikasi — memperbaiki test notifikasi gagal
-
----
-
-1. Baca terlebih dahulu `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks skill non-code) dan `.agents/rules/code.md` (aturan khusus kode beserta skill terkaitnya); bila kedua berkas tidak tersedia, gunakan daftar skill yang tersedia (available_skills).
-
-2. Bila pekerjaan berkaitan dengan kode, pindai `.agents/skills/code/*/SKILL.md` — cocokkan `description`/Trigger tiap skill dengan pekerjaan tersebut; muat semua yang relevan dan yang sedikit kurang relevan (deskripsi skill belum tentu detail), termasuk yang tidak dirujuk code.md. Jika deskripsi skill menyebut satu kata yang sama dengan pekerjaan yang akan dikerjakan, wajib muat skill itu.
-
-3. Dari berkas pada poin 1–2, cari skill yang relevan (dan yang sedikit kurang relevan) dengan pekerjaan; bila ada, muat semua skill itu via tool `skill`; bila tidak ada, laporkan ke pengguna. Jika deskripsi skill menyebut satu kata yang sama dengan pekerjaan yang akan dikerjakan, wajib muat skill itu.
-
-4. Sebelum menyebut nama/path skill, verifikasi keberadaannya (glob/read); jangan menyebut skill yang tidak ada.
-
-5. Muat juga skill yang berkaitan dengan topik percakapan saat ini (termasuk skill non-code yang relevan), meskipun tidak muncul dari pemindaian code/ pada poin 2. Cocokkan topik sekarang dengan Trigger/description skill.
