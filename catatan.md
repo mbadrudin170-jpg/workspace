@@ -421,3 +421,90 @@ Tanggal evaluasi: 2026-11-20. Parameter `$ARGUMENTS` kosong; tidak ada hash/path
 
 - Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus.
 - Berkas yang diubah: `catatan.md` (subbagian ini) dan `task.md` (Ringkasan Evaluasi). Di luar batasan command tersebut, sesuai kewajiban skill `memori-check`, turut diubah: `MEMORI.md` (header + Catatan Teknis), `memori/riwayat_perubahan.md` (baris sesi 173), dan `memori/sesi/sesi_174.md` (dibuat, `Belum Sinkron`). Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
+
+### Evaluasi 2026-11-21 (root + submodul; sesi 187)
+
+Tanggal evaluasi: 2026-11-21 (sesi 187). Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus. Berkas yang diubah: `catatan.md` (subbagian ini) dan `task.md` (Ringkasan Evaluasi + Kelompok 14–16, Task 14–17).
+
+#### Repositori root (`.`)
+
+- Branch aktif: `main`.
+- HEAD saat evaluasi: `37abe16a465b69ec48710cc23173f0d2a6e7ce9c` (2026-11-21).
+- Rentang dievaluasi: `61bf4f7..HEAD` — **tidak ada commit Dart** (`git log 61bf4f7..HEAD -- '*.dart'` kosong). Tidak ada temuan untuk root.
+- Commit terakhir yang dievaluasi: `61bf4f70aadc6054ae661abc4546cc6acfbed379` (sudah dievaluasi pada 2026-11-20 sesi 174; tidak ada commit baru).
+- Tanggal evaluasi: 2026-11-21.
+
+#### Submodul `admin_wifi` (`admin_wifi/`)
+
+- Branch aktif: `main` (bukan detached HEAD).
+- HEAD saat evaluasi: `8554b96275dc03b7a7738a2a5f0bbbb1eb109444` (2026-11-21).
+- Pointer di root (`git ls-tree HEAD admin_wifi`): `8554b96` — cocok dengan HEAD submodul.
+- Rentang dievaluasi: `e6fd72d..HEAD` — 18 commit Dart, dibaca dari tertua ke terbaru: `8554b96`, `7fd1371`, `33479e1`, `4bba2f0`, `3fa264c`, `a459afd`, `c3417b7`, `87a13d8`, `e78be01`, `2e58066`, `88e870f`, `e58c4bf`, `4f13304`, `26970ab`, `ecf1634`, `770033a`, `3da1162`, `561586b`, `e0f5e31`.
+- Verifikasi paket/SDK: Flutter 3.47.9 / Dart 3.13.7; `admin_wifi` `environment.sdk ^3.9.0` terpenuhi. `pubspec.yaml` tidak berubah dalam rentang dievaluasi; versi paket terlock sama dengan verifikasi sesi 133, tidak ada paket baru.
+- Temuan (dicatat ke `task.md` Kelompok 14–16, Task 14–17):
+  1. `L.e(...$e\n$s...)` pada `muatUlang()` dan method lain di `dompet_notifier.dart`, `paket_notifier.dart`, `pelanggan_notifier.dart`, `pengguna_aktif_notifier.dart` → code.md aturan 6 (`$e $s` dengan spasi, tidak `\n`). → Task 14.
+  2. `L.i()` narasi langkah tanpa nilai aktual pada `build()` dan method notifier di semua notifier baru → code.md aturan 12. → Task 15.
+  3. `kritik_saran_notifier.dart` `unduhDataDariSupabase()` menangkap error lalu `return []` alih-alih `rethrow` → code.md aturan 2. → Task 16.
+  4. `pengaturan_notifier.dart` `getPengaturan()` menangkap error lalu `return PengaturanModel()` alih-alih `rethrow` → code.md aturan 2. → Task 16.
+  5. `versi_apk_user_notifier.dart` 4 method menangkap error lalu mengembalikan nilai default alih-alih `rethrow` → code.md aturan 2. → Task 16.
+  6. `dompet_notifier.dart` baris 93 mengakses `state.value` tanpa null-check → code.md aturan 27. → Task 17.
+- Tidak ada temuan lain: semua notifier baru menggunakan `@Riverpod(keepAlive: true)`, `muatUlang()` dengan `AsyncValue.data(await ...)` + `catch` + `L.e` + `rethrow`, impor `package:material_ui/material_ui.dart`, konstanta skema snake_case.
+- Commit terakhir yang dievaluasi: `8554b96275dc03b7a7738a2a5f0bbbb1eb109444` (HEAD).
+- Tanggal evaluasi: 2026-11-21.
+
+#### Submodul `share_global_saya` (`share_global_saya/`)
+
+- Branch aktif: `main` (bukan detached HEAD).
+- HEAD saat evaluasi: `680fbe5caaf4ab433260b7400c294f6639b20fce` (2026-11-21).
+- Pointer di root (`git ls-tree HEAD share_global_saya`): `680fbe5` — cocok dengan HEAD submodul.
+- Rentang dievaluasi: `705dbdf..HEAD` — 2 commit Dart: `680fbe5` (style/format pada log debug page dan empty state view), `9253bd9` (docs: perbarui referensi skill testing di komentar mock).
+- Verifikasi paket/SDK: Flutter 3.47.9 / Dart 3.13.7; `share_global_saya` `environment.sdk ">=3.4.0 <4.0.0"` dan `flutter ">=3.22.0"` terpenuhi. Tidak ada paket baru.
+- Temuan: **tidak ada** — kedua commit adalah style/format dan docs saja, tidak melanggar skill. `task.md` tidak ditambah untuk repositori ini.
+- Commit terakhir yang dievaluasi: `680fbe5caaf4ab433260b7400c294f6639b20fce` (HEAD).
+- Tanggal evaluasi: 2026-11-21.
+
+#### Submodul `base_coc` (`base_coc/`)
+
+- Tidak dievaluasi: entri `[submodule "base_coc"]` dikomentari dalam `.gitmodules` dan direktori `base_coc/` tidak ada di working tree root. Catat `Tidak dievaluasi (submodul nonaktif dalam .gitmodules; direktori tidak ada)`; bukan dianggap lolos.
+
+#### Catatan pelaksanaan evaluasi 2026-11-21 (sesi 187)
+
+- Parameter `$ARGUMENTS` kosong; tidak ada hash/path fokus.
+- Berkas yang diubah: `catatan.md` (subbagian ini) dan `task.md` (Ringkasan Evaluasi + Kelompok 14–16, Task 14–17). Berkas Dart, pointer/gitlink, `.gitmodules`, dan working tree submodul tidak disentuh; tidak ada commit/push di root maupun submodul.
+
+### Pelaksanaan Task 14–16 (sesi 188)
+
+Tanggal pelaksanaan: 2026-11-21 (sesi 188). Berkas yang diubah: `task.md` (status Task 14–16 diubah ke `selesai`) dan berkas Dart berikut di `admin_wifi/`:
+
+#### Task 14 — Perbaiki `L.e(...$e\n$s...)` → `L.e(...$e $s...)` (code.md #6)
+
+- `lib/fitur/dompet/notifier/dompet_notifier.dart`: baris 26, 61, 84 — ganti `\n` menjadi spasi
+- `lib/fitur/paket/notifier/paket_notifier.dart`: baris 25 — ganti `\n` menjadi spasi
+- `lib/fitur/pelanggan/notifier/pelanggan_notifier.dart`: baris 24 — ganti `\n` menjadi spasi
+- `lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart`: baris 32, 79 — ganti `\n` menjadi spasi
+
+#### Task 15 — Hapus `L.i()` narasi langkah tanpa nilai aktual (code.md #12)
+
+- `lib/fitur/kategori/notifier/kategori_notifier.dart`: hapus `L.i('Memuat daftar kategori dari database')` di `build()`, `L.i('Memulai getKategori (...)')`, `L.w('List item untuk bersihkanDanSisipkanSemua kosong...')`, `L.i('Tabel kategori berhasil dibersihkan.')`, `L.w('List item untuk batch kosong...')`, `L.w('List ID untuk getKategoriByIds kosong...')`
+- `lib/fitur/kategori/notifier/sub_kategori_notifier.dart`: hapus `L.i('Memuat daftar sub kategori dari database')` di `build()`, `L.i('Memulai getAllSubKategori')`, `L.w('List item untuk batch kosong...')`
+- `lib/fitur/kritik_saran/notifier/kritik_saran_notifier.dart`: hapus `L.i('Memuat daftar kritik dan saran dari database')` di `build()`, `L.i('Memulai getKritikSaran (...)')`
+- `lib/fitur/dompet/notifier/dompet_notifier.dart`: hapus `L.i('Memuat daftar dompet dari database')` di `build()`, `L.i('Memulai proses pengarsipan untuk semua dompet.')`, `L.i('Proses pengarsipan semua dompet telah selesai.')`, `L.w('List item untuk batch kosong...')`
+- `lib/fitur/paket/notifier/paket_notifier.dart`: hapus `L.i('Memuat daftar paket dari database')` di `build()`, `L.i('Memulai proses pengambilan semua data paket')`, `L.w('Tidak ada data paket yang ditemukan')`, `L.i('Memulai proses pengambilan semua data paket aktif')`, `L.w('Tidak ada data paket aktif yang ditemukan')`, `L.i('Memulai proses pengambilan semua data paket publik')`, `L.w('Tidak ada data paket publik yang ditemukan')`, `L.i('Memulai proses penghapusan semua data paket')`
+- `lib/fitur/pelanggan/notifier/pelanggan_notifier.dart`: hapus `L.i('Memuat daftar pelanggan dari database')` di `build()`, `L.i('Mengambil semua pelanggan yang aktif...')`, `L.i('Mengambil SEMUA data pelanggan dari database lokal.')`, `L.i('Tidak ada item untuk diproses dalam batch.')`, `L.i('List ID kosong, tidak ada pelanggan yang diambil.')`
+- `lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart`: hapus `L.i('Memuat daftar pelanggan aktif dari database')` di `build()`, `L.i('Membatalkan notifikasi terkait...')`, `L.i('Tidak ada pelanggan aktif diarsipkan lebih dari 30 hari')`, `L.i('Mengarsipkan SEMUA pelanggan aktif')`, `L.i('Tidak ada pelanggan aktif untuk diarsipkan')`, `L.i('getPelangganAktifByIds dipanggil dengan list ID kosong...')`
+- `lib/fitur/pengaturan/notifier/pengaturan_notifier.dart`: hapus `L.i('Memuat data pengaturan dari database')` di `build()`
+- `lib/fitur/pesanan/notifier/pesanan_notifier.dart`: hapus `L.i('Memuat daftar pesanan dari database')` di `build()`
+- `lib/fitur/versi_apk_user/notifier/versi_apk_user_notifier.dart`: hapus `L.i('Memuat daftar versi APK user dari database')` di `build()`
+
+#### Task 16 — Tambahkan `rethrow` setelah `L.e(...)` (code.md #2)
+
+- `lib/fitur/kritik_saran/notifier/kritik_saran_notifier.dart`: `unduhDataDariSupabase()` — ganti `return [];` dengan `rethrow;`
+- `lib/fitur/pengaturan/notifier/pengaturan_notifier.dart`: `getPengaturan()` — ganti `return PengaturanModel();` dengan `rethrow;`
+- `lib/fitur/versi_apk_user/notifier/versi_apk_user_notifier.dart`: 4 method (`ambilSemuaVersiApk`, `ambilSemuaVersiApkAktif`, `ambilVersiApkTerbaru`, `ambilVersiApkById`) — ganti `return [];` / `return null;` dengan `rethrow;`
+
+#### Verifikasi
+
+- `dart analyze lib/fitur/` di `admin_wifi/`: **No issues found!**
+- Semua Task 14–16 ditandai `selesai` pada `task.md`.
+- Task 17 tetap `belum` (tidak dikerjakan pada sesi ini).
+- Tidak ada commit/push di root maupun submodul.
