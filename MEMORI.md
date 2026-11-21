@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-21 (sesi 179)
+Diperbarui: 2026-11-21 (sesi 181)
 
 ## Konteks Proyek
 
@@ -32,6 +32,7 @@ Diperbarui: 2026-11-21 (sesi 179)
 - Command Kilo baru (draft poin di `prompt/commands/`, ditimpa ke `.kilo/commands/`): `analisa_kesehatan_kode.md` dan `kerjakan_task.md` (sesi 173, disetujui pengguna).
 - Analisa kesehatan kode (sesi 174, 2026-11-20): commit Dart baru `admin_wifi` (`dd0faae`, `06a9eb2`, `bbf0fd1`, `e6fd72d`) dan `share_global_saya` (`705dbdf`) patuh Flutter 3.47.9 / Dart 3.13.7 dan skill terkait; tidak ada ketidaksesuaian baru; Task 1–13 (`catatan.md`/`task.md`) sekarang `selesai` dalam kode. Root tidak ada commit Dart baru. `base_coc` nonaktif (dikomentari `.gitmodules`).
 - Tujuan informasi yang ditambahkan ke memori: agar setiap model AI dapat mengetahui tentang pengguna (preferensi, konteks, konvensi, keputusan) tanpa pengguna harus menjelaskan ulang; informasi yang dicatat wajib cukup jelas dan tahan lama (durable). (sesi 108)
+- Restrukturisasi skill (sesi 180): rename `supabase-crud`→`supabase`, `pola-testing`→`aturan-testing`, `riverpod-pola`→`aturan_riverpod`, `konstanta-skema-tabel`→`aturan-penamaan`, `dukungan-sqlite-web`→`sqlite`; hapus `withvalues-opacity-warna` (ke `gaya`), `penamaan-konstanta-snake-case` (ke `konstanta-skema-tabel`), `scaffold-struktur-layar`, `normalisasi-tanggal`, `konfirmasi-sebelum-simpan`, `import-ordering`, `kartu-motivasi-pintasan-dashboard`, `buildcontext-inherited`, `notifier-crud-database` (ke `aturan_riverpod`); buat baru `struktur-class-ui`, `penanganan-data-null`, `penanganan-async` (gabungan). Referensi di `code.md`, `scan.md`, dan skill terkait diperbarui.
 - Aturan pembuatan skill: setiap skill wajib memiliki folder `references/` untuk berkas detail dan referensi (progressive disclosure), meskipun folder masih kosong (sesi 179, permintaan eksplisit pengguna).
 - Sesi 172: Mengerjakan 11 task (Kelompok 1-3) pada task.md — perbaikan header path (SQLite, main.dart), logging (hapus narasi/banner separator), migrasi SQLite onUpgrade (blok if oldVersion < N per versi), warna tema (ColorScheme/withValues), spacing (Column.spacing), AppToast ganti SnackBar, konfirmasi simpan (showOkCancelAlertDialog + EasyLoading), enum label getter (MenuPoin), EmptyStateView komponen bersama. Menambahkan EmptyStateView ke share_global_saya; dependency share_global_saya diubah ke path lokal.
 
