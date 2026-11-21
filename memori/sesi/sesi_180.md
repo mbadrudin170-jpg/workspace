@@ -25,11 +25,17 @@
 | `admin_wifi/test/mocks.dart` | Diubah | Komentar referensi skill diperbarui. |
 | `share_global_saya/test/mocks.dart` | Diubah | Komentar referensi skill diperbarui. |
 | `.agents/skills/code/aturan_riverpod/` (dari `riverpod-pola/`) | Diubah (rename) | Folder skill direname; frontmatter `name` diperbarui ke `aturan_riverpod`. |
+| `.agents/skills/code/penanganan-async/` (gabungan) | Dibuat | Skill baru gabungan dari `penanganan-async-data-kosong` + `penanganan-asyncvalue-berkali`; folder lama dihapus. |
+| `.agents/rules/code.md` | Diubah | Referensi skill diperbarui ke `penanganan-async`. |
+| `.kilo/commands/scan.md` | Diubah | Referensi skill diperbarui. |
+| `.agents/skills/code/bug-runtime/SKILL.md` | Diubah | Referensi + tabel indeks diperbarui. |
+| `.agents/skills/code/pola-ux/SKILL.md` | Diubah | Referensi diperbarui. |
+| `.agents/skills/code/aturan_riverpod/SKILL.md` | Diubah | Referensi diperbarui. |
 | `.agents/rules/code.md` | Diubah | Referensi skill `riverpod-pola` → `aturan_riverpod` (5 lokasi) + path. |
 | `.agents/skills/code/performa-aplikasi/SKILL.md` | Diubah | Referensi skill diperbarui. |
 | `.agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md` | Diubah | Referensi skill diperbarui. |
 | `memori/sesi/sesi_180.md` | Dibuat | Berkas sesi aktif (Belum Sinkron). |
 
-## Sinkronisasi ke MEMORI.md
+- Permintaan pengguna: setiap merubah skill, perbarui juga deskripsinya agar sinkron. Catatan dicatat untuk sesi berikutnya.
 
 Belum disinkronkan.

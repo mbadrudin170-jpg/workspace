@@ -113,7 +113,7 @@ metadata:
     ```dart
     final nama = ref.watch(userProvider.select((s) => s.nama));
     ```
-11. Di dalam `build()`, `AsyncValue` wajib ditangani `isLoading` → `hasError` → `requireValue`. `asData?.value`/`valueOrNull` hanya untuk akses opsional (bukan konten utama) dengan penanganan kegagalan eksplisit; dilarang untuk konten utama atau menelan error secara senyap (rujuk `penanganan-async-data-kosong`). Pemakaian `.when` pada `AsyncValue` DILARANG — gunakan urutan `isLoading` → `hasError` → `requireValue` seperti contoh berikut.
+11. Di dalam `build()`, `AsyncValue` wajib ditangani `isLoading` → `hasError` → `requireValue`. `asData?.value`/`valueOrNull` hanya untuk akses opsional (bukan konten utama) dengan penanganan kegagalan eksplisit; dilarang untuk konten utama atau menelan error secara senyap (rujuk `penanganan-async`). Pemakaian `.when` pada `AsyncValue` DILARANG — gunakan urutan `isLoading` → `hasError` → `requireValue` seperti contoh berikut.
     Contoh:
     ```dart
     final async = ref.watch(provider);
