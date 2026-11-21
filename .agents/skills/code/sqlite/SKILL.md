@@ -1,5 +1,5 @@
 ---
-name: dukungan-sqlite-web
+name: sqlite
 description: "Trigger: saat menambahkan atau memperbaiki dukungan SQLite (sqflite) di Flutter Web | Panduan `sqflite_common_ffi_web`: tambah paket via `flutter pub add`, setup `dart run sqflite_common_ffi_web:setup` (`web/sqlite3.wasm` + `web/sqflite_sw.js` di samping `index.html`), set `databaseFactoryFfiWeb` di `main()` untuk `kIsWeb` sebelum database pertama dibuka, path database di web hanya nama (IndexedDB), dan batasan resmi (singleInstance, origin:port, shared/basic worker). Dukungan SQLite di Flutter Web `sqflite` tidak berjalan di web. SQLite di web berjalan lewat `sqflite_common_ffi_web` (SQLite dikompilasi ke WASM; penyimpanan IndexedDB; pada saat panduan ini dibuat paket tersebut masih _experimental_). Aturan 1. Pada target Web, gunakan `sqflite_common_ffi_web` — bukan `sqflite` (Android/iOS) dan bukan `sqflite_common_ffi` (desktop/VM test). 2. Tambah paket WAJIB lewat `flutter pub add sqflite_common_ffi_web`; dilarang edit `pubspec.yaml` manual (kecuali kasus `path:`/`git:`). 3. Setup binari WAJIB: `dart run s"
 metadata:
   kategori: "custom"

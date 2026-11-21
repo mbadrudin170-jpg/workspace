@@ -30,6 +30,8 @@
 | `.agents/skills/code/aturan-penamaan/` (dari `konstanta-skema-tabel/`) | Diubah (rename) | Folder skill direname; frontmatter `name` diperbarui ke `aturan-penamaan`. |
 | `.agents/skills/code/scaffold-struktur-layar/` | Dihapus | Skill dihapus atas permintaan pengguna. |
 | `.agents/skills/code/struktur-class-ui/` | Dibuat | Skill baru atas permintaan pengguna. |
+| `.agents/skills/code/sqlite/` (dari `dukungan-sqlite-web/`) | Diubah (rename) | Folder skill direname; frontmatter `name` diperbarui ke `sqlite`. |
+| `.agents/skills/code/buildcontext-inherited/` | Dihapus | Skill dihapus atas permintaan pengguna. |
 | `.agents/skills/code/penanganan-data-null/` | Dibuat | Skill baru indeks penanganan data null. |
 | `type-promotion-null-safety`, `parsing-nullable-int`, `penanganan-async`, `validasi-form-sebelum-penyimpanan` | Diubah | Rujukan ke `penanganan-data-null` ditambahkan. |
 | `.agents/rules/code.md` | Diubah | Referensi skill dihapus. |
