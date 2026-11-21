@@ -27,8 +27,8 @@ Catatan: submodule `base_coc` saat ini **tidak aktif** — entri pada `.gitmodul
 | `AGENTS.md`                | Aturan gabungan yang wajib dibaca sebelum bekerja (urutan baca, ceklist sesi, aturan proyek).                                                      |
 | `MEMORI.md`                | Status proyek dan catatan teknis (memori hidup); `memori/sesi/sesi_N.md`, `memori/riwayat_perubahan.md`.                                           |
 | `.agents/rules/`           | Aturan proyek (`code.md`, `kelompok_skill_wajib_*.md`, `lainnya.md`, `pengelolaan_konflik.md`, `overlay_log_debug.md`, `format_hasil_diskusi.md`). |
-| `.agents/skills/code/`     | Skill kustom terkait kode (`SKILL.md`, 55 skill) untuk konteks kerja tertentu.                                                                     |
-| `.agents/skills/non-code/` | Skill kustom non-kode (`SKILL.md`, 17 skill) untuk konteks kerja tertentu.                                                                         |
+| `.agents/skills/`     | Skill kustom terkait kode (`SKILL.md`, 55 skill) untuk konteks kerja tertentu.                                                                     |
+| `.agents/skills/` | Skill kustom non-kode (`SKILL.md`, 17 skill) untuk konteks kerja tertentu.                                                                         |
 | `.kilo/`                   | Konfigurasi Kilo proyek (`kilo.jsonc`, `commands/`, `prompts/`, …) — terlacak di repositori ini.                                                   |
 | `.vscode/`                 | 12 berkas snippet (`*.code-snippets`) serta `launch.json`, `settings.json`, `tasks.json`, `mcp.json`.                                              |
 | `.prettierrc`              | Konfigurasi pemformatan (Markdown/JSON/JSONC).                                                                                                     |
