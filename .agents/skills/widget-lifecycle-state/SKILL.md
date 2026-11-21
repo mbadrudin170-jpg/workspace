@@ -30,7 +30,7 @@ Mengelola siklus hidup widget dan state agar tidak ada memory leak, setState set
 7. Jangan cache `BuildContext` di luar eksekusi sinkron satu fungsi. Context bisa invalid setelah unmount.
 8. `build` tidak boleh memiliki side effect. Hanya return widget tree.
 9. `dependOnInheritedWidgetOfExactType` jangan dipanggil di constructor atau `initState`. Gunakan di `build` atau `didChangeDependencies`.
-10. Jika `State` subscribe ke `ChangeNotifier`/`Stream`, subscribe di `initState`, unsubscribe di `dispose`.
+11. Field state widget (mis. `TextEditingController`, enum) yang dapat diinisialisasi langsung DILARANG dideklarasikan `late`; gunakan inisialisasi langsung (`final x = ...` atau `T _x = default`) dan hapus penugasan di `initState`.
 
 ## Larangan
 
@@ -74,6 +74,26 @@ class _HalamanBerhentiState extends State<HalamanBerhenti> {
   Widget build(BuildContext context) {
     final tema = Theme.of(context); // aman di build
     return Scaffold(...);
+  }
+}
+```
+
+## Contoh Benar (inisialisasi langsung, tanpa `late`)
+
+```dart
+class _FormKategoriPageState extends ConsumerState<FormKategoriPage> {
+  TipeKategori _tipe = TipeKategori.pemasukan;
+  final TextEditingController _namaController = TextEditingController();
+  final _namaFocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    // penugasan awal tetap boleh dilakukan di initState bila bergantung widget
+    if (widget.kategori != null) {
+      _tipe = widget.kategori!.tipe;
+      _namaController.text = widget.kategori!.nama;
+    }
   }
 }
 ```
