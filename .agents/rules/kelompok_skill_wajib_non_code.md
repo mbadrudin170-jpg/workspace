@@ -57,10 +57,10 @@
 - Trigger : saat menambahkan atau memperbarui isi file task.md di root
 - Status : diperbarui : Sun Nov 15 2026 02:10 WIB
 
-12. .agents/skills/non-code/install-rg/SKILL.md
+12. .agents/skills/non-code/aturan-penggunaan-rg/SKILL.md
 
-- Trigger : saat perlu memasang atau memverifikasi ripgrep (rg) di lingkungan Linux/WSL/Cloud Shell
-- Status : diperbarui : Fri Nov 20 2026 04:38 WIB
+- Trigger : saat menggunakan rg (ripgrep) untuk pencarian konten di codebase
+- Status : diperbarui : Sat Nov 21 2026 17:00 WIB
 
 13. .agents/skills/non-code/kelompok-skill-wajib/SKILL.md
 

@@ -1,4 +1,4 @@
-diperbarui : Fri Nov 20 2026 03:02 WIB
+diperbarui : Sat Nov 21 2026 16:59 WIB
 
 file : [penggunaan-tool-bawaan-kilo](../../.agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md)
 
@@ -11,6 +11,8 @@ file : [penggunaan-tool-bawaan-kilo](../../.agents/skills/non-code/penggunaan-to
 4. Saat memeriksa prasyarat berkas, terutama folder hidden (`.github`, `.kilo`, `.agents`), verifikasi dengan Read langsung selain Glob, agar tidak salah menyatakan berkas tidak ada.
 
 5. Saat mendelegasikan pembacaan berkas besar ke subagent, muat skill ini terlebih dahulu dan pastikan subagent melaporkan penanda pemotongan secara eksplisit.
+
+6. **Khusus untuk `rg` (ripgrep): gunakan tool `Bash` dengan perintah `rg` terlebih dahulu untuk pencarian konten; tool `Grep` bawaan Kilo hanya dipakai bila `rg` tidak tersedia atau tidak memenuhi kebutuhan.**
 
 # Daftar Tool
 
