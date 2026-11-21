@@ -53,6 +53,9 @@ Mengelola navigasi antar layar menggunakan `Navigator`, `Route`, `Page`, dan `Ma
 // push ke route bernama
 Navigator.pushNamed(context, '/profil', arguments: <String, dynamic>{'id': 123});
 
+// pop tanpa hasil (halaman ditutup biasa)
+Nav.pop(context);
+
 // pop dengan result
 Navigator.pop(context, true);
 
