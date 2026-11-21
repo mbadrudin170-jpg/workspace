@@ -1,24 +1,12 @@
 # Sesi 100
 
-## Status
+Diperbarui: 2026-11-21
 
-- Status Sinkron: Sudah Sinkron
-- Tanggal: 2026-11-19
-- Command: interaksi langsung (tanpa command)
-- Topik: Pull repo submodule (workspace)
+## Ringkasan
 
-## Catatan Sesi
+- Menambahkan metode in-memory pada `KritikSaranState` (`lib/fitur/kritik_saran/state/kritik_saran_state.dart`): `getKritikSaranById`, `getById`, `getPerubahan`, dan `getKritikSaranByIds`, mengikuti pola state lain (paket/dompet).
+- Verifikasi: `dart analyze` No issues; `flutter test test/data/operasi/kritik_saran_operasi_test.dart` 5/5 lulus.
 
-- Pengguna meminta "oke kerjakan" setelah penjelasan cara pull repo submodule; ditafsirkan sebagai perintah untuk menjalankan pull submodule di repo workspace.
-- Dijalankan `git pull --ff-only` (root) dan `git submodule update --init admin_wifi`: **gagal** — `fatal: could not read Username for 'https://github.com': No such device or address` (tidak ada akses jaringan/autentikasi GitHub di lingkungan ini). Submodule `admin_wifi` dan `share_global_saya` masih kosong (belum di-init); gitlink `.dart_tool/skills/repos/...` juga tidak termapping di `.gitmodules` (temuan pre-existing).
-- Tidak ada perubahan kode/dokumen; working tree tetap hanya berkas sesi baru.
-
-## Berkas Terdampak
-
-| Lokasi File | Status Perubahan | Deskripsi                                                                                  |
-| ----------- | ---------------- | ------------------------------------------------------------------------------------------ |
-| —           | —                | Tidak ada perubahan kode/dokumen (pull gagal karena tidak ada akses jaringan/autentikasi). |
-
-## Sinkronisasi ke MEMORI.md
-
-Catch-up sync (sesi 101): tidak ada perubahan kode/dokumen nyata (pull submodule tidak mengubah tracked files); ditandai `Sudah Sinkron` dengan catatan "tidak ada perubahan untuk disinkronkan". MEMORI.md tidak diubah.
+Status: Sudah Sinkron
+" filePath">
+/home/warkopalic35/workspace/memori/sesi/sesi_100.md
