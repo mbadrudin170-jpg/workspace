@@ -1,10 +1,10 @@
 ---
 name: aturan-riverpod
-description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD, notifier sinkron, ref.watch/read, ConsumerWidget, family, autoDispose, ProviderScope, select, AsyncValue, muatUlang, penamaan provider)."
+description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD, notifier sinkron, ref.watch/read, ConsumerWidget/ConsumerStatefulWidget pemilihan, family, autoDispose, ProviderScope, select, AsyncValue, muatUlang, penamaan provider, akses state di AsyncNotifier via `await future` bukan `state.value`)."
 metadata:
   kategori: "custom"
-  versi: "1.8.0"
-  diperbarui: "Sun Nov 22 2026 04:15 WIB"
+  versi: "1.9.0"
+  diperbarui: "Sun Nov 22 2026 18:10 WIB"
 ---
 
 # Aturan Riverpod
@@ -259,6 +259,114 @@ Widget _buildBody(PelangganState pelangganState, PaketState paketState, Pelangga
 // DILARANG: ref.watch/ref.read di dalam helper yang dipanggil dari build()
 Widget _buildBody() {
   final nilai = ref.watch(counterProvider); // DILARANG
-  return Text('$nilai');
+```
+
+## consumer-widget.md
+
+# ConsumerWidget vs ConsumerStatefulWidget (Riverpod)
+
+Panduan pemilihan widget konsumer Riverpod.
+
+## Pola
+
+- Widget yang hanya memerlukan provider reaktif (`ref.watch`) tanpa state mutable (mis. `TextEditingController`, `FocusNode`, enum lokal) WAJIB memakai `ConsumerWidget`.
+- `ConsumerWidget.build` memiliki signature `Widget build(BuildContext context, WidgetRef ref)` dan `ref` diperoleh dari parameter (bukan getter).
+- Helper privat yang membutuhkan `BuildContext`/state/provider WAJIB menerima parameter dari `build` (aturan 55); helper aksi (`_...` void) tetap di atas `build`, helper widget (`_build...`) di bawah `build` (aturan 52).
+- Jika memerlukan state mutable, tetap pakai `ConsumerStatefulWidget` dengan `ref` getter (aturan 15).
+- Pada `ConsumerWidget`, field final diakses via `this.field` (bukan `widget.field`).
+
+## Contoh Benar
+
+```dart
+class DetailTransaksiPage extends ConsumerWidget {
+  final TransaksiModel transaksi;
+
+  const DetailTransaksiPage({super.key, required this.transaksi});
+
+  void _bukaFormEdit(BuildContext context) {
+    unawaited(
+      Nav.to(
+        context,
+        FormTransaksiPage(transaksi: transaksi),
+      ).catchError((Object e, StackTrace s) {
+        L.e('Gagal membuka form edit transaksi: $e $s');
+        return null;
+      }),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final transaksi = this.transaksi;
+    final asyncDompet = ref.watch(dompetProvider);
+    if (asyncDompet.isLoading) {
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    }
+    if (asyncDompet.hasError) {
+      return _buildError(
+        context,
+        'Gagal memuat: ${asyncDompet.error}',
+        () => ref.refresh(dompetProvider),
+      );
+    }
+    final dompetState = asyncDompet.requireValue;
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.edit),
+            onPressed: () => _bukaFormEdit(context),
+          ),
+        ],
+      ),
+      body: _buildDetailRow(
+        context,
+        'Dompet',
+        dompetState.getById(transaksi.idDompet)?.namaDompet ?? '-',
+      ),
+    );
+  }
+
+  Widget _buildDetailRow(BuildContext context, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        children: [
+          Text(label),
+          Flexible(child: Text(value, textAlign: TextAlign.end)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildError(BuildContext context, String pesan, VoidCallback onRetry) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(pesan),
+            FilledButton(onPressed: onRetry, child: const Text('Coba Lagi')),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+## Contoh Salah
+
+```dart
+// DILARANG: ConsumerStatefulWidget tanpa state mutable
+class DetailTransaksiPage extends ConsumerStatefulWidget {
+  @override
+  ConsumerState<DetailTransaksiPage> createState() => _State();
+}
+
+// DILARANG: ref sebagai parameter build() pada ConsumerState (melanggar override State.build)
+class _State extends ConsumerState<DetailTransaksiPage> {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) { ... }
 }
 ```

@@ -23,7 +23,7 @@ agent: code
 
 1. **aturan-penamaan** — Trigger: saat membuat atau memperbarui model yang berkaitan dengan database (SQLite, Supabase, Firebase, dll.) atau skema tabel | Panduan pola XxxSkema: abstract final class terpisah berisi static const String tabel dan konstanta kolom, interpolasi ${XxxSkema.*} di DDL/query/migrasi, nilai konstanta kolom cocok persis nama kolom DB, hindari kolisi dengan kolom bernama 'tabel'.
 
-2. **aturan-riverpod** — Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD, notifier sinkron, ref.watch/read, ConsumerWidget, family, autoDispose, ProviderScope, select, AsyncValue, muatUlang, penamaan provider, **akses state di AsyncNotifier via `await future` bukan `state.value`**). Detail tiap topik di references/.
+2. **aturan-riverpod** — Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD, notifier sinkron, ref.watch/read, ConsumerWidget/ConsumerStatefulWidget pemilihan, family, autoDispose, ProviderScope, select, AsyncValue, muatUlang, penamaan provider, akses state di AsyncNotifier via `await future` bukan `state.value`). Detail tiap topik di references/.
 
 3. **aturan-testing** — Trigger: saat menulis test | Aturan testing standar: package:test untuk unit test, WidgetTester untuk widget test, integration test, mocktail mock manual (tanpa codegen), dummy data, build_runner. **File test mengikuti struktur folder sumber di `lib/` (mirror ke `test/`), DILARANG flat di `test/`.**
 
