@@ -1,4 +1,4 @@
-diperbarui : Sun Nov 22 2026 13:35 WIB
+diperbarui : Sun Nov 22 2026 13:45 WIB
 ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 1. Baca terlebih dahulu `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks skill non-code) dan `.agents/rules/code.md` (aturan khusus kode beserta skill terkaitnya); bila kedua berkas tidak tersedia, gunakan daftar skill yang tersedia (available_skills).
@@ -81,7 +81,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 31. **pengurutan-paket-pubspec** — Trigger: saat menambah atau mengurutkan dependensi pubspec.yaml | Panduan urutan paket pada section `dependencies` dan `dev_dependencies` di `pubspec.yaml`: abjad case-insensitive, entri berbasis SDK (`flutter`, `flutter_test`) tetap di posisi teratas.
 
-32. **penanganan-async** — Trigger: saat layar menangani state async, data kosong, atau beberapa AsyncValue | Panduan isLoading, hasError, requireValue, empty state, data tidak lengkap, early return, mounted check, cache provider, loading gabungan, error terpisah, tipe generic konkret.
+32. **penanganan-async** — Trigger: saat layar menangani state async, data kosong, atau beberapa AsyncValue | Panduan isLoading, hasError, requireValue, empty state, data tidak lengkap, early return, mounted check, cache provider, loading gabungan, error terpisah, tipe generic konkret, satu method helper error.
 
 33. **penanganan-data-null** — Trigger: saat menangani data null | Indeks skill khusus penanganan data null: type-promotion-null-safety, parsing-nullable-int, penanganan-async, validasi-form-sebelum-penyimpanan.
 

@@ -38,4 +38,8 @@
 - Tugas 28: Tangani loading/error untuk pelanggan dan paket di `build` pesanan.dart (watch + retry ref.refresh), teruskan state ke helper; dart format + analyze bersih.
 - Tugas 29: Kodifikasi aturan multiple async providers (loading gabungan, error terpisah, retry ref.refresh) ke `.agents/rules/code.md` (aturan 40) beserta contoh benar; perbarui tanggal skill `penanganan-async`; sinkronkan tanggal di `prompt/commands/muat_skill_terkait.md`.
 - Tugas 30: Pulihkan kembali aturan 37 (EmptyStateView) di `.agents/rules/code.md` (hilang akibat edit sebelumnya); verifikasi urutan 36–40 lengkap; sinkronkan berkas command bila perlu.
+- Tugas 31: Ekstrak blok error (pesanan/pelanggan/paket) di `pesanan.dart` menjadi method widget `_buildError`; pulihkan `_detailRow` yang terhapus; dart format + analyze bersih.
+- Tugas 32: Kodifikasi aturan satu method widget helper untuk penanganan error (`_buildError`) ke `.agents/rules/code.md` (aturan 41) beserta contoh benar; perbarui deskripsi dan tanggal skill `penanganan-async`; sinkronkan deskripsi di `prompt/commands/muat_skill_terkait.md` dan `.kilo/commands/muat_skill_terkait.md`.
+- Tugas 33: Pulihkan aturan 40 (multiple async providers) yang hilang di `.agents/rules/code.md` (tertimpa saat menambah aturan 41); verifikasi urutan 36–41 lengkap; sinkronkan berkas command bila perlu.
+- Tugas 34: Perbarui `.kilo/commands/perbarui_aturan_dan_skill.md` agar memerintahkan baca utuh `code.md` terlebih dahulu dan melarang penghapusan poin aturan yang tidak diminta; tambah ketentuan append + verifikasi jumlah poin.
 - Status: Selesai.
