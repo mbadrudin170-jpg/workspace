@@ -14,4 +14,9 @@
 - Tugas 4: Satukan `_hapusSatuDompet()` ke dalam `_showDialogHapusSatu()` di `admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart`.
 - Tugas 5: Hapus method `_loadDompet()` di `admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart`; inline pemanggilan `muatUlang()` + refresh ringkasan di call site.
 - Tugas 6: Kodifikasi aturan dialog konfirmasi (showOkCancelAlertDialog) ke `.agents/rules/code.md` aturan 30 (contoh benar) dan skill `pola-ux` (deskripsi, contoh benar/salah, larangan); perbarui tanggal.
+- Tugas 7: Tambahkan tombol "Coba Lagi" pada state error DompetPage (`admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart`) dengan `ref.refresh(dompetProvider)`, mengikuti pola transaksi_screen.
+- Tugas 8: Pisahkan tampilan error DompetPage ke widget privat `_TampilanErrorDompet` (StatelessWidget dengan onRetry).
+- Tugas 9: Ubah `_TampilanErrorDompet` (widget privat) menjadi method privat `_buildTampilanError` di `admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart`.
+- Tugas 10: Audit/perbaikan `admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart` sesuai skill dimuat: empty state → EmptyStateView, tipografi DompetCard via textTheme, hapus `late` field `_dompetOperasi` (inline ref.read), retry button pada RingkasanKeuangan error, impor core_shared, dart format.
+- Tugas 11: Kodifikasi aturan EmptyStateView (empty-state-daftar) dan tipografi (textTheme) ke `.agents/rules/code.md` (aturan 37-38) beserta contoh benar; perbarui deskripsi dan tanggal skill terkait.
 - Status: Selesai.
