@@ -37,6 +37,8 @@ Mengelola navigasi antar layar menggunakan `Navigator`, `Route`, `Page`, dan `Ma
 14. Ratakan indentasi blok `onPressed: () => unawaited(...)` mengikuti pola lain di file yang sama (closure satu level lebih dalam, `child:`/penutup sejajar `onPressed:`).
 15. `initialRoute` hanya berlaku saat pertama kali widget dibuat; perubahan setelah itu tidak berpengaruh.
 16. Pada proyek yang bergantung pada `share_global_saya`, navigasi WAJIB memakai `Nav.to`/`Nav.toReplacement`/`Nav.pop`/`Nav.pushAndRemoveUntil`; DILARANG memanggil `Navigator.push`/`pushReplacement`/`pop`/`pushAndRemoveUntil` langsung — sesuai doc comment `Nav`, pelanggaran ditolak pada code review.
+17. Navigasi mundur tanpa mengembalikan nilai WAJIB memakai `Nav.pop(context)` tanpa argumen; DILARANG `Nav.pop(context, false)`, `Nav.pop(context, null)`, atau `Nav.pop(context, true)`.
+18. `AppBar` WAJIB tidak memasang `leading: BackButton(...)` kustom — `AppBar` sudah menampilkan tombol kembali otomatis bila ada route sebelumnya di stack; memasangnya ulang redundan dan berpotensi menimpa perilaku default (mis. `closeButton` pada dialog).
 
 ## Larangan
 
@@ -46,6 +48,8 @@ Mengelola navigasi antar layar menggunakan `Navigator`, `Route`, `Page`, dan `Ma
 - `Navigator.of(context)` dengan `context` yang tidak berada di bawah `Navigator` (akan melempar `FlutterError`).
 - Menggunakan `initialRoute` dan `routes` yang sama-sama berisi entri `'/'`.
 - `Navigator.push` dengan route yang sudah pernah di-install (harus buat `Route` baru).
+- `Nav.pop(context, false/null/true)` — navigasi mundur biasa tidak boleh mengirim hasil.
+- `AppBar(leading: BackButton(...))` atau `AppBar(leading: IconButton(icon: Icon(Icons.arrow_back), ...))` — gunakan default `AppBar`.
 
 ## Contoh Benar
 

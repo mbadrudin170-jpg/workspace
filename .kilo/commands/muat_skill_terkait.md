@@ -73,7 +73,7 @@ agent: code
 
 26. **model-state-freezed-abstract** — Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '_.freezed.dart' + '_.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan), pengosongan field nullable via `copyWith(field: null)` sentinel codegen, integrasi notifier Riverpod, model database (fromSqflite/toSqflite, ParserUtil, konversi UTC).
 
-27. **navigator-routing** — Trigger: saat navigasi atau routing Flutter | Panduan Navigator, Route, Page, MaterialApp.router, pushNamed, pop, onGenerateRoute, onUnknownRoute, restorablePushNamed.
+27. **navigator-routing** — Trigger: saat navigasi atau routing Flutter | Panduan Navigator, Route, Page, MaterialApp.router, pushNamed, pop, onGenerateRoute, onUnknownRoute, restorablePushNamed. **Nav.pop(context) tanpa argumen untuk navigasi mundur biasa; DILARANG Nav.pop(context, false/null/true); AppBar tidak perlu leading BackButton kustom.**
 
 28. **overlay-log-debug** — Trigger: saat menyusun root aplikasi Flutter (app.dart/main.dart); saat ikon/panel overlay debug tidak muncul; saat error `No Directionality widget found` pada Overlay; saat error `No MaterialLocalizations found` pada SelectionArea | Panduan membungkus root app dengan `PengelolaOverlayLogDebug` dari share_global_saya.
 
@@ -95,7 +95,7 @@ agent: code
 
 37. **pola-ui** — Trigger: saat menerapkan pola UI Flutter | Indeks: visualisasi-progres-impian, isolasi-widget-timer, gaya, widget-custom. Prinsip single responsibility dan textTheme + copyWith.
 
-38. **pola-ux** — Trigger: saat menerapkan pola UX Flutter (termasuk dialog konfirmasi ya/tidak dengan showOkCancelAlertDialog) | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async. Indeks Pola UX Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UX, termasuk dialog konfirmasi ya/tidak yang wajib memakai showOkCancelAlertDialog dari adaptive_dialog (OkCancelResult), bukan showDialog + AlertDialog manual.
+38. **pola-ux** — Trigger: saat menerapkan pola UX Flutter (termasuk dialog konfirmasi ya/tidak dengan showOkCancelAlertDialog) | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async. **Notifikasi sementara wajib AppToast (via core_shared.dart); DILARANG ScaffoldMessenger.showSnackBar; Impor utilitas shared wajib core_shared.dart.**
 
 39. **riset-kompetitor** — Trigger: saat membuat atau memperbarui katalog aplikasi kompetitor proyek | Panduan riset kompetitor portabel lintas proyek: menentukan aplikasi sasaran dari dokumen proyek, format tabel apk_kompetitor.md, status analisa per listing, verifikasi tautan, alur satu run mencakup semua store, dan laporan refrensi_apk.md.
 
