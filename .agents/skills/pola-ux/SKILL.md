@@ -32,6 +32,7 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 10. Data tidak lengkap → tampilan terpisah + CTA, bukan menampilkan data parsial.
 11. Notifikasi sementara (sukses/gagal/peringatan/info) WAJIB memakai `AppToast.sukses/gagal/warning/info` dari `share_global_saya` (import via `core_shared.dart`); DILARANG `ScaffoldMessenger.of(context).showSnackBar` manual.
 12. Impor utilitas shared lintas fitur WAJIB memakai barrel `core_shared.dart` (`package:share_global_saya/core_shared.dart`) yang mengekspor `L`, `Nav`, `AppToast`, `ParserUtil`, `FormatTanggal` (dihide bila tidak dipakai), `SharedPrefService`; DILARANG impor individu (`l.dart`, `navigator_helper.dart`, `toast_widget.dart`, `parser_util.dart`, `shared_pref_service.dart`).
+13. Loading operasi simpan/hapus WAJIB memakai `EasyLoading.show`/`EasyLoading.dismiss` dari `flutter_easyloading` dengan `maskType: EasyLoadingMaskType.black` agar kunci seluruh input; DILARANG `CircularProgressIndicator` manual di dalam tombol atau `showDialog`; `unawaited(EasyLoading.show(...).catchError(...))` di awal, `unawaited(EasyLoading.dismiss().catchError(...))` di `finally`; tombol simpan tidak perlu state `_isLoading`/`_isSaving` — button label statis.
 
 ## Larangan
 
@@ -43,6 +44,7 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 - DILARANG dialog konfirmasi ya/tidak memakai `showDialog` + `AlertDialog` manual; wajib `showOkCancelAlertDialog` dari `adaptive_dialog` dengan hasil `OkCancelResult`.
 - DILARANG notifikasi sementara memakai `ScaffoldMessenger.of(context).showSnackBar` manual; wajib `AppToast`.
 - DILARANG impor individu utilitas shared (`l.dart`, `navigator_helper.dart`, `toast_widget.dart`, `parser_util.dart`, `shared_pref_service.dart`); wajib `core_shared.dart`.
+- DILARANG loading operasi simpan/hapus memakai `CircularProgressIndicator` manual di dalam tombol atau `showDialog`; wajib `EasyLoading.show`/`dismiss` dengan `maskType: EasyLoadingMaskType.black`.
 
 ## Contoh Benar
 

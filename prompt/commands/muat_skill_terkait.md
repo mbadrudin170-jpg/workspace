@@ -1,4 +1,4 @@
-diperbarui : Sun Nov 22 2026 16:00 WIB
+diperbarui : Sun Nov 22 2026 17:00 WIB
 ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 1. Baca terlebih dahulu `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks skill non-code) dan `.agents/rules/code.md` (aturan khusus kode beserta skill terkaitnya); bila kedua berkas tidak tersedia, gunakan daftar skill yang tersedia (available_skills).
@@ -93,7 +93,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 37. **pola-ui** — Trigger: saat menerapkan pola UI Flutter | Indeks: visualisasi-progres-impian, isolasi-widget-timer, gaya, widget-custom. Prinsip single responsibility dan textTheme + copyWith.
 
-38. **pola-ux** — Trigger: saat menerapkan pola UX Flutter (termasuk dialog konfirmasi ya/tidak dengan showOkCancelAlertDialog) | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async. **Notifikasi sementara wajib AppToast (via core_shared.dart); DILARANG ScaffoldMessenger.showSnackBar; Impor utilitas shared wajib core_shared.dart.**
+38. **pola-ux** — Trigger: saat menerapkan pola UX Flutter (termasuk dialog konfirmasi ya/tidak dengan showOkCancelAlertDialog) | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async. **Notifikasi sementara wajib AppToast (via core_shared.dart); DILARANG ScaffoldMessenger.showSnackBar; Impor utilitas shared wajib core_shared.dart. Loading simpan/hapus wajib EasyLoading.show/dismiss (maskType black); DILARANG CircularProgressIndicator manual di tombol.**
 
 39. **riset-kompetitor** — Trigger: saat membuat atau memperbarui katalog aplikasi kompetitor proyek | Panduan riset kompetitor portabel lintas proyek: menentukan aplikasi sasaran dari dokumen proyek, format tabel apk_kompetitor.md, status analisa per listing, verifikasi tautan, alur satu run mencakup semua store, dan laporan refrensi_apk.md.
 
@@ -113,7 +113,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 47. **tipografi** — Trigger: saat mengatur tipografi | Panduan: Theme.of(context).textTheme utama, copyWith untuk kustomisasi, DILARANG TextStyle(fontSize:...) manual tanpa textTheme, paket `google_fonts` wajib, hierarki label/sub-label/nilai, bold terarah, FontFeature.tabularFigures() untuk angka/timer, FittedBox/Flexible secukupnya.
 
-48. **type-promotion-null-safety** — Trigger: saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku.
+48. **type-promotion-null-safety** — Trigger: saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku. **Operator `!` DILARANG — gunakan type promotion via variabel lokal universal (model, widget property, fungsi, Map).**
 
 49. **validasi-form-sebelum-penyimpanan** — Trigger: saat memvalidasi form sebelum simpan | Panduan Form + GlobalKey + validate(); jangan masking input tidak valid dengan ?? 0.
 
