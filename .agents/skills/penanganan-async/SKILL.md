@@ -4,7 +4,7 @@ description: "Trigger: saat layar menangani state async, data kosong, atau beber
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "Sat Nov 21 2026 07:55 WIB"
+  diperbarui: "Sun Nov 22 2026 13:35 WIB"
 ---
 
 # Penanganan State Asynchronous dan Data Kosong pada Layar

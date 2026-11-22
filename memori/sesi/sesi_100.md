@@ -25,4 +25,17 @@
 - Tugas 15: Pindahkan method `_showPesananDetail` (dan helper `_detailRow`) ke atas `build` di `admin_wifi/lib/halaman/tab/pesanan.dart` (sesuai struktur class UI); perbaiki penutup kelas ganda; dart format + analyze bersih.
 - Tugas 16: Kodifikasi aturan struktur class UI (semua method di atas build) ke `.agents/rules/code.md` (aturan 39) beserta contoh benar; perbarui deskripsi dan tanggal skill `struktur-class-ui`; sinkronkan deskripsi di `prompt/commands/muat_skill_terkait.md` dan `.kilo/commands/muat_skill_terkait.md`.
 - Tugas 17: Pulihkan aturan yang hilang di `.agents/rules/code.md` (aturan 36 Map access, 38 tipografi) dan pastikan aturan 37 (EmptyStateView) serta 39 (struktur class UI) tetap; perbarui deskripsi skill terkait; sinkronkan deskripsi di `prompt/commands/muat_skill_terkait.md` dan `.kilo/commands/muat_skill_terkait.md`.
+- Tugas 18: Ubah `FilterChip` menjadi `ChoiceChip` pada filter status di `admin_wifi/lib/halaman/tab/pesanan.dart` (pilihan tunggal); dart format + analyze bersih.
+- Tugas 19: Set `showCheckmark: false` pada `ChoiceChip` filter status di `admin_wifi/lib/halaman/tab/pesanan.dart`; dart format + analyze bersih.
+- Tugas 20: Ubah detail pesanan agar menampilkan nama pelanggan dan nama paket (bukan ID) via `ref.read(pelangganProvider)`/`ref.read(paketProvider)` + `getById(...)?.nama`; dart format + analyze bersih.
+- Tugas 21: Pindahkan pembacaan `ref.read(pelangganProvider)`/`ref.read(paketProvider)` dari `_showPesananDetail` ke `build` (struktur class UI: build membaca provider), dan teruskan state ke helper; sesuaikan tipe `AsyncValue<...>`; dart format + analyze bersih.
+- Tugas 22: Pindahkan `build` ke akhir kelas `pesanan.dart` (semua method di atas build, sesuai struktur-class-ui); perbaiki method `_getStatusText` yang hilang; dart format + analyze bersih.
+- Tugas 23: Konsistensi struktur: pindahkan `build` ke akhir `_TransaksiPageState` di `admin_wifi/lib/fitur/transaksi/screens/transaksi_screen.dart` (semua method di atas build, sesuai struktur-class-ui); dart format + analyze bersih.
+- Tugas 24: Perbaiki struktur `transaksi_screen.dart` yang rusak (pindah `_buildTransaksiList` ke atas `build`, sesuai struktur-class-ui); rewrite bersih; dart format + analyze bersih.
+- Tugas 25: Susun ulang `pesanan.dart` agar `build` di atas dan seluruh method widget di bawah `build` (sesuai instruksi pengguna); perbaiki duplikasi build; dart format + analyze bersih.
+- Tugas 26: Susun ulang `dompet_screen.dart` agar `_buildTampilanError` (widget) berada di bawah `build` (sesuai instruksi pengguna); dart format + analyze bersih.
+- Tugas 27: Revisi `_showPesananDetail` pada `pesanan.dart`: kembalikan pembacaan provider ke dalam method (event handler) via `ref.read`, hapus parameter AsyncValue dari helper, bersihkan impor state yang tidak dipakai; dart format + analyze bersih.
+- Tugas 28: Tangani loading/error untuk pelanggan dan paket di `build` pesanan.dart (watch + retry ref.refresh), teruskan state ke helper; dart format + analyze bersih.
+- Tugas 29: Kodifikasi aturan multiple async providers (loading gabungan, error terpisah, retry ref.refresh) ke `.agents/rules/code.md` (aturan 40) beserta contoh benar; perbarui tanggal skill `penanganan-async`; sinkronkan tanggal di `prompt/commands/muat_skill_terkait.md`.
+- Tugas 30: Pulihkan kembali aturan 37 (EmptyStateView) di `.agents/rules/code.md` (hilang akibat edit sebelumnya); verifikasi urutan 36–40 lengkap; sinkronkan berkas command bila perlu.
 - Status: Selesai.
