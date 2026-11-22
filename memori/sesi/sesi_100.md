@@ -1,12 +1,8 @@
 # Sesi 100
 
-Diperbarui: 2026-11-21
-
-## Ringkasan
-
-- Menambahkan metode in-memory pada `KritikSaranState` (`lib/fitur/kritik_saran/state/kritik_saran_state.dart`): `getKritikSaranById`, `getById`, `getPerubahan`, dan `getKritikSaranByIds`, mengikuti pola state lain (paket/dompet).
-- Verifikasi: `dart analyze` No issues; `flutter test test/data/operasi/kritik_saran_operasi_test.dart` 5/5 lulus.
-
-Status: Sudah Sinkron
-" filePath">
-/home/warkopalic35/workspace/memori/sesi/sesi_100.md
+- Tugas: Perbaiki `admin_wifi/lib/widget/transaksi_list_widgets.dart:25-26` penggunaan operator `!` pada `grouped[date]!.add(t)`; kodifikasi aturan ke `.agents/rules/code.md` dan skill `pencarian-koleksi-null-safe`; tambah contoh kode benar; perbarui deskripsi skill.
+- Perubahan:
+  - `admin_wifi/lib/widget/transaksi_list_widgets.dart`: ganti `if (grouped[date] == null) { grouped[date] = []; } grouped[date]!.add(t);` dengan `grouped.putIfAbsent(date, () => []).add(t);`.
+  - `.agents/rules/code.md` aturan 36: tambahkan alternatif `putIfAbsent` saat menambah ke koleksi di dalam Map beserta contoh.
+  - `.agents/skills/pencarian-koleksi-null-safe/SKILL.md`: tambah aturan 14-15 (putIfAbsent), contoh benar/salah, larangan `map[key]!.add(x)`, perbarui description dan tanggal diperbarui.
+- Status: Selesai.

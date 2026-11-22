@@ -1,10 +1,10 @@
 ---
 name: pencarian-koleksi-null-safe
-description: "Trigger: saat mencari atau mengurutkan elemen dalam koleksi (List/Iterable) | Panduan koleksi: pencarian wajib `firstWhereOrNull` dan pengurutan wajib `.sorted`/`.sortedBy`/`.sortedByDescending` dari `package:collection/collection.dart`; larangan `cast<T?>().firstWhere(..., orElse: ...)` dan `..sort(...)` in-place."
+description: "Trigger: saat mencari, mengurutkan, atau mengakses elemen dalam koleksi (List/Iterable/Map) | Panduan koleksi: pencarian wajib `firstWhereOrNull`, pengurutan wajib `.sorted`/`.sortedBy`/`.sortedByDescending` dari `package:collection/collection.dart`; akses nilai Map DILARANG memakai `!` (gunakan `.entries`, `??`, atau `putIfAbsent`); larangan `cast<T?>().firstWhere(..., orElse: ...)`, `..sort(...)` in-place, dan `map[key]!`."
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "Sun Nov 22 2026 04:10 WIB"
+  diperbarui: "Sun Nov 22 2026 12:07 WIB"
 ---
 
 # Pencarian Koleksi Null-Safe
@@ -35,6 +35,7 @@ Saat mencari elemen dalam koleksi (`List`/`Iterable`) dengan predikat yang mungk
 - Jangan memakai `_list.firstWhere((e) => e.id == id, orElse: () => null)` untuk koleksi yang mungkin tidak berisi elemen cocok.
 - Jangan memakai operator `!` untuk memaksa hasil pencarian non-null apabila hasilnya dapat bernilai `null`.
 - Jangan memakai `map[key]!` pada akses nilai Map; gunakan `.entries` atau `??`.
+- Jangan memakai `map[key]!.add(x)` saat menambahkan ke koleksi di dalam Map; gunakan `putIfAbsent`.
 
 ## Akses Nilai Map
 
@@ -42,6 +43,8 @@ Saat mencari elemen dalam koleksi (`List`/`Iterable`) dengan predikat yang mungk
 11. Bila iterasi berdasarkan indeks, gunakan `.entries` dan ambil `.key`/`.value` dari entri (tidak perlu lookup ulang).
 12. Bila lookup memang diperlukan dan nilai mungkin tidak ada, sediakan nilai default dengan `??` (mis. `map[key] ?? defaultValue`) atau tangani `null` secara eksplisit.
 13. Jangan memakai `map[key]!` hanya karena key berasal dari `map.keys` (lookup tetap nullable menurut tipe).
+14. Saat menambahkan elemen ke koleksi yang disimpan di dalam `Map` (mis. pengelompokan), DILARANG `map[key]!.add(x)`; gunakan `map.putIfAbsent(key, () => []).add(x)` agar entri dibuat bila belum ada tanpa operator `!`.
+15. Alternatif yang setara: `map[key] = (map[key] ?? <T>[])..add(x);` (simpan list baru yang sudah berisi elemen); namun `putIfAbsent` lebih ringkas dan menghindari pembuatan list sementara.
 
 ## Contoh Benar (Akses Map)
 
@@ -52,6 +55,9 @@ final transaksiPadaTanggal = entry.value;
 
 // Lookup dengan default
 final value = grouped[tanggal] ?? const <TransaksiModel>[];
+
+// Tambah ke list di dalam Map (pengelompokan) — putIfAbsent
+grouped.putIfAbsent(tanggal, () => []).add(t);
 ```
 
 ## Contoh Salah (Akses Map)
@@ -59,6 +65,9 @@ final value = grouped[tanggal] ?? const <TransaksiModel>[];
 ```dart
 final tanggal = grouped.keys.elementAt(index);
 final transaksiPadaTanggal = grouped[tanggal]!; // DILARANG
+
+// DILARANG: menambah ke list di dalam Map dengan !
+grouped[tanggal]!.add(t);
 ```
 
 ## Contoh Benar
