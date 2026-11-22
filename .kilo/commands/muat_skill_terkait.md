@@ -115,7 +115,7 @@ agent: code
 
 47. **tipografi** — Trigger: saat mengatur tipografi | Panduan: Theme.of(context).textTheme utama, copyWith untuk kustomisasi, DILARANG TextStyle(fontSize:...) manual tanpa textTheme, paket `google_fonts` wajib, hierarki label/sub-label/nilai, bold terarah, FontFeature.tabularFigures() untuk angka/timer, FittedBox/Flexible secukupnya.
 
-48. **type-promotion-null-safety** — Trigger: saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku. **Operator `!` DILARANG — gunakan type promotion via variabel lokal universal (model, widget property, fungsi, Map).**
+48. **type-promotion-null-safety** — Trigger: saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku. **Operator `!` DILARANG — gunakan type promotion via variabel lokal universal (model, widget property, fungsi, Map, GlobalKey.currentState).**
 
 49. **validasi-form-sebelum-penyimpanan** — Trigger: saat memvalidasi form sebelum simpan | Panduan Form + GlobalKey + validate(); jangan masking input tidak valid dengan ?? 0.
 
