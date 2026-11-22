@@ -1,2 +1,2 @@
-tambah ke aturan bagian code.md dan skill terkait serta tambahkan contoh kode benar nya, serta perbarui deskripsi skill nya juga.
+tambah ke aturan bagian code.md dan skill terkait serta wajib tambahkan contoh kode benar nya, serta perbarui deskripsi skill nya juga.
 jangan lupa perbaiki juga file `prompt/commands/muat_skill_terkait.md` dan file `.kilo/commands/muat_skill_terkait.md`

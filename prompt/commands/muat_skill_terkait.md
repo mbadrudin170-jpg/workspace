@@ -1,4 +1,4 @@
-diperbarui : Sun Nov 22 2026 12:55 WIB
+diperbarui : Sun Nov 22 2026 13:10 WIB
 ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 1. Baca terlebih dahulu `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks skill non-code) dan `.agents/rules/code.md` (aturan khusus kode beserta skill terkaitnya); bila kedua berkas tidak tersedia, gunakan daftar skill yang tersedia (available_skills).
@@ -101,7 +101,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 41. **sqlite** — Trigger: saat menambahkan atau memperbaiki dukungan SQLite (sqflite) di Flutter Web | Panduan `sqflite_common_ffi_web`: tambah paket via `flutter pub add`, setup `dart run sqflite_common_ffi_web:setup`, set `databaseFactoryFfiWeb` di `main()` untuk `kIsWeb`, path database di web hanya nama (IndexedDB).
 
-42. **struktur-class-ui** — Trigger: saat membuat widget custom reusable | Panduan struktur class UI reusable: StatelessWidget, parameter final, const constructor, build pure, semua method di atas build, dispose di bawah initState, rujuk skill gaya/spacing/aturan-riverpod.
+42. **struktur-class-ui** — Trigger: saat membuat widget custom reusable | Panduan struktur class UI reusable: StatelessWidget, parameter final, const constructor, build pure, semua method di atas build, dispose di bawah initState; DILARANG method helper di bawah build. Rujuk skill gaya/spacing/aturan-riverpod.
 
 43. **struktur-folder-lib** — Trigger: saat menata atau membuat struktur folder lib/ Flutter | Panduan feature-first + core/ untuk proyek Flutter: sub-folder lapisan di dalam folder fitur (screens/, notifier/, provider/, widgets/), pembeda state Riverpod yang bisa diubah (notifier/) vs provider read-only (provider/), main.dart/app.dart/home.dart (shell) tetap di akar.
 
