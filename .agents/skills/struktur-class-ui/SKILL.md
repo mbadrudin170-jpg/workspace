@@ -19,6 +19,7 @@ Panduan struktur class widget UI reusable yang konsisten, pure, dan aman tema.
 4. Warna dan gaya mengikuti skill `gaya` (ColorScheme/tema, bukan hardcode).
 5. Jarak seragam mengikuti skill `spacing` (Column.spacing/Row.spacing).
 6. Widget WAJIB aman untuk light/dark mode.
+7. Method helper privat (nama diawali `_`, termasuk aksi non-widget seperti `_editXxx`, `_salinXxx`, `_tambahXxx`, `_muatUlang`) WAJIB ditempatkan di atas method `build`; method helper widget yang mengembalikan `Widget` (mis. `_buildXxx`, `_buildError`) tetap di bawah `build`. DILARANG menempatkan method helper privat di bawah `build` atau mencampurnya dengan helper widget di bawah `build`.
 8. Method helper non-widget yang mengembalikan nilai non-widget (mis. `Color`, `String`, `int`, `bool`) WAJIB ditempatkan di paling bawah kelas, setelah seluruh method helper widget dan method `build`; DILARANG mencampur method non-widget di antara method widget.
 
 ```dart

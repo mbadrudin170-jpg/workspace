@@ -38,4 +38,4 @@ Tanggal: 2026-11-22
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan.
+Telah dicakup di `MEMORI.md` bagian Catatan Teknis (entri "Sesi 201": `detail_transaksi.dart` pakai `kategoriState.getById`, verifikasi `dart format`/`dart analyze`/`flutter test` 4/5). Tidak ada entrik baru yang perlu ditambahkan ke `MEMORI.md` atau `memori/riwayat_perubahan.md` dari berkas ini.

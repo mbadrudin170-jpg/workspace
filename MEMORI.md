@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-22 (sesi 201)
+Diperbarui: 2026-11-22 (sesi 203)
 
 ## Konteks Proyek
 
@@ -24,7 +24,9 @@ Diperbarui: 2026-11-22 (sesi 201)
 
 ## Catatan Teknis
 
+- Sesi 203: Tambah aturan 52 ke `.agents/rules/code.md` — method helper privat pada widget UI wajib di atas `build`; update skill `struktur-class-ui` (Aturan 7) dan sinkronkan deskripsi di `muat_skill_terkait.md` (`.kilo/` dan `prompt/`). Aturan 1–51 tetap utuh (52 aturan total). (sesi 203)
 - `admin_wifi` bergantung pada `share_global_saya` via path dependency (`path: ../share_global_saya`) + `flutter_riverpod` (overlay root app).
+- Sesi 202: `DetailPelangganPage` (`admin_wifi/lib/fitur/pelanggan/screens/detail_pelanggan.dart`) diubah dari `StatefulWidget` menjadi `ConsumerStatefulWidget`; data via `ref.watch(pelangganProvider)` + `ref.watch(transaksiProvider)`, urutan `isLoading` → `hasError` → `requireValue`; query in-memory via state Freezed (`getById`, `getPoinYangDihasilkan`, `getPoinYangDigunakan`) + `PelangganPoinHelper`, tidak ada `pelangganNotifierGlobal` query DB (code.md #29); error gabungan `_buildError` + `ref.refresh` hasil dipakai (code.md #24/#41); `EmptyStateView` saat data tidak ditemukan (code.md #37); log narasi dihapus (code.md #12). Verifikasi `dart format`/`dart analyze` bersih, `flutter test` pelanggan_operasi_test 9/9. (sesi 202)
 - Impor material wajib `package:material_ui/material_ui.dart`; `package:flutter/material.dart` deprecated.
 - SQLite di web didukung via `sqflite_common_ffi_web`; path database di web hanya nama (IndexedDB).
 - Logging wajib memakai `L` dari `share_global_saya`; wrapper log manual per proyek dilarang.
