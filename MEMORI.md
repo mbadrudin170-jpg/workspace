@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-22 (sesi 216)
+Diperbarui: 2026-11-22 (sesi 217)
 
 ## Konteks Proyek
 
@@ -24,6 +24,7 @@ Diperbarui: 2026-11-22 (sesi 216)
 
 ## Catatan Teknis
 
+- Sesi 217: Perbarui skill `aturan-riverpod` (bagian `ref-watch-read`): tambah pola helper async memakai `await ref.read(provider.future)` dan larangan `ref.read(provider)` sinkron di helper (aturan 55). (sesi 217)
 - Sesi 216: Tambah aturan 55 ke `.agents/rules/code.md` — helper privat di UI yang membutuhkan state wajib menerima state via parameter (dari `ref.watch` di `build`) atau memakai `ref.read(provider.future)` di dalam fungsinya; DILARANG `ref.read(provider)` sinkron + `.requireValue`/`.value` di helper. Aturan 1–54 tetap utuh (55 aturan total). (sesi 216)
 - Sesi 215: Tambah `AppToast.gagal` saat `p == null` di `_editPelanggan` (`detail_pelanggan.dart`). Verifikasi: `dart format` bersih, `dart analyze` No issues. (sesi 215)
 - Sesi 214: Refactor `_editPelanggan` di `detail_pelanggan.dart`: tambah parameter `PelangganState pelangganState`, hapus `ref.read(pelangganProvider)` dan guard loading/error di dalamnya; pemanggil di `build` memakai `() => _editPelanggan(pelangganState)`. Verifikasi: `dart format` bersih, `dart analyze` No issues. (sesi 214)

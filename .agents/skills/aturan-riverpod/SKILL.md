@@ -219,6 +219,8 @@ Referensi detail `ref.watch`/`ref.read` dari skill `aturan-riverpod`.
 - `ref.read(provider)` di callback/event handler.
 - Dilarang `ref.watch` di callback atau di luar `build()`.
 - Helper yang dipanggil dari `build()` DILARANG memanggil `ref.watch`/`ref.read` — state hasil `ref.watch` di `build()` WAJIB diteruskan ke helper sebagai parameter.
+- Helper async (mengembalikan `Future<void>`/`Future<T>`) yang dipanggil dari event handler (bukan dari `build()`) BOLEH memanggil `await ref.read(provider.future)` untuk menunggu state siap; hasilnya adalah `State` non-nullable. DILARANG `ref.read(provider)` sinkron lalu `.requireValue`/`.value` di dalam helper (berisiko state belum siap).
+- Helper sync yang dipanggil dari `build()` DILARANG memanggil `ref.read(provider)` maupun `ref.read(provider.future)`; state hasil `ref.watch(provider)` di `build()` WAJIB diteruskan ke helper sebagai parameter.
 - `ref.watch(provider.select((state) => state.field))` untuk optimasi rebuild minimal.
 
 ## Contoh Benar
