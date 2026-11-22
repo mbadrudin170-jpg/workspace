@@ -20,6 +20,8 @@ Menambahkan aturan baru ke `.agents/rules/code.md` dan skill terkait, beserta co
 7. Verifikasi akhir: `code.md` masih memuat semua aturan lama (jumlah poin tidak berkurang) + aturan baru.
 8. Gunakan bahasa Indonesia baku.
 9. **Setelah menyunting**, baca ulang berkas `code.md` dan skill terkait secara utuh untuk memastikan tidak ada poin aturan yang terhapus atau tergantikan; jika ada poin yang hilang, pulihkan segera sebelum melapor selesai. Verifikasi jumlah poin (nomor tertinggi) sesuai dengan yang diharapkan.
+10. Setiap penambahan aturan WAJIB memperbarui skill terkait yang dirujuk (deskripsi skill, contoh kode benar, dan tanggal) agar konsisten dengan aturan baru; DILARANG menambah aturan tanpa memperbarui skill terkait.
+11. Jika aturan yang ingin ditambahkan sudah tercakup oleh poin aturan yang ada (topik sama), WAJIB memperbarui poin tersebut (menambahkan contoh/konteks) alih-alih membuat poin baru; DILARANG menduplikasi aturan dengan nomor baru.
 
 ## Larangan
 

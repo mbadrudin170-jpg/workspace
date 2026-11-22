@@ -79,7 +79,7 @@ agent: code
 
 29. **parsing-nullable-int** — Trigger: saat membaca field integer nullable dari database | Panduan parseIntOrNull (null tetap null, tidak jadi 0) dan parseInt/parseBool dengan defaultValue untuk field non-nullable.
 
-30. **penamaan-konvensi** — Trigger: saat menamai identifier, file, atau class | Konvensi proyek Flutter: identifier bahasa Indonesia, file snake_case, variable camelCase, class PascalCase, konstanta SCREAMING_SNAKE_CASE, import package:, tabel/kolom snake_case, enum alih-alih String untuk banyak opsi, non-nullable dengan default alih-alih nullable.
+30. **penamaan-konvensi** — Trigger: saat menamai identifier, file, atau class | Konvensi proyek Flutter: identifier bahasa Indonesia, file snake_case, variable camelCase, class PascalCase, konstanta SCREAMING_SNAKE_CASE, import package:, tabel/kolom snake_case, enum alih-alih String untuk banyak opsi (wajib getter `label` untuk tampilan), non-nullable dengan default alih-alih nullable.
 
 31. **pengurutan-paket-pubspec** — Trigger: saat menambah atau mengurutkan dependensi pubspec.yaml | Panduan urutan paket pada section `dependencies` dan `dev_dependencies` di `pubspec.yaml`: abjad case-insensitive, entri berbasis SDK (`flutter`, `flutter_test`) tetap di posisi teratas.
 

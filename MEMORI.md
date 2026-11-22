@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-22 (sesi 219)
+Diperbarui: 2026-11-22 (sesi 223)
 
 ## Konteks Proyek
 
@@ -24,6 +24,10 @@ Diperbarui: 2026-11-22 (sesi 219)
 
 ## Catatan Teknis
 
+- Sesi 223: Perbaikan `TransaksiTile` (`transaksi_list_widgets.dart`): hapus `Builder` di subtitle; pindahkan `ref.watch(kategoriProvider)` dan `ref.watch(dompetProvider)` ke atas `build` (aturan 14/29). Verifikasi: `dart format` bersih, `dart analyze` No issues. (sesi 223)
+- Sesi 222: Perbaikan subtitle `TransaksiTile` (`transaksi_list_widgets.dart`): tangani `AsyncValue` berurutan `isLoading` → `hasError` → `requireValue` (aturan 14) alih-alih `.value?.getById(...)`. Verifikasi: `dart format` bersih, `dart analyze` No issues. (sesi 222)
+- Sesi 221: Perbaikan `admin_wifi/lib/widget/transaksi_list_widgets.dart`: impor utilitas shared via barrel `core_shared.dart` (hide nama bentrok) (aturan 47), urutan impor alfabetis, `TextStyle` manual → `Theme.of(context).textTheme` (aturan 38), `bangunHeaderSeksi` tambah param `BuildContext` dan pemakai di `transaksi_screen.dart` & `detail_dompet.dart`. Verifikasi: `dart format` bersih, `dart analyze` No issues. (sesi 221)
+- Sesi 220: Rename class `TransaksiPage` → `TransaksiScreens` di `admin_wifi/lib/fitur/transaksi/screens/transaksi_screen.dart` dan pemakainya (`home.dart`, `transaksi_test.dart`). Verifikasi: `dart format` bersih, `dart analyze` No issues, `flutter test` transaksi_test 4/5 (1 kegagalan pre-existing teks empty state, tidak terkait). (sesi 220)
 - Sesi 219: Perbaikan spacing di `_buildDetailRow` (`detail_pelanggan.dart`): ganti `const SizedBox(height: 4)` dengan `Column(spacing: 4, ...)` (aturan 11). Verifikasi: `dart format` bersih, `dart analyze` No issues. (sesi 219)
 - Sesi 218: Perbaikan audit P1: (1) deklarasikan `collection` di `share_global_saya` (`flutter pub add collection` + `flutter pub get`); (2) ganti impor utilitas shared di `admin_wifi/lib/fitur/transaksi/screens/form_transaksi.dart` ke barrel `core_shared.dart` (aturan 47). Verifikasi: `dart analyze` No issues. (sesi 218)
 - Sesi 217: Perbarui skill `aturan-riverpod` (bagian `ref-watch-read`): tambah pola helper async memakai `await ref.read(provider.future)` dan larangan `ref.read(provider)` sinkron di helper (aturan 55). (sesi 217)

@@ -1,4 +1,4 @@
-diperbarui : Sun Nov 22 2026 17:35 WIB
+diperbarui : Sun Nov 22 2026 17:45 WIB
 ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 1. Baca terlebih dahulu `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks skill non-code) dan `.agents/rules/code.md` (aturan khusus kode beserta skill terkaitnya); bila kedua berkas tidak tersedia, gunakan daftar skill yang tersedia (available_skills).
@@ -77,7 +77,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 29. **parsing-nullable-int** — Trigger: saat membaca field integer nullable dari database | Panduan parseIntOrNull (null tetap null, tidak jadi 0) dan parseInt/parseBool dengan defaultValue untuk field non-nullable.
 
-30. **penamaan-konvensi** — Trigger: saat menamai identifier, file, atau class | Konvensi proyek Flutter: identifier bahasa Indonesia, file snake_case, variable camelCase, class PascalCase, konstanta SCREAMING_SNAKE_CASE, import package:, tabel/kolom snake_case, enum alih-alih String untuk banyak opsi, non-nullable dengan default alih-alih nullable.
+30. **penamaan-konvensi** — Trigger: saat menamai identifier, file, atau class | Konvensi proyek Flutter: identifier bahasa Indonesia, file snake_case, variable camelCase, class PascalCase, konstanta SCREAMING_SNAKE_CASE, import package:, tabel/kolom snake_case, enum alih-alih String untuk banyak opsi (wajib getter `label` untuk tampilan), non-nullable dengan default alih-alih nullable.
 
 31. **pengurutan-paket-pubspec** — Trigger: saat menambah atau mengurutkan dependensi pubspec.yaml | Panduan urutan paket pada section `dependencies` dan `dev_dependencies` di `pubspec.yaml`: abjad case-insensitive, entri berbasis SDK (`flutter`, `flutter_test`) tetap di posisi teratas.
 
