@@ -15,8 +15,7 @@ Panduan struktur class widget UI reusable yang konsisten, pure, dan aman tema.
 
 1. Widget reusable WAJIB `StatelessWidget` bila tidak memerlukan state.
 2. Semua parameter WAJIB `final` dan constructor WAJIB `const` bila memungkinkan.
-3. Method `build` WAJIB pure (tidak memanggil side-effect, tidak membaca provider langsung).
-4. Warna dan gaya mengikuti skill `gaya` (ColorScheme/tema, bukan hardcode).
+3. Method `build` WAJIB pure (tidak memanggil side-effect, tidak membaca provider langsung) dan WAJIB berada di atas seluruh method helper widget (yang mengembalikan `Widget`). Method helper privat aksi (nama diawali `_`, mengembalikan `void`) WAJIB di atas `build`; method helper non-widget pengembali nilai (`Color`, `String`, `int`, `bool`) WAJIB di paling bawah kelas. Hierarki dari atas ke bawah: helper privat aksi → `build` → helper widget → helper non-widget pengembali nilai.
 5. Jarak seragam mengikuti skill `spacing` (Column.spacing/Row.spacing).
 6. Widget WAJIB aman untuk light/dark mode.
 7. Method helper privat (nama diawali `_`, termasuk aksi non-widget seperti `_editXxx`, `_salinXxx`, `_tambahXxx`, `_muatUlang`) WAJIB ditempatkan di atas method `build`; method helper widget yang mengembalikan `Widget` (mis. `_buildXxx`, `_buildError`) tetap di bawah `build`. DILARANG menempatkan method helper privat di bawah `build` atau mencampurnya dengan helper widget di bawah `build`.
