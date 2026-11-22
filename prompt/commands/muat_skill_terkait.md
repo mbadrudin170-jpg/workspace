@@ -1,4 +1,4 @@
-diperbarui : Sun Nov 22 2026 17:30 WIB
+diperbarui : Sun Nov 22 2026 17:35 WIB
 ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 1. Baca terlebih dahulu `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks skill non-code) dan `.agents/rules/code.md` (aturan khusus kode beserta skill terkaitnya); bila kedua berkas tidak tersedia, gunakan daftar skill yang tersedia (available_skills).
@@ -17,7 +17,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 # Daftar Lengkap Skill Tersedia (dengan Deskripsi)
 
-## Code (55 skill)
+## Code (56 skill)
 
 1. **aturan-penamaan** — Trigger: saat membuat atau memperbarui model yang berkaitan dengan database (SQLite, Supabase, Firebase, dll.) atau skema tabel | Panduan pola XxxSkema: abstract final class terpisah berisi static const String tabel dan konstanta kolom, interpolasi ${XxxSkema.*} di DDL/query/migrasi, nilai konstanta kolom cocok persis nama kolom DB, hindari kolisi dengan kolom bernama 'tabel'.
 
@@ -128,6 +128,8 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 54. **widget-lifecycle-state** — Trigger: saat mengelola lifecycle widget | Panduan Widget/State lifecycle: mounted, initState, build, didUpdateWidget, dispose, setState, dependOnInheritedWidgetOfExactType.
 
 55. **zona-waktu-perangkat-pengingat** — Trigger: saat menjadwalkan pengingat berbasis zona waktu | Panduan flutter_timezone untuk deteksi zona lokal, inisialisasi tz database, fallback Asia/Jakarta, handle error tiap tahap.
+
+56. **boilerplate** — Trigger: saat membuat kode boilerplate atau pola kode berulang yang siap pakai | Panduan boilerplate: pola kode berulang (widget, notifier, model, layar) yang konsisten dengan aturan proyek, dengan contoh benar/salah dan rujukan ke skill terkait (struktur-class-ui, struktur-folder-lib, aturan-riverpod, model-state-freezed-abstract).
 
 ## Non-Code (20 skill)
 
