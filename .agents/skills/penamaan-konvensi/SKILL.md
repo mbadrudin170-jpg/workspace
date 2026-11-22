@@ -1,10 +1,10 @@
 ---
 name: penamaan-konvensi
-description: "Trigger: saat menamai identifier, file, atau class | Konvensi proyek Flutter: identifier bahasa Indonesia, file snake_case, variable camelCase, class PascalCase, konstanta SCREAMING_SNAKE_CASE, import package:, tabel/kolom snake_case. Konvensi Penamaan Proyek Skill ini mendokumentasikan konvensi penamaan yang wajib diterapkan di proyek ini. Cakupan yang Di-Cover - Package: `package:flutter`, `package:flutter_riverpod`, `package:freezed`, `package:json_annotation`, `package:mockito` (kode eksternal tetap pakai konvensi aslinya dalam Bahasa Inggris) - Class: `BiodataModel`, `ModeBerhenti`, `NamaTabel`, `NamaKolom` - Enum: `ModeBerhenti.seketika`, `ModeBerhenti.bertahap`, `Status.loading`, `Status.success`, `Status.error` - Properti: `jumlahRokokPerHari`, `isLoading`, `hasError`, `_errorMessage`, `namaTabel`, `versiDatabase` - Method: `simpanBiodata()`, `_handleTap()` Aturan 1. Wajib gunakan bahasa Indonesia untuk identifier yang didefinisikan aplikasi (variable, method, class, enum, table, column). 2. DILARANG "
+description: "Trigger: saat menamai identifier, file, atau class | Konvensi proyek Flutter: identifier bahasa Indonesia, file snake_case, variable camelCase, class PascalCase, konstanta SCREAMING_SNAKE_CASE, import package:, tabel/kolom snake_case, enum alih-alih String untuk banyak opsi, non-nullable dengan default alih-alih nullable. Konvensi Penamaan Proyek Skill ini mendokumentasikan konvensi penamaan yang wajib diterapkan di proyek ini. Cakupan yang Di-Cover - Package: `package:flutter`, `package:flutter_riverpod`, `package:freezed`, `package:json_annotation`, `package:mockito` (kode eksternal tetap pakai konvensi aslinya dalam Bahasa Inggris) - Class: `BiodataModel`, `ModeBerhenti`, `NamaTabel`, `NamaKolom` - Enum: `ModeBerhenti.seketika`, `ModeBerhenti.bertahap`, `Status.loading`, `Status.success`, `Status.error` - Properti: `jumlahRokokPerHari`, `isLoading`, `hasError`, `_errorMessage`, `namaTabel`, `versiDatabase` - Method: `simpanBiodata()`, `_handleTap()` Aturan 1. Wajib gunakan bahasa Indonesia untuk identifier yang didefinisikan aplikasi (variable, method, class, enum, table, column). 2. DILARANG "
 metadata:
   kategori: "custom"
   versi: "1.2.0"
-  diperbarui: "Sun Nov 22 2026 14:10 WIB"
+  diperbarui: "Sun Nov 22 2026 14:30 WIB"
 ---
 
 # Konvensi Penamaan Proyek
@@ -40,7 +40,9 @@ Skill ini mendokumentasikan konvensi penamaan yang wajib diterapkan di proyek in
 16. Import wajib pakai `package:` prefix, DILARANG relative import (`../`, `./`).
 17. Urutkan import alfabetis berdasarkan path package lengkap.
 18. Group: `dart:`, `package:` (external), `package:` (internal/project), lalu `export`.
+19. Enum yang perlu ditampilkan ke pengguna WAJIB menyediakan getter `label` berupa `switch` exhaustive atas seluruh nilai enum (teks tampilan baku untuk pengguna, Bahasa Indonesia); UI wajib memanggil `<enum>.label` dan DILARANG menulis teks tampilan enum secara manual di layar (ternary/if/string literal). Getter `label` tidak menggantikan `.name` untuk persistensi database maupun `toString()`. Contoh: `TipeDurasi.label` ('Menit'/'Jam'/'Hari'/'Bulan'), `StatusPembayaranEnum.label` ('Lunas'/'Belum Lunas').
 20. Variabel state yang menampung salah satu dari banyak opsi pilihan (mis. filter status, status pesanan, mode tampilan) WAJIB memakai `enum` alih-alih `String` literal; DILARANG memakai `String` dengan perbandingan literal (mis. `== 'semua'`, `== 'baru'`) untuk opsi yang terbatas dan diketahui. Enum WAJIB memiliki getter `label` (rule 19). Contoh: `StatusFilterPesananEnum _filterStatus = StatusFilterPesananEnum.semua;` dengan `enum StatusFilterPesananEnum { semua, baru, diproses, selesai, ditolak; String get label { ... } }`.
+21. Parameter atau field yang memiliki nilai default yang masuk akal WAJIB dideklarasikan non-nullable dengan nilai default, bukan nullable (`T?`) dengan `??` fallback; DILARANG `bool? x` + `x ?? false` atau `String? x` + `x ?? ''` bila nilai default sudah diketahui. Gunakan `bool x = false`, `String x = ''`, `int x = 0`, dll. Contoh: `final bool modePerpanjang = false;` dengan constructor `this.modePerpanjang = false`, bukan `final bool? modePerpanjang;` + `widget.modePerpanjang ?? false`.
 
 ## Larangan
 

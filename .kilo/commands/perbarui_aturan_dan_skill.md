@@ -19,9 +19,11 @@ Menambahkan aturan baru ke `.agents/rules/code.md` dan skill terkait, beserta co
 6. Setelah selesai, **sinkronkan** `prompt/commands/muat_skill_terkait.md` dan `.kilo/commands/muat_skill_terkait.md` (deskripsi skill yang berubah, jumlah skill, tanggal).
 7. Verifikasi akhir: `code.md` masih memuat semua aturan lama (jumlah poin tidak berkurang) + aturan baru.
 8. Gunakan bahasa Indonesia baku.
+9. **Setelah menyunting**, baca ulang berkas `code.md` dan skill terkait secara utuh untuk memastikan tidak ada poin aturan yang terhapus atau tergantikan; jika ada poin yang hilang, pulihkan segera sebelum melapor selesai. Verifikasi jumlah poin (nomor tertinggi) sesuai dengan yang diharapkan.
 
 ## Larangan
 
 - DILARANG menimpa/mengganti seluruh isi `code.md` atau menghapus poin yang tidak diminta.
 - DILARANG mengubah nomor aturan yang sudah ada.
 - DILARANG menyinkronkan berkas command dengan menghapus entri skill.
+- DILARANG melaporkan selesai sebelum membaca ulang berkas yang disunting dan memverifikasi semua poin lama masih ada.
