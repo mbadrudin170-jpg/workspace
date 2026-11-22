@@ -1,10 +1,10 @@
 ---
 name: struktur-class-ui
-description: "Trigger: saat membuat widget custom reusable | Panduan struktur class UI reusable: StatelessWidget, parameter final, const constructor, build pure, semua method widget di bawah build, dispose di bawah initState; DILARANG method helper di atas build. Rujuk skill gaya/spacing/aturan-riverpod. Struktur Class UI Reusable Panduan struktur class widget UI reusable yang konsisten, pure, dan aman tema. Aturan 1. Widget reusable WAJIB `StatelessWidget` bila tidak memerlukan state. 2. Semua parameter WAJIB `final` dan constructor WAJIB `const` bila memungkinkan. 3. Method `build` WAJIB pure (tidak memanggil side-effect, tidak membaca provider langsung). 4. Warna WAJIB dari `ColorScheme`/tema, bukan hardcode (kecuali status semantic). 5. Gunakan `Column.spacing`/`Row.spacing` untuk jarak seragam, bukan `SizedBox` berulang. 6. Widget WAJIB aman untuk light/dark mode."
+description: "Trigger: saat membuat widget custom reusable | Panduan struktur class UI reusable: StatelessWidget, parameter final, const constructor, build pure, semua method widget di bawah build, dispose di bawah initState, method helper non-widget di paling bawah kelas; DILARANG method helper di atas build. Rujuk skill gaya/spacing/aturan-riverpod. Struktur Class UI Reusable Panduan struktur class widget UI reusable yang konsisten, pure, dan aman tema. Aturan 1. Widget reusable WAJIB `StatelessWidget` bila tidak memerlukan state. 2. Semua parameter WAJIB `final` dan constructor WAJIB `const` bila memungkinkan. 3. Method `build` WAJIB pure (tidak memanggil side-effect, tidak membaca provider langsung). 4. Warna WAJIB dari `ColorScheme`/tema, bukan hardcode (kecuali status semantic). 5. Gunakan `Column.spacing`/`Row.spacing` untuk jarak seragam, bukan `SizedBox` berulang. 6. Widget WAJIB aman untuk light/dark mode."
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "Sun Nov 22 2026 13:20 WIB"
+  diperbarui: "Sun Nov 22 2026 14:00 WIB"
 ---
 
 # Struktur Class UI Reusable
@@ -19,7 +19,7 @@ Panduan struktur class widget UI reusable yang konsisten, pure, dan aman tema.
 4. Warna dan gaya mengikuti skill `gaya` (ColorScheme/tema, bukan hardcode).
 5. Jarak seragam mengikuti skill `spacing` (Column.spacing/Row.spacing).
 6. Widget WAJIB aman untuk light/dark mode.
-7. Jika UI memakai data dari state Riverpod, ubah class menjadi `ConsumerWidget`/`ConsumerStatefulWidget` (rujuk skill `aturan-riverpod`).
+8. Method helper non-widget yang mengembalikan nilai non-widget (mis. `Color`, `String`, `int`, `bool`) WAJIB ditempatkan di paling bawah kelas, setelah seluruh method helper widget dan method `build`; DILARANG mencampur method non-widget di antara method widget.
 
 ```dart
 class KartuInfo extends StatelessWidget {
