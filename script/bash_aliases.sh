@@ -45,6 +45,7 @@ alias fc='flutter clean && fum'
 alias frm='flutter clean && flutter pub get && fbuild'
 alias fa='flutter analyze'
 alias frun='flutter run'
+alias fum='flutter pub upgrade --major-versions'
 
 # Flutter Run Web Server
 alias rr='flutter pub get && flutter run -d web-server --web-port=8080 --web-hostname=localhost --release'
