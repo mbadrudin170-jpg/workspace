@@ -4,7 +4,7 @@ description: "Trigger: saat mencari atau mengurutkan elemen dalam koleksi (List/
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "Thu Nov 19 2026 08:15 WIB"
+  diperbarui: "Sun Nov 22 2026 04:10 WIB"
 ---
 
 # Pencarian Koleksi Null-Safe
@@ -34,6 +34,32 @@ Saat mencari elemen dalam koleksi (`List`/`Iterable`) dengan predikat yang mungk
 - Jangan memakai `_list.cast<T?>().firstWhere((e) => e?.id == id, orElse: () => null)`.
 - Jangan memakai `_list.firstWhere((e) => e.id == id, orElse: () => null)` untuk koleksi yang mungkin tidak berisi elemen cocok.
 - Jangan memakai operator `!` untuk memaksa hasil pencarian non-null apabila hasilnya dapat bernilai `null`.
+- Jangan memakai `map[key]!` pada akses nilai Map; gunakan `.entries` atau `??`.
+
+## Akses Nilai Map
+
+10. Akses nilai `Map` melalui indeks (`map[key]`) mengembalikan nilai nullable (`V?`); DILARANG memakai operator `!` untuk memaksakan non-null (mis. `map[key]!`).
+11. Bila iterasi berdasarkan indeks, gunakan `.entries` dan ambil `.key`/`.value` dari entri (tidak perlu lookup ulang).
+12. Bila lookup memang diperlukan dan nilai mungkin tidak ada, sediakan nilai default dengan `??` (mis. `map[key] ?? defaultValue`) atau tangani `null` secara eksplisit.
+13. Jangan memakai `map[key]!` hanya karena key berasal dari `map.keys` (lookup tetap nullable menurut tipe).
+
+## Contoh Benar (Akses Map)
+
+```dart
+final entry = grouped.entries.elementAt(index);
+final tanggal = entry.key;
+final transaksiPadaTanggal = entry.value;
+
+// Lookup dengan default
+final value = grouped[tanggal] ?? const <TransaksiModel>[];
+```
+
+## Contoh Salah (Akses Map)
+
+```dart
+final tanggal = grouped.keys.elementAt(index);
+final transaksiPadaTanggal = grouped[tanggal]!; // DILARANG
+```
 
 ## Contoh Benar
 
@@ -70,3 +96,9 @@ final terbaru = (state.listTransaksi
         .toList()
       ..sort((a, b) => b.tanggal.compareTo(a.tanggal)));
 ```
+
+
+---
+
+# Referensi (dipindahkan dari folder references)
+

@@ -4,7 +4,7 @@ description: Trigger: saat membuat skill baru atau memperbarui skill | Panduan p
 metadata:
   kategori: "custom"
   versi: "1.0.0"
-  diperbarui: "Sat Nov 21 2026 17:03 WIB"
+  diperbarui: "Sun Nov 22 2026 11:00 WIB"
 ---
 
 1. Setiap skill wajib memiliki frontmatter, dan cukup hanya `name` serta `description`; `name` wajib sama dengan nama folder (Name Matching Rule).
@@ -43,10 +43,8 @@ metadata:
 
 18. Untuk `description`, utamakan ringkas, spesifik, dan pemicu penggunaan yang jelas; batasan 1024 karakter adalah batas maksimum, bukan target; tidak wajib memenuhi hingga 1024 karakter.
 
-19. Setiap skill wajib memiliki folder `references/` di dalam folder skill untuk berkas detail dan referensi (progressive disclosure), meskipun folder masih kosong.
+19. Folder `references/` di dalam folder skill tidak wajib; gunakan hanya bila diperlukan untuk berkas detail dan referensi (progressive disclosure).
 
-20. File-file di folder `references/` berisi detail tentang masing-masing file referensi. SKILL.md utama hanya untuk aturan/panduan; detailnya dipindahkan ke file di `references/`. Jika folder `references/` kosong, tidak masalah — ini progressive disclosure. Catatan: catatan penulis prompt (catatan "hanya untuk penulis prompt", bukan untuk skill) TIDAK dimasukkan ke skill atau target.
+20. SKILL.md utama hanya untuk aturan/panduan. Detail tambahan dapat dipindahkan ke file referensi bila diperlukan; catatan penulis prompt (bukan untuk skill) TIDAK dimasukkan ke skill atau target.
 
-21. File-file di folder `references/` wajib memiliki contoh kode jika skill tersebut berkaitan dengan kode (mis. skill Flutter/Dart/SQLite/Riverpod); contoh kode wajib benar dan dapat dikompilasi.
-
-22. **Setiap kali menambah atau memperbarui skill, wajib sinkronkan berkas-berkas yang merujuk ke skill tersebut:** indeks skill (`.agents/rules/kelompok_skill_wajib_*.md`), command yang memuat skill terkait (`.kilo/commands/**/*.md` bagian `# Skill Terkait`), dan berkas poin `prompt/skill/<nama-skill>.md`. Verifikasi konsistensi sebelum menyelesaikan.
+21. **Setiap kali menambah atau memperbarui skill, wajib sinkronkan berkas-berkas yang merujuk ke skill tersebut:** indeks skill (`.agents/rules/kelompok_skill_wajib_*.md`), command yang memuat skill terkait (`.kilo/commands/**/*.md` bagian `# Skill Terkait`), dan berkas poin `prompt/skill/<nama-skill>.md`. Verifikasi konsistensi sebelum menyelesaikan.

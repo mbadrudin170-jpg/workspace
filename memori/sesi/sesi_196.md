@@ -24,6 +24,11 @@ Tanggal: 2026-11-22
 - Sinkronkan ke file target `.agents/skills/memori-check/SKILL.md` (perintah pengguna "perbarui file target nya"):
   - `diperbarui` di frontmatter: `Sat Nov 21 2026 16:37 WIB` → `Sun Nov 22 2026 10:35 WIB`
   - Hapus Aturan 25 (Catat ID transkrip Kilo) — karena baris 31 di prompt sudah dihapus
+- Sinkronkan ke file target `.agents/skills/aturan-pembuatan-skill/SKILL.md` (perintah pengguna "perbarui file target nya", hapus kewajiban folder `references/`):
+  - `diperbarui` di frontmatter: `Sat Nov 21 2026 17:03 WIB` → `Sun Nov 22 2026 11:00 WIB`
+  - Poin 19: folder `references/` tidak wajib
+  - Poin 20: SKILL.md utama hanya untuk aturan/panduan
+  - Hapus poin 21 (contoh kode wajib di references), normalisasi poin 22 → 21
 
 ## Berkas Terdampak
 
@@ -33,6 +38,7 @@ Tanggal: 2026-11-22
 | prompt/skill/memori-check.md | Diubah           | Hapus backtick pada header `diperbarui :` dan `file :`, perbarui tanggal `diperbarui` (ke Sun Nov 22 2026 10:35 WIB) |
 | id_transkrip.txt             | Dihapus          | Dihapus per instruksi eksplisit pengguna (operasi destruktif)                                                      |
 | .agents/skills/memori-check/SKILL.md | Diubah           | `diperbarui` di frontmatter diperbarui; Aturan 25 (ID transkrip Kilo) dihapus (sinkronisasi dari prompt)          |
+| .agents/skills/aturan-pembuatan-skill/SKILL.md | Diubah           | `diperbarui` di frontmatter diperbarui; poin 19/20 diubah, poin 21 dihapus, nomor 22→21 (sinkronisasi dari prompt) |
 
 ## Sinkronisasi ke MEMORI.md
 
