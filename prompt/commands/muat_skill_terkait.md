@@ -1,4 +1,4 @@
-diperbarui : Sat Nov 21 2026 17:39 WIB
+diperbarui : Sun Nov 22 2026 12:55 WIB
 ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 1. Baca terlebih dahulu `.agents/rules/kelompok_skill_wajib_non_code.md` (indeks skill non-code) dan `.agents/rules/code.md` (aturan khusus kode beserta skill terkaitnya); bila kedua berkas tidak tersedia, gunakan daftar skill yang tersedia (available_skills).
@@ -17,7 +17,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 # Daftar Lengkap Skill Tersedia (dengan Deskripsi)
 
-## Code (50 skill)
+## Code (55 skill)
 
 1. **aturan-penamaan** — Trigger: saat membuat atau memperbarui model yang berkaitan dengan database (SQLite, Supabase, Firebase, dll.) atau skema tabel | Panduan pola XxxSkema: abstract final class terpisah berisi static const String tabel dan konstanta kolom, interpolasi ${XxxSkema.*} di DDL/query/migrasi, nilai konstanta kolom cocok persis nama kolom DB, hindari kolisi dengan kolom bernama 'tabel'.
 
@@ -39,7 +39,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 10. **ekstraksi-perhitungan-turunan** — Trigger: saat logika perhitungan turunan terduplikasi | Panduan ekstraksi logika perhitungan turunan ke ekstensi model atau helper murni agar ditulis sekali dan konsisten di seluruh layar.
 
-11. **empty-state-daftar** — Trigger: saat membuat empty state daftar | Panduan komponen bersama EmptyStateView (ikon, judul, deskripsi, CTA opsional), CTA kontekstual, SafeArea + padding, warna ColorScheme; hapus empty state custom per layar.
+11. **empty-state-daftar** — Trigger: saat membuat empty state daftar atau non-daftar | Panduan komponen bersama EmptyStateView (ikon, judul, deskripsi, CTA opsional), CTA kontekstual, SafeArea + padding, warna ColorScheme; DILARANG `Center(child: Text(...))` atau empty state custom per layar.
 
 12. **exception-khusus-deteksi-error** — Trigger: saat mendeteksi tipe error; saat memilih tipe yang dilempar (exception/error) | Panduan exception khusus (class implements Exception) untuk deteksi via type check (is), bukan string matching pesan error; throw string literal DILARANG.
 
@@ -89,11 +89,11 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 35. **performa-aplikasi** — Trigger: saat mengoptimasi performa aplikasi | Aturan performa Flutter: rebuild minimal, const constructor, builder list (lazy), lazy IndexedStack tab BottomNavigationBar, image caching, async gap yielding, memory leak, query DB optimization, profiling.
 
-36. **pencarian-koleksi-null-safe** — Trigger: saat mencari atau mengurutkan elemen dalam koleksi (List/Iterable) | Panduan koleksi: pencarian wajib `firstWhereOrNull` dan pengurutan wajib `.sorted`/`.sortedBy`/`.sortedByDescending` dari `package:collection/collection.dart`; larangan `cast<T?>().firstWhere(..., orElse: ...)` dan `..sort(...)` in-place.
+36. **pencarian-koleksi-null-safe** — Trigger: saat mencari, mengurutkan, atau mengakses elemen dalam koleksi (List/Iterable/Map) | Panduan koleksi: pencarian wajib `firstWhereOrNull`, pengurutan wajib `.sorted`/`.sortedBy`/`.sortedByDescending`, akses nilai Map DILARANG memakai `!` (gunakan `.entries`, `??`, atau `putIfAbsent`); larangan `cast<T?>().firstWhere(..., orElse: ...)`, `..sort(...)` in-place, dan `map[key]!`.
 
 37. **pola-ui** — Trigger: saat menerapkan pola UI Flutter | Indeks: visualisasi-progres-impian, isolasi-widget-timer, gaya, widget-custom. Prinsip single responsibility dan textTheme + copyWith.
 
-38. **pola-ux** — Trigger: saat menerapkan pola UX Flutter | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async.
+38. **pola-ux** — Trigger: saat menerapkan pola UX Flutter (termasuk dialog konfirmasi ya/tidak dengan showOkCancelAlertDialog) | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async. Indeks Pola UX Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UX, termasuk dialog konfirmasi ya/tidak yang wajib memakai showOkCancelAlertDialog dari adaptive_dialog (OkCancelResult), bukan showDialog + AlertDialog manual.
 
 39. **riset-kompetitor** — Trigger: saat membuat atau memperbarui katalog aplikasi kompetitor proyek | Panduan riset kompetitor portabel lintas proyek: menentukan aplikasi sasaran dari dokumen proyek, format tabel apk_kompetitor.md, status analisa per listing, verifikasi tautan, alur satu run mencakup semua store, dan laporan refrensi_apk.md.
 
@@ -111,7 +111,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 46. **theme-data-color-schema** — Trigger: saat mengonfigurasi tema aplikasi | Panduan ThemeData, ColorScheme, textTheme, useMaterial3 untuk konsistensi visual.
 
-47. **tipografi** — Trigger: saat mengatur tipografi | Panduan: Theme.of(context).textTheme utama, copyWith untuk kustomisasi, paket `google_fonts` wajib, hierarki label/sub-label/nilai, bold terarah, FontFeature.tabularFigures() untuk angka/timer, FittedBox/Flexible secukupnya.
+47. **tipografi** — Trigger: saat mengatur tipografi | Panduan: Theme.of(context).textTheme utama, copyWith untuk kustomisasi, DILARANG TextStyle(fontSize:...) manual tanpa textTheme, paket `google_fonts` wajib, hierarki label/sub-label/nilai, bold terarah, FontFeature.tabularFigures() untuk angka/timer, FittedBox/Flexible secukupnya.
 
 48. **type-promotion-null-safety** — Trigger: saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku.
 
