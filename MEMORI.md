@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-22 (sesi 205)
+Diperbarui: 2026-11-22 (sesi 209)
 
 ## Konteks Proyek
 
@@ -24,6 +24,10 @@ Diperbarui: 2026-11-22 (sesi 205)
 
 ## Catatan Teknis
 
+- Sesi 209: Tambah aturan 54 ke `.agents/rules/code.md` — id pada form edit/tambah WAJIB `widget.transaksi?.id ?? const Uuid().v4()` (tanpa `!`, tanpa fallback kosong). Aturan 1–53 tetap utuh (54 aturan total). (sesi 209)
+- Sesi 208: Koreksi lanjutan `form_transaksi.dart`: sederhanakan `id` menjadi `widget.transaksi?.id ?? const Uuid().v4()` (aturan 49), hapus blok `idTransaksi` yang tidak perlu. Verifikasi: `dart format` bersih, `dart analyze` No issues, `flutter test` transaksi_test 4/5 (1 kegagalan pre-existing tidak terkait). (sesi 208)
+- Sesi 207: Koreksi lanjutan `form_transaksi.dart`: ganti `(transaksiLama?.id ?? '')` (berisiko id kosong) dengan guard eksplisit + `idTransaksi` non-nullable (aturan 49), tanpa operator `!`. Verifikasi: `dart format` bersih, `dart analyze` No issues, `flutter test` transaksi_test 4/5 (1 kegagalan pre-existing tidak terkait). (sesi 207)
+- Sesi 206: Perbaikan audit `admin_wifi/lib/fitur/transaksi/screens/form_transaksi.dart`: hapus operator `!` (aturan 49) pada `widget.transaksi!` (baris 84 → type promotion guard; baris 214 → `transaksiLama?.id ?? ''`); hapus state `_isSaving` dan perbaiki penutupan `EasyLoading` (aturan 48) — `EasyLoading.dismiss()` memakai `unawaited(...catchError(...))`, tombol simpan tanpa state `_isSaving`. Verifikasi: `dart format` bersih, `dart analyze` No issues, `flutter test` transaksi_test 4/5 (1 kegagalan pre-existing teks empty state, tidak terkait). (sesi 206)
 - Sesi 205: Tambah aturan 53 ke `.agents/rules/code.md` (boilerplate wajib mengikuti aturan yang berlaku + skill `boilerplate`); sinkronkan skill `boilerplate` ke command `muat_skill_terkait.md` (`.kilo/` dan `prompt/`): entri `56. boilerplate`, jumlah Code 55→56, header tanggal diperbarui. Aturan 1–52 tetap utuh (53 aturan total). (sesi 205)
 - Sesi 204: Buat skill baru `boilerplate` di `.agents/skills/boilerplate/SKILL.md` (kode berulang siap pakai, contoh benar/salah, rujukan skill terkait). (sesi 204)
 - Sesi 203: Tambah aturan 52 ke `.agents/rules/code.md` — method helper privat pada widget UI wajib di atas `build`; update skill `struktur-class-ui` (Aturan 7) dan sinkronkan deskripsi di `muat_skill_terkait.md` (`.kilo/` dan `prompt/`). Aturan 1–51 tetap utuh (52 aturan total). (sesi 203)
