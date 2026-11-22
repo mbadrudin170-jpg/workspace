@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-22 (sesi 212)
+Diperbarui: 2026-11-22 (sesi 215)
 
 ## Konteks Proyek
 
@@ -24,6 +24,9 @@ Diperbarui: 2026-11-22 (sesi 212)
 
 ## Catatan Teknis
 
+- Sesi 215: Tambah `AppToast.gagal` saat `p == null` di `_editPelanggan` (`detail_pelanggan.dart`). Verifikasi: `dart format` bersih, `dart analyze` No issues. (sesi 215)
+- Sesi 214: Refactor `_editPelanggan` di `detail_pelanggan.dart`: tambah parameter `PelangganState pelangganState`, hapus `ref.read(pelangganProvider)` dan guard loading/error di dalamnya; pemanggil di `build` memakai `() => _editPelanggan(pelangganState)`. Verifikasi: `dart format` bersih, `dart analyze` No issues. (sesi 214)
+- Sesi 213: Hapus penanganan `result` pada `_editPelanggan` di `detail_pelanggan.dart` (navigasi fire-and-forget dengan `unawaited` + `catchError`). Verifikasi: `dart format` bersih, `dart analyze` No issues. (sesi 213)
 - Sesi 212: Hapus `.then(...)` dan ubah `return const <AsyncValue<Object>>[];` → `return null;` pada `.catchError` navigasi `HalamanPoin` di `detail_pelanggan.dart`. Verifikasi: `dart format` bersih, `dart analyze` No issues. (sesi 212)
 - Sesi 211: Perbaikan audit `admin_wifi/lib/fitur/pelanggan/screens/detail_pelanggan.dart` (A–D): hapus side effect `L.i` dari `build`; `ref.refresh` hasil dipakai (aturan 24); notifikasi clipboard setelah Future sukses; log keberhasilan dipindah ke callback. Klarifikasi hierarki aturan 39/42/52 di `code.md` + sinkron skill `struktur-class-ui` dan `boilerplate`. Verifikasi: `dart format` bersih, `dart analyze` No issues, `flutter test` pelanggan_operasi_test 9/9. (sesi 211)
 - Sesi 209: Tambah aturan 54 ke `.agents/rules/code.md` — id pada form edit/tambah WAJIB `widget.transaksi?.id ?? const Uuid().v4()` (tanpa `!`, tanpa fallback kosong). Aturan 1–53 tetap utuh (54 aturan total). (sesi 209)
