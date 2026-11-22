@@ -2,23 +2,40 @@
 
 ## Ringkasan Evaluasi
 
-- Tanggal evaluasi: 2026-11-22 (sesi 239).
+- Tanggal evaluasi: 2026-11-22 (sesi 252).
 - SDK terpasang (sumber kebenaran verifikasi): Flutter 3.47.9 (channel stable), Dart 3.13.7 (`flutter --version` / `dart --version`).
-- Repositori dievaluasi (dari `.gitmodules`): root (`.`), `admin_wifi/`, `share_global_saya/`. `base_coc` tidak ada dalam entri aktif `.gitmodules` (dikomentari) dan direktori `base_coc/` tidak ada → tidak dievaluasi.
+- Repositori dievaluasi (dari `.gitmodules`): root (`.`), `admin_wifi/`, `share_global_saya/`. `base_coc` entri dikomentari dalam `.gitmodules` dan direktori `base_coc/` tidak ada → tidak dievaluasi (bukan dianggap lolos).
 - Branch aktif: root `main`, `admin_wifi` `main`, `share_global_saya` `main`.
-- Commit terakhir per repositori (sebelum sesi ini): root `a6d64032890ff4059047e0fbf209432efa8b4da9`, `admin_wifi` `18854f46c642cf294412fa271eecfc25fe21fdfc`, `share_global_saya` `ce6b861e302a66e6e39a22147c788c488aecaefd`.
-- Commit HEAD saat ini (dievaluasi): root `5746902e722fed9372a9fef3928c7b2d8e4f89c3`, `admin_wifi` `de4db136f6cc770e176fac4d0de7eb27ba300e59`, `share_global_saya` `c9d5136c8a0cdcff73eaac9fb983ad10b731bd1f`.
-- Pointer gitlink root cocok dengan HEAD submodul (`admin_wifi` `de4db136f`, `share_global_saya` `c9d5136c8`) → tidak ada selisih pointer (informasi, bukan temuan kode).
-- Commit Dart baru dalam rentang evaluasi terakhir → HEAD, dievaluasi dari tertua ke terbaru:
-  - root: tidak ada commit Dart (root bukan proyek Flutter; tidak ada file Dart di root). Tidak ada temuan.
-  - `admin_wifi`: 1 commit (`de4db136f`, pesan `refactor(form): standarisasi input form menggunakan widget kustom dan hapus logging`; 6 file Dart berubah). Dievaluasi terhadap seluruh aturan/skill dan SDK: kompatibel, tidak ada ketidaksesuaian.
-  - `share_global_saya`: 1 commit (`c9d5136c8`, pesan `feat(widget): tambahkan parameter keyboardType dan obscureText pada InputTeks`; 1 file Dart berubah). Dievaluasi terhadap seluruh aturan/skill dan SDK: kompatibel, tidak ada ketidaksesuaian.
-- `pubspec.yaml` tidak berubah dalam rentang dievaluasi keduanya. `admin_wifi` `environment.sdk: ^3.9.0` terpenuhi Dart 3.13.7. `share_global_saya` `environment.sdk ">=3.4.0 <4.0.0"` dan `flutter ">=3.22.0"` terpenuhi Flutter 3.47.9 / Dart 3.13.7. Versi paket terlock sama dengan verifikasi sesi 133 (`supabase_flutter 2.18.3`, `flutter_riverpod 3.5.0`, `freezed_annotation 3.1.0`, `riverpod_annotation 4.0.8`, `build_runner`, `sqflite ^2.4.2`, `material_ui` melalui path lokal ke `share_global_saya`, dst. diverifikasi ke pub.dev sebelumnya).
-- Tidak ada ketidaksesuaian baru ditemukan → tidak ada task baru ditambahkan ke `task.md`. Task yang sudah berstatus `selesai` tetap diverifikasi.
+- Commit terakhir per repositori: root `5d517beb7530af32b716242486158e4048f7c0f0`, `admin_wifi` `cd1c62471e97696ff36044a20bad742362ebc583`, `share_global_saya` `c9d5136c8a0cdcff73eaac9fb983ad10b731bd1f`.
+- Commit terakhir yang sudah dievaluasi (sebelum sesi ini, per `catatan.md`): root `5746902e722fed9372a9fef3928c7b2d8e4f89c3`, `admin_wifi` `de4db136f6cc770e176fac4d0de7eb27ba300e59`, `share_global_saya` `c9d5136c8a0cdcff73eaac9fb983ad10b731bd1f`.
+- Rentang commit dievaluasi (terlama → terbaru): root `5746902e7..5d517be` (tidak ada commit Dart); `admin_wifi` `de4db136f..cd1c6247` (4 commit Dart: `bd556ae`, `9d6c150`, `731c376`, `cd1c624`); `share_global_saya` `c9d5136c8..c9d5136c8` (tidak ada commit baru; HEAD sama dengan terakhir dievaluasi).
+- Pointer gitlink root pada HEAD: `admin_wifi` `de4db136f`, `share_global_saya` `c9d5136c8`. HEAD `admin_wifi` (`cd1c6247`) **beda** dengan pointer root → informasi (submodul belum di-bump ke root), bukan temuan kode. `share_global_saya` cocok.
+- `pubspec.yaml` tidak berubah dalam rentang yang dievaluasi. SDK terpenuhi: `admin_wifi` `sdk: ^3.9.0` terpenuhi Dart 3.13.7; `share_global_saya` `sdk ">=3.4.0 <4.0.0"` dan `flutter ">=3.22.0"` terpenuhi Flutter 3.47.9 / Dart 3.13.7.
+- Hasil: 1 ketidak-sesuaian ditemukan (commit `cd1c624`, kode tidak lolos `dart format` pada 2 berkas). 3 commit lain kompatibel terhadap seluruh aturan/skill dan SDK. `task.md` ditambah 1 kelompok dengan 2 task (satu per berkas bermasalah).
 
-## Catatan Tidak Masuk task.md
+# Kelompok 1
 
-- Root dan `share_global_saya`: tidak ada commit Dart dalam rentang evaluasi, tidak ada ketidaksesuaian baru; `task.md` tidak ditambah untuk keduanya.
-- `share_global_saya` commit `680fbe5` (style/format pada log debug page dan empty state view) dan `9253bd9` (docs: perbarui referensi skill testing di komentar mock) tidak menimbulkan ketidaksesuaian.
-- `admin_wifi` aspek yang sudah patuh (bukan temuan): notifier `@Riverpod(keepAlive: true)` + `muatUlang()` dengan `AsyncValue.data(await ...)` + `catch (e, s)` + `L.e` + `rethrow` pada kebanyakan notifier; model `@freezed` + `@Default` + konstanta skema snake_case; impor `package:material_ui/material_ui.dart`; root app `PengelolaOverlayLogDebug` + `Localizations` di atas `Directionality`; berkas hasil generate tidak diedit manual.
-- Semua `L.e` pada notifier `pesanan_notifier.dart` dan sebagian method pada `versi_apk_user_notifier.dart` sudah menggunakan format `$e $s` dengan benar.
+## file terdampak
+
+- (admin_wifi/lib/fitur/pelanggan/notifier/pelanggan_notifier.dart)[admin_wifi/lib/fitur/pelanggan/notifier/pelanggan_notifier.dart]
+- (admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart)[admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart]
+
+## Tinggi
+
+#### Task 1
+
+- Status : belum
+- Masalah : Commit `cd1c624` (`chore(operasi): hapus OperasiDasar dan standarisasi pemanggilan metode OperasiSqlite`) meninggalkan indentasi yang tidak konsisten dan tidak lolos `dart format` pada `pelanggan_notifier.dart` (panggilan `await operasiSqlite.perbarui(...)` beserta argumen berikutnya berada di margin yang salah, di luar struktur blok yang benar). Terconfirmi secara objektif via `dart format --output none --set-exit-if-changed` → exit 1, berkas terdeteksi "Changed" (berkas tidak ditimpa, hanya diperiksa).
+- Solusi : Jalankan `dart format` pada berkas tersebut untuk memperbaiki indentasi tanpa mengubah logika, lalu verifikasi ulang dengan `dart format --output none --set-exit-if-changed` harus lolos (exit 0) sebelum komit. DILARANG mengubah logika atau menambahkan fitur dalam komit perbaikan ini.
+- aturan dilanggar : konvensi proyek `dart format` bersih sebelum komit (verifikasi `dart format`/`dart analyze` sebelum laporan per MEMORI.md), terkait `code.md` aturan 22 (format/linter hanya pada berkas tugas) dan `disiplin-scope-kerja`.
+- file bermasalah : (admin_wifi/lib/fitur/pelanggan/notifier/pelanggan_notifier.dart)[admin_wifi/lib/fitur/pelanggan/notifier/pelanggan_notifier.dart]
+- prompt : hanya diisi oleh saya
+
+#### Task 2
+
+- Status : belum
+- Masalah : Commit `cd1c624` (`chore(operasi): hapus OperasiDasar dan standarisasi pemanggilan metode OperasiSqlite`) meninggalkan indentasi yang tidak konsisten dan tidak lolos `dart format` pada `pengguna_aktif_notifier.dart` (baris `final pelangganAktif = ...` dan `final operasiSqlite = ...` hilang indentasi di dalam blok `if`; struktur serangkaian panggilan `perbarui(...)` juga tidak rata). Terconfirmi secara objektif via `dart format --output none --set-exit-if-changed` → exit 1, berkas terdeteksi "Changed".
+- Solusi : Jalankan `dart format` pada berkas tersebut untuk memperbaiki indentasi tanpa mengubah logika, lalu verifikasi ulang dengan `dart format --output none --set-exit-if-changed` harus lolos (exit 0) sebelum komit. DILARANG mengubah logika atau menambahkan fitur dalam komit perbaikan ini.
+- aturan dilanggar : konvensi proyek `dart format` bersih sebelum komit (verifikasi `dart format`/`dart analyze` sebelum laporan per MEMORI.md), terkait `code.md` aturan 22 (format/linter hanya pada berkas tugas) dan `disiplin-scope-kerja`.
+- file bermasalah : (admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart)[admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart]
+- prompt : hanya diisi oleh saya
