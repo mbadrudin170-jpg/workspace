@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-22 (sesi 218)
+Diperbarui: 2026-11-22 (sesi 219)
 
 ## Konteks Proyek
 
@@ -24,6 +24,7 @@ Diperbarui: 2026-11-22 (sesi 218)
 
 ## Catatan Teknis
 
+- Sesi 219: Perbaikan spacing di `_buildDetailRow` (`detail_pelanggan.dart`): ganti `const SizedBox(height: 4)` dengan `Column(spacing: 4, ...)` (aturan 11). Verifikasi: `dart format` bersih, `dart analyze` No issues. (sesi 219)
 - Sesi 218: Perbaikan audit P1: (1) deklarasikan `collection` di `share_global_saya` (`flutter pub add collection` + `flutter pub get`); (2) ganti impor utilitas shared di `admin_wifi/lib/fitur/transaksi/screens/form_transaksi.dart` ke barrel `core_shared.dart` (aturan 47). Verifikasi: `dart analyze` No issues. (sesi 218)
 - Sesi 217: Perbarui skill `aturan-riverpod` (bagian `ref-watch-read`): tambah pola helper async memakai `await ref.read(provider.future)` dan larangan `ref.read(provider)` sinkron di helper (aturan 55). (sesi 217)
 - Sesi 216: Tambah aturan 55 ke `.agents/rules/code.md` — helper privat di UI yang membutuhkan state wajib menerima state via parameter (dari `ref.watch` di `build`) atau memakai `ref.read(provider.future)` di dalam fungsinya; DILARANG `ref.read(provider)` sinkron + `.requireValue`/`.value` di helper. Aturan 1–54 tetap utuh (55 aturan total). (sesi 216)
