@@ -58,6 +58,7 @@ Status referensi: konvensi `notifier/` vs `provider/` berasal dari hasil diskusi
 - DILARANG memindahkan `main.dart`/`app.dart`/shell utama ke dalam folder fitur tanpa keputusan eksplisit pengguna.
 - DILARANG mencampur lapisan (mis. layar di `notifier/`, provider di `screens/`).
 - DILARANG mengganti pola folder fitur per fitur (mis. flat semua) tanpa kesepakatan — blueprint adalah default proyek.
+- DILARANG meletakkan berkas test flat di `test/` tanpa mengikuti struktur `lib/fitur/<fitur>/...`; test WAJIB di `test/fitur/<fitur>/...` (mirror `lib/`).
 
 ## Contoh Benar
 

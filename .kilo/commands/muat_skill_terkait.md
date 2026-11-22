@@ -25,7 +25,7 @@ agent: code
 
 2. **aturan-riverpod** — Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD, notifier sinkron, ref.watch/read, ConsumerWidget, family, autoDispose, ProviderScope, select, AsyncValue, muatUlang, penamaan provider). Detail tiap topik di references/.
 
-3. **aturan-testing** — Trigger: saat menulis test | Aturan testing standar: package:test untuk unit test, WidgetTester untuk widget test, integration test, mocktail mock manual (tanpa codegen), dummy data, build_runner.
+3. **aturan-testing** — Trigger: saat menulis test | Aturan testing standar: package:test untuk unit test, WidgetTester untuk widget test, integration test, mocktail mock manual (tanpa codegen), dummy data, build_runner. **File test mengikuti struktur folder sumber di `lib/` (mirror ke `test/`), DILARANG flat di `test/`.**
 
 4. **bug-runtime** — Trigger: saat mencegah bug runtime Flutter | Indeks skill spesifik: type-promotion-null-safety, penanganan-async, penanganan-error-unawaited, validasi-platform-izin, exception-khusus-deteksi-error.
 
@@ -105,7 +105,7 @@ agent: code
 
 42. **struktur-class-ui** — Trigger: saat membuat widget custom reusable | Panduan struktur class UI reusable: StatelessWidget, parameter final, const constructor, build pure, semua method widget di bawah build, dispose di bawah initState, method helper non-widget di paling bawah kelas; DILARANG method helper di atas build. Rujuk skill gaya/spacing/aturan-riverpod.
 
-43. **struktur-folder-lib** — Trigger: saat menata atau membuat struktur folder lib/ Flutter | Panduan feature-first + core/ untuk proyek Flutter: sub-folder lapisan di dalam folder fitur (screens/, notifier/, provider/, widgets/), pembeda state Riverpod yang bisa diubah (notifier/) vs provider read-only (provider/), main.dart/app.dart/home.dart (shell) tetap di akar.
+43. **struktur-folder-lib** — Trigger: saat menata atau membuat struktur folder lib/ Flutter | Panduan feature-first + core/ untuk proyek Flutter: sub-folder lapisan di dalam folder fitur (screens/, notifier/, provider/, widgets/), pembeda state Riverpod yang bisa diubah (notifier/) vs provider read-only (provider/), main.dart/app.dart/home.dart (shell) tetap di akar. **Test WAJIB mirror struktur `lib/fitur/<fitur>/...` di `test/fitur/<fitur>/...` (DILARANG flat di `test/`).**
 
 44. **supabase** — Trigger: saat mengintegrasikan Supabase (PostgREST) di Flutter | Panduan singleton SupabaseKlien idempotent (StateError bila belum init), OperasiSupabase CRUD generik (ambil/tambah/ubah/hapus/tambahBatch) dengan filter match, order, limit/range, logging L dengan $e $s, rethrow.
 

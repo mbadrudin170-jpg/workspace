@@ -15,10 +15,11 @@ Skill ini mendokumentasikan pola testing yang wajib diterapkan di semua proyek p
 
 ### Aturan
 
-- File test diletakkan flat di `test/*_test.dart` (bukan di subfolder).
+- File test mengikuti struktur folder sumber di `lib/` dengan menempatkan test di `test/` yang **mirror struktur `lib/fitur/<fitur>/...`** (bukan flat di `test/` tanpa subfolder); DILARANG meletakkan semua test flat di `test/`.
 - Gunakan `package:test` dengan `test()`, `group()`, `setUp()`, `tearDown()`.
 - Test fungsi murni, helper, extension, logic bisnis (bukan widget).
 - Nama test: `should <expected behavior> when <condition>`.
+- Nama berkas test: `<nama_file>_test.dart` (snake_case) yang menguji `<nama_file>.dart` di sumber.
 
 ```dart
 // test/biodata_perhitungan_test.dart
@@ -49,10 +50,12 @@ void main() {
 
 ### Aturan
 
+- File test mengikuti struktur folder sumber di `lib/` dengan menempatkan test di `test/` yang **mirror struktur `lib/fitur/<fitur>/...`** (bukan flat di `test/` tanpa subfolder); DILARANG meletakkan semua test flat di `test/`.
 - Gunakan `WidgetTester` dari `package:flutter_test`.
 - Test rendering, tap, scroll, input text, navigasi.
 - Bungkus widget dengan `ProviderScope` + `MaterialApp` + override provider.
 - Gunakan `pumpWidget()`, `pumpAndSettle()`, `tap()`, `enterText()`.
+- Nama berkas test: `<nama_file>_test.dart` (snake_case) yang menguji `<nama_file>.dart` di sumber.
 
 ```dart
 // test/biodata_screen_test.dart
