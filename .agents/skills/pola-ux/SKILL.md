@@ -1,10 +1,10 @@
 ---
 name: pola-ux
-description: "Trigger: saat menerapkan pola UX Flutter | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async. Indeks Pola UX Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UX. Jangan menduplikasi isi skill spesifik di sini. Semua pola UX yang tercantum di bawah ini sudah terimplementasi di proyek Flutter dan dapat digunakan sebagai referensi untuk pola serupa di proyek lain. Cakupan yang Di-Cover - Package: `package:flutter` (class `Form`, `GlobalKey`, `SafeArea`, `Padding`, `FAB`, `Icon`, `Text`, `FilledButton`, `Scaffold`, `ShowDialog`), `package:flutter_riverpod` (class `AsyncValue`, `ref`, `ConsumerWidget`, `ConsumerState`), `package:shared_preferences` (class `SharedPreferences`) - Class: `Form`, `GlobalKey<FormState>`, `AsyncValue`, `SharedPreferences`, `AppToast`, `L` (logging), `Nav` (navigasi) - Properti: `isLoading`, `hasError`,"
+description: "Trigger: saat menerapkan pola UX Flutter (termasuk dialog konfirmasi ya/tidak dengan showOkCancelAlertDialog) | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async. Indeks Pola UX Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UX, termasuk dialog konfirmasi ya/tidak yang wajib memakai showOkCancelAlertDialog dari adaptive_dialog (OkCancelResult), bukan showDialog + AlertDialog manual. Jangan menduplikasi isi skill spesifik di sini. Semua pola UX yang tercantum di bawah ini sudah terimplementasi di proyek Flutter dan dapat digunakan sebagai referensi untuk pola serupa di proyek lain. Cakupan yang Di-Cover - Package: `package:flutter` (class `Form`, `GlobalKey`, `SafeArea`, `Padding`, `FAB`, `Icon`, `Text`, `FilledButton`, `Scaffold`, `ShowDialog`), `package:flutter_riverpod` (class `AsyncValue`, `ref`, `ConsumerWidget`, `ConsumerState`), `package:shared_preferences` (class `SharedPreferences`), `package:adaptive_dialog` (class `showOkCancelAlertDialog`, `OkCancelResult`) - Class: `Form`, `GlobalKey<FormState>`, `AsyncValue`, `SharedPreferences`, `AppToast`, `L` (logging), `Nav` (navigasi) - Properti: `isLoading`, `hasError`,"
 metadata:
   kategori: "custom"
   versi: "1.1.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+  diperbarui: "Sun Nov 22 2026 12:25 WIB"
 ---
 
 # Indeks Pola UX Standar
@@ -13,7 +13,7 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 
 ## Cakupan yang Di-Cover
 
-- Package: `package:flutter` (class `Form`, `GlobalKey`, `SafeArea`, `Padding`, `FAB`, `Icon`, `Text`, `FilledButton`, `Scaffold`, `ShowDialog`), `package:flutter_riverpod` (class `AsyncValue`, `ref`, `ConsumerWidget`, `ConsumerState`), `package:shared_preferences` (class `SharedPreferences`)
+- Package: `package:flutter` (class `Form`, `GlobalKey`, `SafeArea`, `Padding`, `FAB`, `Icon`, `Text`, `FilledButton`, `Scaffold`, `ShowDialog`), `package:flutter_riverpod` (class `AsyncValue`, `ref`, `ConsumerWidget`, `ConsumerState`), `package:shared_preferences` (class `SharedPreferences`), `package:adaptive_dialog` (class `showOkCancelAlertDialog`, `OkCancelResult`)
 - Class: `Form`, `GlobalKey<FormState>`, `AsyncValue`, `SharedPreferences`, `AppToast`, `L` (logging), `Nav` (navigasi)
 - Properti: `isLoading`, `hasError`, `requireValue`, `asData?.value`, `isDestructiveAction`, `onRetry`
 - Method: `Form.of()`, `GlobalKey.currentState?.validate()`, `ref.watch()`, `ref.refresh()`, `AsyncValue.requireValue()`, `SharedPreferences.setBool()`, `AppToast.sukses()`, `unawaited()`
@@ -38,21 +38,22 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 - DILARANG toast perayaan tanpa penandaan `SharedPreferences` (lihat `visualisasi-progres-impian`).
 - DILARANG empty state tanpa ikon, judul, deskripsi, CTA (lihat `empty-state-daftar`).
 - DILARANG konfirmasi destruktif tanpa `isDestructiveAction: true` dan penjelasan konsekuensi (lihat `ekspor-pemulihan-cadangan`).
+- DILARANG dialog konfirmasi ya/tidak memakai `showDialog` + `AlertDialog` manual; wajib `showOkCancelAlertDialog` dari `adaptive_dialog` dengan hasil `OkCancelResult`.
 
 ## Contoh Benar
 
 ```dart
-// Konfirmasi destruktif dengan isDestructiveAction: true
-showOkCancelAlertDialog(
+// Konfirmasi ya/tidak dengan showOkCancelAlertDialog (adaptive_dialog)
+final konfirmasi = await showOkCancelAlertDialog(
   context: context,
   title: 'Hapus Data?',
   message: 'Tindakan ini tidak dapat dibatalkan.',
+  okLabel: 'Hapus',
+  cancelLabel: 'Batal',
   isDestructiveAction: true,
-  onOk: () async {
-    // Hanya jalankan jika OK ditekan
-    await hapusData();
-  },
 );
+if (konfirmasi != OkCancelResult.ok) return;
+// lanjutkan aksi setelah konfirmasi OK
 
 // Validasi form sebelum simpan
 final formKey = GlobalKey<FormState>();
@@ -89,6 +90,16 @@ unawaited(Nav.to('/dashboard')); // SALAH! Tidak ada error handling
 // DILARANG: Toast perayaan tanpa penandaan SharedPreferences
 AppToast.sukses('Berhasil!'); // SALAH! Tidak ada penandaan, bisa muncul berulang
 
-// DILARANG: Empty state tanpa CTA
-return Center(child: Text('Kosong')); // SALAH! Tidak ada ikon, deskripsi, CTA
+// DILARANG: Dialog konfirmasi manual dengan showDialog + AlertDialog
+showDialog(
+  context: context,
+  builder: (context) => AlertDialog(
+    title: const Text('Konfirmasi'),
+    content: const Text('Yakin hapus?'),
+    actions: [
+      TextButton(onPressed: () => Nav.pop(context), child: const Text('Batal')),
+      TextButton(onPressed: () { Nav.pop(context); hapusData(); }, child: const Text('Hapus')),
+    ],
+  ),
+);
 ```
