@@ -4,7 +4,7 @@ description: "Trigger: saat memulai percakapan atau tugas di proyek mana pun | P
 metadata:
   kategori: "custom"
   versi: "1.13.1"
-  diperbarui: "Sat Nov 21 2026 16:37 WIB"
+  diperbarui: "Sun Nov 22 2026 10:35 WIB"
 ---
 
 # Memeriksa File MEMORI.md dan Berkas Sesi
@@ -76,8 +76,6 @@ Berkas sesi ber-status `Sudah Sinkron` bersifat **arsip permanen** dan DILARANG 
 22. **Kelengkapan tabel `## Berkas Terdampak`.** Tabel `## Berkas Terdampak` pada berkas sesi WAJIB mencantumkan **seluruh** berkas yang dibuat/diubah/dihapus selama sesi — termasuk perubahan di dalam submodule — dengan path relatif terhadap root repositori tempat sesi berjalan (mis. `base_coc/lib/fitur/cadangan/service/cadangan_service.dart`). Tabel DILARANG hanya memuat berkas sesi bila ada perubahan lain; perubahan yang tidak tercantum pada tabel dianggap tidak tercatat dan melanggar alur sinkronisasi ini.
 23. **Penandaan hanya oleh sesi pembuat.** Penandaan `Sudah Sinkron` hanya boleh dilakukan oleh sesi pembuat berkas tersebut; sesi lain dilarang mengubah berkas sesi milik sesi lain.
 24. **Pengecualian pengguna (preferensi eksplisit).** Bila pengguna secara eksplisit meminta agar entri `memori/riwayat_perubahan.md` tidak ditambahkan pada sinkronisasi (preferensi pengguna), patuhi permintaan tersebut dan nyatakan eksplisit pada sesi yang bersangkutan bahwa entri tidak ditambahkan. Pengecualian ini hanya berlaku bila diminta eksplisit oleh pengguna.
-
-25. **Catat ID transkrip Kilo di awal sesi.** Setelah membuat berkas sesi, catat ID transkrip Kilo (dari `~/.local/share/kilo/storage/session_diff/ses_*.json` terbaru) ke `id_transkrip.txt` di root proyek dengan format: `# Created: <tanggal Jakarta>`, `# Sesi: <nomor>`, `# Status: Belum Disalin`/`Sudah Disalin`, lalu ID transkrip di baris baru. **Status hanya diubah menjadi `Sudah Disalin` saat pengguna menjalankan command `.kilo/commands/salin_riwayat_transkrip.md` — perbarui hanya status, jangan menghapus atau mengubah ID transkrip yang sudah ada.**
 
 ## Steps
 

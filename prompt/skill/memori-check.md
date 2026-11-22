@@ -1,5 +1,5 @@
 diperbarui : Sun Nov 22 2026 10:35 WIB
-file : [memori-check](../../.agents/skills/non-code/memori-check/SKILL.md)
+file : [memori-check](../../.agents/skills/memori-check/SKILL.md)
 
 1. Sebelum interaksi apa pun, baca `MEMORI.md` root proyek; bila belum ada, tanyakan inisialisasi.
 

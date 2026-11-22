@@ -21,6 +21,9 @@ Tanggal: 2026-11-22
   3. prompt/rules/AGENTS.md — `ditimpa ke : \`AGENTS.md\` (root)` menggunakan backtick di sekitar path target. (belum diubah, menunggu persetujuan)
 - Temuan efek samping `formatmd` (prettier): menjalankan `npx prettier --write "**/*.md"` telah mengubah banyak file non-tugas di luar cakupan tugas, termasuk file sesi arsip ber-status `Sudah Sinkron` (memori/sesi/sesi_100.md, sesi_183.md–sesi_190.md dll.) yang **DILARANG** diubah per Aturan 13 memori-check. Pengguna telah memilih **Tidak** untuk membatalkan perubahan prettier; perubahan tersebut dibiarkan seperti sekarang dan dilaporkan sebagai temuan (bukan diklaim milik sesi ini, sesuai disiplin-scope-kerja Aturan 3).
 - Hapus file `id_transkrip.txt` (perintah eksplisit pengguna, operasi destruktif dengan konfirmasi eksplisit).
+- Sinkronkan ke file target `.agents/skills/memori-check/SKILL.md` (perintah pengguna "perbarui file target nya"):
+  - `diperbarui` di frontmatter: `Sat Nov 21 2026 16:37 WIB` → `Sun Nov 22 2026 10:35 WIB`
+  - Hapus Aturan 25 (Catat ID transkrip Kilo) — karena baris 31 di prompt sudah dihapus
 
 ## Berkas Terdampak
 
@@ -28,6 +31,8 @@ Tanggal: 2026-11-22
 | ---------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------- |
 | memori/sesi/sesi_196.md      | Dibuat           | Berkas sesi baru untuk tugas memperbarui berkas di folder prompt/                                                    |
 | prompt/skill/memori-check.md | Diubah           | Hapus backtick pada header `diperbarui :` dan `file :`, perbarui tanggal `diperbarui` (ke Sun Nov 22 2026 10:35 WIB) |
+| id_transkrip.txt             | Dihapus          | Dihapus per instruksi eksplisit pengguna (operasi destruktif)                                                      |
+| .agents/skills/memori-check/SKILL.md | Diubah           | `diperbarui` di frontmatter diperbarui; Aturan 25 (ID transkrip Kilo) dihapus (sinkronisasi dari prompt)          |
 
 ## Sinkronisasi ke MEMORI.md
 
