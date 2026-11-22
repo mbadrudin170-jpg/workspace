@@ -52,7 +52,7 @@ alias rr='flutter pub get && flutter run -d web-server --web-port=8080 --web-hos
 
 # Build APK
 alias flbuild='flutter build apk --release'
-alias build_apk='script/build_apk.sh'
+alias build='cd ~/workspace && script/build_apk.sh'
 alias flbundle='flutter build appbundle --release'
 alias flabi='flutter clean && flutter build apk --release --split-per-abi'
 alias build64='flutter clean && flutter build apk --release --split-per-abi --target-platform android-arm64'
