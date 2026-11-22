@@ -30,12 +30,21 @@ Membangun APK Android `release` (split per ABI, hanya `android-arm64`) melalui G
 7. Pengambilan `RUN_ID` wajib dari `gh run list --workflow=build-apk.yml --limit=1` setelah jeda singkat (mis. `sleep 5`) agar run baru terdaftar.
 8. Bila `gh run watch` gagal (exit non-nol), **STOP**, laporkan galat workflow apa adanya, dan jangan mengunduh artefak.
 9. Pengunduhan artefak wajib melalui `gh run download <RUN_ID> --name app-release-apk --dir <proyek>/build/app/outputs/flutter-apk`.
-10. Setelah pengunduhan, verifikasi berkas dengan tool `glob` dan laporkan path absolut serta ukuran (`stat -c%s`).
+10. Setelah pengunduhan, pindahkan (bukan salin) APK ke folder `apk/` di root proyek (mis. `mv`/`install`) agar berkas lama tidak tersisa, lalu verifikasi berkas dengan tool `glob` dan laporkan path absolut serta ukuran (`stat -c%s`).
 11. Bila terdapat lebih dari satu proyek Flutter (submodule) yang dapat di-build, tanyakan repo target kepada pengguna sebelum menjalankan workflow.
 12. Sebelum memicu workflow, periksa kompatibilitas versi Java (runner default) dengan Gradle yang dipakai (gradle-wrapper.properties / workflow); peringatkan bila tidak kompatibel.
 13. Saat memeriksa prasyarat berkas (mis. `.github/workflows/build-apk.yml`), verifikasi path secara langsung (tool `read`/`glob` absolut) selain mengandalkan glob relatif; jangan menyimpulkan berkas tidak ada tanpa verifikasi langsung, terutama pada folder hidden (`.github`, `.kilo`, `.agents`).
 
-## Larangan
+## Masalah Umum dan Solusi
+
+- **`androidx.core:core` memerlukan `compileSdk` 37**: naikkan `compileSdk` di `android/app/build.gradle.kts` ke `37` (dependensi membutuhkan API 37); `flutter.compileSdkVersion` (36) tidak cukup.
+- **AGP/Kotlin/Gradle tidak kompatibel**: gunakan AGP 9.1.0 + Kotlin 2.4.0 + Gradle 9.3.1, atau AGP 8.13.0 + Gradle 8.14.3 + Kotlin 2.3.20 sesuai kebutuhan; periksa `gradle-wrapper.properties` dan `settings.gradle.kts`.
+- **`kotlinOptions` deprecated**: migrasikan ke `kotlin { compilerOptions { jvmTarget.set(...) } }`.
+- **Java version mismatch**: set `sourceCompatibility`/`targetCompatibility` ke `JavaVersion.VERSION_17` dan `jvmTarget` ke `JVM_17`.
+- **AGP 9.x new DSL**: tambahkan `android.newDsl=false` dan `android.builtInKotlin=false` di `gradle.properties` agar DSL lama tetap berjalan.
+- **`flutter_local_notifications` butuh desugaring**: aktifkan `isCoreLibraryDesugaringEnabled = true` dan tambahkan `coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")`.
+- **`.gitignore`**: tambahkan `/apk/` dan `/build/` agar artefak hasil build tidak ter-track dan tidak menyebabkan push gagal.
+- **APK tidak muncul di IDE**: folder `build/` diabaikan oleh `.gitignore`; gunakan terminal (`ls`/`stat`) untuk verifikasi, jangan ubah `.gitignore` hanya untuk menampilkan.
 
 - DILARANG menjalankan `flutter build apk` lokal sebagai jalur utama bila mesin tidak memiliki Android SDK; gunakan workflow GitHub.
 - DILARANG mengubah flag build di luar `--release --split-per-abi --target-platform android-arm64` tanpa perintah eksplisit pengguna.
