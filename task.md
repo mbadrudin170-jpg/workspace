@@ -15,52 +15,6 @@
 - `pubspec.yaml` `admin_wifi` tidak berubah dalam rentang dievaluasi; `environment.sdk: ^3.9.0` terpenuhi oleh Dart 3.13.7. `share_global_saya` `environment.sdk ">=3.4.0 <4.0.0"` dan `flutter ">=3.22.0"` terpenuhi Flutter 3.47.9 / Dart 3.13.7. Versi paket terlock sama dengan verifikasi sesi 133 (`supabase_flutter 2.18.3`, `flutter_riverpod 3.5.0`, `freezed_annotation 3.1.0`, `riverpod_annotation 4.0.8`, `build_runner`, `sqflite ^2.4.2`, `material_ui` melalui path lokal ke `share_global_saya`, dst. diverifikasi ke pub.dev sebelumnya).
 - Semua task berstatus `selesai` telah dikerjakan dan diverifikasi. Task baru (Kelompok 14–16) bert status `belum`.
 
-## Kelompok 14
-
-## file terdampak
-
-- (lib/fitur/dompet/notifier/dompet_notifier.dart)[../admin_wifi/lib/fitur/dompet/notifier/dompet_notifier.dart]
-- (lib/fitur/paket/notifier/paket_notifier.dart)[../admin_wifi/lib/fitur/paket/notifier/paket_notifier.dart]
-- (lib/fitur/pelanggan/notifier/pelanggan_notifier.dart)[../admin_wifi/lib/fitur/pelanggan/notifier/pelanggan_notifier.dart]
-- (lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart)[../admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart]
-
-## Tinggi
-
-#### Task 14
-
-- Status : selesai
-- Masalah : Pemakaian `L.e(...$e\n$s...)` (baris baru antara `$e` dan `$s`) alih-alih `L.e(...$e $s...)` dengan spasi pada `muatUlang()` dan method lain. code.md aturan 6 mengharuskan interpolasi `$e $s`.
-- Solusi : Ganti `\n` menjadi spasi pada setiap pemakaian `L.e` yang menyertakan `$e $s`, mis. `L.e('Gagal memuat ulang dompet: $e $s')`.
-- aturan dilanggar : (code.md)[.agents/rules/code.md:6]
-- file bermasalah : (dompet_notifier.dart)[../admin_wifi/lib/fitur/dompet/notifier/dompet_notifier.dart], (paket_notifier.dart)[../admin_wifi/lib/fitur/paket/notifier/paket_notifier.dart], (pelanggan_notifier.dart)[../admin_wifi/lib/fitur/pelanggan/notifier/pelanggan_notifier.dart], (pengguna_aktif_notifier.dart)[../admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart]
-- prompt : hanya diisi oleh saya
-
-## Kelompok 15
-
-## file terdampak
-
-- (lib/fitur/kategori/notifier/kategori_notifier.dart)[../admin_wifi/lib/fitur/kategori/notifier/kategori_notifier.dart]
-- (lib/fitur/kategori/notifier/sub_kategori_notifier.dart)[../admin_wifi/lib/fitur/kategori/notifier/sub_kategori_notifier.dart]
-- (lib/fitur/kritik_saran/notifier/kritik_saran_notifier.dart)[../admin_wifi/lib/fitur/kritik_saran/notifier/kritik_saran_notifier.dart]
-- (lib/fitur/dompet/notifier/dompet_notifier.dart)[../admin_wifi/lib/fitur/dompet/notifier/dompet_notifier.dart]
-- (lib/fitur/paket/notifier/paket_notifier.dart)[../admin_wifi/lib/fitur/paket/notifier/paket_notifier.dart]
-- (lib/fitur/pelanggan/notifier/pelanggan_notifier.dart)[../admin_wifi/lib/fitur/pelanggan/notifier/pelanggan_notifier.dart]
-- (lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart)[../admin_wifi/lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart]
-- (lib/fitur/pengaturan/notifier/pengaturan_notifier.dart)[../admin_wifi/lib/fitur/pengaturan/notifier/pengaturan_notifier.dart]
-- (lib/fitur/pesanan/notifier/pesanan_notifier.dart)[../admin_wifi/lib/fitur/pesanan/notifier/pesanan_notifier.dart]
-- (lib/fitur/versi_apk_user/notifier/versi_apk_user_notifier.dart)[../admin_wifi/lib/fitur/versi_apk_user/notifier/versi_apk_user_notifier.dart]
-
-## Tinggi
-
-#### Task 15
-
-- Status : selesai
-- Masalah : `L.i()` narasi langkah eksekusi tanpa nilai aktual (mis. `'Memuat daftar kategori dari database'`, `'Memulai getKategori (...)'`) pada `build()` dan method notifier. code.md aturan 12 melarang log yang hanya menarasikan langkah tanpa nilai aktual.
-- Solusi : Hapus `L.i()` narasi tanpa nilai aktual, atau sertakan nilai aktual (mis. jumlah data, ID, timestamp) dalam pesan log.
-- aturan dilanggar : (code.md)[.agents/rules/code.md:12]
-- file bermasalah : semua berkas notifier di daftar file terdampak
-- prompt : hanya diisi oleh saya
-
 ## Kelompok 16
 
 ## file terdampak
@@ -72,15 +26,6 @@
 
 ## Tinggi
 
-#### Task 16
-
-- Status : selesai
-- Masalah : Beberapa method notifier menangkap error dengan `L.e(...)` lalu mengembalikan nilai default (`[]`, `null`, atau `PengaturanModel()`) alih-alih `rethrow`, sehingga error tersembunyi diam-diam. Terjadi pada `kritik_saran_notifier.dart` (`unduhDataDariSupabase`), `pengaturan_notifier.dart` (`getPengaturan`), dan `versi_apk_user_notifier.dart` (4 method). code.md aturan 2 wajib `rethrow` pada catch block.
-- Solusi : Tambahkan `rethrow;` setelah `L.e(...)` pada setiap catch block yang menangkap error tanpa propagasi lebih lanjut.
-- aturan dilanggar : (code.md)[.agents/rules/code.md:2]
-- file bermasalah : (kritik_saran_notifier.dart)[../admin_wifi/lib/fitur/kritik_saran/notifier/kritik_saran_notifier.dart], (pengaturan_notifier.dart)[../admin_wifi/lib/fitur/pengaturan/notifier/pengaturan_notifier.dart], (versi_apk_user_notifier.dart)[../admin_wifi/lib/fitur/versi_apk_user/notifier/versi_apk_user_notifier.dart]
-- prompt : hanya diisi oleh saya
-
 #### Task 17
 
 - Status : belum
@@ -88,6 +33,24 @@
 - Solusi : Gunakan `state.maybeWhen` atau cek `state.hasError`/`state.isLoading` sebelum mengakses `state.value`, atau salin ke variabel lokal dengan null-check terlebih dahulu.
 - aturan dilanggar : (code.md)[.agents/rules/code.md:27]
 - file bermasalah : (dompet_notifier.dart)[../admin_wifi/lib/fitur/dompet/notifier/dompet_notifier.dart]
+- prompt : hanya diisi oleh saya
+
+## Kelompok 18
+
+## file terdampak
+
+- (lib/fitur/pelanggan/notifier/pelanggan_notifier.dart)[../admin_wifi/lib/fitur/pelanggan/notifier/pelanggan_notifier.dart]
+- (test/fitur/pelanggan_aktif/screens/form_pelanggan_aktif_test.dart)[../admin_wifi/test/fitur/pelanggan_aktif/screens/form_pelanggan_aktif_test.dart]
+
+## Tinggi
+
+#### Task 18
+
+- Status : belum
+- Masalah : Peringatan `dart analyze` (8 issues): import tidak terpakai pada `pelanggan_notifier.dart` (`package:admin_wifi/fitur/transaksi/state/transaksi_state.dart`) dan pada `form_pelanggan_aktif_test.dart` (7 impor tidak terpakai: `enum/enum.dart`, `enum/status_pembayaran_enum.dart`, `fitur/dompet/model/dompet_model.dart`, `fitur/kategori/model/kategori_model.dart`, `fitur/paket/model/paket_model.dart`, `fitur/pelanggan/model/pelanggan_model.dart`), serta `override_on_non_overriding_member` pada `form_pelanggan_aktif_test.dart` baris 85. code.md aturan 17/47 (impor) dan aturan 10 (penamaan/konvensi) terpenuhi sebagian.
+- Solusi : Hapus impor tidak terpakai; perbaiki anotasi `@override` yang tidak valid (hapus atau sesuaikan deklarasi) sesuai hasil `dart analyze`.
+- aturan dilanggar : (code.md)[.agents/rules/code.md:17], (code.md)[.agents/rules/code.md:47]
+- file bermasalah : (pelanggan_notifier.dart)[../admin_wifi/lib/fitur/pelanggan/notifier/pelanggan_notifier.dart], (form_pelanggan_aktif_test.dart)[../admin_wifi/test/fitur/pelanggan_aktif/screens/form_pelanggan_aktif_test.dart]
 - prompt : hanya diisi oleh saya
 
 ## Catatan Tidak Masuk task.md
