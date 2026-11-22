@@ -52,9 +52,9 @@ Panduan memilih dan memakai tool bawaan Kilo sesuai kebutuhan, beserta contoh pe
 7. Skill dan command wajib menginstruksikan tool bawaan lebih dahulu. DILARANG menulis instruksi yang menyuruh `rg`, `grep`, `find`, `ls`, `cat`, `head`, atau `tail` untuk operasi yang dapat dilakukan tool bawaan.
 8. Sebelum menyunting berkas, baca ulang (Read) bila ada indikasi berkas berubah di luar sesi (mis. `oldString` tidak cocok atau hasil Grep berbeda dari yang terbaca); DILARANG menebak isi berkas — sunting hanya dengan isi terkini yang sudah dibaca ulang.
 9. Saat memeriksa prasyarat berkas, terutama pada folder hidden (`.github`, `.kilo`, `.agents`), verifikasi dengan Read langsung selain Glob, agar tidak salah menyatakan berkas tidak ada.
-11. **Khusus untuk `rg` (ripgrep): gunakan tool `Bash` dengan perintah `rg` terlebih dahulu untuk pencarian konten; tool `Grep` bawaan Kilo hanya dipakai bila `rg` tidak tersedia atau tidak memenuhi kebutuhan.**
+10. **Khusus untuk `rg` (ripgrep): gunakan tool `Bash` dengan perintah `rg` terlebih dahulu untuk pencarian konten; tool `Grep` bawaan Kilo hanya dipakai bila `rg` tidak tersedia atau tidak memenuhi kebutuhan.**
 
-12. **Setelah memuat skill via tool `skill`, wajib membaca seluruh berkas di folder `references/` di dalam folder skill tersebut (jika ada), agar detail aturan, contoh kode, dan referensi lengkap tersedia.**
+11. **Setelah memuat skill via tool `skill`, wajib membaca seluruh berkas di folder `references/` di dalam folder skill tersebut (jika ada), agar detail aturan, contoh kode, dan referensi lengkap tersedia.**
 
 ## Daftar Tool (ringkas)
 

@@ -1,6 +1,6 @@
 # MEMORI
 
-Diperbarui: 2026-11-22 (sesi 193)
+Diperbarui: 2026-11-22 (sesi 194)
 
 ## Konteks Proyek
 
@@ -42,6 +42,7 @@ Diperbarui: 2026-11-22 (sesi 193)
 - Aturan pembuatan skill: setiap skill wajib memiliki folder `references/` untuk berkas detail dan referensi (progressive disclosure), meskipun folder masih kosong (sesi 179, permintaan eksplisit pengguna).
 - Sesi 172: Mengerjakan 11 task (Kelompok 1-3) pada task.md — perbaikan header path (SQLite, main.dart), logging (hapus narasi/banner separator), migrasi SQLite onUpgrade (blok if oldVersion < N per versi), warna tema (ColorScheme/withValues), spacing (Column.spacing), AppToast ganti SnackBar, konfirmasi simpan (showOkCancelAlertDialog + EasyLoading), enum label getter (MenuPoin), EmptyStateView komponen bersama. Menambahkan EmptyStateView ke share_global_saya; dependency share_global_saya diubah ke path lokal.
 - Sesi 193: `admin_wifi/lib/fitur/transaksi/screens/transaksi.dart` disesuaikan dengan aturan — urutan impor `package:` alfabetis menurut path lengkap (penamaan-konvensi #17); `_tambahTransaksi()` dibungkus `try/catch` dengan `L.e('...: $e $s')`, `AppToast.gagal`, dan pengecekan `mounted` (penanganan-error-unawaited/logging-debug). Verifikasi: `dart format` bersih, `dart analyze` No issues, `flutter test` `test/halaman/tab/transaksi_test.dart` 4/5 (1 gagal pre-existing: ekspektasi teks "Tidak ada transaksi ditemukan." vs UI "Belum ada transaksi", sudah tercatat sesi 192, tidak terkait perubahan ini). Berkas sesi: `sesi_193.md`. (sesi 193)
+- Sesi 194: `admin_wifi/lib/fitur/kritik_saran/screens/kritik_saran.dart` disesuaikan dengan aturan — impor lewat `package:share_global_saya/core_shared.dart` (hide `FormatTanggal` ambigu) + urutan alfabetis (penamaan-konvensi #16/#17); hapus `initState` kosong (widget-lifecycle-state #11); hapus log narasi di `build()` dan callbacks (logging-debug #11/#13, code.md #12); `hasError` tambah tombol "Coba Lagi" `() => ref.refresh(kritikSaranProvider)` (penanganan-async #2); empty state custom diganti `EmptyStateView` dengan CTA "Muat Ulang" (empty-state-daftar); `Colors.grey[600]` → `colorScheme.onSurfaceVariant` (gaya #3/#16); `onLongPress` pakai `unawaited(...catchError(...))` (penanganan-error-unawaited #1); `L.e` pakai parameter `(e, s)` + `$e $s` (logging-debug #10, code.md #6). Verifikasi: `dart format` bersih, `dart analyze` No issues. Berkas sesi: `sesi_194.md`. (sesi 194)
 
 - Sesi 175: Memindahkan seluruh logika `DompetOperasi` ke `DompetNotifier` (pola `dompetNotifierGlobal`); `dompet_operasi.dart` dihapus, konsumen diperbarui. Verifikasi `dart analyze`: No issues found. (sesi 175)
 

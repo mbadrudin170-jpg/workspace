@@ -3,6 +3,7 @@
 Tanggal: 2026-11-21
 
 ## Status
+
 - **Status Sinkron:** Sudah Sinkron
 - **Tanggal:** 2026-11-21 (Asia/Jakarta)
 - **Command:** interaksi langsung (tanpa command)
@@ -23,10 +24,10 @@ Tanggal: 2026-11-21
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| admin_wifi/lib/fitur/transaksi/screens/form_transaksi.dart | Diubah | Sesuaikan dengan aturan code.md (#26, #31, #27, #13, #10) |
-| admin_wifi/lib/enum/tipe_transaksi_enum.dart | Diubah | Tambah getter `label` (code.md #10) |
+| Lokasi File                                                | Status Perubahan | Deskripsi                                                 |
+| ---------------------------------------------------------- | ---------------- | --------------------------------------------------------- |
+| admin_wifi/lib/fitur/transaksi/screens/form_transaksi.dart | Diubah           | Sesuaikan dengan aturan code.md (#26, #31, #27, #13, #10) |
+| admin_wifi/lib/enum/tipe_transaksi_enum.dart               | Diubah           | Tambah getter `label` (code.md #10)                       |
 
 ## Sinkronisasi ke MEMORI.md
 

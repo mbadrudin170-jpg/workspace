@@ -18,27 +18,27 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| memori/sesi/sesi_186.md | dibuat | Berkas sesi baru untuk percakapan/tugas ini |
-| lib/fitur/paket/notifier/paket_notifier.dart | diimpor | Tambah impor `kategori_notifier.dart` untuk `databaseHelperProvider` |
-| lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart | diimpor | Tambah impor `kategori_notifier.dart` untuk `databaseHelperProvider` |
-| lib/halaman/detail/detail_riwayat_langganan.dart | diimpor | Tambah impor `paket_notifier.dart` + `pelanggan_notifier.dart` untuk `paketProvider`/`pelangganProvider` |
-| lib/halaman/pembantu/halaman_poin.dart | diimpor | Tambah impor `paket_notifier.dart` untuk `paketProvider` |
-| lib/fitur/pelanggan/screens/detail_pelanggan.dart | dihapus | Hapus duplicate import `pelanggan_model.dart` baris 9 |
-| test/data/operasi/pelanggan_aktif_operasi_test.dart | dihapus | Hapus unused import `paket_model.dart` |
-| lib/widget/nama_paket.dart | ditulis ulang | Ganti `FutureBuilder` → `ConsumerWidget` + `ref.watch(paketProvider)` + pola `isLoading`→`hasError`→`requireValue` |
-| lib/fitur/paket/screens/form_paket.dart | diperbaiki | Hapus duplikat tombol Simpan di body, pindah ke `bottomNavigationBar` hanya |
-| test/halaman/form/form_paket_test.dart | ditulis ulang | Ganti verifikasi toast text → fake notifier tracking `tambahCalled`/`ubahCalled`; tunggu timer fluttertoast 3 detik |
-| test/halaman/form/form_pelanggan_aktif_test.dart | tidak diubah | Test "edit mode sukses" gagal karena bug pre-existing di `form_pelanggan_aktif.dart` (mode edit tidak mengisi `_selectedDompet`/`_selectedKategori`) |
-| lib/data/operasi/operasi.dart | diedit | Hapus export 3 file operasi lama (sudah dari sesi sebelumnya) |
-| lib/data/operasi/paket_operasi.dart | dihapus | File operasi lama dihapus |
-| lib/data/operasi/pelanggan_operasi.dart | dihapus | File operasi lama dihapus |
-| lib/data/operasi/pelanggan_aktif_operasi.dart | dihapus | File operasi lama dihapus |
-| test/data/operasi/paket_operasi_test.dart | ditulis ulang | Menggunakan `paketNotifierGlobal` |
-| test/data/operasi/pelanggan_operasi_test.dart | ditulis ulang | Menggunakan `pelangganNotifierGlobal` |
-| test/data/operasi/pelanggan_aktif_operasi_test.dart | ditulis ulang | Menggunakan `penggunaAktifNotifierGlobal` |
-| test/mocks.dart | diedit | Hapus import `paket_operasi.dart` + class `MockPaketOperasi` |
+| Lokasi File                                                    | Status Perubahan | Deskripsi                                                                                                                                            |
+| -------------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| memori/sesi/sesi_186.md                                        | dibuat           | Berkas sesi baru untuk percakapan/tugas ini                                                                                                          |
+| lib/fitur/paket/notifier/paket_notifier.dart                   | diimpor          | Tambah impor `kategori_notifier.dart` untuk `databaseHelperProvider`                                                                                 |
+| lib/fitur/pelanggan_aktif/notifer/pengguna_aktif_notifier.dart | diimpor          | Tambah impor `kategori_notifier.dart` untuk `databaseHelperProvider`                                                                                 |
+| lib/halaman/detail/detail_riwayat_langganan.dart               | diimpor          | Tambah impor `paket_notifier.dart` + `pelanggan_notifier.dart` untuk `paketProvider`/`pelangganProvider`                                             |
+| lib/halaman/pembantu/halaman_poin.dart                         | diimpor          | Tambah impor `paket_notifier.dart` untuk `paketProvider`                                                                                             |
+| lib/fitur/pelanggan/screens/detail_pelanggan.dart              | dihapus          | Hapus duplicate import `pelanggan_model.dart` baris 9                                                                                                |
+| test/data/operasi/pelanggan_aktif_operasi_test.dart            | dihapus          | Hapus unused import `paket_model.dart`                                                                                                               |
+| lib/widget/nama_paket.dart                                     | ditulis ulang    | Ganti `FutureBuilder` → `ConsumerWidget` + `ref.watch(paketProvider)` + pola `isLoading`→`hasError`→`requireValue`                                   |
+| lib/fitur/paket/screens/form_paket.dart                        | diperbaiki       | Hapus duplikat tombol Simpan di body, pindah ke `bottomNavigationBar` hanya                                                                          |
+| test/halaman/form/form_paket_test.dart                         | ditulis ulang    | Ganti verifikasi toast text → fake notifier tracking `tambahCalled`/`ubahCalled`; tunggu timer fluttertoast 3 detik                                  |
+| test/halaman/form/form_pelanggan_aktif_test.dart               | tidak diubah     | Test "edit mode sukses" gagal karena bug pre-existing di `form_pelanggan_aktif.dart` (mode edit tidak mengisi `_selectedDompet`/`_selectedKategori`) |
+| lib/data/operasi/operasi.dart                                  | diedit           | Hapus export 3 file operasi lama (sudah dari sesi sebelumnya)                                                                                        |
+| lib/data/operasi/paket_operasi.dart                            | dihapus          | File operasi lama dihapus                                                                                                                            |
+| lib/data/operasi/pelanggan_operasi.dart                        | dihapus          | File operasi lama dihapus                                                                                                                            |
+| lib/data/operasi/pelanggan_aktif_operasi.dart                  | dihapus          | File operasi lama dihapus                                                                                                                            |
+| test/data/operasi/paket_operasi_test.dart                      | ditulis ulang    | Menggunakan `paketNotifierGlobal`                                                                                                                    |
+| test/data/operasi/pelanggan_operasi_test.dart                  | ditulis ulang    | Menggunakan `pelangganNotifierGlobal`                                                                                                                |
+| test/data/operasi/pelanggan_aktif_operasi_test.dart            | ditulis ulang    | Menggunakan `penggunaAktifNotifierGlobal`                                                                                                            |
+| test/mocks.dart                                                | diedit           | Hapus import `paket_operasi.dart` + class `MockPaketOperasi`                                                                                         |
 
 ## Sinkronisasi ke MEMORI.md
 

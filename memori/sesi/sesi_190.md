@@ -19,13 +19,13 @@ Percakapan baru diawali dengan sapaan "hai" dari pengguna. Memuat aturan dan ski
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| admin_wifi/lib/fitur/dompet/screens/form_dompet.dart | Diubah | `_namaFocusNode` dari `late` menjadi inisialisasi langsung (code.md #34) |
-| memori/sesi/sesi_176.md | Diubah (catch-up) | Status Sinkron Belum Sinkron → Sudah Sinkron (catch-up, sesi 190) |
-| memori/riwayat_perubahan.md | Diubah (catch-up) | Tambah entri sesi 176 (catch-up sync) |
-| prompt/rules/AGENTS.md | Diubah | Tambah butir 14 (setiap tugas wajib mengikuti skill; jika tidak tersedia, beritahukan pengguna) + perbarui header `diperbarui` (setelah persetujuan pengguna) |
-| AGENTS.md (root) | Diubah | Sinkron target butir 14 dengan berkas poin (setelah persetujuan pengguna) |
+| Lokasi File                                          | Status Perubahan  | Deskripsi                                                                                                                                                     |
+| ---------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| admin_wifi/lib/fitur/dompet/screens/form_dompet.dart | Diubah            | `_namaFocusNode` dari `late` menjadi inisialisasi langsung (code.md #34)                                                                                      |
+| memori/sesi/sesi_176.md                              | Diubah (catch-up) | Status Sinkron Belum Sinkron → Sudah Sinkron (catch-up, sesi 190)                                                                                             |
+| memori/riwayat_perubahan.md                          | Diubah (catch-up) | Tambah entri sesi 176 (catch-up sync)                                                                                                                         |
+| prompt/rules/AGENTS.md                               | Diubah            | Tambah butir 14 (setiap tugas wajib mengikuti skill; jika tidak tersedia, beritahukan pengguna) + perbarui header `diperbarui` (setelah persetujuan pengguna) |
+| AGENTS.md (root)                                     | Diubah            | Sinkron target butir 14 dengan berkas poin (setelah persetujuan pengguna)                                                                                     |
 
 ## Sinkronisasi ke MEMORI.md
 

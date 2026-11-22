@@ -66,7 +66,7 @@
 
 25. **migrasi-skema-sqlite** — Trigger: saat menambah atau mengubah tabel, kolom, indeks, atau migrasi SQLite | Naikkan versi, update onCreate dan onUpgrade, cerminkan perubahan di onCreate, verifikasi PRAGMA table_info; hindari untuk perubahan non-skema.
 
-26. **model-state-freezed-abstract** — Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '*.freezed.dart' + '*.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan), pengosongan field nullable via `copyWith(field: null)` sentinel codegen, integrasi notifier Riverpod, model database (fromSqflite/toSqflite, ParserUtil, konversi UTC).
+26. **model-state-freezed-abstract** — Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '_.freezed.dart' + '_.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan), pengosongan field nullable via `copyWith(field: null)` sentinel codegen, integrasi notifier Riverpod, model database (fromSqflite/toSqflite, ParserUtil, konversi UTC).
 
 27. **navigator-routing** — Trigger: saat navigasi atau routing Flutter | Panduan Navigator, Route, Page, MaterialApp.router, pushNamed, pop, onGenerateRoute, onUnknownRoute, restorablePushNamed.
 

@@ -24,11 +24,11 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| memori/sesi/sesi_185.md | dibuat | Berkas sesi baru untuk percakapan/tugas ini |
-| admin_wifi/lib/data/operasi/operasi.dart | diubah | Hapus export `kategori_operasi.dart` |
-| admin_wifi/lib/data/operasi/kategori_operasi.dart | dihapus | Berkas lama setelah fungsi dipindah ke notifier |
+| Lokasi File                                       | Status Perubahan | Deskripsi                                       |
+| ------------------------------------------------- | ---------------- | ----------------------------------------------- |
+| memori/sesi/sesi_185.md                           | dibuat           | Berkas sesi baru untuk percakapan/tugas ini     |
+| admin_wifi/lib/data/operasi/operasi.dart          | diubah           | Hapus export `kategori_operasi.dart`            |
+| admin_wifi/lib/data/operasi/kategori_operasi.dart | dihapus          | Berkas lama setelah fungsi dipindah ke notifier |
 
 ## Sinkronisasi ke MEMORI.md
 

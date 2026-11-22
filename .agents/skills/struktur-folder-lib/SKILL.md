@@ -34,12 +34,12 @@ Status referensi: konvensi `notifier/` vs `provider/` berasal dari hasil diskusi
 4. Pembeda `notifier/` vs `provider/` wajib berdasarkan kemampuan mengubah state, bukan pretensi nama: bila class memiliki method yang mengubah/persisten state, tempatkan di `notifier/`.
 5. **Setiap enum, state, model data, dan class domain yang berkaitan dengan sebuah fitur WAJIB diletakkan di sub-folder `model/` di dalam folder fitur tersebut** (mis. `lib/fitur/berhenti_merokok/model/mode_berhenti.dart`).
 6. `lib/core/` untuk hal lintas-fitur (utilitas, konstanta, widget bersama); hanya dibuat saat ada isi nyata — dilarang folder kosong.
-6. Berkas `*.g.dart` hasil generate tidak diedit, disalin, atau dipindah manual; pindahkan berkas sumber lalu jalankan `dart run build_runner build --delete-conflicting-outputs`.
-7. `part`/`part of` diarahkan ke berkas `.g.dart` dengan nama yang sama dengan sumbernya (mis. `part 'tema_notifier.g.dart';`).
-8. Impor memakai path package (`package:<nama_aplikasi>/...`), bukan path relatif.
-9. Nama berkas `snake_case`, class `PascalCase`, konstanta `SCREAMING_SNAKE_CASE` (lihat skill `penamaan-konvensi`); tabel/kolom/field database `snake_case`.
-10. Provider hasil generate dinamai dari nama class minus akhiran `Notifier` (mis. `TemaNotifier` → `temaProvider`); merename berkas tidak mengubah nama provider, hanya jalur impor dan `part` yang berubah.
-11. Berkas yang dipindah/rename dengan header `// path:` WAJIB memperbarui header tersebut seiring pemindahan (menunjuk lokasi baru); `grep` path lama WAJIB bersih sebelum tugas dinyatakan selesai (termasuk berkas yang dipindah oleh `git mv`).
+7. Berkas `*.g.dart` hasil generate tidak diedit, disalin, atau dipindah manual; pindahkan berkas sumber lalu jalankan `dart run build_runner build --delete-conflicting-outputs`.
+8. `part`/`part of` diarahkan ke berkas `.g.dart` dengan nama yang sama dengan sumbernya (mis. `part 'tema_notifier.g.dart';`).
+9. Impor memakai path package (`package:<nama_aplikasi>/...`), bukan path relatif.
+10. Nama berkas `snake_case`, class `PascalCase`, konstanta `SCREAMING_SNAKE_CASE` (lihat skill `penamaan-konvensi`); tabel/kolom/field database `snake_case`.
+11. Provider hasil generate dinamai dari nama class minus akhiran `Notifier` (mis. `TemaNotifier` → `temaProvider`); merename berkas tidak mengubah nama provider, hanya jalur impor dan `part` yang berubah.
+12. Berkas yang dipindah/rename dengan header `// path:` WAJIB memperbarui header tersebut seiring pemindahan (menunjuk lokasi baru); `grep` path lama WAJIB bersih sebelum tugas dinyatakan selesai (termasuk berkas yang dipindah oleh `git mv`).
 
 ## Steps
 

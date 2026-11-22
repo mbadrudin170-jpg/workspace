@@ -12,6 +12,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 5. Muat juga skill yang berkaitan dengan topik percakapan saat ini (termasuk skill non-code yang relevan), meskipun tidak muncul dari pemindaian code/ pada poin 2. Cocokkan topik sekarang dengan Trigger/description skill.
 
 6. Setelah memuat skill yang relevan, **wajib memperbaiki/menyesuaikan berkas yang sedang dikerjakan agar sesuai dengan aturan dan panduan pada skill yang dimuat** — jangan biarkan berkas proyek melanggar skill yang sudah dimuat.
+
 ---
 
 # Daftar Lengkap Skill Tersedia (dengan Deskripsi)
@@ -68,7 +69,7 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 25. **migrasi-skema-sqlite** — Trigger: saat menambah atau mengubah tabel, kolom, indeks, atau migrasi SQLite | Naikkan versi, update onCreate dan onUpgrade, cerminkan perubahan di onCreate, verifikasi PRAGMA table_info; hindari untuk perubahan non-skema.
 
-26. **model-state-freezed-abstract** — Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '*.freezed.dart' + '*.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan), pengosongan field nullable via `copyWith(field: null)` sentinel codegen, integrasi notifier Riverpod, model database (fromSqflite/toSqflite, ParserUtil, konversi UTC).
+26. **model-state-freezed-abstract** — Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '_.freezed.dart' + '_.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan), pengosongan field nullable via `copyWith(field: null)` sentinel codegen, integrasi notifier Riverpod, model database (fromSqflite/toSqflite, ParserUtil, konversi UTC).
 
 27. **navigator-routing** — Trigger: saat navigasi atau routing Flutter | Panduan Navigator, Route, Page, MaterialApp.router, pushNamed, pop, onGenerateRoute, onUnknownRoute, restorablePushNamed.
 
@@ -78,25 +79,25 @@ ditimpa ke : `.kilo/commands/muat_skill_terkait.md`
 
 30. **penamaan-konvensi** — Trigger: saat menamai identifier, file, atau class | Konvensi proyek Flutter: identifier bahasa Indonesia, file snake_case, variable camelCase, class PascalCase, konstanta SCREAMING_SNAKE_CASE, import package:, tabel/kolom snake_case.
 
-32. **pengurutan-paket-pubspec** — Trigger: saat menambah atau mengurutkan dependensi pubspec.yaml | Panduan urutan paket pada section `dependencies` dan `dev_dependencies` di `pubspec.yaml`: abjad case-insensitive, entri berbasis SDK (`flutter`, `flutter_test`) tetap di posisi teratas.
+31. **pengurutan-paket-pubspec** — Trigger: saat menambah atau mengurutkan dependensi pubspec.yaml | Panduan urutan paket pada section `dependencies` dan `dev_dependencies` di `pubspec.yaml`: abjad case-insensitive, entri berbasis SDK (`flutter`, `flutter_test`) tetap di posisi teratas.
 
-33. **penanganan-async** — Trigger: saat layar menangani state async, data kosong, atau beberapa AsyncValue | Panduan isLoading, hasError, requireValue, empty state, data tidak lengkap, early return, mounted check, cache provider, loading gabungan, error terpisah, tipe generic konkret.
+32. **penanganan-async** — Trigger: saat layar menangani state async, data kosong, atau beberapa AsyncValue | Panduan isLoading, hasError, requireValue, empty state, data tidak lengkap, early return, mounted check, cache provider, loading gabungan, error terpisah, tipe generic konkret.
 
-34. **penanganan-data-null** — Trigger: saat menangani data null | Indeks skill khusus penanganan data null: type-promotion-null-safety, parsing-nullable-int, penanganan-async, validasi-form-sebelum-penyimpanan.
+33. **penanganan-data-null** — Trigger: saat menangani data null | Indeks skill khusus penanganan data null: type-promotion-null-safety, parsing-nullable-int, penanganan-async, validasi-form-sebelum-penyimpanan.
 
-35. **penanganan-error-unawaited** — Trigger: saat memanggil Future tanpa await (unawaited) | Panduan wajib catchError dengan logging L.e pada Future yang dilepas; jangan biarkan unhandled.
+34. **penanganan-error-unawaited** — Trigger: saat memanggil Future tanpa await (unawaited) | Panduan wajib catchError dengan logging L.e pada Future yang dilepas; jangan biarkan unhandled.
 
-36. **performa-aplikasi** — Trigger: saat mengoptimasi performa aplikasi | Aturan performa Flutter: rebuild minimal, const constructor, builder list (lazy), lazy IndexedStack tab BottomNavigationBar, image caching, async gap yielding, memory leak, query DB optimization, profiling.
+35. **performa-aplikasi** — Trigger: saat mengoptimasi performa aplikasi | Aturan performa Flutter: rebuild minimal, const constructor, builder list (lazy), lazy IndexedStack tab BottomNavigationBar, image caching, async gap yielding, memory leak, query DB optimization, profiling.
 
-37. **pencarian-koleksi-null-safe** — Trigger: saat mencari atau mengurutkan elemen dalam koleksi (List/Iterable) | Panduan koleksi: pencarian wajib `firstWhereOrNull` dan pengurutan wajib `.sorted`/`.sortedBy`/`.sortedByDescending` dari `package:collection/collection.dart`; larangan `cast<T?>().firstWhere(..., orElse: ...)` dan `..sort(...)` in-place.
+36. **pencarian-koleksi-null-safe** — Trigger: saat mencari atau mengurutkan elemen dalam koleksi (List/Iterable) | Panduan koleksi: pencarian wajib `firstWhereOrNull` dan pengurutan wajib `.sorted`/`.sortedBy`/`.sortedByDescending` dari `package:collection/collection.dart`; larangan `cast<T?>().firstWhere(..., orElse: ...)` dan `..sort(...)` in-place.
 
-38. **pola-ui** — Trigger: saat menerapkan pola UI Flutter | Indeks: visualisasi-progres-impian, isolasi-widget-timer, gaya, widget-custom. Prinsip single responsibility dan textTheme + copyWith.
+37. **pola-ui** — Trigger: saat menerapkan pola UI Flutter | Indeks: visualisasi-progres-impian, isolasi-widget-timer, gaya, widget-custom. Prinsip single responsibility dan textTheme + copyWith.
 
-39. **pola-ux** — Trigger: saat menerapkan pola UX Flutter | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async.
+38. **pola-ux** — Trigger: saat menerapkan pola UX Flutter | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async.
 
-40. **riset-kompetitor** — Trigger: saat membuat atau memperbarui katalog aplikasi kompetitor proyek | Panduan riset kompetitor portabel lintas proyek: menentukan aplikasi sasaran dari dokumen proyek, format tabel apk_kompetitor.md, status analisa per listing, verifikasi tautan, alur satu run mencakup semua store, dan laporan refrensi_apk.md.
+39. **riset-kompetitor** — Trigger: saat membuat atau memperbarui katalog aplikasi kompetitor proyek | Panduan riset kompetitor portabel lintas proyek: menentukan aplikasi sasaran dari dokumen proyek, format tabel apk_kompetitor.md, status analisa per listing, verifikasi tautan, alur satu run mencakup semua store, dan laporan refrensi_apk.md.
 
-41. **spacing** — Trigger: saat mengatur jarak antar elemen UI | Panduan spacing pada Row/Column, SizedBox hanya khusus, padding tepi layar tanggung jawab parent, nilai spacing mengikuti skala standar optimasi_ui.md.
+40. **spacing** — Trigger: saat mengatur jarak antar elemen UI | Panduan spacing pada Row/Column, SizedBox hanya khusus, padding tepi layar tanggung jawab parent, nilai spacing mengikuti skala standar optimasi_ui.md.
 
 41. **sqlite** — Trigger: saat menambahkan atau memperbaiki dukungan SQLite (sqflite) di Flutter Web | Panduan `sqflite_common_ffi_web`: tambah paket via `flutter pub add`, setup `dart run sqflite_common_ffi_web:setup`, set `databaseFactoryFfiWeb` di `main()` untuk `kIsWeb`, path database di web hanya nama (IndexedDB).
 

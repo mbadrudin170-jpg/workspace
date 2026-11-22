@@ -30,7 +30,7 @@ Mengelola siklus hidup widget dan state agar tidak ada memory leak, setState set
 7. Jangan cache `BuildContext` di luar eksekusi sinkron satu fungsi. Context bisa invalid setelah unmount.
 8. `build` tidak boleh memiliki side effect. Hanya return widget tree.
 9. `dependOnInheritedWidgetOfExactType` jangan dipanggil di constructor atau `initState`. Gunakan di `build` atau `didChangeDependencies`.
-11. Field state widget (mis. `TextEditingController`, enum) yang dapat diinisialisasi langsung DILARANG dideklarasikan `late`; gunakan inisialisasi langsung (`final x = ...` atau `T _x = default`) dan hapus penugasan di `initState`.
+10. Field state widget (mis. `TextEditingController`, enum) yang dapat diinisialisasi langsung DILARANG dideklarasikan `late`; gunakan inisialisasi langsung (`final x = ...` atau `T _x = default`) dan hapus penugasan di `initState`.
 
 ## Larangan
 

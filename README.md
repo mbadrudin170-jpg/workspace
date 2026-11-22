@@ -22,26 +22,26 @@ Catatan: submodule `base_coc` saat ini **tidak aktif** — entri pada `.gitmodul
 
 ## Struktur Repositori
 
-| Lokasi                     | Isi                                                                                                                                                |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AGENTS.md`                | Aturan gabungan yang wajib dibaca sebelum bekerja (urutan baca, ceklist sesi, aturan proyek).                                                      |
-| `MEMORI.md`                | Status proyek dan catatan teknis (memori hidup); `memori/sesi/sesi_N.md`, `memori/riwayat_perubahan.md`.                                           |
-| `.agents/rules/`           | Aturan proyek (`code.md`, `kelompok_skill_wajib_*.md`, `lainnya.md`, `pengelolaan_konflik.md`, `overlay_log_debug.md`, `format_hasil_diskusi.md`). |
-| `.agents/skills/`     | Skill kustom terkait kode (`SKILL.md`, 55 skill) untuk konteks kerja tertentu.                                                                     |
-| `.agents/skills/` | Skill kustom non-kode (`SKILL.md`, 17 skill) untuk konteks kerja tertentu.                                                                         |
-| `.kilo/`                   | Konfigurasi Kilo proyek (`kilo.jsonc`, `commands/`, `prompts/`, …) — terlacak di repositori ini.                                                   |
-| `.vscode/`                 | 12 berkas snippet (`*.code-snippets`) serta `launch.json`, `settings.json`, `tasks.json`, `mcp.json`.                                              |
-| `.prettierrc`              | Konfigurasi pemformatan (Markdown/JSON/JSONC).                                                                                                     |
-| `script/`                  | Skrip bantu Bash: `bash_aliases.sh`, `build_apk.sh`, `full_clean.sh`, `rename_apk.sh`.                                                             |
-| `memori/`                  | Memori kerja: `sesi/` (catatan per sesi) dan `riwayat_perubahan.md`.                                                                               |
-| `audit/`                   | Audit sistem kerja (`riwayat_sesi.md`).                                                                                                            |
-| `prd/`                     | Dokumen PRD yang tersedia (mis. `prd_umpan_balik_setelah_menyalin.md`).                                                                            |
-| `docs/`                    | Dokumentasi pendukung (`hasil_analisa/`, `kilo/`, `laporan_linter.md`, `paket_favorit.md`, `snippet.md`, `vs code/`).                              |
-| `prompt/`                  | Poin ringkas per skill/aturan/command (`skill/`, `rules/`, `commands/`).                                                                           |
-| `.dart_tool/`              | Direktori kerja tool (cache pemasangan Agent Skill) yang ikut terlacak; memuat gitlink tool tanpa entri `.gitmodules`.                             |
-| `admin_wifi/`              | Submodule aplikasi Flutter (lihat [`admin_wifi/README.md`](admin_wifi/README.md)).                                                                 |
-| `share_global_saya/`       | Submodule pustaka Flutter bersama (lihat [`share_global_saya/README.md`](share_global_saya/README.md)).                                            |
-| Berkas kerja tingkat root  | `alur_kerja.md`, `apk_kompetitor.md`, `catatan.md`, `fitur_khusus.md`, `keluhan.md`, `refrensi_apk.md`, `task.md`.                                 |
+| Lokasi                    | Isi                                                                                                                                                |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AGENTS.md`               | Aturan gabungan yang wajib dibaca sebelum bekerja (urutan baca, ceklist sesi, aturan proyek).                                                      |
+| `MEMORI.md`               | Status proyek dan catatan teknis (memori hidup); `memori/sesi/sesi_N.md`, `memori/riwayat_perubahan.md`.                                           |
+| `.agents/rules/`          | Aturan proyek (`code.md`, `kelompok_skill_wajib_*.md`, `lainnya.md`, `pengelolaan_konflik.md`, `overlay_log_debug.md`, `format_hasil_diskusi.md`). |
+| `.agents/skills/`         | Skill kustom terkait kode (`SKILL.md`, 55 skill) untuk konteks kerja tertentu.                                                                     |
+| `.agents/skills/`         | Skill kustom non-kode (`SKILL.md`, 17 skill) untuk konteks kerja tertentu.                                                                         |
+| `.kilo/`                  | Konfigurasi Kilo proyek (`kilo.jsonc`, `commands/`, `prompts/`, …) — terlacak di repositori ini.                                                   |
+| `.vscode/`                | 12 berkas snippet (`*.code-snippets`) serta `launch.json`, `settings.json`, `tasks.json`, `mcp.json`.                                              |
+| `.prettierrc`             | Konfigurasi pemformatan (Markdown/JSON/JSONC).                                                                                                     |
+| `script/`                 | Skrip bantu Bash: `bash_aliases.sh`, `build_apk.sh`, `full_clean.sh`, `rename_apk.sh`.                                                             |
+| `memori/`                 | Memori kerja: `sesi/` (catatan per sesi) dan `riwayat_perubahan.md`.                                                                               |
+| `audit/`                  | Audit sistem kerja (`riwayat_sesi.md`).                                                                                                            |
+| `prd/`                    | Dokumen PRD yang tersedia (mis. `prd_umpan_balik_setelah_menyalin.md`).                                                                            |
+| `docs/`                   | Dokumentasi pendukung (`hasil_analisa/`, `kilo/`, `laporan_linter.md`, `paket_favorit.md`, `snippet.md`, `vs code/`).                              |
+| `prompt/`                 | Poin ringkas per skill/aturan/command (`skill/`, `rules/`, `commands/`).                                                                           |
+| `.dart_tool/`             | Direktori kerja tool (cache pemasangan Agent Skill) yang ikut terlacak; memuat gitlink tool tanpa entri `.gitmodules`.                             |
+| `admin_wifi/`             | Submodule aplikasi Flutter (lihat [`admin_wifi/README.md`](admin_wifi/README.md)).                                                                 |
+| `share_global_saya/`      | Submodule pustaka Flutter bersama (lihat [`share_global_saya/README.md`](share_global_saya/README.md)).                                            |
+| Berkas kerja tingkat root | `alur_kerja.md`, `apk_kompetitor.md`, `catatan.md`, `fitur_khusus.md`, `keluhan.md`, `refrensi_apk.md`, `task.md`.                                 |
 
 Folder `apk/` diabaikan oleh Git (`.gitignore`) sehingga artefak APK tidak ikut ter-commit.
 

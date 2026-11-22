@@ -16,13 +16,13 @@
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-|-------------|------------------|-----------|
-| memori/sesi/sesi_184.md | dibuat | Berkas sesi baru untuk percakapan/tugas ini |
-| script/salin_tool_output.sh → salin_riwayat_sesi.sh | diubah | Rename script + tambah ekstensi .sh |
-| script/bash_aliases.sh | diubah | Perbarui alias salin_tool_output → salin_riwayat_sesi |
-| id_transkrip.txt | dibuat | Catat ID transkrip sesi Kilo |
-| script/salin_riwayat_sesi.sh | diubah | Ganti logika: salin memori/sesi/ + sertakan docs/perintah_analisa.md |
+| Lokasi File                                         | Status Perubahan | Deskripsi                                                            |
+| --------------------------------------------------- | ---------------- | -------------------------------------------------------------------- |
+| memori/sesi/sesi_184.md                             | dibuat           | Berkas sesi baru untuk percakapan/tugas ini                          |
+| script/salin_tool_output.sh → salin_riwayat_sesi.sh | diubah           | Rename script + tambah ekstensi .sh                                  |
+| script/bash_aliases.sh                              | diubah           | Perbarui alias salin_tool_output → salin_riwayat_sesi                |
+| id_transkrip.txt                                    | dibuat           | Catat ID transkrip sesi Kilo                                         |
+| script/salin_riwayat_sesi.sh                        | diubah           | Ganti logika: salin memori/sesi/ + sertakan docs/perintah_analisa.md |
 
 ## Sinkronisasi ke MEMORI.md
 

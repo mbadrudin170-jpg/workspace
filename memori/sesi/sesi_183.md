@@ -14,16 +14,16 @@ Topik: Perbarui setiap skill agar sesuai dengan aturan yang ada
 
 ## Berkas Terdampak
 
-| Lokasi File | Status Perubahan | Deskripsi |
-| ----------- | ---------------- | --------- |
-| prompt/skill/audit-riwayat-sesi.md | Dibuat | Poin file skill audit-riwayat-sesi (header `diperbarui` + `file` target) |
-| prompt/skill/cek-kesehatan-sistem-kerja.md | Dibuat | Poin file skill cek-kesehatan-sistem-kerja |
-| prompt/skill/format-task-md.md | Dibuat | Poin file skill format-task-md |
-| prompt/skill/larangan-backup-task.md | Dibuat | Poin file skill larangan-backup-task |
-| prompt/skill/membuat-readme-yang-baik.md | Dibuat | Poin file skill membuat-readme-yang-baik |
-| .agents/skills/code/*/references/ (50 folder) | Dibuat | Folder referensi kosong per skill code (tidak terlacak git karena kosong) |
-| .agents/skills/non-code/*/references/ (20 folder) | Dibuat | Folder referensi kosong per skill non-code (tidak terlacak git karena kosong) |
-| MEMORI.md | Diubah | Header `Diperbarui:` → sesi 183; tambah catatan teknik kepatuhan skill |
+| Lokasi File                                       | Status Perubahan | Deskripsi                                                                     |
+| ------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------- |
+| prompt/skill/audit-riwayat-sesi.md                | Dibuat           | Poin file skill audit-riwayat-sesi (header `diperbarui` + `file` target)      |
+| prompt/skill/cek-kesehatan-sistem-kerja.md        | Dibuat           | Poin file skill cek-kesehatan-sistem-kerja                                    |
+| prompt/skill/format-task-md.md                    | Dibuat           | Poin file skill format-task-md                                                |
+| prompt/skill/larangan-backup-task.md              | Dibuat           | Poin file skill larangan-backup-task                                          |
+| prompt/skill/membuat-readme-yang-baik.md          | Dibuat           | Poin file skill membuat-readme-yang-baik                                      |
+| .agents/skills/code/*/references/ (50 folder)     | Dibuat           | Folder referensi kosong per skill code (tidak terlacak git karena kosong)     |
+| .agents/skills/non-code/*/references/ (20 folder) | Dibuat           | Folder referensi kosong per skill non-code (tidak terlacak git karena kosong) |
+| MEMORI.md                                         | Diubah           | Header `Diperbarui:` → sesi 183; tambah catatan teknik kepatuhan skill        |
 
 ## Sinkronisasi ke MEMORI.md
 
