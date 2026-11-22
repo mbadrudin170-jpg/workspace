@@ -9,11 +9,15 @@
 
 set -euo pipefail
 
-REPO="mbadrudin170-jpg/base_coc"
+REPO="mbadrudin170-jpg/admin_wifi"
 WORKFLOW_FILE="build-apk.yml"
 REF="main"
 ARTIFACT="app-release-apk"   # samakan dengan 'name' di step upload-artifact
-OUTPUT_DIR="apk"
+
+# Pastikan output masuk ke folder repo admin_wifi, bukan cwd pemanggil
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/../admin_wifi" && pwd)"
+OUTPUT_DIR="$PROJECT_DIR/apk"
 
 latest_run_id() {
   gh run list --repo "$REPO" --workflow "$WORKFLOW_FILE" --limit 1 \
@@ -42,6 +46,16 @@ echo "Run ID: $RUN_ID"
 gh run watch "$RUN_ID" --repo "$REPO" --exit-status
 
 mkdir -p "$OUTPUT_DIR"
+# Hapus APK lama agar gh run download tidak gagal karena "file exists"
+rm -f "$OUTPUT_DIR"/*.apk
 echo "Mengunduh artefak '$ARTIFACT' ke $OUTPUT_DIR/..."
 gh run download "$RUN_ID" --repo "$REPO" -n "$ARTIFACT" -D "$OUTPUT_DIR"
+
+# Hapus artefak dari GitHub setelah berhasil diunduh (hemat storage)
+ARTIFACT_ID="$(gh api "repos/$REPO/actions/runs/$RUN_ID/artifacts" --jq '.artifacts[] | select(.name=="'"$ARTIFACT"'") | .id' | head -n1)"
+if [ -n "$ARTIFACT_ID" ]; then
+  gh api -X DELETE "repos/$REPO/actions/artifacts/$ARTIFACT_ID" >/dev/null
+  echo "Artefak dihapus dari GitHub (id: $ARTIFACT_ID)."
+fi
+
 echo "Selesai. APK ada di folder $OUTPUT_DIR/"
