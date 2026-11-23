@@ -14,7 +14,7 @@
 - Pengguna memberikan contoh inisialisasi `configureNetworkToolsFlutter` dan `PingNotifier` dengan fallback `PortScanner`.
 - Dipasang paket `network_tools_flutter` (v3.0.5) di `admin_wifi`.
 - `main.dart` diperbarui: inisialisasi `configureNetworkToolsFlutter` (guard `!kIsWeb`) sebelum `runApp`.
-- `ping_notifier.dart` ditulis ulang sesuai contoh: gunakan `HostScannerService.instance.getAllPingableDevices` (subnet host tunggal) dengan fallback `PortScannerService.instance.isOpen` pada port 80/443. Perbaikan tipe: `pingData?.time` (bukan `.response?.time`) dan `PortScannerService` (bukan `PortScanner`).
+- `ping_notifier.dart` ditulis ulang sesuai contoh: gunakan `HostScannerService.instance.getAllPingableDevices` (subnet host tunggal) dengan fallback `PortScannerService.instance.isOpen` pada port 80/443. Perbaikan tipe: `pingData?.time` (bukan `.response?.time`) dan `PortScannerService` (bukan `PortScanner`). Tambah guard `kIsWeb`.
 - Verifikasi `dart analyze` No issues, `build_runner` sukses.
 
 ## Berkas Terdampak

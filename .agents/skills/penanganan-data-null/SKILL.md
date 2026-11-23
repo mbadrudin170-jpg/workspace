@@ -1,6 +1,6 @@
 ---
 name: penanganan-data-null
-description: "Trigger: saat menangani data null | Indeks skill khusus penanganan data null: type-promotion-null-safety, parsing-nullable-int, penanganan-async, validasi-form-sebelum-penyimpanan. Gunakan skill terkait untuk detail; jangan duplikasi isi di sini."
+description: "Gunakan ini saat menangani data null | Indeks skill khusus penanganan data null: type-promotion-null-safety, parsing-nullable-int, penanganan-async, validasi-form-sebelum-penyimpanan. Gunakan skill terkait untuk detail; jangan duplikasi isi di sini."
 ---
 
 # Penanganan Data Null

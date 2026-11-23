@@ -1,6 +1,6 @@
 ---
 name: type-promotion-null-safety
-description: "Trigger: saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku. Operator `!` DILARANG - gunakan type promotion via variabel lokal universal."
+description: "Gunakan ini saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku. Operator `!` DILARANG - gunakan type promotion via variabel lokal universal."
 ---
 
 # Type Promotion untuk Null Safety pada Field Objek

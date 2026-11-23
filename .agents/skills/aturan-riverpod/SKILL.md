@@ -1,6 +1,6 @@
 ---
 name: aturan-riverpod
-description: "Trigger: saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD, notifier sinkron, ref.watch/read, ConsumerWidget/ConsumerStatefulWidget pemilihan, family, autoDispose, ProviderScope, select, AsyncValue, muatUlang, penamaan provider, akses state di AsyncNotifier via `await future` bukan `state.value`)."
+description: "Gunakan ini saat memakai Riverpod | Panduan pola Riverpod (notifier CRUD, notifier sinkron, ref.watch/read, ConsumerWidget/ConsumerStatefulWidget pemilihan, family, autoDispose, ProviderScope, select, AsyncValue, muatUlang, penamaan provider, akses state di AsyncNotifier via `await future` bukan `state.value`)."
 ---
 
 # Aturan Riverpod

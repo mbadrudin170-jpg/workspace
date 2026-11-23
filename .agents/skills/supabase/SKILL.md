@@ -1,6 +1,6 @@
 ---
 name: supabase
-description: Trigger: saat mengintegrasikan Supabase (PostgREST) di Flutter - panduan singleton SupabaseKlien idempotent (StateError bila belum init), OperasiSupabase CRUD generik (ambil/tambah/ubah/hapus/tambahBatch) dengan filter match, order, limit/range, logging L dengan $e $s, rethrow, dan penandaan kapan init di main(). Berguna untuk proyek yang memakai Supabase sebagai backend.
+description: Gunakan ini saat mengintegrasikan Supabase (PostgREST) di Flutter - panduan singleton SupabaseKlien idempotent (StateError bila belum init), OperasiSupabase CRUD generik (ambil/tambah/ubah/hapus/tambahBatch) dengan filter match, order, limit/range, logging L dengan $e $s, rethrow, dan penandaan kapan init di main(). Berguna untuk proyek yang memakai Supabase sebagai backend.
 ---
 
 # Skill: supabase

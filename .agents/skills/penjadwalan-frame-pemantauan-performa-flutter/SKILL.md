@@ -1,6 +1,6 @@
 ---
-name: penjadwalan-frame-dan-pemantauan-performa-flutter
-description: "Trigger: saat mengatur siklus frame dan pemantauan performa | Panduan SchedulerBinding, PlatformDispatcher, Timeline, FrameTiming: scheduleFrame, callbacks, addTimingsCallback, onReportTimings, Timeline.timeSync. Penjadwalan Frame dan Pemantauan Performa Flutter Skill ini mengatur cara kerja siklus frame Flutter dari lapisan framework (SchedulerBinding) hingga lapisan engine (PlatformDispatcher dan dart:ui), beserta alat pemantauan performa (Timeline, FrameTiming, dan onReportTimings). Tujuannya adalah agar frame dijadwalkan dengan benar, callback dieksekusi pada fase yang tepat, dan metrik performa terpantau tanpa kebocoran resource. Cakupan yang Di-Cover - Package: `package:flutter` (file `lib/src/scheduler/binding.dart`), `dart:developer` (file `developer/timeline.dart`), `dart:ui` (file `ui/platform_dispatcher.dart`) - Class: `SchedulerBinding`, `PlatformDispatcher`, `Timeline`, `TimelineTask`, `Flow`, `FrameTiming`, `PerformanceModeRequestHandle` - Enum: `SchedulerPhase`, `FramePhase`, `DartPerformanceMo"
+name: penjadwalan-frame-pemantauan-performa-flutter
+description: "Gunakan ini saat mengatur siklus frame dan pemantauan performa | Panduan SchedulerBinding, PlatformDispatcher, Timeline, FrameTiming. Skill ini mengatur cara kerja siklus frame Flutter dari lapisan framework hingga engine, beserta alat pemantauan performa. Tujuannya adalah agar frame dijadwalkan dengan benar, callback dieksekusi pada fase yang tepat, dan metrik performa terpantau tanpa kebocoran resource."
 ---
 
 # Penjadwalan Frame dan Pemantauan Performa Flutter

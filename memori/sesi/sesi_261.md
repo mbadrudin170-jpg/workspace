@@ -14,6 +14,8 @@
 - Audit read-only terhadap 70 skill di `.agents/skills/*/SKILL.md` berdasarkan `standar-pembuatan-skill` dilakukan secara otomatis (frontmatter, name, description, em/en dash, panjang body, list). Hasil awal: 69 dari 70 skill memiliki temuan; hanya `perbaikan-test-notifikasi` yang lolos semua pemeriksaan otomatis.
 - Perbaikan mekanis otomatis diterapkan pada 68 skill: penghapusan field tambahan di frontmatter (`metadata`, `kategori`, `versi`, `diperbarui`, `model`) sehingga frontmatter hanya memuat `name` dan `description`; penggantian tanda hubung em/en (`—`/`–`) dengan `-`; penambahan baris kosong sebelum daftar (di luar blok kode). Hasil audit ulang: 54 skill masih memiliki temuan, seluruhnya berupa `description` ≥1024 karakter (54 skill), 2 daftar tanpa baris kosong (nested, `memori-check` dan `tipografi`), dan 1 `name` dengan 6 kata (`penjadwalan-frame-dan-pemantauan-performa-flutter`).
 - Tidak dilakukan pemendekan otomatis `description` (risiko memotong kata kunci pemicu) dan tidak dilakukan penggantian nama skill (memerlukan pembaruan rujukan). Kedua item ini tetap manual bila pengguna menyetujui.
+- Perbaikan satu per satu dimulai: skill `penjadwalan-frame-dan-pemantauan-performa-flutter` diubah namanya menjadi `penjadwalan-frame-pemantauan-performa-flutter` (folder + frontmatter) dan `description` dipendekkan menjadi <1024 karakter. Audit skill ini sekarang lolos pemeriksaan otomatis.
+- Skill `aturan-folder-prompt` diperbaiki: `description` dipendekkan menjadi 562 karakter (<1024). Audit skill ini sekarang lolos pemeriksaan otomatis. Sisa skill dengan `description` ≥1024: 52.
 - Catatan: audit ini hanya memeriksa kriteria otomatis standar; isi substansi (kejelasan trigger, contoh, konsistensi dengan aturan) belum diaudit manual.
 
 ## Berkas Terdampak
@@ -22,6 +24,8 @@
 |---|---|---|
 | `memori/sesi/sesi_261.md` | Dibuat | Berkas sesi aktif (audit + perbaikan mekanis standar skill) |
 | `.agents/skills/*/SKILL.md` (68 berkas) | Diubah | Hapus field tambahan frontmatter, ganti em/en dash, perbaiki daftar |
+| `.agents/skills/penjadwalan-frame-pemantauan-performa-flutter/SKILL.md` | Diubah + rename | Nama 5 kata + description <1024 |
+| `.agents/skills/aturan-folder-prompt/SKILL.md` | Diubah | Description <1024 |
 
 ## Sinkronisasi ke MEMORI.md
 

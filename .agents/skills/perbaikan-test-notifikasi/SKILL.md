@@ -1,6 +1,6 @@
 ---
 name: perbaikan-test-notifikasi
-description: "Trigger: saat memperbaiki test notifikasi yang gagal karena mismatch jumlah call mock atau mock tidak diisolasi | Panduan prosedur: baca log aktual jumlah jadwal notifikasi, cocokkan dengan kontrak domain, reset mock setelah setup, verifikasi ID/hash notifikasi spesifik, jalankan test terkait lalu semua test."
+description: "Gunakan ini saat memperbaiki test notifikasi yang gagal karena mismatch jumlah call mock atau mock tidak diisolasi | Panduan prosedur: baca log aktual jumlah jadwal notifikasi, cocokkan dengan kontrak domain, reset mock setelah setup, verifikasi ID/hash notifikasi spesifik, jalankan test terkait lalu semua test."
 ---
 
 # Perbaikan Test Notifikasi

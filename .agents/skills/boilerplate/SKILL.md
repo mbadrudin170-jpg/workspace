@@ -1,6 +1,6 @@
 ---
 name: boilerplate
-description: 'Trigger: saat membuat kode boilerplate atau pola kode berulang yang siap pakai | Panduan boilerplate: pola kode berulang (widget, notifier, model, layar) yang konsisten dengan aturan proyek, dengan contoh benar/salah dan rujukan ke skill terkait (struktur-class-ui, struktur-folder-lib, aturan-riverpod, model-state-freezed-abstract).'
+description: 'Gunakan ini saat membuat kode boilerplate atau pola kode berulang yang siap pakai | Panduan boilerplate: pola kode berulang (widget, notifier, model, layar) yang konsisten dengan aturan proyek, dengan contoh benar/salah dan rujukan ke skill terkait (struktur-class-ui, struktur-folder-lib, aturan-riverpod, model-state-freezed-abstract).'
 ---
 
 # Skill: boilerplate

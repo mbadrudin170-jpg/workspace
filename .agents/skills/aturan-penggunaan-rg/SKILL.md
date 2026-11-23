@@ -1,6 +1,6 @@
 ---
 name: aturan-penggunaan-rg
-description: Trigger: saat menggunakan rg (ripgrep) untuk pencarian konten di codebase - gunakan via tool Bash, flag standar, fallback ke Grep bawaan, verifikasi ketersediaan.
+description: Gunakan ini saat menggunakan rg (ripgrep) untuk pencarian konten di codebase - gunakan via tool Bash, flag standar, fallback ke Grep bawaan, verifikasi ketersediaan.
 ---
 
 # Aturan Penggunaan rg (ripgrep)
