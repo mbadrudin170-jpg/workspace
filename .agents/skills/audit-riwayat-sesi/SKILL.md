@@ -1,6 +1,6 @@
 ---
 name: audit-riwayat-sesi
-description: Gunakan ini saat mengaudit riwayat sesi | Panduan audit manual dan inkremental terhadap `memori/sesi/`, `MEMORI.md`, dan `memori/riwayat_perubahan.md`: inventarisasi berkas sesi + ledger (mtime + jumlah baris) di `audit/riwayat_sesi.md`, ekstraksi sinyal (`ambigu`, `tabrakan`, `tidak disentuh`, `dilaporkan`, `Belum Sinkron`, `belum di-commit`, `melanggar`, `menunggu keputusan`) dengan verifikasi manual, agregasi frekuensi lintas sesi (ambang ≥3 sesi), klasifikasi A/B/C, dan rekomendasi perbaikan sistem tertulis; read-only dengan satu pengecualian append section baru ke `audit/riwayat_sesi.md`; berkas sesi tidak diubah, dihapus, atau dikompresi. Referensi: `.kilo/commands/audit_riwayat_sesi.md`, `hasil_diskusi/diskusi_10.md`. Audit Riwayat Sesi Prosedur audit portabel lintas proyek dengan `MEMORI.md` untuk mendeteksi kesalahan/kegagalan yang sering terulang pada riwayat sesi (`memori/sesi/sesi_*.md`), mengklasifikasikan kebutuhan perbaikannya, dan mencatat hasil ke `audit/riwayat_sesi.md`. Audit bersifat **read-o
+description: "Gunakan ini saat mengaudit riwayat sesi | Panduan audit manual dan inkremental terhadap `memori/sesi/`, `MEMORI.md`, dan `memori/riwayat_perubahan.md`: inventarisasi berkas sesi + ledger, ekstraksi sinyal, agregasi frekuensi, klasifikasi A/B/C, rekomendasi perbaikan sistem tertulis."
 ---
 
 # Audit Riwayat Sesi

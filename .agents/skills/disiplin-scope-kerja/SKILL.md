@@ -1,6 +1,6 @@
 ---
 name: disiplin-scope-kerja
-description: 'Gunakan ini saat mengerjakan tugas apa pun (kode, dokumen, refactor, pemanggilan command), termasuk migrasi massal via codemod/skrip otomatis | Panduan disiplin cakupan kerja: jangan membuat perubahan di luar berkas/cakupan tugas (termasuk churn whitespace/format), format hanya pada berkas terdampak tugas, review `git diff` sebelum melapor, laporkan berkas yang berubah di luar sesi, dan verifikasi codemod lintas berkas setelah dieksekusi. Disiplin Cakupan Kerja Menetapkan batasan tegas antara pekerjaan yang diperintahkan dan perubahan lain yang "kebetulan lewat" - supaya AI tidak membesarkan cakupan pekerjaan tanpa persetujuan. Cakupan yang Di-Cover - Perubahan kode/dokumen di luar cakupan tugas: format massal, rename opsional, type/fix drive-by. - Berkas yang berubah akibat proses/sesi lain (paralel) saat sedang dikerjakan. - Review `git diff` sebelum melapor selesai. Aturan 1. Kerjakan hanya berkas/cakupan yang relevan dengan tugas; perubahan tambahan di luar cakupan (opsional cleanup, format, rename, "bagus-b'
+description: "Gunakan ini saat mengerjakan tugas apa pun (kode, dokumen, refactor, pemanggilan command), termasuk migrasi massal via codemod/skrip otomatis | Panduan disiplin cakupan kerja: jangan membuat perubahan di luar cakupan, format hanya pada berkas terdampak, review `git diff` sebelum melapor."
 ---
 
 # Disiplin Cakupan Kerja

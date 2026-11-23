@@ -1,6 +1,6 @@
 ---
 name: data-dummy
-description: "Gunakan ini saat menambahkan atau memperbarui data dummy untuk pratinjau UI atau pengembangan | Pola data dummy: kelas `abstract final class <Model>Dummy` di `lib/fitur/<fitur>/dummy/<model>_dummy.dart`; daftar `dummyList` (`static final List`); setiap id wajib konstanta `static const` SCREAMING_SNAKE_CASE berformat UUID 8-4-4-4-12; tanggal entri relatif terhadap `DateTime.now()`; dummy berelasi WAJIB memakai ID dari dummy sumber yang sama (referensi ID valid lintas entitas). Data Dummy Skill ini menetapkan pola pembuatan data dummy (data sampel) untuk kebutuhan pratinjau UI dan pengembangan. Data dummy bukan sumber data produksi dan bukan pengganti test. Aturan 1. Folder data dummy berada di `lib/fitur/<fitur>/dummy/` (bukan di `test/`). Berkas bernama `<nama_model>_dummy.dart` (snake_case) dan diawali komentar header `// path: lib/fitur/<fitur>/dummy/<nama_model>_dummy.dart`. 2. Kelas dummy berupa `abstract final class <NamaModel>Dummy` - mencegah instansiasi; seluruh isi berupa anggota statis. 3. Daftar sampe"
+description: "Gunakan ini saat menambahkan atau memperbarui data dummy untuk pratinjau UI atau pengembangan | Pola data dummy: kelas `abstract final class <Model>Dummy` di `lib/fitur/<fitur>/dummy/<model>_dummy.dart`; daftar `dummyList`; id konstanta UUID; tanggal relatif; dummy berelasi memakai ID dari dummy sumber."
 ---
 
 # Data Dummy

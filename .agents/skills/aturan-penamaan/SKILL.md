@@ -1,6 +1,6 @@
 ---
 name: aturan-penamaan
-description: "Gunakan ini saat membuat atau memperbarui model yang berkaitan dengan database (SQLite, Supabase, Firebase, dll.) atau skema tabel | Panduan pola XxxSkema: abstract final class terpisah berisi static const String tabel dan konstanta kolom, interpolasi ${XxxSkema.*} di DDL/query/migrasi, nilai konstanta kolom cocok persis nama kolom DB, hindari kolisi dengan kolom bernama 'tabel'. Konstanta Skema Tabel untuk Model Database Setiap model yang berkaitan dengan database (SQLite, Supabase, Firebase, dll.) wajib mendefinisikan konstanta nama tabel dan kolom melalui kelas `XxxSkema` terpisah, lalu memakainya (interpolasi) di DDL, query, dan migrasi - bukan string literal. Aturan 1. Untuk setiap model terkait database, buat `abstract final class <Model>Skema` di berkas model yang sama (terpisah dari model, agar tidak konflik `conflicting_static_and_instance` pada field dengan nama sama). 2. Kelas `XxxSkema` wajib memuat `static const String tabel = '<nama_tabel>'` dan satu `static const String <field> = '<nama_kolom>'` u"
+description: "Gunakan ini saat membuat atau memperbarui model yang berkaitan dengan database (SQLite, Supabase, Firebase, dll.) atau skema tabel | Panduan pola XxxSkema: abstract final class terpisah berisi static const String tabel dan konstanta kolom, interpolasi ${XxxSkema.*} di DDL/query/migrasi, nilai konstanta kolom cocok persis nama kolom DB, hindari kolisi dengan kolom bernama 'tabel'."
 ---
 
 # Konstanta Skema Tabel untuk Model Database

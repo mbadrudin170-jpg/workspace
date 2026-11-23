@@ -1,6 +1,6 @@
 ---
 name: build-runner-codegen
-description: "Gunakan ini saat menjalankan atau memperbaiki proses code generation build_runner (Freezed, Riverpod, mock, JSON) | Panduan eksekusi build_runner: direktori paket, perintah build/watch, larangan edit berkas hasil generate, penanganan konflik output, dan pembatasan keluaran dengan --build-filter. Aturan: jalankan dari direktori proyek/paket yang memiliki pubspec.yaml; setelah ubah sumber codegen atau pull yang mengubah hasil generate, jalankan dart run build_runner build; gunakan watch saat pengembangan dan build untuk sekali jalan; ubah hanya berkas sumber, *.g.dart, *.freezed.dart, *.mocks.dart dilarang diedit manual; jika output bentrok, hapus berkas hasil generate bentrok/terkait lalu jalankan ulang tanpa filter; jalankan pada paket terdampak; dengan --build-filter gunakan glob berkas hasil generate valid, bukan path berkas sumber; dilarang --build-filter saat ada berkas hasil generate terlacak git di luar filter karena dianggap conflicting dan dihapus; --delete-conflicting-outputs sudah dihapus dan diabaikan"
+description: "Gunakan ini saat menjalankan atau memperbaiki proses code generation build_runner (Freezed, Riverpod, mock, JSON) | Panduan eksekusi build_runner: direktori paket, perintah build/watch, larangan edit berkas hasil generate, penanganan konflik output, dan pembatasan keluaran dengan --build-filter."
 ---
 
 # Skill: build-runner-codegen
