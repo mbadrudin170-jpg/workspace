@@ -2,7 +2,7 @@
 
 ## Status
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-22 (Asia/Jakarta)
 - Command: -
 - Topik: Perbaikan script build APK dan guard WiFi Analyzer di Web
@@ -26,4 +26,4 @@
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan
+- Sesi 256: perbaikan script/build_apk.sh dan guard kIsWeb wifi_analyzer_screen.dart; notifier/state baru WifiAnalyzerNotifier/WifiAnalyzerState; test lulus. (sesi 256)

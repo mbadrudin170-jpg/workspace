@@ -43,6 +43,8 @@ if [ "$RUN_ID" = "$PREV_ID" ]; then
 fi
 
 echo "Run ID: $RUN_ID"
+# Jeda agar metadata run tersedia di API sebelum watch
+sleep 5
 gh run watch "$RUN_ID" --repo "$REPO" --exit-status
 
 mkdir -p "$OUTPUT_DIR"
