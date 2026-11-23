@@ -1,10 +1,6 @@
 ---
 name: penanganan-error-unawaited
-description: "Trigger: saat memanggil Future tanpa await (unawaited) | Panduan wajib catchError dengan logging L.e pada Future yang dilepas; jangan biarkan unhandled. Penanganan Error pada Future yang Dilepas (unawaited) Future yang dilepas dengan `unawaited()` wajib memiliki penanganan error via `catchError()` yang mencatat error melalui logger proyek. Aturan 1. Future yang dilepas dengan `unawaited()` dan berpotensi gagal wajib memiliki penanganan error melalui `catchError(...)` atau `try/catch` yang mencatat error melalui logger proyek (`L.e`). 2. Jangan melepas `unawaited(...)` tanpa penanganan error hanya untuk menghilangkan peringatan analyzer. 3. Jangan mengandalkan keberhasilan implisit pada Future yang dilepas. 4. `unawaited(...)` pada pemanggilan method yang di dalamnya terdapat dialog (`showOkCancelAlertDialog`) atau `setState` DI LUAR blok `try` tetap wajib `.catchError(...)` di titik pemanggilan — exception dari dialog (mis. kegagalan platform channel) tidak tertangkap `try` internal method tersebut dan menjad"
-metadata:
-  kategori: "custom"
-  versi: "1.1.2"
-  diperbarui: "Thu Nov 19 2026 02:38 WIB"
+description: "Trigger: saat memanggil Future tanpa await (unawaited) | Panduan wajib catchError dengan logging L.e pada Future yang dilepas; jangan biarkan unhandled. Penanganan Error pada Future yang Dilepas (unawaited) Future yang dilepas dengan `unawaited()` wajib memiliki penanganan error via `catchError()` yang mencatat error melalui logger proyek. Aturan 1. Future yang dilepas dengan `unawaited()` dan berpotensi gagal wajib memiliki penanganan error melalui `catchError(...)` atau `try/catch` yang mencatat error melalui logger proyek (`L.e`). 2. Jangan melepas `unawaited(...)` tanpa penanganan error hanya untuk menghilangkan peringatan analyzer. 3. Jangan mengandalkan keberhasilan implisit pada Future yang dilepas. 4. `unawaited(...)` pada pemanggilan method yang di dalamnya terdapat dialog (`showOkCancelAlertDialog`) atau `setState` DI LUAR blok `try` tetap wajib `.catchError(...)` di titik pemanggilan - exception dari dialog (mis. kegagalan platform channel) tidak tertangkap `try` internal method tersebut dan menjad"
 ---
 
 # Penanganan Error pada Future yang Dilepas (unawaited)
@@ -16,7 +12,7 @@ Future yang dilepas dengan `unawaited()` wajib memiliki penanganan error via `ca
 1. Future yang dilepas dengan `unawaited()` dan berpotensi gagal wajib memiliki penanganan error melalui `catchError(...)` atau `try/catch` yang mencatat error melalui logger proyek (`L.e`).
 2. Jangan melepas `unawaited(...)` tanpa penanganan error hanya untuk menghilangkan peringatan analyzer.
 3. Jangan mengandalkan keberhasilan implisit pada Future yang dilepas.
-4. `unawaited(...)` pada pemanggilan method yang di dalamnya terdapat dialog (`showOkCancelAlertDialog`) atau `setState` DI LUAR blok `try` tetap wajib `.catchError(...)` di titik pemanggilan — exception dari dialog (mis. kegagalan platform channel) tidak tertangkap `try` internal method tersebut dan menjadi error async tidak tertangani. Lebih baik: pindahkan dialog/`setState` ke dalam `try` pada method tersebut, ATAU bungkus pemanggilan dengan `.catchError(...)` yang mencatat `L.e` dan `return null`.
+4. `unawaited(...)` pada pemanggilan method yang di dalamnya terdapat dialog (`showOkCancelAlertDialog`) atau `setState` DI LUAR blok `try` tetap wajib `.catchError(...)` di titik pemanggilan - exception dari dialog (mis. kegagalan platform channel) tidak tertangkap `try` internal method tersebut dan menjadi error async tidak tertangani. Lebih baik: pindahkan dialog/`setState` ke dalam `try` pada method tersebut, ATAU bungkus pemanggilan dengan `.catchError(...)` yang mencatat `L.e` dan `return null`.
 
 ## Larangan
 

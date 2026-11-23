@@ -1,10 +1,6 @@
 ---
 name: riset-kompetitor
 description: "Trigger: saat membuat atau memperbarui katalog aplikasi kompetitor proyek | Panduan riset kompetitor portabel lintas proyek: menentukan aplikasi sasaran dari dokumen proyek, format tabel apk_kompetitor.md, status analisa per listing, verifikasi tautan, alur satu run mencakup semua store, dan laporan refrensi_apk.md. Riset Kompetitor Aplikasi Mobile (Lintas Proyek) Mengumpulkan dan mendokumentasikan daftar aplikasi mobile kompetitor untuk proyek Flutter atau proyek mobile apa pun. Skill ini **tidak mengasumsikan** nama aplikasi, domain, kategori fitur, atau model bisnis proyek. Konteks aplikasi sasaran wajib dibaca dari dokumen proyek (`README.md`, `AGENTS.md`, PRD, atau dokumen produk lain) sebelum riset dimulai. Hasil riset disimpan dalam tabel standar di `apk_kompetitor.md`. Analisa lanjutan menghasilkan `refrensi_apk.md` yang memuat rekomendasi fitur, optimasi fitur eksisting, serta pola UI/UX/layout. Nama berkas tersebut adalah **default**; bila proyek memakai nama lain, sesuaikan dengan konvensi proyek d"
-metadata:
-  kategori: "custom"
-  versi: "1.6.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Riset Kompetitor Aplikasi Mobile (Lintas Proyek)
@@ -37,23 +33,23 @@ Hasil riset disimpan dalam tabel standar di `apk_kompetitor.md`. Analisa lanjuta
 8. Setiap penambahan/perubahan **wajib** di-commit dengan pesan `docs: ...` dan referensi ke skill ini, kecuali pengguna melarang commit.
 9. **Wajib** verifikasi link masih aktif sebelum commit (cek manual atau otomatis).
 10. **Satu run mencakup semua store.** Mulai dari Google Play Store; riset dikerjakan store demi store dalam satu run dengan urutan: Google Play Store → F-Droid → GitHub → Apple App Store → Samsung Galaxy Store → Mi/GetApps → Oppo App Market → store lainnya. Setelah seluruh kandidat suatu store terverifikasi independen dan `apk_kompetitor.md` diperbarui, baru lanjut ke store berikutnya. DILARANG melewati store tanpa mencatat hasilnya (termasuk nihil temuan) ke `apk_kompetitor.md` atau laporan.
-11. Verifikasi otomatis dengan: `curl -s -o /dev/null -w "%{http_code}" -A "Mozilla/5.0 (X11; Linux x86_64) Chrome/120.0" -L <url>`. HTTP **200** = valid; HTTP **404** = buang entri; HTTP **403** dari APKPure/Aptoide/SlideME = anti-bot (bukan link mati) — verifikasi via websearch/webfetch.
+11. Verifikasi otomatis dengan: `curl -s -o /dev/null -w "%{http_code}" -A "Mozilla/5.0 (X11; Linux x86_64) Chrome/120.0" -L <url>`. HTTP **200** = valid; HTTP **404** = buang entri; HTTP **403** dari APKPure/Aptoide/SlideME = anti-bot (bukan link mati) - verifikasi via websearch/webfetch.
 12. Untuk id aplikasi Apple App Store, gunakan lookup `https://itunes.apple.com/lookup?id=<id>`; `resultCount: 0` berarti aplikasi tidak ada dan **tidak boleh** disertakan.
 13. Aplikasi Tionghoa/regional tanpa link halaman aplikasi spesifik yang terverifikasi **tidak boleh** disertakan; keberadaan di store saja (dari sumber sekunder) tidak cukup.
 14. Periksa duplikat exact berdasarkan `package id` sebelum menambah baris. Dua varian dengan package id berbeda tetap dicatat terpisah bila memang dua aplikasi.
 15. Untuk batch besar, tambahkan section `# Tambahan Riset (YYYY-MM-DD)` dengan sub-section `## <Store>`; setiap tabel tetap wajib punya header + separator.
-16. Untuk tugas "mencarikan referensi dari seluruh APK di katalog": baca dokumen proyek dan `apk_kompetitor.md` lebih dulu; **lingkup hanya APK yang terdaftar di katalog** — jangan menambah aplikasi baru tanpa perintah eksplisit. Hasil ditulis ke `refrensi_apk.md`.
+16. Untuk tugas "mencarikan referensi dari seluruh APK di katalog": baca dokumen proyek dan `apk_kompetitor.md` lebih dulu; **lingkup hanya APK yang terdaftar di katalog** - jangan menambah aplikasi baru tanpa perintah eksplisit. Hasil ditulis ke `refrensi_apk.md`.
 17. `refrensi_apk.md` wajib memuat: link referensi pada tiap rekomendasi, pengelompokan per fitur (A), optimasi fitur eksisting (B), dan UI/UX/layout (C), penjelasan **tujuan** tiap item, serta **prioritas** (Tinggi/Sedang/Rendah) untuk penyortiran pengguna.
 18. Untuk `refrensi_apk.md`: hanya rekomendasikan fitur yang dapat berjalan di mobile. Fitur khusus iOS (Apple Watch, Live Activities, WidgetKit, Wear-only tanpa padanan Android) dicatat sebagai referensi pola saja, bukan rekomendasi. Fitur yang butuh backend/akun ditandai jelas dan ditempatkan pada prioritas rendah; jika proyek bersifat lokal-first, pertahankan prinsip itu.
 19. Klasifikasikan status verifikasi listing: **terverifikasi** (halaman/README/mirror terbaca, iTunes `resultCount > 0`, atau curl 200 dengan isi terbaca), **verifikasi ringan** (Galaxy Store 200 dengan judul halaman saja, atau Amazon Appstore tanpa detail), **tidak terverifikasi** (404, 403 tanpa sumber alternatif, halaman kosong, atau listing tidak ditemukan). Listing tidak terverifikasi tidak dijadikan dasar rekomendasi.
-20. Uptodown dapat berputar antara HTTP 410 dan 404 untuk URL yang sama — perlakukan sebagai flaky/rotasi; tandai tidak terverifikasi kecuali ada mirror resmi yang menyebut package id sama.
+20. Uptodown dapat berputar antara HTTP 410 dan 404 untuk URL yang sama - perlakukan sebagai flaky/rotasi; tandai tidak terverifikasi kecuali ada mirror resmi yang menyebut package id sama.
 21. Temuan cacat kode yang ditemukan saat riset didokumentasikan di `refrensi_apk.md` dengan prioritas dan path file, **tidak diperbaiki** sebagai bagian dari tugas riset.
-22. Sebelum memperbarui `refrensi_apk.md`, periksa `git diff` working tree/staged — jangan menimpa, membangkitkan kembali, atau menggabungkan ulang bagian yang sudah dihapus pengguna; hilangkan tautan ke dokumen yang sudah dihapus.
+22. Sebelum memperbarui `refrensi_apk.md`, periksa `git diff` working tree/staged - jangan menimpa, membangkitkan kembali, atau menggabungkan ulang bagian yang sudah dihapus pengguna; hilangkan tautan ke dokumen yang sudah dihapus.
 23. Amazon Appstore dan Samsung Galaxy Store dapat mengembalikan HTTP 200 pada curl dengan user agent Chrome; Galaxy Store tetap diklasifikasi **verifikasi ringan**.
 24. Untuk perintah analisa: **hanya boleh menganalisa APK yang `Status Analisa = Belum Dianalisa`**. APK `Sudah Dianalisa` wajib dilewati kecuali pengguna meminta analisa ulang secara eksplisit (kembalikan status ke `Belum Dianalisa` terlebih dahulu). Setelah analisa selesai **per APK**, ubah status baris tersebut menjadi `Sudah Dianalisa`.
 25. Listing baru dari perintah `cari_apk_kompetitor.md` **wajib** diberi `Status Analisa = Belum Dianalisa`; perintah itu **tidak boleh** menandai `Sudah Dianalisa`.
-26. Saat menjalankan analisa, filter dan proses hanya baris `Belum Dianalisa`; jangan memperluas lingkup ke sumber lain. `refrensi_apk.md` tetap memuat katalog lengkap (seksi D) — perbarui hanya bagian yang terdampak, jangan tulis ulang dari nol kecuali diminta.
-27. **Section `# Status Analisa Fitur` di akhir file TIDAK DIPERLUKAN** — penandaan status dilakukan per baris tabel via kolom `Status Analisa`.
+26. Saat menjalankan analisa, filter dan proses hanya baris `Belum Dianalisa`; jangan memperluas lingkup ke sumber lain. `refrensi_apk.md` tetap memuat katalog lengkap (seksi D) - perbarui hanya bagian yang terdampak, jangan tulis ulang dari nol kecuali diminta.
+27. **Section `# Status Analisa Fitur` di akhir file TIDAK DIPERLUKAN** - penandaan status dilakukan per baris tabel via kolom `Status Analisa`.
 28. **Aturan portabilitas:** DILARANG menulis nama aplikasi, domain, kategori fitur, atau istilah khas satu proyek ke dalam skill ini. Konvensi khusus proyek (nama berkas, daftar store prioritas, kategori relevansi) disimpan di `README.md`, `AGENTS.md`, command proyek, atau dokumen produk proyek.
 29. Jika aplikasi sasaran berubah, katalog lama **tidak boleh** langsung dipakai ulang. Verifikasi ulang relevansi setiap listing atau buat katalog baru sesuai perintah pengguna.
 30. Jika pengguna membatasi jumlah APK yang dianalisa (mis. 10), pilih lintas kategori/fitur yang paling relevan, catat alasan pemilihan di `refrensi_apk.md`, dan jangan menandai listing di luar jumlah tersebut sebagai `Sudah Dianalisa`.
@@ -66,7 +62,7 @@ Hasil riset disimpan dalam tabel standar di `apk_kompetitor.md`. Analisa lanjuta
 3. Riset kandidat per store; verifikasi setiap link secara independen (curl/iTunes/webfetch).
 4. Perbarui `apk_kompetitor.md` setelah tiap store selesai; beri `Belum Dianalisa` pada listing baru.
 5. Untuk analisa, filter hanya listing `Belum Dianalisa`; pilih APK sesuai batas jumlah pengguna; kumpulkan bukti fitur dan tangkapan layar resmi.
-6. Tulis/perbarui `refrensi_apk.md` dengan bagian A–G; sertakan link, tujuan, dan prioritas.
+6. Tulis/perbarui `refrensi_apk.md` dengan bagian A-G; sertakan link, tujuan, dan prioritas.
 7. Ubah status APK yang benar-benar dianalisa menjadi `Sudah Dianalisa`; perbarui dokumentasi/memori proyek bila ada konvensinya.
 8. Verifikasi: jumlah status konsisten, tautan aktif, tabel memiliki header, dan tidak ada nama aplikasi proyek yang di-hardcode ke skill.
 

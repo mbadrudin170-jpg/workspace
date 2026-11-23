@@ -1,10 +1,6 @@
 ---
 name: membuat-readme-yang-baik
-description: Trigger: saat membuat atau memperbaiki file README proyek | Panduan struktur README (judul, deskripsi, TOC, instalasi, penggunaan, kredit, lisensi, badge, kontribusi, test), prinsip what/why/how, visual (GIF/screenshot), daftar kontributor, perbedaan tipe proyek, dan referensi eksternal freeCodeCamp & DEV Community. Membuat README yang Baik Panduan menyusun file `README.md` yang informatif, terstruktur, dan memudahkan pengguna/kontributor memahami proyek. Mengacu pada praktik terbaik dari freeCodeCamp (what/why/how) dan DEV Community (visual, kontributor, perbedaan tipe proyek), serta konvensi GitHub umum. Cakupan yang Di-Cover - Bagian wajib: Judul, Deskripsi, Instalasi & Menjalankan, Penggunaan, Kredit, Lisensi - Bagian tambahan: Table of Contents, Badges, Kontribusi, Test, Daftar Kontributor, Demo Visual (GIF/screenshot) - Prinsip penulisan: menjawab what, why, how; bahasa Inggris (global), up-to-date - Perbedaan tipe proyek: aplikasi vs library vs package vs non-code - Tools pendukung: VS Code + Markdown 
-metadata:
-  kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
+description: Trigger: saat membuat atau memperbaiki file README proyek | Panduan struktur README (judul, deskripsi, TOC, instalasi, penggunaan, kredit, lisensi, badge, kontribusi, test), prinsip what/why/how, visual (GIF/screenshot), daftar kontributor, perbedaan tipe proyek, dan referensi eksternal freeCodeCamp & DEV Community. Membuat README yang Baik Panduan menyusun file `README.md` yang informatif, terstruktur, dan memudahkan pengguna/kontributor memahami proyek. Mengacu pada praktik terbaik dari freeCodeCamp (what/why/how) dan DEV Community (visual, kontributor, perbedaan tipe proyek), serta konvensi GitHub umum. Cakupan yang Di-Cover - Bagian wajib: Judul, Deskripsi, Instalasi & Menjalankan, Penggunaan, Kredit, Lisensi - Bagian tambahan: Table of Contents, Badges, Kontribusi, Test, Daftar Kontributor, Demo Visual (GIF/screenshot) - Prinsip penulisan: menjawab what, why, how; bahasa Inggris (global), up-to-date - Perbedaan tipe proyek: aplikasi vs library vs package vs non-code - Tools pendukung: VS Code + Markdown
 ---
 
 # Membuat README yang Baik
@@ -22,15 +18,15 @@ Panduan menyusun file `README.md` yang informatif, terstruktur, dan memudahkan p
 
 ## Aturan
 
-1. **Judul proyek** (H1) wajib ada dan deskriptif — menggambarkan tujuan utama proyek dalam satu baris.
+1. **Judul proyek** (H1) wajib ada dan deskriptif - menggambarkan tujuan utama proyek dalam satu baris.
 2. **Deskripsi** wajib menjawab: apa yang dilakukan aplikasi, mengapa teknologi tersebut dipilih, tantangan & rencana fitur.
 3. **Table of Contents** ditambahkan jika README panjang (> 5 section) agar navigasi mudah; gunakan bitdowntoc atau manual.
 4. **Instalasi & Menjalankan** wajib berisi langkah-langkah _step-by-step_ (dependencies, environment, perintah build/run, contoh: `git clone` → `npm install` → `cp .env.example .env` → `db push` → `run dev`).
 5. **Penggunaan** wajib berisi instruksi & contoh (screenshot opsional), termasuk kredensial jika butuh auth.
-6. **Demo Visual** (GIF/screenshot) **sangat direkomendasikan** — "show, don't just tell"; gunakan GIF untuk fitur interaktif.
+6. **Demo Visual** (GIF/screenshot) **sangat direkomendasikan** - "show, don't just tell"; gunakan GIF untuk fitur interaktif.
 7. **Kredit** mencantumkan kolaborator (link GitHub/sosmed) serta referensi/tutorial yang dipakai.
-8. **Lisensi** wajib ada (pilih via choosealicense.com) — menentukan hak modifikasi/komersial.
-9. **Badges** (opsional) dari shields.io untuk status build, versi, lisensi, stars, followers, dsb — otomatis update; taruh di atas/bawah README.
+8. **Lisensi** wajib ada (pilih via choosealicense.com) - menentukan hak modifikasi/komersial.
+9. **Badges** (opsional) dari shields.io untuk status build, versi, lisensi, stars, followers, dsb - otomatis update; taruh di atas/bawah README.
 10. **Daftar Kontributor** (opsional) via contrib.rocks untuk apresiasi komunitas open source.
 11. **Kontribusi** (opsional, untuk open source) menyertakan panduan CONTRIBUTING & kode etik (Contributor Covenant).
 12. **Test** (opsional) menyertakan contoh kode test & cara menjalankannya.
@@ -46,7 +42,7 @@ Panduan menyusun file `README.md` yang informatif, terstruktur, dan memudahkan p
 3. Tambahkan Table of Contents jika README > 5 section (gunakan bitdowntoc).
 4. Tulis bagian Instalasi & Menjalankan dengan langkah berurutan (dependencies → setup env → run).
 5. Tulis bagian Penggunaan dengan contoh perintah/UI/screenshot & kredensial demo jika perlu.
-6. **Tambahkan Demo Visual (GIF/screenshot)** menampilkan fitur utama — "show, don't just tell".
+6. **Tambahkan Demo Visual (GIF/screenshot)** menampilkan fitur utama - "show, don't just tell".
 7. Cantumkan Kredit (tim, referensi, tutorial).
 8. Pilih & cantumkan Lisensi (GPL, MIT, Apache, AGPLv3, dll. via choosealicense.com).
 9. Tambahkan Badges (build, version, license, stars, coverage) dari shields.io bila relevan.
@@ -114,12 +110,12 @@ Screenshot: ![Demo](assets/demo.png)
 
 ## Kredit
 
-- [Nama Author](https://github.com/author) — Maintainer
+- [Nama Author](https://github.com/author) - Maintainer
 - Referensi: [Tutorial Flutter](https://flutter.dev/docs)
 
 ## Lisensi
 
-[MIT License](LICENSE) — lihat file LICENSE untuk detail.
+[MIT License](LICENSE) - lihat file LICENSE untuk detail.
 
 ---
 

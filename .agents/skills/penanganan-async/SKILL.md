@@ -1,10 +1,6 @@
 ---
 name: penanganan-async
 description: "Trigger: saat layar menangani state async, data kosong, atau beberapa AsyncValue | Panduan isLoading, hasError, requireValue, empty state, data tidak lengkap, early return, mounted check, cache provider, loading gabungan, error terpisah, tipe generic konkret, satu method helper error. Penanganan State Asynchronous dan Data Kosong pada Layar (satu atau beberapa provider)."
-metadata:
-  kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Sun Nov 22 2026 13:45 WIB"
 ---
 
 # Penanganan State Asynchronous dan Data Kosong pada Layar

@@ -1,10 +1,6 @@
 ---
 name: pencarian-koleksi-null-safe
 description: "Trigger: saat mencari, mengurutkan, atau mengakses elemen dalam koleksi (List/Iterable/Map) | Panduan koleksi: pencarian wajib `firstWhereOrNull`, pengurutan wajib `.sorted`/`.sortedBy`/`.sortedByDescending` dari `package:collection/collection.dart`; akses nilai Map DILARANG memakai `!` (gunakan `.entries`, `??`, atau `putIfAbsent`); larangan `cast<T?>().firstWhere(..., orElse: ...)`, `..sort(...)` in-place, dan `map[key]!`."
-metadata:
-  kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Sun Nov 22 2026 12:07 WIB"
 ---
 
 # Pencarian Koleksi Null-Safe
@@ -56,7 +52,7 @@ final transaksiPadaTanggal = entry.value;
 // Lookup dengan default
 final value = grouped[tanggal] ?? const <TransaksiModel>[];
 
-// Tambah ke list di dalam Map (pengelompokan) — putIfAbsent
+// Tambah ke list di dalam Map (pengelompokan) - putIfAbsent
 grouped.putIfAbsent(tanggal, () => []).add(t);
 ```
 

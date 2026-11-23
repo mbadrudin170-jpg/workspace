@@ -1,10 +1,6 @@
 ---
 name: flutter-local-notifications
 description: "Trigger: saat menambahkan notifikasi lokal Flutter | Panduan flutter_local_notifications v23.0.0: cek platform, izin runtime, payload validation, lifecycle tap, exception khusus, unawaited catchError. Standar flutter_local_notifications v23.0.0 pada Notifikasi Harian Aturan khusus untuk plugin versi 23.0.0: cek platform, dukungan multi-platform (Android/iOS/macOS/Linux/Windows), izin runtime, payload, lifecycle tap, dan penjadwalan terjadwal. Cakupan yang Di-Cover - Package: `package:flutter_local_notifications` v23.0.0 (class `FlutterLocalNotificationsPlugin`, `InitializationSettings`, `AndroidInitializationSettings`, `DarwinInitializationSettings`, `LinuxInitializationSettings`, `WindowsInitializationSettings`, `NotificationDetails`, `NotificationResponse`, `AndroidNotificationDetails`, `DarwinNotificationDetails`, `LinuxNotificationDetails`, `WindowsNotificationDetails`), `package:timezone` as `tz` (class `tz`, `TZDateTime`), `dart:async` (`unawaited`) - Class: `FlutterLocalNotificationsPlugin`, `Initializ"
-metadata:
-  kategori: "custom"
-  versi: "2.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Standar flutter_local_notifications v23.0.0 pada Notifikasi Harian

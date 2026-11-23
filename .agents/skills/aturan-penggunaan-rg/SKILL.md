@@ -1,10 +1,6 @@
 ---
 name: aturan-penggunaan-rg
-description: Trigger: saat menggunakan rg (ripgrep) untuk pencarian konten di codebase — gunakan via tool Bash, flag standar, fallback ke Grep bawaan, verifikasi ketersediaan.
-metadata:
-  kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Sat Nov 21 2026 17:00 WIB"
+description: Trigger: saat menggunakan rg (ripgrep) untuk pencarian konten di codebase - gunakan via tool Bash, flag standar, fallback ke Grep bawaan, verifikasi ketersediaan.
 ---
 
 # Aturan Penggunaan rg (ripgrep)
@@ -21,14 +17,14 @@ Skill ini mengatur cara menggunakan `rg` (ripgrep) untuk pencarian konten (regex
 ## Aturan
 
 1. **Gunakan `rg` via tool `Bash` untuk pencarian konten**; tool `Grep` bawaan Kilo hanya sebagai fallback bila `rg` tidak tersedia atau tidak memenuhi kebutuhan.
-2. **Format umum**: `rg -n '<pola>' <path>` — flag `-n` untuk nomor baris wajib dipakai agar hasil terlacak.
+2. **Format umum**: `rg -n '<pola>' <path>` - flag `-n` untuk nomor baris wajib dipakai agar hasil terlacak.
 3. **Case-insensitive**: gunakan flag `-i` bila pencarian tidak peka huruf besar/kecil.
 4. **Filter ekstensi**: gunakan `-t <tipe>` (mis. `-t dart`, `-t md`) atau `--glob '*.dart'` untuk membatasi scope.
 5. **Multi-pola**: gunakan `-e 'pola1' -e 'pola2'` (logika OR) atau `rg 'pola1|pola2'` untuk alternatif regex.
 6. **Hormati `.gitignore`** secara default; gunakan `--no-ignore` hanya bila perlu mencari di folder terabaikan (build, cache, dll.).
 7. **Verifikasi ketersediaan** via `command -v rg` sebelum pemakaian berulang (di skrip/command).
 8. **Sertakan `workdir` yang tepat** pada pemanggilan `Bash` (root proyek atau subfolder paket).
-9. **Jangan pipe ke `head`/`less`** dalam tool — biarkan output penuh; pemotongan ditangani sisi klien.
+9. **Jangan pipe ke `head`/`less`** dalam tool - biarkan output penuh; pemotongan ditangani sisi klien.
 
 ## Steps
 

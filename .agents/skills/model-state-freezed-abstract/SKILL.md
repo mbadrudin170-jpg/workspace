@@ -1,10 +1,6 @@
 ---
 name: model-state-freezed-abstract
 description: "Trigger: saat membuat model atau state Freezed | Panduan model/state Freezed abstract class: serialisasi JSON (part '*.freezed.dart' + '*.g.dart'), private constructor `._()` untuk getter/method, `@Default` (literal konstan untuk String/koleksi), pengosongan field nullable via `copyWith(field: null)` sentinel codegen (tanpa bendera `clearField` manual), integrasi notifier Riverpod, serta model database (fromSqflite/toSqflite, ParserUtil, konversi UTC, larangan fallback enum diam-diam yang menandakan sukses). Termasuk larangan mengedit berkas hasil generate. Membuat Model dan State dengan Freezed Membuat model dan state immutable dengan paket Freezed (`freezed` 4.0.2, `freezed_annotation` 3.1.0) menggunakan `abstract class` beranotasi `@freezed`, beserta serialisasi JSON, integrasi notifier Riverpod, dan pola model database (SQLite). Freezed menghasilkan `copyWith`, `==`/`hashCode`, `toString`, serta (bila diperlukan) `fromJson`/`toJson` secara otomatis melalui `build_runner`. Cakupan yang Di-Cover - Package: "
-metadata:
-  kategori: "custom"
-  versi: "2.5.0"
-  diperbarui: "Thu Nov 19 2026 03:26 WIB"
 ---
 
 # Membuat Model dan State dengan Freezed
@@ -30,17 +26,17 @@ Membuat model dan state immutable dengan paket Freezed (`freezed` 4.0.2, `freeze
 7. Model database wajib menyediakan factory `fromSqflite(Map<String, Object?> row)` dan method `toSqflite()` untuk konversi ke/dari SQLite.
 8. Parsing nilai dari database wajib menggunakan `ParserUtil`.
 9. Konversi tanggal ke UTC wajib dilakukan di `toSqflite()` (`toUtc().toIso8601String()`), dan konversi ke lokal wajib dilakukan di `fromSqflite()` (`parseDateTime(...)?.toLocal()`).
-10. Field bertipe enum wajib diparse dengan `ParserUtil.safeParseEnum(TelEnum.values, ParserUtil.parseStringOrNull(row[NamaKolom.kolom]))`, dengan fallback nilai default yang valid bila tersimpan `null`/tidak dikenal, kecuali kolom boleh `null` — untuk kolom nullable cukup kembalikan `null` tanpa fallback. **Fallback DILARANG diam-diam memilih nilai yang menandakan sukses/selesai/lunas** (mis. `lunas`, `berhasil`, `selesai`); wajib memilih default konservatif (mis. `belumLunas`, `proses`) atau melempar `ArgumentError` — nilai enum tidak dikenal harus terlihat, bukan tersembunyi di balik nilai sukses.
+10. Field bertipe enum wajib diparse dengan `ParserUtil.safeParseEnum(TelEnum.values, ParserUtil.parseStringOrNull(row[NamaKolom.kolom]))`, dengan fallback nilai default yang valid bila tersimpan `null`/tidak dikenal, kecuali kolom boleh `null` - untuk kolom nullable cukup kembalikan `null` tanpa fallback. **Fallback DILARANG diam-diam memilih nilai yang menandakan sukses/selesai/lunas** (mis. `lunas`, `berhasil`, `selesai`); wajib memilih default konservatif (mis. `belumLunas`, `proses`) atau melempar `ArgumentError` - nilai enum tidak dikenal harus terlihat, bukan tersembunyi di balik nilai sukses.
 11. Nilai enum yang dipersistenkan ke kolom `TEXT` wajib `lowerCamelCase` (`berhasilMenahan`, `timer3Menit`) dan konsisten dengan migrasi data (lihat skill `migrasi-skema-sqlite`); nilai `snake_case` lama tidak boleh muncul di enum baru.
 12. Kolom yang nullable di database wajib dipetakan ke properti nullable di model (`String?`, `HasilIntervensiSos?`) dan diparse dengan `ParserUtil.parseStringOrNull` / `safeParseEnum` tanpa fallback paksa.
 13. Untuk state Riverpod, kombinasikan `@freezed` pada kelas state dengan notifier `@Riverpod(keepAlive: true)`; `build()` mengembalikan instance state default.
 14. Field nullable pada state Freezed yang perlu bisa dikosongkan (mis. filter Town Hall/tipe) wajib mengandalkan sentinel `copyWith` dari codegen: panggil `copyWith(field: null)` untuk menghapus nilai. Jangan membuat bendera manual `clearField`/`clearTags` pada state Freezed.
 15. Jalankan `build_runner` untuk menghasilkan berkas `*.freezed.dart` dan `*.g.dart` setelah menulis/mengubah sumber. Workflow: `dart pub get` → `dart run build_runner build --delete-conflicting-outputs` → `dart format .` → `dart analyze`.
 16. Verifikasi kebenaran dengan `dart format`, `dart analyze`, dan `flutter test` bila relevan.
-17. Model yang belum Freezed dan memiliki pasangan `fromSqlite`/`toSqlite` (dan/atau `fromFirebase`/`toFirebase`) wajib dikonversi ke struktur Freezed (`abstract class` + `part '<model>.freezed.dart'` + `const factory X({...}) = _X;`, serta `const X._();` bila ada factory/method); manual `copyWith` WAJIB dihapus (di-generate); `id` wajib `required String` non-nullable — DILARANG auto-UUID di dalam model (UUID wajib disuplai oleh pemanggil); field bernilai default lama memakai `@Default`.
+17. Model yang belum Freezed dan memiliki pasangan `fromSqlite`/`toSqlite` (dan/atau `fromFirebase`/`toFirebase`) wajib dikonversi ke struktur Freezed (`abstract class` + `part '<model>.freezed.dart'` + `const factory X({...}) = _X;`, serta `const X._();` bila ada factory/method); manual `copyWith` WAJIB dihapus (di-generate); `id` wajib `required String` non-nullable - DILARANG auto-UUID di dalam model (UUID wajib disuplai oleh pemanggil); field bernilai default lama memakai `@Default`.
 18. Seluruh parsing nilai dari database WAJIB lewat `ParserUtil`: `parseString`/`parseStringOrNull` (DILARANG cast `as String`/`as num`), `parseBool`, `parseInt`/`parseIntOrNull`, `parseDouble`; enum lewat `safeParseEnum` + `parseStringOrNull` (DILARANG `firstWhere`/`byName` langsung pada nilai DB).
 19. Nilai `Timestamp` dari Firestore (atau tipe setara `cloud_firestore`) wajib dinormalisasi lewat helper private (mis. `_parseTanggal`): `value is Timestamp` → `value.toDate().toLocal()`; selain itu `ParserUtil.parseDateTime(value)?.toLocal()`. Paket bersama yang bersifat generik dan dipakai lintas proyek tidak boleh mengimpor `cloud_firestore` hanya untuk parsing tanggal. Shared util lintas proyek juga DILARANG memuat deteksi domain/Firebase (mis. duck-typing `toDate()`, pengecekan `NoSuchMethodError` untuk `Timestamp`); konversi tipe domain hanya berada di adapter model.
-20. Kolom/field tanggal yang wajib non-null wajib divalidasi eksplisit; bila gagal parse, lemparkan `ArgumentError` khusus — DILARANG fallback `DateTime.now()`.
+20. Kolom/field tanggal yang wajib non-null wajib divalidasi eksplisit; bila gagal parse, lemparkan `ArgumentError` khusus - DILARANG fallback `DateTime.now()`.
 21. Bila model yang sama dipakai lintas backend (SQLite, Firestore, Supabase) dengan **nama kunci skema yang sama**, WAJIB menyediakan satu pintu parsing `_fromMap(String? id, Map<String, dynamic> map)` yang dipakai oleh `fromSqlite`, `fromFirebase`, dan `fromSupabase`; DILARANG menduplikasi body parsing pada tiap factory.
 22. Field boolean dengan `@Default(true)` (atau default non-false) yang dapat bernilai `null` dari backend WAJIB diparse lewat helper privat (mis. `_parseIsPublic`) yang menganggap `null` → nilai default; `ParserUtil.parseBool` (yang default `false`) DILARANG dipakai langsung untuk field dengan default `true`.
 23. Kolom waktu yang ditulis ke Firestore WAJIB memakai `FieldValue.serverTimestamp()` untuk waktu server, dan field nullable (mis. `diarsipkan`) WAJIB ditulis `null` secara eksplisit agar nilai lama ikut terhapus saat `set`/`set(merge)`/`update`. Kolom waktu SQLite/Supabase WAJIB ditulis ISO-8601 UTC non-null (default `DateTime.now()` bila null) agar tidak melanggar aturan non-null.
@@ -133,7 +129,7 @@ state = state.copyWith(townHall: null);
 state = state.copyWith(tags: const <TagStrategi>{});
 ```
 
-State Freezed dua field — list + counter sederhana (pola dari proyek `admin_wifi`, commit `f9568a1`):
+State Freezed dua field - list + counter sederhana (pola dari proyek `admin_wifi`, commit `f9568a1`):
 
 ```dart
 @freezed

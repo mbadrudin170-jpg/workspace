@@ -1,15 +1,11 @@
 ---
 name: audit-riwayat-sesi
 description: Trigger: saat mengaudit riwayat sesi | Panduan audit manual dan inkremental terhadap `memori/sesi/`, `MEMORI.md`, dan `memori/riwayat_perubahan.md`: inventarisasi berkas sesi + ledger (mtime + jumlah baris) di `audit/riwayat_sesi.md`, ekstraksi sinyal (`ambigu`, `tabrakan`, `tidak disentuh`, `dilaporkan`, `Belum Sinkron`, `belum di-commit`, `melanggar`, `menunggu keputusan`) dengan verifikasi manual, agregasi frekuensi lintas sesi (ambang ≥3 sesi), klasifikasi A/B/C, dan rekomendasi perbaikan sistem tertulis; read-only dengan satu pengecualian append section baru ke `audit/riwayat_sesi.md`; berkas sesi tidak diubah, dihapus, atau dikompresi. Referensi: `.kilo/commands/audit_riwayat_sesi.md`, `hasil_diskusi/diskusi_10.md`. Audit Riwayat Sesi Prosedur audit portabel lintas proyek dengan `MEMORI.md` untuk mendeteksi kesalahan/kegagalan yang sering terulang pada riwayat sesi (`memori/sesi/sesi_*.md`), mengklasifikasikan kebutuhan perbaikannya, dan mencatat hasil ke `audit/riwayat_sesi.md`. Audit bersifat **read-o
-metadata:
-  kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Sun Nov 15 2026 18:58 WIB"
 ---
 
 # Audit Riwayat Sesi
 
-Prosedur audit portabel lintas proyek dengan `MEMORI.md` untuk mendeteksi kesalahan/kegagalan yang sering terulang pada riwayat sesi (`memori/sesi/sesi_*.md`), mengklasifikasikan kebutuhan perbaikannya, dan mencatat hasil ke `audit/riwayat_sesi.md`. Audit bersifat **read-only** dengan satu pengecualian: append section baru ke `audit/riwayat_sesi.md`. Audit bersifat **inkremental** (berdasarkan ledger) dan **tidak memperbaiki otomatis** — tindak lanjut hanya rekomendasi tertulis.
+Prosedur audit portabel lintas proyek dengan `MEMORI.md` untuk mendeteksi kesalahan/kegagalan yang sering terulang pada riwayat sesi (`memori/sesi/sesi_*.md`), mengklasifikasikan kebutuhan perbaikannya, dan mencatat hasil ke `audit/riwayat_sesi.md`. Audit bersifat **read-only** dengan satu pengecualian: append section baru ke `audit/riwayat_sesi.md`. Audit bersifat **inkremental** (berdasarkan ledger) dan **tidak memperbaiki otomatis** - tindak lanjut hanya rekomendasi tertulis.
 
 ## Cakupan yang Di-Cover
 
@@ -23,10 +19,10 @@ Prosedur audit portabel lintas proyek dengan `MEMORI.md` untuk mendeteksi kesala
 ## Aturan
 
 1. Perlakukan audit sebagai pemeriksaan **read-only**: kumpulkan bukti dari berkas aktual; jangan membuat, mengubah, atau menghapus berkas apa pun selain append section baru ke `audit/riwayat_sesi.md`.
-2. Simpan penanda "sudah diaudit" **hanya** di ledger `audit/riwayat_sesi.md` — bukan di dalam berkas sesi; berkas sesi tidak diubah oleh audit.
+2. Simpan penanda "sudah diaudit" **hanya** di ledger `audit/riwayat_sesi.md` - bukan di dalam berkas sesi; berkas sesi tidak diubah oleh audit.
 3. Lewati penuh berkas sesi yang cocok dengan ledger **dan** mtime **serta** jumlah baris-nya sama; proses berkas yang belum tercatat di ledger atau yang mtime/jumlah barisnya berbeda.
 4. Catat mtime dan jumlah baris **pada saat audit** ke ledger; berkas dilewati hanya bila keduanya sama.
-5. mtime dapat berubah tanpa konten berubah (mis. berkas tersentuh); bila meragukan, baca ulang berkas untuk verifikasi sebelum melewatinya — tetapi berkas yang sudah diaudit tidak boleh dianalisis ulang sepenuhnya tanpa alasan.
+5. mtime dapat berubah tanpa konten berubah (mis. berkas tersentuh); bila meragukan, baca ulang berkas untuk verifikasi sebelum melewatinya - tetapi berkas yang sudah diaudit tidak boleh dianalisis ulang sepenuhnya tanpa alasan.
 6. Berkas yang tercatat di ledger tetapi sudah tidak ada di folder → catat sebagai temuan `berkas hilang`, bukan sebagai "sudah diaudit".
 7. Sumber data hanya berkas memori (`memori/sesi/`, `MEMORI.md`, `memori/riwayat_perubahan.md`); jangan memakai git log.
 8. Ekstraksi sinyal hanya untuk berkas yang diproses; pindai kata kunci (`ambigu`, `tabrakan`, `tidak disentuh`, `dilaporkan`, `Belum Sinkron`, `belum di-commit`, `melanggar`, `menunggu keputusan`) lalu verifikasi manual dengan membaca berkas (mencegah false positive).
@@ -51,10 +47,10 @@ Prosedur audit portabel lintas proyek dengan `MEMORI.md` untuk mendeteksi kesala
 
 Kolom wajib:
 
-- `Sesi` — nama berkas tanpa `.md` (mis. `sesi_81`).
-- `Tanggal audit` — tanggal Jakarta audit dijalankan (`YYYY-MM-DD`).
-- `mtime` — waktu modifikasi berkas sesi (atau `tidak tersedia`).
-- `Jumlah baris` — jumlah baris berkas sesi pada saat audit.
+- `Sesi` - nama berkas tanpa `.md` (mis. `sesi_81`).
+- `Tanggal audit` - tanggal Jakarta audit dijalankan (`YYYY-MM-DD`).
+- `mtime` - waktu modifikasi berkas sesi (atau `tidak tersedia`).
+- `Jumlah baris` - jumlah baris berkas sesi pada saat audit.
 
 Deteksi perubahan: berkas dilewati hanya bila `mtime` **dan** `Jumlah baris` identik dengan ledger; jika salah satunya berbeda, berkas diproses ulang.
 
@@ -84,10 +80,10 @@ Contoh section append:
 
 1. **Muat konteks**: baca `AGENTS.md`, `MEMORI.md`, dan `memori/riwayat_perubahan.md`; muat skill `memori-check`.
 2. **Inventarisasi**: baca `audit/riwayat_sesi.md` (ledger); kumpulkan daftar `memori/sesi/sesi_*.md`; peroleh mtime + jumlah baris tiap berkas.
-3. **Tentukan diproses vs dilewati** (aturan 3–6).
+3. **Tentukan diproses vs dilewati** (aturan 3-6).
 4. **Ekstraksi sinyal** untuk berkas yang diproses (aturan 8); verifikasi manual.
 5. **Agregasi frekuensi** (aturan 9): gabungkan catatan audit lama dari `audit/riwayat_sesi.md` dengan temuan baru.
-6. **Klasifikasikan** setiap pola (A/B/C) dan susun **rekomendasi** untuk kategori B/C (aturan 10–11).
+6. **Klasifikasikan** setiap pola (A/B/C) dan susun **rekomendasi** untuk kategori B/C (aturan 10-11).
 7. **Append section** ke `audit/riwayat_sesi.md` (format pada bagian Aturan) dan sampaikan laporan di sesi.
 8. **Verifikasi akhir**: section baru terbaca; tidak ada berkas lain yang berubah.
 
@@ -137,5 +133,5 @@ Saya perbaiki rujukan yatim di MEMORI.md dan skill memori-check saat audit.
 
 ```text
 ## Audit 2026-11-15 (sesi 117)
-(menghapus section audit lama karena kepanjangan — section lama wajib dipertahankan)
+(menghapus section audit lama karena kepanjangan - section lama wajib dipertahankan)
 ```

@@ -1,10 +1,6 @@
 ---
 name: cek-kesehatan-sistem-kerja
 description: Trigger: saat mengaudit kesehatan sistem kerja proyek (struktur, indeks skill, frontmatter skill, command, memori sesi, repositori, hasil diskusi) | Prosedur audit read-only untuk memeriksa konsistensi aset pendukung agen AI lintas proyek, mengklasifikasikan temuan GALAT/PERINGATAN, dan melaporkan hasil hanya di sesi tanpa mengubah berkas. Cek Kesehatan Sistem Kerja Prosedur audit portabel untuk memeriksa kesehatan sistem kerja proyek (aset pendukung agen AI: aturan, skill, command, memori, hasil diskusi, dan repositori). Audit bersifat **read-only** dan hasilnya dilaporkan hanya di sesi. Cakupan yang Di-Cover - Aset: struktur folder/berkas wajib, indeks skill (`.agents/rules/kelompok_skill_wajib_*.md`), metadata frontmatter `SKILL.md`, berkas command `.kilo/commands/**.md`, berkas sesi `memori/sesi/sesi_N.md`, kondisi repositori teramati (submodule, pointer, `.gitignore` vs working tree), dan penomoran/pencatatan `hasil_diskusi/diskusi_N.md`. - Keluaran: laporan temuan di sesi dengan tingkat `GALAT` dan `PER
-metadata:
-  kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Cek Kesehatan Sistem Kerja
@@ -33,7 +29,8 @@ Prosedur audit portabel untuk memeriksa kesehatan sistem kerja proyek (aset pend
 
 1. **Muat konteks**: baca `AGENTS.md`, `MEMORI.md`, dan muat skill relevan (`aturan-pembuatan-skill`, `aturan-pembuatan-commands`, `memori-check`) bila tersedia.
 2. **Inventarisasi**: kumpulkan daftar berkas/folder untuk tujuh aset (struktur, indeks skill, folder skill, command, sesi memori, `.gitignore`/status git teramati, folder `hasil_diskusi/`).
-3. **Periksa aset 1–7** berurutan:
+3. **Periksa aset 1-7** berurutan:
+
    - Aset 1 (struktur): verifikasi keberadaan/keterbacaan berkas dan folder kunci yang dirujuk proyek.
    - Aset 2 (indeks skill `.agents/rules/kelompok_skill_wajib_*.md`): cocokkan entri dengan `SKILL.md` aktual dan deteksi entri yatim atau folder skill tak terindeks.
    - Aset 3 (frontmatter skill): validasi field wajib, segmen `Trigger:` pada `description`, dan kecocokan `name` dengan folder.

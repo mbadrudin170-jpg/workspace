@@ -1,10 +1,6 @@
 ---
 name: performa-aplikasi
 description: "Trigger: saat mengoptimasi performa aplikasi | Aturan performa Flutter: rebuild minimal, const constructor, builder list (lazy), lazy IndexedStack tab BottomNavigationBar (termasuk AutomaticKeepAliveClientMixin di IndexedStack), image caching, async gap yielding, memory leak, query DB optimization, profiling. Aturan Performa Aplikasi Skill ini mendokumentasikan aturan performa yang wajib diterapkan di proyek ini. Cakupan yang Di-Cover - Package: `package:flutter` (class `ListView`, `GridView`, `Image`, `CachedNetworkImage`, `Opacity`, `ClipRect`, `ClipRRect`, `Stack`, `Positioned`, `Timer`, `StreamSubscription`, `AnimationController`, `TextEditingController`, `ScrollController`), `package:flutter_riverpod` (class `ref`, `AsyncValue`, `select`), `package:compute` (fungsi `compute`) - Class: `ListView`, `GridView`, `Image`, `CachedNetworkImage`, `Timer`, `StreamSubscription`, `AnimationController`, `TextEditingController`, `ScrollController`, `AsyncValue` - Method: `ref.watch(provider.select(...))`, `compute()`"
-metadata:
-  kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Wed Nov 18 2026 21:43 WIB"
 ---
 
 # Aturan Performa Aplikasi
@@ -53,7 +49,7 @@ Skill ini mendokumentasikan aturan performa yang wajib diterapkan di proyek ini.
 31. Target: 60fps (16ms/frame), no jank > 50ms, memory stabil tidak naik terus.
 32. Wajib lazy loading untuk tab BottomNavigationBar yang berat: simpan penanda tab yang sudah pernah dibuka (mis. `Set<int>`, default tab pertama), bangun tab hanya saat pertama kali dibuka, dan render dengan `IndexedStack` + placeholder `SizedBox.shrink()` untuk tab yang belum pernah dibuka.
 33. Anak IndexedStack yang sudah dibangun wajib `SizedBox.expand` (Stack memberi loose constraints ke anak); placeholder `SizedBox.shrink()` membuat tab yang belum dibuka nol biaya layout.
-34. Anak `IndexedStack`/tab yang state-nya ingin dipertahankan saat tab disembunyikan wajib memakai `AutomaticKeepAliveClientMixin` dengan getter `wantKeepAlive => true`, dan `build()` wajib memanggil `super.build(context)` — tanpa pemanggilan itu, keep-alive tidak terdaftar dan analyzer menandai `must_call_super`. Jika keep-alive tidak diperlukan, mixin wajib dihapus sepenuhnya (bukan dibiarkan tanpa `super.build(context)`); tab yang selalu dibangun di `IndexedStack` (subtree tidak di-unmount) tidak wajib mixin.
+34. Anak `IndexedStack`/tab yang state-nya ingin dipertahankan saat tab disembunyikan wajib memakai `AutomaticKeepAliveClientMixin` dengan getter `wantKeepAlive => true`, dan `build()` wajib memanggil `super.build(context)` - tanpa pemanggilan itu, keep-alive tidak terdaftar dan analyzer menandai `must_call_super`. Jika keep-alive tidak diperlukan, mixin wajib dihapus sepenuhnya (bukan dibiarkan tanpa `super.build(context)`); tab yang selalu dibangun di `IndexedStack` (subtree tidak di-unmount) tidak wajib mixin.
 
 ## Larangan
 

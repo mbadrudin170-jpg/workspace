@@ -1,10 +1,6 @@
 ---
 name: material-app-tema-lokalisasi
 description: "Trigger: saat mengonfigurasi MaterialApp dan WidgetsApp | Panduan tema (theme, darkTheme, themeMode), lokalisasi (locale, supportedLocales, localizationsDelegates), dan ScrollBehavior. Konfigurasi MaterialApp, Tema, dan Lokalisasi Mengatur `MaterialApp` / `WidgetsApp` dengan tema gelap/terang, locale, supportedLocales, dan localizationsDelegates untuk aplikasi multi-bahasa. Cakupan yang Di-Cover - Package: `package:flutter` (file `lib/src/widgets/material/app.dart`, `lib/src/widgets/app.dart`) - Class: `MaterialApp`, `WidgetsApp`, `ThemeMode`, `ThemeData`, `MaterialScrollBehavior`, `ScrollBehavior`, `Localizations`, `LocalizationsDelegate`, `GlobalKey` - Enum: `ThemeMode.system`, `ThemeMode.light`, `ThemeMode.dark` - Properti: `theme`, `darkTheme`, `highContrastTheme`, `highContrastDarkTheme`, `themeMode`, `themeAnimationDuration`, `themeAnimationCurve`, `locale`, `supportedLocales`, `localizationsDelegates`, `localeResolutionCallback`, `localeListResolutionCallback`, `color`, `debugShowCheckedModeBanner`, `n"
-metadata:
-  kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Wed Nov 18 2026 02:35 WIB"
 ---
 
 # Konfigurasi MaterialApp, Tema, dan Lokalisasi
@@ -32,7 +28,7 @@ Mengatur `MaterialApp` / `WidgetsApp` dengan tema gelap/terang, locale, supporte
 9. `color` digunakan untuk warna app switcher di Android lama, diambil dari light theme meski dark mode aktif.
 10. `debugShowCheckedModeBanner = true` default di debug mode; setel `false` untuk menyembunyikan banner DEBUG.
 11. `themeAnimationDuration` default `kThemeAnimationDuration`; setel `Duration.zero` untuk transisi tema instan.
-12. `navigatorKey` (`GlobalKey<NavigatorState>`) dan `scaffoldMessengerKey` (`GlobalKey<ScaffoldMessengerState>`) — dideklarasikan top-level final di berkas khusus (mis. `share_global_saya/lib/src/utils/app_keys.dart`: `navigatorKey` untuk navigasi dari widget overlay global di luar pohon halaman aktif, `scaffoldMessengerKey` untuk akses `ScaffoldMessenger` global), didaftarkan SEKALI di `MaterialApp(navigatorKey: ..., scaffoldMessengerKey: ...)`, dan TIDAK boleh dibuat di dalam `build()`.
+12. `navigatorKey` (`GlobalKey<NavigatorState>`) dan `scaffoldMessengerKey` (`GlobalKey<ScaffoldMessengerState>`) - dideklarasikan top-level final di berkas khusus (mis. `share_global_saya/lib/src/utils/app_keys.dart`: `navigatorKey` untuk navigasi dari widget overlay global di luar pohon halaman aktif, `scaffoldMessengerKey` untuk akses `ScaffoldMessenger` global), didaftarkan SEKALI di `MaterialApp(navigatorKey: ..., scaffoldMessengerKey: ...)`, dan TIDAK boleh dibuat di dalam `build()`.
 
 ## Larangan
 

@@ -1,10 +1,6 @@
 ---
 name: widget-custom
 description: "Trigger: saat membuat widget custom reusable | Indeks: visualisasi-progres-impian, isolasi-widget-timer, empty-state-daftar. Wajib StatelessWidget, pure, aman tema (ColorScheme), Column.spacing. Indeks Widget Custom Reusable Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap widget custom. Jangan menduplikasi isi skill spesifik di sini. Widget custom yang dicantumkan di bawah ini adalah komponen reusable yang sudah teruji di proyek Flutter. Cakupan yang Di-Cover - Package: `package:flutter` (class `StatelessWidget`, `Card`, `Column`, `Row`, `Stack`, `FractionallySizedBox`, `SizedBox`, `Padding`, `SafeArea`, `CircularProgressIndicator`, `FilledButton`, `Icon`, `Text`, `Chip`, `LinearProgressIndicator`) - Class: `VisualTabunganImpian`, `EmptyStateView`, `TimerCravingView` (dan `Napas478View`, `Napas90DetikView`, `BoxBreathingView`, `Grounding54321View`, `UrgeSurfingView`, `DistraksiView`), `_HeaderPemulihan`, `ImpianProgresHelper` - Properti: `rasio`, `saldo`, `target`, `sp"
-metadata:
-  kategori: "custom"
-  versi: "1.1.2"
-  diperbarui: "Wed Nov 18 2026 02:35 WIB"
 ---
 
 # Indeks Widget Custom Reusable
@@ -21,13 +17,13 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 ## Aturan
 
 1. Setiap widget custom wajib `StatelessWidget` (tidak butuh state internal kecuali timer yang diisolasi ke widget terpisah).
-2. Widget custom harus pure — logika bisnis (hitung rasio, cek tercapai) dilakukan di helper/provider, bukan di widget.
+2. Widget custom harus pure - logika bisnis (hitung rasio, cek tercapai) dilakukan di helper/provider, bukan di widget.
 3. Wajib menggunakan `Theme.of(context).colorScheme` untuk warna UI, bukan hardcode (kecuali status semantic yang harus sama di light/dark).
 4. Wajib menggunakan `Column.spacing` atau `Row.spacing` untuk jarak antar anak, bukan `SizedBox` berulang.
 5. Widget reusable dilarang mengambil tanggung jawab padding tepi layar (kecuali empty/error/loading yang dipakai langsung di `Scaffold.body`).
 6. Timer wajib diisolasi ke widget kecil sendiri, dengan `cancel()` di `dispose()` dan cek `mounted` di callback.
-7. Tidak boleh menggunakan aset gambar/Lottie untuk visual progres — gunakan `Stack` + `LinearProgressIndicator`/`FractionallySizedBox` + `Icon` bawaan Flutter.
-8. Rasio progres wajib di-clamp ke rentang 0.0–1.0 sebelum digunakan di `FractionallySizedBox`/`LinearProgressIndicator`.
+7. Tidak boleh menggunakan aset gambar/Lottie untuk visual progres - gunakan `Stack` + `LinearProgressIndicator`/`FractionallySizedBox` + `Icon` bawaan Flutter.
+8. Rasio progres wajib di-clamp ke rentang 0.0-1.0 sebelum digunakan di `FractionallySizedBox`/`LinearProgressIndicator`.
 
 ## Larangan
 

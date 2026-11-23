@@ -10,7 +10,7 @@ Panduan pembuatan boilerplate (kode berulang yang siap pakai) agar konsisten den
 ## Aturan
 
 1. Boilerplate WAJIB mengikuti aturan yang berlaku: `struktur-class-ui`, `struktur-folder-lib`, `aturan-riverpod`, `model-state-freezed-abstract`, `penamaan-konvensi`, `gaya`, `spacing`, `tipografi`.
-2. Boilerplate WAJIB memakai bahasa Indonesia untuk identifier yang didefinisikan aplikasi (variable, method, class, enum, table, column) — lihat `penamaan-konvensi`.
+2. Boilerplate WAJIB memakai bahasa Indonesia untuk identifier yang didefinisikan aplikasi (variable, method, class, enum, table, column) - lihat `penamaan-konvensi`.
 3. Boilerplate WAJIB memakai impor material `package:material_ui/material_ui.dart` dan utilitas shared lewat `package:share_global_saya/core_shared.dart` (bukan impor individu).
 4. Boilerplate widget reusable WAJIB `StatelessWidget` bila tidak memerlukan state; parameter `final` + constructor `const`; `build` pure; aman light/dark mode.
 5. Hierarki method dari atas ke bawah: method helper privat aksi (nama diawali `_`, mengembalikan `void`) di atas `build`; `build` di atas method helper widget (mengembalikan `Widget`); method helper non-widget pengembali nilai (`Color`, `String`, `int`, `bool`) di paling bawah kelas. `build` WAJIB pure (tanpa side-effect, tanpa baca provider langsung).
@@ -90,7 +90,7 @@ class ContohScreen extends StatefulWidget {
 class _ContohScreenState extends State<ContohScreen> {
   @override
   Widget build(BuildContext context) {
-    // helper privat di bawah build — DILARANG
+    // helper privat di bawah build - DILARANG
     return const SizedBox.shrink();
   }
 

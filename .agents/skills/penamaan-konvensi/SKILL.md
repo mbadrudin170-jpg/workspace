@@ -1,10 +1,6 @@
 ---
 name: penamaan-konvensi
 description: "Trigger: saat menamai identifier, file, atau class | Konvensi proyek Flutter: identifier bahasa Indonesia, file snake_case, variable camelCase, class PascalCase, konstanta SCREAMING_SNAKE_CASE, import package:, tabel/kolom snake_case, enum alih-alih String untuk banyak opsi, non-nullable dengan default alih-alih nullable. Konvensi Penamaan Proyek Skill ini mendokumentasikan konvensi penamaan yang wajib diterapkan di proyek ini. Cakupan yang Di-Cover - Package: `package:flutter`, `package:flutter_riverpod`, `package:freezed`, `package:json_annotation`, `package:mockito` (kode eksternal tetap pakai konvensi aslinya dalam Bahasa Inggris) - Class: `BiodataModel`, `ModeBerhenti`, `NamaTabel`, `NamaKolom` - Enum: `ModeBerhenti.seketika`, `ModeBerhenti.bertahap`, `Status.loading`, `Status.success`, `Status.error` - Properti: `jumlahRokokPerHari`, `isLoading`, `hasError`, `_errorMessage`, `namaTabel`, `versiDatabase` - Method: `simpanBiodata()`, `_handleTap()` Aturan 1. Wajib gunakan bahasa Indonesia untuk identifier yang didefinisikan aplikasi (variable, method, class, enum, table, column). 2. DILARANG "
-metadata:
-  kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Sun Nov 22 2026 17:45 WIB"
 ---
 
 # Konvensi Penamaan Proyek

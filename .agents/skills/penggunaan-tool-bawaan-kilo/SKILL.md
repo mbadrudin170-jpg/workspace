@@ -1,10 +1,6 @@
 ---
 name: penggunaan-tool-bawaan-kilo
-description: Trigger: saat memilih atau memakai tool bawaan Kilo (read, edit, glob, grep, bash, webfetch, dll.) | Panduan pemilihan tool bawaan Kilo: pemetaan kebutuhan ke tool yang tepat, contoh pemanggilan, aturan prioritas tool bawaan atas shell, dan izin deny yang mutlak. Penggunaan Tool Bawaan Kilo Panduan memilih dan memakai tool bawaan Kilo sesuai kebutuhan, beserta contoh pemanggilan dan aturan prioritas atas shell. Cakupan yang Di-Cover - Tool bawaan Kilo yang tersedia pada build saat ini: berkas, web, tugas/perencanaan, sesi/memori, interaksi pengguna, orkestrasi/sistem. - Pemetaan kebutuhan ke tool yang tepat. - Aturan prioritas tool bawaan atas shell dan izin `deny` yang mutlak. - Sumber: `prompt/skill/penggunaan-tool-bawaan-kilo.md` (commit `19177b4`); aturan prioritas lama `prioritas_tool_bawaan.md` (commit `c85674e`) sudah dihapus dan isinya diserap oleh skill ini. Aturan 1. Wajib gunakan tool bawaan Kilo bila ada padanan yang setara dengan kebutuhan; shell (`Bash`) hanya dipakai bila tidak ada tool bawaan 
-metadata:
-  kategori: "custom"
-  versi: "1.3.2"
-  diperbarui: "Sat Nov 21 2026 17:15 WIB"
+description: Trigger: saat memilih atau memakai tool bawaan Kilo (read, edit, glob, grep, bash, webfetch, dll.) | Panduan pemilihan tool bawaan Kilo: pemetaan kebutuhan ke tool yang tepat, contoh pemanggilan, aturan prioritas tool bawaan atas shell, dan izin deny yang mutlak. Penggunaan Tool Bawaan Kilo Panduan memilih dan memakai tool bawaan Kilo sesuai kebutuhan, beserta contoh pemanggilan dan aturan prioritas atas shell. Cakupan yang Di-Cover - Tool bawaan Kilo yang tersedia pada build saat ini: berkas, web, tugas/perencanaan, sesi/memori, interaksi pengguna, orkestrasi/sistem. - Pemetaan kebutuhan ke tool yang tepat. - Aturan prioritas tool bawaan atas shell dan izin `deny` yang mutlak. - Sumber: `prompt/skill/penggunaan-tool-bawaan-kilo.md` (commit `19177b4`); aturan prioritas lama `prioritas_tool_bawaan.md` (commit `c85674e`) sudah dihapus dan isinya diserap oleh skill ini. Aturan 1. Wajib gunakan tool bawaan Kilo bila ada padanan yang setara dengan kebutuhan; shell (`Bash`) hanya dipakai bila tidak ada tool bawaan
 ---
 
 # Penggunaan Tool Bawaan Kilo
@@ -26,6 +22,7 @@ Panduan memilih dan memakai tool bawaan Kilo sesuai kebutuhan, beserta contoh pe
 4. Bila tool bawaan tidak memberikan informasi yang dibutuhkan (mis. ukuran, izin, metadata filesystem), jelaskan keterbatasannya; gunakan shell hanya jika perintahnya tidak berstatus `deny`.
 5. Beberapa tool yang dirujuk aturan proyek (`list`, `todoread`, `lsp`) tidak tersedia sebagai tool terpisah pada build ini; gunakan padanannya (`Read` untuk direktori, `Todowrite` untuk daftar tugas) dan catat ketidaksesuaian bila ditemukan.
 6. Pemetaan kebutuhan ke tool:
+
    - Cocokkan berkas berdasarkan pola → `Glob`.
    - Cari isi berkas (regex) → `Grep` (atau `Bash` + `rg` untuk performa lebih baik; lihat Aturan 11).
    - Baca isi berkas atau direktori (offset/limit) → `Read`.
@@ -50,7 +47,7 @@ Panduan memilih dan memakai tool bawaan Kilo sesuai kebutuhan, beserta contoh pe
    - Papan bersama sesi task → `Board_post`, `Board_read`.
    - Grafik → `Chart`.
 7. Skill dan command wajib menginstruksikan tool bawaan lebih dahulu. DILARANG menulis instruksi yang menyuruh `rg`, `grep`, `find`, `ls`, `cat`, `head`, atau `tail` untuk operasi yang dapat dilakukan tool bawaan.
-8. Sebelum menyunting berkas, baca ulang (Read) bila ada indikasi berkas berubah di luar sesi (mis. `oldString` tidak cocok atau hasil Grep berbeda dari yang terbaca); DILARANG menebak isi berkas — sunting hanya dengan isi terkini yang sudah dibaca ulang.
+8. Sebelum menyunting berkas, baca ulang (Read) bila ada indikasi berkas berubah di luar sesi (mis. `oldString` tidak cocok atau hasil Grep berbeda dari yang terbaca); DILARANG menebak isi berkas - sunting hanya dengan isi terkini yang sudah dibaca ulang.
 9. Saat memeriksa prasyarat berkas, terutama pada folder hidden (`.github`, `.kilo`, `.agents`), verifikasi dengan Read langsung selain Glob, agar tidak salah menyatakan berkas tidak ada.
 10. **Khusus untuk `rg` (ripgrep): gunakan tool `Bash` dengan perintah `rg` terlebih dahulu untuk pencarian konten; tool `Grep` bawaan Kilo hanya dipakai bila `rg` tidak tersedia atau tidak memenuhi kebutuhan.**
 
@@ -60,49 +57,49 @@ Panduan memilih dan memakai tool bawaan Kilo sesuai kebutuhan, beserta contoh pe
 
 ### Tool Berkas
 
-- `Glob` — cocokkan berkas berdasarkan pola. Contoh: `glob: { pattern: "lib/**/*.dart" }`
-- `Grep` — cari isi berkas (regex). Contoh: `grep: { pattern: "class\\s+\\w+", include: "*.dart" }`
-- `Read` — baca isi berkas/direktori (offset/limit). Contoh: `read: { filePath: "lib/main.dart", offset: 1, limit: 50 }`
-- `Edit` — penggantian teks tepat. Contoh: `edit: { filePath: "lib/main.dart", oldString: "foo", newString: "bar" }`
-- `Write` — tulis/timpa isi berkas. Contoh: `write: { filePath: "lib/main.dart", content: "..." }`
-- `Bash` — jalankan perintah shell (izin). Contoh: `bash: { command: "flutter test", workdir: "base_coc" }`
+- `Glob` - cocokkan berkas berdasarkan pola. Contoh: `glob: { pattern: "lib/**/*.dart" }`
+- `Grep` - cari isi berkas (regex). Contoh: `grep: { pattern: "class\\s+\\w+", include: "*.dart" }`
+- `Read` - baca isi berkas/direktori (offset/limit). Contoh: `read: { filePath: "lib/main.dart", offset: 1, limit: 50 }`
+- `Edit` - penggantian teks tepat. Contoh: `edit: { filePath: "lib/main.dart", oldString: "foo", newString: "bar" }`
+- `Write` - tulis/timpa isi berkas. Contoh: `write: { filePath: "lib/main.dart", content: "..." }`
+- `Bash` - jalankan perintah shell (izin). Contoh: `bash: { command: "flutter test", workdir: "base_coc" }`
 
 ### Tool Web
 
-- `Websearch` — pencarian web. Contoh: `websearch: { query: "flutter 3.47 release" }`
-- `Webfetch` — ambil URL. Contoh: `webfetch: { url: "https://example.com" }`
+- `Websearch` - pencarian web. Contoh: `websearch: { query: "flutter 3.47 release" }`
+- `Webfetch` - ambil URL. Contoh: `webfetch: { url: "https://example.com" }`
 
 ### Tool Tugas dan Perencanaan
 
-- `Todowrite` — buat/perbarui daftar tugas. Contoh: `todowrite: { todos: [{ content, status, priority }] }`
-- `Task` — sub-agen khusus. Contoh: `task: { description, prompt, subagent_type: "explore" }`
-- `Goal` — mulai/lajutkan goal. Contoh: `goal: { action: "start", objective: "..." }`
-- `Goal_report` — laporkan goal. Contoh: `goal_report: { status: "complete", reason: "..." }`
-- `Schedule_wakeup` — jadwalkan pembangunan. Contoh: `schedule_wakeup: { prompt: "...", delay: "5m" }`
-- `Cancel_wakeup` — batalkan wakeup. Contoh: `cancel_wakeup: { action: "cancel", id: "..." }`
-- `Cron_create` — tugas terjadwal. Contoh: `cron_create: { prompt: "...", delay: "10m" }`
-- `Cron_delete` — hapus tugas cron. Contoh: `cron_delete: { id: "..." }`
-- `Cron_list` — daftar tugas cron. Contoh: `cron_list: {}`
+- `Todowrite` - buat/perbarui daftar tugas. Contoh: `todowrite: { todos: [{ content, status, priority }] }`
+- `Task` - sub-agen khusus. Contoh: `task: { description, prompt, subagent_type: "explore" }`
+- `Goal` - mulai/lajutkan goal. Contoh: `goal: { action: "start", objective: "..." }`
+- `Goal_report` - laporkan goal. Contoh: `goal_report: { status: "complete", reason: "..." }`
+- `Schedule_wakeup` - jadwalkan pembangunan. Contoh: `schedule_wakeup: { prompt: "...", delay: "5m" }`
+- `Cancel_wakeup` - batalkan wakeup. Contoh: `cancel_wakeup: { action: "cancel", id: "..." }`
+- `Cron_create` - tugas terjadwal. Contoh: `cron_create: { prompt: "...", delay: "10m" }`
+- `Cron_delete` - hapus tugas cron. Contoh: `cron_delete: { id: "..." }`
+- `Cron_list` - daftar tugas cron. Contoh: `cron_list: {}`
 
 ### Tool Sesi dan Memori
 
-- `Kilo_local_recall` — cari/baca percakapan masa lalu. Contoh: `kilo_local_recall: { mode: "search", query: "..." }`
+- `Kilo_local_recall` - cari/baca percakapan masa lalu. Contoh: `kilo_local_recall: { mode: "search", query: "..." }`
 
 ### Tool Interaksi Pengguna
 
-- `Question` — tanya dengan opsi. Contoh: `question: { questions: [{ question, header, options }] }`
-- `Suggest` — sarankan tinjauan kode. Contoh: `suggest: { suggest: "...", actions: [{ label, prompt }] }`
-- `Open_plan` — buka rencana. Contoh: `open_plan: { path: "..." }`
+- `Question` - tanya dengan opsi. Contoh: `question: { questions: [{ question, header, options }] }`
+- `Suggest` - sarankan tinjauan kode. Contoh: `suggest: { suggest: "...", actions: [{ label, prompt }] }`
+- `Open_plan` - buka rencana. Contoh: `open_plan: { path: "..." }`
 
 ### Tool Orkestrasi dan Sistem
 
-- `Skill` — muat skill. Contoh: `skill: { name: "aturan-riverpod" }`
-- `Agent_manager` — sesi Agent Manager. Contoh: `agent_manager: { action: "list" }`
-- `Agent_manager_models` — cari model. Contoh: `agent_manager_models: { query: "opus" }`
-- `Background_process` — proses latar belakang. Contoh: `background_process: { action: "monitor", command: "npm run dev" }`
-- `Board_post` — kirim ke papan bersama. Contoh: `board_post: { to: "...", type: "INFO", body: "..." }`
-- `Board_read` — baca papan bersama. Contoh: `board_read: { since: "..." }`
-- `Chart` — render grafik. Contoh: `chart: { title: "...", spec: "{...}" }`
+- `Skill` - muat skill. Contoh: `skill: { name: "aturan-riverpod" }`
+- `Agent_manager` - sesi Agent Manager. Contoh: `agent_manager: { action: "list" }`
+- `Agent_manager_models` - cari model. Contoh: `agent_manager_models: { query: "opus" }`
+- `Background_process` - proses latar belakang. Contoh: `background_process: { action: "monitor", command: "npm run dev" }`
+- `Board_post` - kirim ke papan bersama. Contoh: `board_post: { to: "...", type: "INFO", body: "..." }`
+- `Board_read` - baca papan bersama. Contoh: `board_read: { since: "..." }`
+- `Chart` - render grafik. Contoh: `chart: { title: "...", spec: "{...}" }`
 
 ## Larangan
 

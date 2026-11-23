@@ -1,10 +1,6 @@
 ---
 name: theme-data-color-schema
 description: "Trigger: saat mengonfigurasi tema aplikasi | Panduan ThemeData, ColorScheme, textTheme, useMaterial3 untuk konsistensi visual. ThemeData, ColorScheme, dan Typografi Tema Mengonfigurasi `ThemeData` dan `ColorScheme` agar warna, tipografi, dan visual konsisten di seluruh aplikasi, dengan dukungan light/dark mode. Cakupan yang Di-Cover - Package: `package:flutter` (file `lib/src/material/theme_data.dart`, `lib/src/material/color_scheme.dart`) - Class: `ThemeData`, `ColorScheme`, `TextTheme`, `TextStyle`, `ButtonStyle`, `InputDecorationTheme`, `DividerThemeData` - Enum: `Brightness.light`, `Brightness.dark` - Properti: `useMaterial3`, `brightness`, `colorScheme`, `textTheme`, `primaryColor`, `primaryColorLight`, `primaryColorDark`, `accentColor`, `scaffoldBackgroundColor`, `cardTheme`, `elevatedButtonTheme`, `outlinedButtonTheme`, `textButtonTheme`, `inputDecorationTheme`, `dividerTheme`, `appBarTheme`, `bottomNavigationBarTheme`, `dialogTheme`, `popupMenuTheme`, `checkboxTheme`, `radioTheme`, `switchTheme`, `sli"
-metadata:
-  kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # ThemeData, ColorScheme, dan Typografi Tema

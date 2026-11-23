@@ -1,10 +1,6 @@
 ---
 name: platform-dispatcher-locale
 description: "Trigger: saat membaca pengaturan sistem dari engine | Panduan PlatformDispatcher, Locale, ViewPadding, platformBrightness, textScaleFactor, locale resolution (dart:ui). PlatformDispatcher, Locale, dan Pengaturan Sistem Akses konfigurasi platform (locale, brightness, text scale, view padding) melalui `PlatformDispatcher.instance` dari `dart:ui`. Cakupan yang Di-Cover - Package: `dart:ui` (file `lib/ui/platform_dispatcher.dart`) - Class: `PlatformDispatcher`, `Locale`, `ViewPadding`, `ViewConstraints`, `Display`, `FlutterView`, `FrameTiming`, `AccessibilityFeatures`, `SystemColor`, `SystemColorPalette` - Properti: `PlatformDispatcher.instance`, `locale`, `locales`, `platformBrightness`, `textScaleFactor`, `alwaysUse24HourFormat`, `systemFontFamily`, `views`, `implicitView`, `accessibilityFeatures`, `semanticsEnabled` - Method: `computePlatformResolvedLocale`, `scaleFontSize`, `scheduleFrame`, `scheduleWarmUpFrame`, `setApplicationLocale`, `sendPlatformMessage` - Callback: `onLocaleChanged`, `onPlatformBrightnes"
-metadata:
-  kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # PlatformDispatcher, Locale, dan Pengaturan Sistem

@@ -1,10 +1,6 @@
 ---
 name: aturan-folder-prompt
 description: 'Trigger: saat menambah atau memperbarui file di folder prompt/ | Aturan folder prompt/: setiap file wajib memuat tanggal diperbarui (lengkap + jam, zona waktu Asia/Jakarta) dan target ''ditimpa ke''/''file'' (path tujuan), karena folder prompt/ hanya mencatat poin-poin penting untuk masing-masing skill, aturan, dan command. Subfolder: prompt/skill/, prompt/rules/, prompt/commands/ (dan prompt/mode/ bila ada). Setiap skill wajib memiliki berkas poin di prompt/skill/ dengan nama yang sama. Aturan Folder Prompt Folder `prompt/` di root proyek menyimpan rujukan/draft (poin-poin penting) untuk skill, aturan, dan command. Setiap berkas di folder ini **bukan** isi final, melainkan catatan poin yang akan "ditimpa" ke target (`.agents/skills/`, `.agents/rules/`, `.kilo/commands/`). Cakupan yang Di-Cover - Folder: `prompt/` (root proyek), subfolder `prompt/skill/`, `prompt/rules/`, `prompt/commands/`, dan `prompt/mode/` (bila ada). - Berkas target: `.agents/skills/code/<nama>/SKILL.md` atau `.agents/skills/non-code/<nama>/'
-metadata:
-  kategori: "custom"
-  versi: "1.5.0"
-  diperbarui: "Wed Nov 18 2026 01:38 WIB"
 ---
 
 # Aturan Folder Prompt
@@ -27,7 +23,7 @@ Folder `prompt/` di root proyek menyimpan rujukan/draft (poin-poin penting) untu
 6. Subfolder `prompt/` mengikuti jenis target: `prompt/skill/` (skill), `prompt/rules/` (aturan), `prompt/commands/` (command), `prompt/mode/` (mode command).
 7. Catatan "hanya untuk penulis prompt, bukan untuk skill" (beserta link referensi) **wajib** ditempatkan di akhir berkas sumber dan **tidak boleh** dimasukkan ke target (`.agents/skills/`, `.agents/rules/`, `.kilo/commands/`).
 8. Setiap butir poin wajib dipisahkan oleh satu baris kosong.
-9. Setiap kali isi berkas di `prompt/` diperbarui, langsung perbarui juga berkas targetnya — tetapi hanya setelah mendapat izin pengguna (gunakan tool `question`).
+9. Setiap kali isi berkas di `prompt/` diperbarui, langsung perbarui juga berkas targetnya - tetapi hanya setelah mendapat izin pengguna (gunakan tool `question`).
 
 ## Larangan
 

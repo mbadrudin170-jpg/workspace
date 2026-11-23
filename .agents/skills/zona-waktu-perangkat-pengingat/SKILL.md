@@ -1,10 +1,6 @@
 ---
 name: zona-waktu-perangkat-pengingat
 description: "Trigger: saat menjadwalkan pengingat berbasis zona waktu | Panduan flutter_timezone untuk deteksi zona lokal, inisialisasi tz database, fallback Asia/Jakarta, handle error tiap tahap. Zona Waktu Perangkat untuk Pengingat Harian Pengingat harian wajib ikuti zona waktu lokal perangkat, bukan Asia/Jakarta permanen. Deteksi via flutter_timezone, fallback Asia/Jakarta. Cakupan yang Di-Cover - Package: `package:timezone` as `tz` (class `tz`, `TZDateTime`, `Location`), `package:flutter_timezone` (class `FlutterTimezone`) - Class: `tz`, `TZDateTime`, `Location`, `FlutterTimezone` - Method: `tz.initializeTimeZones()`, `tz.getLocation()`, `tz.setLocalLocation()`, `FlutterTimezone.getLocalTimezone()`, `L.i()`, `L.w()`, `L.e()` - Properti: `Location.identifier`, `Location.name` Aturan 1. Pengingat harian wajib mengikuti zona waktu lokal perangkat, bukan `Asia/Jakarta` permanen. 2. Inisialisasi database zona waktu via `tz.initializeTimeZones()` sebelum pencarian/penetapan lokasi. 3. Gunakan `FlutterTimezone.getLocalTimezo"
-metadata:
-  kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Zona Waktu Perangkat untuk Pengingat Harian

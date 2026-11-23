@@ -1,10 +1,6 @@
 ---
 name: format-task-md
 description: "Trigger: saat menambahkan atau memperbarui isi file task.md di root | Panduan gaya penulisan format task.md agar setiap orang dan AI yang mengedit task.md menghasilkan isi yang konsisten: pengelompokan task berdasarkan file terdampak, prioritas Tinggi/Rendah, kolom Status/Masalah/Solusi/aturan dilanggar/file bermasalah/prompt, serta catatan kepatuhan terhadap skill yang terpenuhi (skill adalah aturan yang mengikat). Berlaku lintas proyek. Format Penulisan task.md Mengatur gaya penulisan dan pemformatan isi file `task.md` di root proyek agar setiap orang dan AI yang mengeditnya menghasilkan isi yang selalu konsisten. Setiap task dikelompokkan berdasarkan file-file yang terdampak: misalnya `task A` mengedit file `A, B, dan C` lalu `task B` hanya mengerjakan file `A`, maka keduanya dikelompokkan dalam satu kelompok. Cakupan yang Di-Cover - File: `task.md` di root proyek - Struktur: `Kelompok N` → `file terdampak` → `Tinggi` / `Rendah` (prioritas) → `Task N` - Kolom per task (kelompok Tinggi): `Status`, `Masalah`"
-metadata:
-  kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Format Penulisan task.md
@@ -25,30 +21,31 @@ Mengatur gaya penulisan dan pemformatan isi file `task.md` di root proyek agar s
 2. Setiap task **wajib** dikelompokkan berdasarkan file terdampak: task yang menyentuh file yang sama berada dalam satu kelompok (mis. `task A` mengedit file `A, B, C` dan `task B` hanya file `A` → satu kelompok).
 3. Struktur berurutan: `# Kelompok N` → `## file terdampak` (daftar berkas sebagai link markdown, mis. `- (file A)[../FileA.md]`) → prioritas `## Tinggi` atau `## Rendah` → `#### Task N`.
 4. Kolom per task (kelompok Tinggi), dalam urutan:
-   - `Status` — isi salah satu: `selesai`, `belum`, `setengah`, `kerjakan`.
-   - `Masalah` — masalah yang diketahui; bila belum diketahui, tulis secara eksplisit, jangan mengarang.
-   - `Solusi` — solusi yang direkomendasikan beserta contohnya.
-   - `aturan dilanggar` — nama semua aturan yang dilanggar beserta rujukannya, mis. `(aturan_boilprate)[aturan_boilprate:32]`.
-   - `file bermasalah` — semua berkas yang harus diperbaiki, mis. `(aturan_boilprate)[aturan_boilprate:32]`.
-   - `prompt` — **hanya diisi oleh pengguna**; AI dilarang mengisi atau mengubah kolom ini.
+
+   - `Status` - isi salah satu: `selesai`, `belum`, `setengah`, `kerjakan`.
+   - `Masalah` - masalah yang diketahui; bila belum diketahui, tulis secara eksplisit, jangan mengarang.
+   - `Solusi` - solusi yang direkomendasikan beserta contohnya.
+   - `aturan dilanggar` - nama semua aturan yang dilanggar beserta rujukannya, mis. `(aturan_boilprate)[aturan_boilprate:32]`.
+   - `file bermasalah` - semua berkas yang harus diperbaiki, mis. `(aturan_boilprate)[aturan_boilprate:32]`.
+   - `prompt` - **hanya diisi oleh pengguna**; AI dilarang mengisi atau mengubah kolom ini.
 5. Kolom per task (kelompok Rendah): minimal `Status` dan `Masalah`; kolom lain boleh ditambahkan bila relevan.
 6. `Status` wajib diisi salah satu dari empat nilai; `Masalah` wajib diisi atau ditandai eksplisit `belum diketahui`.
 7. Skill yang trigger-nya terpenuhi adalah aturan yang mengikat; kepatuhan terhadap skill terkait **wajib** dicatat pada kolom `aturan dilanggar` bila relevan.
-8. Isi `Solusi`, `aturan dilanggar`, dan `file bermasalah` harus berbasis fakta proyek; bila data tidak tersedia, tulis eksplisit `belum diketahui` — dilarang mengarang.
+8. Isi `Solusi`, `aturan dilanggar`, dan `file bermasalah` harus berbasis fakta proyek; bila data tidak tersedia, tulis eksplisit `belum diketahui` - dilarang mengarang.
 
 ## Steps
 
 1. Baca `task.md` di root; tentukan task yang akan ditambah/diperbarui.
 2. Tentukan file terdampak setiap task; kelompokkan task berdasarkan perpotongan file terdampaknya.
-3. Susun kolom per task sesuai aturan 4–6; catat skill terkait yang terpenuhi pada `aturan dilanggar` bila relevan (aturan 7).
+3. Susun kolom per task sesuai aturan 4-6; catat skill terkait yang terpenuhi pada `aturan dilanggar` bila relevan (aturan 7).
 4. Verifikasi: struktur `# Kelompok` → `## file terdampak` → prioritas → `#### Task` terjaga; kolom wajib lengkap; `prompt` tidak diisi AI.
 
 ## Larangan
 
-- DILARANG mengisi, mengubah, atau menghapus kolom `prompt` — kolom ini hanya diisi oleh pengguna.
+- DILARANG mengisi, mengubah, atau menghapus kolom `prompt` - kolom ini hanya diisi oleh pengguna.
 - DILARANG memecah task yang file terdampaknya tumpang tindih ke kelompok berbeda.
 - DILARANG menghilangkan kolom wajib pada kelompok Tinggi (`Status`, `Masalah`, `Solusi`, `aturan dilanggar`, `file bermasalah`, `prompt`).
-- DILARANG mengarang `Masalah`, `Solusi`, `aturan dilanggar`, atau `file bermasalah` — tulis `belum diketahui` bila data tidak tersedia.
+- DILARANG mengarang `Masalah`, `Solusi`, `aturan dilanggar`, atau `file bermasalah` - tulis `belum diketahui` bila data tidak tersedia.
 - DILARANG menaruh task di luar struktur `# Kelompok` → prioritas → `#### Task`.
 - DILARANG mengubah format ini tanpa persetujuan pengguna.
 

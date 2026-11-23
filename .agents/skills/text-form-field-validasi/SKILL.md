@@ -1,10 +1,6 @@
 ---
 name: text-form-field-validasi
 description: "Trigger: saat membuat input teks dengan validasi | Panduan TextFormField, TextEditingController, Form, GlobalKey, dan validasi sebelum penyimpanan. TextFormField dan Validasi Form Menggunakan `TextFormField` dengan `TextEditingController`, `Form`, `GlobalKey<FormState>`, dan validasi input sebelum menyimpan data. Cakupan yang Di-Cover - Package: `package:flutter` (file `lib/src/material/text_form_field.dart`, `lib/src/material/form.dart`) - Class: `TextFormField`, `TextEditingController`, `Form`, `GlobalKey<FormState>`, `FormFieldState`, `InputDecoration`, `TextInputType`, `TextInputAction`, `FocusNode` - Properti: `TextFormField.controller`, `TextFormField.validator`, `TextFormField.decoration`, `TextFormField.keyboardType`, `TextFormField.textInputAction`, `TextFormField.obscureText`, `TextFormField.maxLines`, `TextFormField.minLines`, `TextFormField.enabled`, `TextFormField.readOnly`, `Form.key`, `Form.autovalidateMode`, `Form.onChanged`, `FormFieldState.value`, `FormFieldState.validate`, `FormFieldState.r"
-metadata:
-  kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Sun Nov 22 2026 18:00 WIB"
 ---
 
 # TextFormField dan Validasi Form
@@ -134,11 +130,11 @@ void dispose() {
 
 API utama:
 
-- `controller` (wajib), `label`, `wajib` (default `true`), `validator` opsional (default `'$label wajib diisi'` — cacat bila `label` null: pesan "null wajib diisi"; sediakan `validator` sendiri bila `label` null).
+- `controller` (wajib), `label`, `wajib` (default `true`), `validator` opsional (default `'$label wajib diisi'` - cacat bila `label` null: pesan "null wajib diisi"; sediakan `validator` sendiri bila `label` null).
 - `autovalidateMode` (default `AutovalidateMode.onUserInteractionIfError`), `textInputAction` (default `next`), `focusNode`/`nextFocusNode` (auto-advance fokus pada `onFieldSubmitted`; `done` → unfocus), `enabled`, `onSubmitted`, `maxLength`.
 - `minLines`/`maxLines` (default 1/1), `maxHeight`/`minHeight` (membungkus `ConstrainedBox`), `isDense`, `expands`, `contentPadding`, `textCapitalization`, `autofocus`.
 - `prefixIcon`/`suffixIcon` (`IconButton` + `onSuffixIconPressed`), `suffixIconColor`, `suffixText`/`suffixStyle`, `hintText`/`hintStyle`, `helperText`/`helperStyle`, `style`.
 - Warna: `borderColor`, `focusedBorderColor` (default `colorScheme.primary`, width 2), `iconColor`, `cursorColor`, `labelColor`, `filled`/`fillColor`.
 - Border radius 8; `onTapOutside` → `FocusScope.unfocus()`.
 
-Catatan: TIDAK mengekspos `keyboardType`, `obscureText`, `inputFormatters`, `readOnly` — untuk input sandi/angka murni gunakan `TextFormField` mentah (atau perluasan widget, di luar cakupan skill ini).
+Catatan: TIDAK mengekspos `keyboardType`, `obscureText`, `inputFormatters`, `readOnly` - untuk input sandi/angka murni gunakan `TextFormField` mentah (atau perluasan widget, di luar cakupan skill ini).

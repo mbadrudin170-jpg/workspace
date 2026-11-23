@@ -1,10 +1,6 @@
 ---
 name: type-promotion-null-safety
-description: "Trigger: saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku. Operator `!` DILARANG — gunakan type promotion via variabel lokal universal."
-metadata:
-  kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Sun Nov 22 2026 17:00 WIB"
+description: "Trigger: saat mengakses field nullable objek model | Panduan type promotion: salin field nullable ke variabel lokal sebelum null-check agar promotion berlaku. Operator `!` DILARANG - gunakan type promotion via variabel lokal universal."
 ---
 
 # Type Promotion untuk Null Safety pada Field Objek
@@ -22,8 +18,8 @@ Field nullable dari objek model wajib disalin terlebih dahulu ke variabel lokal 
 
 - Jangan menggunakan `biodata.tanggalLahir!` atau `biodata.tanggalMulaiMerokok!` ketika nilai tersebut dapat disalin ke variabel lokal.
 - Jangan mengakses properti nullable secara langsung dengan operator `!` apabila type promotion dapat digunakan.
-- Jangan menggunakan `widget.pelanggan!.nama` — gunakan `final pelanggan = widget.pelanggan; if (pelanggan == null) return; pelanggan.nama`.
-- Jangan menggunakan `map[key]!` — gunakan `entries`/`putIfAbsent`/`??` (rule 36).
+- Jangan menggunakan `widget.pelanggan!.nama` - gunakan `final pelanggan = widget.pelanggan; if (pelanggan == null) return; pelanggan.nama`.
+- Jangan menggunakan `map[key]!` - gunakan `entries`/`putIfAbsent`/`??` (rule 36).
 - Jangan mengurutkan import secara sembarangan; ikuti urutan alfabetis.
 
 ## Contoh Benar

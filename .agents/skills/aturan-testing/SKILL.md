@@ -1,10 +1,6 @@
 ---
 name: aturan-testing
 description: "Trigger: saat menulis test | Aturan testing standar: package:test untuk unit test, WidgetTester untuk widget test, integration test, mocktail mock manual (tanpa codegen), dummy data, build_runner. Pola Testing Standar Skill ini mendokumentasikan pola testing yang wajib diterapkan di semua proyek pengguna. 1. Unit Test (package:test) Aturan - File test diletakkan flat di `test/*_test.dart` (bukan di subfolder). - Gunakan `package:test` dengan `test()`, `group()`, `setUp()`, `tearDown()`. - Test fungsi murni, helper, extension, logic bisnis (bukan widget). - Nama test: `should <expected behavior> when <condition>`. Referensi - `dart-add-unit-test` skill untuk detail 2. Widget Test (WidgetTester) Aturan - Gunakan `WidgetTester` dari `package:flutter_test`. - Test rendering, tap, scroll, input text, navigasi. - Bungkus widget dengan `ProviderScope` + `MaterialApp` + override provider. - Gunakan `pumpWidget()`, `pumpAndSettle()`, `tap()`, `enterText()`. Referensi - `flutter-add-widget-test` skill untuk detail 3. Int"
-metadata:
-  kategori: "custom"
-  versi: "1.3.0"
-  diperbarui: "Wed Nov 18 2026 07:19 WIB"
 ---
 
 # Aturan Testing Standar
@@ -227,7 +223,7 @@ dart run build_runner watch --delete-conflicting-outputs
 
 ### Referensi Commit
 
-- `3b67d309` — Freezed models + Riverpod generator
+- `3b67d309` - Freezed models + Riverpod generator
 
 ## 7. Coverage
 
@@ -268,12 +264,12 @@ dart fix --apply
 
 ## Referensi Aturan Sumber
 
-- `aturan_bersama.md` — Tests flat di test/, web only, build APK CI only
+- `aturan_bersama.md` - Tests flat di test/, web only, build APK CI only
 - `flutter-add-widget-test` skill
 - `flutter-add-integration-test` skill
 - `dart-add-unit-test` skill
 - `dart-collect-coverage` skill
 - `dart-run-static-analysis` skill
-- `hasil_diskusi/diskusi_5.md` (K-5, R-1; sesi 158) — mocktail menggantikan alat mock lama; `dart-generate-test-mocks` tidak diikuti untuk proyek ini
+- `hasil_diskusi/diskusi_5.md` (K-5, R-1; sesi 158) - mocktail menggantikan alat mock lama; `dart-generate-test-mocks` tidak diikuti untuk proyek ini
 - Commit `share_global_saya` `e43255bd56b4eaba6b7629d749582be96dcd2527` (`test/mocks.dart` template mock manual mocktail, `mocktail: ^1.0.5` pada `dev_dependencies`, `pubspec.lock` diperbarui)
 - Permintaan eksplisit pengguna sesi 30 (2026-11-18; "semua test wajib pakai mocktail", cakupan semua proyek); commit submodule `admin_wifi` `ea39344` (2026-11-18, pengguna; konversi `test/services/notifikasi_servis_test.dart` ke mocktail, `test/mocks.dart`, penghapusan `test/services/notifikasi_servis_test.mocks.dart` dan `test/helpers/test_helpers.mocks.dart` yang tidak dikerjakan sesi 30); commit root `b0d5b45` (gitlink `admin_wifi`)

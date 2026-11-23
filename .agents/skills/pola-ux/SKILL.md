@@ -1,10 +1,6 @@
 ---
 name: pola-ux
 description: "Trigger: saat menerapkan pola UX Flutter (termasuk dialog konfirmasi ya/tidak dengan showOkCancelAlertDialog) | Indeks: empty-state-daftar, validasi-form-sebelum-penyimpanan, penanganan-async. Indeks Pola UX Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UX, termasuk dialog konfirmasi ya/tidak yang wajib memakai showOkCancelAlertDialog dari adaptive_dialog (OkCancelResult), bukan showDialog + AlertDialog manual. Jangan menduplikasi isi skill spesifik di sini. Semua pola UX yang tercantum di bawah ini sudah terimplementasi di proyek Flutter dan dapat digunakan sebagai referensi untuk pola serupa di proyek lain. Cakupan yang Di-Cover - Package: `package:flutter` (class `Form`, `GlobalKey`, `SafeArea`, `Padding`, `FAB`, `Icon`, `Text`, `FilledButton`, `Scaffold`, `ShowDialog`), `package:flutter_riverpod` (class `AsyncValue`, `ref`, `ConsumerWidget`, `ConsumerState`), `package:shared_preferences` (class `SharedPreferences`), `package:adaptive_dialog` (class `showOkCancelAlertDialog`, `OkCancelResult`) - Class: `Form`, `GlobalKey<FormState>`, `AsyncValue`, `SharedPreferences`, `AppToast`, `L` (logging), `Nav` (navigasi) - Properti: `isLoading`, `hasError`,"
-metadata:
-  kategori: "custom"
-  versi: "1.1.1"
-  diperbarui: "Sun Nov 22 2026 12:25 WIB"
 ---
 
 # Indeks Pola UX Standar
@@ -21,7 +17,7 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 ## Aturan
 
 1. Selalu minta konfirmasi dengan penjelasan konsekuensi sebelum aksi destruktif (hapus, export, reset).
-2. Empty state wajib informatif dan memakai komponen bersama `EmptyStateView` (`lib/shared/widget/empty_state_view.dart`): ikon + judul + deskripsi + CTA opsional (`OutlinedButton`, bukan FAB wajib), sudah dibungkus `SafeArea` + padding — lihat `empty-state-daftar`.
+2. Empty state wajib informatif dan memakai komponen bersama `EmptyStateView` (`lib/shared/widget/empty_state_view.dart`): ikon + judul + deskripsi + CTA opsional (`OutlinedButton`, bukan FAB wajib), sudah dibungkus `SafeArea` + padding - lihat `empty-state-daftar`.
 3. Navigasi non-blocking wajib menggunakan `unawaited(Nav.to(...).catchError(...))`.
 4. Akses data async opsional wajib menggunakan `asData?.value ?? fallback`, bukan `requireValue`.
 5. Logging konsisten: log variabel UI dengan `L.i`/`L.w` per aturan logging.
@@ -32,7 +28,7 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 10. Data tidak lengkap → tampilan terpisah + CTA, bukan menampilkan data parsial.
 11. Notifikasi sementara (sukses/gagal/peringatan/info) WAJIB memakai `AppToast.sukses/gagal/warning/info` dari `share_global_saya` (import via `core_shared.dart`); DILARANG `ScaffoldMessenger.of(context).showSnackBar` manual.
 12. Impor utilitas shared lintas fitur WAJIB memakai barrel `core_shared.dart` (`package:share_global_saya/core_shared.dart`) yang mengekspor `L`, `Nav`, `AppToast`, `ParserUtil`, `FormatTanggal` (dihide bila tidak dipakai), `SharedPrefService`; DILARANG impor individu (`l.dart`, `navigator_helper.dart`, `toast_widget.dart`, `parser_util.dart`, `shared_pref_service.dart`).
-13. Loading operasi simpan/hapus WAJIB memakai `EasyLoading.show`/`EasyLoading.dismiss` dari `flutter_easyloading` dengan `maskType: EasyLoadingMaskType.black` agar kunci seluruh input; DILARANG `CircularProgressIndicator` manual di dalam tombol atau `showDialog`; `unawaited(EasyLoading.show(...).catchError(...))` di awal, `unawaited(EasyLoading.dismiss().catchError(...))` di `finally`; tombol simpan tidak perlu state `_isLoading`/`_isSaving` — button label statis.
+13. Loading operasi simpan/hapus WAJIB memakai `EasyLoading.show`/`EasyLoading.dismiss` dari `flutter_easyloading` dengan `maskType: EasyLoadingMaskType.black` agar kunci seluruh input; DILARANG `CircularProgressIndicator` manual di dalam tombol atau `showDialog`; `unawaited(EasyLoading.show(...).catchError(...))` di awal, `unawaited(EasyLoading.dismiss().catchError(...))` di `finally`; tombol simpan tidak perlu state `_isLoading`/`_isSaving` - button label statis.
 
 ## Larangan
 

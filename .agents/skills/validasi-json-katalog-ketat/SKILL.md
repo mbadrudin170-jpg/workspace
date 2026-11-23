@@ -1,10 +1,6 @@
 ---
 name: validasi-json-katalog-ketat
 description: "Trigger: saat memuat atau memvalidasi data JSON katalog lokal | Panduan validasi ketat katalog JSON: field enum lewat `values.firstWhere(..., orElse: () => throw ...)`, array bertipe string dicek per elemen, objek bersarang dicek `is! Map<String, dynamic>` lalu didelegasikan ke `fromJson` bersarang, exception khusus per domain dengan pesan memuat `id` entri dan nama field, string kosong dianggap `null`, `toJson` kondisional (field `null` tidak ditulis), getter `hasIsi` minimal satu field terisi. Hindari cast langsung, `byName` tanpa konteks, dan fallback diam-diam. Sumber pola: commit `base_coc` `71a69f0` dan `149fe81`. Validasi Ketat JSON Katalog Katalog JSON lokal (aset bundel) adalah data yang dikirim bersama aplikasi; satu entri cacat tidak boleh dimuat diam-diam. Validasi wajib gagal total dengan exception khusus per domain, dan seluruh pesan error wajib memuat `id` entri serta nama field agar katalog cacat mudah ditemukan. Cakupan yang Di-Cover - Package: `dart:core` (`firstWhere`, `orElse`), `package:f"
-metadata:
-  kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Tue Nov 17 2026 11:52 WIB"
 ---
 
 # Validasi Ketat JSON Katalog
@@ -21,13 +17,13 @@ Katalog JSON lokal (aset bundel) adalah data yang dikirim bersama aplikasi; satu
 ## Aturan
 
 1. JSON katalog yang tidak valid wajib menggagalkan pemuatan katalog secara keseluruhan lewat exception khusus per domain (mis. `KatalogGagalException`), bukan dilewati, diganti nilai default, atau di-fallback diam-diam.
-2. Field enum wajib diparse dengan `TelEnum.values.firstWhere((e) => e.name == nilai, orElse: () => throw KatalogGagalException(...))` — bukan `switch` manual, bukan `byName` telanjang, bukan `safeParseEnum` dengan fallback default (katalog ≠ database; nilai tak dikenal = katalog cacat).
+2. Field enum wajib diparse dengan `TelEnum.values.firstWhere((e) => e.name == nilai, orElse: () => throw KatalogGagalException(...))` - bukan `switch` manual, bukan `byName` telanjang, bukan `safeParseEnum` dengan fallback default (katalog ≠ database; nilai tak dikenal = katalog cacat).
 3. Field array wajib dicek `is! List` → throw; setiap elemen wajib dicek tipenya (mis. `is! String` → throw); nilai tak dikenali → throw dengan pesan memuat nilai salah dan `id` entri.
 4. Field objek bersarang wajib dicek `is! Map<String, dynamic>` → throw; delegasikan isinya ke `fromJson` milik model bersarang (validasi berlapis, bukan parse inline).
 5. Field string opsional yang kosong dianggap `null` (`nilai.isEmpty ? null : nilai`); field opsional `null` tidak ditulis saat serialisasi (`toJson` kondisional: `if (kekuatan != null) 'kekuatan': kekuatan`).
 6. Objek yang seluruh fieldnya opsional wajib menyediakan getter `hasIsi` (`true` bila minimal satu field terisi) agar pemanggil bisa menyembunyikan section kosong.
 7. Pesan exception wajib memuat `id` entri dan nama field (mis. `'Field "tags" pada id "$id" harus berupa array.'`) agar sumber cacat langsung teridentifikasi.
-8. `fromJson` custom pada model `@freezed` boleh dipakai selama aturan 1–7 dipatuhi; berkas hasil generate tidak diedit manual (lihat skill `model-state-freezed-abstract`).
+8. `fromJson` custom pada model `@freezed` boleh dipakai selama aturan 1-7 dipatuhi; berkas hasil generate tidak diedit manual (lihat skill `model-state-freezed-abstract`).
 9. Nilai boolean/angka/array `null` pada field opsional dianggap "tidak ada" (bukan error); eksplisit dibedakan dari tipe yang salah (error).
 
 ## Steps

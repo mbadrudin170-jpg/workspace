@@ -1,10 +1,6 @@
 ---
 name: migrasi-skema-sqlite
 description: "Trigger: saat menambah atau mengubah tabel, kolom, indeks, atau migrasi SQLite | Naikkan versi, update onCreate dan onUpgrade, cerminkan perubahan di onCreate, verifikasi PRAGMA table_info; hindari untuk perubahan non-skema. Migrasi Skema Database SQLite Setiap perubahan skema wajib menaikkan versi database, update `onCreate` dan `onUpgrade` dengan kondisi versi yang sesuai. Perubahan kolom/indeks pada tabel yang sudah ada wajib dicerminkan di definisi `CREATE TABLE` pada `onCreate`, bukan hanya di `onUpgrade`. Aturan 1. Setiap perubahan skema wajib menaikkan konstanta `_versiDatabase` (increment satu per migrasi). 2. Metode `onCreate` wajib membuat seluruh tabel yang dibutuhkan aplikasi, termasuk tabel baru, agar instalasi baru memiliki skema lengkap. 3. Metode `onUpgrade` wajib menangani setiap versi lama secara kondisional menggunakan `if (oldVersion < N)` untuk setiap versi yang ditambahkan. 4. Tabel baru pada versi tertentu wajib dibuat baik di `onCreate` maupun di `onUpgrade` (agar pengguna lama mendapa"
-metadata:
-  kategori: "custom"
-  versi: "1.2.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Migrasi Skema Database SQLite
@@ -26,7 +22,7 @@ Setiap perubahan skema wajib menaikkan versi database, update `onCreate` dan `on
 11. Indeks (`CREATE INDEX IF NOT EXISTS ...`) pada tabel baru wajib dibuat di cabang versi yang sama dengan pembuatan tabelnya, bukan di cabang versi lain.
 12. Perubahan kolom/indeks pada tabel yang sudah ada wajib dicerminkan di definisi `CREATE TABLE` pada `onCreate` (dan/atau definisi indeks di `_buatTabel`) sehingga `onCreate` selalu mencerminkan skema versi terkini secara penuh; pengguna lama mendapatkannya lewat cabang `onUpgrade`, pengguna baru langsung dari `onCreate`. Bug yang terjadi pada v14 (migrasi `ALTER TABLE ... ADD COLUMN pemicu` hanya di `onUpgrade`, definisi `CREATE TABLE konsumsi_rokok` di `onCreate` tidak di-update → instalasi baru gagal `INSERT OR REPLACE ... pemicu` dengan `SqfliteFfiException(1) no column named pemicu`) adalah contoh langsung pelanggaran aturan ini; perbaikannya ada di v15 (lihat `230f0b1`).
 13. Setelah mengubah skema, verifikasi skema hasil `onCreate` dan hasil chain `onUpgrade` per tabel memakai `PRAGMA table_info(<nama_tabel>)` (kolom wajib ada, nama dan tipe sesuai) sebelum perubahan dinyatakan selesai; untuk kolom yang ditambahkan kondisional, gunakan pola cek `PRAGMA table_info` lalu `ALTER TABLE` hanya bila kolom belum ada (aman untuk database yang terlanjur dibuat tanpa kolom).
-14. Rekomendasi (bukan kewajiban refactor): pertimbangkan pola satu sumber DDL — `onCreate` membangun skema lewat langkah-langkah (`_createV1`, `_upgradeV1ToV2`, dst.) yang sama dengan `onUpgrade`, sebagaimana pola "Migration chain with batches" pada skill `sqflite-open-database` — agar DDL tidak diduplikasi dan tidak bisa tidak sinkron. Pada proyek ini `sqflite.dart` masih memakai definisi duplikat; refactor ke pola ini harus dibahas/disetujui terpisah sebelum dilakukan.
+14. Rekomendasi (bukan kewajiban refactor): pertimbangkan pola satu sumber DDL - `onCreate` membangun skema lewat langkah-langkah (`_createV1`, `_upgradeV1ToV2`, dst.) yang sama dengan `onUpgrade`, sebagaimana pola "Migration chain with batches" pada skill `sqflite-open-database` - agar DDL tidak diduplikasi dan tidak bisa tidak sinkron. Pada proyek ini `sqflite.dart` masih memakai definisi duplikat; refactor ke pola ini harus dibahas/disetujui terpisah sebelum dilakukan.
 
 ## Steps
 

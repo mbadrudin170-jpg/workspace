@@ -1,10 +1,6 @@
 ---
 name: aturan-pembuatan-rules
 description: Trigger: saat membuat atau memperbarui aturan (rules) Kilo | Panduan pembuatan aturan global/portabel: aturan wajib bersifat global, izin deny dan pembatasan platform ditulis generik, berkas rules tidak didaftarkan di instructions, AGENTS.md wajib memuat perintah membaca seluruh berkas .agents/rules/, berkas aturan khusus kode hanya boleh diubah berdasarkan commit dan kode yang eksplisit ditambahkan pengguna, dan setiap aturan pada berkas khusus kode wajib menyertakan skill terkaitnya. Aturan Pembuatan Rules Panduan pembuatan aturan (rules) Kilo yang bersifat global dan portabel lintas repo. Cakupan yang Di-Cover - Pembuatan dan pembaruan berkas rules (`.md`) untuk Kilo. - Jalur baca rules: berkas `AGENTS.md` (terdaftar di `instructions`); berkas rules **tidak** didaftarkan satu per satu di `instructions`. - Portabilitas: aturan tidak boleh terikat pada repo/proyek tertentu. Aturan 1. Setiap aturan wajib bersifat global; referensi ke repo spesifik hanya boleh sebagai contoh/rujukan, dan aturan harus dapat dig
-metadata:
-  kategori: "custom"
-  versi: "1.3.0"
-  diperbarui: "Wed Nov 18 2026 09:05 WIB"
 ---
 
 # Aturan Pembuatan Rules

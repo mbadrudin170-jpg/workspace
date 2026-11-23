@@ -1,10 +1,6 @@
 ---
 name: material-ui
-description: "Trigger: saat menambah/mengubah impor material Flutter, saat memakai/mengganti MaterialApp, saat migrasi package:flutter/material.dart ke package:material_ui/material_ui.dart | Impor material wajib package:material_ui/material_ui.dart (package:flutter/material.dart deprecated sejak v3.47.0-0.0.pre); MaterialApp material_ui menyediakan delegasi MaterialLocalizations bawaan (dilarang menambah localizationsDelegates/supportedLocales manual); error No MaterialLocalizations found pada Overlay root manual diatasi dengan Localizations DI ATAS Directionality, bukan delegasi di MaterialApp. Impor Material Flutter: material_ui `package:flutter/material.dart` deprecated sejak v3.47.0-0.0.pre; seluruh impor material wajib memakai `package:material_ui/material_ui.dart`. Aturan 1. Impor material WAJIB memakai `package:material_ui/material_ui.dart`; `package:flutter/material.dart` DILARANG — deprecated sejak v3.47.0-0.0.pre (analyzer: `deprecated_member_use`). 2. MaterialApp dari `material_ui` sudah menyediakan delegasi `Ma"
-metadata:
-  kategori: "custom"
-  versi: "1.0.0"
-  diperbarui: "Thu Nov 19 2026 09:36 WIB"
+description: "Trigger: saat menambah/mengubah impor material Flutter, saat memakai/mengganti MaterialApp, saat migrasi package:flutter/material.dart ke package:material_ui/material_ui.dart | Impor material wajib package:material_ui/material_ui.dart (package:flutter/material.dart deprecated sejak v3.47.0-0.0.pre); MaterialApp material_ui menyediakan delegasi MaterialLocalizations bawaan (dilarang menambah localizationsDelegates/supportedLocales manual); error No MaterialLocalizations found pada Overlay root manual diatasi dengan Localizations DI ATAS Directionality, bukan delegasi di MaterialApp. Impor Material Flutter: material_ui `package:flutter/material.dart` deprecated sejak v3.47.0-0.0.pre; seluruh impor material wajib memakai `package:material_ui/material_ui.dart`. Aturan 1. Impor material WAJIB memakai `package:material_ui/material_ui.dart`; `package:flutter/material.dart` DILARANG - deprecated sejak v3.47.0-0.0.pre (analyzer: `deprecated_member_use`). 2. MaterialApp dari `material_ui` sudah menyediakan delegasi `Ma"
 ---
 
 # Impor Material Flutter: material_ui
@@ -13,8 +9,8 @@ metadata:
 
 ## Aturan
 
-1. Impor material WAJIB memakai `package:material_ui/material_ui.dart`; `package:flutter/material.dart` DILARANG — deprecated sejak v3.47.0-0.0.pre (analyzer: `deprecated_member_use`).
-2. MaterialApp dari `material_ui` sudah menyediakan delegasi `MaterialLocalizations` bawaan; DILARANG menambahkan `localizationsDelegates`/`supportedLocales` manual dari flutter/material (mis. `DefaultMaterialLocalizations.delegate`, `DefaultWidgetsLocalizations.delegate`) — redundan dan memakai API deprecated.
+1. Impor material WAJIB memakai `package:material_ui/material_ui.dart`; `package:flutter/material.dart` DILARANG - deprecated sejak v3.47.0-0.0.pre (analyzer: `deprecated_member_use`).
+2. MaterialApp dari `material_ui` sudah menyediakan delegasi `MaterialLocalizations` bawaan; DILARANG menambahkan `localizationsDelegates`/`supportedLocales` manual dari flutter/material (mis. `DefaultMaterialLocalizations.delegate`, `DefaultWidgetsLocalizations.delegate`) - redundan dan memakai API deprecated.
 3. Error `No MaterialLocalizations found` yang sumbernya panel log debug / `SelectionArea` pada `PengelolaOverlayLogDebug` WAJIB diatasi dengan membungkus Overlay root manual dengan `Localizations` DI ATAS `Directionality` (lihat `.agents/rules/overlay_log_debug.md` butir 4 dan skill `overlay-log-debug` Aturan 4), BUKAN dengan delegasi di MaterialApp.
 4. Migrasi masal impor (codemod/subagent) hanya pada cakupan berkas yang ditugaskan; `dart format` hanya pada berkas terdampak; review `git diff --stat` sebelum melapor (skill `disiplin-scope-kerja`).
 5. Jangan mencampur impor `package:flutter/material.dart` dan `package:material_ui/material_ui.dart` pada berkas yang sama; ganti impornya, jangan menambahkan duplikat.
@@ -33,7 +29,7 @@ import 'package:material_ui/material_ui.dart';
 ```
 
 ```dart
-// MaterialApp material_ui — delegasi MaterialLocalizations bawaan,
+// MaterialApp material_ui - delegasi MaterialLocalizations bawaan,
 // tanpa localizationsDelegates/supportedLocales manual
 MaterialApp(
   title: 'Aplikasi',

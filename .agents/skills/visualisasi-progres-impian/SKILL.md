@@ -1,10 +1,6 @@
 ---
 name: visualisasi-progres-impian
 description: "Trigger: saat memvisualisasikan progres impian atau perayaan | Panduan ImpianProgresHelper, guard divisi nol, SharedPreferences penandaan sekali, AppToast, saldo aktual via MetrikBerhentiHelper, clamp 0-1, VisualTabunganImpian. Visualisasi Progres Impian dan Perayaan Pencapaian Helper murni untuk rasio/sisa/tercapai, guard divisi nol, SharedPreferences penandaan perayaan, AppToast, saldo aktual (fallback estimasi baseline dari biodata) via `MetrikBerhentiHelper`, widget bawaan, clamp rasio. Cakupan yang Di-Cover - Package: `package:flutter` (class `LinearProgressIndicator`, `Stack`, `FractionallySizedBox`, `Container`, `Icon`, `Text`, `ListTile`, `ListView`), `package:flutter_riverpod` (class `AsyncValue`, `ref`, `ConsumerWidget`), `package:share_global_saya` (class `SharedPrefService`, `AppToast`) - Class: `ImpianProgresHelper`, `VisualTabunganImpian`, `SharedPrefService`, `AppToast`, `LinearProgressIndicator` - Method: `ImpianProgresHelper.rasio()`, `ImpianProgresHelper.tercapai()`, `ImpianProgresHelper.sis"
-metadata:
-  kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Wed Nov 18 2026 02:35 WIB"
 ---
 
 # Visualisasi Progres Impian dan Perayaan Pencapaian
@@ -23,9 +19,9 @@ Helper murni untuk rasio/sisa/tercapai, guard divisi nol, SharedPreferences pena
 2. Helper wajib guard divisi nol (target <= 0 → return 0.0/false).
 3. Penandaan impian diraikan (perayaan sekali) disimpan di `SharedPrefService` (`impian_diraikan`), bukan variabel memori (wajib `SharedPrefService.init()` di `main()` sebelum dipakai).
 4. Impian baru tercapai → `AppToast.sukses` perayaan, penandaan via `unawaited()` non-blocking.
-5. Layar progres impian wajib watch `biodataProvider` untuk saldo, bukan `totalJumlah` dari `ImpianState`. Saldo wajib: metrik **aktual** (`MetrikBerhentiHelper.hitungUangDihematAktual`) bila ada catatan konsumsi, **fallback estimasi baseline** (`hitungUangDihematEstimasi`) bila belum ada — mis. `final saldo = pakaiAktual ? uangDihematAktual : uangDihematEstimasi;` dengan `pakaiAktual = MetrikBerhentiHelper.hitungJumlahHariTercatat(konsumsiList) > 0`. Saat saldo fallback estimasi, beri label "estimasi" di UI.
+5. Layar progres impian wajib watch `biodataProvider` untuk saldo, bukan `totalJumlah` dari `ImpianState`. Saldo wajib: metrik **aktual** (`MetrikBerhentiHelper.hitungUangDihematAktual`) bila ada catatan konsumsi, **fallback estimasi baseline** (`hitungUangDihematEstimasi`) bila belum ada - mis. `final saldo = pakaiAktual ? uangDihematAktual : uangDihematEstimasi;` dengan `pakaiAktual = MetrikBerhentiHelper.hitungJumlahHariTercatat(konsumsiList) > 0`. Saat saldo fallback estimasi, beri label "estimasi" di UI.
 6. Widget visual (`VisualTabunganImpian`) pakai komponen bawaan (Stack, LinearProgressIndicator, Icon), no aset baru.
-7. Rasio clamp 0.0–1.0 sebelum ke `LinearProgressIndicator`.
+7. Rasio clamp 0.0-1.0 sebelum ke `LinearProgressIndicator`.
 
 ## Larangan
 

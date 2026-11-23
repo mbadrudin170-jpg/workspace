@@ -1,28 +1,24 @@
 ---
 name: konfigurasi-kilo-proyek
-description: "Trigger: saat membuat atau mengubah konfigurasi Kilo proyek atau command Kilo | Panduan prosedur & larangan konfigurasi `.kilo/kilo.jsonc` proyek (bukan snapshot isi config): baca `permission` sebelum `bash` (AGENTS.md aturan 11), deny mutlak, perbarui `MEMORI.md` setelah ubah config, jangan commit config tanpa perintah pengguna; plus tutorial pembuatan commands Kilo (lokasi & struktur rekursif, frontmatter, variabel template, subcommand & fallback, konvensi proyek); rujukan `.kilo/kilo.jsonc`, `.kilo/commands/`, dan dokumen resmi Kilo. Konfigurasi Kilo Proyek dan Commands Kilo Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beserta tutorial pembuatan commands Kilo di `.kilo/commands/`. Isi bersifat prosedural — bukan snapshot isi config; nilai config (model, daftar permission) sengaja tidak disalin agar skill tidak cepat usang. Sumber kebenaran konfigurasi adalah berkas config proyek itu sendiri; untuk konfigurasi Kilo generik (bukan spesifik proyek), rujuk skill bawaan `kilo-confi"
-metadata:
-  kategori: "custom"
-  versi: "1.1.0"
-  diperbarui: "Tue Nov 17 2026 23:39 WIB"
+description: "Trigger: saat membuat atau mengubah konfigurasi Kilo proyek atau command Kilo | Panduan prosedur & larangan konfigurasi `.kilo/kilo.jsonc` proyek (bukan snapshot isi config): baca `permission` sebelum `bash` (AGENTS.md aturan 11), deny mutlak, perbarui `MEMORI.md` setelah ubah config, jangan commit config tanpa perintah pengguna; plus tutorial pembuatan commands Kilo (lokasi & struktur rekursif, frontmatter, variabel template, subcommand & fallback, konvensi proyek); rujukan `.kilo/kilo.jsonc`, `.kilo/commands/`, dan dokumen resmi Kilo. Konfigurasi Kilo Proyek dan Commands Kilo Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beserta tutorial pembuatan commands Kilo di `.kilo/commands/`. Isi bersifat prosedural - bukan snapshot isi config; nilai config (model, daftar permission) sengaja tidak disalin agar skill tidak cepat usang. Sumber kebenaran konfigurasi adalah berkas config proyek itu sendiri; untuk konfigurasi Kilo generik (bukan spesifik proyek), rujuk skill bawaan `kilo-confi"
 ---
 
 # Konfigurasi Kilo Proyek dan Commands Kilo
 
 Berlaku pada workspace/proyek yang memuat skill ini; bukan terikat pada satu proyek tertentu.
 
-Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beserta tutorial pembuatan commands Kilo di `.kilo/commands/`. Isi bersifat prosedural — bukan snapshot isi config; nilai config (model, daftar permission) sengaja tidak disalin agar skill tidak cepat usang. Sumber kebenaran konfigurasi adalah berkas config proyek itu sendiri; untuk konfigurasi Kilo generik (bukan spesifik proyek), rujuk skill bawaan `kilo-config`.
+Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beserta tutorial pembuatan commands Kilo di `.kilo/commands/`. Isi bersifat prosedural - bukan snapshot isi config; nilai config (model, daftar permission) sengaja tidak disalin agar skill tidak cepat usang. Sumber kebenaran konfigurasi adalah berkas config proyek itu sendiri; untuk konfigurasi Kilo generik (bukan spesifik proyek), rujuk skill bawaan `kilo-config`.
 
 ## Cakupan yang Di-Cover
 
-- Berkas: `.kilo/kilo.jsonc` (config proyek, sumber kebenaran — AGENTS.md aturan 11), `.kilo/prompts/code.md`, `.kilo/prompts/ask.md`, `.kilo/prompts/debug.md`, `.kilo/commands/**`, `MEMORI.md`, `memori/riwayat_perubahan.md`, `docs/kilo/kilo_global.txt` (arsip usang)
+- Berkas: `.kilo/kilo.jsonc` (config proyek, sumber kebenaran - AGENTS.md aturan 11), `.kilo/prompts/code.md`, `.kilo/prompts/ask.md`, `.kilo/prompts/debug.md`, `.kilo/commands/**`, `MEMORI.md`, `memori/riwayat_perubahan.md`, `docs/kilo/kilo_global.txt` (arsip usang)
 - Konsep config Kilo: bagian `permission` (`allow`/`ask`/`deny`, pola glob, proteksi `.env`), `instructions`, `skills.paths` (path relatif), `agent.<nama>.prompt` dengan `{file:...}`, `commit_message.prompt`, `indexing`
-- Konsep commands Kilo: pola pemuatan `{command,commands}/**/*.md` rekursif, frontmatter command (`description`, `agent`, `model`, `variant`, `subtask`), variabel template (`$1`–`$N`, `$ARGUMENTS`, `@file`)
+- Konsep commands Kilo: pola pemuatan `{command,commands}/**/*.md` rekursif, frontmatter command (`description`, `agent`, `model`, `variant`, `subtask`), variabel template (`$1`-`$N`, `$ARGUMENTS`, `@file`)
 - Skill bawaan: `kilo-config` (builtin, generik; bukan pengganti skill ini dan bukan project-local)
 
 ## Aturan
 
-1. Sumber kebenaran konfigurasi Kilo proyek adalah `.kilo/kilo.jsonc` (bukan `kilo.json`, bukan `~/.config/kilo/kilo.jsonc` global, bukan `docs/kilo/kilo_global.txt`). Baca ulang berkas ini setiap interaksi — nilai (terutama `permission`) dapat berubah sewaktu-waktu.
+1. Sumber kebenaran konfigurasi Kilo proyek adalah `.kilo/kilo.jsonc` (bukan `kilo.json`, bukan `~/.config/kilo/kilo.jsonc` global, bukan `docs/kilo/kilo_global.txt`). Baca ulang berkas ini setiap interaksi - nilai (terutama `permission`) dapat berubah sewaktu-waktu.
 2. Sebelum menjalankan `bash` atau tindakan lain, wajib baca bagian `permission` pada `.kilo/kilo.jsonc` (AGENTS.md aturan 11). Gunakan tool bawaan lebih dahulu sesuai `.agents/skills/non-code/penggunaan-tool-bawaan-kilo/SKILL.md`; shell hanya untuk operasi tanpa padanan tool. Izin `deny` bersifat mutlak: DILARANG dilewati, diakali, atau dieksekusi lewat perintah lain.
 3. Daftar `deny` dapat berubah setiap saat; baca `.kilo/kilo.jsonc` dan jangan menghafal atau menyalin daftar tersebut ke skill/dokumen. Verifikasi dari berkas pada setiap interaksi.
 4. Config global `~/.config/kilo/kilo.jsonc` kini nyaris kosong (hanya `$schema`, terverifikasi 2026-11-12). Seluruh `permission` aktif berada di config proyek; jangan mengandalkan global.
@@ -55,7 +51,7 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 
 ### Variabel Template
 
-- `$1`–`$N`: argumen positional (kata ke-1 sampai ke-N dari argumen command).
+- `$1`-`$N`: argumen positional (kata ke-1 sampai ke-N dari argumen command).
 - `$ARGUMENTS`: seluruh string argumen apa adanya.
 - `@file`: TIDAK di-expand oleh Kilo (terverifikasi via uji pada sesi 2026-11-13); teks sampai ke model apa adanya dan agen membaca isi berkas dengan tool `read`. Jangan menaruh `@file` dengan harapan isinya disuntik otomatis.
 - `` !`cmd` ``: output shell; sintaks ini berisiko ambigu di editor dan DILARANG dipakai pada command proyek.
@@ -66,12 +62,12 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 
 - Command kustom TIDAK dapat mendaftarkan subcommand lewat frontmatter (berbeda dengan command bawaan seperti `/review uncommitted`).
 - Pola (a): satu berkas dengan positional `$1` + percabangan instruksi + fallback tool `question` saat argumen kosong/tidak dikenal. Rujukan nyata pola fallback: `.kilo/commands/kerjakan_hasil_diskusi.md` (meminta input file diskusi bila belum ditentukan) dan `.kilo/commands/sinkronkan_semua.md` (memakai `git status`/`git diff` sebagai sumber saat konteks hilang, lalu `question` bila tetap tidak jelas).
-- Pola (b): satu berkas per subcommand (masing-masing tampil sebagai entri terpisah) dengan logika bersama di-_include_. Catatan akurasi: contoh historis pola ini (`contoh_menu.md`, `contoh_menu_satu.md`, `contoh_menu_dua.md`, `.kilo/shared/contoh_bersama.md`) **tidak ditemukan di repository** (dibuat di working tree pada 2026-11-13, tidak pernah ter-commit, dan kini sudah tidak ada) — jangan dirujuk seolah berkas nyata; gunakan pola (a) atau susun berkas baru sesuai kebutuhan.
+- Pola (b): satu berkas per subcommand (masing-masing tampil sebagai entri terpisah) dengan logika bersama di-_include_. Catatan akurasi: contoh historis pola ini (`contoh_menu.md`, `contoh_menu_satu.md`, `contoh_menu_dua.md`, `.kilo/shared/contoh_bersama.md`) **tidak ditemukan di repository** (dibuat di working tree pada 2026-11-13, tidak pernah ter-commit, dan kini sudah tidak ada) - jangan dirujuk seolah berkas nyata; gunakan pola (a) atau susun berkas baru sesuai kebutuhan.
 
 ### Konvensi Proyek untuk Commands
 
 - Isi command menggunakan bahasa Indonesia baku, bergaya instruksi untuk agen (bukan kode Dart).
-- Cantumkan larangan eksplisit bila command tidak boleh menyentuh sesuatu (kode Dart, file hasil generate, arsip `hasil_diskusi/`, `docs/kilo/kilo_global.txt`, commit/push) — contoh nyata: `.kilo/commands/sinkronkan_semua.md`.
+- Cantumkan larangan eksplisit bila command tidak boleh menyentuh sesuatu (kode Dart, file hasil generate, arsip `hasil_diskusi/`, `docs/kilo/kilo_global.txt`, commit/push) - contoh nyata: `.kilo/commands/sinkronkan_semua.md`.
 - Larangan umum lain: jangan commit/push kecuali diminta; jangan mengubah config Kilo tanpa keputusan pengguna.
 - Contoh command yang baik di proyek ini: `.kilo/commands/tambah_log.md`, `.kilo/commands/kerjakan_task.md`, `.kilo/commands/analisa_log.md`, `.kilo/commands/kerjakan_hasil_diskusi.md`.
 - Setelah membuat/mengubah command, jalankan `.kilo/commands/sinkronkan_semua.md` bila diperlukan agar tidak ada rujukan yang usang, dan perbarui `MEMORI.md`/`memori/riwayat_perubahan.md` bila mengubah state proyek.
@@ -94,7 +90,7 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 ## Contoh Benar
 
 ```jsonc
-// Pola wiring prompt agent dengan berkas (di .kilo/kilo.jsonc — commit 50ee3c7, 26362be)
+// Pola wiring prompt agent dengan berkas (di .kilo/kilo.jsonc - commit 50ee3c7, 26362be)
 "agent": {
   "ask": {
     "model": "kilo/kilo-auto/free",
@@ -105,7 +101,7 @@ Prosedur dan larangan konfigurasi Kilo tingkat proyek (`.kilo/kilo.jsonc`) beser
 ```
 
 ```markdown
-<!-- .kilo/commands/tambah_log.md (contoh nyata — frontmatter minimal + instruksi bahasa Indonesia) -->
+<!-- .kilo/commands/tambah_log.md (contoh nyata - frontmatter minimal + instruksi bahasa Indonesia) -->
 
 ---
 

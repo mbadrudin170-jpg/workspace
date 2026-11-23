@@ -22,7 +22,7 @@ flutter pub upgrade
 ## Contoh Salah
 
 ```yaml
-# pubspec.yaml — DILARANG: menambahkan paket manual
+# pubspec.yaml - DILARANG: menambahkan paket manual
 dependencies:
   http: ^1.2.0
 ```

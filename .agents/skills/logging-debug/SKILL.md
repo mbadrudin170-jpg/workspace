@@ -1,10 +1,6 @@
 ---
 name: logging-debug
-description: "Trigger: saat menambahkan log debug; saat membersihkan/mengurangi log berlebihan (narasi langkah, banner separator) | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten; log narasi langkah tanpa nilai aktual dan banner/separator DILARANG; L.e wajib menyertakan stack trace ($e $s); dilarang membuat wrapper log manual per proyek — cukup gunakan L dari share_global_saya. Logging Debug pada Variabel dan Parameter Gunakan sistem logging yang sudah tersedia di proyek (`L.*` dari `share_global_saya`, `lib/src/utils/l.dart`) untuk mencatat nilai variabel dan parameter, alih-alih membuat sistem logging baru. API `L` (share_global_saya) - `L.i(String message)` → `ℹ️ …` (`TipeLog.info`) - `L.s(String message)` → `✅ …` (`TipeLog.sukses`) - `L.w(String message)` → `⚠️ …` (`TipeLog.warning`) - `L.e(String message)` → `❌ …` (`TipeLog.error`) - `L.json(Map<String, dynamic> data)` → `📦 …` (`TipeLog.info`) - `L.list(List<dynamic> items, {String label ="
-metadata:
-  kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Thu Nov 19 2026 02:38 WIB"
+description: "Trigger: saat menambahkan log debug; saat membersihkan/mengurangi log berlebihan (narasi langkah, banner separator) | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten; log narasi langkah tanpa nilai aktual dan banner/separator DILARANG; L.e wajib menyertakan stack trace ($e $s); dilarang membuat wrapper log manual per proyek - cukup gunakan L dari share_global_saya. Logging Debug pada Variabel dan Parameter Gunakan sistem logging yang sudah tersedia di proyek (`L.*` dari `share_global_saya`, `lib/src/utils/l.dart`) untuk mencatat nilai variabel dan parameter, alih-alih membuat sistem logging baru. API `L` (share_global_saya) - `L.i(String message)` → `ℹ️ …` (`TipeLog.info`) - `L.s(String message)` → `✅ …` (`TipeLog.sukses`) - `L.w(String message)` → `⚠️ …` (`TipeLog.warning`) - `L.e(String message)` → `❌ …` (`TipeLog.error`) - `L.json(Map<String, dynamic> data)` → `📦 …` (`TipeLog.info`) - `L.list(List<dynamic> items, {String label ="
 ---
 
 # Logging Debug pada Variabel dan Parameter
@@ -26,9 +22,9 @@ Gunakan sistem logging yang sudah tersedia di proyek (`L.*` dari `share_global_s
 - `L.init(ProviderContainer container)` WAJIB dipanggil dengan container yang sama dengan root app; tanpa init, log hanya keluar ke console (`debugPrint`, `kDebugMode`) dan TIDAK masuk panel overlay.
 - Routing ke overlay: setiap log ditambahkan sinkron ke buffer `L.buffer`, lalu di-kirim ke `logDebugProvider.notifier.tambah(model)` lewat `Future.delayed(Duration(milliseconds: 50))` dalam `try/catch` (kegagalan dicatat via `debugPrint` di `kDebugMode` saja).
 - `L.hapusBuffer()` mengosongkan `L.buffer` (sinkron dengan `hapusSemua` notifier).
-- `L.buffer` adalah sumber gabungan panel overlay (dedup per `id` dengan `logDebugProvider`) — lihat skill `overlay-log-debug`.
-- `showLocation = true` (default): setiap output console diberi prefix `[<file.dart>:<line>]` hasil parse stack trace (`useTerse = true`; frame `.g.dart`/`.freezed.dart`/riverpod/flutter/dart-sdk dilewati; fallback `_getCallerInfoManual`). `_aktifkanLog = true` bersifat `final` — tidak ada API publik untuk mematikan logging.
-- `L` bukan pengganti `print()` untuk debugging satu-kali sembarangan; helper paralel `p(...)` (`print_custom.dart`, `kDebugMode` saja) khusus dipakai internal `share_global_saya` dan TIDAK routing ke overlay — jangan dipakai di kode proyek sebagai pengganti `L`.
+- `L.buffer` adalah sumber gabungan panel overlay (dedup per `id` dengan `logDebugProvider`) - lihat skill `overlay-log-debug`.
+- `showLocation = true` (default): setiap output console diberi prefix `[<file.dart>:<line>]` hasil parse stack trace (`useTerse = true`; frame `.g.dart`/`.freezed.dart`/riverpod/flutter/dart-sdk dilewati; fallback `_getCallerInfoManual`). `_aktifkanLog = true` bersifat `final` - tidak ada API publik untuk mematikan logging.
+- `L` bukan pengganti `print()` untuk debugging satu-kali sembarangan; helper paralel `p(...)` (`print_custom.dart`, `kDebugMode` saja) khusus dipakai internal `share_global_saya` dan TIDAK routing ke overlay - jangan dipakai di kode proyek sebagai pengganti `L`.
 
 ## Aturan
 
@@ -49,7 +45,7 @@ Gunakan sistem logging yang sudah tersedia di proyek (`L.*` dari `share_global_s
 ## Larangan
 
 - Jangan membuat sistem logging baru.
-- Jangan membuat kelas/wrapper log manual per proyek (mis. `lib/debug/log.dart` dengan `class Log`, `_formatData`, atau `_logCustom`) — hapus dan migrasikan seluruh pemakaiannya ke `L` dari `share_global_saya` (`package:share_global_saya/src/utils/l.dart`); `L` adalah satu-satunya pintu masuk logging yang sah.
+- Jangan membuat kelas/wrapper log manual per proyek (mis. `lib/debug/log.dart` dengan `class Log`, `_formatData`, atau `_logCustom`) - hapus dan migrasikan seluruh pemakaiannya ke `L` dari `share_global_saya` (`package:share_global_saya/src/utils/l.dart`); `L` adalah satu-satunya pintu masuk logging yang sah.
 - Jangan mencetak properti model satu per satu (gunakan `$model`).
 - Jangan mencetak data sensitif.
 - Jangan mengubah logika program saat menambahkan log.

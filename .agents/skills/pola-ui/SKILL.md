@@ -1,10 +1,6 @@
 ---
 name: pola-ui
 description: "Trigger: saat menerapkan pola UI Flutter | Indeks: visualisasi-progres-impian, isolasi-widget-timer, gaya, widget-custom. Prinsip single responsibility dan textTheme + copyWith. Indeks Pola UI Standar Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untuk setiap pola UI. Jangan menduplikasi isi skill spesifik di sini. Semua pola UI yang tercantum di bawah ini sudah terimplementasi di proyek Flutter dan dapat digunakan sebagai referensi untuk pola serupa di proyek lain. Cakupan yang Di-Cover - Package: `package:flutter` (class `StatelessWidget`, `StatefulWidget`, `Timer`, `Column`, `Row`, `Card`, `LinearProgressIndicator`, `Stack`, `Icon`, `Text`, `Chip`, `ColorScheme`, `ThemeData`) - Class: `ImpianProgresHelper`, `VisualTabunganImpian`, `_TimerCravingView`, `_HeaderPemulihan`, `DateTime`, `FormatUang` - Properti: `spacing`, `padding`, `rasio`, `saldo`, `target`, `mounted` - Method: `ImpianProgresHelper.rasio()`, `ImpianProgresHelper.tercapai("
-metadata:
-  kategori: "custom"
-  versi: "1.0.1"
-  diperbarui: "Sun Nov 15 2026 02:10 WIB"
 ---
 
 # Indeks Pola UI Standar
@@ -29,7 +25,7 @@ Skill ini berfungsi sebagai indeks/ringkasan yang merujuk ke skill spesifik untu
 7. Navigasi non-blocking wajib menggunakan `unawaited()` dengan `.catchError()`.
 8. Wajib cek `mounted` di callback timer sebelum update state.
 9. Wajib panggil `timer.cancel()` di `dispose()` untuk mencegah memory leak.
-10. Rasio progres wajib di-clamp ke 0.0–1.0 sebelum dipakai di `LinearProgressIndicator`.
+10. Rasio progres wajib di-clamp ke 0.0-1.0 sebelum dipakai di `LinearProgressIndicator`.
 
 ## Larangan
 
