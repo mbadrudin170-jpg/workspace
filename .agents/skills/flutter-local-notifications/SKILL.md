@@ -1,15 +1,15 @@
 ---
 name: flutter-local-notifications
-description: "Gunakan ini saat menambahkan notifikasi lokal Flutter | Panduan flutter_local_notifications v23.0.0: cek platform, izin runtime, payload validation, lifecycle tap, exception khusus, unawaited catchError, dan penjadwalan terjadwal."
+description: "Gunakan ini saat menambahkan notifikasi lokal Flutter | Panduan flutter_local_notifications v23.0.3: cek platform, izin runtime, payload validation, lifecycle tap, exception khusus, unawaited catchError, dan penjadwalan terjadwal."
 ---
 
-# Standar flutter_local_notifications v23.0.0 pada Notifikasi Harian
+# Standar flutter_local_notifications v23.0.3 pada Notifikasi Harian
 
 Aturan khusus untuk plugin versi 23.0.0: cek platform, dukungan multi-platform (Android/iOS/macOS/Linux/Windows), izin runtime, payload, lifecycle tap, dan penjadwalan terjadwal.
 
 ## Cakupan yang Di-Cover
 
-- Package: `package:flutter_local_notifications` v23.0.0 (class `FlutterLocalNotificationsPlugin`, `InitializationSettings`, `AndroidInitializationSettings`, `DarwinInitializationSettings`, `LinuxInitializationSettings`, `WindowsInitializationSettings`, `NotificationDetails`, `NotificationResponse`, `AndroidNotificationDetails`, `DarwinNotificationDetails`, `LinuxNotificationDetails`, `WindowsNotificationDetails`), `package:timezone` as `tz` (class `tz`, `TZDateTime`), `dart:async` (`unawaited`)
+- Package: `package:flutter_local_notifications` v23.0.3 (class `FlutterLocalNotificationsPlugin`, `InitializationSettings`, `AndroidInitializationSettings`, `DarwinInitializationSettings`, `LinuxInitializationSettings`, `WindowsInitializationSettings`, `NotificationDetails`, `NotificationResponse`, `AndroidNotificationDetails`, `DarwinNotificationDetails`, `LinuxNotificationDetails`, `WindowsNotificationDetails`), `package:timezone` as `tz` (class `tz`, `TZDateTime`), `dart:async` (`unawaited`)
 - Class: `FlutterLocalNotificationsPlugin`, `InitializationSettings`, `AndroidInitializationSettings`, `DarwinInitializationSettings`, `LinuxInitializationSettings`, `WindowsInitializationSettings`, `NotificationDetails`, `NotificationResponse`, `AndroidNotificationDetails`, `DarwinNotificationDetails`, `LinuxNotificationDetails`, `WindowsNotificationDetails`, `TZDateTime`, `AndroidFlutterLocalNotificationsPlugin`, `IOSFlutterLocalNotificationsPlugin`, `MacOSFlutterLocalNotificationsPlugin`, `WebFlutterLocalNotificationsPlugin`, `LinuxFlutterLocalNotificationsPlugin`, `FlutterLocalNotificationsWindows`
 - Enum: `Importance`, `Priority`, `AndroidScheduleMode`, `DateTimeComponents`, `RepeatInterval`, `LinuxNotificationUrgency`, `LinuxNotificationTimeout`, `WebNotificationDirection`
 - Method: `plugin.initialize()`, `plugin.zonedSchedule()`, `plugin.show()`, `plugin.cancel()`, `plugin.cancelAll()`, `plugin.cancelAllPendingNotifications()`, `plugin.getNotificationAppLaunchDetails()`, `plugin.resolvePlatformSpecificImplementation()`, `plugin.pendingNotificationRequests()`, `plugin.openAppNotificationSettings()`, `plugin.getActiveNotifications()`, `androidPlugin?.requestNotificationsPermission()`, `iosPlugin?.requestPermissions()`, `macOSPlugin?.requestPermissions()`, `unawaited()`, `catchError()`

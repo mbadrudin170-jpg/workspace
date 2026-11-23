@@ -1,46 +1,36 @@
 # Sesi 100
 
-- Tugas 1: Perbaiki `admin_wifi/lib/widget/transaksi_list_widgets.dart:25-26` penggunaan operator `!` pada `grouped[date]!.add(t)`; kodifikasi aturan ke `.agents/rules/code.md` dan skill `pencarian-koleksi-null-safe`; tambah contoh kode benar; perbarui deskripsi skill.
-- Perubahan Tugas 1:
-  - `admin_wifi/lib/widget/transaksi_list_widgets.dart`: ganti `if (grouped[date] == null) { grouped[date] = []; } grouped[date]!.add(t);` dengan `grouped.putIfAbsent(date, () => []).add(t);`.
-  - `.agents/rules/code.md` aturan 36: tambahkan alternatif `putIfAbsent` saat menambah ke koleksi di dalam Map beserta contoh.
-  - `.agents/skills/pencarian-koleksi-null-safe/SKILL.md`: tambah aturan 14-15 (putIfAbsent), contoh benar/salah, larangan `map[key]!.add(x)`, perbarui description dan tanggal diperbarui.
+## Status
 
-- Tugas 2: Ubah `AlertDialog` manual di `admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart:69` agar sesuai aturan (dialog konfirmasi ya/tidak wajib `showOkCancelAlertDialog` dari `adaptive_dialog`).
-- Perubahan Tugas 2:
-  - Tambah import `package:adaptive_dialog/adaptive_dialog.dart`.
-  - `_tampilkanDialogHapusSemua` dan `_showDialogHapusSatu` dikonversi ke `showOkCancelAlertDialog` (OkCancelResult.ok), menghapus `showDialog` + `AlertDialog` manual.
-- Tugas 3: Satukan `_hapusSemuaDompet()` ke dalam `_tampilkanDialogHapusSemua()` di `admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart` (hapus method terpisah, inline logika hapus + `_loadDompet()` setelah konfirmasi).
-- Tugas 4: Satukan `_hapusSatuDompet()` ke dalam `_showDialogHapusSatu()` di `admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart`.
-- Tugas 5: Hapus method `_loadDompet()` di `admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart`; inline pemanggilan `muatUlang()` + refresh ringkasan di call site.
-- Tugas 6: Kodifikasi aturan dialog konfirmasi (showOkCancelAlertDialog) ke `.agents/rules/code.md` aturan 30 (contoh benar) dan skill `pola-ux` (deskripsi, contoh benar/salah, larangan); perbarui tanggal.
-- Tugas 7: Tambahkan tombol "Coba Lagi" pada state error DompetPage (`admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart`) dengan `ref.refresh(dompetProvider)`, mengikuti pola transaksi_screen.
-- Tugas 8: Pisahkan tampilan error DompetPage ke widget privat `_TampilanErrorDompet` (StatelessWidget dengan onRetry).
-- Tugas 9: Ubah `_TampilanErrorDompet` (widget privat) menjadi method privat `_buildTampilanError` di `admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart`.
-- Tugas 10: Audit/perbaikan `admin_wifi/lib/fitur/dompet/screens/dompet_screen.dart` sesuai skill dimuat: empty state → EmptyStateView, tipografi DompetCard via textTheme, hapus `late` field `_dompetOperasi` (inline ref.read), retry button pada RingkasanKeuangan error, impor core_shared, dart format.
-- Tugas 11: Kodifikasi aturan EmptyStateView (empty-state-daftar) dan tipografi (textTheme) ke `.agents/rules/code.md` (aturan 37-38) beserta contoh benar; perbarui deskripsi dan tanggal skill terkait.
-- Tugas 12: Perbaiki `prompt/commands/muat_skill_terkait.md` dan `.kilo/commands/muat_skill_terkait.md`: tambah frontmatter (description, agent) pada .kilo, perbarui jumlah skill (50→55), sinkronkan deskripsi skill yang berubah (empty-state-daftar, pencarian-koleksi-null-safe, pola-ux, tipografi), perbarui tanggal.
-- Tugas 13: Perbaiki `admin_wifi/lib/halaman/tab/pesanan.dart` sesuai aturan: hapus banner/narasi log, dialog konfirmasi → showOkCancelAlertDialog, SnackBar → AppToast, empty state → EmptyStateView, withAlpha → withValues, tipografi via textTheme, spacing via properti spacing, _detailRow/_summaryCard disesuaikan.
-- Tugas 14: Refactor `admin_wifi/lib/halaman/tab/pesanan.dart` ke async Riverpod: hapus `_muatPesanan()` di initState, konversi ke ConsumerStatefulWidget, `ref.watch(pesananProvider)` dengan handling loading/error/empty, muatUlang/updateStatus/hapus via `ref.read(pesananProvider.notifier)`, filter client-side; dart format + analyze bersih.
-- Tugas 15: Pindahkan method `_showPesananDetail` (dan helper `_detailRow`) ke atas `build` di `admin_wifi/lib/halaman/tab/pesanan.dart` (sesuai struktur class UI); perbaiki penutup kelas ganda; dart format + analyze bersih.
-- Tugas 16: Kodifikasi aturan struktur class UI (semua method di atas build) ke `.agents/rules/code.md` (aturan 39) beserta contoh benar; perbarui deskripsi dan tanggal skill `struktur-class-ui`; sinkronkan deskripsi di `prompt/commands/muat_skill_terkait.md` dan `.kilo/commands/muat_skill_terkait.md`.
-- Tugas 17: Pulihkan aturan yang hilang di `.agents/rules/code.md` (aturan 36 Map access, 38 tipografi) dan pastikan aturan 37 (EmptyStateView) serta 39 (struktur class UI) tetap; perbarui deskripsi skill terkait; sinkronkan deskripsi di `prompt/commands/muat_skill_terkait.md` dan `.kilo/commands/muat_skill_terkait.md`.
-- Tugas 18: Ubah `FilterChip` menjadi `ChoiceChip` pada filter status di `admin_wifi/lib/halaman/tab/pesanan.dart` (pilihan tunggal); dart format + analyze bersih.
-- Tugas 19: Set `showCheckmark: false` pada `ChoiceChip` filter status di `admin_wifi/lib/halaman/tab/pesanan.dart`; dart format + analyze bersih.
-- Tugas 20: Ubah detail pesanan agar menampilkan nama pelanggan dan nama paket (bukan ID) via `ref.read(pelangganProvider)`/`ref.read(paketProvider)` + `getById(...)?.nama`; dart format + analyze bersih.
-- Tugas 21: Pindahkan pembacaan `ref.read(pelangganProvider)`/`ref.read(paketProvider)` dari `_showPesananDetail` ke `build` (struktur class UI: build membaca provider), dan teruskan state ke helper; sesuaikan tipe `AsyncValue<...>`; dart format + analyze bersih.
-- Tugas 22: Pindahkan `build` ke akhir kelas `pesanan.dart` (semua method di atas build, sesuai struktur-class-ui); perbaiki method `_getStatusText` yang hilang; dart format + analyze bersih.
-- Tugas 23: Konsistensi struktur: pindahkan `build` ke akhir `_TransaksiPageState` di `admin_wifi/lib/fitur/transaksi/screens/transaksi_screen.dart` (semua method di atas build, sesuai struktur-class-ui); dart format + analyze bersih.
-- Tugas 24: Perbaiki struktur `transaksi_screen.dart` yang rusak (pindah `_buildTransaksiList` ke atas `build`, sesuai struktur-class-ui); rewrite bersih; dart format + analyze bersih.
-- Tugas 25: Susun ulang `pesanan.dart` agar `build` di atas dan seluruh method widget di bawah `build` (sesuai instruksi pengguna); perbaiki duplikasi build; dart format + analyze bersih.
-- Tugas 26: Susun ulang `dompet_screen.dart` agar `_buildTampilanError` (widget) berada di bawah `build` (sesuai instruksi pengguna); dart format + analyze bersih.
-- Tugas 27: Revisi `_showPesananDetail` pada `pesanan.dart`: kembalikan pembacaan provider ke dalam method (event handler) via `ref.read`, hapus parameter AsyncValue dari helper, bersihkan impor state yang tidak dipakai; dart format + analyze bersih.
-- Tugas 28: Tangani loading/error untuk pelanggan dan paket di `build` pesanan.dart (watch + retry ref.refresh), teruskan state ke helper; dart format + analyze bersih.
-- Tugas 29: Kodifikasi aturan multiple async providers (loading gabungan, error terpisah, retry ref.refresh) ke `.agents/rules/code.md` (aturan 40) beserta contoh benar; perbarui tanggal skill `penanganan-async`; sinkronkan tanggal di `prompt/commands/muat_skill_terkait.md`.
-- Tugas 30: Pulihkan kembali aturan 37 (EmptyStateView) di `.agents/rules/code.md` (hilang akibat edit sebelumnya); verifikasi urutan 36–40 lengkap; sinkronkan berkas command bila perlu.
-- Tugas 31: Ekstrak blok error (pesanan/pelanggan/paket) di `pesanan.dart` menjadi method widget `_buildError`; pulihkan `_detailRow` yang terhapus; dart format + analyze bersih.
-- Tugas 32: Kodifikasi aturan satu method widget helper untuk penanganan error (`_buildError`) ke `.agents/rules/code.md` (aturan 41) beserta contoh benar; perbarui deskripsi dan tanggal skill `penanganan-async`; sinkronkan deskripsi di `prompt/commands/muat_skill_terkait.md` dan `.kilo/commands/muat_skill_terkait.md`.
-- Tugas 33: Pulihkan aturan 40 (multiple async providers) yang hilang di `.agents/rules/code.md` (tertimpa saat menambah aturan 41); verifikasi urutan 36–41 lengkap; sinkronkan berkas command bila perlu.
-- Tugas 34: Perbarui `.kilo/commands/perbarui_aturan_dan_skill.md` agar memerintahkan baca utuh `code.md` terlebih dahulu dan melarang penghapusan poin aturan yang tidak diminta; tambah ketentuan append + verifikasi jumlah poin.
-- Tugas 35: Pindahkan method `_getStatusColor` ke paling bawah kelas `pesanan.dart` (sesuai instruksi pengguna); pulihkan `_detailRow` yang terhapus; tambah impor state; dart format + analyze bersih.
-- Status: Selesai.
+- Status Sinkron: Sudah Sinkron
+- Tanggal: 2026-11-23
+- Command: interaksi langsung (tanpa command)
+- Topik: Pisahkan scan wifi sekitar ke provider terpisah dari WifiAnalyzerNotifier.
+
+## Catatan Sesi
+
+- Membuat provider/state baru `WifiScanNotifier`/`WifiScanState` (`wifi_scan_notifier.dart`, `wifi_scan_state.dart`) yang memuat logika scan sekitar (`_pindaiSekitar`) dan stream periodik.
+- `WifiAnalyzerNotifier` dan `WifiAnalyzerState` tidak lagi memuat scan/error scan/accessPoints/timestamp scan; hanya info koneksi.
+- Layar `wifi_analyzer_screen.dart` kini `ref.watch` dua provider (analyzer + scan), menampilkan loading/error gabungan, daftar AP dari scan provider, dan info koneksi memakai hasil scan untuk frekuensi/sinyal.
+- Alias kompatibilitas dihapus atas permintaan pengguna; hanya `wifi_scan_notifier.dart` dan `wifi_scan_state.dart` yang dipertahankan.
+- Menjalankan `build_runner`, `dart analyze` (No issues), `dart format` (bersih), dan `flutter test` (lulus).
+
+## Berkas Terdampak
+
+| Lokasi File | Status Perubahan | Deskripsi |
+|---|---|---|
+| admin_wifi/lib/fitur/wifi_analyzer/state/wifi_scan_state.dart | baru | State scan wifi sekitar (Freezed) |
+| admin_wifi/lib/fitur/wifi_analyzer/state/wifi_scan_state.freezed.dart | baru (generate) | Hasil build_runner |
+| admin_wifi/lib/fitur/wifi_analyzer/notifier/wifi_scan_notifier.dart | baru | Notifier scan wifi sekitar |
+| admin_wifi/lib/fitur/wifi_analyzer/notifier/wifi_scan_notifier.g.dart | baru (generate) | Hasil build_runner |
+| admin_wifi/lib/fitur/wifi_analyzer/state/wifi_analyzer_state.dart | diubah | Hapus field scan/accessPoints/g getters |
+| admin_wifi/lib/fitur/wifi_analyzer/state/wifi_analyzer_state.freezed.dart | diubah (generate) | Hasil build_runner |
+| admin_wifi/lib/fitur/wifi_analyzer/notifier/wifi_analyzer_notifier.dart | diubah | Hapus logika scan |
+| admin_wifi/lib/fitur/wifi_analyzer/notifier/wifi_analyzer_notifier.g.dart | diubah (generate) | Hasil build_runner |
+| admin_wifi/lib/fitur/wifi_analyzer/dummy/wifi_analyzer_dummy.dart | diubah | Hapus accessPoints dummy |
+| admin_wifi/lib/fitur/wifi_analyzer/screens/wifi_analyzer_screen.dart | diubah | Watch dua provider, gabungan loading/error |
+| admin_wifi/test/fitur/wifi_analyzer/screens/wifi_analyzer_screen_test.dart | diubah | Override scan provider palsu |
+
+## Sinkronisasi ke MEMORI.md
+
+- Tidak ada entri durable baru yang perlu dipromosikan; perubahan bersifat refactor lokal.

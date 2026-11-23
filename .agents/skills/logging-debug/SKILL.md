@@ -1,6 +1,6 @@
 ---
 name: logging-debug
-description: "Gunakan ini saat menambahkan log debug; saat membersihkan/mengurangi log berlebihan (narasi langkah, banner separator) | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten; log narasi langkah tanpa nilai aktual dan banner/separator DILARANG; L.e wajib menyertakan stack trace ($e $s); dilarang membuat wrapper log manual per proyek - cukup gunakan L dari share_global_saya. Logging Debug pada Variabel dan Parameter Gunakan sistem logging yang sudah tersedia di proyek (`L.*` dari `share_global_saya`, `lib/src/utils/l.dart`) untuk mencatat nilai variabel dan parameter, alih-alih membuat sistem logging baru. API `L` (share_global_saya) - `L.i(String message)` → `ℹ️ …` (`TipeLog.info`) - `L.s(String message)` → `✅ …` (`TipeLog.sukses`) - `L.w(String message)` → `⚠️ …` (`TipeLog.warning`) - `L.e(String message)` → `❌ …` (`TipeLog.error`) - `L.json(Map<String, dynamic> data)` → `📦 …` (`TipeLog.info`) - `L.list(List<dynamic> items, {String label ="
+description: "Gunakan ini saat menambahkan log debug; saat membersihkan/mengurangi log berlebihan (narasi langkah, banner separator) | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten; log narasi langkah tanpa nilai aktual dan banner/separator DILARANG; L.e wajib menyertakan stack trace."
 ---
 
 # Logging Debug pada Variabel dan Parameter

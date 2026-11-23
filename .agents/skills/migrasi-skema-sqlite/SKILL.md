@@ -1,6 +1,6 @@
 ---
 name: migrasi-skema-sqlite
-description: "Gunakan ini saat menambah atau mengubah tabel, kolom, indeks, atau migrasi SQLite | Naikkan versi, update onCreate dan onUpgrade, cerminkan perubahan di onCreate, verifikasi PRAGMA table_info; hindari untuk perubahan non-skema. Migrasi Skema Database SQLite Setiap perubahan skema wajib menaikkan versi database, update `onCreate` dan `onUpgrade` dengan kondisi versi yang sesuai. Perubahan kolom/indeks pada tabel yang sudah ada wajib dicerminkan di definisi `CREATE TABLE` pada `onCreate`, bukan hanya di `onUpgrade`. Aturan 1. Setiap perubahan skema wajib menaikkan konstanta `_versiDatabase` (increment satu per migrasi). 2. Metode `onCreate` wajib membuat seluruh tabel yang dibutuhkan aplikasi, termasuk tabel baru, agar instalasi baru memiliki skema lengkap. 3. Metode `onUpgrade` wajib menangani setiap versi lama secara kondisional menggunakan `if (oldVersion < N)` untuk setiap versi yang ditambahkan. 4. Tabel baru pada versi tertentu wajib dibuat baik di `onCreate` maupun di `onUpgrade` (agar pengguna lama mendapa"
+description: "Gunakan ini saat menambah atau mengubah tabel, kolom, indeks, atau migrasi SQLite | Naikkan versi, update onCreate dan onUpgrade, cerminkan perubahan di onCreate, verifikasi PRAGMA table_info; hindari untuk perubahan non-skema."
 ---
 
 # Migrasi Skema Database SQLite
