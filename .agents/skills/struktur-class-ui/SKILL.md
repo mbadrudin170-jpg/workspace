@@ -11,11 +11,11 @@ Panduan struktur class widget UI reusable yang konsisten, pure, dan aman tema.
 
 1. Widget reusable WAJIB `StatelessWidget` bila tidak memerlukan state.
 2. Semua parameter WAJIB `final` dan constructor WAJIB `const` bila memungkinkan.
-3. Method `build` WAJIB pure (tidak memanggil side-effect, tidak membaca provider langsung) dan WAJIB berada di atas seluruh method helper widget (yang mengembalikan `Widget`). Method helper privat aksi (nama diawali `_`, mengembalikan `void`) WAJIB di atas `build`; method helper non-widget pengembali nilai (`Color`, `String`, `int`, `bool`) WAJIB di paling bawah kelas. Hierarki dari atas ke bawah: helper privat aksi → `build` → helper widget → helper non-widget pengembali nilai.
+3. Urutan method dalam class widget WAJIB mengikuti hierarki: (1) helper privat aksi (nama diawali `_`, return `void` atau `Future<void>`) di atas `build()`; (2) method `build()`; (3) helper widget yang mengembalikan `Widget` (termasuk `_buildXxx`, `_buildError`) di bawah `build()`; (4) helper non-widget pengembali nilai non-widget (`Color`, `String`, `int`, `bool`, dll.) di paling bawah kelas. Method `build` WAJIB pure (tidak memanggil side-effect, tidak membaca provider langsung).
 5. Jarak seragam mengikuti skill `spacing` (Column.spacing/Row.spacing).
 6. Widget WAJIB aman untuk light/dark mode.
-7. Method helper privat (nama diawali `_`, termasuk aksi non-widget seperti `_editXxx`, `_salinXxx`, `_tambahXxx`, `_muatUlang`) WAJIB ditempatkan di atas method `build`; method helper widget yang mengembalikan `Widget` (mis. `_buildXxx`, `_buildError`) tetap di bawah `build`. DILARANG menempatkan method helper privat di bawah `build` atau mencampurnya dengan helper widget di bawah `build`.
-8. Method helper non-widget yang mengembalikan nilai non-widget (mis. `Color`, `String`, `int`, `bool`) WAJIB ditempatkan di paling bawah kelas, setelah seluruh method helper widget dan method `build`; DILARANG mencampur method non-widget di antara method widget.
+7. Penempatan helper aksi privat: helper aksi privat seperti `_editXxx`, `_salinXxx`, `_tambahXxx`, dan `_muatUlang` WAJIB berada sebelum `build()`. Aturan ini hanya berlaku untuk helper aksi, bukan helper widget.
+8. Penempatan helper non-widget: helper non-widget yang mengembalikan nilai seperti `Color`, `String`, `int`, atau `bool` WAJIB ditempatkan setelah seluruh helper widget, pada bagian paling bawah kelas.
 
 ```dart
 class KartuInfo extends StatelessWidget {
@@ -45,6 +45,47 @@ class KartuInfo extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+```
+
+## Contoh Urutan Method
+
+```dart
+class ContohWidget extends StatelessWidget {
+  const ContohWidget({super.key});
+
+  // 1. Helper aksi privat
+  void _simpan() {
+    // ...
+  }
+
+  // 2. Build
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        _buildTombol(),
+        _buildError(),
+      ],
+    );
+  }
+
+  // 3. Helper widget privat
+  Widget _buildTombol() {
+    return const ElevatedButton(
+      onPressed: null,
+      child: Text('Simpan'),
+    );
+  }
+
+  Widget _buildError() {
+    return const Text('Terjadi kesalahan');
+  }
+
+  // 4. Helper non-widget
+  Color _warnaStatus() {
+    return Colors.green;
   }
 }
 ```
