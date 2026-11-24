@@ -53,11 +53,27 @@ rm -f "$OUTPUT_DIR"/*.apk
 echo "Mengunduh artefak '$ARTIFACT' ke $OUTPUT_DIR/..."
 gh run download "$RUN_ID" --repo "$REPO" -n "$ARTIFACT" -D "$OUTPUT_DIR"
 
+# Sertakan tanggal pada nama file APK hasil unduhan agar build berbeda tidak saling menimpa
+TANGGAL="$(date +%Y%m%d-%H%M%S)"
+for apk in "$OUTPUT_DIR"/*.apk; do
+  [ -e "$apk" ] || continue
+  mv -n "$apk" "${apk%.apk}-${TANGGAL}.apk"
+done
+
 # Hapus artefak dari GitHub setelah berhasil diunduh (hemat storage)
 ARTIFACT_ID="$(gh api "repos/$REPO/actions/runs/$RUN_ID/artifacts" --jq '.artifacts[] | select(.name=="'"$ARTIFACT"'") | .id' | head -n1)"
 if [ -n "$ARTIFACT_ID" ]; then
   gh api -X DELETE "repos/$REPO/actions/artifacts/$ARTIFACT_ID" >/dev/null
   echo "Artefak dihapus dari GitHub (id: $ARTIFACT_ID)."
+fi
+
+# Opsional: picu unduhan via Google Cloud Shell bila tersedia (agar APK mudah diunduh ke komputer lokal)
+if command -v cloudshell >/dev/null 2>&1; then
+  APK_FILES=("$OUTPUT_DIR"/*.apk)
+  if [ -e "${APK_FILES[0]}" ]; then
+    echo "Memicu unduhan Cloud Shell untuk APK..."
+    cloudshell download "${APK_FILES[@]}" || echo "Gagal memicu unduhan Cloud Shell (dilewati)."
+  fi
 fi
 
 echo "Selesai. APK ada di folder $OUTPUT_DIR/"
