@@ -1,6 +1,6 @@
 ---
 name: struktur-class-ui
-description: "Gunakan ini saat membuat widget custom reusable | Panduan struktur class UI reusable: StatelessWidget, parameter final, const constructor, build pure, semua method widget di bawah build, dispose di bawah initState, method helper non-widget di paling bawah kelas; DILARANG method helper di atas build. Rujuk skill gaya/spacing/aturan-riverpod. Struktur Class UI Reusable Panduan struktur class widget UI reusable yang konsisten, pure, dan aman tema. Aturan 1. Widget reusable WAJIB `StatelessWidget` bila tidak memerlukan state. 2. Semua parameter WAJIB `final` dan constructor WAJIB `const` bila memungkinkan. 3. Method `build` WAJIB pure (tidak memanggil side-effect, tidak membaca provider langsung). 4. Warna WAJIB dari `ColorScheme`/tema, bukan hardcode (kecuali status semantic). 5. Gunakan `Column.spacing`/`Row.spacing` untuk jarak seragam, bukan `SizedBox` berulang. 6. Widget WAJIB aman untuk light/dark mode."
+description: "Gunakan saat membuat atau mengubah widget UI reusable. Aturan struktur: helper privat aksi (void) wajib di atas build(); build() berada di atas helper widget; helper non-widget pengembali nilai (Color, String, int, bool) wajib di bagian paling bawah kelas. Widget tanpa state wajib menggunakan StatelessWidget, parameter final, const constructor jika memungkinkan, build() harus pure, warna mengikuti tema, dan widget mendukung light/dark mode."
 ---
 
 # Struktur Class UI Reusable
