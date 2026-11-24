@@ -20,8 +20,10 @@ Diperbarui: 2026-11-24
 |---|---|---|
 | `memori/sesi/sesi_268.md` | Dibuat | Berkas sesi baru sesi 268. |
 | `script/build_apk.sh` | Diubah | Tambah blok opsional `cloudshell download`; rename APK hasil unduhan dengan sufiks timestamp (`YYYYMMDD-HHMMSS`). |
-| `admin_wifi/lib/fitur/wifi_analyzer/notifier/perangkat_wifi_notifier.dart` | Diubah | Ganti heuristik statis dengan probe HTTP `Server` header (dinamis, timeout 1 detik) bila vendor MAC null. |
-| `admin_wifi/lib/fitur/wifi_analyzer/widget/list_perangkat_widget.dart` | Diubah | Label manufaktur selalu ditampilkan dengan fallback `Tidak diketahui` saat `vendor` null. |
+| `admin_wifi/lib/fitur/wifi_analyzer/notifier/perangkat_wifi_notifier.dart` | Diubah | Tahap 1 & 2: subnet/hostIds, network change, source, MAC, tipe, layanan, last seen; manufacturer hanya OUI. |
+| `admin_wifi/lib/fitur/wifi_analyzer/model/perangkat_wifi_model.dart` | Diubah | Tambah field identifikasi: `macAddress`, `tipePerangkat`, `layanan`, `terakhirDilihat`, `sumberDiscovery`. |
+| `admin_wifi/lib/fitur/wifi_analyzer/screens/detail_perangkat_screen.dart` | Diubah | Monitoring berkala (5 detik), min/max latency, packet loss, status; port scanner start/stop. |
+| `admin_wifi/lib/fitur/wifi_analyzer/widget/list_perangkat_widget.dart` | Diubah | Tampilkan manufaktur, MAC, tipe, layanan, sumber. |
 
 ## Sinkronisasi ke MEMORI.md
 
