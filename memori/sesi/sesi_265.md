@@ -1,31 +1,11 @@
 # Sesi 265
 
-## Status
-
-- Status Sinkron: Sudah Sinkron
-- Tanggal: 2026-11-23 (Asia/Jakarta)
-- Command: interaksi langsung (tanpa command)
-- Topik: Pertanyaan pengguna — apakah bisa menampilkan semua perangkat yang terhubung ke WiFi yang sama
-
-## Catatan Sesi
-
-- Pengguna bertanya: "apakah bisa kita tampilkan semua perangkat yang terhubung ke wifi yang sama".
-- Tidak ada perubahan kode/dokumen pada sesi ini; hanya diskusi/pertanyaan.
-- Konteks proyek: admin_wifi sudah memakai `network_tools` (^6.0.18), `network_info_plus` (^8.2.2), `dart_ping` (^10.0.1), `wifi_scan` (^0.5.0). Sesi 263 sebelumnya merekomendasikan `network_info_plus` (ambil IP → turunkan subnet) lalu `network_tools` `HostScannerService.getAllPingableDevices`/`getAllPingableDevicesAsync` untuk daftar perangkat di subnet yang sama; alternatif `flutter_local_device_discovery` (^2.0.0) untuk discovery berbasis protokol (mDNS/SSDP/WS-Discovery/UPnP). Keterbatasan: tidak ada paket yang menjamin 100% perangkat (client isolation, firewall, batasan ARP di Android 11+/iOS, hostname sering null di jaringan rumah; MAC/vendor hanya desktop).
-- Jawaban: ya, bisa, dengan pendekatan scan subnet + ping; bukan 100% akurat karena keterbatasan OS/jaringan. Perlu implementasi di fitur wifi_analyzer/admin_wifi jika pengguna meminta.
-
-## Berkas Terdampak
-
-| Lokasi File | Status Perubahan | Deskripsi |
-|---|---|---|
-| `memori/sesi/sesi_265.md` | Dibuat | Berkas sesi aktif |
-| `admin_wifi/lib/fitur/wifi_analyzer/state/perangkat_wifi_state.dart` | Dibuat | State Freezed daftar perangkat |
-| `admin_wifi/lib/fitur/wifi_analyzer/notifier/perangkat_wifi_notifier.dart` | Dibuat | Notifier scan host subnet |
-| `admin_wifi/lib/fitur/wifi_analyzer/notifier/perangkat_wifi_notifier.g.dart` | Dibuat | Hasil build_runner |
-| `admin_wifi/lib/fitur/wifi_analyzer/state/perangkat_wifi_state.freezed.dart` | Dibuat | Hasil build_runner |
-| `admin_wifi/lib/fitur/wifi_analyzer/widget/list_perangkat_widget.dart` | Dibuat | Widget daftar perangkat |
-| `admin_wifi/lib/fitur/wifi_analyzer/screens/wifi_analyzer_screen.dart` | Diubah | Integrasi ListPerangkatWidget |
-
-## Sinkronisasi ke MEMORI.md
-
-Catatan teknis ditambahkan: implementasi daftar perangkat terhubung ke WiFi yang sama (state Freezed + notifier host scan + widget + integrasi screen). Verifikasi dart format/analyze bersih.
+- Tugas: implementasi service discovery (flutter_local_device_discovery) untuk memperkaya daftar perangkat WiFi (nama/MAC/vendor) pada admin_wifi.
+- Perubahan:
+  - pubspec: tambah `flutter_local_device_discovery` (^0.1.0, tersedia 2.0.0).
+  - perangkat_wifi_notifier.dart: jalankan `FlutterLocalDeviceDiscovery.discover` (mDNS/DNS-SD/SSDP/UPnP) paralel dengan host scan, gabungkan hasil berdasarkan IP (nama/vendor/MAC), tambahkan perangkat yang hanya muncul dari discovery.
+  - list_perangkat_widget.dart: fallback label "Perangkat tidak dikenal" bila nama null.
+  - wifi_analyzer_screen_test.dart: alihkan ke mode WiFi sebelum asersi (default mode kini perangkat).
+- Verifikasi: dart format bersih, dart analyze No issues, flutter test wifi_analyzer_screen 1/1 lulus.
+- Catatan: MAC/vendor di Android tetap terbatas oleh OS; discovery hanya memperkaya perangkat yang merespons protokol discovery.
+- Sudah Sinkron
