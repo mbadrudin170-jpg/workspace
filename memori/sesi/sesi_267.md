@@ -19,7 +19,7 @@ Diperbarui: 2026-11-24
 - Pengguna meminta perbaikan deskripsi frontmatter `struktur-class-ui/SKILL.md` agar tidak bertentangan; deskripsi diganti sesuai usulan (DILARANG method helper di atas build → struktur: helper aksi void di atas build, build di atas helper widget, helper non-widget pengembali nilai di bawah).
 - Pengguna meminta `ListPerangkatWidget` tidak lagi `ref.watch(perangkatWifiProvider)` sendiri; state diterima via constructor, dan `wifi_analyzer_screen.dart` mem-watch `perangkatWifiProvider` (agar provider tidak autoDispose saat pindah tampilan dan tidak loading ulang). Perubahan selesai: `ListPerangkatWidget({required this.state})`, import notifier/state di screen, `ref.watch(perangkatWifiProvider)` di build screen, pass `state: perangkatState`. Verifikasi: `dart analyze` No issues, `dart format` bersih.
 - Pengguna meminta auto-refresh pemindaian perangkat tiap 30 detik. Implementasi: `Timer? _timerPemindaian` di notifier, `Timer.periodic(const Duration(seconds: 30), ...)` memanggil `unawaited(_pindai())` jika `ref.mounted`; dibatalkan di `ref.onDispose`. Verifikasi: `dart analyze` No issues, `dart format` bersih.
-- Pengguna meminta konsistensi aturan struktur class UI: perjelas perbedaan helper aksi privat vs helper widget; hierarki helper aksi (void/Future<void>) sebelum build, build, helper widget (Widget), helper non-widget paling bawah. Diterapkan pada `.agents/skills/struktur-class-ui/SKILL.md` (aturan 3, 7, 8 + contoh urutan method) dan `.agents/rules/code.md` (aturan 39, 52). Deskripsi frontmatter dipertahankan. Belum ada verifikasi dart (berkas aturan/skill).
+- Perintah `/buat_readme`: perbarui README `admin_wifi` (tambah tab WiFi Analyzer ke navigasi utama 5 tab, tambah struktur `fitur/wifi_analyzer/`). Root dan `share_global_saya` tidak diubah (sudah akurat). Verifikasi: `git status` hanya README admin_wifi berubah.
 
 ## Berkas Terdampak
 
@@ -33,6 +33,7 @@ Diperbarui: 2026-11-24
 | `admin_wifi/lib/fitur/wifi_analyzer/screens/wifi_analyzer_screen.dart` | Diubah | Watch `perangkatWifiProvider` di build; pass `state` ke `ListPerangkatWidget`. |
 | `admin_wifi/lib/fitur/wifi_analyzer/notifier/perangkat_wifi_notifier.dart` | Diubah | Auto-refresh tiap 30 detik via `Timer.periodic`; batalkan di onDispose. |
 | `.agents/rules/code.md` | Diubah | Aturan 39 dan 52 disesuaikan dengan hierarki baru. |
+| `admin_wifi/README.md` | Diubah | Tambah tab WiFi Analyzer dan struktur folder wifi_analyzer. |
 
 ## Sinkronisasi ke MEMORI.md
 
