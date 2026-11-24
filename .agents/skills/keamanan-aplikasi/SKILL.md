@@ -97,7 +97,6 @@ catch (e, s) {
 
 - `exception-khusus-deteksi-error` skill
 - `penanganan-error-unawaited` skill
-- `logging-debug` skill
 
 ## 5. Dependency Security
 
@@ -160,7 +159,6 @@ catch (e, s) {
 - `konfirmasi-sebelum-simpan` skill
 - `exception-khusus-deteksi-error` skill
 - `penanganan-error-unawaited` skill
-- `logging-debug` skill
 
 ## Referensi Commit Terkait
 

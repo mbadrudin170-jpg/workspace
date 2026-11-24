@@ -1208,7 +1208,7 @@ Panduan pembuatan boilerplate (kode berulang yang siap pakai) agar konsisten den
 5. Hierarki method dari atas ke bawah: method helper privat aksi (nama diawali `_`, mengembalikan `void`) di atas `build`; `build` di atas method helper widget (mengembalikan `Widget`); method helper non-widget pengembali nilai (`Color`, `String`, `int`, `bool`) di paling bawah kelas. `build` WAJIB pure (tanpa side-effect, tanpa baca provider langsung).
 6. Boilerplate notifier Riverpod berbasis codegen WAJIB mengembalikan state immutable Freezed di `build()`; reload via `AsyncValue.data(await _ambilSemua())` + `catch (e, s)` + `L.e(...)` + `rethrow`; nama provider = nama class tanpa akhiran `Notifier` (camelCase).
 7. Boilerplate model database WAJIB Freezed (`abstract class` + `const factory`), `id` non-nullable disuplai pemanggil, parsing lewat `ParserUtil`, key DB lewat `XxxSkema`, tulis UTC baca lokal.
-8. Boilerplate DILARANG memuat log narasi tanpa nilai aktual dan banner/separator (lihat `logging-debug` #12).
+8. Boilerplate DILARANG memuat log narasi tanpa nilai aktual dan banner/separator.
 9. Boilerplate DILARANG memakai operator `!` untuk nullable; gunakan type promotion via variabel lokal (lihat `type-promotion-null-safety`).
 10. Boilerplate DILARANG memakai `package:flutter/material.dart`; wajib `package:material_ui/material_ui.dart`.
 
@@ -2812,7 +2812,6 @@ catch (e, s) {
 
 - `exception-khusus-deteksi-error` skill
 - `penanganan-error-unawaited` skill
-- `logging-debug` skill
 
 ## 5. Dependency Security
 
@@ -2875,7 +2874,6 @@ catch (e, s) {
 - `konfirmasi-sebelum-simpan` skill
 - `exception-khusus-deteksi-error` skill
 - `penanganan-error-unawaited` skill
-- `logging-debug` skill
 
 ## Referensi Commit Terkait
 
@@ -3125,54 +3123,7 @@ git commit -m "task: tandai tugas selesai"
 ```
 
 
-===== .agents/skills/logging-debug/SKILL.md =====
----
-name: logging-debug
-description: "Trigger: saat menambahkan log debug; saat membersihkan/mengurangi log berlebihan (narasi langkah, banner separator) | Panduan logging proyek (L.i, L.s, L.w, L.e, L.json, L.list, L.api) untuk variabel dan parameter, format singkat dan konsisten; log narasi langkah tanpa nilai aktual dan banner/separator DILARANG; L.e wajib menyertakan stack trace ($e $s); dilarang membuat wrapper log manual per proyek — cukup gunakan L dari share_global_saya. Logging Debug pada Variabel dan Parameter Gunakan sistem logging yang sudah tersedia di proyek (`L.*` dari `share_global_saya`, `lib/src/utils/l.dart`) untuk mencatat nilai variabel dan parameter, alih-alih membuat sistem logging baru. API `L` (share_global_saya) - `L.i(String message)` → `ℹ️ …` (`TipeLog.info`) - `L.s(String message)` → `✅ …` (`TipeLog.sukses`) - `L.w(String message)` → `⚠️ …` (`TipeLog.warning`) - `L.e(String message)` → `❌ …` (`TipeLog.error`) - `L.json(Map<String, dynamic> data)` → `📦 …` (`TipeLog.info`) - `L.list(List<dynamic> items, {String label ="
-metadata:
-  kategori: "custom"
-  versi: "1.2.0"
-  diperbarui: "Thu Nov 19 2026 02:38 WIB"
----
-
-# Logging Debug pada Variabel dan Parameter
-
-Gunakan sistem logging yang sudah tersedia di proyek (`L.*` dari `share_global_saya`, `lib/src/utils/l.dart`) untuk mencatat nilai variabel dan parameter, alih-alih membuat sistem logging baru.
-
-## API `L` (share_global_saya)
-
-- `L.i(String message)` → `ℹ️ …` (`TipeLog.info`)
-- `L.s(String message)` → `✅ …` (`TipeLog.sukses`)
-- `L.w(String message)` → `⚠️ …` (`TipeLog.warning`)
-- `L.e(String message)` → `❌ …` (`TipeLog.error`)
-- `L.json(Map<String, dynamic> data)` → `📦 …` (`TipeLog.info`)
-- `L.list(List<dynamic> items, {String label = '📋'})` → `<label> …` (`TipeLog.info`)
-- `L.api(String path, Map<String, dynamic> data, {required String method})` → `🌐 [<method>][<id-uuid>] <path> Data: <data>` (`TipeLog.api`)
-
-## Infrastruktur Overlay Debug
-
-- `L.init(ProviderContainer container)` WAJIB dipanggil dengan container yang sama dengan root app; tanpa init, log hanya keluar ke console (`debugPrint`, `kDebugMode`) dan TIDAK masuk panel overlay.
-- Routing ke overlay: setiap log ditambahkan sinkron ke buffer `L.buffer`, lalu di-kirim ke `logDebugProvider.notifier.tambah(model)` lewat `Future.delayed(Duration(milliseconds: 50))` dalam `try/catch` (kegagalan dicatat via `debugPrint` di `kDebugMode` saja).
-- `L.hapusBuffer()` mengosongkan `L.buffer` (sinkron dengan `hapusSemua` notifier).
-- `L.buffer` adalah sumber gabungan panel overlay (dedup per `id` dengan `logDebugProvider`) — lihat skill `overlay-log-debug`.
-- `showLocation = true` (default): setiap output console diberi prefix `[<file.dart>:<line>]` hasil parse stack trace (`useTerse = true`; frame `.g.dart`/`.freezed.dart`/riverpod/flutter/dart-sdk dilewati; fallback `_getCallerInfoManual`). `_aktifkanLog = true` bersifat `final` — tidak ada API publik untuk mematikan logging.
-- `L` bukan pengganti `print()` untuk debugging satu-kali sembarangan; helper paralel `p(...)` (`print_custom.dart`, `kDebugMode` saja) khusus dipakai internal `share_global_saya` dan TIDAK routing ke overlay — jangan dipakai di kode proyek sebagai pengganti `L`.
-
-## Aturan
-
-1. Tambahkan log pada setiap variabel dan parameter yang relevan, **setelah** variabel mendapatkan nilainya.
-2. Format log wajib singkat: nama variabel dan nilainya menggunakan interpolasi Dart, mis. `L.i('kopi=$kopi, susu=$susu')`.
-3. Untuk objek model (Freezed, API, database, repository), cukup tampilkan objek langsung: `L.i('model=$model')`; jangan uraikan properti satu per satu.
-4. Gabungkan variabel yang berkaitan dalam satu pemanggilan log apabila berada pada titik eksekusi yang sama.
-5. Jangan mencatat variabel sensitif (password, token, OTP, secret key, kredensial).
-6. Jangan mengubah logika bisnis, nilai variabel, tipe data, kondisi percabangan, atau menambah fitur saat menambahkan log.
-7. Jangan menambahkan log sebelum variabel mendapatkan nilai.
-8. Jangan menambahkan log yang tidak memberikan informasi nilai aktual.
-9. Jangan menggunakan `print()` sebagai pengganti logger yang tersedia.
-10. Pada `catch`, catat error dengan konteks proses yang gagal dan **wajib** sertakan stack trace: `L.e('Gagal ...: $e $s')`. Jangan gunakan `L.e` tanpa `$s`.
-11. Log pada `initState` dan `dispose` diperbolehkan karena hanya dipanggil sekali. Log pada `build()` dihindari apabila memungkinkan karena `build()` dapat dipanggil berulang dan menambah noise; prioritaskan log pada titik yang tidak berfrekuensi tinggi (initState, dispose, method helper, perhitungan). Log pada getter/properti turunan yang dapat dipanggil berulang saat `build()` (mis. `targetRokokHariIni`, label Enum) juga dihindari.
-12. Log debug satu-kali (mis. untuk verifikasi sementara di layar/helper) wajib dihapus saat commit cleanup (`chore(logging): hapus pernyataan log debug ...`); jangan biarkan log debug-sementara ikut ter-commit permanen. Log bermakna jangka panjang (initState, dispose, catch, ringkasan perhitungan) boleh dipertahankan.
-13. Jangan menulis log yang hanya menarasikan langkah eksekusi tanpa nilai aktual (mis. `L.i('Membuat instance ...')`, `L.i('Memanggil ...')`, `L.i('Memeriksa ...')`) atau banner/separator (mis. `L.i('========================================')`, `L.i('LIFECYCLE: ...')`); saat membersihkan log, hapus log semacam itu dan pertahankan hanya log nilai aktual, titik penting (initState, dispose, catch `$e $s`), dan ringkasan bermakna.
+========================================')`, `L.i('LIFECYCLE: ...')`); saat membersihkan log, hapus log semacam itu dan pertahankan hanya log nilai aktual, titik penting (initState, dispose, catch `$e $s`), dan ringkasan bermakna.
 
 ## Larangan
 
@@ -4463,7 +4414,7 @@ Fitur debug log (ikon melayang + panel log) dari `share_global_saya` harus dipas
 4. `PengelolaOverlayLogDebug` adalah `ConsumerStatefulWidget` yang menyisipkan `OverlayEntry` ke `Overlay.maybeOf(context)`. Insert entry dilakukan di `addPostFrameCallback` dengan cek `mounted`, bukan di `build` langsung; `build` hanya membandingkan nilai `overlayLogDebugTampilProvider` dengan `_terakhirTampilIkon`.
 5. `_entryIkon`/`_entryLog` di-remove secara eksplisit di `dispose`; jangan dibiarkan menumpuk saat root app di-rebuild.
 6. Provider `overlayLogDebugTampilProvider` (bool, default `true`) mengendalikan tampil/sembunyi ikon dan panel; gunakan `ref.read(overlayLogDebugTampilProvider.notifier).tampilkan()` / `.sembunyikan()`.
-7. Logging internal `share_global_saya` memakai helper `p(...)` dari `log_debug/print_custom.dart` (hanya `print` saat `kDebugMode`). Proyek lain menulis log dengan gaya proyek (`L.i`, `L.w`, `L.e`, atau helper setara) — lihat skill `logging-debug`. Jangan log data sensitif.
+7. Logging internal `share_global_saya` memakai helper `p(...)` dari `log_debug/print_custom.dart` (hanya `print` saat `kDebugMode`). Proyek lain menulis log dengan gaya proyek (`L.i`, `L.w`, `L.e`, atau helper setara) . Jangan log data sensitif.
 8. Untuk proyek yang belum bergantung pada `share_global_saya`, tambahkan dependensi `share_global_saya` (path atau git sesuai kebijakan proyek) terlebih dahulu; jangan menyalin kode overlay ke proyek (duplikasi).
 9. `logDebugProvider` dan log buffer `L` akan muncul di panel; overlay ini untuk debug, bukan untuk UI pengguna akhir.
 10. Bottom sheet kustom (mis. `_SheetSalinLog`) di-insert sebagai `OverlayEntry` dengan `Overlay.of(context, rootOverlay: true)` SETELAH `_entryLog` di-insert, agar selalu tampil di atas panel (Material milik `OverlayLogDebug`), bukan di bawahnya; area gelap di belakang sheet di-tap untuk menutup. Sebaliknya: overlay ikon/panel memakai `Overlay.maybeOf(context)` (bukan `rootOverlay: true`).

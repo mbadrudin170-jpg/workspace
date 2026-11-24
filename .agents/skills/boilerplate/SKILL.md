@@ -16,7 +16,7 @@ Panduan pembuatan boilerplate (kode berulang yang siap pakai) agar konsisten den
 5. Hierarki method dari atas ke bawah: method helper privat aksi (nama diawali `_`, mengembalikan `void`) di atas `build`; `build` di atas method helper widget (mengembalikan `Widget`); method helper non-widget pengembali nilai (`Color`, `String`, `int`, `bool`) di paling bawah kelas. `build` WAJIB pure (tanpa side-effect, tanpa baca provider langsung).
 6. Boilerplate notifier Riverpod berbasis codegen WAJIB mengembalikan state immutable Freezed di `build()`; reload via `AsyncValue.data(await _ambilSemua())` + `catch (e, s)` + `L.e(...)` + `rethrow`; nama provider = nama class tanpa akhiran `Notifier` (camelCase).
 7. Boilerplate model database WAJIB Freezed (`abstract class` + `const factory`), `id` non-nullable disuplai pemanggil, parsing lewat `ParserUtil`, key DB lewat `XxxSkema`, tulis UTC baca lokal.
-8. Boilerplate DILARANG memuat log narasi tanpa nilai aktual dan banner/separator (lihat `logging-debug` #12).
+8. Boilerplate DILARANG memuat log narasi tanpa nilai aktual dan banner/separator.
 9. Boilerplate DILARANG memakai operator `!` untuk nullable; gunakan type promotion via variabel lokal (lihat `type-promotion-null-safety`).
 10. Boilerplate DILARANG memakai `package:flutter/material.dart`; wajib `package:material_ui/material_ui.dart`.
 
