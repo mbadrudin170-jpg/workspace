@@ -56,9 +56,11 @@ alias build='cd ~/workspace && script/build_apk.sh'
 alias flbundle='flutter build appbundle --release'
 alias flabi='flutter clean && flutter build apk --release --split-per-abi'
 alias build64='flutter clean && flutter build apk --release --split-per-abi --target-platform android-arm64'
-# ============================================
-# PROJECT ALIASES
-# ============================================
+# Expo (React Native)
+alias expo='npx expo start --tunnel'
+alias ex='npx expo start --tunnel'
+alias easb='eas build --platform android'
+alias easba='eas build --platform android'
 alias bukabash='cloudshell edit ~/.bash_aliases'
 alias bukaalias='cloudshell edit ~/warkop/script/bash_aliases.sh'
 alias simpan='source /workspaces/service/.bashaliases'
