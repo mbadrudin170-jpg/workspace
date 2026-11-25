@@ -4,7 +4,7 @@ Diperbarui: 2026-11-24
 
 ## Status
 
-- Status Sinkron: Belum Sinkron
+- Status Sinkron: Sudah Sinkron
 - Tanggal: 2026-11-24
 - Command: interaksi langsung (tanpa command)
 - Topik: Pertanyaan pengguna tentang penambahan `cloudshell download` pada `script/build_apk.sh`.
@@ -27,4 +27,4 @@ Diperbarui: 2026-11-24
 
 ## Sinkronisasi ke MEMORI.md
 
-Belum disinkronkan
+Catch-up sync sesi 269: perubahan tercatat di berkas sesi; tidak ada promosi durable tambahan ke MEMORI.md pada sesi ini.
