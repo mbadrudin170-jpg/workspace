@@ -8,5 +8,9 @@
     "editor.wordBasedSuggestions": "allDocuments",
     "editor.suggestOnTriggerCharacters": true,
     "editor.acceptSuggestionOnEnter": "on"
-  }
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }
 }
